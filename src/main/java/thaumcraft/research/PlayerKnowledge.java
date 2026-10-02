@@ -112,6 +112,8 @@ public final class PlayerKnowledge {
         if (key == null) return false;
         if (isResearchCompleteStrict(key)) return true;
         if (key.equals("PORT_ALCHEMY") && isResearchCompleteStrict("BASEALCHEMY")) return true;
+        if (key.equals("PORT_BRASS") && isResearchCompleteStrict("METALLURGY@1")) return true;
+        if (key.equals("PORT_THAUMIUM") && isResearchCompleteStrict("METALLURGY@2")) return true;
         String legacy = switch (key) {
             case "FIRSTSTEPS@2" -> "PORT_START";
             case "BASEALCHEMY" -> "PORT_ALCHEMY";

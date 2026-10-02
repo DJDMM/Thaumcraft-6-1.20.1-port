@@ -39,6 +39,14 @@ public final class CrucibleRecipes extends SimpleJsonResourceReloadListener {
                 cost.add(aspect, amount);
             }
             ItemStack output = ShapedRecipe.itemStackFromJson(data.getAsJsonObject("result"));
+            // The original recipe output carries Aspects NBT, rather than being a generic crystal.
+            JsonObject result = data.getAsJsonObject("result");
+            if (result.has("aspect")) {
+                Aspect aspect = Aspect.getAspect(GsonHelper.getAsString(result, "aspect"));
+                if (aspect == null || !(output.getItem() instanceof AspectCrystalItem))
+                    throw new JsonParseException("Invalid crystal output: " + entry.getKey());
+                ((IEssentiaContainerItem) output.getItem()).setAspects(output, new AspectList().add(aspect, 1));
+            }
             if (output.isEmpty() || output.getCount() > output.getMaxStackSize()) throw new JsonParseException("Invalid result: " + entry.getKey());
             updated.add(new Entry(entry.getKey(), GsonHelper.getAsString(data, "research"), Ingredient.fromJson(data.get("catalyst")), output, cost));
         });
@@ -46,7 +54,14 @@ public final class CrucibleRecipes extends SimpleJsonResourceReloadListener {
     }
     public static List<Entry> all() { return entries; }
     public static Entry find(ItemStack stack, AspectList available, ServerPlayer player) {
-        for (Entry entry : entries) if (entry.matches(stack, available, player)) return entry;
-        return null;
+        Entry selected = null;
+        int highest = 0;
+        // BETA26 chooses the greatest total aspect cost, keeping the first equal-cost match.
+        // Resource-ID order supplies a deterministic tie order in modern datapack reloads.
+        for (Entry entry : entries) if (entry.matches(stack, available, player) && entry.cost().visSize() > highest) {
+            selected = entry;
+            highest = entry.cost().visSize();
+        }
+        return selected;
     }
 }

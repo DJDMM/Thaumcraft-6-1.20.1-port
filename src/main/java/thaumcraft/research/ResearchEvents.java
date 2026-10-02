@@ -14,7 +14,7 @@ import net.minecraftforge.event.entity.player.EntityItemPickupEvent;
 import net.minecraftforge.event.entity.player.PlayerEvent;
 import net.minecraftforge.event.entity.player.PlayerWakeUpEvent;
 import net.minecraftforge.eventbus.api.EventPriority;
-import thaumcraft.world.WorldModule;
+import thaumcraft.alchemy.AspectCrystalItem;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -98,11 +98,11 @@ public final class ResearchEvents {
 
     private static boolean discoveryItem(ItemStack stack) {
         return stack.is(ResearchModule.THAUMONOMICON.get())
-                || WorldModule.VIS_CRYSTALS.values().stream().anyMatch(item -> stack.is(item.get()));
+                || AspectCrystalItem.isCrystal(stack);
     }
 
     private static void acquired(ServerPlayer player, ItemStack stack) {
-        if (WorldModule.VIS_CRYSTALS.values().stream().anyMatch(item -> stack.is(item.get()))) {
+        if (AspectCrystalItem.isCrystal(stack)) {
             if (KnowledgeStore.recordFact(player, "!gotcrystals")) {
                 message(player, "got.crystals");
             }

@@ -173,7 +173,7 @@ public final class ResearchProgressionGameTests {
     public static void residualLessonDoesNotTurnNewPlayerIntoLegacyProfile(GameTestHelper helper) {
         var player = player(helper); firstSteps(player);
         var state = KnowledgeStore.get(player);
-        // Prepare only the already-covered completed alchemy chain, then exercise the remaining lesson.
+        // Only tallow remains a temporary lesson; metallurgy now uses the original staged entry.
         state.setResearchStage("UNLOCKALCHEMY", 4);
         state.setResearchStage("BASEALCHEMY", 2);
         var aspects = new AspectList();
@@ -181,8 +181,10 @@ public final class ResearchProgressionGameTests {
         for (int i = 0; i < 5; i++) KnowledgeStore.recordScan(player, "test:residual_" + i, aspects);
         state.addKnowledge(KnowledgeType.OBSERVATION, "BASICS", -state.rawKnowledge(KnowledgeType.OBSERVATION, "BASICS"));
         player.setItemInHand(InteractionHand.MAIN_HAND, new ItemStack(ResearchModule.THAUMONOMICON.get()));
-        result(helper, ResearchNetwork.processDiscover(player, "PORT_BRASS"), ResearchProgression.Result.COMPLETE);
-        helper.assertTrue(state.knowsResearch("METALLURGY@1"), "Remaining lesson lost its recipe");
+        result(helper, ResearchNetwork.processDiscover(player, "PORT_TALLOW"), ResearchProgression.Result.COMPLETE);
+        helper.assertTrue(state.knowsResearch("HEDGEALCHEMY@1"), "Remaining lesson lost its recipe");
+        result(helper, ResearchNetwork.processDiscover(player, "PORT_BRASS"), ResearchProgression.Result.UNSUPPORTED);
+        result(helper, ResearchNetwork.processDiscover(player, "PORT_THAUMIUM"), ResearchProgression.Result.UNSUPPORTED);
         result(helper, ResearchNetwork.processDiscover(player, "PORT_ALUMENTUM"), ResearchProgression.Result.UNSUPPORTED);
         result(helper, ResearchNetwork.processDiscover(player, "PORT_START"), ResearchProgression.Result.UNSUPPORTED);
         result(helper, ResearchNetwork.processAdvance(player, "ALUMENTUM", 0), ResearchProgression.Result.STARTED);

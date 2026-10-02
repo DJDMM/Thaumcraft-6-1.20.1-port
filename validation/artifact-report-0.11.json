@@ -1,0 +1,77 @@
+{
+  "version": "0.11.0-dev",
+  "originalVersion": "Thaumcraft 6.1.BETA26",
+  "originalJarSha256": "9425f8643581b27ff8845b087c8bc6fc10425a32942f1a3f0e265ce6b38f7b5f",
+  "requiredGameTests": 208,
+  "previousGameTests": 186,
+  "earlySurvivalGameTests": 22,
+  "newTestsBySuite": {
+    "progression": 4,
+    "aspectCrystals": 9,
+    "earlyArcaneEquipment": 6,
+    "crystalInteroperability": 3
+  },
+  "implementedCanonicalEntries": 12,
+  "aspectCrystalRecipes": 37,
+  "earlyArcaneEquipmentRecipes": 5,
+  "actualIntegratedServerScreenshots": 9,
+  "clientUsesSynchronizedRecipeManager": true,
+  "clientCruciblePreviewsViaS2C": true,
+  "clientPaysNewResearchStagesOnServer": true,
+  "clientArchiveReadOnly": true,
+  "salisPreviewRequiresActualCustomRecipe": true,
+  "salisAcceptsCompoundAspects": true,
+  "jsonFiles": 2677,
+  "jarResourceByteParity": 3373,
+  "originalTextureByteParity": 592,
+  "originalSoundByteParity": 9,
+  "jar": {
+    "name": "thaumcraft-1.20.1-0.11.0-dev.jar",
+    "bytes": 7468350,
+    "sha256": "6b29933fc4547827aea4f5006b7e2faca5ac71f562a03b8f2d826a845abb52a9"
+  },
+  "screenshots": [
+    {
+      "file": "screenshots-0.11/tc6-early-survival-alchemy-graph.png",
+      "sha256": "7fc1487d066f8ab6fc21c52c6ae57737853f93724fdda08c3b48f3d53e45312e"
+    },
+    {
+      "file": "screenshots-0.11/tc6-early-survival-aspect-crystal.png",
+      "sha256": "de0b49d4a19f80e4848885e60d756bbbe829ff0cb066355034977716d0fd3fa7"
+    },
+    {
+      "file": "screenshots-0.11/tc6-early-survival-brass-stage-one.png",
+      "sha256": "fb840b49a3bd5d53892ab8bb9a7c7aeb2a9deaa900177ccaddcec336ceae9fe1"
+    },
+    {
+      "file": "screenshots-0.11/tc6-early-survival-enchanted-fabric.png",
+      "sha256": "506464319952807414436da5f71a4099fe878ff5187a6fd207e04ffb730c88af"
+    },
+    {
+      "file": "screenshots-0.11/tc6-early-survival-goggles.png",
+      "sha256": "5ce81bc9d1a6f88d5b91737807af581b7d7ce69b5355a70b3448fd11ec0be7cc"
+    },
+    {
+      "file": "screenshots-0.11/tc6-early-survival-salis-mundus.png",
+      "sha256": "94427d92d6b0998ae2f5bceeaf36a57bda0a0c78780377ff9a2135a7c3552d78"
+    },
+    {
+      "file": "screenshots-0.11/tc6-early-survival-thaumium-locked-archive.png",
+      "sha256": "474d63ff1b3746a718887af31c92c27e2b1c83b23b6bef896ec5003c9e6d58d4"
+    },
+    {
+      "file": "screenshots-0.11/tc6-early-survival-thaumium-stage-two.png",
+      "sha256": "0ca23276f1a764c82967c7a26899657e3f481c1f0ee69f545cacc90a960ff44b"
+    },
+    {
+      "file": "screenshots-0.11/tc6-early-survival-thaumometer-crystals.png",
+      "sha256": "318f91de5d3c944b3c893cc22f1fec466087243315937eab80b583155f207789"
+    }
+  ],
+  "limitations": [
+    "Starter research, prior craft facts and knowledge balances are seeded in isolated fixtures; this is not a full survival playthrough",
+    "Smelter/alembic and essentia pipes, infusion, caster gauntlets/foci and advanced equipment recipes remain in development",
+    "No full two-client multiplayer acceptance; client screenshots use the English locale, while both translations pass resource validation",
+    "Catalog registration and archive pages do not establish original gameplay mechanics; see PORTING.md"
+  ]
+}

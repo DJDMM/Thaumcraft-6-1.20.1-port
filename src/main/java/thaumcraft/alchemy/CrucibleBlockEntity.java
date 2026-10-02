@@ -24,7 +24,8 @@ import net.minecraftforge.fluids.capability.IFluidHandler;
 import org.jetbrains.annotations.Nullable;
 
 public final class CrucibleBlockEntity extends BlockEntity {
-    private int water, heat, idle;
+    private int water, heat;
+    private int idle = -100;
     private AspectList aspects = new AspectList();
     private final IFluidHandler fluidHandler = new IFluidHandler() {
         public int getTanks() { return 1; }
@@ -73,14 +74,15 @@ public final class CrucibleBlockEntity extends BlockEntity {
     /** Atomic server operation: catalyst and aspects are consumed only after all requirements match. */
     public boolean consume(ItemStack input, ServerPlayer player) {
         if (!(level instanceof ServerLevel server) || input.isEmpty() || water <= 0 || heat <= 150) return false;
-        var recipe = water >= 50 ? CrucibleRecipes.find(input, aspects, player) : null;
+        // BETA26 permits its last craft with any water and FluidTank.drain removes up to 50 mB.
+        var recipe = CrucibleRecipes.find(input, aspects, player);
         if (recipe != null) {
             ItemEntity result = new ItemEntity(server, worldPosition.getX() + 0.5, worldPosition.getY() + 1.15, worldPosition.getZ() + 0.5, recipe.output().copy());
             result.getPersistentData().putBoolean("thaumcraft_crucible_output", true);
             result.setNoGravity(true);
             result.setDeltaMovement(0, 0.015, 0); result.setDefaultPickUpDelay();
             if (!server.addFreshEntity(result)) return false;
-            aspects.remove(recipe.cost()); water -= 50; input.shrink(1); idle = -250;
+            aspects.remove(recipe.cost()); water = Math.max(0, water - 50); input.shrink(1); idle = -250;
             ResearchEvents.recordCraft(player, recipe.output());
         } else {
             AspectList dissolved = AspectRegistry.getAspects(input);
@@ -98,14 +100,10 @@ public final class CrucibleBlockEntity extends BlockEntity {
         if ((oldHeat > 150) != (crucible.heat > 150)) crucible.changed();
         if (oldHeat != crucible.heat) crucible.setChanged();
         crucible.idle++;
-        if (crucible.aspects.visSize() > 500 || crucible.idle >= 100) {
-            Aspect[] choices = crucible.aspects.getAspects();
-            if (choices.length > 0) {
-                Aspect aspect = choices[level.random.nextInt(choices.length)];
-                crucible.aspects.remove(aspect, 1);
-                AuraManager.addFlux(server, pos, aspect == Aspect.FLUX ? 1F : 0.25F);
-                crucible.changed();
-            }
+        // These are two independent BETA26 spills: overflow must not postpone idle decay.
+        if (crucible.aspects.visSize() > 500) crucible.spillRandom(server);
+        if (crucible.idle >= 100) {
+            crucible.spillRandom(server);
             crucible.idle = 0;
         }
         if (crucible.water > 0 && crucible.heat > 150 && level.getGameTime() % 5 == 0) {
@@ -118,6 +116,14 @@ public final class CrucibleBlockEntity extends BlockEntity {
                 }
             }
         }
+    }
+    private void spillRandom(ServerLevel server) {
+        Aspect[] choices = aspects.getAspects();
+        if (choices.length == 0) return;
+        Aspect aspect = choices[server.random.nextInt(choices.length)];
+        aspects.remove(aspect, 1);
+        AuraManager.addFlux(server, worldPosition, aspect == Aspect.FLUX ? 1F : 0.25F);
+        changed();
     }
     @Override protected void saveAdditional(CompoundTag tag) {
         super.saveAdditional(tag); tag.putInt("Water", water); tag.putInt("Heat", heat); tag.putInt("Idle", idle); aspects.writeToNBT(tag);

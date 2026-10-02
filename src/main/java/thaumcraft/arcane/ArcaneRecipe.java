@@ -13,7 +13,7 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.*;
 import net.minecraft.world.level.Level;
 import thaumcraft.research.KnowledgeStore;
-import thaumcraft.world.WorldModule;
+import thaumcraft.alchemy.AspectCrystalItem;
 
 /** Datapack recipe: vanilla shaped fields plus integer vis, crystals and optional research. */
 public final class ArcaneRecipe implements Recipe<Container> {
@@ -26,6 +26,7 @@ public final class ArcaneRecipe implements Recipe<Container> {
         this.shape = shape; this.vis = vis; this.crystals = crystals.clone(); this.research = research;
     }
     public int vis() { return vis; }
+    public String research() { return research; }
     public int crystalCost(int primal) { return crystals[primal]; }
     public boolean unlocked(ServerPlayer player) { return research.isEmpty() || KnowledgeStore.get(player).knowsResearch(research); }
     public boolean hasCrystals(Container inventory) {
@@ -33,7 +34,7 @@ public final class ArcaneRecipe implements Recipe<Container> {
         for (int i = 0; i < 6; i++) {
             if (crystals[i] == 0) continue;
             ItemStack stack = inventory.getItem(9 + i);
-            if (!stack.is(WorldModule.VIS_CRYSTALS.get(ArcaneModule.PRIMALS[i]).get()) || stack.getCount() < crystals[i]) return false;
+            if (!AspectCrystalItem.matchesPrimal(stack, ArcaneModule.PRIMALS[i]) || stack.getCount() < crystals[i]) return false;
         }
         return true;
     }

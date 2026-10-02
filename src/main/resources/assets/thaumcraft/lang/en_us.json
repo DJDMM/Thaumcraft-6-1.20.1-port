@@ -1609,5 +1609,17 @@
   "key.categories.thaumcraft": "Thaumcraft",
   "potion.warpward": "Warp Ward",
   "effect.thaumcraft.warp_ward": "Warp Ward",
-  "item.thaumcraft.purifying_fluid_bucket": "Purifying Fluid Bucket"
+  "item.thaumcraft.purifying_fluid_bucket": "Purifying Fluid Bucket",
+  "thaumcraft.book.recipe_unavailable": "Recipe preview not yet available",
+  "thaumcraft.book.recipe_arcane": "Arcane workbench",
+  "thaumcraft.book.recipe_crucible": "Crucible",
+  "thaumcraft.book.recipe_crafting": "Crafting table",
+  "thaumcraft.book.recipe_vis": "%s vis before discounts",
+  "thaumcraft.book.recipe_no_crystals": "No crystals required",
+  "thaumcraft.book.recipe_reference": "Reference · read only",
+  "thaumcraft.book.recipe_unlocked": "Research unlocked",
+  "thaumcraft.book.recipe_locked": "Research required",
+  "thaumcraft.book.recipe_salis": "Shapeless crafting",
+  "thaumcraft.book.recipe_salis_distinct": "Any three different aspects; compounds also work.",
+  "thaumcraft.book.recipe_salis_return": "Flint and bowl are returned."
 }

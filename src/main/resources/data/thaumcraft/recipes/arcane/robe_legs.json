@@ -1,0 +1,10 @@
+{
+  "type": "thaumcraft:arcane_shaped",
+  "category": "equipment",
+  "research": "UNLOCKINFUSION",
+  "pattern": ["III", "I I", "I I"],
+  "key": {"I": {"item": "thaumcraft:fabric"}},
+  "result": {"item": "thaumcraft:cloth_legs"},
+  "vis": 100,
+  "crystals": {}
+}

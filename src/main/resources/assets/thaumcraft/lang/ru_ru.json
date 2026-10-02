@@ -1605,5 +1605,17 @@
   "key.categories.thaumcraft": "Thaumcraft",
   "potion.warpward": "Защищённый от искажения",
   "effect.thaumcraft.warp_ward": "Защищённый от искажения",
-  "item.thaumcraft.purifying_fluid_bucket": "Ведро очищающей жидкости"
+  "item.thaumcraft.purifying_fluid_bucket": "Ведро очищающей жидкости",
+  "thaumcraft.book.recipe_unavailable": "Просмотр рецепта пока недоступен",
+  "thaumcraft.book.recipe_arcane": "Магический верстак",
+  "thaumcraft.book.recipe_crucible": "Тигель",
+  "thaumcraft.book.recipe_crafting": "Верстак",
+  "thaumcraft.book.recipe_vis": "%s vis до скидок",
+  "thaumcraft.book.recipe_no_crystals": "Кристаллы не требуются",
+  "thaumcraft.book.recipe_reference": "Справка · только чтение",
+  "thaumcraft.book.recipe_unlocked": "Исследование открыто",
+  "thaumcraft.book.recipe_locked": "Требуется исследование",
+  "thaumcraft.book.recipe_salis": "Бесформенный рецепт",
+  "thaumcraft.book.recipe_salis_distinct": "Любые три разных аспекта, включая сложные.",
+  "thaumcraft.book.recipe_salis_return": "Кремень и миска возвращаются."
 }

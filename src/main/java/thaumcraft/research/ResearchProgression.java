@@ -15,8 +15,12 @@ import java.util.*;
 
 /** TC6 initial stages. Display strings are never used to decide a payment. */
 public final class ResearchProgression {
-    private static final Set<String> IMPLEMENTED = Set.of("FIRSTSTEPS", "KNOWLEDGETYPES", "THEORYRESEARCH", "CELESTIALSCANNING", "UNLOCKALCHEMY", "BASEALCHEMY", "ALUMENTUM");
-    private static final Set<String> REMAINING_LESSONS = Set.of("PORT_BRASS", "PORT_TALLOW", "PORT_THAUMIUM");
+    private static final Set<String> IMPLEMENTED = Set.of("FIRSTSTEPS", "KNOWLEDGETYPES", "THEORYRESEARCH", "CELESTIALSCANNING",
+            "UNLOCKALCHEMY", "BASEALCHEMY", "ALUMENTUM", "METALLURGY", "UNLOCKARTIFICE", "BASEARTIFICE",
+            "UNLOCKINFUSION", "BASEINFUSION");
+    private static final Set<String> REMAINING_LESSONS = Set.of("PORT_TALLOW");
+    private static final Set<String> OLD_PROFILE_LESSONS = Set.of("PORT_START", "PORT_SCAN", "PORT_ALCHEMY",
+            "PORT_NITOR", "PORT_ALUMENTUM", "PORT_BRASS", "PORT_THAUMIUM");
     private static final Map<String, List<Requirements>> REQUIREMENTS = load();
 
     private ResearchProgression() {}
@@ -27,14 +31,14 @@ public final class ResearchProgression {
     public static boolean legacyLessonAvailable(PlayerKnowledge knowledge, String key) {
         ResearchEntry entry = ResearchCatalog.get(key);
         return entry != null && entry.supported() && (REMAINING_LESSONS.contains(key)
-                || knowledge.researchKeys().stream().anyMatch(value -> value.startsWith("PORT_") && !REMAINING_LESSONS.contains(value)));
+                || knowledge.researchKeys().stream().anyMatch(OLD_PROFILE_LESSONS::contains));
     }
     public static boolean canStart(PlayerKnowledge knowledge, String key) {
         ResearchEntry entry = ResearchCatalog.get(key);
         return isImplemented(key) && entry != null && stage(knowledge, key) == 0 && parentsMet(knowledge, entry);
     }
     private static boolean parentsMet(PlayerKnowledge knowledge, ResearchEntry entry) {
-        return entry.parents().stream().allMatch(raw -> knowledge.knowsResearch(raw.startsWith("~") ? raw.substring(1) : raw));
+        return entry.parents().stream().allMatch(raw -> knowledge.isResearchCompleteStrict(raw.startsWith("~") ? raw.substring(1) : raw));
     }
     public static boolean canAdvance(PlayerKnowledge knowledge, ResearchEntry entry) {
         if (!isImplemented(entry.key()) || isComplete(knowledge, entry.key()) || !parentsMet(knowledge, entry)) return false;
@@ -112,7 +116,7 @@ public final class ResearchProgression {
 
     private static Map<String, List<Requirements>> load() {
         Map<String, List<Requirements>> result = new HashMap<>();
-        for (String filename : List.of("basics", "alchemy")) {
+        for (String filename : List.of("basics", "alchemy", "artifice", "infusion")) {
             String path = "/data/thaumcraft/legacy_research/" + filename + ".json";
             try (var stream = ResearchProgression.class.getResourceAsStream(path)) {
                 if (stream == null) throw new IllegalStateException("Missing original research " + path);
@@ -158,13 +162,9 @@ public final class ResearchProgression {
 
     private static String craftId(String raw) {
         String[] parts = raw.split(";", 4);
-        if (parts[0].equals("thaumcraft:nitor") && parts.length > 2 && !parts[2].equals("4"))
-            throw new IllegalArgumentException("Nitor variant not implemented");
-        if (parts.length > 3 || parts.length > 2 && !parts[2].equals("0") && !parts[0].equals("thaumcraft:nitor"))
-            throw new IllegalArgumentException("Unmapped craft variant " + raw);
-        ResourceLocation id = ResourceLocation.tryParse(parts[0]);
-        if (id == null) throw new IllegalArgumentException("Invalid craft item " + raw);
-        return id.toString();
+        if (parts.length > 3 || parts.length > 1 && Integer.parseInt(parts[1]) <= 0)
+            throw new IllegalArgumentException("Unsupported craft requirement " + raw);
+        return LegacyResearchItems.resolve(raw).toString();
     }
 
     private static List<String> strings(JsonObject json, String key) {
@@ -178,7 +178,7 @@ public final class ResearchProgression {
     private record Requirements(List<KnowledgeCost> knowledge, List<String> craft, List<String> research, List<Obtain> obtain) {
         boolean empty() { return knowledge.isEmpty() && craft.isEmpty() && research.isEmpty() && obtain.isEmpty(); }
         boolean met(PlayerKnowledge state) {
-            return craft.stream().allMatch(state::hasCraft) && research.stream().allMatch(state::knowsResearch)
+            return craft.stream().allMatch(state::hasCraft) && research.stream().allMatch(state::isResearchCompleteStrict)
                     && knowledge.stream().allMatch(cost -> state.rawKnowledge(cost.type(), cost.category()) >= cost.raw());
         }
     }
@@ -186,9 +186,9 @@ public final class ResearchProgression {
         static Obtain parse(String raw) {
             try {
                 String[] parts = raw.split(";", 4);
-                ResourceLocation id = ResourceLocation.tryParse(parts[0]);
+                ResourceLocation id = LegacyResearchItems.resolve(raw);
                 int count = parts.length > 1 ? Integer.parseInt(parts[1]) : 1;
-                if (id == null || count <= 0 || parts.length > 2 && !parts[2].equals("0")) throw new IllegalArgumentException("Unmapped obtain " + raw);
+                if (count <= 0) throw new IllegalArgumentException("Invalid obtain count " + raw);
                 return new Obtain(id, count, parts.length > 3 ? TagParser.parseTag(parts[3]) : null);
             } catch (Exception failure) { throw new IllegalArgumentException("Invalid obtain " + raw, failure); }
         }

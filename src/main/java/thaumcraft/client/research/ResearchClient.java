@@ -7,6 +7,8 @@ import thaumcraft.research.PlayerKnowledge;
 public final class ResearchClient {
     public static void receive(CompoundTag data, boolean open) {
         Minecraft minecraft = Minecraft.getInstance();
+        BookRecipeViews.receive(data);
+        EarlySurvivalClientSmokeTest.snapshot(data);
         PlayerKnowledge knowledge = PlayerKnowledge.load(data);
         thaumcraft.equipment.client.SanityHud.receive(knowledge);
         int scanCount = data.getInt("ScanCount");

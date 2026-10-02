@@ -57,6 +57,7 @@ public final class CatalogModule {
 
     /** Kept in one place so armor and special render adapters can be added independently. */
     private static Item createItem(Spec spec) {
+        if (spec.id().equals("crystal_essence")) return new thaumcraft.alchemy.AspectCrystalItem(spec);
         if (spec.id().equals("phial_empty") || spec.id().equals("phial_filled")) return new thaumcraft.essentia.item.EssentiaPhialItem(spec);
         if (spec.id().equals("label_blank") || spec.id().equals("label_filled")) return new thaumcraft.essentia.item.EssentiaLabelItem(spec);
         Item mechanic=thaumcraft.equipment.items.ItemMechanics.create(spec);

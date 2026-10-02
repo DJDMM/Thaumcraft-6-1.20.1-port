@@ -9,7 +9,7 @@ import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.*;
 import net.minecraft.world.item.ItemStack;
-import thaumcraft.world.WorldModule;
+import thaumcraft.alchemy.AspectCrystalItem;
 import thaumcraft.world.aura.AuraManager;
 
 /** The result slot is only a preview. Each result click is one server-side transaction. */
@@ -37,7 +37,7 @@ public final class ArcaneWorkbenchMenu extends AbstractContainerMenu {
         for (int i = 0; i < 6; i++) {
             final int primal = i;
             addSlot(new Slot(inventory, 9 + i, 44 + i * 18, 107) {
-                @Override public boolean mayPlace(ItemStack stack) { return stack.is(WorldModule.VIS_CRYSTALS.get(ArcaneModule.PRIMALS[primal]).get()); }
+                @Override public boolean mayPlace(ItemStack stack) { return AspectCrystalItem.matchesPrimal(stack, ArcaneModule.PRIMALS[primal]); }
             });
         }
         for (int y = 0; y < 3; y++) for (int x = 0; x < 9; x++) addSlot(new Slot(player, 9 + x + y * 9, 35 + x * 18, 143 + y * 18));
@@ -137,7 +137,7 @@ public final class ArcaneWorkbenchMenu extends AbstractContainerMenu {
         if (index < PLAYER_START) moved = moveItemStackTo(stack, PLAYER_START, PLAYER_END, true);
         else {
             int crystal = -1;
-            for (int i = 0; i < 6; i++) if (stack.is(WorldModule.VIS_CRYSTALS.get(ArcaneModule.PRIMALS[i]).get())) { crystal = i; break; }
+            for (int i = 0; i < 6; i++) if (AspectCrystalItem.matchesPrimal(stack, ArcaneModule.PRIMALS[i])) { crystal = i; break; }
             moved = crystal >= 0 ? moveItemStackTo(stack, 10 + crystal, 11 + crystal, false) : moveItemStackTo(stack, 1, 10, false);
         }
         if (!moved) return ItemStack.EMPTY;

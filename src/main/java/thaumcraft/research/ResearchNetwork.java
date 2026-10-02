@@ -1,6 +1,7 @@
 package thaumcraft.research;
 
 import net.minecraft.nbt.CompoundTag;
+import net.minecraft.nbt.ListTag;
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerPlayer;
@@ -52,6 +53,19 @@ public final class ResearchNetwork {
         state.putInt("ScanCount", KnowledgeStore.get(player).scanCount());
         state.remove("Scans");
         state.remove("CreditedScans");
+        // Crucible recipes use a server reload listener instead of RecipeManager's vanilla sync.
+        // Send detached, read-only previews; these never replace server-side payment checks.
+        ListTag recipes = new ListTag();
+        for (var entry : thaumcraft.alchemy.CrucibleRecipes.all()) {
+            CompoundTag preview = new CompoundTag();
+            preview.putString("Id", entry.id().toString());
+            preview.putString("Research", entry.research());
+            preview.putString("Catalyst", entry.catalyst().toJson().toString());
+            preview.put("Output", entry.output().save(new CompoundTag()));
+            entry.cost().writeToNBT(preview);
+            recipes.add(preview);
+        }
+        state.put("CrucibleRecipePreviews", recipes);
         if (result != null) state.putString("ProgressResult", result.name());
         CHANNEL.send(PacketDistributor.PLAYER.with(() -> player), new Snapshot(state, open));
     }

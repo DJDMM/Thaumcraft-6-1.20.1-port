@@ -19,6 +19,8 @@
 
 ## Карта документов
 
+- [Исходная металлургия, кристаллы аспектов и раннее снаряжение 0.11](../../EARLY-SURVIVAL.md); [аудит ранних рецептов и совместимости кристаллов BETA26](EARLY-ARCANE-BETA26-AUDIT.md).
+
 - [Оборудование и расходуемые предметы 0.10](../../EQUIPMENT.md); [броня BETA26](EQUIPMENT-ARMOR-BETA26-AUDIT.md), [инструменты BETA26](EQUIPMENT-TOOLS-BETA26-AUDIT.md), [зависимости всех 185 форм предметов](ITEM-MECHANICS-BETA26-INVENTORY.md).
 - [Соли, очищающая жидкость, Warp Ward и мыло рассудка BETA26](CLEANSING-BETA26-AUDIT.md).
 

@@ -142,7 +142,7 @@ public final class ResearchClientSmokeTest {
                 require(browser.categoriesForSmokeTest().equals(List.of("BASICS")), "An unfinished category was visible");
                 browser.searchForSmokeTest("");
                 require(browser.searchResultsForSmokeTest().stream().allMatch(key -> List.of("FIRSTSTEPS", "KNOWLEDGETYPES",
-                        "CELESTIALSCANNING", "UNLOCKALCHEMY", "PORT_BRASS", "PORT_TALLOW", "PORT_THAUMIUM").contains(key)),
+                        "CELESTIALSCANNING", "UNLOCKALCHEMY", "UNLOCKARTIFICE", "UNLOCKINFUSION", "PORT_TALLOW").contains(key)),
                         "Normal search exposed an unimplemented entry or superseded lesson");
                 browser.keyPressed(GLFW.GLFW_KEY_ESCAPE, 0, 0);
             }
@@ -228,7 +228,7 @@ public final class ResearchClientSmokeTest {
                 page(minecraft).onClose();
                 require(browser.categoriesForSmokeTest().equals(List.of("BASICS", "ALCHEMY")), "Alchemy did not open on completion");
                 browser.selectCategoryForSmokeTest("ALCHEMY");
-                require(browser.entriesForSmokeTest().equals(List.of("BASEALCHEMY", "ALUMENTUM")), "Alchemy exposed unimplemented nodes");
+                require(browser.entriesForSmokeTest().equals(List.of("BASEALCHEMY", "ALUMENTUM", "METALLURGY")), "Alchemy exposed unimplemented nodes");
             }
             case 265 -> capture(minecraft, "thaumcraft-research-alchemy.png", ThaumonomiconScreen.class);
             case 280 -> {
@@ -243,22 +243,22 @@ public final class ResearchClientSmokeTest {
                 require(page(minecraft).availableForSmokeTest(), "Sufficient observation did not enable the current stage");
                 page(minecraft).onClose();
                 browser.selectCategoryForSmokeTest("PORT");
-                require(browser.entriesForSmokeTest().equals(List.of("PORT_BRASS", "PORT_TALLOW", "PORT_THAUMIUM")),
+                require(browser.entriesForSmokeTest().equals(List.of("PORT_TALLOW")),
                         "Native progression lost its remaining lessons or exposed superseded lessons");
-                browser.selectForSmokeTest("PORT_BRASS");
-                require(page(minecraft).availableForSmokeTest(), "BASEALCHEMY did not enable the brass lesson");
+                browser.selectForSmokeTest("PORT_TALLOW");
+                require(page(minecraft).availableForSmokeTest(), "BASEALCHEMY did not enable the tallow lesson");
             }
             case 350 -> capture(minecraft, "thaumcraft-research-native-lesson.png", ThaumonomiconPageScreen.class);
             case 365 -> {
                 ThaumonomiconPageScreen page = page(minecraft);
-                page.senderForSmokeTest((key, stage) -> { require(key.equals("PORT_BRASS"), "The wrong lesson was requested"); progressionRequests++; });
+                page.senderForSmokeTest((key, stage) -> { require(key.equals("PORT_TALLOW"), "The wrong lesson was requested"); progressionRequests++; });
                 page.clickActionForSmokeTest();
                 page.clickActionForSmokeTest();
                 require(progressionRequests == 3 && page.pendingForSmokeTest(), "The legacy lesson submitted twice");
-                sync(prepared(4, 4, 2, 1, 23, 7, "PORT_BRASS"), "COMPLETE");
+                sync(prepared(4, 4, 2, 1, 23, 7, "PORT_TALLOW"), "COMPLETE");
                 require(!page.pendingForSmokeTest(), "Lesson acknowledgement did not clear pending");
                 page.onClose();
-                require(browser.entriesForSmokeTest().equals(List.of("PORT_BRASS", "PORT_TALLOW", "PORT_THAUMIUM")),
+                require(browser.entriesForSmokeTest().equals(List.of("PORT_TALLOW")),
                         "A remaining lesson enabled superseded shortcuts for a new player");
                 sync(prepared(4, 4, 2, 1, 23, 7, "PORT_START", "PORT_BRASS"), null);
                 require(browser.entriesForSmokeTest().size() == 8, "Old lesson compatibility was lost");

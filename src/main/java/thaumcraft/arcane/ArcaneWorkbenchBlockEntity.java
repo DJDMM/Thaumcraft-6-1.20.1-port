@@ -15,7 +15,7 @@ import net.minecraft.world.inventory.AbstractContainerMenu;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
-import thaumcraft.world.WorldModule;
+import thaumcraft.alchemy.AspectCrystalItem;
 import thaumcraft.world.aura.AuraManager;
 
 public final class ArcaneWorkbenchBlockEntity extends BlockEntity implements Container, MenuProvider {
@@ -29,7 +29,9 @@ public final class ArcaneWorkbenchBlockEntity extends BlockEntity implements Con
     @Override public ItemStack removeItem(int slot, int amount) { ItemStack result = ContainerHelper.removeItem(items, slot, amount); if (!result.isEmpty()) setChanged(); return result; }
     @Override public ItemStack removeItemNoUpdate(int slot) { return ContainerHelper.takeItem(items, slot); }
     @Override public void setItem(int slot, ItemStack stack) { items.set(slot, stack); if (stack.getCount() > getMaxStackSize()) stack.setCount(getMaxStackSize()); setChanged(); }
-    @Override public boolean canPlaceItem(int slot, ItemStack stack) { return slot < 9 || stack.is(WorldModule.VIS_CRYSTALS.get(ArcaneModule.PRIMALS[slot - 9]).get()); }
+    @Override public boolean canPlaceItem(int slot, ItemStack stack) {
+        return slot >= 0 && slot < 15 && (slot < 9 || AspectCrystalItem.matchesPrimal(stack, ArcaneModule.PRIMALS[slot - 9]));
+    }
     @Override public void clearContent() { items.clear(); setChanged(); }
     @Override public boolean stillValid(Player player) { return !isRemoved() && player.level() == level && Container.stillValidBlockEntity(this, player); }
     @Override protected void saveAdditional(CompoundTag tag) { super.saveAdditional(tag); ContainerHelper.saveAllItems(tag, items); }

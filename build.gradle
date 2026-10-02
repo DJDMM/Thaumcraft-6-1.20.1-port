@@ -3,7 +3,7 @@ plugins {
     id 'idea'
     id 'net.minecraftforge.gradle' version '6.0.54'
 }
-version = '0.10.0-dev'
+version = '0.11.0-dev'
 group = 'thaumcraft.port'
 base { archivesName = 'thaumcraft-1.20.1' }
 java.toolchain.languageVersion = JavaLanguageVersion.of(17)
@@ -19,6 +19,11 @@ minecraft {
             mods { thaumcraft { source sourceSets.main } }
         }
         client {
+            if (project.hasProperty('earlySurvivalSmokeTest')) {
+                workingDirectory project.file('run/early-survival-smoke')
+                property 'thaumcraft.earlySurvivalSmokeTest', 'true'
+                args '--width', '1600', '--height', '1000'
+            }
             if (project.hasProperty('equipmentSmokeTest')) {
                 workingDirectory project.file('run/equipment-smoke')
                 property 'thaumcraft.equipmentSmokeTest', 'true'

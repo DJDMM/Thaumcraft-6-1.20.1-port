@@ -10,6 +10,9 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.FormattedCharSequence;
 import net.minecraft.world.item.Items;
+import net.minecraft.world.item.ItemStack;
+import thaumcraft.arcane.ArcaneModule;
+import thaumcraft.world.WorldModule;
 import org.lwjgl.glfw.GLFW;
 import thaumcraft.api.aspects.Aspect;
 import thaumcraft.research.KnowledgeType;
@@ -41,6 +44,7 @@ public final class ThaumonomiconPageScreen extends Screen {
     private final List<ResearchEntry.Stage> chapters = new ArrayList<>();
     private final List<List<Piece>> pages = new ArrayList<>();
     private final List<Control> controls = new ArrayList<>();
+    private final List<ItemHover> itemHovers = new ArrayList<>();
     private PlayerKnowledge knowledge;
     private int scans, chapter, spread, cursorY, visibleStage = -1;
     private float scale = 1, left, top;
@@ -185,8 +189,17 @@ public final class ThaumonomiconPageScreen extends Screen {
             if (!stage.recipes().isEmpty()) {
                 divider(true);
                 paragraph(archiveMode ? tr("recipes_reference") : progress("recipes"), INK);
-                paragraph(tr("recipes_notice"), FADED);
-                for (String recipe : stage.recipes()) paragraph("• " + recipeName(recipe), INK);
+                java.util.Set<ResourceLocation> shown = new java.util.HashSet<>();
+                for (String recipe : stage.recipes()) {
+                    List<BookRecipeViews.View> views = BookRecipeViews.resolve(recipe);
+                    if (views.isEmpty()) paragraph("• " + recipeName(recipe) + " — " + tr("recipe_unavailable"), FADED);
+                    for (BookRecipeViews.View view : views) if (shown.add(view.id())) {
+                        int height = view.kind().equals("salis") ? 176 : 140;
+                        fit(height);
+                        pages.get(pages.size() - 1).add(new RecipePiece(cursorY, view));
+                        cursorY += height;
+                    }
+                }
             }
         }
         while (pages.size() > 1 && pages.get(pages.size() - 1).isEmpty()) pages.remove(pages.size() - 1);
@@ -287,7 +300,7 @@ public final class ThaumonomiconPageScreen extends Screen {
             case "required_craft" -> tr("craft_requirement", String.join(", ", values.stream().map(value -> {
                 String label = itemName(value);
                 if (archiveMode || legacyLesson()) return label;
-                return progress(knowledge.hasCraft(value.split(";", 2)[0]) ? "craft_recorded" : "craft_missing", label);
+                return progress(knowledge.hasCraft(BookRecipeViews.modernCraftId(value)) ? "craft_recorded" : "craft_missing", label);
             }).toList()));
             case "required_research" -> tr("research_requirement", String.join(", ", values.stream().map(this::researchName).toList()));
             default -> tr("other_requirement");
@@ -325,7 +338,7 @@ public final class ThaumonomiconPageScreen extends Screen {
 
     private String itemName(String descriptor) {
         String[] fields = descriptor.split(";", 4);
-        String id = fields[0];
+        String id = BookRecipeViews.modernCraftId(descriptor);
         int count = 1;
         try { if (fields.length > 1) count = Integer.parseInt(fields[1]); } catch (NumberFormatException ignored) { }
         Matcher aspect = ASPECT.matcher(descriptor);
@@ -338,7 +351,7 @@ public final class ThaumonomiconPageScreen extends Screen {
         } else {
             ResourceLocation location = ResourceLocation.tryParse(id);
             label = location == null ? tr("legacy_item") : localizedItem(location);
-            if (fields.length > 2 && !fields[2].equals("0")) label = tr("item_variant", label, fields[2]);
+            if (id.equals(fields[0]) && fields.length > 2 && !fields[2].equals("0")) label = tr("item_variant", label, fields[2]);
         }
         return count > 1 ? tr("item_count", count, label) : label;
     }
@@ -423,6 +436,7 @@ public final class ThaumonomiconPageScreen extends Screen {
     public void render(GuiGraphics graphics, int mouseX, int mouseY, float partialTick) {
         renderBackground(graphics);
         controls.clear();
+        itemHovers.clear();
         double mx = (mouseX - left) / scale, my = (mouseY - top) / scale;
         graphics.pose().pushPose();
         graphics.pose().translate(left, top, 0);
@@ -455,6 +469,11 @@ public final class ThaumonomiconPageScreen extends Screen {
         } else centered(graphics, tr("page_count", spread + 1, Math.max(1, (pages.size() + 1) / 2)), 285, 295, 200, 0xD5C199);
         if (resultMessage != null) centered(graphics, progress(resultMessage), BOOK_WIDTH / 2, 316, BOOK_WIDTH - 16, 0xE8BA8E);
         graphics.pose().popPose();
+        for (ItemHover hover : itemHovers) if (hover.contains(mx, my)) {
+            graphics.renderTooltip(font, hover.stack(), mouseX, mouseY);
+            super.render(graphics, mouseX, mouseY, partialTick);
+            return;
+        }
         for (Control control : controls) if (control.contains(mx, my)) {
             graphics.renderTooltip(font, Component.literal(control.tooltip), mouseX, mouseY); break;
         }
@@ -468,8 +487,75 @@ public final class ThaumonomiconPageScreen extends Screen {
             else if (piece instanceof ImagePiece img) atlas(graphics, img.texture,
                     x + (img.leftAligned ? 0 : (PAGE_WIDTH - img.width) / 2), img.y, img.width, img.height,
                     img.u, img.v, img.sourceWidth, img.sourceHeight);
+            else if (piece instanceof RecipePiece recipe) drawRecipe(graphics, x, recipe.y, recipe.view);
         }
         centered(graphics, Integer.toString(index + 1), x + PAGE_WIDTH / 2, 263, PAGE_WIDTH, FADED);
+    }
+
+    private void drawRecipe(GuiGraphics graphics, int x, int y, BookRecipeViews.View view) {
+        centered(graphics, view.output().getHoverName().getString(), x + PAGE_WIDTH / 2, y + 2, PAGE_WIDTH, INK);
+        centered(graphics, tr("recipe_" + view.kind()), x + PAGE_WIDTH / 2, y + 14, PAGE_WIDTH, FADED);
+        if (view.kind().equals("crucible")) {
+            ingredientSlot(graphics, BookRecipeViews.displayIngredient(view.ingredients().get(0)), x + 27, y + 49);
+        } else {
+            for (int row = 0; row < 3; row++) for (int column = 0; column < 3; column++) {
+                int index = row * view.width() + column;
+                ItemStack ingredient = column < view.width() && row < view.height() && index < view.ingredients().size()
+                        ? BookRecipeViews.displayIngredient(view.ingredients().get(index)) : ItemStack.EMPTY;
+                ingredientSlot(graphics, ingredient, x + 10 + column * 20, y + 30 + row * 20);
+            }
+        }
+        graphics.drawString(font, "→", x + 84, y + 53, INK, false);
+        ingredientSlot(graphics, view.output(), x + 112, y + 49);
+        if (view.kind().equals("arcane")) {
+            centered(graphics, tr("recipe_vis", view.vis()), x + PAGE_WIDTH / 2, y + 94, PAGE_WIDTH, 0x654575);
+            int count = 0;
+            for (int value : view.crystals()) if (value > 0) count++;
+            int crystalX = x + (PAGE_WIDTH - count * 23) / 2;
+            for (int i = 0; i < 6; i++) if (view.crystals()[i] > 0) {
+                ItemStack crystal = new ItemStack(WorldModule.VIS_CRYSTALS.get(ArcaneModule.PRIMALS[i]).get(), view.crystals()[i]);
+                graphics.renderItem(crystal, crystalX, y + 107);
+                graphics.renderItemDecorations(font, crystal, crystalX, y + 107);
+                itemHovers.add(new ItemHover(crystalX, y + 107, crystal));
+                crystalX += 23;
+            }
+            if (count == 0) centered(graphics, tr("recipe_no_crystals"), x + PAGE_WIDTH / 2, y + 109, PAGE_WIDTH, FADED);
+        } else if (view.kind().equals("crucible")) {
+            Aspect[] aspects = view.aspects().getAspects();
+            int aspectX = x + (PAGE_WIDTH - aspects.length * 31) / 2;
+            for (Aspect aspect : aspects) {
+                graphics.blit(aspect.getImage(), aspectX, y + 97, 0, 0, 16, 16, 16, 16);
+                graphics.drawString(font, Integer.toString(view.aspects().getAmount(aspect)), aspectX + 17, y + 101, INK, false);
+                controls.add(new Control(aspectX, y + 97, 30, 16, () -> {}, aspect.getName()));
+                aspectX += 31;
+            }
+        } else if (view.kind().equals("salis")) {
+            int noteY = recipeNote(graphics, tr("recipe_salis_distinct"), x, y + 94);
+            recipeNote(graphics, tr("recipe_salis_return"), x, noteY + 4);
+        }
+        boolean unlocked = view.unlocked(knowledge);
+        int statusY = y + (view.kind().equals("salis") ? 161 : 127);
+        centered(graphics, tr(unlocked ? "recipe_unlocked" : "recipe_locked"),
+                x + PAGE_WIDTH / 2, statusY, PAGE_WIDTH, unlocked ? 0x3C633D : 0x8F3A35);
+        if (!view.research().isEmpty()) controls.add(new Control(x, statusY - 3, PAGE_WIDTH, 14, () -> {},
+                tr("research_requirement", researchName(view.research()))));
+    }
+
+    private int recipeNote(GuiGraphics graphics, String text, int x, int y) {
+        for (FormattedCharSequence line : font.split(Component.literal(text), PAGE_WIDTH)) {
+            graphics.drawString(font, line, x, y, FADED, false);
+            y += font.lineHeight + 1;
+        }
+        return y;
+    }
+
+    private void ingredientSlot(GuiGraphics graphics, ItemStack stack, int x, int y) {
+        graphics.fill(x - 1, y - 1, x + 17, y + 17, 0x704B3623);
+        graphics.fill(x, y, x + 16, y + 16, 0x30FFF0BB);
+        if (stack.isEmpty()) return;
+        graphics.renderItem(stack, x, y);
+        graphics.renderItemDecorations(font, stack, x, y);
+        itemHovers.add(new ItemHover(x, y, stack));
     }
 
     private void centered(GuiGraphics graphics, String text, int x, int y, int maxWidth, int color) {
@@ -541,6 +627,18 @@ public final class ThaumonomiconPageScreen extends Screen {
     String costForSmokeTest() { return chapters.isEmpty() ? "" : String.join(" ", chapters.get(chapter).requirements().stream().map(this::requirementText).toList()); }
     int spreadForSmokeTest() { return spread; }
     int spreadCountForSmokeTest() { return Math.max(1, (pages.size() + 1) / 2); }
+    List<BookRecipeViews.View> recipesForSmokeTest() {
+        return pages.stream().flatMap(List::stream).filter(piece -> piece instanceof RecipePiece)
+                .map(piece -> ((RecipePiece)piece).view()).toList();
+    }
+    void showRecipeForSmokeTest(String output) {
+        for (int i = 0; i < pages.size(); i++) for (Piece piece : pages.get(i))
+            if (piece instanceof RecipePiece recipe && BuiltInRegistries.ITEM.getKey(recipe.view.output().getItem()).getPath().equals(output)) {
+                spread = i / 2;
+                return;
+            }
+        throw new AssertionError("No rendered recipe for " + output + " in " + entry.key());
+    }
 
     private static String tr(String key, Object... args) { return Component.translatable("thaumcraft.book." + key, args).getString(); }
     private static String progress(String key, Object... args) { return Component.translatable("thaumcraft.progress." + key, args).getString(); }
@@ -555,6 +653,10 @@ public final class ThaumonomiconPageScreen extends Screen {
     private record TextPiece(int y, FormattedCharSequence text, int color) implements Piece { }
     private record ImagePiece(int y, ResourceLocation texture, int u, int v, int sourceWidth, int sourceHeight,
                               int width, int height, boolean leftAligned) implements Piece { }
+    private record RecipePiece(int y, BookRecipeViews.View view) implements Piece { }
+    private record ItemHover(int x, int y, ItemStack stack) {
+        boolean contains(double mx, double my) { return mx >= x && mx < x + 16 && my >= y && my < y + 16; }
+    }
     private record Control(int x, int y, int width, int height, Runnable action, String tooltip) {
         boolean contains(double mx, double my) { return mx >= x && mx < x + width && my >= y && my < y + height; }
     }

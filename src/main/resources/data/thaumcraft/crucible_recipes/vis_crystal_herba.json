@@ -1,0 +1,15 @@
+{
+  "research": "BASEALCHEMY",
+  "group": "thaumcraft:viscrystalgroup",
+  "catalyst": {
+    "tag": "forge:nuggets/quartz"
+  },
+  "result": {
+    "item": "thaumcraft:crystal_essence",
+    "count": 1,
+    "aspect": "herba"
+  },
+  "aspects": {
+    "herba": 2
+  }
+}

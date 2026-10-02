@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "#"
+  ],
+  "key": {
+    "#": {
+      "item": "minecraft:quartz"
+    }
+  },
+  "result": {
+    "item": "thaumcraft:nugget_quartz",
+    "count": 9
+  }
+}
