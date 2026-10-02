@@ -15,6 +15,10 @@ final class TheoryButton extends Button {
     }
 
     @Override protected void renderWidget(GuiGraphics graphics, int mouseX, int mouseY, float partialTick) {
+        // Offered papers are layered at depth 10..12. Keep the controls above
+        // that cosmetic layer; otherwise visible/clickable choices have no label.
+        graphics.pose().pushPose();
+        graphics.pose().translate(0, 0, 30);
         graphics.setColor(active ? 1 : 0.68F, active ? 1 : 0.68F, active ? 1 : 0.68F, 1);
         graphics.blit(BASE, getX(), getY(), getWidth(), getHeight(), 37F, 66F, 51, 13, 256, 256);
         graphics.setColor(1, 1, 1, 1);
@@ -25,6 +29,7 @@ final class TheoryButton extends Button {
         graphics.pose().translate(getX() + getWidth() / 2F, getY() + (getHeight() - font.lineHeight * scale) / 2F, 1);
         graphics.pose().scale(scale, scale, 1);
         graphics.drawString(font, getMessage(), -font.width(getMessage()) / 2, 0, active ? 0xF2E5C5 : 0xACA898, false);
+        graphics.pose().popPose();
         graphics.pose().popPose();
     }
 }

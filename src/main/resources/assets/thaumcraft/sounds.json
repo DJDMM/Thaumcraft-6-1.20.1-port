@@ -50,5 +50,29 @@
         "stream": false
       }
     ]
+  },
+  "page": {
+    "sounds": [
+      "thaumcraft:page1",
+      "thaumcraft:page2"
+    ]
+  },
+  "pageturn": {
+    "sounds": [
+      "thaumcraft:pageturn"
+    ]
+  },
+  "write": {
+    "sounds": [
+      "thaumcraft:write1",
+      "thaumcraft:write2"
+    ]
+  },
+  "clack": {
+    "sounds": [
+      "thaumcraft:clack1",
+      "thaumcraft:clack2",
+      "thaumcraft:clack3"
+    ]
   }
 }

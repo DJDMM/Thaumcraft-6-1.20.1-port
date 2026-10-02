@@ -21,7 +21,7 @@ import java.util.function.Supplier;
 public final class TheoryNetwork {
     public enum Action { START, DRAW, DRAW_BONUS, SELECT, FINISH, SCRAP }
     private static final SimpleChannel CHANNEL = NetworkRegistry.newSimpleChannel(
-            ResourceLocation.fromNamespaceAndPath("thaumcraft", "theory"), () -> "1", "1"::equals, "1"::equals);
+            ResourceLocation.fromNamespaceAndPath("thaumcraft", "theory"), () -> "2", "2"::equals, "2"::equals);
     public static void register() {
         CHANNEL.registerMessage(0, Snapshot.class, Snapshot::encode, Snapshot::decode, Snapshot::handle, Optional.of(NetworkDirection.PLAY_TO_CLIENT));
         CHANNEL.registerMessage(1, Request.class, Request::encode, Request::decode, Request::handle, Optional.of(NetworkDirection.PLAY_TO_SERVER));

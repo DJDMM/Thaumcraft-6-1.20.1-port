@@ -31,7 +31,7 @@ public final class TheoryAidIntegrationGameTests {
         helper.assertTrue(table.checkSurroundingAids().equals(Set.of(TheoryAids.BOOKSHELF, TheoryAids.ENCHANTMENT_TABLE)), "Aid search included Y=2 or missed its boundary");
         level.setBlock(pos.offset(4, 0, -4), Blocks.BEACON.defaultBlockState(), 3);
         level.setBlock(pos.offset(3, 0, -4), Blocks.BOOKSHELF.defaultBlockState(), 3);
-        Set<String> all = TheoryAids.keys();
+        Set<String> all = Set.of(TheoryAids.BOOKSHELF, TheoryAids.ENCHANTMENT_TABLE, TheoryAids.BEACON);
         helper.assertTrue(table.checkSurroundingAids().equals(all), "Inactive beacon or duplicate bookshelf changed aid detection");
         ServerPlayer player = new ServerPlayer(level.getServer(), level, new GameProfile(UUID.randomUUID(), "aid_menu"));
         player.setPos(pos.getX() + .5, pos.getY(), pos.getZ() + .5);

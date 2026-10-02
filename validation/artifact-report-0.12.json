@@ -1,0 +1,228 @@
+{
+  "version": "0.12.0-dev",
+  "originalVersion": "Thaumcraft 6.1.BETA26",
+  "originalJarSha256": "9425f8643581b27ff8845b087c8bc6fc10425a32942f1a3f0e265ce6b38f7b5f",
+  "requiredGameTests": 225,
+  "previousGameTests": 208,
+  "theoryCompletionGameTests": 17,
+  "newTestsBySuite": {
+    "theoryCards": 10,
+    "theoryAidsAndScribingTools": 5,
+    "completeTableIntegration": 2
+  },
+  "registeredTheoryCards": 33,
+  "registeredTheoryAidDefinitions": 14,
+  "originalDiscoverableTheoryAids": 13,
+  "originalDormantEldritchAidPreserved": true,
+  "truthAndDragonEggNotActivated": true,
+  "emptyPhialScribingRecipe": true,
+  "actualIntegratedServerScreenshots": 22,
+  "visuallyReviewedScreenshots": 22,
+  "clientSceneManifest": [
+    "idle-aids",
+    "idle-aids-scale4",
+    "dealing",
+    "offers-hover",
+    "xp-missing",
+    "xp-paid",
+    "notes-missing",
+    "notes-paid",
+    "no-ink",
+    "no-paper",
+    "owner-locked",
+    "stale",
+    "complete",
+    "synthesis-wrong",
+    "synthesis-paid",
+    "infuse-wrong",
+    "infuse-paid",
+    "dark-whispers-offer",
+    "dark-whispers-paid",
+    "scripting-offer",
+    "scripting-paid",
+    "block-active"
+  ],
+  "clientUsesActualServerPackets": true,
+  "clientActions": [
+    "START",
+    "DRAW",
+    "SELECT",
+    "SCRAP",
+    "FINISH"
+  ],
+  "clientTableRendererRegisteredAndSynchronized": true,
+  "clientPaymentPrecedesVisualResolution": true,
+  "clientPaidFramesAwaitGuiHudInventoryAndXpSynchronization": true,
+  "jsonFiles": 2678,
+  "jarResourceByteParity": 3384,
+  "originalTextureByteParity": 593,
+  "previousOriginalTextureByteParity": 592,
+  "originalResearchTableTextureByteParity": true,
+  "originalResearchTableTextureSha256": "9cb849fa40792c254b10f69a183896a7047050659694d024772dac4073f0b3d0",
+  "originalSoundByteParity": 17,
+  "jar": {
+    "name": "thaumcraft-1.20.1-0.12.0-dev.jar",
+    "bytes": 7618696,
+    "sha256": "232c6d36b1052b8d12bfca233670deb71b0164fb13ceab3762d250ca927c8df9"
+  },
+  "logs": {
+    "server": "theory-complete-server-0.12-final.log",
+    "build": "build-0.12-paid-frame-final.log",
+    "client": "theory-complete-client-0.12-final.log",
+    "resources": "resources-0.12-final.log",
+    "clientPreparation": "theory-client-prepare-0.12.log",
+    "clientDesktopStatus": "theory-client-desktop-0.12.json",
+    "visualReview": "theory-visual-review-0.12.json"
+  },
+  "clientLaunch": {
+    "mode": "direct final Minecraft JVM on a distinct non-input Win32 desktop",
+    "exitCode": 0,
+    "inputDesktopBefore": "Default",
+    "inputDesktopAfter": "Default",
+    "maxOwnedWindowsOnTargetDesktop": 16,
+    "fpsLimit": 30,
+    "muted": true
+  },
+  "screenshots": [
+    {
+      "file": "screenshots-0.12/tc6-theory-complete-block-active.png",
+      "sha256": "e8a223f7bfe43069762a226b89793877fd2eef80fce7a2adbf100f15da137760",
+      "width": 1600,
+      "height": 1000
+    },
+    {
+      "file": "screenshots-0.12/tc6-theory-complete-complete.png",
+      "sha256": "4df4ed0cbddcf9560aba05cf7836c0150a231877e4e092fc3502b7d86c5e2f3e",
+      "width": 1600,
+      "height": 1000
+    },
+    {
+      "file": "screenshots-0.12/tc6-theory-complete-dark-whispers-offer.png",
+      "sha256": "d7e89a6c48a66037741717aa44cec84170720ccea3102fa6e4bf67070c45779a",
+      "width": 1600,
+      "height": 1000
+    },
+    {
+      "file": "screenshots-0.12/tc6-theory-complete-dark-whispers-paid.png",
+      "sha256": "19ccd5b612087ed79442d6b06c012d2406af1df32902fc9cb3fb39d738af42d0",
+      "width": 1600,
+      "height": 1000
+    },
+    {
+      "file": "screenshots-0.12/tc6-theory-complete-dealing.png",
+      "sha256": "5e57625e64912e6082742a62e45635578a253908e9d1670f9a2302240343829a",
+      "width": 1600,
+      "height": 1000
+    },
+    {
+      "file": "screenshots-0.12/tc6-theory-complete-idle-aids-scale4.png",
+      "sha256": "8b927a979fa5f2f5915ea3af9e030f9d1857fda0f62b5c744952f7680c9df24b",
+      "width": 1600,
+      "height": 1000
+    },
+    {
+      "file": "screenshots-0.12/tc6-theory-complete-idle-aids.png",
+      "sha256": "3fcfa58426abd2f2b6ddbeb86d7faf3dc047b172e3e0f0fb268352a6d908e014",
+      "width": 1600,
+      "height": 1000
+    },
+    {
+      "file": "screenshots-0.12/tc6-theory-complete-infuse-paid.png",
+      "sha256": "160097be0a92a134a6bcdb2c5a901ed06bc77ee9367b5d8fb30e888e927cce36",
+      "width": 1600,
+      "height": 1000
+    },
+    {
+      "file": "screenshots-0.12/tc6-theory-complete-infuse-wrong.png",
+      "sha256": "78f09176db0d419ccc5711fbe073a939a11172a688fc8489d5f448308675ea19",
+      "width": 1600,
+      "height": 1000
+    },
+    {
+      "file": "screenshots-0.12/tc6-theory-complete-no-ink.png",
+      "sha256": "dddda6c75bc5d94cbb5145a900e1869ba4b38af7e8b0d69f8368dd81cf029320",
+      "width": 1600,
+      "height": 1000
+    },
+    {
+      "file": "screenshots-0.12/tc6-theory-complete-no-paper.png",
+      "sha256": "874bb0edf1fe4f7c9c1a7a513dba474759fd93c89a096dc2d8d9e1c8aeaa036b",
+      "width": 1600,
+      "height": 1000
+    },
+    {
+      "file": "screenshots-0.12/tc6-theory-complete-notes-missing.png",
+      "sha256": "05bdd756c96e6dd7c3662fa3006c8a44054a303c1f62c0d3d9f227de5f52e271",
+      "width": 1600,
+      "height": 1000
+    },
+    {
+      "file": "screenshots-0.12/tc6-theory-complete-notes-paid.png",
+      "sha256": "cb7e6f250224a4903576745ba0aae6de75b9f40130efd3ed0ca2d35339d49312",
+      "width": 1600,
+      "height": 1000
+    },
+    {
+      "file": "screenshots-0.12/tc6-theory-complete-offers-hover.png",
+      "sha256": "16288f2c48d953128ed7fb5a41ebc3ff9e1da87a6bf736aa69b4fb043bc4eeb3",
+      "width": 1600,
+      "height": 1000
+    },
+    {
+      "file": "screenshots-0.12/tc6-theory-complete-owner-locked.png",
+      "sha256": "83b9391201c475be9a0c8a855d72fe20057d84ee56b32da75b1b20ebf7350f57",
+      "width": 1600,
+      "height": 1000
+    },
+    {
+      "file": "screenshots-0.12/tc6-theory-complete-scripting-offer.png",
+      "sha256": "238c5d6fd4f97ca744d304f5afca598dc8d7a426977799afc223fabc97bef12f",
+      "width": 1600,
+      "height": 1000
+    },
+    {
+      "file": "screenshots-0.12/tc6-theory-complete-scripting-paid.png",
+      "sha256": "016f7f058307f298148331d970d7f4e9e8ac9afbda5d2361f44b80b9a47a075c",
+      "width": 1600,
+      "height": 1000
+    },
+    {
+      "file": "screenshots-0.12/tc6-theory-complete-stale.png",
+      "sha256": "4f185f40f509f455beea2dd0f57a2cef993557017e88d95510bdb889cdb8fbe7",
+      "width": 1600,
+      "height": 1000
+    },
+    {
+      "file": "screenshots-0.12/tc6-theory-complete-synthesis-paid.png",
+      "sha256": "cbc0d45efa42d942d5b4444d91f485a998ea2284bbbf6cb92e3b8c540488b115",
+      "width": 1600,
+      "height": 1000
+    },
+    {
+      "file": "screenshots-0.12/tc6-theory-complete-synthesis-wrong.png",
+      "sha256": "70d8fff3adcd61bc66b6398899d418090f1ea123dd62b055fbc140935432e9ee",
+      "width": 1600,
+      "height": 1000
+    },
+    {
+      "file": "screenshots-0.12/tc6-theory-complete-xp-missing.png",
+      "sha256": "6bd03028b817710f1e01fe89fa2c1b704f51f4b514c30814f41de39c0e4674d3",
+      "width": 1600,
+      "height": 1000
+    },
+    {
+      "file": "screenshots-0.12/tc6-theory-complete-xp-paid.png",
+      "sha256": "6ecc2fbcad3c57e953b41fa42298515b3045da9ce757095637906af5a4728788",
+      "width": 1600,
+      "height": 1000
+    }
+  ],
+  "limitations": [
+    "Late research, resources and exact card offers are seeded explicitly in an isolated integrated fixture; no full survival playthrough is claimed",
+    "Owner denial is a controlled fixture, not acceptance with two simultaneously connected gameplay clients",
+    "All registered aid definitions are preserved, but BETA26 itself leaves the Eldritch block uninitialized; only 13 are discoverable",
+    "Aid detection of catalogue devices/entities does not establish their full operational mechanics or AI",
+    "Smelter/alembic, pipes, infusion, caster/foci, advanced recipes and full WarpEvents remain in development; see PORTING.md",
+    "TC4 aspect-grid research is intentionally outside this TC6 port"
+  ]
+}

@@ -22,6 +22,9 @@ public final class TheoryClient {
     public static void receive(int menuId, CompoundTag state) {
         Minecraft minecraft = Minecraft.getInstance();
         if (minecraft.player != null && minecraft.player.containerMenu instanceof ResearchTableMenu menu
-                && menu.containerId == menuId) menu.setState(state);
+                && menu.containerId == menuId) {
+            menu.setState(state);
+            TheoryCompleteClientSmokeTest.snapshot(menuId, state);
+        }
     }
 }

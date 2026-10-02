@@ -117,10 +117,10 @@ public final class TheorySession {
     /** Returns false without changing the session if no eligible offer exists. */
     public boolean draw(ServerPlayer player, boolean bonus) {
         if (player == null || !owner.equals(player.getUUID()) || complete() || !choices.isEmpty()) return false;
-        return draw(KnowledgeStore.get(player), bonus);
+        return draw(player, KnowledgeStore.get(player), bonus);
     }
 
-    private boolean draw(PlayerKnowledge knowledge, boolean bonus) {
+    private boolean draw(ServerPlayer player, PlayerKnowledge knowledge, boolean bonus) {
         int count = bonus && bonusDraws > 0 ? 3 : 2;
         RandomSource random = RandomSource.create(randomSeed);
         List<TheoryCard> drawn = new ArrayList<>();
@@ -133,7 +133,8 @@ public final class TheorySession {
             List<String> pool = fromAid ? remainingAids : TheoryCard.ids();
             int index = random.nextInt(pool.size());
             String id = pool.get(index);
-            TheoryCard card = TheoryCard.initialize(id, random.nextLong(), fromAid, this, knowledge);
+            TheoryCard card = TheoryCard.initialize(id, random.nextLong(), fromAid, this, knowledge,
+                    player.getInventory(), player.experienceLevel);
             if (card == null || card.cost() > inspiration || drawnIds.contains(id)) continue;
             if (fromAid) {
                 if (blocked.contains(card.category())) continue;
@@ -171,7 +172,7 @@ public final class TheorySession {
             case "reject" -> !blocked.contains(card.targetCategory()) && totals.containsKey(card.targetCategory());
             case "notation" -> totals.getOrDefault(card.sourceCategory(), 0) > 0 && totals.containsKey(card.targetCategory());
             case "inspired", "celestial" -> totals.containsKey(card.category());
-            default -> true;
+            default -> TheoryCardEffects.canSelect(card, this, knowledge, inventory, levels);
         };
     }
 
@@ -191,6 +192,10 @@ public final class TheorySession {
         int nextPenalty = penaltyStart;
         String debitCategory = null;
         int temporaryWarp = 0;
+        int normalWarp = 0;
+        int levelsSpent = card.requiredLevels();
+        int inspirationRefund = 0;
+        List<ItemStack> outputs = List.of();
         // Modern adaptation: session-owned RNG makes both effects and later draws survive
         // reload, and failed selection does not consume the player's random stream.
         RandomSource random = RandomSource.create(randomSeed);
@@ -280,7 +285,19 @@ public final class TheorySession {
                     nextBonus = Math.incrementExact(nextBonus);
                     nextPenalty = Math.incrementExact(nextPenalty);
                 }
-                default -> { return false; }
+                default -> {
+                    TheoryCardEffects.Plan plan = TheoryCardEffects.plan(card, this, knowledge, player, random);
+                    if (plan == null) return false;
+                    nextTotals.clear(); nextTotals.putAll(plan.totals());
+                    nextBlocked.clear(); nextBlocked.addAll(plan.blocked());
+                    nextBonus = plan.bonusDraws();
+                    nextPenalty = plan.penaltyStart();
+                    temporaryWarp = plan.temporaryWarp();
+                    normalWarp = plan.normalWarp();
+                    levelsSpent = plan.levelsSpent();
+                    inspirationRefund = plan.inspirationRefund();
+                    outputs = plan.outputs();
+                }
             }
         } catch (ArithmeticException invalid) {
             return false;
@@ -298,19 +315,24 @@ public final class TheorySession {
             inventoryChanged = true;
         }
         if (inventoryChanged) player.getInventory().setChanged();
-        if (card.requiredLevels() > 0) player.giveExperienceLevels(-card.requiredLevels());
+        if (levelsSpent > 0) player.giveExperienceLevels(-levelsSpent);
         totals.clear();
         totals.putAll(nextTotals);
         blocked.clear();
         blocked.addAll(nextBlocked);
         bonusDraws = nextBonus;
         penaltyStart = nextPenalty;
-        inspiration = Math.min(inspirationStart, inspiration - card.cost());
+        // Card refunds happen before the container charges its cost in BETA26.
+        inspiration = Math.min(inspirationStart, Math.min(inspirationStart, inspiration + inspirationRefund) - card.cost());
         placedCards++;
         lastCard = card;
         choices.clear();
         randomSeed = random.nextLong();
         if (temporaryWarp > 0) KnowledgeStore.addTemporaryWarp(player, temporaryWarp);
+        if (normalWarp > 0) KnowledgeStore.addNormalWarp(player, normalWarp);
+        for (ItemStack output : outputs) {
+            if (!player.getInventory().add(output) && !output.isEmpty()) player.drop(output, true);
+        }
         return true;
     }
 

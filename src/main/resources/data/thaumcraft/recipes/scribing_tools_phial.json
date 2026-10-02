@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "group": "thaumcraft:scribing_tools",
+  "ingredients": [
+    {"item": "thaumcraft:phial_empty"},
+    {"item": "minecraft:feather"},
+    {"tag": "thaumcraft:ink"}
+  ],
+  "result": {"item": "thaumcraft:scribing_tools"}
+}

@@ -7,6 +7,7 @@ import net.minecraft.nbt.ListTag;
 import net.minecraft.nbt.StringTag;
 import net.minecraft.nbt.Tag;
 import net.minecraft.network.chat.Component;
+import net.minecraft.network.protocol.game.ClientboundBlockEntityDataPacket;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.Container;
@@ -48,6 +49,12 @@ public final class ResearchTableBlockEntity extends BlockEntity implements Conta
         return revision == Long.MAX_VALUE ? TheoryResult.OVERFLOW : TheoryResult.ACCEPTED;
     }
     private TheoryResult commit() { revision++; setChanged(); return TheoryResult.ACCEPTED; }
+    @Override public void setChanged() {
+        super.setChanged();
+        if (level != null && !level.isClientSide) level.sendBlockUpdated(worldPosition, getBlockState(), getBlockState(), 3);
+    }
+    @Override public CompoundTag getUpdateTag() { return saveWithoutMetadata(); }
+    @Override public ClientboundBlockEntityDataPacket getUpdatePacket() { return ClientboundBlockEntityDataPacket.create(this); }
     public boolean hasInk() {
         ItemStack tools = items.get(INK);
         return tools.is(TheoryModule.SCRIBING_TOOLS.get()) && tools.getDamageValue() < tools.getMaxDamage();
@@ -57,7 +64,9 @@ public final class ResearchTableBlockEntity extends BlockEntity implements Conta
     public TheoryResult start(ServerPlayer player, long expectedRevision, Set<String> aids) {
         TheoryResult result = guard(player, expectedRevision);
         if (result != TheoryResult.ACCEPTED) return result;
-        if (session != null || aids == null || aids.size() > TheoryAids.keys().size() || !checkSurroundingAids().containsAll(aids)) return TheoryResult.INVALID;
+        if (session != null || aids == null || aids.size() > TheoryAids.keys().size()
+                || aids.size() >= TheorySession.availableInspiration(KnowledgeStore.get(player))
+                || !checkSurroundingAids().containsAll(aids)) return TheoryResult.INVALID;
         // TC6 enables its Create button only when paper and usable tools are present.
         if (!hasPaper() || !hasInk()) return TheoryResult.MISSING_RESOURCES;
         session = TheorySession.create(player.getUUID(), KnowledgeStore.get(player), aids, player.getRandom());
@@ -79,10 +88,15 @@ public final class ResearchTableBlockEntity extends BlockEntity implements Conta
         if (session == null) return TheoryResult.NO_SESSION;
         // Check before activation: Analyze can spend observation knowledge.
         if (!hasInk()) return TheoryResult.MISSING_RESOURCES;
+        if (index < 0 || index >= session.choices().size()) return TheoryResult.INVALID;
+        TheoryCard card = session.choices().get(index);
         if (!session.select(player, index)) return TheoryResult.INVALID;
         ItemStack tools = items.get(INK);
         // Exhausted tools remain in the slot and can be refilled; never hurtAndBreak.
-        tools.setDamageValue(tools.getDamageValue() + 1);
+        tools.setDamageValue(Math.min(tools.getMaxDamage(), tools.getDamageValue() + 1 + card.tableInkExtra()));
+        // Scripting's BETA26 activation ignores a failed extra-paper callback.
+        // An exhausted ink set remains in the slot; its second callback cannot exceed 100 damage.
+        if (card.tablePaperExtra() > 0 && hasPaper()) items.get(PAPER).shrink(card.tablePaperExtra());
         return commit();
     }
     public TheoryResult finish(ServerPlayer player, long expectedRevision) {
@@ -115,16 +129,7 @@ public final class ResearchTableBlockEntity extends BlockEntity implements Conta
 
     /** Original aid search: offsets -4..4 horizontally and -1..1 vertically; no chunk loads. */
     public Set<String> checkSurroundingAids() {
-        if (level == null) return Set.of();
-        Set<String> found = new java.util.LinkedHashSet<>();
-        for (BlockPos pos : BlockPos.betweenClosed(worldPosition.offset(-4, -1, -4), worldPosition.offset(4, 1, 4))) {
-            if (!level.hasChunkAt(pos)) continue;
-            BlockState state = level.getBlockState(pos);
-            if (state.is(Blocks.BOOKSHELF)) found.add(TheoryAids.BOOKSHELF);
-            if (state.is(Blocks.ENCHANTING_TABLE)) found.add(TheoryAids.ENCHANTMENT_TABLE);
-            if (state.is(Blocks.BEACON)) found.add(TheoryAids.BEACON);
-        }
-        return Set.copyOf(found);
+        return level == null ? Set.of() : TheoryAids.find(level, worldPosition);
     }
     public CompoundTag clientSnapshot(ServerPlayer player, TheoryResult result) {
         CompoundTag state = new CompoundTag();

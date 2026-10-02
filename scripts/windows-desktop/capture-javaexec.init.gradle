@@ -1,0 +1,149 @@
+import groovy.json.JsonOutput
+import org.gradle.api.Action
+import org.gradle.api.GradleException
+import org.gradle.api.Task
+import org.gradle.api.tasks.JavaExec
+
+// Gradle 8.8 / ForgeGradle 6.0.54. This replaces the run action before execution.
+// ForgeGradle performs configuration INSIDE MinecraftRunTask.exec(), so capture
+// its preparation using the installed plugin's own token/argument helpers.
+def invokeStatic = { Class owner, String methodName, List values ->
+    def matches = owner.declaredMethods.findAll {
+        it.name == methodName && it.parameterCount == values.size()
+    }
+    if (matches.size() != 1) {
+        throw new GradleException("Unexpected ForgeGradle helper signature: ${methodName}")
+    }
+    def method = matches[0]
+    method.accessible = true
+    method.invoke(null, values.toArray(new Object[0]))
+}
+
+gradle.taskGraph.whenReady { graph ->
+    String requestedTask = gradle.startParameter.projectProperties.get('isolatedCaptureTask') ?: 'runClient'
+    def candidates = graph.allTasks.findAll { it.name == requestedTask }
+    if (candidates.size() != 1 || !(candidates[0] instanceof JavaExec)) {
+        throw new GradleException("Exactly one JavaExec ${requestedTask} must be selected for isolated capture.")
+    }
+    JavaExec target = candidates[0]
+    if (graph.allTasks.any { it instanceof JavaExec && it != target && it.name.startsWith('run') }) {
+        throw new GradleException('Do not select another game run task during isolated launch preparation.')
+    }
+    if (requestedTask == 'runClient' && !target.project.hasProperty('theoryCompleteSmokeTest')) {
+        throw new GradleException('Client capture requires -PtheoryCompleteSmokeTest.')
+    }
+    String outputName = gradle.startParameter.projectProperties.get('isolatedCaptureOutput')
+    if (!outputName || !new File(outputName).absolute) {
+        throw new GradleException('Supply an absolute -PisolatedCaptureOutput=<JSON path>.')
+    }
+    File output = new File(outputName)
+    if (!output.parentFile.isDirectory()) {
+        throw new GradleException('The capture output directory must already exist.')
+    }
+    if (output.exists()) {
+        throw new GradleException('Use a fresh capture output path to preserve previous QA evidence.')
+    }
+
+    // Remove every existing action, including the inherited/subclass @TaskAction.
+    // Preserve dependency tasks (assets, natives, remapping, compile/resources).
+    target.setActions([ { Task ignored ->
+        def runConfig = target.getRunConfig().get()
+        Class generator = runConfig.class.classLoader.loadClass(
+            'net.minecraftforge.gradle.common.util.runs.RunConfigGenerator')
+        Class runTaskType = target.class
+        while (runTaskType != null && runTaskType.name !=
+                'net.minecraftforge.gradle.common.util.runs.MinecraftRunTask') {
+            runTaskType = runTaskType.superclass
+        }
+        if (runTaskType == null) {
+            throw new GradleException('Expected the pinned ForgeGradle MinecraftRunTask implementation.')
+        }
+        File workDir = invokeStatic(runTaskType, 'prepareWorkingDirectory', [runConfig])
+        def modClasses = invokeStatic(generator, 'mapModClassesToGradle', [target.project, runConfig])
+        def tokens = invokeStatic(generator, 'configureTokensLazy', [target.project,
+            runConfig, modClasses, target.getMinecraftArtifacts(), target.getRuntimeClasspathArtifacts()])
+
+        // Same preparation order as ForgeGradle MinecraftRunTask.exec().
+        target.setWorkingDir(workDir)
+        def gameArgStream = invokeStatic(generator, 'getArgsStream', [runConfig, tokens, false])
+        target.args(gameArgStream.toArray())
+        runConfig.getJvmArgs().each { target.jvmArgs(runConfig.replace(tokens, it)) }
+        if (runConfig.isClient()) {
+            target.getAdditionalClientArgs().get().each { target.jvmArgs(runConfig.replace(tokens, it)) }
+        }
+        runConfig.getEnvironment().each { key, value ->
+            target.environment(key, runConfig.replace(tokens, value))
+        }
+        runConfig.getProperties().each { key, value ->
+            target.systemProperty(key, runConfig.replace(tokens, value))
+        }
+        runConfig.getAllSources().each { target.classpath(it.getRuntimeClasspath()) }
+
+        // Gradle 8.8 stages jvmArguments until JavaExec.exec() copies them into
+        // javaExecSpec. Perform only that normalization; never call exec().
+        def specField = JavaExec.getDeclaredField('javaExecSpec')
+        specField.accessible = true
+        def spec = specField.get(target)
+        def pendingJvmArgs = target.getJvmArguments().getOrNull()
+        if (pendingJvmArgs != null) spec.setExtraJvmArgs(pendingJvmArgs)
+        List<String> allJvmArgs = spec.getAllJvmArgs().collect { it.toString() }
+        if (!allJvmArgs.any { it.startsWith('-Dfile.encoding=') }) {
+            spec.systemProperty('file.encoding', 'UTF-8')
+            allJvmArgs = spec.getAllJvmArgs().collect { it.toString() }
+        }
+        if (target.getMainModule().isPresent()) {
+            throw new GradleException('Module launching is outside this classic Minecraft capture helper.')
+        }
+        String mainClass = target.getMainClass().getOrNull()
+        if (!mainClass) throw new GradleException('The configured Minecraft main class is missing.')
+        String executable = target.getJavaLauncher().get().getExecutablePath().asFile.absolutePath
+        def customExecutable = target.getExecutable()
+        if (customExecutable && new File(customExecutable).canonicalFile != new File(executable).canonicalFile) {
+            throw new GradleException('JavaExec executable disagrees with its selected Java toolchain.')
+        }
+        List<String> programArgs = (target.getArgs() ?: []).collect { it.toString() }
+        target.getArgumentProviders().each { provider ->
+            provider.asArguments().each { programArgs.add(it.toString()) }
+        }
+        String classpath = target.getClasspath().getAsPath()
+        List<String> arguments = new ArrayList<>(allJvmArgs)
+        if (classpath) arguments.addAll(['-cp', classpath])
+        arguments.add(mainClass)
+        arguments.addAll(programArgs)
+
+        if (requestedTask == 'runClient') {
+            File expectedWorkingDir = target.project.file('run/theory-complete-smoke').canonicalFile
+            if (target.getWorkingDir().canonicalFile != expectedWorkingDir ||
+                    !allJvmArgs.contains('-Dthaumcraft.theoryCompleteSmokeTest=true')) {
+                throw new GradleException('The captured client is not the isolated theory-complete smoke fixture.')
+            }
+        }
+        Map<String, String> environment = new TreeMap<>(String.CASE_INSENSITIVE_ORDER)
+        target.getEnvironment().each { key, value ->
+            if (value == null) throw new GradleException("Null environment value: ${key}")
+            environment.put(key.toString(), value.toString())
+        }
+        Map<String, String> inheritedEnvironment = new TreeMap<>(String.CASE_INSENSITIVE_ORDER)
+        inheritedEnvironment.putAll(System.getenv())
+        Map<String, String> environmentOverrides = new TreeMap<>(String.CASE_INSENSITIVE_ORDER)
+        environment.each { key, value ->
+            if (!inheritedEnvironment.containsKey(key) || inheritedEnvironment.get(key) != value) {
+                environmentOverrides.put(key, value)
+            }
+        }
+        List<String> removedEnvironmentNames = inheritedEnvironment.keySet().findAll {
+            !environment.containsKey(it)
+        }.toList()
+        def capture = [schemaVersion: 1, preparedWithoutLaunching: true,
+            gradleVersion: gradle.gradleVersion, taskPath: target.path,
+            executable: executable, workingDirectory: target.getWorkingDir().absolutePath,
+            allJvmArgs: allJvmArgs, classpath: classpath, mainClass: mainClass,
+            programArgs: programArgs, arguments: arguments,
+            environmentOverrides: environmentOverrides, removedEnvironmentNames: removedEnvironmentNames]
+        output.setText(JsonOutput.prettyPrint(JsonOutput.toJson(capture)) + '\n', 'UTF-8')
+        target.logger.lifecycle("Captured final JVM for {} in {}; no Minecraft process was launched.",
+            target.path, output.absolutePath)
+        target.logger.lifecycle("ISOLATED_JVM_CAPTURE_OK task={} arguments={} envOverrides={} output={}",
+            target.path, arguments.size(), environmentOverrides.size(), output.absolutePath)
+    } as Action<Task> ])
+}

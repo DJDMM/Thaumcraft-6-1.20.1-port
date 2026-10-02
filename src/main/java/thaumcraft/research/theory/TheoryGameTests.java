@@ -219,7 +219,10 @@ public final class TheoryGameTests {
     public static void realBookshelfTheoryCompletesThroughLowInspirationAfterReload(GameTestHelper helper) {
         BlockPos pos = helper.absolutePos(new BlockPos(1, 1, 1));
         ServerPlayer player = player(helper, pos);
-        player.getRandom().setSeed(8L);
+        // The full 33-card pool changes rejected draws and therefore later session RNG.
+        // Seed 8 now spends 1, 1, 2 (4 -> 3 -> 2 -> 0), missing this fixture's one-point phase.
+        // Seed 0 offers Study, then Inspired, then Study: a genuine 4 -> 3 -> 1 -> 0 lifecycle.
+        player.getRandom().setSeed(0L);
         ResearchTableBlockEntity table = table(helper, pos, 0, 16);
         BlockPos bookshelf = pos.east();
         BlockState oldShelfState = helper.getLevel().getBlockState(bookshelf);
@@ -256,7 +259,9 @@ public final class TheoryGameTests {
                 selections++;
             }
             helper.assertTrue(table.session().complete() && reachedOneInspiration && selections < 16,
-                    "Actual start/draw/select lifecycle did not complete after its one-inspiration phase");
+                    "Actual start/draw/select lifecycle did not complete after its one-inspiration phase"
+                            + " (inspiration=" + table.session().inspiration() + ", selections=" + selections
+                            + ", reachedOne=" + reachedOneInspiration + ")");
             Map<String, Integer> expectedRewards = table.session().rewards();
             result(helper, table.finish(player, table.revision()), TheoryResult.ACCEPTED);
             helper.assertTrue(table.session() == null && table.getItem(1).getCount() == 16 - selections
