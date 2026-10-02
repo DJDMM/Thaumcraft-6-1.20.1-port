@@ -1,0 +1,3557 @@
+{
+  "baseline": "6.1.BETA26",
+  "count": 148,
+  "stage_count": 271,
+  "categories": {
+    "ALCHEMY": 22,
+    "ARTIFICE": 20,
+    "AUROMANCY": 23,
+    "BASICS": 32,
+    "ELDRITCH": 5,
+    "GOLEMANCY": 29,
+    "INFUSION": 17
+  },
+  "entries": [
+    {
+      "key": "BASEALCHEMY",
+      "category": "ALCHEMY",
+      "location": [
+        0,
+        0
+      ],
+      "icons": [
+        "thaumcraft:textures/research/cat_alchemy.png"
+      ],
+      "parents": [
+        "UNLOCKALCHEMY"
+      ],
+      "siblings": [],
+      "meta": [
+        "ROUND",
+        "HIDDEN"
+      ],
+      "stages": 1,
+      "addenda": 0,
+      "stage_requirement_kinds": [],
+      "source": "https://github.com/TheDarkTower314/Thaumcraft-6-Source-Code/blob/954022bb777b7546281fb36df8522f0ba6b43f81/src/main/resources/assets/thaumcraft/research/alchemy.json"
+    },
+    {
+      "key": "ALUMENTUM",
+      "category": "ALCHEMY",
+      "location": [
+        2,
+        -1
+      ],
+      "icons": [
+        "thaumcraft:textures/items/alumentum.png"
+      ],
+      "parents": [
+        "BASEALCHEMY"
+      ],
+      "siblings": [],
+      "meta": [],
+      "stages": 2,
+      "addenda": 0,
+      "stage_requirement_kinds": [
+        "required_knowledge"
+      ],
+      "source": "https://github.com/TheDarkTower314/Thaumcraft-6-Source-Code/blob/954022bb777b7546281fb36df8522f0ba6b43f81/src/main/resources/assets/thaumcraft/research/alchemy.json"
+    },
+    {
+      "key": "METALLURGY",
+      "category": "ALCHEMY",
+      "location": [
+        2,
+        2
+      ],
+      "icons": [
+        "thaumcraft:textures/items/ingot_brass.png"
+      ],
+      "parents": [
+        "BASEALCHEMY"
+      ],
+      "siblings": [],
+      "meta": [],
+      "stages": 3,
+      "addenda": 0,
+      "stage_requirement_kinds": [
+        "required_craft",
+        "required_knowledge"
+      ],
+      "source": "https://github.com/TheDarkTower314/Thaumcraft-6-Source-Code/blob/954022bb777b7546281fb36df8522f0ba6b43f81/src/main/resources/assets/thaumcraft/research/alchemy.json"
+    },
+    {
+      "key": "METALPURIFICATION",
+      "category": "ALCHEMY",
+      "location": [
+        2,
+        4
+      ],
+      "icons": [
+        "thaumcraft:textures/items/cluster_iron.png"
+      ],
+      "parents": [
+        "METALLURGY@3"
+      ],
+      "siblings": [],
+      "meta": [],
+      "stages": 1,
+      "addenda": 0,
+      "stage_requirement_kinds": [
+        "required_knowledge"
+      ],
+      "source": "https://github.com/TheDarkTower314/Thaumcraft-6-Source-Code/blob/954022bb777b7546281fb36df8522f0ba6b43f81/src/main/resources/assets/thaumcraft/research/alchemy.json"
+    },
+    {
+      "key": "HEDGEALCHEMY",
+      "category": "ALCHEMY",
+      "location": [
+        -2,
+        0
+      ],
+      "icons": [
+        "thaumcraft:textures/items/tallow.png"
+      ],
+      "parents": [
+        "BASEALCHEMY"
+      ],
+      "siblings": [],
+      "meta": [],
+      "stages": 4,
+      "addenda": 0,
+      "stage_requirement_kinds": [
+        "required_craft",
+        "required_knowledge"
+      ],
+      "source": "https://github.com/TheDarkTower314/Thaumcraft-6-Source-Code/blob/954022bb777b7546281fb36df8522f0ba6b43f81/src/main/resources/assets/thaumcraft/research/alchemy.json"
+    },
+    {
+      "key": "LIQUIDDEATH",
+      "category": "ALCHEMY",
+      "location": [
+        -4,
+        2
+      ],
+      "icons": [
+        "thaumcraft:textures/items/bucket_death.png"
+      ],
+      "parents": [
+        "HEDGEALCHEMY"
+      ],
+      "siblings": [],
+      "meta": [],
+      "stages": 2,
+      "addenda": 0,
+      "stage_requirement_kinds": [
+        "required_knowledge"
+      ],
+      "source": "https://github.com/TheDarkTower314/Thaumcraft-6-Source-Code/blob/954022bb777b7546281fb36df8522f0ba6b43f81/src/main/resources/assets/thaumcraft/research/alchemy.json"
+    },
+    {
+      "key": "BOTTLETAINT",
+      "category": "ALCHEMY",
+      "location": [
+        -6,
+        0
+      ],
+      "icons": [
+        "thaumcraft:bottle_taint"
+      ],
+      "parents": [
+        "HEDGEALCHEMY",
+        "f_toomuchflux"
+      ],
+      "siblings": [],
+      "meta": [],
+      "stages": 1,
+      "addenda": 0,
+      "stage_requirement_kinds": [
+        "required_knowledge"
+      ],
+      "source": "https://github.com/TheDarkTower314/Thaumcraft-6-Source-Code/blob/954022bb777b7546281fb36df8522f0ba6b43f81/src/main/resources/assets/thaumcraft/research/alchemy.json"
+    },
+    {
+      "key": "BATHSALTS",
+      "category": "ALCHEMY",
+      "location": [
+        -4,
+        -2
+      ],
+      "icons": [
+        "thaumcraft:bath_salts"
+      ],
+      "parents": [
+        "HEDGEALCHEMY",
+        "!BATHSALTS"
+      ],
+      "siblings": [],
+      "meta": [
+        "HIDDEN"
+      ],
+      "stages": 2,
+      "addenda": 0,
+      "stage_requirement_kinds": [
+        "required_knowledge"
+      ],
+      "source": "https://github.com/TheDarkTower314/Thaumcraft-6-Source-Code/blob/954022bb777b7546281fb36df8522f0ba6b43f81/src/main/resources/assets/thaumcraft/research/alchemy.json"
+    },
+    {
+      "key": "SANESOAP",
+      "category": "ALCHEMY",
+      "location": [
+        -3,
+        -4
+      ],
+      "icons": [
+        "thaumcraft:sanity_soap"
+      ],
+      "parents": [
+        "BATHSALTS"
+      ],
+      "siblings": [],
+      "meta": [],
+      "stages": 2,
+      "addenda": 0,
+      "stage_requirement_kinds": [
+        "required_knowledge"
+      ],
+      "source": "https://github.com/TheDarkTower314/Thaumcraft-6-Source-Code/blob/954022bb777b7546281fb36df8522f0ba6b43f81/src/main/resources/assets/thaumcraft/research/alchemy.json"
+    },
+    {
+      "key": "ARCANESPA",
+      "category": "ALCHEMY",
+      "location": [
+        -5,
+        -4
+      ],
+      "icons": [
+        "thaumcraft:spa"
+      ],
+      "parents": [
+        "BATHSALTS"
+      ],
+      "siblings": [],
+      "meta": [],
+      "stages": 2,
+      "addenda": 0,
+      "stage_requirement_kinds": [
+        "required_knowledge"
+      ],
+      "source": "https://github.com/TheDarkTower314/Thaumcraft-6-Source-Code/blob/954022bb777b7546281fb36df8522f0ba6b43f81/src/main/resources/assets/thaumcraft/research/alchemy.json"
+    },
+    {
+      "key": "ESSENTIASMELTER",
+      "category": "ALCHEMY",
+      "location": [
+        4,
+        0
+      ],
+      "icons": [
+        "thaumcraft:smelter_basic"
+      ],
+      "parents": [
+        "ALUMENTUM",
+        "METALLURGY@2"
+      ],
+      "siblings": [
+        "WARDEDJARS"
+      ],
+      "meta": [
+        "SPIKY"
+      ],
+      "stages": 4,
+      "addenda": 1,
+      "stage_requirement_kinds": [
+        "required_craft",
+        "required_item",
+        "required_knowledge"
+      ],
+      "source": "https://github.com/TheDarkTower314/Thaumcraft-6-Source-Code/blob/954022bb777b7546281fb36df8522f0ba6b43f81/src/main/resources/assets/thaumcraft/research/alchemy.json"
+    },
+    {
+      "key": "WARDEDJARS",
+      "category": "ALCHEMY",
+      "location": [
+        4,
+        -2
+      ],
+      "icons": [
+        "thaumcraft:jar_normal"
+      ],
+      "parents": [
+        "ESSENTIASMELTER"
+      ],
+      "siblings": [],
+      "meta": [
+        "ROUND"
+      ],
+      "stages": 1,
+      "addenda": 0,
+      "stage_requirement_kinds": [],
+      "source": "https://github.com/TheDarkTower314/Thaumcraft-6-Source-Code/blob/954022bb777b7546281fb36df8522f0ba6b43f81/src/main/resources/assets/thaumcraft/research/alchemy.json"
+    },
+    {
+      "key": "TUBES",
+      "category": "ALCHEMY",
+      "location": [
+        6,
+        -2
+      ],
+      "icons": [
+        "thaumcraft:tube"
+      ],
+      "parents": [
+        "WARDEDJARS"
+      ],
+      "siblings": [],
+      "meta": [],
+      "stages": 2,
+      "addenda": 0,
+      "stage_requirement_kinds": [
+        "required_item",
+        "required_knowledge"
+      ],
+      "source": "https://github.com/TheDarkTower314/Thaumcraft-6-Source-Code/blob/954022bb777b7546281fb36df8522f0ba6b43f81/src/main/resources/assets/thaumcraft/research/alchemy.json"
+    },
+    {
+      "key": "ESSENTIASMELTERTHAUMIUM",
+      "category": "ALCHEMY",
+      "location": [
+        8,
+        0
+      ],
+      "icons": [
+        "thaumcraft:smelter_thaumium"
+      ],
+      "parents": [
+        "TUBES",
+        "METALLURGY@3"
+      ],
+      "siblings": [],
+      "meta": [],
+      "stages": 2,
+      "addenda": 0,
+      "stage_requirement_kinds": [
+        "required_craft",
+        "required_item",
+        "required_knowledge"
+      ],
+      "source": "https://github.com/TheDarkTower314/Thaumcraft-6-Source-Code/blob/954022bb777b7546281fb36df8522f0ba6b43f81/src/main/resources/assets/thaumcraft/research/alchemy.json"
+    },
+    {
+      "key": "ESSENTIASMELTERVOID",
+      "category": "ALCHEMY",
+      "location": [
+        12,
+        0
+      ],
+      "icons": [
+        "thaumcraft:smelter_void"
+      ],
+      "parents": [
+        "ESSENTIASMELTERTHAUMIUM",
+        "BASEELDRITCH"
+      ],
+      "siblings": [],
+      "meta": [],
+      "stages": 2,
+      "addenda": 0,
+      "stage_requirement_kinds": [
+        "required_craft",
+        "required_item",
+        "required_knowledge"
+      ],
+      "source": "https://github.com/TheDarkTower314/Thaumcraft-6-Source-Code/blob/954022bb777b7546281fb36df8522f0ba6b43f81/src/main/resources/assets/thaumcraft/research/alchemy.json"
+    },
+    {
+      "key": "IMPROVEDSMELTING",
+      "category": "ALCHEMY",
+      "location": [
+        5,
+        -4
+      ],
+      "icons": [
+        "thaumcraft:smelter_aux"
+      ],
+      "parents": [
+        "TUBES",
+        "BELLOWS"
+      ],
+      "siblings": [],
+      "meta": [],
+      "stages": 2,
+      "addenda": 0,
+      "stage_requirement_kinds": [
+        "required_knowledge"
+      ],
+      "source": "https://github.com/TheDarkTower314/Thaumcraft-6-Source-Code/blob/954022bb777b7546281fb36df8522f0ba6b43f81/src/main/resources/assets/thaumcraft/research/alchemy.json"
+    },
+    {
+      "key": "IMPROVEDSMELTING2",
+      "category": "ALCHEMY",
+      "location": [
+        3,
+        -4
+      ],
+      "icons": [
+        "thaumcraft:smelter_vent"
+      ],
+      "parents": [
+        "IMPROVEDSMELTING"
+      ],
+      "siblings": [],
+      "meta": [],
+      "stages": 2,
+      "addenda": 0,
+      "stage_requirement_kinds": [
+        "required_knowledge"
+      ],
+      "source": "https://github.com/TheDarkTower314/Thaumcraft-6-Source-Code/blob/954022bb777b7546281fb36df8522f0ba6b43f81/src/main/resources/assets/thaumcraft/research/alchemy.json"
+    },
+    {
+      "key": "CENTRIFUGE",
+      "category": "ALCHEMY",
+      "location": [
+        7,
+        -4
+      ],
+      "icons": [
+        "thaumcraft:centrifuge"
+      ],
+      "parents": [
+        "TUBES"
+      ],
+      "siblings": [],
+      "meta": [],
+      "stages": 2,
+      "addenda": 0,
+      "stage_requirement_kinds": [
+        "required_knowledge"
+      ],
+      "source": "https://github.com/TheDarkTower314/Thaumcraft-6-Source-Code/blob/954022bb777b7546281fb36df8522f0ba6b43f81/src/main/resources/assets/thaumcraft/research/alchemy.json"
+    },
+    {
+      "key": "THAUMATORIUM",
+      "category": "ALCHEMY",
+      "location": [
+        10,
+        -2
+      ],
+      "icons": [
+        "thaumcraft:thaumatorium"
+      ],
+      "parents": [
+        "CENTRIFUGE",
+        "ESSENTIASMELTERTHAUMIUM"
+      ],
+      "siblings": [],
+      "meta": [
+        "SPIKY"
+      ],
+      "stages": 2,
+      "addenda": 0,
+      "stage_requirement_kinds": [
+        "required_knowledge"
+      ],
+      "source": "https://github.com/TheDarkTower314/Thaumcraft-6-Source-Code/blob/954022bb777b7546281fb36df8522f0ba6b43f81/src/main/resources/assets/thaumcraft/research/alchemy.json"
+    },
+    {
+      "key": "ESSENTIATRANSPORT",
+      "category": "ALCHEMY",
+      "location": [
+        12,
+        -2
+      ],
+      "icons": [
+        "thaumcraft:essentia_input"
+      ],
+      "parents": [
+        "THAUMATORIUM",
+        "INFUSION"
+      ],
+      "siblings": [],
+      "meta": [],
+      "stages": 2,
+      "addenda": 0,
+      "stage_requirement_kinds": [
+        "required_knowledge"
+      ],
+      "source": "https://github.com/TheDarkTower314/Thaumcraft-6-Source-Code/blob/954022bb777b7546281fb36df8522f0ba6b43f81/src/main/resources/assets/thaumcraft/research/alchemy.json"
+    },
+    {
+      "key": "EVERFULLURN",
+      "category": "ALCHEMY",
+      "location": [
+        -2,
+        2
+      ],
+      "icons": [
+        "thaumcraft:everfull_urn"
+      ],
+      "parents": [
+        "HEDGEALCHEMY"
+      ],
+      "siblings": [],
+      "meta": [],
+      "stages": 2,
+      "addenda": 0,
+      "stage_requirement_kinds": [
+        "required_knowledge"
+      ],
+      "source": "https://github.com/TheDarkTower314/Thaumcraft-6-Source-Code/blob/954022bb777b7546281fb36df8522f0ba6b43f81/src/main/resources/assets/thaumcraft/research/alchemy.json"
+    },
+    {
+      "key": "POTIONSPRAYER",
+      "category": "ALCHEMY",
+      "location": [
+        -1,
+        -2
+      ],
+      "icons": [
+        "thaumcraft:potion_sprayer"
+      ],
+      "parents": [
+        "HEDGEALCHEMY",
+        "~TUBES"
+      ],
+      "siblings": [],
+      "meta": [
+        "REVERSE"
+      ],
+      "stages": 2,
+      "addenda": 0,
+      "stage_requirement_kinds": [
+        "required_knowledge"
+      ],
+      "source": "https://github.com/TheDarkTower314/Thaumcraft-6-Source-Code/blob/954022bb777b7546281fb36df8522f0ba6b43f81/src/main/resources/assets/thaumcraft/research/alchemy.json"
+    },
+    {
+      "key": "BASEARTIFICE",
+      "category": "ARTIFICE",
+      "location": [
+        0,
+        0
+      ],
+      "icons": [
+        "thaumcraft:textures/research/cat_artifice.png"
+      ],
+      "parents": [
+        "UNLOCKARTIFICE"
+      ],
+      "siblings": [],
+      "meta": [
+        "ROUND",
+        "HIDDEN"
+      ],
+      "stages": 1,
+      "addenda": 0,
+      "stage_requirement_kinds": [],
+      "source": "https://github.com/TheDarkTower314/Thaumcraft-6-Source-Code/blob/954022bb777b7546281fb36df8522f0ba6b43f81/src/main/resources/assets/thaumcraft/research/artifice.json"
+    },
+    {
+      "key": "HUNGRYCHEST",
+      "category": "ARTIFICE",
+      "location": [
+        3,
+        1
+      ],
+      "icons": [
+        "thaumcraft:hungry_chest"
+      ],
+      "parents": [
+        "BASEARTIFICE"
+      ],
+      "siblings": [],
+      "meta": [],
+      "stages": 2,
+      "addenda": 0,
+      "stage_requirement_kinds": [
+        "required_item",
+        "required_knowledge"
+      ],
+      "source": "https://github.com/TheDarkTower314/Thaumcraft-6-Source-Code/blob/954022bb777b7546281fb36df8522f0ba6b43f81/src/main/resources/assets/thaumcraft/research/artifice.json"
+    },
+    {
+      "key": "LEVITATOR",
+      "category": "ARTIFICE",
+      "location": [
+        5,
+        3
+      ],
+      "icons": [
+        "thaumcraft:levitator"
+      ],
+      "parents": [
+        "HUNGRYCHEST",
+        "METALLURGY@3"
+      ],
+      "siblings": [],
+      "meta": [],
+      "stages": 2,
+      "addenda": 0,
+      "stage_requirement_kinds": [
+        "required_knowledge",
+        "required_research"
+      ],
+      "source": "https://github.com/TheDarkTower314/Thaumcraft-6-Source-Code/blob/954022bb777b7546281fb36df8522f0ba6b43f81/src/main/resources/assets/thaumcraft/research/artifice.json"
+    },
+    {
+      "key": "INFERNALFURNACE",
+      "category": "ARTIFICE",
+      "location": [
+        3,
+        -1
+      ],
+      "icons": [
+        "thaumcraft:infernal_furnace"
+      ],
+      "parents": [
+        "BASEARTIFICE"
+      ],
+      "siblings": [],
+      "meta": [],
+      "stages": 2,
+      "addenda": 1,
+      "stage_requirement_kinds": [
+        "required_item",
+        "required_knowledge",
+        "required_research"
+      ],
+      "source": "https://github.com/TheDarkTower314/Thaumcraft-6-Source-Code/blob/954022bb777b7546281fb36df8522f0ba6b43f81/src/main/resources/assets/thaumcraft/research/artifice.json"
+    },
+    {
+      "key": "BELLOWS",
+      "category": "ARTIFICE",
+      "location": [
+        5,
+        -3
+      ],
+      "icons": [
+        "thaumcraft:bellows"
+      ],
+      "parents": [
+        "INFERNALFURNACE"
+      ],
+      "siblings": [],
+      "meta": [],
+      "stages": 2,
+      "addenda": 0,
+      "stage_requirement_kinds": [
+        "required_item",
+        "required_knowledge"
+      ],
+      "source": "https://github.com/TheDarkTower314/Thaumcraft-6-Source-Code/blob/954022bb777b7546281fb36df8522f0ba6b43f81/src/main/resources/assets/thaumcraft/research/artifice.json"
+    },
+    {
+      "key": "REDSTONERELAY",
+      "category": "ARTIFICE",
+      "location": [
+        0,
+        -2
+      ],
+      "icons": [
+        "thaumcraft:redstone_relay"
+      ],
+      "parents": [
+        "BASEARTIFICE"
+      ],
+      "siblings": [],
+      "meta": [],
+      "stages": 2,
+      "addenda": 0,
+      "stage_requirement_kinds": [
+        "required_item",
+        "required_knowledge",
+        "required_research"
+      ],
+      "source": "https://github.com/TheDarkTower314/Thaumcraft-6-Source-Code/blob/954022bb777b7546281fb36df8522f0ba6b43f81/src/main/resources/assets/thaumcraft/research/artifice.json"
+    },
+    {
+      "key": "ARCANEEAR",
+      "category": "ARTIFICE",
+      "location": [
+        0,
+        -4
+      ],
+      "icons": [
+        "thaumcraft:arcane_ear"
+      ],
+      "parents": [
+        "REDSTONERELAY"
+      ],
+      "siblings": [],
+      "meta": [],
+      "stages": 2,
+      "addenda": 0,
+      "stage_requirement_kinds": [
+        "required_item",
+        "required_knowledgeauram",
+        "required_research"
+      ],
+      "source": "https://github.com/TheDarkTower314/Thaumcraft-6-Source-Code/blob/954022bb777b7546281fb36df8522f0ba6b43f81/src/main/resources/assets/thaumcraft/research/artifice.json"
+    },
+    {
+      "key": "DIOPTRA",
+      "category": "ARTIFICE",
+      "location": [
+        -2,
+        3
+      ],
+      "icons": [
+        "thaumcraft:dioptra"
+      ],
+      "parents": [
+        "BASEARTIFICE"
+      ],
+      "siblings": [],
+      "meta": [
+        "REVERSE"
+      ],
+      "stages": 2,
+      "addenda": 0,
+      "stage_requirement_kinds": [
+        "required_knowledge",
+        "required_research"
+      ],
+      "source": "https://github.com/TheDarkTower314/Thaumcraft-6-Source-Code/blob/954022bb777b7546281fb36df8522f0ba6b43f81/src/main/resources/assets/thaumcraft/research/artifice.json"
+    },
+    {
+      "key": "MIRROR",
+      "category": "ARTIFICE",
+      "location": [
+        -6,
+        0
+      ],
+      "icons": [
+        "thaumcraft:mirror"
+      ],
+      "parents": [
+        "ARCANELAMP",
+        "INFUSION"
+      ],
+      "siblings": [],
+      "meta": [],
+      "stages": 2,
+      "addenda": 0,
+      "stage_requirement_kinds": [
+        "required_item",
+        "required_knowledge",
+        "required_research"
+      ],
+      "source": "https://github.com/TheDarkTower314/Thaumcraft-6-Source-Code/blob/954022bb777b7546281fb36df8522f0ba6b43f81/src/main/resources/assets/thaumcraft/research/artifice.json"
+    },
+    {
+      "key": "MIRRORHAND",
+      "category": "ARTIFICE",
+      "location": [
+        -7,
+        1
+      ],
+      "icons": [
+        "thaumcraft:hand_mirror"
+      ],
+      "parents": [
+        "MIRROR"
+      ],
+      "siblings": [],
+      "meta": [],
+      "stages": 2,
+      "addenda": 0,
+      "stage_requirement_kinds": [
+        "required_knowledge"
+      ],
+      "source": "https://github.com/TheDarkTower314/Thaumcraft-6-Source-Code/blob/954022bb777b7546281fb36df8522f0ba6b43f81/src/main/resources/assets/thaumcraft/research/artifice.json"
+    },
+    {
+      "key": "MIRRORESSENTIA",
+      "category": "ARTIFICE",
+      "location": [
+        -7,
+        -1
+      ],
+      "icons": [
+        "thaumcraft:mirror_essentia"
+      ],
+      "parents": [
+        "MIRROR"
+      ],
+      "siblings": [],
+      "meta": [],
+      "stages": 2,
+      "addenda": 0,
+      "stage_requirement_kinds": [
+        "required_knowledge"
+      ],
+      "source": "https://github.com/TheDarkTower314/Thaumcraft-6-Source-Code/blob/954022bb777b7546281fb36df8522f0ba6b43f81/src/main/resources/assets/thaumcraft/research/artifice.json"
+    },
+    {
+      "key": "ARCANELAMP",
+      "category": "ARTIFICE",
+      "location": [
+        -3,
+        0
+      ],
+      "icons": [
+        "thaumcraft:lamp_arcane"
+      ],
+      "parents": [
+        "BASEARTIFICE"
+      ],
+      "siblings": [],
+      "meta": [],
+      "stages": 2,
+      "addenda": 0,
+      "stage_requirement_kinds": [
+        "required_knowledge",
+        "required_research"
+      ],
+      "source": "https://github.com/TheDarkTower314/Thaumcraft-6-Source-Code/blob/954022bb777b7546281fb36df8522f0ba6b43f81/src/main/resources/assets/thaumcraft/research/artifice.json"
+    },
+    {
+      "key": "LAMPGROWTH",
+      "category": "ARTIFICE",
+      "location": [
+        -4,
+        1
+      ],
+      "icons": [
+        "thaumcraft:lamp_growth"
+      ],
+      "parents": [
+        "ARCANELAMP",
+        "INFUSION"
+      ],
+      "siblings": [],
+      "meta": [],
+      "stages": 2,
+      "addenda": 0,
+      "stage_requirement_kinds": [
+        "required_item",
+        "required_knowledge",
+        "required_research"
+      ],
+      "source": "https://github.com/TheDarkTower314/Thaumcraft-6-Source-Code/blob/954022bb777b7546281fb36df8522f0ba6b43f81/src/main/resources/assets/thaumcraft/research/artifice.json"
+    },
+    {
+      "key": "LAMPFERTILITY",
+      "category": "ARTIFICE",
+      "location": [
+        -4,
+        -1
+      ],
+      "icons": [
+        "thaumcraft:lamp_fertility"
+      ],
+      "parents": [
+        "ARCANELAMP",
+        "INFUSION"
+      ],
+      "siblings": [],
+      "meta": [],
+      "stages": 2,
+      "addenda": 0,
+      "stage_requirement_kinds": [
+        "required_item",
+        "required_knowledge",
+        "required_research"
+      ],
+      "source": "https://github.com/TheDarkTower314/Thaumcraft-6-Source-Code/blob/954022bb777b7546281fb36df8522f0ba6b43f81/src/main/resources/assets/thaumcraft/research/artifice.json"
+    },
+    {
+      "key": "ARCANEPATTERNCRAFTER",
+      "category": "ARTIFICE",
+      "location": [
+        -2,
+        5
+      ],
+      "icons": [
+        "thaumcraft:pattern_crafter"
+      ],
+      "parents": [
+        "DIOPTRA"
+      ],
+      "siblings": [],
+      "meta": [],
+      "stages": 2,
+      "addenda": 0,
+      "stage_requirement_kinds": [
+        "required_knowledge",
+        "required_research"
+      ],
+      "source": "https://github.com/TheDarkTower314/Thaumcraft-6-Source-Code/blob/954022bb777b7546281fb36df8522f0ba6b43f81/src/main/resources/assets/thaumcraft/research/artifice.json"
+    },
+    {
+      "key": "BASICTURRET",
+      "category": "ARTIFICE",
+      "location": [
+        -2,
+        -4
+      ],
+      "icons": [
+        "thaumcraft:turret;1;0"
+      ],
+      "parents": [
+        "MINDCLOCKWORK",
+        "ARCANEEAR"
+      ],
+      "siblings": [],
+      "meta": [],
+      "stages": 2,
+      "addenda": 0,
+      "stage_requirement_kinds": [
+        "required_knowledge",
+        "required_research"
+      ],
+      "source": "https://github.com/TheDarkTower314/Thaumcraft-6-Source-Code/blob/954022bb777b7546281fb36df8522f0ba6b43f81/src/main/resources/assets/thaumcraft/research/artifice.json"
+    },
+    {
+      "key": "ADVANCEDTURRET",
+      "category": "ARTIFICE",
+      "location": [
+        -4,
+        -4
+      ],
+      "icons": [
+        "thaumcraft:turret;1;1"
+      ],
+      "parents": [
+        "MINDBIOTHAUMIC",
+        "BASICTURRET"
+      ],
+      "siblings": [],
+      "meta": [],
+      "stages": 2,
+      "addenda": 0,
+      "stage_requirement_kinds": [
+        "required_knowledge"
+      ],
+      "source": "https://github.com/TheDarkTower314/Thaumcraft-6-Source-Code/blob/954022bb777b7546281fb36df8522f0ba6b43f81/src/main/resources/assets/thaumcraft/research/artifice.json"
+    },
+    {
+      "key": "ARCANEBORE",
+      "category": "ARTIFICE",
+      "location": [
+        -3,
+        -6
+      ],
+      "icons": [
+        "thaumcraft:turret;1;2"
+      ],
+      "parents": [
+        "INFUSION",
+        "BASICTURRET",
+        "FOCUSBREAK"
+      ],
+      "siblings": [],
+      "meta": [],
+      "stages": 2,
+      "addenda": 0,
+      "stage_requirement_kinds": [
+        "required_knowledge"
+      ],
+      "source": "https://github.com/TheDarkTower314/Thaumcraft-6-Source-Code/blob/954022bb777b7546281fb36df8522f0ba6b43f81/src/main/resources/assets/thaumcraft/research/artifice.json"
+    },
+    {
+      "key": "GRAPPLEGUN",
+      "category": "ARTIFICE",
+      "location": [
+        2,
+        3
+      ],
+      "icons": [
+        "thaumcraft:grapple_gun"
+      ],
+      "parents": [
+        "BASEARTIFICE",
+        "RECHARGEPEDESTAL"
+      ],
+      "siblings": [],
+      "meta": [
+        "REVERSE"
+      ],
+      "stages": 2,
+      "addenda": 0,
+      "stage_requirement_kinds": [
+        "required_item",
+        "required_knowledge"
+      ],
+      "source": "https://github.com/TheDarkTower314/Thaumcraft-6-Source-Code/blob/954022bb777b7546281fb36df8522f0ba6b43f81/src/main/resources/assets/thaumcraft/research/artifice.json"
+    },
+    {
+      "key": "VISGENERATOR",
+      "category": "ARTIFICE",
+      "location": [
+        2,
+        -3
+      ],
+      "icons": [
+        "thaumcraft:vis_generator"
+      ],
+      "parents": [
+        "REDSTONERELAY"
+      ],
+      "siblings": [],
+      "meta": [],
+      "stages": 2,
+      "addenda": 0,
+      "stage_requirement_kinds": [
+        "required_item",
+        "required_knowledge",
+        "required_research"
+      ],
+      "source": "https://github.com/TheDarkTower314/Thaumcraft-6-Source-Code/blob/954022bb777b7546281fb36df8522f0ba6b43f81/src/main/resources/assets/thaumcraft/research/artifice.json"
+    },
+    {
+      "key": "BASEAUROMANCY",
+      "category": "AUROMANCY",
+      "location": [
+        0,
+        0
+      ],
+      "icons": [
+        "thaumcraft:textures/research/cat_auromancy.png"
+      ],
+      "parents": [
+        "UNLOCKAUROMANCY"
+      ],
+      "siblings": [],
+      "meta": [
+        "ROUND",
+        "HIDDEN"
+      ],
+      "stages": 3,
+      "addenda": 0,
+      "stage_requirement_kinds": [
+        "required_craft",
+        "required_research"
+      ],
+      "source": "https://github.com/TheDarkTower314/Thaumcraft-6-Source-Code/blob/954022bb777b7546281fb36df8522f0ba6b43f81/src/main/resources/assets/thaumcraft/research/auromancy.json"
+    },
+    {
+      "key": "FOCUSADVANCED",
+      "category": "AUROMANCY",
+      "location": [
+        0,
+        -2
+      ],
+      "icons": [
+        "thaumcraft:focus_2"
+      ],
+      "parents": [
+        "BASEAUROMANCY",
+        "INFUSION"
+      ],
+      "siblings": [],
+      "meta": [],
+      "stages": 2,
+      "addenda": 0,
+      "stage_requirement_kinds": [
+        "required_craft",
+        "required_knowledge"
+      ],
+      "source": "https://github.com/TheDarkTower314/Thaumcraft-6-Source-Code/blob/954022bb777b7546281fb36df8522f0ba6b43f81/src/main/resources/assets/thaumcraft/research/auromancy.json"
+    },
+    {
+      "key": "FOCUSGREATER",
+      "category": "AUROMANCY",
+      "location": [
+        0,
+        -4
+      ],
+      "icons": [
+        "thaumcraft:focus_3"
+      ],
+      "parents": [
+        "FOCUSADVANCED",
+        "PRIMPEARL"
+      ],
+      "siblings": [],
+      "meta": [],
+      "stages": 2,
+      "addenda": 0,
+      "stage_requirement_kinds": [
+        "required_craft",
+        "required_knowledge",
+        "required_research"
+      ],
+      "source": "https://github.com/TheDarkTower314/Thaumcraft-6-Source-Code/blob/954022bb777b7546281fb36df8522f0ba6b43f81/src/main/resources/assets/thaumcraft/research/auromancy.json"
+    },
+    {
+      "key": "FOCUSELEMENTAL",
+      "category": "AUROMANCY",
+      "location": [
+        0,
+        2
+      ],
+      "icons": [
+        "focus:thaumcraft.AIR",
+        "focus:thaumcraft.FROST",
+        "focus:thaumcraft.EARTH"
+      ],
+      "parents": [
+        "BASEAUROMANCY"
+      ],
+      "siblings": [],
+      "meta": [],
+      "stages": 2,
+      "addenda": 0,
+      "stage_requirement_kinds": [
+        "required_knowledge",
+        "required_research"
+      ],
+      "source": "https://github.com/TheDarkTower314/Thaumcraft-6-Source-Code/blob/954022bb777b7546281fb36df8522f0ba6b43f81/src/main/resources/assets/thaumcraft/research/auromancy.json"
+    },
+    {
+      "key": "FOCUSFLUX",
+      "category": "AUROMANCY",
+      "location": [
+        0,
+        4
+      ],
+      "icons": [
+        "focus:thaumcraft.FLUX"
+      ],
+      "parents": [
+        "FOCUSELEMENTAL"
+      ],
+      "siblings": [],
+      "meta": [],
+      "stages": 1,
+      "addenda": 0,
+      "stage_requirement_kinds": [
+        "required_knowledge",
+        "required_research"
+      ],
+      "source": "https://github.com/TheDarkTower314/Thaumcraft-6-Source-Code/blob/954022bb777b7546281fb36df8522f0ba6b43f81/src/main/resources/assets/thaumcraft/research/auromancy.json"
+    },
+    {
+      "key": "FOCUSHEAL",
+      "category": "AUROMANCY",
+      "location": [
+        0,
+        7
+      ],
+      "icons": [
+        "focus:thaumcraft.HEAL"
+      ],
+      "parents": [
+        "FOCUSFLUX"
+      ],
+      "siblings": [],
+      "meta": [],
+      "stages": 1,
+      "addenda": 0,
+      "stage_requirement_kinds": [
+        "required_knowledge",
+        "required_research"
+      ],
+      "source": "https://github.com/TheDarkTower314/Thaumcraft-6-Source-Code/blob/954022bb777b7546281fb36df8522f0ba6b43f81/src/main/resources/assets/thaumcraft/research/auromancy.json"
+    },
+    {
+      "key": "FOCUSCURSE",
+      "category": "AUROMANCY",
+      "location": [
+        -2,
+        6
+      ],
+      "icons": [
+        "focus:thaumcraft.CURSE"
+      ],
+      "parents": [
+        "FOCUSFLUX",
+        "!Pechwand"
+      ],
+      "siblings": [],
+      "meta": [
+        "HIDDEN",
+        "REVERSE"
+      ],
+      "stages": 2,
+      "addenda": 0,
+      "stage_requirement_kinds": [
+        "required_knowledge",
+        "required_research"
+      ],
+      "source": "https://github.com/TheDarkTower314/Thaumcraft-6-Source-Code/blob/954022bb777b7546281fb36df8522f0ba6b43f81/src/main/resources/assets/thaumcraft/research/auromancy.json"
+    },
+    {
+      "key": "FOCUSBREAK",
+      "category": "AUROMANCY",
+      "location": [
+        2,
+        6
+      ],
+      "icons": [
+        "focus:thaumcraft.BREAK"
+      ],
+      "parents": [
+        "FOCUSFLUX"
+      ],
+      "siblings": [],
+      "meta": [
+        "REVERSE"
+      ],
+      "stages": 2,
+      "addenda": 0,
+      "stage_requirement_kinds": [
+        "required_item",
+        "required_knowledge",
+        "required_research"
+      ],
+      "source": "https://github.com/TheDarkTower314/Thaumcraft-6-Source-Code/blob/954022bb777b7546281fb36df8522f0ba6b43f81/src/main/resources/assets/thaumcraft/research/auromancy.json"
+    },
+    {
+      "key": "FOCUSEXCHANGE",
+      "category": "AUROMANCY",
+      "location": [
+        2,
+        4
+      ],
+      "icons": [
+        "focus:thaumcraft.EXCHANGE"
+      ],
+      "parents": [
+        "FOCUSFLUX"
+      ],
+      "siblings": [],
+      "meta": [],
+      "stages": 2,
+      "addenda": 0,
+      "stage_requirement_kinds": [
+        "required_knowledge",
+        "required_research"
+      ],
+      "source": "https://github.com/TheDarkTower314/Thaumcraft-6-Source-Code/blob/954022bb777b7546281fb36df8522f0ba6b43f81/src/main/resources/assets/thaumcraft/research/auromancy.json"
+    },
+    {
+      "key": "FOCUSPLAN",
+      "category": "AUROMANCY",
+      "location": [
+        3,
+        2
+      ],
+      "icons": [
+        "focus:thaumcraft.PLAN"
+      ],
+      "parents": [
+        "FOCUSEXCHANGE",
+        "FOCUSPROJECTILE"
+      ],
+      "siblings": [],
+      "meta": [],
+      "stages": 2,
+      "addenda": 0,
+      "stage_requirement_kinds": [
+        "required_knowledge",
+        "required_research"
+      ],
+      "source": "https://github.com/TheDarkTower314/Thaumcraft-6-Source-Code/blob/954022bb777b7546281fb36df8522f0ba6b43f81/src/main/resources/assets/thaumcraft/research/auromancy.json"
+    },
+    {
+      "key": "FOCUSRIFT",
+      "category": "AUROMANCY",
+      "location": [
+        4,
+        5
+      ],
+      "icons": [
+        "focus:thaumcraft.RIFT"
+      ],
+      "parents": [
+        "FOCUSBREAK",
+        "FOCUSEXCHANGE"
+      ],
+      "siblings": [],
+      "meta": [
+        "HIDDEN"
+      ],
+      "stages": 2,
+      "addenda": 0,
+      "stage_requirement_kinds": [
+        "required_knowledge",
+        "required_research"
+      ],
+      "source": "https://github.com/TheDarkTower314/Thaumcraft-6-Source-Code/blob/954022bb777b7546281fb36df8522f0ba6b43f81/src/main/resources/assets/thaumcraft/research/auromancy.json"
+    },
+    {
+      "key": "FOCUSPROJECTILE",
+      "category": "AUROMANCY",
+      "location": [
+        3,
+        0
+      ],
+      "icons": [
+        "focus:thaumcraft.PROJECTILE"
+      ],
+      "parents": [
+        "BASEAUROMANCY"
+      ],
+      "siblings": [],
+      "meta": [],
+      "stages": 3,
+      "addenda": 0,
+      "stage_requirement_kinds": [
+        "required_knowledge",
+        "required_research"
+      ],
+      "source": "https://github.com/TheDarkTower314/Thaumcraft-6-Source-Code/blob/954022bb777b7546281fb36df8522f0ba6b43f81/src/main/resources/assets/thaumcraft/research/auromancy.json"
+    },
+    {
+      "key": "FOCUSBOLT",
+      "category": "AUROMANCY",
+      "location": [
+        7,
+        0
+      ],
+      "icons": [
+        "focus:thaumcraft.BOLT"
+      ],
+      "parents": [
+        "FOCUSPROJECTILE@2"
+      ],
+      "siblings": [],
+      "meta": [],
+      "stages": 2,
+      "addenda": 0,
+      "stage_requirement_kinds": [
+        "required_knowledge",
+        "required_research"
+      ],
+      "source": "https://github.com/TheDarkTower314/Thaumcraft-6-Source-Code/blob/954022bb777b7546281fb36df8522f0ba6b43f81/src/main/resources/assets/thaumcraft/research/auromancy.json"
+    },
+    {
+      "key": "FOCUSSCATTER",
+      "category": "AUROMANCY",
+      "location": [
+        5,
+        -1
+      ],
+      "icons": [
+        "focus:thaumcraft.SCATTER"
+      ],
+      "parents": [
+        "FOCUSBOLT",
+        "FOCUSPROJECTILE"
+      ],
+      "siblings": [],
+      "meta": [
+        "HIDDEN",
+        "REVERSE"
+      ],
+      "stages": 2,
+      "addenda": 0,
+      "stage_requirement_kinds": [
+        "required_knowledge"
+      ],
+      "source": "https://github.com/TheDarkTower314/Thaumcraft-6-Source-Code/blob/954022bb777b7546281fb36df8522f0ba6b43f81/src/main/resources/assets/thaumcraft/research/auromancy.json"
+    },
+    {
+      "key": "FOCUSMINE",
+      "category": "AUROMANCY",
+      "location": [
+        5,
+        2
+      ],
+      "icons": [
+        "focus:thaumcraft.MINE"
+      ],
+      "parents": [
+        "FOCUSPROJECTILE"
+      ],
+      "siblings": [],
+      "meta": [],
+      "stages": 2,
+      "addenda": 0,
+      "stage_requirement_kinds": [
+        "required_item",
+        "required_knowledge",
+        "required_research"
+      ],
+      "source": "https://github.com/TheDarkTower314/Thaumcraft-6-Source-Code/blob/954022bb777b7546281fb36df8522f0ba6b43f81/src/main/resources/assets/thaumcraft/research/auromancy.json"
+    },
+    {
+      "key": "FOCUSSPELLBAT",
+      "category": "AUROMANCY",
+      "location": [
+        7,
+        4
+      ],
+      "icons": [
+        "focus:thaumcraft.SPELLBAT"
+      ],
+      "parents": [
+        "FOCUSMINE",
+        "f_BAT",
+        "!Firebat"
+      ],
+      "siblings": [],
+      "meta": [
+        "REVERSE"
+      ],
+      "stages": 2,
+      "addenda": 0,
+      "stage_requirement_kinds": [
+        "required_knowledge",
+        "required_research"
+      ],
+      "source": "https://github.com/TheDarkTower314/Thaumcraft-6-Source-Code/blob/954022bb777b7546281fb36df8522f0ba6b43f81/src/main/resources/assets/thaumcraft/research/auromancy.json"
+    },
+    {
+      "key": "FOCUSCLOUD",
+      "category": "AUROMANCY",
+      "location": [
+        7,
+        2
+      ],
+      "icons": [
+        "focus:thaumcraft.CLOUD"
+      ],
+      "parents": [
+        "FOCUSMINE",
+        "!DRAGONBREATH"
+      ],
+      "siblings": [],
+      "meta": [
+        "HIDDEN"
+      ],
+      "stages": 2,
+      "addenda": 0,
+      "stage_requirement_kinds": [
+        "required_item",
+        "required_knowledge",
+        "required_research"
+      ],
+      "source": "https://github.com/TheDarkTower314/Thaumcraft-6-Source-Code/blob/954022bb777b7546281fb36df8522f0ba6b43f81/src/main/resources/assets/thaumcraft/research/auromancy.json"
+    },
+    {
+      "key": "FOCUSSPLIT",
+      "category": "AUROMANCY",
+      "location": [
+        5,
+        -3
+      ],
+      "icons": [
+        "focus:thaumcraft.SPLITTARGET",
+        "focus:thaumcraft.SPLITTRAJECTORY"
+      ],
+      "parents": [
+        "FOCUSSCATTER"
+      ],
+      "siblings": [],
+      "meta": [],
+      "stages": 2,
+      "addenda": 0,
+      "stage_requirement_kinds": [
+        "required_knowledge"
+      ],
+      "source": "https://github.com/TheDarkTower314/Thaumcraft-6-Source-Code/blob/954022bb777b7546281fb36df8522f0ba6b43f81/src/main/resources/assets/thaumcraft/research/auromancy.json"
+    },
+    {
+      "key": "RECHARGEPEDESTAL",
+      "category": "AUROMANCY",
+      "location": [
+        -3,
+        2
+      ],
+      "icons": [
+        "thaumcraft:recharge_pedestal"
+      ],
+      "parents": [
+        "BASEAUROMANCY"
+      ],
+      "siblings": [],
+      "meta": [],
+      "stages": 2,
+      "addenda": 0,
+      "stage_requirement_kinds": [
+        "required_knowledge"
+      ],
+      "source": "https://github.com/TheDarkTower314/Thaumcraft-6-Source-Code/blob/954022bb777b7546281fb36df8522f0ba6b43f81/src/main/resources/assets/thaumcraft/research/auromancy.json"
+    },
+    {
+      "key": "VISAMULET",
+      "category": "AUROMANCY",
+      "location": [
+        -5,
+        4
+      ],
+      "icons": [
+        "thaumcraft:amulet_vis;1;1"
+      ],
+      "parents": [
+        "RECHARGEPEDESTAL",
+        "INFUSION"
+      ],
+      "siblings": [],
+      "meta": [],
+      "stages": 2,
+      "addenda": 0,
+      "stage_requirement_kinds": [
+        "required_knowledge"
+      ],
+      "source": "https://github.com/TheDarkTower314/Thaumcraft-6-Source-Code/blob/954022bb777b7546281fb36df8522f0ba6b43f81/src/main/resources/assets/thaumcraft/research/auromancy.json"
+    },
+    {
+      "key": "WORKBENCHCHARGER",
+      "category": "AUROMANCY",
+      "location": [
+        -3,
+        4
+      ],
+      "icons": [
+        "thaumcraft:arcane_workbench_charger"
+      ],
+      "parents": [
+        "RECHARGEPEDESTAL"
+      ],
+      "siblings": [],
+      "meta": [],
+      "stages": 2,
+      "addenda": 0,
+      "stage_requirement_kinds": [
+        "required_knowledge"
+      ],
+      "source": "https://github.com/TheDarkTower314/Thaumcraft-6-Source-Code/blob/954022bb777b7546281fb36df8522f0ba6b43f81/src/main/resources/assets/thaumcraft/research/auromancy.json"
+    },
+    {
+      "key": "FOCUSPOUCH",
+      "category": "AUROMANCY",
+      "location": [
+        -2,
+        -1
+      ],
+      "icons": [
+        "thaumcraft:focus_pouch"
+      ],
+      "parents": [
+        "BASEAUROMANCY"
+      ],
+      "siblings": [],
+      "meta": [],
+      "stages": 2,
+      "addenda": 0,
+      "stage_requirement_kinds": [
+        "required_knowledge"
+      ],
+      "source": "https://github.com/TheDarkTower314/Thaumcraft-6-Source-Code/blob/954022bb777b7546281fb36df8522f0ba6b43f81/src/main/resources/assets/thaumcraft/research/auromancy.json"
+    },
+    {
+      "key": "VISBATTERY",
+      "category": "AUROMANCY",
+      "location": [
+        -5,
+        0
+      ],
+      "icons": [
+        "thaumcraft:vis_battery"
+      ],
+      "parents": [
+        "RECHARGEPEDESTAL",
+        "CRYSTALFARMER"
+      ],
+      "siblings": [],
+      "meta": [],
+      "stages": 2,
+      "addenda": 0,
+      "stage_requirement_kinds": [
+        "required_knowledge"
+      ],
+      "source": "https://github.com/TheDarkTower314/Thaumcraft-6-Source-Code/blob/954022bb777b7546281fb36df8522f0ba6b43f81/src/main/resources/assets/thaumcraft/research/auromancy.json"
+    },
+    {
+      "key": "FIRSTSTEPS",
+      "category": "BASICS",
+      "location": [
+        0,
+        0
+      ],
+      "icons": [
+        "thaumcraft:textures/items/thaumonomicon.png"
+      ],
+      "parents": [
+        "!gotthaumonomicon"
+      ],
+      "siblings": [
+        "KNOWLEDGETYPES",
+        "!gotdream"
+      ],
+      "meta": [
+        "ROUND",
+        "SPIKY"
+      ],
+      "stages": 3,
+      "addenda": 0,
+      "stage_requirement_kinds": [
+        "required_craft",
+        "required_knowledge"
+      ],
+      "source": "https://github.com/TheDarkTower314/Thaumcraft-6-Source-Code/blob/954022bb777b7546281fb36df8522f0ba6b43f81/src/main/resources/assets/thaumcraft/research/basics.json"
+    },
+    {
+      "key": "KNOWLEDGETYPES",
+      "category": "BASICS",
+      "location": [
+        2,
+        -1
+      ],
+      "icons": [
+        "thaumcraft:textures/research/knowledge_theory.png"
+      ],
+      "parents": [],
+      "siblings": [],
+      "meta": [
+        "ROUND",
+        "HIDDEN"
+      ],
+      "stages": 1,
+      "addenda": 0,
+      "stage_requirement_kinds": [],
+      "source": "https://github.com/TheDarkTower314/Thaumcraft-6-Source-Code/blob/954022bb777b7546281fb36df8522f0ba6b43f81/src/main/resources/assets/thaumcraft/research/basics.json"
+    },
+    {
+      "key": "THEORYRESEARCH",
+      "category": "BASICS",
+      "location": [
+        4,
+        -1
+      ],
+      "icons": [
+        "thaumcraft:textures/research/knowledge_theory.png"
+      ],
+      "parents": [
+        "KNOWLEDGETYPES"
+      ],
+      "siblings": [],
+      "meta": [
+        "ROUND",
+        "HIDDEN"
+      ],
+      "stages": 2,
+      "addenda": 0,
+      "stage_requirement_kinds": [
+        "required_craft"
+      ],
+      "source": "https://github.com/TheDarkTower314/Thaumcraft-6-Source-Code/blob/954022bb777b7546281fb36df8522f0ba6b43f81/src/main/resources/assets/thaumcraft/research/basics.json"
+    },
+    {
+      "key": "FLUX",
+      "category": "BASICS",
+      "location": [
+        -2,
+        -2
+      ],
+      "icons": [
+        "thaumcraft:textures/research/r_flux.png"
+      ],
+      "parents": [],
+      "siblings": [],
+      "meta": [
+        "ROUND",
+        "HIDDEN"
+      ],
+      "stages": 2,
+      "addenda": 1,
+      "stage_requirement_kinds": [
+        "required_research"
+      ],
+      "source": "https://github.com/TheDarkTower314/Thaumcraft-6-Source-Code/blob/954022bb777b7546281fb36df8522f0ba6b43f81/src/main/resources/assets/thaumcraft/research/basics.json"
+    },
+    {
+      "key": "WARP",
+      "category": "BASICS",
+      "location": [
+        -4,
+        -2
+      ],
+      "icons": [
+        "thaumcraft:textures/research/r_warp.png"
+      ],
+      "parents": [],
+      "siblings": [],
+      "meta": [
+        "ROUND",
+        "HIDDEN"
+      ],
+      "stages": 1,
+      "addenda": 0,
+      "stage_requirement_kinds": [],
+      "source": "https://github.com/TheDarkTower314/Thaumcraft-6-Source-Code/blob/954022bb777b7546281fb36df8522f0ba6b43f81/src/main/resources/assets/thaumcraft/research/basics.json"
+    },
+    {
+      "key": "ORE",
+      "category": "BASICS",
+      "location": [
+        -4,
+        0
+      ],
+      "icons": [
+        "minecraft:iron_pickaxe"
+      ],
+      "parents": [],
+      "siblings": [],
+      "meta": [
+        "ROUND",
+        "HIDDEN"
+      ],
+      "stages": 1,
+      "addenda": 3,
+      "stage_requirement_kinds": [],
+      "source": "https://github.com/TheDarkTower314/Thaumcraft-6-Source-Code/blob/954022bb777b7546281fb36df8522f0ba6b43f81/src/main/resources/assets/thaumcraft/research/basics.json"
+    },
+    {
+      "key": "PLANTS",
+      "category": "BASICS",
+      "location": [
+        -3,
+        0
+      ],
+      "icons": [
+        "thaumcraft:sapling_greatwood",
+        "thaumcraft:sapling_silverwood"
+      ],
+      "parents": [],
+      "siblings": [],
+      "meta": [
+        "ROUND",
+        "HIDDEN"
+      ],
+      "stages": 1,
+      "addenda": 5,
+      "stage_requirement_kinds": [],
+      "source": "https://github.com/TheDarkTower314/Thaumcraft-6-Source-Code/blob/954022bb777b7546281fb36df8522f0ba6b43f81/src/main/resources/assets/thaumcraft/research/basics.json"
+    },
+    {
+      "key": "CRYSTALFARMER",
+      "category": "BASICS",
+      "location": [
+        -5,
+        1
+      ],
+      "icons": [
+        "thaumcraft:crystal_aer",
+        "thaumcraft:crystal_ignis",
+        "thaumcraft:crystal_aqua",
+        "thaumcraft:crystal_terra",
+        "thaumcraft:crystal_ordo",
+        "thaumcraft:crystal_perditio"
+      ],
+      "parents": [
+        "ORE",
+        "INFUSION",
+        "!ORECRYSTAL"
+      ],
+      "siblings": [],
+      "meta": [
+        "ROUND",
+        "HIDDEN"
+      ],
+      "stages": 2,
+      "addenda": 0,
+      "stage_requirement_kinds": [
+        "required_item",
+        "required_knowledge"
+      ],
+      "source": "https://github.com/TheDarkTower314/Thaumcraft-6-Source-Code/blob/954022bb777b7546281fb36df8522f0ba6b43f81/src/main/resources/assets/thaumcraft/research/basics.json"
+    },
+    {
+      "key": "PRIMPEARL",
+      "category": "BASICS",
+      "location": [
+        -8,
+        4
+      ],
+      "icons": [
+        "thaumcraft:primordial_pearl"
+      ],
+      "parents": [],
+      "siblings": [],
+      "meta": [
+        "ROUND",
+        "HIDDEN"
+      ],
+      "stages": 1,
+      "addenda": 0,
+      "stage_requirement_kinds": [],
+      "source": "https://github.com/TheDarkTower314/Thaumcraft-6-Source-Code/blob/954022bb777b7546281fb36df8522f0ba6b43f81/src/main/resources/assets/thaumcraft/research/basics.json"
+    },
+    {
+      "key": "UNLOCKALCHEMY",
+      "category": "BASICS",
+      "location": [
+        0,
+        2
+      ],
+      "icons": [
+        "thaumcraft:textures/research/cat_alchemy.png"
+      ],
+      "parents": [
+        "FIRSTSTEPS"
+      ],
+      "siblings": [],
+      "meta": [
+        "ROUND",
+        "SPIKY"
+      ],
+      "stages": 3,
+      "addenda": 0,
+      "stage_requirement_kinds": [
+        "required_craft",
+        "required_knowledge"
+      ],
+      "source": "https://github.com/TheDarkTower314/Thaumcraft-6-Source-Code/blob/954022bb777b7546281fb36df8522f0ba6b43f81/src/main/resources/assets/thaumcraft/research/basics.json"
+    },
+    {
+      "key": "UNLOCKAUROMANCY",
+      "category": "BASICS",
+      "location": [
+        -2,
+        4
+      ],
+      "icons": [
+        "thaumcraft:textures/research/cat_auromancy.png"
+      ],
+      "parents": [
+        "UNLOCKALCHEMY"
+      ],
+      "siblings": [],
+      "meta": [
+        "ROUND",
+        "SPIKY"
+      ],
+      "stages": 3,
+      "addenda": 0,
+      "stage_requirement_kinds": [
+        "required_craft",
+        "required_research"
+      ],
+      "source": "https://github.com/TheDarkTower314/Thaumcraft-6-Source-Code/blob/954022bb777b7546281fb36df8522f0ba6b43f81/src/main/resources/assets/thaumcraft/research/basics.json"
+    },
+    {
+      "key": "UNLOCKARTIFICE",
+      "category": "BASICS",
+      "location": [
+        2,
+        4
+      ],
+      "icons": [
+        "thaumcraft:textures/research/cat_artifice.png"
+      ],
+      "parents": [
+        "UNLOCKALCHEMY",
+        "METALLURGY@2"
+      ],
+      "siblings": [],
+      "meta": [
+        "ROUND",
+        "SPIKY"
+      ],
+      "stages": 2,
+      "addenda": 0,
+      "stage_requirement_kinds": [
+        "required_knowledge",
+        "required_research"
+      ],
+      "source": "https://github.com/TheDarkTower314/Thaumcraft-6-Source-Code/blob/954022bb777b7546281fb36df8522f0ba6b43f81/src/main/resources/assets/thaumcraft/research/basics.json"
+    },
+    {
+      "key": "UNLOCKINFUSION",
+      "category": "BASICS",
+      "location": [
+        0,
+        4
+      ],
+      "icons": [
+        "thaumcraft:textures/research/cat_infusion.png"
+      ],
+      "parents": [
+        "UNLOCKALCHEMY"
+      ],
+      "siblings": [],
+      "meta": [
+        "ROUND",
+        "SPIKY"
+      ],
+      "stages": 2,
+      "addenda": 0,
+      "stage_requirement_kinds": [
+        "required_knowledge",
+        "required_research"
+      ],
+      "source": "https://github.com/TheDarkTower314/Thaumcraft-6-Source-Code/blob/954022bb777b7546281fb36df8522f0ba6b43f81/src/main/resources/assets/thaumcraft/research/basics.json"
+    },
+    {
+      "key": "UNLOCKGOLEMANCY",
+      "category": "BASICS",
+      "location": [
+        0,
+        6
+      ],
+      "icons": [
+        "thaumcraft:textures/research/cat_golemancy.png"
+      ],
+      "parents": [
+        "UNLOCKARTIFICE",
+        "UNLOCKAUROMANCY",
+        "UNLOCKINFUSION"
+      ],
+      "siblings": [
+        "BASEGOLEMANCY"
+      ],
+      "meta": [
+        "ROUND",
+        "SPIKY",
+        "REVERSE"
+      ],
+      "stages": 2,
+      "addenda": 0,
+      "stage_requirement_kinds": [
+        "required_knowledge",
+        "required_research"
+      ],
+      "source": "https://github.com/TheDarkTower314/Thaumcraft-6-Source-Code/blob/954022bb777b7546281fb36df8522f0ba6b43f81/src/main/resources/assets/thaumcraft/research/basics.json"
+    },
+    {
+      "key": "CrimsonRites",
+      "category": "BASICS",
+      "location": [
+        -6,
+        4
+      ],
+      "icons": [
+        "thaumcraft:curio;1;6"
+      ],
+      "parents": [
+        "!CrimsonCultist"
+      ],
+      "siblings": [],
+      "meta": [
+        "ROUND",
+        "HIDDEN",
+        "REVERSE"
+      ],
+      "stages": 2,
+      "addenda": 0,
+      "stage_requirement_kinds": [
+        "required_item"
+      ],
+      "source": "https://github.com/TheDarkTower314/Thaumcraft-6-Source-Code/blob/954022bb777b7546281fb36df8522f0ba6b43f81/src/main/resources/assets/thaumcraft/research/basics.json"
+    },
+    {
+      "key": "UNLOCKELDRITCH",
+      "category": "BASICS",
+      "location": [
+        -4,
+        6
+      ],
+      "icons": [
+        "thaumcraft:textures/research/cat_eldritch.png"
+      ],
+      "parents": [
+        "CrimsonRites",
+        "UNLOCKAUROMANCY"
+      ],
+      "siblings": [],
+      "meta": [
+        "ROUND",
+        "SPIKY",
+        "HIDDEN"
+      ],
+      "stages": 2,
+      "addenda": 0,
+      "stage_requirement_kinds": [
+        "required_knowledge",
+        "required_research"
+      ],
+      "source": "https://github.com/TheDarkTower314/Thaumcraft-6-Source-Code/blob/954022bb777b7546281fb36df8522f0ba6b43f81/src/main/resources/assets/thaumcraft/research/basics.json"
+    },
+    {
+      "key": "CELESTIALSCANNING",
+      "category": "BASICS",
+      "location": [
+        4,
+        1
+      ],
+      "icons": [
+        "thaumcraft:textures/research/r_celestial.png"
+      ],
+      "parents": [
+        "THEORYRESEARCH"
+      ],
+      "siblings": [],
+      "meta": [
+        "ROUND"
+      ],
+      "stages": 1,
+      "addenda": 0,
+      "stage_requirement_kinds": [
+        "required_knowledge"
+      ],
+      "source": "https://github.com/TheDarkTower314/Thaumcraft-6-Source-Code/blob/954022bb777b7546281fb36df8522f0ba6b43f81/src/main/resources/assets/thaumcraft/research/basics.json"
+    },
+    {
+      "key": "FLUXCLEANUP",
+      "category": "BASICS",
+      "location": [
+        -2,
+        -4
+      ],
+      "icons": [
+        "thaumcraft:condenser"
+      ],
+      "parents": [
+        "FLUX",
+        "f_toomuchflux",
+        "VISBATTERY"
+      ],
+      "siblings": [],
+      "meta": [],
+      "stages": 2,
+      "addenda": 0,
+      "stage_requirement_kinds": [
+        "required_item",
+        "required_knowledge"
+      ],
+      "source": "https://github.com/TheDarkTower314/Thaumcraft-6-Source-Code/blob/954022bb777b7546281fb36df8522f0ba6b43f81/src/main/resources/assets/thaumcraft/research/basics.json"
+    },
+    {
+      "key": "FLUXRIFT",
+      "category": "BASICS",
+      "location": [
+        0,
+        -3
+      ],
+      "icons": [
+        "thaumcraft:textures/research/r_fluxrift.png"
+      ],
+      "parents": [
+        "FLUX",
+        "!FluxRift"
+      ],
+      "siblings": [],
+      "meta": [
+        "ROUND",
+        "HIDDEN"
+      ],
+      "stages": 1,
+      "addenda": 0,
+      "stage_requirement_kinds": [],
+      "source": "https://github.com/TheDarkTower314/Thaumcraft-6-Source-Code/blob/954022bb777b7546281fb36df8522f0ba6b43f81/src/main/resources/assets/thaumcraft/research/basics.json"
+    },
+    {
+      "key": "RIFTCLOSER",
+      "category": "BASICS",
+      "location": [
+        0,
+        -5
+      ],
+      "icons": [
+        "thaumcraft:causality_collapser"
+      ],
+      "parents": [
+        "FLUXRIFT",
+        "INFUSION",
+        "VISBATTERY"
+      ],
+      "siblings": [],
+      "meta": [],
+      "stages": 2,
+      "addenda": 0,
+      "stage_requirement_kinds": [
+        "required_knowledge"
+      ],
+      "source": "https://github.com/TheDarkTower314/Thaumcraft-6-Source-Code/blob/954022bb777b7546281fb36df8522f0ba6b43f81/src/main/resources/assets/thaumcraft/research/basics.json"
+    },
+    {
+      "key": "BASEELDRITCH",
+      "category": "ELDRITCH",
+      "location": [
+        0,
+        0
+      ],
+      "icons": [
+        "thaumcraft:void_seed"
+      ],
+      "parents": [
+        "METALLURGY",
+        "UNLOCKELDRITCH"
+      ],
+      "siblings": [],
+      "meta": [
+        "ROUND"
+      ],
+      "stages": 2,
+      "addenda": 0,
+      "stage_requirement_kinds": [
+        "required_knowledge"
+      ],
+      "source": "https://github.com/TheDarkTower314/Thaumcraft-6-Source-Code/blob/954022bb777b7546281fb36df8522f0ba6b43f81/src/main/resources/assets/thaumcraft/research/eldritch.json"
+    },
+    {
+      "key": "VOIDSIPHON",
+      "category": "ELDRITCH",
+      "location": [
+        3,
+        0
+      ],
+      "icons": [
+        "thaumcraft:void_siphon"
+      ],
+      "parents": [
+        "BASEELDRITCH",
+        "INFUSION"
+      ],
+      "siblings": [],
+      "meta": [],
+      "stages": 2,
+      "addenda": 0,
+      "stage_requirement_kinds": [
+        "required_knowledge"
+      ],
+      "source": "https://github.com/TheDarkTower314/Thaumcraft-6-Source-Code/blob/954022bb777b7546281fb36df8522f0ba6b43f81/src/main/resources/assets/thaumcraft/research/eldritch.json"
+    },
+    {
+      "key": "VOIDSEERPEARL",
+      "category": "ELDRITCH",
+      "location": [
+        -3,
+        0
+      ],
+      "icons": [
+        "thaumcraft:voidseer_charm"
+      ],
+      "parents": [
+        "BASEELDRITCH",
+        "CURIOSITYBAND"
+      ],
+      "siblings": [],
+      "meta": [],
+      "stages": 2,
+      "addenda": 0,
+      "stage_requirement_kinds": [
+        "required_knowledge"
+      ],
+      "source": "https://github.com/TheDarkTower314/Thaumcraft-6-Source-Code/blob/954022bb777b7546281fb36df8522f0ba6b43f81/src/main/resources/assets/thaumcraft/research/eldritch.json"
+    },
+    {
+      "key": "VOIDROBEARMOR",
+      "category": "ELDRITCH",
+      "location": [
+        0,
+        3
+      ],
+      "icons": [
+        "thaumcraft:void_robe_helm"
+      ],
+      "parents": [
+        "BASEELDRITCH",
+        "ARMORFORTRESS"
+      ],
+      "siblings": [],
+      "meta": [],
+      "stages": 2,
+      "addenda": 0,
+      "stage_requirement_kinds": [
+        "required_knowledge"
+      ],
+      "source": "https://github.com/TheDarkTower314/Thaumcraft-6-Source-Code/blob/954022bb777b7546281fb36df8522f0ba6b43f81/src/main/resources/assets/thaumcraft/research/eldritch.json"
+    },
+    {
+      "key": "PRIMALCRUSHER",
+      "category": "ELDRITCH",
+      "location": [
+        0,
+        -3
+      ],
+      "icons": [
+        "thaumcraft:primal_crusher"
+      ],
+      "parents": [
+        "BASEELDRITCH",
+        "ELEMENTALTOOLS"
+      ],
+      "siblings": [],
+      "meta": [],
+      "stages": 2,
+      "addenda": 0,
+      "stage_requirement_kinds": [
+        "required_knowledge"
+      ],
+      "source": "https://github.com/TheDarkTower314/Thaumcraft-6-Source-Code/blob/954022bb777b7546281fb36df8522f0ba6b43f81/src/main/resources/assets/thaumcraft/research/eldritch.json"
+    },
+    {
+      "key": "BASEGOLEMANCY",
+      "category": "GOLEMANCY",
+      "location": [
+        0,
+        -1
+      ],
+      "icons": [
+        "thaumcraft:textures/research/cat_golemancy.png"
+      ],
+      "parents": [
+        "UNLOCKGOLEMANCY"
+      ],
+      "siblings": [],
+      "meta": [
+        "ROUND",
+        "HIDDEN"
+      ],
+      "stages": 1,
+      "addenda": 0,
+      "stage_requirement_kinds": [],
+      "source": "https://github.com/TheDarkTower314/Thaumcraft-6-Source-Code/blob/954022bb777b7546281fb36df8522f0ba6b43f81/src/main/resources/assets/thaumcraft/research/golemancy.json"
+    },
+    {
+      "key": "JARBRAIN",
+      "category": "GOLEMANCY",
+      "location": [
+        2,
+        1
+      ],
+      "icons": [
+        "thaumcraft:jar_brain"
+      ],
+      "parents": [
+        "BASEGOLEMANCY",
+        "WARDEDJARS",
+        "INFUSION"
+      ],
+      "siblings": [],
+      "meta": [],
+      "stages": 2,
+      "addenda": 0,
+      "stage_requirement_kinds": [
+        "required_item",
+        "required_knowledge",
+        "required_research"
+      ],
+      "source": "https://github.com/TheDarkTower314/Thaumcraft-6-Source-Code/blob/954022bb777b7546281fb36df8522f0ba6b43f81/src/main/resources/assets/thaumcraft/research/golemancy.json"
+    },
+    {
+      "key": "MATSTUDWOOD",
+      "category": "GOLEMANCY",
+      "location": [
+        -2,
+        0
+      ],
+      "icons": [
+        "thaumcraft:log_greatwood"
+      ],
+      "parents": [],
+      "siblings": [],
+      "meta": [
+        "HIDDEN",
+        "REVERSE",
+        "ROUND"
+      ],
+      "stages": 1,
+      "addenda": 0,
+      "stage_requirement_kinds": [],
+      "source": "https://github.com/TheDarkTower314/Thaumcraft-6-Source-Code/blob/954022bb777b7546281fb36df8522f0ba6b43f81/src/main/resources/assets/thaumcraft/research/golemancy.json"
+    },
+    {
+      "key": "MATSTUDIRON",
+      "category": "GOLEMANCY",
+      "location": [
+        -3,
+        -1
+      ],
+      "icons": [
+        "thaumcraft:plate;1;1"
+      ],
+      "parents": [
+        "MATSTUDWOOD"
+      ],
+      "siblings": [],
+      "meta": [
+        "REVERSE",
+        "ROUND"
+      ],
+      "stages": 1,
+      "addenda": 0,
+      "stage_requirement_kinds": [
+        "required_research"
+      ],
+      "source": "https://github.com/TheDarkTower314/Thaumcraft-6-Source-Code/blob/954022bb777b7546281fb36df8522f0ba6b43f81/src/main/resources/assets/thaumcraft/research/golemancy.json"
+    },
+    {
+      "key": "MATSTUDCLAY",
+      "category": "GOLEMANCY",
+      "location": [
+        -4,
+        0
+      ],
+      "icons": [
+        "minecraft:hardened_clay"
+      ],
+      "parents": [
+        "MATSTUDIRON"
+      ],
+      "siblings": [],
+      "meta": [
+        "ROUND"
+      ],
+      "stages": 1,
+      "addenda": 0,
+      "stage_requirement_kinds": [
+        "required_research"
+      ],
+      "source": "https://github.com/TheDarkTower314/Thaumcraft-6-Source-Code/blob/954022bb777b7546281fb36df8522f0ba6b43f81/src/main/resources/assets/thaumcraft/research/golemancy.json"
+    },
+    {
+      "key": "MATSTUDBRASS",
+      "category": "GOLEMANCY",
+      "location": [
+        -4,
+        -2
+      ],
+      "icons": [
+        "thaumcraft:plate"
+      ],
+      "parents": [
+        "MATSTUDIRON",
+        "METALLURGY@2"
+      ],
+      "siblings": [],
+      "meta": [
+        "REVERSE",
+        "ROUND",
+        "HIDDEN"
+      ],
+      "stages": 1,
+      "addenda": 0,
+      "stage_requirement_kinds": [
+        "required_research"
+      ],
+      "source": "https://github.com/TheDarkTower314/Thaumcraft-6-Source-Code/blob/954022bb777b7546281fb36df8522f0ba6b43f81/src/main/resources/assets/thaumcraft/research/golemancy.json"
+    },
+    {
+      "key": "MATSTUDTHAUMIUM",
+      "category": "GOLEMANCY",
+      "location": [
+        -5,
+        -1
+      ],
+      "icons": [
+        "thaumcraft:plate;1;2"
+      ],
+      "parents": [
+        "MATSTUDBRASS",
+        "METALLURGY@3"
+      ],
+      "siblings": [],
+      "meta": [
+        "ROUND",
+        "HIDDEN"
+      ],
+      "stages": 1,
+      "addenda": 0,
+      "stage_requirement_kinds": [
+        "required_research"
+      ],
+      "source": "https://github.com/TheDarkTower314/Thaumcraft-6-Source-Code/blob/954022bb777b7546281fb36df8522f0ba6b43f81/src/main/resources/assets/thaumcraft/research/golemancy.json"
+    },
+    {
+      "key": "MATSTUDVOID",
+      "category": "GOLEMANCY",
+      "location": [
+        -6,
+        0
+      ],
+      "icons": [
+        "thaumcraft:plate;1;3"
+      ],
+      "parents": [
+        "MATSTUDTHAUMIUM",
+        "BASEELDRITCH"
+      ],
+      "siblings": [],
+      "meta": [
+        "ROUND",
+        "HIDDEN"
+      ],
+      "stages": 1,
+      "addenda": 0,
+      "stage_requirement_kinds": [
+        "required_research"
+      ],
+      "source": "https://github.com/TheDarkTower314/Thaumcraft-6-Source-Code/blob/954022bb777b7546281fb36df8522f0ba6b43f81/src/main/resources/assets/thaumcraft/research/golemancy.json"
+    },
+    {
+      "key": "MINDCLOCKWORK",
+      "category": "GOLEMANCY",
+      "location": [
+        0,
+        3
+      ],
+      "icons": [
+        "thaumcraft:mind"
+      ],
+      "parents": [
+        "BASEGOLEMANCY",
+        "ESSENTIASMELTER",
+        "HEDGEALCHEMY"
+      ],
+      "siblings": [
+        "CONTROLSEALS",
+        "MATSTUDWOOD"
+      ],
+      "meta": [
+        "REVERSE"
+      ],
+      "stages": 3,
+      "addenda": 0,
+      "stage_requirement_kinds": [
+        "required_knowledge",
+        "required_research"
+      ],
+      "source": "https://github.com/TheDarkTower314/Thaumcraft-6-Source-Code/blob/954022bb777b7546281fb36df8522f0ba6b43f81/src/main/resources/assets/thaumcraft/research/golemancy.json"
+    },
+    {
+      "key": "CONTROLSEALS",
+      "category": "GOLEMANCY",
+      "location": [
+        -2,
+        5
+      ],
+      "icons": [
+        "thaumcraft:seal"
+      ],
+      "parents": [
+        "MINDCLOCKWORK"
+      ],
+      "siblings": [
+        "SEALCOLLECT"
+      ],
+      "meta": [
+        "ROUND",
+        "HIDDEN"
+      ],
+      "stages": 1,
+      "addenda": 0,
+      "stage_requirement_kinds": [],
+      "source": "https://github.com/TheDarkTower314/Thaumcraft-6-Source-Code/blob/954022bb777b7546281fb36df8522f0ba6b43f81/src/main/resources/assets/thaumcraft/research/golemancy.json"
+    },
+    {
+      "key": "GOLEMDIRECT",
+      "category": "GOLEMANCY",
+      "location": [
+        1,
+        4
+      ],
+      "icons": [
+        "thaumcraft:textures/misc/golem/head_basic.png"
+      ],
+      "parents": [
+        "MINDCLOCKWORK"
+      ],
+      "siblings": [],
+      "meta": [
+        "ROUND"
+      ],
+      "stages": 2,
+      "addenda": 0,
+      "stage_requirement_kinds": [
+        "required_knowledge"
+      ],
+      "source": "https://github.com/TheDarkTower314/Thaumcraft-6-Source-Code/blob/954022bb777b7546281fb36df8522f0ba6b43f81/src/main/resources/assets/thaumcraft/research/golemancy.json"
+    },
+    {
+      "key": "GOLEMLOGISTICS",
+      "category": "GOLEMANCY",
+      "location": [
+        3,
+        4
+      ],
+      "icons": [
+        "thaumcraft:textures/research/golem_logistics.png"
+      ],
+      "parents": [
+        "~SEALPROVIDE",
+        "GOLEMDIRECT"
+      ],
+      "siblings": [],
+      "meta": [],
+      "stages": 2,
+      "addenda": 0,
+      "stage_requirement_kinds": [
+        "required_item",
+        "required_knowledge"
+      ],
+      "source": "https://github.com/TheDarkTower314/Thaumcraft-6-Source-Code/blob/954022bb777b7546281fb36df8522f0ba6b43f81/src/main/resources/assets/thaumcraft/research/golemancy.json"
+    },
+    {
+      "key": "MINDBIOTHAUMIC",
+      "category": "GOLEMANCY",
+      "location": [
+        0,
+        7
+      ],
+      "icons": [
+        "thaumcraft:mind;1;1"
+      ],
+      "parents": [
+        "MINDCLOCKWORK",
+        "INFUSION"
+      ],
+      "siblings": [],
+      "meta": [
+        "HIDDEN"
+      ],
+      "stages": 2,
+      "addenda": 0,
+      "stage_requirement_kinds": [
+        "required_knowledge",
+        "required_research"
+      ],
+      "source": "https://github.com/TheDarkTower314/Thaumcraft-6-Source-Code/blob/954022bb777b7546281fb36df8522f0ba6b43f81/src/main/resources/assets/thaumcraft/research/golemancy.json"
+    },
+    {
+      "key": "SEALCOLLECT",
+      "category": "GOLEMANCY",
+      "location": [
+        -4,
+        4
+      ],
+      "icons": [
+        "thaumcraft:textures/items/seals/seal_pickup.png"
+      ],
+      "parents": [
+        "CONTROLSEALS"
+      ],
+      "siblings": [
+        "SEALSTORE"
+      ],
+      "meta": [
+        "ROUND"
+      ],
+      "stages": 1,
+      "addenda": 1,
+      "stage_requirement_kinds": [],
+      "source": "https://github.com/TheDarkTower314/Thaumcraft-6-Source-Code/blob/954022bb777b7546281fb36df8522f0ba6b43f81/src/main/resources/assets/thaumcraft/research/golemancy.json"
+    },
+    {
+      "key": "SEALSTORE",
+      "category": "GOLEMANCY",
+      "location": [
+        -6,
+        4
+      ],
+      "icons": [
+        "thaumcraft:textures/items/seals/seal_fill.png"
+      ],
+      "parents": [
+        "SEALCOLLECT"
+      ],
+      "siblings": [],
+      "meta": [],
+      "stages": 1,
+      "addenda": 1,
+      "stage_requirement_kinds": [],
+      "source": "https://github.com/TheDarkTower314/Thaumcraft-6-Source-Code/blob/954022bb777b7546281fb36df8522f0ba6b43f81/src/main/resources/assets/thaumcraft/research/golemancy.json"
+    },
+    {
+      "key": "SEALEMPTY",
+      "category": "GOLEMANCY",
+      "location": [
+        -8,
+        4
+      ],
+      "icons": [
+        "thaumcraft:textures/items/seals/seal_empty.png"
+      ],
+      "parents": [
+        "SEALSTORE"
+      ],
+      "siblings": [],
+      "meta": [],
+      "stages": 2,
+      "addenda": 1,
+      "stage_requirement_kinds": [
+        "required_knowledge",
+        "required_research"
+      ],
+      "source": "https://github.com/TheDarkTower314/Thaumcraft-6-Source-Code/blob/954022bb777b7546281fb36df8522f0ba6b43f81/src/main/resources/assets/thaumcraft/research/golemancy.json"
+    },
+    {
+      "key": "SEALPROVIDE",
+      "category": "GOLEMANCY",
+      "location": [
+        -7,
+        6
+      ],
+      "icons": [
+        "thaumcraft:textures/items/seals/seal_provider.png"
+      ],
+      "parents": [
+        "SEALEMPTY",
+        "MINDBIOTHAUMIC"
+      ],
+      "siblings": [],
+      "meta": [],
+      "stages": 2,
+      "addenda": 0,
+      "stage_requirement_kinds": [
+        "required_knowledge",
+        "required_research"
+      ],
+      "source": "https://github.com/TheDarkTower314/Thaumcraft-6-Source-Code/blob/954022bb777b7546281fb36df8522f0ba6b43f81/src/main/resources/assets/thaumcraft/research/golemancy.json"
+    },
+    {
+      "key": "SEALSTOCK",
+      "category": "GOLEMANCY",
+      "location": [
+        -6,
+        8
+      ],
+      "icons": [
+        "thaumcraft:textures/items/seals/seal_stock.png"
+      ],
+      "parents": [
+        "SEALPROVIDE"
+      ],
+      "siblings": [],
+      "meta": [],
+      "stages": 2,
+      "addenda": 0,
+      "stage_requirement_kinds": [
+        "required_knowledge"
+      ],
+      "source": "https://github.com/TheDarkTower314/Thaumcraft-6-Source-Code/blob/954022bb777b7546281fb36df8522f0ba6b43f81/src/main/resources/assets/thaumcraft/research/golemancy.json"
+    },
+    {
+      "key": "SEALGUARD",
+      "category": "GOLEMANCY",
+      "location": [
+        -12,
+        4
+      ],
+      "icons": [
+        "thaumcraft:textures/items/seals/seal_guard.png"
+      ],
+      "parents": [
+        "CONTROLSEALS"
+      ],
+      "siblings": [],
+      "meta": [],
+      "stages": 2,
+      "addenda": 1,
+      "stage_requirement_kinds": [
+        "required_knowledge",
+        "required_research"
+      ],
+      "source": "https://github.com/TheDarkTower314/Thaumcraft-6-Source-Code/blob/954022bb777b7546281fb36df8522f0ba6b43f81/src/main/resources/assets/thaumcraft/research/golemancy.json"
+    },
+    {
+      "key": "SEALBUTCHER",
+      "category": "GOLEMANCY",
+      "location": [
+        -11,
+        6
+      ],
+      "icons": [
+        "thaumcraft:textures/items/seals/seal_butcher.png"
+      ],
+      "parents": [
+        "SEALGUARD",
+        "INFUSION",
+        "MINDBIOTHAUMIC"
+      ],
+      "siblings": [],
+      "meta": [],
+      "stages": 2,
+      "addenda": 0,
+      "stage_requirement_kinds": [
+        "required_knowledge",
+        "required_research"
+      ],
+      "source": "https://github.com/TheDarkTower314/Thaumcraft-6-Source-Code/blob/954022bb777b7546281fb36df8522f0ba6b43f81/src/main/resources/assets/thaumcraft/research/golemancy.json"
+    },
+    {
+      "key": "SEALUSE",
+      "category": "GOLEMANCY",
+      "location": [
+        -3,
+        6
+      ],
+      "icons": [
+        "thaumcraft:textures/items/seals/seal_use.png"
+      ],
+      "parents": [
+        "CONTROLSEALS",
+        "INFUSION",
+        "MINDBIOTHAUMIC"
+      ],
+      "siblings": [],
+      "meta": [],
+      "stages": 2,
+      "addenda": 0,
+      "stage_requirement_kinds": [
+        "required_knowledge",
+        "required_research"
+      ],
+      "source": "https://github.com/TheDarkTower314/Thaumcraft-6-Source-Code/blob/954022bb777b7546281fb36df8522f0ba6b43f81/src/main/resources/assets/thaumcraft/research/golemancy.json"
+    },
+    {
+      "key": "SEALHARVEST",
+      "category": "GOLEMANCY",
+      "location": [
+        -5,
+        6
+      ],
+      "icons": [
+        "thaumcraft:textures/items/seals/seal_harvest.png"
+      ],
+      "parents": [
+        "SEALUSE"
+      ],
+      "siblings": [],
+      "meta": [],
+      "stages": 2,
+      "addenda": 0,
+      "stage_requirement_kinds": [
+        "required_knowledge",
+        "required_research"
+      ],
+      "source": "https://github.com/TheDarkTower314/Thaumcraft-6-Source-Code/blob/954022bb777b7546281fb36df8522f0ba6b43f81/src/main/resources/assets/thaumcraft/research/golemancy.json"
+    },
+    {
+      "key": "SEALBREAK",
+      "category": "GOLEMANCY",
+      "location": [
+        -10,
+        4
+      ],
+      "icons": [
+        "thaumcraft:textures/items/seals/seal_breaker.png"
+      ],
+      "parents": [
+        "CONTROLSEALS",
+        "INFUSION",
+        "GOLEMBREAKER"
+      ],
+      "siblings": [],
+      "meta": [],
+      "stages": 2,
+      "addenda": 1,
+      "stage_requirement_kinds": [
+        "required_knowledge",
+        "required_research"
+      ],
+      "source": "https://github.com/TheDarkTower314/Thaumcraft-6-Source-Code/blob/954022bb777b7546281fb36df8522f0ba6b43f81/src/main/resources/assets/thaumcraft/research/golemancy.json"
+    },
+    {
+      "key": "SEALLUMBER",
+      "category": "GOLEMANCY",
+      "location": [
+        -9,
+        6
+      ],
+      "icons": [
+        "thaumcraft:textures/items/seals/seal_lumber.png"
+      ],
+      "parents": [
+        "SEALBREAK",
+        "MINDBIOTHAUMIC"
+      ],
+      "siblings": [],
+      "meta": [],
+      "stages": 2,
+      "addenda": 0,
+      "stage_requirement_kinds": [
+        "required_knowledge",
+        "required_research"
+      ],
+      "source": "https://github.com/TheDarkTower314/Thaumcraft-6-Source-Code/blob/954022bb777b7546281fb36df8522f0ba6b43f81/src/main/resources/assets/thaumcraft/research/golemancy.json"
+    },
+    {
+      "key": "GOLEMVISION",
+      "category": "GOLEMANCY",
+      "location": [
+        -2,
+        2
+      ],
+      "icons": [
+        "thaumcraft:module"
+      ],
+      "parents": [
+        "MINDCLOCKWORK"
+      ],
+      "siblings": [],
+      "meta": [],
+      "stages": 2,
+      "addenda": 0,
+      "stage_requirement_kinds": [
+        "required_item",
+        "required_knowledge",
+        "required_research"
+      ],
+      "source": "https://github.com/TheDarkTower314/Thaumcraft-6-Source-Code/blob/954022bb777b7546281fb36df8522f0ba6b43f81/src/main/resources/assets/thaumcraft/research/golemancy.json"
+    },
+    {
+      "key": "GOLEMCLIMBER",
+      "category": "GOLEMANCY",
+      "location": [
+        -4,
+        2
+      ],
+      "icons": [
+        "thaumcraft:textures/misc/golem/legs_climber.png"
+      ],
+      "parents": [
+        "MINDCLOCKWORK"
+      ],
+      "siblings": [],
+      "meta": [],
+      "stages": 2,
+      "addenda": 0,
+      "stage_requirement_kinds": [
+        "required_item",
+        "required_knowledge",
+        "required_research"
+      ],
+      "source": "https://github.com/TheDarkTower314/Thaumcraft-6-Source-Code/blob/954022bb777b7546281fb36df8522f0ba6b43f81/src/main/resources/assets/thaumcraft/research/golemancy.json"
+    },
+    {
+      "key": "GOLEMFLYER",
+      "category": "GOLEMANCY",
+      "location": [
+        -6,
+        2
+      ],
+      "icons": [
+        "thaumcraft:textures/misc/golem/legs_flyer.png"
+      ],
+      "parents": [
+        "GOLEMCLIMBER",
+        "LEVITATOR"
+      ],
+      "siblings": [],
+      "meta": [],
+      "stages": 2,
+      "addenda": 0,
+      "stage_requirement_kinds": [
+        "required_knowledge",
+        "required_research"
+      ],
+      "source": "https://github.com/TheDarkTower314/Thaumcraft-6-Source-Code/blob/954022bb777b7546281fb36df8522f0ba6b43f81/src/main/resources/assets/thaumcraft/research/golemancy.json"
+    },
+    {
+      "key": "GOLEMBREAKER",
+      "category": "GOLEMANCY",
+      "location": [
+        -8,
+        2
+      ],
+      "icons": [
+        "thaumcraft:textures/misc/golem/arms_breakers.png"
+      ],
+      "parents": [
+        "MINDCLOCKWORK"
+      ],
+      "siblings": [],
+      "meta": [],
+      "stages": 2,
+      "addenda": 0,
+      "stage_requirement_kinds": [
+        "required_item",
+        "required_knowledge"
+      ],
+      "source": "https://github.com/TheDarkTower314/Thaumcraft-6-Source-Code/blob/954022bb777b7546281fb36df8522f0ba6b43f81/src/main/resources/assets/thaumcraft/research/golemancy.json"
+    },
+    {
+      "key": "GOLEMCOMBATADV",
+      "category": "GOLEMANCY",
+      "location": [
+        -12,
+        2
+      ],
+      "icons": [
+        "thaumcraft:textures/misc/golem/addon_fighter.png"
+      ],
+      "parents": [
+        "SEALGUARD"
+      ],
+      "siblings": [],
+      "meta": [],
+      "stages": 2,
+      "addenda": 0,
+      "stage_requirement_kinds": [
+        "required_item",
+        "required_knowledge",
+        "required_research"
+      ],
+      "source": "https://github.com/TheDarkTower314/Thaumcraft-6-Source-Code/blob/954022bb777b7546281fb36df8522f0ba6b43f81/src/main/resources/assets/thaumcraft/research/golemancy.json"
+    },
+    {
+      "key": "BASEINFUSION",
+      "category": "INFUSION",
+      "location": [
+        0,
+        0
+      ],
+      "icons": [
+        "thaumcraft:textures/research/cat_infusion.png"
+      ],
+      "parents": [
+        "UNLOCKINFUSION"
+      ],
+      "siblings": [],
+      "meta": [
+        "ROUND",
+        "HIDDEN"
+      ],
+      "stages": 1,
+      "addenda": 0,
+      "stage_requirement_kinds": [],
+      "source": "https://github.com/TheDarkTower314/Thaumcraft-6-Source-Code/blob/954022bb777b7546281fb36df8522f0ba6b43f81/src/main/resources/assets/thaumcraft/research/infusion.json"
+    },
+    {
+      "key": "INFUSION",
+      "category": "INFUSION",
+      "location": [
+        0,
+        2
+      ],
+      "icons": [
+        "thaumcraft:infusion_matrix"
+      ],
+      "parents": [
+        "BASEINFUSION"
+      ],
+      "siblings": [],
+      "meta": [
+        "SPIKY"
+      ],
+      "stages": 3,
+      "addenda": 0,
+      "stage_requirement_kinds": [
+        "required_craft",
+        "required_item",
+        "required_knowledge"
+      ],
+      "source": "https://github.com/TheDarkTower314/Thaumcraft-6-Source-Code/blob/954022bb777b7546281fb36df8522f0ba6b43f81/src/main/resources/assets/thaumcraft/research/infusion.json"
+    },
+    {
+      "key": "INFUSIONSTABLE",
+      "category": "INFUSION",
+      "location": [
+        1,
+        4
+      ],
+      "icons": [
+        "thaumcraft:stabilizer"
+      ],
+      "parents": [
+        "INFUSION",
+        "METALLURGY@3",
+        "!INSTABILITY"
+      ],
+      "siblings": [],
+      "meta": [
+        "HIDDEN",
+        "REVERSE"
+      ],
+      "stages": 2,
+      "addenda": 0,
+      "stage_requirement_kinds": [
+        "required_item",
+        "required_knowledge"
+      ],
+      "source": "https://github.com/TheDarkTower314/Thaumcraft-6-Source-Code/blob/954022bb777b7546281fb36df8522f0ba6b43f81/src/main/resources/assets/thaumcraft/research/infusion.json"
+    },
+    {
+      "key": "INFUSIONBOOST",
+      "category": "INFUSION",
+      "location": [
+        -1,
+        4
+      ],
+      "icons": [
+        "thaumcraft:matrix_cost",
+        "thaumcraft:matrix_speed"
+      ],
+      "parents": [
+        "INFUSION"
+      ],
+      "siblings": [],
+      "meta": [
+        "REVERSE"
+      ],
+      "stages": 2,
+      "addenda": 0,
+      "stage_requirement_kinds": [
+        "required_knowledge"
+      ],
+      "source": "https://github.com/TheDarkTower314/Thaumcraft-6-Source-Code/blob/954022bb777b7546281fb36df8522f0ba6b43f81/src/main/resources/assets/thaumcraft/research/infusion.json"
+    },
+    {
+      "key": "INFUSIONANCIENT",
+      "category": "INFUSION",
+      "location": [
+        0,
+        6
+      ],
+      "icons": [
+        "thaumcraft:stone_ancient"
+      ],
+      "parents": [
+        "INFUSIONBOOST",
+        "!ORBLOCK1"
+      ],
+      "siblings": [],
+      "meta": [
+        "HIDDEN",
+        "REVERSE"
+      ],
+      "stages": 2,
+      "addenda": 0,
+      "stage_requirement_kinds": [
+        "required_item",
+        "required_knowledge"
+      ],
+      "source": "https://github.com/TheDarkTower314/Thaumcraft-6-Source-Code/blob/954022bb777b7546281fb36df8522f0ba6b43f81/src/main/resources/assets/thaumcraft/research/infusion.json"
+    },
+    {
+      "key": "INFUSIONELDRITCH",
+      "category": "INFUSION",
+      "location": [
+        -2,
+        6
+      ],
+      "icons": [
+        "thaumcraft:stone_eldritch_tile"
+      ],
+      "parents": [
+        "INFUSIONBOOST",
+        "!ORBLOCK2"
+      ],
+      "siblings": [],
+      "meta": [
+        "HIDDEN",
+        "REVERSE"
+      ],
+      "stages": 2,
+      "addenda": 0,
+      "stage_requirement_kinds": [
+        "required_item",
+        "required_knowledge"
+      ],
+      "source": "https://github.com/TheDarkTower314/Thaumcraft-6-Source-Code/blob/954022bb777b7546281fb36df8522f0ba6b43f81/src/main/resources/assets/thaumcraft/research/infusion.json"
+    },
+    {
+      "key": "PAVINGSTONES",
+      "category": "INFUSION",
+      "location": [
+        0,
+        -2
+      ],
+      "icons": [
+        "thaumcraft:paving_stone_barrier",
+        "thaumcraft:paving_stone_travel"
+      ],
+      "parents": [
+        "BASEINFUSION"
+      ],
+      "siblings": [],
+      "meta": [],
+      "stages": 2,
+      "addenda": 0,
+      "stage_requirement_kinds": [
+        "required_craft",
+        "required_knowledge"
+      ],
+      "source": "https://github.com/TheDarkTower314/Thaumcraft-6-Source-Code/blob/954022bb777b7546281fb36df8522f0ba6b43f81/src/main/resources/assets/thaumcraft/research/infusion.json"
+    },
+    {
+      "key": "BOOTSTRAVELLER",
+      "category": "INFUSION",
+      "location": [
+        -2,
+        2
+      ],
+      "icons": [
+        "thaumcraft:traveller_boots"
+      ],
+      "parents": [
+        "INFUSION",
+        "RECHARGEPEDESTAL"
+      ],
+      "siblings": [],
+      "meta": [],
+      "stages": 2,
+      "addenda": 0,
+      "stage_requirement_kinds": [
+        "required_knowledge",
+        "required_research"
+      ],
+      "source": "https://github.com/TheDarkTower314/Thaumcraft-6-Source-Code/blob/954022bb777b7546281fb36df8522f0ba6b43f81/src/main/resources/assets/thaumcraft/research/infusion.json"
+    },
+    {
+      "key": "ELEMENTALTOOLS",
+      "category": "INFUSION",
+      "location": [
+        -4,
+        3
+      ],
+      "icons": [
+        "thaumcraft:elemental_axe",
+        "thaumcraft:elemental_sword",
+        "thaumcraft:elemental_pick",
+        "thaumcraft:elemental_shovel",
+        "thaumcraft:elemental_hoe"
+      ],
+      "parents": [
+        "BOOTSTRAVELLER",
+        "METALLURGY@3"
+      ],
+      "siblings": [],
+      "meta": [],
+      "stages": 2,
+      "addenda": 0,
+      "stage_requirement_kinds": [
+        "required_craft",
+        "required_knowledge"
+      ],
+      "source": "https://github.com/TheDarkTower314/Thaumcraft-6-Source-Code/blob/954022bb777b7546281fb36df8522f0ba6b43f81/src/main/resources/assets/thaumcraft/research/infusion.json"
+    },
+    {
+      "key": "INFUSIONENCHANTMENT",
+      "category": "INFUSION",
+      "location": [
+        -6,
+        4
+      ],
+      "icons": [
+        "thaumcraft:textures/research/r_inf_enchant.png"
+      ],
+      "parents": [
+        "ELEMENTALTOOLS"
+      ],
+      "siblings": [],
+      "meta": [],
+      "stages": 2,
+      "addenda": 0,
+      "stage_requirement_kinds": [
+        "required_item",
+        "required_knowledge"
+      ],
+      "source": "https://github.com/TheDarkTower314/Thaumcraft-6-Source-Code/blob/954022bb777b7546281fb36df8522f0ba6b43f81/src/main/resources/assets/thaumcraft/research/infusion.json"
+    },
+    {
+      "key": "RUNICSHIELDING",
+      "category": "INFUSION",
+      "location": [
+        -6,
+        6
+      ],
+      "icons": [
+        "thaumcraft:textures/research/r_runicupg.png"
+      ],
+      "parents": [
+        "INFUSIONENCHANTMENT"
+      ],
+      "siblings": [],
+      "meta": [],
+      "stages": 2,
+      "addenda": 0,
+      "stage_requirement_kinds": [
+        "required_item",
+        "required_knowledge"
+      ],
+      "source": "https://github.com/TheDarkTower314/Thaumcraft-6-Source-Code/blob/954022bb777b7546281fb36df8522f0ba6b43f81/src/main/resources/assets/thaumcraft/research/infusion.json"
+    },
+    {
+      "key": "ARMORFORTRESS",
+      "category": "INFUSION",
+      "location": [
+        -4,
+        1
+      ],
+      "icons": [
+        "thaumcraft:fortress_helm"
+      ],
+      "parents": [
+        "METALLURGY@3",
+        "BOOTSTRAVELLER"
+      ],
+      "siblings": [],
+      "meta": [],
+      "stages": 2,
+      "addenda": 0,
+      "stage_requirement_kinds": [
+        "required_knowledge",
+        "required_research"
+      ],
+      "source": "https://github.com/TheDarkTower314/Thaumcraft-6-Source-Code/blob/954022bb777b7546281fb36df8522f0ba6b43f81/src/main/resources/assets/thaumcraft/research/infusion.json"
+    },
+    {
+      "key": "FORTRESSMASK",
+      "category": "INFUSION",
+      "location": [
+        -5,
+        0
+      ],
+      "icons": [
+        "thaumcraft:textures/research/r_mask0.png",
+        "thaumcraft:textures/research/r_mask1.png",
+        "thaumcraft:textures/research/r_mask2.png"
+      ],
+      "parents": [
+        "ARMORFORTRESS"
+      ],
+      "siblings": [],
+      "meta": [],
+      "stages": 2,
+      "addenda": 0,
+      "stage_requirement_kinds": [
+        "required_knowledge"
+      ],
+      "source": "https://github.com/TheDarkTower314/Thaumcraft-6-Source-Code/blob/954022bb777b7546281fb36df8522f0ba6b43f81/src/main/resources/assets/thaumcraft/research/infusion.json"
+    },
+    {
+      "key": "CLOUDRING",
+      "category": "INFUSION",
+      "location": [
+        2,
+        2
+      ],
+      "icons": [
+        "thaumcraft:cloud_ring"
+      ],
+      "parents": [
+        "INFUSION"
+      ],
+      "siblings": [],
+      "meta": [],
+      "stages": 2,
+      "addenda": 0,
+      "stage_requirement_kinds": [
+        "required_knowledge"
+      ],
+      "source": "https://github.com/TheDarkTower314/Thaumcraft-6-Source-Code/blob/954022bb777b7546281fb36df8522f0ba6b43f81/src/main/resources/assets/thaumcraft/research/infusion.json"
+    },
+    {
+      "key": "CURIOSITYBAND",
+      "category": "INFUSION",
+      "location": [
+        4,
+        1
+      ],
+      "icons": [
+        "thaumcraft:curiosity_band"
+      ],
+      "parents": [
+        "CLOUDRING"
+      ],
+      "siblings": [],
+      "meta": [],
+      "stages": 2,
+      "addenda": 0,
+      "stage_requirement_kinds": [
+        "required_knowledge"
+      ],
+      "source": "https://github.com/TheDarkTower314/Thaumcraft-6-Source-Code/blob/954022bb777b7546281fb36df8522f0ba6b43f81/src/main/resources/assets/thaumcraft/research/infusion.json"
+    },
+    {
+      "key": "VERDANTCHARMS",
+      "category": "INFUSION",
+      "location": [
+        4,
+        3
+      ],
+      "icons": [
+        "thaumcraft:verdant_charm"
+      ],
+      "parents": [
+        "CLOUDRING"
+      ],
+      "siblings": [],
+      "meta": [],
+      "stages": 2,
+      "addenda": 0,
+      "stage_requirement_kinds": [
+        "required_knowledge"
+      ],
+      "source": "https://github.com/TheDarkTower314/Thaumcraft-6-Source-Code/blob/954022bb777b7546281fb36df8522f0ba6b43f81/src/main/resources/assets/thaumcraft/research/infusion.json"
+    },
+    {
+      "key": "CHARMUNDYING",
+      "category": "INFUSION",
+      "location": [
+        3,
+        -1
+      ],
+      "icons": [
+        "thaumcraft:charm_undying"
+      ],
+      "parents": [
+        "CLOUDRING",
+        "!TOTEMUNDYING"
+      ],
+      "siblings": [],
+      "meta": [
+        "HIDDEN",
+        "REVERSE"
+      ],
+      "stages": 2,
+      "addenda": 0,
+      "stage_requirement_kinds": [
+        "required_knowledge"
+      ],
+      "source": "https://github.com/TheDarkTower314/Thaumcraft-6-Source-Code/blob/954022bb777b7546281fb36df8522f0ba6b43f81/src/main/resources/assets/thaumcraft/research/infusion.json"
+    },
+    {
+      "key": "!Wisp",
+      "category": "BASICS",
+      "location": [
+        -7,
+        0
+      ],
+      "icons": [
+        "thaumcraft:textures/research/r_wisp.png"
+      ],
+      "parents": [],
+      "siblings": [],
+      "meta": [
+        "HEX",
+        "HIDDEN"
+      ],
+      "stages": 1,
+      "addenda": 0,
+      "stage_requirement_kinds": [],
+      "source": "https://github.com/TheDarkTower314/Thaumcraft-6-Source-Code/blob/954022bb777b7546281fb36df8522f0ba6b43f81/src/main/resources/assets/thaumcraft/research/scans.json"
+    },
+    {
+      "key": "!Pech",
+      "category": "BASICS",
+      "location": [
+        -8,
+        0
+      ],
+      "icons": [
+        "thaumcraft:textures/research/r_pech.png"
+      ],
+      "parents": [],
+      "siblings": [],
+      "meta": [
+        "HEX",
+        "HIDDEN"
+      ],
+      "stages": 1,
+      "addenda": 0,
+      "stage_requirement_kinds": [],
+      "source": "https://github.com/TheDarkTower314/Thaumcraft-6-Source-Code/blob/954022bb777b7546281fb36df8522f0ba6b43f81/src/main/resources/assets/thaumcraft/research/scans.json"
+    },
+    {
+      "key": "!ThaumSlime",
+      "category": "BASICS",
+      "location": [
+        -9,
+        0
+      ],
+      "icons": [
+        "thaumcraft:textures/research/r_thaumslime.png"
+      ],
+      "parents": [],
+      "siblings": [],
+      "meta": [
+        "HEX",
+        "HIDDEN"
+      ],
+      "stages": 1,
+      "addenda": 0,
+      "stage_requirement_kinds": [],
+      "source": "https://github.com/TheDarkTower314/Thaumcraft-6-Source-Code/blob/954022bb777b7546281fb36df8522f0ba6b43f81/src/main/resources/assets/thaumcraft/research/scans.json"
+    },
+    {
+      "key": "!Firebat",
+      "category": "BASICS",
+      "location": [
+        -10,
+        0
+      ],
+      "icons": [
+        "thaumcraft:textures/research/r_firebat.png"
+      ],
+      "parents": [],
+      "siblings": [],
+      "meta": [
+        "HEX",
+        "HIDDEN"
+      ],
+      "stages": 1,
+      "addenda": 0,
+      "stage_requirement_kinds": [],
+      "source": "https://github.com/TheDarkTower314/Thaumcraft-6-Source-Code/blob/954022bb777b7546281fb36df8522f0ba6b43f81/src/main/resources/assets/thaumcraft/research/scans.json"
+    },
+    {
+      "key": "!TaintSeed",
+      "category": "BASICS",
+      "location": [
+        -7,
+        1
+      ],
+      "icons": [
+        "thaumcraft:textures/research/r_taintseed.png"
+      ],
+      "parents": [],
+      "siblings": [],
+      "meta": [
+        "HEX",
+        "HIDDEN"
+      ],
+      "stages": 1,
+      "addenda": 0,
+      "stage_requirement_kinds": [],
+      "source": "https://github.com/TheDarkTower314/Thaumcraft-6-Source-Code/blob/954022bb777b7546281fb36df8522f0ba6b43f81/src/main/resources/assets/thaumcraft/research/scans.json"
+    },
+    {
+      "key": "!TaintCrawler",
+      "category": "BASICS",
+      "location": [
+        -8,
+        1
+      ],
+      "icons": [
+        "thaumcraft:textures/research/r_taintcrawler.png"
+      ],
+      "parents": [],
+      "siblings": [],
+      "meta": [
+        "HEX",
+        "HIDDEN"
+      ],
+      "stages": 1,
+      "addenda": 0,
+      "stage_requirement_kinds": [],
+      "source": "https://github.com/TheDarkTower314/Thaumcraft-6-Source-Code/blob/954022bb777b7546281fb36df8522f0ba6b43f81/src/main/resources/assets/thaumcraft/research/scans.json"
+    },
+    {
+      "key": "!Taintacle",
+      "category": "BASICS",
+      "location": [
+        -9,
+        1
+      ],
+      "icons": [
+        "thaumcraft:textures/research/r_taintacle.png"
+      ],
+      "parents": [],
+      "siblings": [],
+      "meta": [
+        "HEX",
+        "HIDDEN"
+      ],
+      "stages": 1,
+      "addenda": 0,
+      "stage_requirement_kinds": [],
+      "source": "https://github.com/TheDarkTower314/Thaumcraft-6-Source-Code/blob/954022bb777b7546281fb36df8522f0ba6b43f81/src/main/resources/assets/thaumcraft/research/scans.json"
+    },
+    {
+      "key": "!TaintSwarm",
+      "category": "BASICS",
+      "location": [
+        -10,
+        1
+      ],
+      "icons": [
+        "thaumcraft:textures/research/r_taintswarm.png"
+      ],
+      "parents": [],
+      "siblings": [],
+      "meta": [
+        "HEX",
+        "HIDDEN"
+      ],
+      "stages": 1,
+      "addenda": 0,
+      "stage_requirement_kinds": [],
+      "source": "https://github.com/TheDarkTower314/Thaumcraft-6-Source-Code/blob/954022bb777b7546281fb36df8522f0ba6b43f81/src/main/resources/assets/thaumcraft/research/scans.json"
+    },
+    {
+      "key": "!CrimsonCultist",
+      "category": "BASICS",
+      "location": [
+        -7,
+        2
+      ],
+      "icons": [
+        "thaumcraft:textures/research/r_cultist.png"
+      ],
+      "parents": [],
+      "siblings": [],
+      "meta": [
+        "HEX",
+        "HIDDEN"
+      ],
+      "stages": 1,
+      "addenda": 0,
+      "stage_requirement_kinds": [],
+      "source": "https://github.com/TheDarkTower314/Thaumcraft-6-Source-Code/blob/954022bb777b7546281fb36df8522f0ba6b43f81/src/main/resources/assets/thaumcraft/research/scans.json"
+    },
+    {
+      "key": "!BrainyZombie",
+      "category": "BASICS",
+      "location": [
+        -8,
+        2
+      ],
+      "icons": [
+        "thaumcraft:textures/research/r_angryzombie.png"
+      ],
+      "parents": [],
+      "siblings": [],
+      "meta": [
+        "HEX",
+        "HIDDEN"
+      ],
+      "stages": 1,
+      "addenda": 0,
+      "stage_requirement_kinds": [],
+      "source": "https://github.com/TheDarkTower314/Thaumcraft-6-Source-Code/blob/954022bb777b7546281fb36df8522f0ba6b43f81/src/main/resources/assets/thaumcraft/research/scans.json"
+    },
+    {
+      "key": "!EldritchGuardian",
+      "category": "BASICS",
+      "location": [
+        -9,
+        2
+      ],
+      "icons": [
+        "thaumcraft:textures/research/r_eldritchguardian.png"
+      ],
+      "parents": [],
+      "siblings": [],
+      "meta": [
+        "HEX",
+        "HIDDEN"
+      ],
+      "stages": 1,
+      "addenda": 0,
+      "stage_requirement_kinds": [],
+      "source": "https://github.com/TheDarkTower314/Thaumcraft-6-Source-Code/blob/954022bb777b7546281fb36df8522f0ba6b43f81/src/main/resources/assets/thaumcraft/research/scans.json"
+    },
+    {
+      "key": "!EldritchCrab",
+      "category": "BASICS",
+      "location": [
+        -10,
+        2
+      ],
+      "icons": [
+        "thaumcraft:textures/research/r_crab.png"
+      ],
+      "parents": [],
+      "siblings": [],
+      "meta": [
+        "HEX",
+        "HIDDEN"
+      ],
+      "stages": 1,
+      "addenda": 0,
+      "stage_requirement_kinds": [],
+      "source": "https://github.com/TheDarkTower314/Thaumcraft-6-Source-Code/blob/954022bb777b7546281fb36df8522f0ba6b43f81/src/main/resources/assets/thaumcraft/research/scans.json"
+    }
+  ]
+}

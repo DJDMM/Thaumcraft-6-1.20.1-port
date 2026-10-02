@@ -1,0 +1,12 @@
+{
+  "type": "item",
+  "targets": [
+    "minecraft:dark_oak_fence_gate"
+  ],
+  "aspects": {
+    "vinculum": 5,
+    "machina": 5
+  },
+  "_source": "Thaumcraft 6 ConfigAspects.java:420",
+  "derive": true
+}

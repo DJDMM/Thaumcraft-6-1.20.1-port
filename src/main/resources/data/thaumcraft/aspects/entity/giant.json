@@ -1,0 +1,12 @@
+{
+  "type": "entity",
+  "targets": [
+    "minecraft:giant"
+  ],
+  "aspects": {
+    "exanimis": 25,
+    "humanus": 15,
+    "terra": 10
+  },
+  "_source": "Thaumcraft 6 ConfigAspects.java:47"
+}

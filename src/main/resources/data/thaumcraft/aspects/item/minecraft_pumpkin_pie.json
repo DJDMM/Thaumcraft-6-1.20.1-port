@@ -1,0 +1,12 @@
+{
+  "type": "item",
+  "targets": [
+    "minecraft:pumpkin_pie"
+  ],
+  "aspects": {
+    "desiderium": 1,
+    "victus": 2
+  },
+  "_source": "Thaumcraft 6 ConfigAspects.java:266",
+  "derive": true
+}

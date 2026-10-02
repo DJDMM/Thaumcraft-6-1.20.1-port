@@ -1,0 +1,12 @@
+{
+  "type": "item",
+  "targets": [
+    "minecraft:bone_meal"
+  ],
+  "aspects": {
+    "victus": 2,
+    "mortuus": 1,
+    "herba": 1
+  },
+  "_source": "Thaumcraft 6 ConfigAspects.java:466"
+}

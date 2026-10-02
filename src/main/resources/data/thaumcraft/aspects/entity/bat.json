@@ -1,0 +1,12 @@
+{
+  "type": "entity",
+  "targets": [
+    "minecraft:bat"
+  ],
+  "aspects": {
+    "bestia": 5,
+    "volatus": 5,
+    "tenebrae": 5
+  },
+  "_source": "Thaumcraft 6 ConfigAspects.java:67"
+}

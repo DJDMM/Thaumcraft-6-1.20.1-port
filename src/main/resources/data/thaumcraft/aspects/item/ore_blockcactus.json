@@ -1,0 +1,12 @@
+{
+  "type": "item",
+  "targets": [
+    "minecraft:cactus"
+  ],
+  "aspects": {
+    "herba": 5,
+    "aqua": 5,
+    "aversio": 1
+  },
+  "_source": "Thaumcraft 6 ConfigAspects.java:246"
+}

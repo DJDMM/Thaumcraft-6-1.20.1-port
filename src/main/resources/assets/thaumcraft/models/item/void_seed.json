@@ -1,0 +1,6 @@
+{
+  "textures": {
+    "layer0": "thaumcraft:items/void_seed"
+  },
+  "parent": "minecraft:item/generated"
+}

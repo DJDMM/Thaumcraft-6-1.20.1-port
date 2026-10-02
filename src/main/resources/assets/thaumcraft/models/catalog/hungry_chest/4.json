@@ -1,0 +1,7 @@
+{
+  "parent": "thaumcraft:block/chest",
+  "textures": {
+    "particle": "thaumcraft:models/chesthungry",
+    "texture": "thaumcraft:models/chesthungry"
+  }
+}

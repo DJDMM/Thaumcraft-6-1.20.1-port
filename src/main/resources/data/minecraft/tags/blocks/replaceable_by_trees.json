@@ -1,0 +1,9 @@
+{
+  "replace": false,
+  "values": [
+    "thaumcraft:sapling_greatwood",
+    "thaumcraft:leaves_greatwood",
+    "thaumcraft:sapling_silverwood",
+    "thaumcraft:leaves_silverwood"
+  ]
+}

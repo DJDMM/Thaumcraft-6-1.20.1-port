@@ -1,0 +1,11 @@
+{
+  "type": "entity",
+  "targets": [
+    "minecraft:squid"
+  ],
+  "aspects": {
+    "bestia": 5,
+    "aqua": 10
+  },
+  "_source": "Thaumcraft 6 ConfigAspects.java:65"
+}

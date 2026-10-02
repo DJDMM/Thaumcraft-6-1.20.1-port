@@ -1,0 +1,12 @@
+{
+  "type": "item",
+  "targets": [
+    "minecraft:saddle"
+  ],
+  "aspects": {
+    "bestia": 10,
+    "motus": 10,
+    "ordo": 5
+  },
+  "_source": "Thaumcraft 6 ConfigAspects.java:311"
+}

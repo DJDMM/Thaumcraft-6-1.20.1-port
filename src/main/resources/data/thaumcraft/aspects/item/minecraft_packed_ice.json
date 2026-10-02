@@ -1,0 +1,11 @@
+{
+  "type": "item",
+  "targets": [
+    "minecraft:packed_ice"
+  ],
+  "aspects": {
+    "gelum": 15,
+    "ordo": 5
+  },
+  "_source": "Thaumcraft 6 ConfigAspects.java:280"
+}

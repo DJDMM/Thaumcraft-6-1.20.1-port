@@ -1,0 +1,11 @@
+{
+  "type": "item_tag",
+  "targets": [
+    "forge:ingots/lead"
+  ],
+  "aspects": {
+    "metallum": 10,
+    "ordo": 5
+  },
+  "_source": "Thaumcraft 6 ConfigAspects.java:163"
+}

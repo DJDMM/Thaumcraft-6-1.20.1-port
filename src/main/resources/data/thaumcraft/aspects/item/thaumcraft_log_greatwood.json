@@ -1,0 +1,6 @@
+{
+  "type": "item",
+  "targets": ["thaumcraft:log_greatwood"],
+  "aspects": {"herba": 20, "victus": 5},
+  "_source": "Thaumcraft 6 ConfigAspects.java:499"
+}

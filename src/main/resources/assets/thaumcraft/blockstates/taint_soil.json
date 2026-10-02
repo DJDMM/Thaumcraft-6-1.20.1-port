@@ -1,0 +1,58 @@
+{
+  "variants": {
+    "": [
+      {
+        "model": "thaumcraft:catalog/taint_soil/0",
+        "weight": 16
+      },
+      {
+        "model": "thaumcraft:catalog/taint_soil/1",
+        "x": 90,
+        "weight": 16
+      },
+      {
+        "model": "thaumcraft:catalog/taint_soil/2",
+        "y": 90,
+        "weight": 16
+      },
+      {
+        "model": "thaumcraft:catalog/taint_soil/3",
+        "x": 90,
+        "y": 90,
+        "weight": 16
+      },
+      {
+        "model": "thaumcraft:catalog/taint_soil/4"
+      },
+      {
+        "model": "thaumcraft:catalog/taint_soil/5",
+        "x": 90
+      },
+      {
+        "model": "thaumcraft:catalog/taint_soil/6",
+        "y": 90
+      },
+      {
+        "model": "thaumcraft:catalog/taint_soil/7",
+        "x": 90,
+        "y": 90
+      },
+      {
+        "model": "thaumcraft:catalog/taint_soil/8"
+      },
+      {
+        "model": "thaumcraft:catalog/taint_soil/9",
+        "x": 90
+      },
+      {
+        "model": "thaumcraft:catalog/taint_soil/10",
+        "y": 90
+      },
+      {
+        "model": "thaumcraft:catalog/taint_soil/11",
+        "x": 90,
+        "y": 90
+      }
+    ]
+  }
+}

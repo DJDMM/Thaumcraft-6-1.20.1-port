@@ -1,0 +1,12 @@
+{
+  "type": "item",
+  "targets": [
+    "minecraft:sponge"
+  ],
+  "aspects": {
+    "terra": 5,
+    "vinculum": 5,
+    "vacuos": 5
+  },
+  "_source": "Thaumcraft 6 ConfigAspects.java:262"
+}

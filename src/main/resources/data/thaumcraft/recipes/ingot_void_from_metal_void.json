@@ -1,0 +1,13 @@
+{
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "thaumcraft:metal_void"
+    }
+  ],
+  "result": {
+    "count": 9,
+    "item": "thaumcraft:ingot_void"
+  },
+  "type": "minecraft:crafting_shapeless"
+}

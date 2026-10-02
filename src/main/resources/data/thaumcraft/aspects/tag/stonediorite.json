@@ -1,0 +1,10 @@
+{
+  "type": "item_tag",
+  "targets": [
+    "forge:stone/diorite"
+  ],
+  "aspects": {
+    "terra": 5
+  },
+  "_source": "Thaumcraft 6 ConfigAspects.java:181"
+}

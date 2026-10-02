@@ -1,0 +1,9 @@
+{
+  "loader": "forge:obj",
+  "model": "thaumcraft:models/obj/crystal_vitium_3.obj",
+  "flip_v": true,
+  "textures": {
+    "particle": "thaumcraft:blocks/crystal"
+  },
+  "render_type": "cutout"
+}

@@ -1,0 +1,13 @@
+{
+  "type": "item",
+  "targets": [
+    "minecraft:ender_chest"
+  ],
+  "aspects": {
+    "permutatio": 10,
+    "motus": 10,
+    "vacuos": 20
+  },
+  "_source": "Thaumcraft 6 ConfigAspects.java:442",
+  "derive": true
+}

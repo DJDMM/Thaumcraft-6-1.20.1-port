@@ -1,0 +1,12 @@
+{
+  "type": "item",
+  "targets": [
+    "thaumcraft:quicksilver"
+  ],
+  "aspects": {
+    "metallum": 10,
+    "mortuus": 5,
+    "alkimia": 5
+  },
+  "_source": "Thaumcraft 6 ConfigAspects.java:482"
+}

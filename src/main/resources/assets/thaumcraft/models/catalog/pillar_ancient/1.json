@@ -1,0 +1,11 @@
+{
+  "loader": "forge:obj",
+  "model": "thaumcraft:models/block/pillar.obj",
+  "flip_v": false,
+  "textures": {
+    "texture": "thaumcraft:blocks/pillar_ancient",
+    "particle": "thaumcraft:blocks/pillar_ancient"
+  },
+  "render_type": "cutout",
+  "parent": "minecraft:block/block"
+}

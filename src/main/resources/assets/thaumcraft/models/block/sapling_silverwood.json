@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/cross",
+  "textures": {
+    "cross": "thaumcraft:blocks/sapling_silverwood"
+  },
+  "render_type": "minecraft:cutout"
+}

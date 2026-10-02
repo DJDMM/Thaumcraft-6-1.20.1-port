@@ -1,0 +1,11 @@
+{
+  "type": "item",
+  "targets": [
+    "minecraft:clock"
+  ],
+  "aspects": {
+    "machina": 10
+  },
+  "_source": "Thaumcraft 6 ConfigAspects.java:436",
+  "derive": true
+}

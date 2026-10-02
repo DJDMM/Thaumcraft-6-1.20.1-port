@@ -1,0 +1,2890 @@
+{
+  "schema": 1,
+  "baseline": "Thaumcraft 6.1.BETA26",
+  "original_jar_sha256": "9425f8643581b27ff8845b087c8bc6fc10425a32942f1a3f0e265ce6b38f7b5f",
+  "original_item_registry_count": 108,
+  "metadata_form_count": 185,
+  "items": [
+    {
+      "id": "thaumonomicon",
+      "legacy_item": "thaumonomicon",
+      "legacy_metadata": 0,
+      "legacy_variant": "normal",
+      "legacy_name_key": "item.thaumonomicon.normal.name",
+      "source_class": "ItemThaumonomicon",
+      "source_file": "thaumcraft/common/items/curios/ItemThaumonomicon.java",
+      "model_status": "existing",
+      "stack_limit": 1
+    },
+    {
+      "id": "thaumonomicon_cheat",
+      "legacy_item": "thaumonomicon",
+      "legacy_metadata": 1,
+      "legacy_variant": "cheat",
+      "legacy_name_key": "item.thaumonomicon.cheat.name",
+      "source_class": "ItemThaumonomicon",
+      "source_file": "thaumcraft/common/items/curios/ItemThaumonomicon.java",
+      "model_status": "legacy_item_layer_adapted",
+      "original_model": "assets/thaumcraft/blockstates/thaumonomicon.json#cheat",
+      "stack_limit": 1
+    },
+    {
+      "id": "curio_arcane",
+      "legacy_item": "curio",
+      "legacy_metadata": 0,
+      "legacy_variant": "arcane",
+      "legacy_name_key": "item.curio.arcane.name",
+      "source_class": "ItemCurio",
+      "source_file": "thaumcraft/common/items/curios/ItemCurio.java",
+      "model_status": "legacy_item_layer_adapted",
+      "original_model": "assets/thaumcraft/blockstates/curio.json#arcane",
+      "stack_limit": 64
+    },
+    {
+      "id": "curio_preserved",
+      "legacy_item": "curio",
+      "legacy_metadata": 1,
+      "legacy_variant": "preserved",
+      "legacy_name_key": "item.curio.preserved.name",
+      "source_class": "ItemCurio",
+      "source_file": "thaumcraft/common/items/curios/ItemCurio.java",
+      "model_status": "legacy_item_layer_adapted",
+      "original_model": "assets/thaumcraft/blockstates/curio.json#preserved",
+      "stack_limit": 64
+    },
+    {
+      "id": "curio_ancient",
+      "legacy_item": "curio",
+      "legacy_metadata": 2,
+      "legacy_variant": "ancient",
+      "legacy_name_key": "item.curio.ancient.name",
+      "source_class": "ItemCurio",
+      "source_file": "thaumcraft/common/items/curios/ItemCurio.java",
+      "model_status": "legacy_item_layer_adapted",
+      "original_model": "assets/thaumcraft/blockstates/curio.json#ancient",
+      "stack_limit": 64
+    },
+    {
+      "id": "curio_eldritch",
+      "legacy_item": "curio",
+      "legacy_metadata": 3,
+      "legacy_variant": "eldritch",
+      "legacy_name_key": "item.curio.eldritch.name",
+      "source_class": "ItemCurio",
+      "source_file": "thaumcraft/common/items/curios/ItemCurio.java",
+      "model_status": "legacy_item_layer_adapted",
+      "original_model": "assets/thaumcraft/blockstates/curio.json#eldritch",
+      "stack_limit": 64
+    },
+    {
+      "id": "curio_knowledge",
+      "legacy_item": "curio",
+      "legacy_metadata": 4,
+      "legacy_variant": "knowledge",
+      "legacy_name_key": "item.curio.knowledge.name",
+      "source_class": "ItemCurio",
+      "source_file": "thaumcraft/common/items/curios/ItemCurio.java",
+      "model_status": "legacy_item_layer_adapted",
+      "original_model": "assets/thaumcraft/blockstates/curio.json#knowledge",
+      "stack_limit": 64
+    },
+    {
+      "id": "curio_twisted",
+      "legacy_item": "curio",
+      "legacy_metadata": 5,
+      "legacy_variant": "twisted",
+      "legacy_name_key": "item.curio.twisted.name",
+      "source_class": "ItemCurio",
+      "source_file": "thaumcraft/common/items/curios/ItemCurio.java",
+      "model_status": "legacy_item_layer_adapted",
+      "original_model": "assets/thaumcraft/blockstates/curio.json#twisted",
+      "stack_limit": 64
+    },
+    {
+      "id": "curio_rites",
+      "legacy_item": "curio",
+      "legacy_metadata": 6,
+      "legacy_variant": "rites",
+      "legacy_name_key": "item.curio.rites.name",
+      "source_class": "ItemCurio",
+      "source_file": "thaumcraft/common/items/curios/ItemCurio.java",
+      "model_status": "legacy_item_layer_adapted",
+      "original_model": "assets/thaumcraft/blockstates/curio.json#rites",
+      "stack_limit": 64
+    },
+    {
+      "id": "loot_bag_common",
+      "legacy_item": "loot_bag",
+      "legacy_metadata": 0,
+      "legacy_variant": "common",
+      "legacy_name_key": "item.loot_bag.common.name",
+      "source_class": "ItemLootBag",
+      "source_file": "thaumcraft/common/items/curios/ItemLootBag.java",
+      "model_status": "legacy_item_layer_adapted",
+      "original_model": "assets/thaumcraft/blockstates/loot_bag.json#common",
+      "stack_limit": 16
+    },
+    {
+      "id": "loot_bag_uncommon",
+      "legacy_item": "loot_bag",
+      "legacy_metadata": 1,
+      "legacy_variant": "uncommon",
+      "legacy_name_key": "item.loot_bag.uncommon.name",
+      "source_class": "ItemLootBag",
+      "source_file": "thaumcraft/common/items/curios/ItemLootBag.java",
+      "model_status": "legacy_item_layer_adapted",
+      "original_model": "assets/thaumcraft/blockstates/loot_bag.json#uncommon",
+      "stack_limit": 16
+    },
+    {
+      "id": "loot_bag_rare",
+      "legacy_item": "loot_bag",
+      "legacy_metadata": 2,
+      "legacy_variant": "rare",
+      "legacy_name_key": "item.loot_bag.rare.name",
+      "source_class": "ItemLootBag",
+      "source_file": "thaumcraft/common/items/curios/ItemLootBag.java",
+      "model_status": "legacy_item_layer_adapted",
+      "original_model": "assets/thaumcraft/blockstates/loot_bag.json#rare",
+      "stack_limit": 16
+    },
+    {
+      "id": "primordial_pearl",
+      "legacy_item": "primordial_pearl",
+      "legacy_metadata": 0,
+      "legacy_variant": "primordial_pearl",
+      "legacy_name_key": "item.primordial_pearl.pearl.name",
+      "source_class": "ItemPrimordialPearl",
+      "source_file": "thaumcraft/common/items/curios/ItemPrimordialPearl.java",
+      "model_status": "original_json",
+      "original_model": "assets/thaumcraft/models/item/primordial_pearl.json",
+      "stack_limit": 1
+    },
+    {
+      "id": "pech_wand",
+      "legacy_item": "pech_wand",
+      "legacy_metadata": 0,
+      "legacy_variant": "pech_wand",
+      "legacy_name_key": "item.pech_wand.name",
+      "source_class": "ItemPechWand",
+      "source_file": "thaumcraft/common/items/curios/ItemPechWand.java",
+      "model_status": "original_json",
+      "original_model": "assets/thaumcraft/models/item/pech_wand.json",
+      "stack_limit": 64
+    },
+    {
+      "id": "celestial_notes_sun",
+      "legacy_item": "celestial_notes",
+      "legacy_metadata": 0,
+      "legacy_variant": "sun",
+      "legacy_name_key": "item.celestial_notes.sun.name",
+      "source_class": "ItemCelestialNotes",
+      "source_file": "thaumcraft/common/items/curios/ItemCelestialNotes.java",
+      "model_status": "existing",
+      "stack_limit": 64
+    },
+    {
+      "id": "celestial_notes_stars_1",
+      "legacy_item": "celestial_notes",
+      "legacy_metadata": 1,
+      "legacy_variant": "stars_1",
+      "legacy_name_key": "item.celestial_notes.stars_1.name",
+      "source_class": "ItemCelestialNotes",
+      "source_file": "thaumcraft/common/items/curios/ItemCelestialNotes.java",
+      "model_status": "existing",
+      "stack_limit": 64
+    },
+    {
+      "id": "celestial_notes_stars_2",
+      "legacy_item": "celestial_notes",
+      "legacy_metadata": 2,
+      "legacy_variant": "stars_2",
+      "legacy_name_key": "item.celestial_notes.stars_2.name",
+      "source_class": "ItemCelestialNotes",
+      "source_file": "thaumcraft/common/items/curios/ItemCelestialNotes.java",
+      "model_status": "existing",
+      "stack_limit": 64
+    },
+    {
+      "id": "celestial_notes_stars_3",
+      "legacy_item": "celestial_notes",
+      "legacy_metadata": 3,
+      "legacy_variant": "stars_3",
+      "legacy_name_key": "item.celestial_notes.stars_3.name",
+      "source_class": "ItemCelestialNotes",
+      "source_file": "thaumcraft/common/items/curios/ItemCelestialNotes.java",
+      "model_status": "existing",
+      "stack_limit": 64
+    },
+    {
+      "id": "celestial_notes_stars_4",
+      "legacy_item": "celestial_notes",
+      "legacy_metadata": 4,
+      "legacy_variant": "stars_4",
+      "legacy_name_key": "item.celestial_notes.stars_4.name",
+      "source_class": "ItemCelestialNotes",
+      "source_file": "thaumcraft/common/items/curios/ItemCelestialNotes.java",
+      "model_status": "existing",
+      "stack_limit": 64
+    },
+    {
+      "id": "celestial_notes_moon_1",
+      "legacy_item": "celestial_notes",
+      "legacy_metadata": 5,
+      "legacy_variant": "moon_1",
+      "legacy_name_key": "item.celestial_notes.moon_1.name",
+      "source_class": "ItemCelestialNotes",
+      "source_file": "thaumcraft/common/items/curios/ItemCelestialNotes.java",
+      "model_status": "existing",
+      "stack_limit": 64
+    },
+    {
+      "id": "celestial_notes_moon_2",
+      "legacy_item": "celestial_notes",
+      "legacy_metadata": 6,
+      "legacy_variant": "moon_2",
+      "legacy_name_key": "item.celestial_notes.moon_2.name",
+      "source_class": "ItemCelestialNotes",
+      "source_file": "thaumcraft/common/items/curios/ItemCelestialNotes.java",
+      "model_status": "existing",
+      "stack_limit": 64
+    },
+    {
+      "id": "celestial_notes_moon_3",
+      "legacy_item": "celestial_notes",
+      "legacy_metadata": 7,
+      "legacy_variant": "moon_3",
+      "legacy_name_key": "item.celestial_notes.moon_3.name",
+      "source_class": "ItemCelestialNotes",
+      "source_file": "thaumcraft/common/items/curios/ItemCelestialNotes.java",
+      "model_status": "existing",
+      "stack_limit": 64
+    },
+    {
+      "id": "celestial_notes_moon_4",
+      "legacy_item": "celestial_notes",
+      "legacy_metadata": 8,
+      "legacy_variant": "moon_4",
+      "legacy_name_key": "item.celestial_notes.moon_4.name",
+      "source_class": "ItemCelestialNotes",
+      "source_file": "thaumcraft/common/items/curios/ItemCelestialNotes.java",
+      "model_status": "existing",
+      "stack_limit": 64
+    },
+    {
+      "id": "celestial_notes_moon_5",
+      "legacy_item": "celestial_notes",
+      "legacy_metadata": 9,
+      "legacy_variant": "moon_5",
+      "legacy_name_key": "item.celestial_notes.moon_5.name",
+      "source_class": "ItemCelestialNotes",
+      "source_file": "thaumcraft/common/items/curios/ItemCelestialNotes.java",
+      "model_status": "existing",
+      "stack_limit": 64
+    },
+    {
+      "id": "celestial_notes_moon_6",
+      "legacy_item": "celestial_notes",
+      "legacy_metadata": 10,
+      "legacy_variant": "moon_6",
+      "legacy_name_key": "item.celestial_notes.moon_6.name",
+      "source_class": "ItemCelestialNotes",
+      "source_file": "thaumcraft/common/items/curios/ItemCelestialNotes.java",
+      "model_status": "existing",
+      "stack_limit": 64
+    },
+    {
+      "id": "celestial_notes_moon_7",
+      "legacy_item": "celestial_notes",
+      "legacy_metadata": 11,
+      "legacy_variant": "moon_7",
+      "legacy_name_key": "item.celestial_notes.moon_7.name",
+      "source_class": "ItemCelestialNotes",
+      "source_file": "thaumcraft/common/items/curios/ItemCelestialNotes.java",
+      "model_status": "existing",
+      "stack_limit": 64
+    },
+    {
+      "id": "celestial_notes_moon_8",
+      "legacy_item": "celestial_notes",
+      "legacy_metadata": 12,
+      "legacy_variant": "moon_8",
+      "legacy_name_key": "item.celestial_notes.moon_8.name",
+      "source_class": "ItemCelestialNotes",
+      "source_file": "thaumcraft/common/items/curios/ItemCelestialNotes.java",
+      "model_status": "existing",
+      "stack_limit": 64
+    },
+    {
+      "id": "amber",
+      "legacy_item": "amber",
+      "legacy_metadata": 0,
+      "legacy_variant": "amber",
+      "legacy_name_key": "item.amber.name",
+      "source_class": "ItemTCBase",
+      "source_file": "thaumcraft/common/items/ItemTCBase.java",
+      "model_status": "existing",
+      "stack_limit": 64
+    },
+    {
+      "id": "quicksilver",
+      "legacy_item": "quicksilver",
+      "legacy_metadata": 0,
+      "legacy_variant": "quicksilver",
+      "legacy_name_key": "item.quicksilver.name",
+      "source_class": "ItemTCBase",
+      "source_file": "thaumcraft/common/items/ItemTCBase.java",
+      "model_status": "existing",
+      "stack_limit": 64
+    },
+    {
+      "id": "ingot_thaumium",
+      "legacy_item": "ingot",
+      "legacy_metadata": 0,
+      "legacy_variant": "thaumium",
+      "legacy_name_key": "item.ingot.thaumium.name",
+      "source_class": "ItemTCBase",
+      "source_file": "thaumcraft/common/items/ItemTCBase.java",
+      "model_status": "existing",
+      "stack_limit": 64
+    },
+    {
+      "id": "ingot_void",
+      "legacy_item": "ingot",
+      "legacy_metadata": 1,
+      "legacy_variant": "void",
+      "legacy_name_key": "item.ingot.void.name",
+      "source_class": "ItemTCBase",
+      "source_file": "thaumcraft/common/items/ItemTCBase.java",
+      "model_status": "existing",
+      "stack_limit": 64
+    },
+    {
+      "id": "ingot_brass",
+      "legacy_item": "ingot",
+      "legacy_metadata": 2,
+      "legacy_variant": "brass",
+      "legacy_name_key": "item.ingot.brass.name",
+      "source_class": "ItemTCBase",
+      "source_file": "thaumcraft/common/items/ItemTCBase.java",
+      "model_status": "existing",
+      "stack_limit": 64
+    },
+    {
+      "id": "nugget_iron",
+      "legacy_item": "nugget",
+      "legacy_metadata": 0,
+      "legacy_variant": "iron",
+      "legacy_name_key": "item.nugget.iron.name",
+      "source_class": "ItemTCBase",
+      "source_file": "thaumcraft/common/items/ItemTCBase.java",
+      "model_status": "legacy_item_layer_adapted",
+      "original_model": "assets/thaumcraft/blockstates/nugget.json#iron",
+      "stack_limit": 64
+    },
+    {
+      "id": "nugget_copper",
+      "legacy_item": "nugget",
+      "legacy_metadata": 1,
+      "legacy_variant": "copper",
+      "legacy_name_key": "item.nugget.copper.name",
+      "source_class": "ItemTCBase",
+      "source_file": "thaumcraft/common/items/ItemTCBase.java",
+      "model_status": "legacy_item_layer_adapted",
+      "original_model": "assets/thaumcraft/blockstates/nugget.json#copper",
+      "stack_limit": 64
+    },
+    {
+      "id": "nugget_tin",
+      "legacy_item": "nugget",
+      "legacy_metadata": 2,
+      "legacy_variant": "tin",
+      "legacy_name_key": "item.nugget.tin.name",
+      "source_class": "ItemTCBase",
+      "source_file": "thaumcraft/common/items/ItemTCBase.java",
+      "model_status": "legacy_item_layer_adapted",
+      "original_model": "assets/thaumcraft/blockstates/nugget.json#tin",
+      "stack_limit": 64
+    },
+    {
+      "id": "nugget_silver",
+      "legacy_item": "nugget",
+      "legacy_metadata": 3,
+      "legacy_variant": "silver",
+      "legacy_name_key": "item.nugget.silver.name",
+      "source_class": "ItemTCBase",
+      "source_file": "thaumcraft/common/items/ItemTCBase.java",
+      "model_status": "legacy_item_layer_adapted",
+      "original_model": "assets/thaumcraft/blockstates/nugget.json#silver",
+      "stack_limit": 64
+    },
+    {
+      "id": "nugget_lead",
+      "legacy_item": "nugget",
+      "legacy_metadata": 4,
+      "legacy_variant": "lead",
+      "legacy_name_key": "item.nugget.lead.name",
+      "source_class": "ItemTCBase",
+      "source_file": "thaumcraft/common/items/ItemTCBase.java",
+      "model_status": "legacy_item_layer_adapted",
+      "original_model": "assets/thaumcraft/blockstates/nugget.json#lead",
+      "stack_limit": 64
+    },
+    {
+      "id": "nugget_quicksilver",
+      "legacy_item": "nugget",
+      "legacy_metadata": 5,
+      "legacy_variant": "quicksilver",
+      "legacy_name_key": "item.nugget.quicksilver.name",
+      "source_class": "ItemTCBase",
+      "source_file": "thaumcraft/common/items/ItemTCBase.java",
+      "model_status": "existing",
+      "stack_limit": 64
+    },
+    {
+      "id": "nugget_thaumium",
+      "legacy_item": "nugget",
+      "legacy_metadata": 6,
+      "legacy_variant": "thaumium",
+      "legacy_name_key": "item.nugget.thaumium.name",
+      "source_class": "ItemTCBase",
+      "source_file": "thaumcraft/common/items/ItemTCBase.java",
+      "model_status": "existing",
+      "stack_limit": 64
+    },
+    {
+      "id": "nugget_void",
+      "legacy_item": "nugget",
+      "legacy_metadata": 7,
+      "legacy_variant": "void",
+      "legacy_name_key": "item.nugget.void.name",
+      "source_class": "ItemTCBase",
+      "source_file": "thaumcraft/common/items/ItemTCBase.java",
+      "model_status": "existing",
+      "stack_limit": 64
+    },
+    {
+      "id": "nugget_brass",
+      "legacy_item": "nugget",
+      "legacy_metadata": 8,
+      "legacy_variant": "brass",
+      "legacy_name_key": "item.nugget.brass.name",
+      "source_class": "ItemTCBase",
+      "source_file": "thaumcraft/common/items/ItemTCBase.java",
+      "model_status": "existing",
+      "stack_limit": 64
+    },
+    {
+      "id": "nugget_quartz",
+      "legacy_item": "nugget",
+      "legacy_metadata": 9,
+      "legacy_variant": "quartz",
+      "legacy_name_key": "item.nugget.quartz.name",
+      "source_class": "ItemTCBase",
+      "source_file": "thaumcraft/common/items/ItemTCBase.java",
+      "model_status": "legacy_item_layer_adapted",
+      "original_model": "assets/thaumcraft/blockstates/nugget.json#quartz",
+      "stack_limit": 64
+    },
+    {
+      "id": "nugget_rareearth",
+      "legacy_item": "nugget",
+      "legacy_metadata": 10,
+      "legacy_variant": "rareearth",
+      "legacy_name_key": "item.nugget.rareearth.name",
+      "source_class": "ItemTCBase",
+      "source_file": "thaumcraft/common/items/ItemTCBase.java",
+      "model_status": "legacy_item_layer_adapted",
+      "original_model": "assets/thaumcraft/blockstates/nugget.json#rareearth",
+      "stack_limit": 64
+    },
+    {
+      "id": "cluster_iron",
+      "legacy_item": "cluster",
+      "legacy_metadata": 0,
+      "legacy_variant": "iron",
+      "legacy_name_key": "item.cluster.iron.name",
+      "source_class": "ItemTCBase",
+      "source_file": "thaumcraft/common/items/ItemTCBase.java",
+      "model_status": "legacy_item_layer_adapted",
+      "original_model": "assets/thaumcraft/blockstates/cluster.json#iron",
+      "stack_limit": 64
+    },
+    {
+      "id": "cluster_gold",
+      "legacy_item": "cluster",
+      "legacy_metadata": 1,
+      "legacy_variant": "gold",
+      "legacy_name_key": "item.cluster.gold.name",
+      "source_class": "ItemTCBase",
+      "source_file": "thaumcraft/common/items/ItemTCBase.java",
+      "model_status": "legacy_item_layer_adapted",
+      "original_model": "assets/thaumcraft/blockstates/cluster.json#gold",
+      "stack_limit": 64
+    },
+    {
+      "id": "cluster_copper",
+      "legacy_item": "cluster",
+      "legacy_metadata": 2,
+      "legacy_variant": "copper",
+      "legacy_name_key": "item.cluster.copper.name",
+      "source_class": "ItemTCBase",
+      "source_file": "thaumcraft/common/items/ItemTCBase.java",
+      "model_status": "legacy_item_layer_adapted",
+      "original_model": "assets/thaumcraft/blockstates/cluster.json#copper",
+      "stack_limit": 64
+    },
+    {
+      "id": "cluster_tin",
+      "legacy_item": "cluster",
+      "legacy_metadata": 3,
+      "legacy_variant": "tin",
+      "legacy_name_key": "item.cluster.tin.name",
+      "source_class": "ItemTCBase",
+      "source_file": "thaumcraft/common/items/ItemTCBase.java",
+      "model_status": "legacy_item_layer_adapted",
+      "original_model": "assets/thaumcraft/blockstates/cluster.json#tin",
+      "stack_limit": 64
+    },
+    {
+      "id": "cluster_silver",
+      "legacy_item": "cluster",
+      "legacy_metadata": 4,
+      "legacy_variant": "silver",
+      "legacy_name_key": "item.cluster.silver.name",
+      "source_class": "ItemTCBase",
+      "source_file": "thaumcraft/common/items/ItemTCBase.java",
+      "model_status": "legacy_item_layer_adapted",
+      "original_model": "assets/thaumcraft/blockstates/cluster.json#silver",
+      "stack_limit": 64
+    },
+    {
+      "id": "cluster_lead",
+      "legacy_item": "cluster",
+      "legacy_metadata": 5,
+      "legacy_variant": "lead",
+      "legacy_name_key": "item.cluster.lead.name",
+      "source_class": "ItemTCBase",
+      "source_file": "thaumcraft/common/items/ItemTCBase.java",
+      "model_status": "legacy_item_layer_adapted",
+      "original_model": "assets/thaumcraft/blockstates/cluster.json#lead",
+      "stack_limit": 64
+    },
+    {
+      "id": "cluster_cinnabar",
+      "legacy_item": "cluster",
+      "legacy_metadata": 6,
+      "legacy_variant": "cinnabar",
+      "legacy_name_key": "item.cluster.cinnabar.name",
+      "source_class": "ItemTCBase",
+      "source_file": "thaumcraft/common/items/ItemTCBase.java",
+      "model_status": "legacy_item_layer_adapted",
+      "original_model": "assets/thaumcraft/blockstates/cluster.json#cinnabar",
+      "stack_limit": 64
+    },
+    {
+      "id": "cluster_quartz",
+      "legacy_item": "cluster",
+      "legacy_metadata": 7,
+      "legacy_variant": "quartz",
+      "legacy_name_key": "item.cluster.quartz.name",
+      "source_class": "ItemTCBase",
+      "source_file": "thaumcraft/common/items/ItemTCBase.java",
+      "model_status": "legacy_item_layer_adapted",
+      "original_model": "assets/thaumcraft/blockstates/cluster.json#quartz",
+      "stack_limit": 64
+    },
+    {
+      "id": "fabric",
+      "legacy_item": "fabric",
+      "legacy_metadata": 0,
+      "legacy_variant": "fabric",
+      "legacy_name_key": "item.fabric.name",
+      "source_class": "ItemTCBase",
+      "source_file": "thaumcraft/common/items/ItemTCBase.java",
+      "model_status": "existing",
+      "stack_limit": 64
+    },
+    {
+      "id": "vis_resonator",
+      "legacy_item": "vis_resonator",
+      "legacy_metadata": 0,
+      "legacy_variant": "vis_resonator",
+      "legacy_name_key": "item.vis_resonator.name",
+      "source_class": "ItemTCBase",
+      "source_file": "thaumcraft/common/items/ItemTCBase.java",
+      "model_status": "original_json",
+      "original_model": "assets/thaumcraft/models/item/vis_resonator.json",
+      "stack_limit": 64
+    },
+    {
+      "id": "tallow",
+      "legacy_item": "tallow",
+      "legacy_metadata": 0,
+      "legacy_variant": "tallow",
+      "legacy_name_key": "item.tallow.name",
+      "source_class": "ItemTCBase",
+      "source_file": "thaumcraft/common/items/ItemTCBase.java",
+      "model_status": "existing",
+      "stack_limit": 64
+    },
+    {
+      "id": "mechanism_simple",
+      "legacy_item": "mechanism_simple",
+      "legacy_metadata": 0,
+      "legacy_variant": "mechanism_simple",
+      "legacy_name_key": "item.mechanism_simple.name",
+      "source_class": "ItemTCBase",
+      "source_file": "thaumcraft/common/items/ItemTCBase.java",
+      "model_status": "original_json",
+      "original_model": "assets/thaumcraft/models/item/mechanism_simple.json",
+      "stack_limit": 64
+    },
+    {
+      "id": "mechanism_complex",
+      "legacy_item": "mechanism_complex",
+      "legacy_metadata": 0,
+      "legacy_variant": "mechanism_complex",
+      "legacy_name_key": "item.mechanism_complex.name",
+      "source_class": "ItemTCBase",
+      "source_file": "thaumcraft/common/items/ItemTCBase.java",
+      "model_status": "original_json",
+      "original_model": "assets/thaumcraft/models/item/mechanism_complex.json",
+      "stack_limit": 64
+    },
+    {
+      "id": "plate_brass",
+      "legacy_item": "plate",
+      "legacy_metadata": 0,
+      "legacy_variant": "brass",
+      "legacy_name_key": "item.plate.brass.name",
+      "source_class": "ItemTCBase",
+      "source_file": "thaumcraft/common/items/ItemTCBase.java",
+      "model_status": "existing",
+      "stack_limit": 64
+    },
+    {
+      "id": "plate_iron",
+      "legacy_item": "plate",
+      "legacy_metadata": 1,
+      "legacy_variant": "iron",
+      "legacy_name_key": "item.plate.iron.name",
+      "source_class": "ItemTCBase",
+      "source_file": "thaumcraft/common/items/ItemTCBase.java",
+      "model_status": "existing",
+      "stack_limit": 64
+    },
+    {
+      "id": "plate_thaumium",
+      "legacy_item": "plate",
+      "legacy_metadata": 2,
+      "legacy_variant": "thaumium",
+      "legacy_name_key": "item.plate.thaumium.name",
+      "source_class": "ItemTCBase",
+      "source_file": "thaumcraft/common/items/ItemTCBase.java",
+      "model_status": "existing",
+      "stack_limit": 64
+    },
+    {
+      "id": "plate_void",
+      "legacy_item": "plate",
+      "legacy_metadata": 3,
+      "legacy_variant": "void",
+      "legacy_name_key": "item.plate.void.name",
+      "source_class": "ItemTCBase",
+      "source_file": "thaumcraft/common/items/ItemTCBase.java",
+      "model_status": "existing",
+      "stack_limit": 64
+    },
+    {
+      "id": "filter",
+      "legacy_item": "filter",
+      "legacy_metadata": 0,
+      "legacy_variant": "filter",
+      "legacy_name_key": "item.filter.name",
+      "source_class": "ItemTCBase",
+      "source_file": "thaumcraft/common/items/ItemTCBase.java",
+      "model_status": "original_json",
+      "original_model": "assets/thaumcraft/models/item/filter.json",
+      "stack_limit": 64
+    },
+    {
+      "id": "morphic_resonator",
+      "legacy_item": "morphic_resonator",
+      "legacy_metadata": 0,
+      "legacy_variant": "morphic_resonator",
+      "legacy_name_key": "item.morphic_resonator.name",
+      "source_class": "ItemTCBase",
+      "source_file": "thaumcraft/common/items/ItemTCBase.java",
+      "model_status": "original_json",
+      "original_model": "assets/thaumcraft/models/item/morphic_resonator.json",
+      "stack_limit": 64
+    },
+    {
+      "id": "salis_mundus",
+      "legacy_item": "salis_mundus",
+      "legacy_metadata": 0,
+      "legacy_variant": "salis_mundus",
+      "legacy_name_key": "item.salis_mundus.name",
+      "source_class": "ItemMagicDust",
+      "source_file": "thaumcraft/common/items/resources/ItemMagicDust.java",
+      "model_status": "existing",
+      "stack_limit": 64
+    },
+    {
+      "id": "mirrored_glass",
+      "legacy_item": "mirrored_glass",
+      "legacy_metadata": 0,
+      "legacy_variant": "mirrored_glass",
+      "legacy_name_key": "item.mirrored_glass.name",
+      "source_class": "ItemTCBase",
+      "source_file": "thaumcraft/common/items/ItemTCBase.java",
+      "model_status": "original_json",
+      "original_model": "assets/thaumcraft/models/item/mirrored_glass.json",
+      "stack_limit": 64
+    },
+    {
+      "id": "void_seed",
+      "legacy_item": "void_seed",
+      "legacy_metadata": 0,
+      "legacy_variant": "void_seed",
+      "legacy_name_key": "item.void_seed.name",
+      "source_class": "ItemTCBase",
+      "source_file": "thaumcraft/common/items/ItemTCBase.java",
+      "model_status": "existing",
+      "stack_limit": 64
+    },
+    {
+      "id": "mind_clockwork",
+      "legacy_item": "mind",
+      "legacy_metadata": 0,
+      "legacy_variant": "clockwork",
+      "legacy_name_key": "item.mind.clockwork.name",
+      "source_class": "ItemTCBase",
+      "source_file": "thaumcraft/common/items/ItemTCBase.java",
+      "model_status": "legacy_item_layer_adapted",
+      "original_model": "assets/thaumcraft/blockstates/mind.json#clockwork",
+      "stack_limit": 64
+    },
+    {
+      "id": "mind_biothaumic",
+      "legacy_item": "mind",
+      "legacy_metadata": 1,
+      "legacy_variant": "biothaumic",
+      "legacy_name_key": "item.mind.biothaumic.name",
+      "source_class": "ItemTCBase",
+      "source_file": "thaumcraft/common/items/ItemTCBase.java",
+      "model_status": "legacy_item_layer_adapted",
+      "original_model": "assets/thaumcraft/blockstates/mind.json#biothaumic",
+      "stack_limit": 64
+    },
+    {
+      "id": "module_vision",
+      "legacy_item": "module",
+      "legacy_metadata": 0,
+      "legacy_variant": "vision",
+      "legacy_name_key": "item.module.vision.name",
+      "source_class": "ItemTCBase",
+      "source_file": "thaumcraft/common/items/ItemTCBase.java",
+      "model_status": "legacy_item_layer_adapted",
+      "original_model": "assets/thaumcraft/blockstates/module.json#vision",
+      "stack_limit": 64
+    },
+    {
+      "id": "module_aggression",
+      "legacy_item": "module",
+      "legacy_metadata": 1,
+      "legacy_variant": "aggression",
+      "legacy_name_key": "item.module.aggression.name",
+      "source_class": "ItemTCBase",
+      "source_file": "thaumcraft/common/items/ItemTCBase.java",
+      "model_status": "legacy_item_layer_adapted",
+      "original_model": "assets/thaumcraft/blockstates/module.json#aggression",
+      "stack_limit": 64
+    },
+    {
+      "id": "crystal_essence",
+      "legacy_item": "crystal_essence",
+      "legacy_metadata": 0,
+      "legacy_variant": "crystal_essence",
+      "legacy_name_key": "item.crystal_essence.name",
+      "source_class": "ItemCrystalEssence",
+      "source_file": "thaumcraft/common/items/resources/ItemCrystalEssence.java",
+      "model_status": "legacy_item_layer_adapted",
+      "original_model": "assets/thaumcraft/blockstates/crystal_essence.json#crystal_essence",
+      "stack_limit": 64
+    },
+    {
+      "id": "chunk_beef",
+      "legacy_item": "chunk",
+      "legacy_metadata": 0,
+      "legacy_variant": "beef",
+      "legacy_name_key": "item.chunk.beef.name",
+      "source_class": "ItemChunksEdible",
+      "source_file": "thaumcraft/common/items/consumables/ItemChunksEdible.java",
+      "model_status": "legacy_item_layer_adapted",
+      "original_model": "assets/thaumcraft/blockstates/chunk.json#beef",
+      "stack_limit": 64
+    },
+    {
+      "id": "chunk_chicken",
+      "legacy_item": "chunk",
+      "legacy_metadata": 1,
+      "legacy_variant": "chicken",
+      "legacy_name_key": "item.chunk.chicken.name",
+      "source_class": "ItemChunksEdible",
+      "source_file": "thaumcraft/common/items/consumables/ItemChunksEdible.java",
+      "model_status": "legacy_item_layer_adapted",
+      "original_model": "assets/thaumcraft/blockstates/chunk.json#chicken",
+      "stack_limit": 64
+    },
+    {
+      "id": "chunk_pork",
+      "legacy_item": "chunk",
+      "legacy_metadata": 2,
+      "legacy_variant": "pork",
+      "legacy_name_key": "item.chunk.pork.name",
+      "source_class": "ItemChunksEdible",
+      "source_file": "thaumcraft/common/items/consumables/ItemChunksEdible.java",
+      "model_status": "legacy_item_layer_adapted",
+      "original_model": "assets/thaumcraft/blockstates/chunk.json#pork",
+      "stack_limit": 64
+    },
+    {
+      "id": "chunk_fish",
+      "legacy_item": "chunk",
+      "legacy_metadata": 3,
+      "legacy_variant": "fish",
+      "legacy_name_key": "item.chunk.fish.name",
+      "source_class": "ItemChunksEdible",
+      "source_file": "thaumcraft/common/items/consumables/ItemChunksEdible.java",
+      "model_status": "legacy_item_layer_adapted",
+      "original_model": "assets/thaumcraft/blockstates/chunk.json#fish",
+      "stack_limit": 64
+    },
+    {
+      "id": "chunk_rabbit",
+      "legacy_item": "chunk",
+      "legacy_metadata": 4,
+      "legacy_variant": "rabbit",
+      "legacy_name_key": "item.chunk.rabbit.name",
+      "source_class": "ItemChunksEdible",
+      "source_file": "thaumcraft/common/items/consumables/ItemChunksEdible.java",
+      "model_status": "legacy_item_layer_adapted",
+      "original_model": "assets/thaumcraft/blockstates/chunk.json#rabbit",
+      "stack_limit": 64
+    },
+    {
+      "id": "chunk_mutton",
+      "legacy_item": "chunk",
+      "legacy_metadata": 5,
+      "legacy_variant": "mutton",
+      "legacy_name_key": "item.chunk.mutton.name",
+      "source_class": "ItemChunksEdible",
+      "source_file": "thaumcraft/common/items/consumables/ItemChunksEdible.java",
+      "model_status": "legacy_item_layer_adapted",
+      "original_model": "assets/thaumcraft/blockstates/chunk.json#mutton",
+      "stack_limit": 64
+    },
+    {
+      "id": "triple_meat_treat",
+      "legacy_item": "triple_meat_treat",
+      "legacy_metadata": 0,
+      "legacy_variant": "triple_meat_treat",
+      "legacy_name_key": "item.triple_meat_treat.name",
+      "source_class": "ItemTripleMeatTreat",
+      "source_file": "thaumcraft/common/items/consumables/ItemTripleMeatTreat.java",
+      "model_status": "original_json",
+      "original_model": "assets/thaumcraft/models/item/triple_meat_treat.json",
+      "stack_limit": 64
+    },
+    {
+      "id": "brain",
+      "legacy_item": "brain",
+      "legacy_metadata": 0,
+      "legacy_variant": "brain",
+      "legacy_name_key": "item.brain.name",
+      "source_class": "ItemZombieBrain",
+      "source_file": "thaumcraft/common/items/consumables/ItemZombieBrain.java",
+      "model_status": "original_json",
+      "original_model": "assets/thaumcraft/models/item/brain.json",
+      "stack_limit": 64
+    },
+    {
+      "id": "label_blank",
+      "legacy_item": "label",
+      "legacy_metadata": 0,
+      "legacy_variant": "blank",
+      "legacy_name_key": "item.label.blank.name",
+      "source_class": "ItemLabel",
+      "source_file": "thaumcraft/common/items/consumables/ItemLabel.java",
+      "model_status": "legacy_item_layer_adapted",
+      "original_model": "assets/thaumcraft/blockstates/label.json#blank",
+      "stack_limit": 64
+    },
+    {
+      "id": "label_filled",
+      "legacy_item": "label",
+      "legacy_metadata": 1,
+      "legacy_variant": "filled",
+      "legacy_name_key": "item.label.filled.name",
+      "source_class": "ItemLabel",
+      "source_file": "thaumcraft/common/items/consumables/ItemLabel.java",
+      "model_status": "legacy_item_layer_adapted",
+      "original_model": "assets/thaumcraft/blockstates/label.json#filled",
+      "stack_limit": 64
+    },
+    {
+      "id": "phial_empty",
+      "legacy_item": "phial",
+      "legacy_metadata": 0,
+      "legacy_variant": "empty",
+      "legacy_name_key": "item.phial.empty.name",
+      "source_class": "ItemPhial",
+      "source_file": "thaumcraft/common/items/consumables/ItemPhial.java",
+      "model_status": "legacy_item_layer_adapted",
+      "original_model": "assets/thaumcraft/blockstates/phial.json#empty",
+      "stack_limit": 64
+    },
+    {
+      "id": "phial_filled",
+      "legacy_item": "phial",
+      "legacy_metadata": 1,
+      "legacy_variant": "filled",
+      "legacy_name_key": "item.phial.filled.name",
+      "source_class": "ItemPhial",
+      "source_file": "thaumcraft/common/items/consumables/ItemPhial.java",
+      "model_status": "legacy_item_layer_adapted",
+      "original_model": "assets/thaumcraft/blockstates/phial.json#filled",
+      "stack_limit": 64
+    },
+    {
+      "id": "alumentum",
+      "legacy_item": "alumentum",
+      "legacy_metadata": 0,
+      "legacy_variant": "alumentum",
+      "legacy_name_key": "item.alumentum.name",
+      "source_class": "ItemAlumentum",
+      "source_file": "thaumcraft/common/items/consumables/ItemAlumentum.java",
+      "model_status": "existing",
+      "stack_limit": 64
+    },
+    {
+      "id": "jar_brace",
+      "legacy_item": "jar_brace",
+      "legacy_metadata": 0,
+      "legacy_variant": "jar_brace",
+      "legacy_name_key": "item.jar_brace.name",
+      "source_class": "ItemTCBase",
+      "source_file": "thaumcraft/common/items/ItemTCBase.java",
+      "model_status": "original_json",
+      "original_model": "assets/thaumcraft/models/item/jar_brace.json",
+      "stack_limit": 64
+    },
+    {
+      "id": "bottle_taint",
+      "legacy_item": "bottle_taint",
+      "legacy_metadata": 0,
+      "legacy_variant": "bottle_taint",
+      "legacy_name_key": "item.bottle_taint.name",
+      "source_class": "ItemBottleTaint",
+      "source_file": "thaumcraft/common/items/consumables/ItemBottleTaint.java",
+      "model_status": "original_json",
+      "original_model": "assets/thaumcraft/models/item/bottle_taint.json",
+      "stack_limit": 8
+    },
+    {
+      "id": "sanity_soap",
+      "legacy_item": "sanity_soap",
+      "legacy_metadata": 0,
+      "legacy_variant": "sanity_soap",
+      "legacy_name_key": "item.sanity_soap.name",
+      "source_class": "ItemSanitySoap",
+      "source_file": "thaumcraft/common/items/consumables/ItemSanitySoap.java",
+      "model_status": "original_json",
+      "original_model": "assets/thaumcraft/models/item/sanity_soap.json",
+      "stack_limit": 64
+    },
+    {
+      "id": "bath_salts",
+      "legacy_item": "bath_salts",
+      "legacy_metadata": 0,
+      "legacy_variant": "bath_salts",
+      "legacy_name_key": "item.bath_salts.name",
+      "source_class": "ItemBathSalts",
+      "source_file": "thaumcraft/common/items/consumables/ItemBathSalts.java",
+      "model_status": "original_json",
+      "original_model": "assets/thaumcraft/models/item/bath_salts.json",
+      "stack_limit": 64
+    },
+    {
+      "id": "turret_basic",
+      "legacy_item": "turret",
+      "legacy_metadata": 0,
+      "legacy_variant": "basic",
+      "legacy_name_key": "item.turret.basic.name",
+      "source_class": "ItemTurretPlacer",
+      "source_file": "thaumcraft/common/entities/construct/ItemTurretPlacer.java",
+      "model_status": "legacy_item_layer_adapted",
+      "original_model": "assets/thaumcraft/blockstates/turret.json#basic",
+      "stack_limit": 64
+    },
+    {
+      "id": "turret_advanced",
+      "legacy_item": "turret",
+      "legacy_metadata": 1,
+      "legacy_variant": "advanced",
+      "legacy_name_key": "item.turret.advanced.name",
+      "source_class": "ItemTurretPlacer",
+      "source_file": "thaumcraft/common/entities/construct/ItemTurretPlacer.java",
+      "model_status": "legacy_item_layer_adapted",
+      "original_model": "assets/thaumcraft/blockstates/turret.json#advanced",
+      "stack_limit": 64
+    },
+    {
+      "id": "turret_bore",
+      "legacy_item": "turret",
+      "legacy_metadata": 2,
+      "legacy_variant": "bore",
+      "legacy_name_key": "item.turret.bore.name",
+      "source_class": "ItemTurretPlacer",
+      "source_file": "thaumcraft/common/entities/construct/ItemTurretPlacer.java",
+      "model_status": "legacy_item_layer_adapted",
+      "original_model": "assets/thaumcraft/blockstates/turret.json#bore",
+      "stack_limit": 64
+    },
+    {
+      "id": "causality_collapser",
+      "legacy_item": "causality_collapser",
+      "legacy_metadata": 0,
+      "legacy_variant": "causality_collapser",
+      "legacy_name_key": "item.causality_collapser.name",
+      "source_class": "ItemCausalityCollapser",
+      "source_file": "thaumcraft/common/items/consumables/ItemCausalityCollapser.java",
+      "model_status": "original_json",
+      "original_model": "assets/thaumcraft/models/item/causality_collapser.json",
+      "stack_limit": 16
+    },
+    {
+      "id": "scribing_tools",
+      "legacy_item": "scribing_tools",
+      "legacy_metadata": 0,
+      "legacy_variant": "scribing_tools",
+      "legacy_name_key": "item.scribing_tools.name",
+      "source_class": "ItemScribingTools",
+      "source_file": "thaumcraft/common/items/tools/ItemScribingTools.java",
+      "model_status": "existing",
+      "stack_limit": 1
+    },
+    {
+      "id": "thaumometer",
+      "legacy_item": "thaumometer",
+      "legacy_metadata": 0,
+      "legacy_variant": "thaumometer",
+      "legacy_name_key": "item.thaumometer.name",
+      "source_class": "ItemThaumometer",
+      "source_file": "thaumcraft/common/items/tools/ItemThaumometer.java",
+      "model_status": "existing",
+      "stack_limit": 1
+    },
+    {
+      "id": "resonator",
+      "legacy_item": "resonator",
+      "legacy_metadata": 0,
+      "legacy_variant": "resonator",
+      "legacy_name_key": "item.resonator.name",
+      "source_class": "ItemResonator",
+      "source_file": "thaumcraft/common/items/tools/ItemResonator.java",
+      "model_status": "original_json",
+      "original_model": "assets/thaumcraft/models/item/resonator.json",
+      "stack_limit": 1
+    },
+    {
+      "id": "sanity_checker",
+      "legacy_item": "sanity_checker",
+      "legacy_metadata": 0,
+      "legacy_variant": "sanity_checker",
+      "legacy_name_key": "item.sanity_checker.name",
+      "source_class": "ItemSanityChecker",
+      "source_file": "thaumcraft/common/items/tools/ItemSanityChecker.java",
+      "model_status": "original_json",
+      "original_model": "assets/thaumcraft/models/item/sanity_checker.json",
+      "stack_limit": 1
+    },
+    {
+      "id": "hand_mirror",
+      "legacy_item": "hand_mirror",
+      "legacy_metadata": 0,
+      "legacy_variant": "hand_mirror",
+      "legacy_name_key": "item.hand_mirror.name",
+      "source_class": "ItemHandMirror",
+      "source_file": "thaumcraft/common/items/tools/ItemHandMirror.java",
+      "model_status": "original_json",
+      "original_model": "assets/thaumcraft/models/item/hand_mirror.json",
+      "stack_limit": 1
+    },
+    {
+      "id": "thaumium_axe",
+      "legacy_item": "thaumium_axe",
+      "legacy_metadata": 0,
+      "legacy_variant": "thaumium_axe",
+      "legacy_name_key": "item.thaumium_axe.name",
+      "source_class": "ItemThaumiumAxe",
+      "source_file": "thaumcraft/common/items/tools/ItemThaumiumAxe.java",
+      "model_status": "existing",
+      "stack_limit": 1
+    },
+    {
+      "id": "thaumium_sword",
+      "legacy_item": "thaumium_sword",
+      "legacy_metadata": 0,
+      "legacy_variant": "thaumium_sword",
+      "legacy_name_key": "item.thaumium_sword.name",
+      "source_class": "ItemThaumiumSword",
+      "source_file": "thaumcraft/common/items/tools/ItemThaumiumSword.java",
+      "model_status": "existing",
+      "stack_limit": 1
+    },
+    {
+      "id": "thaumium_shovel",
+      "legacy_item": "thaumium_shovel",
+      "legacy_metadata": 0,
+      "legacy_variant": "thaumium_shovel",
+      "legacy_name_key": "item.thaumium_shovel.name",
+      "source_class": "ItemThaumiumShovel",
+      "source_file": "thaumcraft/common/items/tools/ItemThaumiumShovel.java",
+      "model_status": "existing",
+      "stack_limit": 1
+    },
+    {
+      "id": "thaumium_pick",
+      "legacy_item": "thaumium_pick",
+      "legacy_metadata": 0,
+      "legacy_variant": "thaumium_pick",
+      "legacy_name_key": "item.thaumium_pick.name",
+      "source_class": "ItemThaumiumPickaxe",
+      "source_file": "thaumcraft/common/items/tools/ItemThaumiumPickaxe.java",
+      "model_status": "existing",
+      "stack_limit": 1
+    },
+    {
+      "id": "thaumium_hoe",
+      "legacy_item": "thaumium_hoe",
+      "legacy_metadata": 0,
+      "legacy_variant": "thaumium_hoe",
+      "legacy_name_key": "item.thaumium_hoe.name",
+      "source_class": "ItemThaumiumHoe",
+      "source_file": "thaumcraft/common/items/tools/ItemThaumiumHoe.java",
+      "model_status": "existing",
+      "stack_limit": 1
+    },
+    {
+      "id": "void_axe",
+      "legacy_item": "void_axe",
+      "legacy_metadata": 0,
+      "legacy_variant": "void_axe",
+      "legacy_name_key": "item.void_axe.name",
+      "source_class": "ItemVoidAxe",
+      "source_file": "thaumcraft/common/items/tools/ItemVoidAxe.java",
+      "model_status": "original_json",
+      "original_model": "assets/thaumcraft/models/item/void_axe.json",
+      "stack_limit": 1
+    },
+    {
+      "id": "void_sword",
+      "legacy_item": "void_sword",
+      "legacy_metadata": 0,
+      "legacy_variant": "void_sword",
+      "legacy_name_key": "item.void_sword.name",
+      "source_class": "ItemVoidSword",
+      "source_file": "thaumcraft/common/items/tools/ItemVoidSword.java",
+      "model_status": "original_json",
+      "original_model": "assets/thaumcraft/models/item/void_sword.json",
+      "stack_limit": 1
+    },
+    {
+      "id": "void_shovel",
+      "legacy_item": "void_shovel",
+      "legacy_metadata": 0,
+      "legacy_variant": "void_shovel",
+      "legacy_name_key": "item.void_shovel.name",
+      "source_class": "ItemVoidShovel",
+      "source_file": "thaumcraft/common/items/tools/ItemVoidShovel.java",
+      "model_status": "original_json",
+      "original_model": "assets/thaumcraft/models/item/void_shovel.json",
+      "stack_limit": 1
+    },
+    {
+      "id": "void_pick",
+      "legacy_item": "void_pick",
+      "legacy_metadata": 0,
+      "legacy_variant": "void_pick",
+      "legacy_name_key": "item.void_pick.name",
+      "source_class": "ItemVoidPickaxe",
+      "source_file": "thaumcraft/common/items/tools/ItemVoidPickaxe.java",
+      "model_status": "original_json",
+      "original_model": "assets/thaumcraft/models/item/void_pick.json",
+      "stack_limit": 1
+    },
+    {
+      "id": "void_hoe",
+      "legacy_item": "void_hoe",
+      "legacy_metadata": 0,
+      "legacy_variant": "void_hoe",
+      "legacy_name_key": "item.void_hoe.name",
+      "source_class": "ItemVoidHoe",
+      "source_file": "thaumcraft/common/items/tools/ItemVoidHoe.java",
+      "model_status": "original_json",
+      "original_model": "assets/thaumcraft/models/item/void_hoe.json",
+      "stack_limit": 1
+    },
+    {
+      "id": "elemental_axe",
+      "legacy_item": "elemental_axe",
+      "legacy_metadata": 0,
+      "legacy_variant": "elemental_axe",
+      "legacy_name_key": "item.elemental_axe.name",
+      "source_class": "ItemElementalAxe",
+      "source_file": "thaumcraft/common/items/tools/ItemElementalAxe.java",
+      "model_status": "original_json",
+      "original_model": "assets/thaumcraft/models/item/elemental_axe.json",
+      "stack_limit": 1
+    },
+    {
+      "id": "elemental_sword",
+      "legacy_item": "elemental_sword",
+      "legacy_metadata": 0,
+      "legacy_variant": "elemental_sword",
+      "legacy_name_key": "item.elemental_sword.name",
+      "source_class": "ItemElementalSword",
+      "source_file": "thaumcraft/common/items/tools/ItemElementalSword.java",
+      "model_status": "original_json",
+      "original_model": "assets/thaumcraft/models/item/elemental_sword.json",
+      "stack_limit": 1
+    },
+    {
+      "id": "elemental_shovel",
+      "legacy_item": "elemental_shovel",
+      "legacy_metadata": 0,
+      "legacy_variant": "elemental_shovel",
+      "legacy_name_key": "item.elemental_shovel.name",
+      "source_class": "ItemElementalShovel",
+      "source_file": "thaumcraft/common/items/tools/ItemElementalShovel.java",
+      "model_status": "original_json",
+      "original_model": "assets/thaumcraft/models/item/elemental_shovel.json",
+      "stack_limit": 1
+    },
+    {
+      "id": "elemental_pick",
+      "legacy_item": "elemental_pick",
+      "legacy_metadata": 0,
+      "legacy_variant": "elemental_pick",
+      "legacy_name_key": "item.elemental_pick.name",
+      "source_class": "ItemElementalPickaxe",
+      "source_file": "thaumcraft/common/items/tools/ItemElementalPickaxe.java",
+      "model_status": "original_json",
+      "original_model": "assets/thaumcraft/models/item/elemental_pick.json",
+      "stack_limit": 1
+    },
+    {
+      "id": "elemental_hoe",
+      "legacy_item": "elemental_hoe",
+      "legacy_metadata": 0,
+      "legacy_variant": "elemental_hoe",
+      "legacy_name_key": "item.elemental_hoe.name",
+      "source_class": "ItemElementalHoe",
+      "source_file": "thaumcraft/common/items/tools/ItemElementalHoe.java",
+      "model_status": "original_json",
+      "original_model": "assets/thaumcraft/models/item/elemental_hoe.json",
+      "stack_limit": 1
+    },
+    {
+      "id": "primal_crusher",
+      "legacy_item": "primal_crusher",
+      "legacy_metadata": 0,
+      "legacy_variant": "primal_crusher",
+      "legacy_name_key": "item.primal_crusher.name",
+      "source_class": "ItemPrimalCrusher",
+      "source_file": "thaumcraft/common/items/tools/ItemPrimalCrusher.java",
+      "model_status": "original_json",
+      "original_model": "assets/thaumcraft/models/item/primal_crusher.json",
+      "stack_limit": 1
+    },
+    {
+      "id": "crimson_blade",
+      "legacy_item": "crimson_blade",
+      "legacy_metadata": 0,
+      "legacy_variant": "crimson_blade",
+      "legacy_name_key": "item.crimson_blade.name",
+      "source_class": "ItemCrimsonBlade",
+      "source_file": "thaumcraft/common/items/tools/ItemCrimsonBlade.java",
+      "model_status": "original_json",
+      "original_model": "assets/thaumcraft/models/item/crimson_blade.json",
+      "stack_limit": 1
+    },
+    {
+      "id": "grapple_gun",
+      "legacy_item": "grapple_gun",
+      "legacy_metadata": 0,
+      "legacy_variant": "grapple_gun",
+      "legacy_name_key": "item.grapple_gun.name",
+      "source_class": "ItemGrappleGun",
+      "source_file": "thaumcraft/common/items/tools/ItemGrappleGun.java",
+      "model_status": "original_json",
+      "original_model": "assets/thaumcraft/models/item/grapple_gun.json",
+      "stack_limit": 1
+    },
+    {
+      "id": "grapple_gun_tip",
+      "legacy_item": "grapple_gun_tip",
+      "legacy_metadata": 0,
+      "legacy_variant": "grapple_gun_tip",
+      "legacy_name_key": "item.grapple_gun_tip.name",
+      "source_class": "ItemTCBase",
+      "source_file": "thaumcraft/common/items/ItemTCBase.java",
+      "model_status": "original_json",
+      "original_model": "assets/thaumcraft/models/item/grapple_gun_tip.json",
+      "stack_limit": 64
+    },
+    {
+      "id": "grapple_gun_spool",
+      "legacy_item": "grapple_gun_spool",
+      "legacy_metadata": 0,
+      "legacy_variant": "grapple_gun_spool",
+      "legacy_name_key": "item.grapple_gun_spool.name",
+      "source_class": "ItemTCBase",
+      "source_file": "thaumcraft/common/items/ItemTCBase.java",
+      "model_status": "original_json",
+      "original_model": "assets/thaumcraft/models/item/grapple_gun_spool.json",
+      "stack_limit": 64
+    },
+    {
+      "id": "goggles",
+      "legacy_item": "goggles",
+      "legacy_metadata": 0,
+      "legacy_variant": "goggles",
+      "legacy_name_key": "item.goggles.name",
+      "source_class": "ItemGoggles",
+      "source_file": "thaumcraft/common/items/armor/ItemGoggles.java",
+      "model_status": "original_json",
+      "original_model": "assets/thaumcraft/models/item/goggles.json",
+      "stack_limit": 1
+    },
+    {
+      "id": "thaumium_helm",
+      "legacy_item": "thaumium_helm",
+      "legacy_metadata": 0,
+      "legacy_variant": "thaumium_helm",
+      "legacy_name_key": "item.thaumium_helm.name",
+      "source_class": "ItemThaumiumArmor",
+      "source_file": "thaumcraft/common/items/armor/ItemThaumiumArmor.java",
+      "model_status": "existing",
+      "stack_limit": 1
+    },
+    {
+      "id": "thaumium_chest",
+      "legacy_item": "thaumium_chest",
+      "legacy_metadata": 0,
+      "legacy_variant": "thaumium_chest",
+      "legacy_name_key": "item.thaumium_chest.name",
+      "source_class": "ItemThaumiumArmor",
+      "source_file": "thaumcraft/common/items/armor/ItemThaumiumArmor.java",
+      "model_status": "existing",
+      "stack_limit": 1
+    },
+    {
+      "id": "thaumium_legs",
+      "legacy_item": "thaumium_legs",
+      "legacy_metadata": 0,
+      "legacy_variant": "thaumium_legs",
+      "legacy_name_key": "item.thaumium_legs.name",
+      "source_class": "ItemThaumiumArmor",
+      "source_file": "thaumcraft/common/items/armor/ItemThaumiumArmor.java",
+      "model_status": "existing",
+      "stack_limit": 1
+    },
+    {
+      "id": "thaumium_boots",
+      "legacy_item": "thaumium_boots",
+      "legacy_metadata": 0,
+      "legacy_variant": "thaumium_boots",
+      "legacy_name_key": "item.thaumium_boots.name",
+      "source_class": "ItemThaumiumArmor",
+      "source_file": "thaumcraft/common/items/armor/ItemThaumiumArmor.java",
+      "model_status": "existing",
+      "stack_limit": 1
+    },
+    {
+      "id": "cloth_chest",
+      "legacy_item": "cloth_chest",
+      "legacy_metadata": 0,
+      "legacy_variant": "cloth_chest",
+      "legacy_name_key": "item.cloth_chest.name",
+      "source_class": "ItemRobeArmor",
+      "source_file": "thaumcraft/common/items/armor/ItemRobeArmor.java",
+      "model_status": "original_json",
+      "original_model": "assets/thaumcraft/models/item/cloth_chest.json",
+      "stack_limit": 1
+    },
+    {
+      "id": "cloth_legs",
+      "legacy_item": "cloth_legs",
+      "legacy_metadata": 0,
+      "legacy_variant": "cloth_legs",
+      "legacy_name_key": "item.cloth_legs.name",
+      "source_class": "ItemRobeArmor",
+      "source_file": "thaumcraft/common/items/armor/ItemRobeArmor.java",
+      "model_status": "original_json",
+      "original_model": "assets/thaumcraft/models/item/cloth_legs.json",
+      "stack_limit": 1
+    },
+    {
+      "id": "cloth_boots",
+      "legacy_item": "cloth_boots",
+      "legacy_metadata": 0,
+      "legacy_variant": "cloth_boots",
+      "legacy_name_key": "item.cloth_boots.name",
+      "source_class": "ItemRobeArmor",
+      "source_file": "thaumcraft/common/items/armor/ItemRobeArmor.java",
+      "model_status": "original_json",
+      "original_model": "assets/thaumcraft/models/item/cloth_boots.json",
+      "stack_limit": 1
+    },
+    {
+      "id": "traveller_boots",
+      "legacy_item": "traveller_boots",
+      "legacy_metadata": 0,
+      "legacy_variant": "traveller_boots",
+      "legacy_name_key": "item.traveller_boots.name",
+      "source_class": "ItemBootsTraveller",
+      "source_file": "thaumcraft/common/items/armor/ItemBootsTraveller.java",
+      "model_status": "original_json",
+      "original_model": "assets/thaumcraft/models/item/traveller_boots.json",
+      "stack_limit": 1
+    },
+    {
+      "id": "fortress_helm",
+      "legacy_item": "fortress_helm",
+      "legacy_metadata": 0,
+      "legacy_variant": "fortress_helm",
+      "legacy_name_key": "item.fortress_helm.name",
+      "source_class": "ItemFortressArmor",
+      "source_file": "thaumcraft/common/items/armor/ItemFortressArmor.java",
+      "model_status": "original_json",
+      "original_model": "assets/thaumcraft/models/item/fortress_helm.json",
+      "stack_limit": 1
+    },
+    {
+      "id": "fortress_chest",
+      "legacy_item": "fortress_chest",
+      "legacy_metadata": 0,
+      "legacy_variant": "fortress_chest",
+      "legacy_name_key": "item.fortress_chest.name",
+      "source_class": "ItemFortressArmor",
+      "source_file": "thaumcraft/common/items/armor/ItemFortressArmor.java",
+      "model_status": "original_json",
+      "original_model": "assets/thaumcraft/models/item/fortress_chest.json",
+      "stack_limit": 1
+    },
+    {
+      "id": "fortress_legs",
+      "legacy_item": "fortress_legs",
+      "legacy_metadata": 0,
+      "legacy_variant": "fortress_legs",
+      "legacy_name_key": "item.fortress_legs.name",
+      "source_class": "ItemFortressArmor",
+      "source_file": "thaumcraft/common/items/armor/ItemFortressArmor.java",
+      "model_status": "original_json",
+      "original_model": "assets/thaumcraft/models/item/fortress_legs.json",
+      "stack_limit": 1
+    },
+    {
+      "id": "void_helm",
+      "legacy_item": "void_helm",
+      "legacy_metadata": 0,
+      "legacy_variant": "void_helm",
+      "legacy_name_key": "item.void_helm.name",
+      "source_class": "ItemVoidArmor",
+      "source_file": "thaumcraft/common/items/armor/ItemVoidArmor.java",
+      "model_status": "original_json",
+      "original_model": "assets/thaumcraft/models/item/void_helm.json",
+      "stack_limit": 1
+    },
+    {
+      "id": "void_chest",
+      "legacy_item": "void_chest",
+      "legacy_metadata": 0,
+      "legacy_variant": "void_chest",
+      "legacy_name_key": "item.void_chest.name",
+      "source_class": "ItemVoidArmor",
+      "source_file": "thaumcraft/common/items/armor/ItemVoidArmor.java",
+      "model_status": "original_json",
+      "original_model": "assets/thaumcraft/models/item/void_chest.json",
+      "stack_limit": 1
+    },
+    {
+      "id": "void_legs",
+      "legacy_item": "void_legs",
+      "legacy_metadata": 0,
+      "legacy_variant": "void_legs",
+      "legacy_name_key": "item.void_legs.name",
+      "source_class": "ItemVoidArmor",
+      "source_file": "thaumcraft/common/items/armor/ItemVoidArmor.java",
+      "model_status": "original_json",
+      "original_model": "assets/thaumcraft/models/item/void_legs.json",
+      "stack_limit": 1
+    },
+    {
+      "id": "void_boots",
+      "legacy_item": "void_boots",
+      "legacy_metadata": 0,
+      "legacy_variant": "void_boots",
+      "legacy_name_key": "item.void_boots.name",
+      "source_class": "ItemVoidArmor",
+      "source_file": "thaumcraft/common/items/armor/ItemVoidArmor.java",
+      "model_status": "original_json",
+      "original_model": "assets/thaumcraft/models/item/void_boots.json",
+      "stack_limit": 1
+    },
+    {
+      "id": "void_robe_helm",
+      "legacy_item": "void_robe_helm",
+      "legacy_metadata": 0,
+      "legacy_variant": "void_robe_helm",
+      "legacy_name_key": "item.void_robe_helm.name",
+      "source_class": "ItemVoidRobeArmor",
+      "source_file": "thaumcraft/common/items/armor/ItemVoidRobeArmor.java",
+      "model_status": "original_json",
+      "original_model": "assets/thaumcraft/models/item/void_robe_helm.json",
+      "stack_limit": 1
+    },
+    {
+      "id": "void_robe_chest",
+      "legacy_item": "void_robe_chest",
+      "legacy_metadata": 0,
+      "legacy_variant": "void_robe_chest",
+      "legacy_name_key": "item.void_robe_chest.name",
+      "source_class": "ItemVoidRobeArmor",
+      "source_file": "thaumcraft/common/items/armor/ItemVoidRobeArmor.java",
+      "model_status": "original_json",
+      "original_model": "assets/thaumcraft/models/item/void_robe_chest.json",
+      "stack_limit": 1
+    },
+    {
+      "id": "void_robe_legs",
+      "legacy_item": "void_robe_legs",
+      "legacy_metadata": 0,
+      "legacy_variant": "void_robe_legs",
+      "legacy_name_key": "item.void_robe_legs.name",
+      "source_class": "ItemVoidRobeArmor",
+      "source_file": "thaumcraft/common/items/armor/ItemVoidRobeArmor.java",
+      "model_status": "original_json",
+      "original_model": "assets/thaumcraft/models/item/void_robe_legs.json",
+      "stack_limit": 1
+    },
+    {
+      "id": "crimson_plate_helm",
+      "legacy_item": "crimson_plate_helm",
+      "legacy_metadata": 0,
+      "legacy_variant": "crimson_plate_helm",
+      "legacy_name_key": "item.crimson_plate_helm.name",
+      "source_class": "ItemCultistPlateArmor",
+      "source_file": "thaumcraft/common/items/armor/ItemCultistPlateArmor.java",
+      "model_status": "original_json",
+      "original_model": "assets/thaumcraft/models/item/crimson_plate_helm.json",
+      "stack_limit": 1
+    },
+    {
+      "id": "crimson_plate_chest",
+      "legacy_item": "crimson_plate_chest",
+      "legacy_metadata": 0,
+      "legacy_variant": "crimson_plate_chest",
+      "legacy_name_key": "item.crimson_plate_chest.name",
+      "source_class": "ItemCultistPlateArmor",
+      "source_file": "thaumcraft/common/items/armor/ItemCultistPlateArmor.java",
+      "model_status": "original_json",
+      "original_model": "assets/thaumcraft/models/item/crimson_plate_chest.json",
+      "stack_limit": 1
+    },
+    {
+      "id": "crimson_plate_legs",
+      "legacy_item": "crimson_plate_legs",
+      "legacy_metadata": 0,
+      "legacy_variant": "crimson_plate_legs",
+      "legacy_name_key": "item.crimson_plate_legs.name",
+      "source_class": "ItemCultistPlateArmor",
+      "source_file": "thaumcraft/common/items/armor/ItemCultistPlateArmor.java",
+      "model_status": "original_json",
+      "original_model": "assets/thaumcraft/models/item/crimson_plate_legs.json",
+      "stack_limit": 1
+    },
+    {
+      "id": "crimson_boots",
+      "legacy_item": "crimson_boots",
+      "legacy_metadata": 0,
+      "legacy_variant": "crimson_boots",
+      "legacy_name_key": "item.crimson_boots.name",
+      "source_class": "ItemCultistBoots",
+      "source_file": "thaumcraft/common/items/armor/ItemCultistBoots.java",
+      "model_status": "original_json",
+      "original_model": "assets/thaumcraft/models/item/crimson_boots.json",
+      "stack_limit": 1
+    },
+    {
+      "id": "crimson_robe_helm",
+      "legacy_item": "crimson_robe_helm",
+      "legacy_metadata": 0,
+      "legacy_variant": "crimson_robe_helm",
+      "legacy_name_key": "item.crimson_robe_helm.name",
+      "source_class": "ItemCultistRobeArmor",
+      "source_file": "thaumcraft/common/items/armor/ItemCultistRobeArmor.java",
+      "model_status": "original_json",
+      "original_model": "assets/thaumcraft/models/item/crimson_robe_helm.json",
+      "stack_limit": 1
+    },
+    {
+      "id": "crimson_robe_chest",
+      "legacy_item": "crimson_robe_chest",
+      "legacy_metadata": 0,
+      "legacy_variant": "crimson_robe_chest",
+      "legacy_name_key": "item.crimson_robe_chest.name",
+      "source_class": "ItemCultistRobeArmor",
+      "source_file": "thaumcraft/common/items/armor/ItemCultistRobeArmor.java",
+      "model_status": "original_json",
+      "original_model": "assets/thaumcraft/models/item/crimson_robe_chest.json",
+      "stack_limit": 1
+    },
+    {
+      "id": "crimson_robe_legs",
+      "legacy_item": "crimson_robe_legs",
+      "legacy_metadata": 0,
+      "legacy_variant": "crimson_robe_legs",
+      "legacy_name_key": "item.crimson_robe_legs.name",
+      "source_class": "ItemCultistRobeArmor",
+      "source_file": "thaumcraft/common/items/armor/ItemCultistRobeArmor.java",
+      "model_status": "original_json",
+      "original_model": "assets/thaumcraft/models/item/crimson_robe_legs.json",
+      "stack_limit": 1
+    },
+    {
+      "id": "crimson_praetor_helm",
+      "legacy_item": "crimson_praetor_helm",
+      "legacy_metadata": 0,
+      "legacy_variant": "crimson_praetor_helm",
+      "legacy_name_key": "item.crimson_praetor_helm.name",
+      "source_class": "ItemCultistLeaderArmor",
+      "source_file": "thaumcraft/common/items/armor/ItemCultistLeaderArmor.java",
+      "model_status": "original_json",
+      "original_model": "assets/thaumcraft/models/item/crimson_praetor_helm.json",
+      "stack_limit": 1
+    },
+    {
+      "id": "crimson_praetor_chest",
+      "legacy_item": "crimson_praetor_chest",
+      "legacy_metadata": 0,
+      "legacy_variant": "crimson_praetor_chest",
+      "legacy_name_key": "item.crimson_praetor_chest.name",
+      "source_class": "ItemCultistLeaderArmor",
+      "source_file": "thaumcraft/common/items/armor/ItemCultistLeaderArmor.java",
+      "model_status": "original_json",
+      "original_model": "assets/thaumcraft/models/item/crimson_praetor_chest.json",
+      "stack_limit": 1
+    },
+    {
+      "id": "crimson_praetor_legs",
+      "legacy_item": "crimson_praetor_legs",
+      "legacy_metadata": 0,
+      "legacy_variant": "crimson_praetor_legs",
+      "legacy_name_key": "item.crimson_praetor_legs.name",
+      "source_class": "ItemCultistLeaderArmor",
+      "source_file": "thaumcraft/common/items/armor/ItemCultistLeaderArmor.java",
+      "model_status": "original_json",
+      "original_model": "assets/thaumcraft/models/item/crimson_praetor_legs.json",
+      "stack_limit": 1
+    },
+    {
+      "id": "baubles_amulet_mundane",
+      "legacy_item": "baubles",
+      "legacy_metadata": 0,
+      "legacy_variant": "amulet_mundane",
+      "legacy_name_key": "item.baubles.amulet_mundane.name",
+      "source_class": "ItemBaubles",
+      "source_file": "thaumcraft/common/items/baubles/ItemBaubles.java",
+      "model_status": "legacy_item_layer_adapted",
+      "original_model": "assets/thaumcraft/blockstates/baubles.json#amulet_mundane",
+      "stack_limit": 1
+    },
+    {
+      "id": "baubles_ring_mundane",
+      "legacy_item": "baubles",
+      "legacy_metadata": 1,
+      "legacy_variant": "ring_mundane",
+      "legacy_name_key": "item.baubles.ring_mundane.name",
+      "source_class": "ItemBaubles",
+      "source_file": "thaumcraft/common/items/baubles/ItemBaubles.java",
+      "model_status": "legacy_item_layer_adapted",
+      "original_model": "assets/thaumcraft/blockstates/baubles.json#ring_mundane",
+      "stack_limit": 1
+    },
+    {
+      "id": "baubles_girdle_mundane",
+      "legacy_item": "baubles",
+      "legacy_metadata": 2,
+      "legacy_variant": "girdle_mundane",
+      "legacy_name_key": "item.baubles.girdle_mundane.name",
+      "source_class": "ItemBaubles",
+      "source_file": "thaumcraft/common/items/baubles/ItemBaubles.java",
+      "model_status": "legacy_item_layer_adapted",
+      "original_model": "assets/thaumcraft/blockstates/baubles.json#girdle_mundane",
+      "stack_limit": 1
+    },
+    {
+      "id": "baubles_ring_apprentice",
+      "legacy_item": "baubles",
+      "legacy_metadata": 3,
+      "legacy_variant": "ring_apprentice",
+      "legacy_name_key": "item.baubles.ring_apprentice.name",
+      "source_class": "ItemBaubles",
+      "source_file": "thaumcraft/common/items/baubles/ItemBaubles.java",
+      "model_status": "legacy_item_layer_adapted",
+      "original_model": "assets/thaumcraft/blockstates/baubles.json#ring_apprentice",
+      "stack_limit": 1
+    },
+    {
+      "id": "baubles_amulet_fancy",
+      "legacy_item": "baubles",
+      "legacy_metadata": 4,
+      "legacy_variant": "amulet_fancy",
+      "legacy_name_key": "item.baubles.amulet_fancy.name",
+      "source_class": "ItemBaubles",
+      "source_file": "thaumcraft/common/items/baubles/ItemBaubles.java",
+      "model_status": "legacy_item_layer_adapted",
+      "original_model": "assets/thaumcraft/blockstates/baubles.json#amulet_fancy",
+      "stack_limit": 1
+    },
+    {
+      "id": "baubles_ring_fancy",
+      "legacy_item": "baubles",
+      "legacy_metadata": 5,
+      "legacy_variant": "ring_fancy",
+      "legacy_name_key": "item.baubles.ring_fancy.name",
+      "source_class": "ItemBaubles",
+      "source_file": "thaumcraft/common/items/baubles/ItemBaubles.java",
+      "model_status": "legacy_item_layer_adapted",
+      "original_model": "assets/thaumcraft/blockstates/baubles.json#ring_fancy",
+      "stack_limit": 1
+    },
+    {
+      "id": "baubles_girdle_fancy",
+      "legacy_item": "baubles",
+      "legacy_metadata": 6,
+      "legacy_variant": "girdle_fancy",
+      "legacy_name_key": "item.baubles.girdle_fancy.name",
+      "source_class": "ItemBaubles",
+      "source_file": "thaumcraft/common/items/baubles/ItemBaubles.java",
+      "model_status": "legacy_item_layer_adapted",
+      "original_model": "assets/thaumcraft/blockstates/baubles.json#girdle_fancy",
+      "stack_limit": 1
+    },
+    {
+      "id": "amulet_vis_found",
+      "legacy_item": "amulet_vis",
+      "legacy_metadata": 0,
+      "legacy_variant": "found",
+      "legacy_name_key": "item.amulet_vis.found.name",
+      "source_class": "ItemAmuletVis",
+      "source_file": "thaumcraft/common/items/baubles/ItemAmuletVis.java",
+      "model_status": "legacy_item_layer_adapted",
+      "original_model": "assets/thaumcraft/blockstates/amulet_vis.json#found",
+      "stack_limit": 1
+    },
+    {
+      "id": "amulet_vis_crafted",
+      "legacy_item": "amulet_vis",
+      "legacy_metadata": 1,
+      "legacy_variant": "crafted",
+      "legacy_name_key": "item.amulet_vis.crafted.name",
+      "source_class": "ItemAmuletVis",
+      "source_file": "thaumcraft/common/items/baubles/ItemAmuletVis.java",
+      "model_status": "legacy_item_layer_adapted",
+      "original_model": "assets/thaumcraft/blockstates/amulet_vis.json#crafted",
+      "stack_limit": 1
+    },
+    {
+      "id": "verdant_charm",
+      "legacy_item": "verdant_charm",
+      "legacy_metadata": 0,
+      "legacy_variant": "verdant_charm",
+      "legacy_name_key": "item.verdant_charm.name",
+      "source_class": "ItemVerdantCharm",
+      "source_file": "thaumcraft/common/items/baubles/ItemVerdantCharm.java",
+      "model_status": "original_json",
+      "original_model": "assets/thaumcraft/models/item/verdant_charm.json",
+      "stack_limit": 1
+    },
+    {
+      "id": "curiosity_band",
+      "legacy_item": "curiosity_band",
+      "legacy_metadata": 0,
+      "legacy_variant": "curiosity_band",
+      "legacy_name_key": "item.curiosity_band.name",
+      "source_class": "ItemCuriosityBand",
+      "source_file": "thaumcraft/common/items/baubles/ItemCuriosityBand.java",
+      "model_status": "original_json",
+      "original_model": "assets/thaumcraft/models/item/curiosity_band.json",
+      "stack_limit": 1
+    },
+    {
+      "id": "voidseer_charm",
+      "legacy_item": "voidseer_charm",
+      "legacy_metadata": 0,
+      "legacy_variant": "voidseer_charm",
+      "legacy_name_key": "item.voidseer_charm.name",
+      "source_class": "ItemVoidseerCharm",
+      "source_file": "thaumcraft/common/items/baubles/ItemVoidseerCharm.java",
+      "model_status": "original_json",
+      "original_model": "assets/thaumcraft/models/item/voidseer_charm.json",
+      "stack_limit": 1
+    },
+    {
+      "id": "cloud_ring",
+      "legacy_item": "cloud_ring",
+      "legacy_metadata": 0,
+      "legacy_variant": "cloud_ring",
+      "legacy_name_key": "item.cloud_ring.name",
+      "source_class": "ItemCloudRing",
+      "source_file": "thaumcraft/common/items/baubles/ItemCloudRing.java",
+      "model_status": "original_json",
+      "original_model": "assets/thaumcraft/models/item/cloud_ring.json",
+      "stack_limit": 1
+    },
+    {
+      "id": "charm_undying",
+      "legacy_item": "charm_undying",
+      "legacy_metadata": 0,
+      "legacy_variant": "charm_undying",
+      "legacy_name_key": "item.charm_undying.name",
+      "source_class": "ItemCharmUndying",
+      "source_file": "thaumcraft/common/items/baubles/ItemCharmUndying.java",
+      "model_status": "original_json",
+      "original_model": "assets/thaumcraft/models/item/charm_undying.json",
+      "stack_limit": 1
+    },
+    {
+      "id": "creative_flux_sponge",
+      "legacy_item": "creative_flux_sponge",
+      "legacy_metadata": 0,
+      "legacy_variant": "creative_flux_sponge",
+      "legacy_name_key": "item.creative_flux_sponge.name",
+      "source_class": "ItemCreativeFluxSponge",
+      "source_file": "thaumcraft/common/items/misc/ItemCreativeFluxSponge.java",
+      "model_status": "original_json",
+      "original_model": "assets/thaumcraft/models/item/creative_flux_sponge.json",
+      "stack_limit": 1
+    },
+    {
+      "id": "enchanted_placeholder",
+      "legacy_item": "enchanted_placeholder",
+      "legacy_metadata": 0,
+      "legacy_variant": "enchanted_placeholder",
+      "legacy_name_key": "item.enchanted_placeholder.name",
+      "source_class": "ItemEnchantmentPlaceholder",
+      "source_file": "thaumcraft/common/items/curios/ItemEnchantmentPlaceholder.java",
+      "model_status": "original_json",
+      "original_model": "assets/thaumcraft/models/item/enchanted_placeholder.json",
+      "stack_limit": 1
+    },
+    {
+      "id": "caster_basic",
+      "legacy_item": "caster_basic",
+      "legacy_metadata": 0,
+      "legacy_variant": "caster_basic",
+      "legacy_name_key": "item.caster_basic.name",
+      "source_class": "ItemCaster",
+      "source_file": "thaumcraft/common/items/casters/ItemCaster.java",
+      "model_status": "original_json",
+      "original_model": "assets/thaumcraft/models/item/caster_basic.json",
+      "stack_limit": 1
+    },
+    {
+      "id": "focus_1",
+      "legacy_item": "focus_1",
+      "legacy_metadata": 0,
+      "legacy_variant": "focus_1",
+      "legacy_name_key": "item.focus_1.name",
+      "source_class": "ItemFocus",
+      "source_file": "thaumcraft/common/items/casters/ItemFocus.java",
+      "model_status": "original_json",
+      "original_model": "assets/thaumcraft/models/item/focus_1.json",
+      "stack_limit": 1
+    },
+    {
+      "id": "focus_2",
+      "legacy_item": "focus_2",
+      "legacy_metadata": 0,
+      "legacy_variant": "focus_2",
+      "legacy_name_key": "item.focus_2.name",
+      "source_class": "ItemFocus",
+      "source_file": "thaumcraft/common/items/casters/ItemFocus.java",
+      "model_status": "original_json",
+      "original_model": "assets/thaumcraft/models/item/focus_2.json",
+      "stack_limit": 1
+    },
+    {
+      "id": "focus_3",
+      "legacy_item": "focus_3",
+      "legacy_metadata": 0,
+      "legacy_variant": "focus_3",
+      "legacy_name_key": "item.focus_3.name",
+      "source_class": "ItemFocus",
+      "source_file": "thaumcraft/common/items/casters/ItemFocus.java",
+      "model_status": "original_json",
+      "original_model": "assets/thaumcraft/models/item/focus_3.json",
+      "stack_limit": 1
+    },
+    {
+      "id": "focus_pouch",
+      "legacy_item": "focus_pouch",
+      "legacy_metadata": 0,
+      "legacy_variant": "focus_pouch",
+      "legacy_name_key": "item.focus_pouch.name",
+      "source_class": "ItemFocusPouch",
+      "source_file": "thaumcraft/common/items/casters/ItemFocusPouch.java",
+      "model_status": "original_json",
+      "original_model": "assets/thaumcraft/models/item/focus_pouch.json",
+      "stack_limit": 1
+    },
+    {
+      "id": "golem_bell",
+      "legacy_item": "golem_bell",
+      "legacy_metadata": 0,
+      "legacy_variant": "golem_bell",
+      "legacy_name_key": "item.golem_bell.name",
+      "source_class": "ItemGolemBell",
+      "source_file": "thaumcraft/common/golems/ItemGolemBell.java",
+      "model_status": "original_json",
+      "original_model": "assets/thaumcraft/models/item/golem_bell.json",
+      "stack_limit": 1
+    },
+    {
+      "id": "golem",
+      "legacy_item": "golem",
+      "legacy_metadata": 0,
+      "legacy_variant": "golem",
+      "legacy_name_key": "item.golem.name",
+      "source_class": "ItemGolemPlacer",
+      "source_file": "thaumcraft/common/golems/ItemGolemPlacer.java",
+      "model_status": "original_json",
+      "original_model": "assets/thaumcraft/models/item/golem.json",
+      "stack_limit": 64
+    },
+    {
+      "id": "seal_blank",
+      "legacy_item": "seal",
+      "legacy_metadata": 0,
+      "legacy_variant": "blank",
+      "legacy_name_key": "item.seal.blank.name",
+      "source_class": "ItemSealPlacer",
+      "source_file": "thaumcraft/common/golems/seals/ItemSealPlacer.java",
+      "model_status": "original_json",
+      "original_model": "assets/thaumcraft/models/item/seal_blank.json",
+      "stack_limit": 64
+    },
+    {
+      "id": "seal_pickup",
+      "legacy_item": "seal",
+      "legacy_metadata": 1,
+      "legacy_variant": "pickup",
+      "legacy_name_key": "item.seal.pickup.name",
+      "source_class": "ItemSealPlacer",
+      "source_file": "thaumcraft/common/golems/seals/ItemSealPlacer.java",
+      "model_status": "original_json",
+      "original_model": "assets/thaumcraft/models/item/seal_pickup.json",
+      "stack_limit": 64
+    },
+    {
+      "id": "seal_pickup_advanced",
+      "legacy_item": "seal",
+      "legacy_metadata": 2,
+      "legacy_variant": "pickup_advanced",
+      "legacy_name_key": "item.seal.pickup_advanced.name",
+      "source_class": "ItemSealPlacer",
+      "source_file": "thaumcraft/common/golems/seals/ItemSealPlacer.java",
+      "model_status": "original_json",
+      "original_model": "assets/thaumcraft/models/item/seal_pickup_advanced.json",
+      "stack_limit": 64
+    },
+    {
+      "id": "seal_fill",
+      "legacy_item": "seal",
+      "legacy_metadata": 3,
+      "legacy_variant": "fill",
+      "legacy_name_key": "item.seal.fill.name",
+      "source_class": "ItemSealPlacer",
+      "source_file": "thaumcraft/common/golems/seals/ItemSealPlacer.java",
+      "model_status": "original_json",
+      "original_model": "assets/thaumcraft/models/item/seal_fill.json",
+      "stack_limit": 64
+    },
+    {
+      "id": "seal_fill_advanced",
+      "legacy_item": "seal",
+      "legacy_metadata": 4,
+      "legacy_variant": "fill_advanced",
+      "legacy_name_key": "item.seal.fill_advanced.name",
+      "source_class": "ItemSealPlacer",
+      "source_file": "thaumcraft/common/golems/seals/ItemSealPlacer.java",
+      "model_status": "original_json",
+      "original_model": "assets/thaumcraft/models/item/seal_fill_advanced.json",
+      "stack_limit": 64
+    },
+    {
+      "id": "seal_empty",
+      "legacy_item": "seal",
+      "legacy_metadata": 5,
+      "legacy_variant": "empty",
+      "legacy_name_key": "item.seal.empty.name",
+      "source_class": "ItemSealPlacer",
+      "source_file": "thaumcraft/common/golems/seals/ItemSealPlacer.java",
+      "model_status": "original_json",
+      "original_model": "assets/thaumcraft/models/item/seal_empty.json",
+      "stack_limit": 64
+    },
+    {
+      "id": "seal_empty_advanced",
+      "legacy_item": "seal",
+      "legacy_metadata": 6,
+      "legacy_variant": "empty_advanced",
+      "legacy_name_key": "item.seal.empty_advanced.name",
+      "source_class": "ItemSealPlacer",
+      "source_file": "thaumcraft/common/golems/seals/ItemSealPlacer.java",
+      "model_status": "original_json",
+      "original_model": "assets/thaumcraft/models/item/seal_empty_advanced.json",
+      "stack_limit": 64
+    },
+    {
+      "id": "seal_harvest",
+      "legacy_item": "seal",
+      "legacy_metadata": 7,
+      "legacy_variant": "harvest",
+      "legacy_name_key": "item.seal.harvest.name",
+      "source_class": "ItemSealPlacer",
+      "source_file": "thaumcraft/common/golems/seals/ItemSealPlacer.java",
+      "model_status": "original_json",
+      "original_model": "assets/thaumcraft/models/item/seal_harvest.json",
+      "stack_limit": 64
+    },
+    {
+      "id": "seal_butcher",
+      "legacy_item": "seal",
+      "legacy_metadata": 8,
+      "legacy_variant": "butcher",
+      "legacy_name_key": "item.seal.butcher.name",
+      "source_class": "ItemSealPlacer",
+      "source_file": "thaumcraft/common/golems/seals/ItemSealPlacer.java",
+      "model_status": "original_json",
+      "original_model": "assets/thaumcraft/models/item/seal_butcher.json",
+      "stack_limit": 64
+    },
+    {
+      "id": "seal_guard",
+      "legacy_item": "seal",
+      "legacy_metadata": 9,
+      "legacy_variant": "guard",
+      "legacy_name_key": "item.seal.guard.name",
+      "source_class": "ItemSealPlacer",
+      "source_file": "thaumcraft/common/golems/seals/ItemSealPlacer.java",
+      "model_status": "original_json",
+      "original_model": "assets/thaumcraft/models/item/seal_guard.json",
+      "stack_limit": 64
+    },
+    {
+      "id": "seal_guard_advanced",
+      "legacy_item": "seal",
+      "legacy_metadata": 10,
+      "legacy_variant": "guard_advanced",
+      "legacy_name_key": "item.seal.guard_advanced.name",
+      "source_class": "ItemSealPlacer",
+      "source_file": "thaumcraft/common/golems/seals/ItemSealPlacer.java",
+      "model_status": "original_json",
+      "original_model": "assets/thaumcraft/models/item/seal_guard_advanced.json",
+      "stack_limit": 64
+    },
+    {
+      "id": "seal_lumber",
+      "legacy_item": "seal",
+      "legacy_metadata": 11,
+      "legacy_variant": "lumber",
+      "legacy_name_key": "item.seal.lumber.name",
+      "source_class": "ItemSealPlacer",
+      "source_file": "thaumcraft/common/golems/seals/ItemSealPlacer.java",
+      "model_status": "original_json",
+      "original_model": "assets/thaumcraft/models/item/seal_lumber.json",
+      "stack_limit": 64
+    },
+    {
+      "id": "seal_breaker",
+      "legacy_item": "seal",
+      "legacy_metadata": 12,
+      "legacy_variant": "breaker",
+      "legacy_name_key": "item.seal.breaker.name",
+      "source_class": "ItemSealPlacer",
+      "source_file": "thaumcraft/common/golems/seals/ItemSealPlacer.java",
+      "model_status": "original_json",
+      "original_model": "assets/thaumcraft/models/item/seal_breaker.json",
+      "stack_limit": 64
+    },
+    {
+      "id": "seal_use",
+      "legacy_item": "seal",
+      "legacy_metadata": 13,
+      "legacy_variant": "use",
+      "legacy_name_key": "item.seal.use.name",
+      "source_class": "ItemSealPlacer",
+      "source_file": "thaumcraft/common/golems/seals/ItemSealPlacer.java",
+      "model_status": "original_json",
+      "original_model": "assets/thaumcraft/models/item/seal_use.json",
+      "stack_limit": 64
+    },
+    {
+      "id": "seal_provider",
+      "legacy_item": "seal",
+      "legacy_metadata": 14,
+      "legacy_variant": "provider",
+      "legacy_name_key": "item.seal.provider.name",
+      "source_class": "ItemSealPlacer",
+      "source_file": "thaumcraft/common/golems/seals/ItemSealPlacer.java",
+      "model_status": "original_json",
+      "original_model": "assets/thaumcraft/models/item/seal_provider.json",
+      "stack_limit": 64
+    },
+    {
+      "id": "seal_stock",
+      "legacy_item": "seal",
+      "legacy_metadata": 15,
+      "legacy_variant": "stock",
+      "legacy_name_key": "item.seal.stock.name",
+      "source_class": "ItemSealPlacer",
+      "source_file": "thaumcraft/common/golems/seals/ItemSealPlacer.java",
+      "model_status": "original_json",
+      "original_model": "assets/thaumcraft/models/item/seal_stock.json",
+      "stack_limit": 64
+    },
+    {
+      "id": "seal_breaker_advanced",
+      "legacy_item": "seal",
+      "legacy_metadata": 16,
+      "legacy_variant": "breaker_advanced",
+      "legacy_name_key": "item.seal.breaker_advanced.name",
+      "source_class": "ItemSealPlacer",
+      "source_file": "thaumcraft/common/golems/seals/ItemSealPlacer.java",
+      "model_status": "original_json",
+      "original_model": "assets/thaumcraft/models/item/seal_breaker_advanced.json",
+      "stack_limit": 64
+    }
+  ],
+  "imported_models": {
+    "item/primordial_pearl": {
+      "source": "assets/thaumcraft/models/item/primordial_pearl.json",
+      "sha256_original": "d36eae47e78a9daf5c874d23fd1a8358f618610eb9770338136fbd0b5df91029",
+      "elements": 0
+    },
+    "item/primordial_pearl_0": {
+      "source": "assets/thaumcraft/models/item/primordial_pearl_0.json",
+      "sha256_original": "fbd45ec2948092c7a62f542dd6af17f1265cee424ece6c6b1a85e4728f75b9b3",
+      "elements": 0
+    },
+    "item/primordial_pearl_1": {
+      "source": "assets/thaumcraft/models/item/primordial_pearl_1.json",
+      "sha256_original": "873cec35be178b0a9aacad8483c455c78bf8710e0e97c261382f634d6f0dfa4d",
+      "elements": 0
+    },
+    "item/primordial_pearl_2": {
+      "source": "assets/thaumcraft/models/item/primordial_pearl_2.json",
+      "sha256_original": "ad3c4417e7be529ba2b7013ac837e71b14980d29ffd59eff46d49022934212a1",
+      "elements": 0
+    },
+    "item/pech_wand": {
+      "source": "assets/thaumcraft/models/item/pech_wand.json",
+      "sha256_original": "6c0ec38cc31d80eafdd5971d809e3ee13a8528411c5b3a8765bf3e24d7d87820",
+      "elements": 0
+    },
+    "item/vis_resonator": {
+      "source": "assets/thaumcraft/models/item/vis_resonator.json",
+      "sha256_original": "51b79bcacfb2523edc8b6710230307b0afdc2f6daa49dc7574d99b49a00c4303",
+      "elements": 0
+    },
+    "item/mechanism_simple": {
+      "source": "assets/thaumcraft/models/item/mechanism_simple.json",
+      "sha256_original": "a3de4dbbcce092c476ba99ee07a012da6b015cec5e985d692fe4ca6c1d587965",
+      "elements": 0
+    },
+    "item/mechanism_complex": {
+      "source": "assets/thaumcraft/models/item/mechanism_complex.json",
+      "sha256_original": "2ebae679dfed40250bac327b853b090636ae985f27833e39c3c7d5f9415f7699",
+      "elements": 0
+    },
+    "item/filter": {
+      "source": "assets/thaumcraft/models/item/filter.json",
+      "sha256_original": "54c6819882b1affd78400ea745eed0e940731d0df7dbddd446ba9b663f901688",
+      "elements": 0
+    },
+    "item/morphic_resonator": {
+      "source": "assets/thaumcraft/models/item/morphic_resonator.json",
+      "sha256_original": "a2fa27a5d959265fb7fa429c16f927d6de806c1e557587d704d57b4a44780aa9",
+      "elements": 0
+    },
+    "item/mirrored_glass": {
+      "source": "assets/thaumcraft/models/item/mirrored_glass.json",
+      "sha256_original": "3fb5cff12510d0868183e60dc685454bf7ff07c4538190bc7e264b703e5585f3",
+      "elements": 0
+    },
+    "item/triple_meat_treat": {
+      "source": "assets/thaumcraft/models/item/triple_meat_treat.json",
+      "sha256_original": "fc081b806305f6bbf162e541920f0010a91ad7fbdb871f257a8c58dfc3997fdd",
+      "elements": 0
+    },
+    "item/brain": {
+      "source": "assets/thaumcraft/models/item/brain.json",
+      "sha256_original": "8af383fac70f7551f81014f3a1e5142a0884af8d4998ca967c35eaf6704f5160",
+      "elements": 0
+    },
+    "item/jar_brace": {
+      "source": "assets/thaumcraft/models/item/jar_brace.json",
+      "sha256_original": "a6e2a190f3f0b59dd940380ac49eeb5ea6e7b73ed7b74553c12bcac31d8b0685",
+      "elements": 0
+    },
+    "item/bottle_taint": {
+      "source": "assets/thaumcraft/models/item/bottle_taint.json",
+      "sha256_original": "200b085f62d79977651ef719a2c0442ad1d72f963e447fd56f6f6952d116047b",
+      "elements": 0
+    },
+    "item/sanity_soap": {
+      "source": "assets/thaumcraft/models/item/sanity_soap.json",
+      "sha256_original": "d0620681dc71c7e58cbeca24d4b4b6e6d1e69f2c47d68ceed5bbbb79999bf74d",
+      "elements": 0
+    },
+    "item/bath_salts": {
+      "source": "assets/thaumcraft/models/item/bath_salts.json",
+      "sha256_original": "0600a76ce8277fecec9d38603b9e62cf002a3578e77b2e442ccc610f07da3071",
+      "elements": 0
+    },
+    "item/causality_collapser": {
+      "source": "assets/thaumcraft/models/item/causality_collapser.json",
+      "sha256_original": "9324c561b319e2f366c40cdb5d30fc0fd68b73324f3dc6c892131d3cbae7e20b",
+      "elements": 0
+    },
+    "item/resonator": {
+      "source": "assets/thaumcraft/models/item/resonator.json",
+      "sha256_original": "a3003b47f083142cabd7849af755f797ccec97250fd58a6a4e9b2ff3279897d5",
+      "elements": 0
+    },
+    "item/sanity_checker": {
+      "source": "assets/thaumcraft/models/item/sanity_checker.json",
+      "sha256_original": "3c26979696daf021dd6cc70fa555f11869f0a884311c33c5090e94cfb6c60ac7",
+      "elements": 0
+    },
+    "item/hand_mirror": {
+      "source": "assets/thaumcraft/models/item/hand_mirror.json",
+      "sha256_original": "d4721cefb099271b751fdcb41dad5e28306f7c4dd866fcefebe4ca89a4f9ec98",
+      "elements": 0
+    },
+    "item/void_axe": {
+      "source": "assets/thaumcraft/models/item/void_axe.json",
+      "sha256_original": "42ac3a00eea043afaeefd69b1f13631dbc24f4d8652b37f7128e2c92fab091dc",
+      "elements": 0
+    },
+    "item/void_sword": {
+      "source": "assets/thaumcraft/models/item/void_sword.json",
+      "sha256_original": "295c0490be547a6dd718d2a3c53ed95edd2902fc1770218fb884ec7b503f46ff",
+      "elements": 0
+    },
+    "item/void_shovel": {
+      "source": "assets/thaumcraft/models/item/void_shovel.json",
+      "sha256_original": "1a5d1f8397c378fbe168890895e6ee841a30d836e9573e242c406fd0e31d770d",
+      "elements": 0
+    },
+    "item/void_pick": {
+      "source": "assets/thaumcraft/models/item/void_pick.json",
+      "sha256_original": "04a337606615a97952eec96dd0de5922d1d3c53d8966ba96042afb5f806f21f9",
+      "elements": 0
+    },
+    "item/void_hoe": {
+      "source": "assets/thaumcraft/models/item/void_hoe.json",
+      "sha256_original": "e7632b1803e10d04b52cfcb83386384ddc2f73ee1fe0dff972863e488fb87469",
+      "elements": 0
+    },
+    "item/elemental_axe": {
+      "source": "assets/thaumcraft/models/item/elemental_axe.json",
+      "sha256_original": "6982bb9f76c894ade9f642aee0350ae8f375f160687b2bb605b4e2199dfe1767",
+      "elements": 0
+    },
+    "item/elemental_sword": {
+      "source": "assets/thaumcraft/models/item/elemental_sword.json",
+      "sha256_original": "a47d50120ae97dc84eddf14ced3dac2a038428c7ffeb93d314b94b174dc92dd6",
+      "elements": 0
+    },
+    "item/elemental_shovel": {
+      "source": "assets/thaumcraft/models/item/elemental_shovel.json",
+      "sha256_original": "6060fcc05a5b78ad262746eb964f557c530170dda497a0b8c54b0ab90b3957cc",
+      "elements": 0
+    },
+    "item/elemental_pick": {
+      "source": "assets/thaumcraft/models/item/elemental_pick.json",
+      "sha256_original": "b9eb3c4cd6dae80ac2c8ea2c46e91d19e17d1acdd668fc6e9b526669df860343",
+      "elements": 0
+    },
+    "item/elemental_hoe": {
+      "source": "assets/thaumcraft/models/item/elemental_hoe.json",
+      "sha256_original": "940b78e54a884fde13c2a6c21fb9ae1dae67329dc23b47b6562a50035cc7884a",
+      "elements": 0
+    },
+    "item/primal_crusher": {
+      "source": "assets/thaumcraft/models/item/primal_crusher.json",
+      "sha256_original": "fadc1b8ab28c3109806b7c093a3275e4a6dd3927f25a0961d696dbf2b3bcbb7c",
+      "elements": 0
+    },
+    "item/crimson_blade": {
+      "source": "assets/thaumcraft/models/item/crimson_blade.json",
+      "sha256_original": "70c7d808279a19990bbe05eccd848f91a3413a06aee1f5857f81aa8dcfe38cb2",
+      "elements": 0
+    },
+    "item/grapple_gun": {
+      "source": "assets/thaumcraft/models/item/grapple_gun.json",
+      "sha256_original": "facc7f6109c8885d96741d1927293ccc4ac13cfcbb9e3ec82659bc64b5271c11",
+      "elements": 0
+    },
+    "item/grapple_gun_1": {
+      "source": "assets/thaumcraft/models/item/grapple_gun_1.json",
+      "sha256_original": "b0f3d70555c943a293e6bf37d36eeaa711d541375b78ca2001c6ee93c2f7ce25",
+      "elements": 14
+    },
+    "item/grapple_gun_2": {
+      "source": "assets/thaumcraft/models/item/grapple_gun_2.json",
+      "sha256_original": "9f64738e7a16e5d346f065566f561f97f38214245563ba6faf7fd34021785841",
+      "elements": 10
+    },
+    "item/grapple_gun_tip": {
+      "source": "assets/thaumcraft/models/item/grapple_gun_tip.json",
+      "sha256_original": "490e1b88aac1245d28f4dc2e364aaf812ec09a9b8eec83a38da1fc94e31e5b0a",
+      "elements": 0
+    },
+    "item/grapple_gun_spool": {
+      "source": "assets/thaumcraft/models/item/grapple_gun_spool.json",
+      "sha256_original": "54446b5782aa6179f1154b25e6b5fe1a6bb148ec5ed506d1eb91b9f7d6011cab",
+      "elements": 0
+    },
+    "item/goggles": {
+      "source": "assets/thaumcraft/models/item/goggles.json",
+      "sha256_original": "857954c90898e4d5860f8b9aecb044d93b92a3f702bedf96ddfd0f865f5ce338",
+      "elements": 0
+    },
+    "item/cloth_chest": {
+      "source": "assets/thaumcraft/models/item/cloth_chest.json",
+      "sha256_original": "13ac68e60c3f1c555feea0e2dcbebb4629acca3234ba9d53418478efa5f48138",
+      "elements": 0
+    },
+    "item/cloth_legs": {
+      "source": "assets/thaumcraft/models/item/cloth_legs.json",
+      "sha256_original": "4d08b07ae3dcb2b698a1e84cba1af188ce6b3e27682d29581cb83639ec334784",
+      "elements": 0
+    },
+    "item/cloth_boots": {
+      "source": "assets/thaumcraft/models/item/cloth_boots.json",
+      "sha256_original": "3f94fe7c8a528da73528ffd4417ad1788d682de4a38822ca6820662cb5985b5b",
+      "elements": 0
+    },
+    "item/traveller_boots": {
+      "source": "assets/thaumcraft/models/item/traveller_boots.json",
+      "sha256_original": "0c721120f1fc2e6b3aaff45bc7f886241d059c59b466104b6553fecc8b9ce2f0",
+      "elements": 0
+    },
+    "item/fortress_helm": {
+      "source": "assets/thaumcraft/models/item/fortress_helm.json",
+      "sha256_original": "ab3b0c94cdd9ee0f8c3a362041028fd54a4d2a028fce41a5d06002bf7fddf8e1",
+      "elements": 0
+    },
+    "item/fortress_chest": {
+      "source": "assets/thaumcraft/models/item/fortress_chest.json",
+      "sha256_original": "09e1540b16f98450a435dba408b763d8959f2cdfa21aaf7eddb509c3cbae4e69",
+      "elements": 0
+    },
+    "item/fortress_legs": {
+      "source": "assets/thaumcraft/models/item/fortress_legs.json",
+      "sha256_original": "b57e9a57831a879de1ad574da73ecef44336ae1044dff5df07e63be2a1989c09",
+      "elements": 0
+    },
+    "item/void_helm": {
+      "source": "assets/thaumcraft/models/item/void_helm.json",
+      "sha256_original": "64d73990896586b10d0b763eb417504e5ddba3999e5c321e6a046419ff137acc",
+      "elements": 0
+    },
+    "item/void_chest": {
+      "source": "assets/thaumcraft/models/item/void_chest.json",
+      "sha256_original": "75b6fe8f9719eaca1b8a4ea9e7dde7b5aeafd73cccaeccabe60cae0c6ea9e570",
+      "elements": 0
+    },
+    "item/void_legs": {
+      "source": "assets/thaumcraft/models/item/void_legs.json",
+      "sha256_original": "f61e955c7317147e0ce9b5396b88dd7722a4156149eba7727b8468cfa56ecfe9",
+      "elements": 0
+    },
+    "item/void_boots": {
+      "source": "assets/thaumcraft/models/item/void_boots.json",
+      "sha256_original": "3a992f6f7860bfff97dd42d81f1b094454f8898eb9630d1c4119b6fff7b7f493",
+      "elements": 0
+    },
+    "item/void_robe_helm": {
+      "source": "assets/thaumcraft/models/item/void_robe_helm.json",
+      "sha256_original": "2f32f1189198b7ac8888bb47ce44f81b302b30d73d5af7f8b02418dc6c8d950d",
+      "elements": 0
+    },
+    "item/void_robe_chest": {
+      "source": "assets/thaumcraft/models/item/void_robe_chest.json",
+      "sha256_original": "f355b818ff6b87ef3fe7e56d7abcc5c2fe9deecd4d5e926f0b9781832ec296b3",
+      "elements": 0
+    },
+    "item/void_robe_legs": {
+      "source": "assets/thaumcraft/models/item/void_robe_legs.json",
+      "sha256_original": "5152e0877acb54e0d4587fefadc0e72d50df76e01d81fdce20b8b5ca85293381",
+      "elements": 0
+    },
+    "item/crimson_plate_helm": {
+      "source": "assets/thaumcraft/models/item/crimson_plate_helm.json",
+      "sha256_original": "716b60b9602f49ff788dd320b27153f0adaa715b877986b37e334420b10212f1",
+      "elements": 0
+    },
+    "item/crimson_plate_chest": {
+      "source": "assets/thaumcraft/models/item/crimson_plate_chest.json",
+      "sha256_original": "5789be8a5513306910367eea20ca6fe295041d35396f611097620e9a90e5f713",
+      "elements": 0
+    },
+    "item/crimson_plate_legs": {
+      "source": "assets/thaumcraft/models/item/crimson_plate_legs.json",
+      "sha256_original": "d9824dea2faebda5e0c31d0e354c370df76fc840c70fff5df2a923d4838b0a14",
+      "elements": 0
+    },
+    "item/crimson_boots": {
+      "source": "assets/thaumcraft/models/item/crimson_boots.json",
+      "sha256_original": "1b90bfebc7d24e903656bceabb0a113ba7ad50e5c24300d55931ac2098102e2b",
+      "elements": 0
+    },
+    "item/crimson_robe_helm": {
+      "source": "assets/thaumcraft/models/item/crimson_robe_helm.json",
+      "sha256_original": "2f2b9b5a71a50f114d9d62e9fac3ea25dac97faff6b8925b011b214ea223e18c",
+      "elements": 0
+    },
+    "item/crimson_robe_chest": {
+      "source": "assets/thaumcraft/models/item/crimson_robe_chest.json",
+      "sha256_original": "035a7ff6a6449671a30a370d29e2d75e79d1015261ecaba05aafdd09319ce45f",
+      "elements": 0
+    },
+    "item/crimson_robe_legs": {
+      "source": "assets/thaumcraft/models/item/crimson_robe_legs.json",
+      "sha256_original": "02782d424376f57c316524c22088ef805c50009a4ba7c7e9e0951b3f21ffcbea",
+      "elements": 0
+    },
+    "item/crimson_praetor_helm": {
+      "source": "assets/thaumcraft/models/item/crimson_praetor_helm.json",
+      "sha256_original": "dc696d44d2900224a4f128763eea8ca972f86746b6c2c3bb93d9eebf7c13496d",
+      "elements": 0
+    },
+    "item/crimson_praetor_chest": {
+      "source": "assets/thaumcraft/models/item/crimson_praetor_chest.json",
+      "sha256_original": "96de5f0b4f75336c42d2709d1a10ba17ff5951d436a00816f09939d1b0032ef7",
+      "elements": 0
+    },
+    "item/crimson_praetor_legs": {
+      "source": "assets/thaumcraft/models/item/crimson_praetor_legs.json",
+      "sha256_original": "891f4764d957679152a19bd50ff0dd8ab4e9c1dd43bf49bd917bf95b000100c4",
+      "elements": 0
+    },
+    "item/verdant_charm": {
+      "source": "assets/thaumcraft/models/item/verdant_charm.json",
+      "sha256_original": "209eb4eb04845ea044c1746508b92162ae81dc7a4cec907f5f5b135996d58914",
+      "elements": 0
+    },
+    "item/verdant_charm_0": {
+      "source": "assets/thaumcraft/models/item/verdant_charm_0.json",
+      "sha256_original": "6dda5f7d75ecaa9e35b2b0864888c8f99a6ce4f019cba17f3cbc15ad5cdc7ed0",
+      "elements": 0
+    },
+    "item/verdant_charm_1": {
+      "source": "assets/thaumcraft/models/item/verdant_charm_1.json",
+      "sha256_original": "9322296d8ebc2e30d956e5e8ffe7c12d553056b1df67a084e37abdc30467f6d3",
+      "elements": 0
+    },
+    "item/verdant_charm_2": {
+      "source": "assets/thaumcraft/models/item/verdant_charm_2.json",
+      "sha256_original": "f016674f48443182c87a249bcfe8234bd34d9faf750803f9d1b3ca5950186dc5",
+      "elements": 0
+    },
+    "item/curiosity_band": {
+      "source": "assets/thaumcraft/models/item/curiosity_band.json",
+      "sha256_original": "5556d154c21a12549f325f15f77e4884e12db495dd0444b61a744d48f48dfe1a",
+      "elements": 0
+    },
+    "item/voidseer_charm": {
+      "source": "assets/thaumcraft/models/item/voidseer_charm.json",
+      "sha256_original": "4ab6fee108211299db2b24122bb294b6be24be3e03a71694276f5d78f1f130c2",
+      "elements": 0
+    },
+    "item/cloud_ring": {
+      "source": "assets/thaumcraft/models/item/cloud_ring.json",
+      "sha256_original": "219d2207c172f75e439412e1faabbcc15e289893eedab68ee243dc165dc90b68",
+      "elements": 0
+    },
+    "item/charm_undying": {
+      "source": "assets/thaumcraft/models/item/charm_undying.json",
+      "sha256_original": "2d4304aaf5d96535dc37cd2ed425d2475bdca0c4e08d3aae09cea537920d5338",
+      "elements": 0
+    },
+    "item/creative_flux_sponge": {
+      "source": "assets/thaumcraft/models/item/creative_flux_sponge.json",
+      "sha256_original": "c0bd3fbcc3fbb02ebfd15eb802a471f472cb15b0b6efab1f241ef29a029b69ea",
+      "elements": 0
+    },
+    "item/enchanted_placeholder": {
+      "source": "assets/thaumcraft/models/item/enchanted_placeholder.json",
+      "sha256_original": "3072c705d6f54f48bfaca6ff372600d72e6ac09ea5c72e82b4bf0e2bc1f30b8e",
+      "elements": 0
+    },
+    "item/caster_basic": {
+      "source": "assets/thaumcraft/models/item/caster_basic.json",
+      "sha256_original": "0b5af98ea1d33366308507e656acabc33d9bd4a899ff290980a97815177d4a34",
+      "elements": 0
+    },
+    "item/caster_basic_model": {
+      "source": "assets/thaumcraft/models/item/caster_basic_model.json",
+      "sha256_original": "96cd59e77729860b380d01747ca7c3101dc2c6b34e59b40f246610fdabb7b921",
+      "elements": 0
+    },
+    "item/caster_gauntlet": {
+      "source": "assets/thaumcraft/models/item/caster_gauntlet.json",
+      "sha256_original": "c6be70c571e4b566ef375ef5aa177586bb0d458bee9a4251636313ab7ca43ef7",
+      "elements": 3
+    },
+    "item/caster_basic_focus_model": {
+      "source": "assets/thaumcraft/models/item/caster_basic_focus_model.json",
+      "sha256_original": "c45b46a5a90273f821cb3e277559d3b3d74b7c0cb61cf5e7cd1aafe358e4269d",
+      "elements": 0
+    },
+    "item/caster_gauntlet_focus": {
+      "source": "assets/thaumcraft/models/item/caster_gauntlet_focus.json",
+      "sha256_original": "53351783931cd41138fce53735b7960e56808b84ed006857698952bef8d5306b",
+      "elements": 4
+    },
+    "item/focus_1": {
+      "source": "assets/thaumcraft/models/item/focus_1.json",
+      "sha256_original": "893f273aa188e54a5e4372314f0cde6f559e74ee43a829c2d6cb84ccbb251567",
+      "elements": 0
+    },
+    "item/focus_2": {
+      "source": "assets/thaumcraft/models/item/focus_2.json",
+      "sha256_original": "0ca2d23e9db61e86e9221d630d3ef93ce4058d5bfb2d5c7e99108fa2f3308958",
+      "elements": 0
+    },
+    "item/focus_3": {
+      "source": "assets/thaumcraft/models/item/focus_3.json",
+      "sha256_original": "d14df2ced43af8040701b50f79e816fc1b3a2e7089fd69f113c278ff5247ea2c",
+      "elements": 0
+    },
+    "item/focus_pouch": {
+      "source": "assets/thaumcraft/models/item/focus_pouch.json",
+      "sha256_original": "b7b7774d9d676c1589f0746c346361c6033e5549add252d08c42ae91356b0eb8",
+      "elements": 0
+    },
+    "item/golem_bell": {
+      "source": "assets/thaumcraft/models/item/golem_bell.json",
+      "sha256_original": "fd582a4209061ed4390688f03aac74000a9de83c2aa8af67a6a4dd0601bd8152",
+      "elements": 0
+    },
+    "item/golem": {
+      "source": "assets/thaumcraft/models/item/golem.json",
+      "sha256_original": "f9cb3f95ea05c17b9df2a1c6202cfa80ae7703a0fa6e865ec6dbe7cd3ed1f686",
+      "elements": 0
+    },
+    "item/seal_blank": {
+      "source": "assets/thaumcraft/models/item/seal_blank.json",
+      "sha256_original": "73528d99253406f8c5b56ce2c7f90cb083b9193fa01ca66a1f52f10240c13fd6",
+      "elements": 0
+    },
+    "item/seal_pickup": {
+      "source": "assets/thaumcraft/models/item/seal_pickup.json",
+      "sha256_original": "77dba91b685aa413d6e2f696f8b7709e308818a8106252c0ba0793353167ee7e",
+      "elements": 0
+    },
+    "item/seal_pickup_advanced": {
+      "source": "assets/thaumcraft/models/item/seal_pickup_advanced.json",
+      "sha256_original": "26ee60bdef27d996d619f058ec9382db354432faaf89d0834865cc98ff356dfa",
+      "elements": 0
+    },
+    "item/seal_fill": {
+      "source": "assets/thaumcraft/models/item/seal_fill.json",
+      "sha256_original": "0e175f0ea74f67d9d0a2525b4d5ec284c1491cb3963352d63efd13781152ddf8",
+      "elements": 0
+    },
+    "item/seal_fill_advanced": {
+      "source": "assets/thaumcraft/models/item/seal_fill_advanced.json",
+      "sha256_original": "d4ac94e74f2e3a8bd2a08686b23ff730806bc52604c9eb0cfc488ab43e516a0e",
+      "elements": 0
+    },
+    "item/seal_empty": {
+      "source": "assets/thaumcraft/models/item/seal_empty.json",
+      "sha256_original": "ad2369a464088ad55950ce13e6ebf4de023af8035b9d406e965668d16e24d9e0",
+      "elements": 0
+    },
+    "item/seal_empty_advanced": {
+      "source": "assets/thaumcraft/models/item/seal_empty_advanced.json",
+      "sha256_original": "52dc7873cb1681bf1cd4d66b4edf79070fdd9da567b45ae2fd7c5f7262fab481",
+      "elements": 0
+    },
+    "item/seal_harvest": {
+      "source": "assets/thaumcraft/models/item/seal_harvest.json",
+      "sha256_original": "5a62ed3c9eb855d7cb712d493a105ca479c1e3747d47276fa2001d9c775249b6",
+      "elements": 0
+    },
+    "item/seal_butcher": {
+      "source": "assets/thaumcraft/models/item/seal_butcher.json",
+      "sha256_original": "3d932d0d40640fcda441b3b7cad859761e9329e4c2ae0fe6162b0c74681765b9",
+      "elements": 0
+    },
+    "item/seal_guard": {
+      "source": "assets/thaumcraft/models/item/seal_guard.json",
+      "sha256_original": "6d7b0f5442981028c3d56504254379b77e7da0f960be68db8bce795008497fd7",
+      "elements": 0
+    },
+    "item/seal_guard_advanced": {
+      "source": "assets/thaumcraft/models/item/seal_guard_advanced.json",
+      "sha256_original": "7a34b8803433b463d4a7084a16a96b5682f4f38873b841228100d57fa8a70885",
+      "elements": 0
+    },
+    "item/seal_lumber": {
+      "source": "assets/thaumcraft/models/item/seal_lumber.json",
+      "sha256_original": "e978c1d7cde2deee22714af64716c4c208ee7b389bcd18b1f967f45ecf0eb738",
+      "elements": 0
+    },
+    "item/seal_breaker": {
+      "source": "assets/thaumcraft/models/item/seal_breaker.json",
+      "sha256_original": "f6384e1f192ff3b27485aa3d105c86ef10be139d20172fe7eb156caad2f22509",
+      "elements": 0
+    },
+    "item/seal_use": {
+      "source": "assets/thaumcraft/models/item/seal_use.json",
+      "sha256_original": "c5dffc04cc4102966b83d17dfe5cf92ef3cb8bb59cda80396e45cd0911ea111b",
+      "elements": 0
+    },
+    "item/seal_provider": {
+      "source": "assets/thaumcraft/models/item/seal_provider.json",
+      "sha256_original": "898b4d6b7c21b6af1a3ad622241b5c0ea39bcf89503a77a9fff510373d4452dc",
+      "elements": 0
+    },
+    "item/seal_stock": {
+      "source": "assets/thaumcraft/models/item/seal_stock.json",
+      "sha256_original": "ece3530694beb412ec69410c51fd5379b3cc36750c8ce53dbb1b72f111d0fa90",
+      "elements": 0
+    },
+    "item/seal_breaker_advanced": {
+      "source": "assets/thaumcraft/models/item/seal_breaker_advanced.json",
+      "sha256_original": "5d87cf9a0dac7712bcae4c3a9eb200fa5120fd428beac794993c20faa0d9e6dd",
+      "elements": 0
+    }
+  },
+  "original_assets_sha256": {
+    "assets/thaumcraft/textures/items/thaumonomicon_cheat.png": "eecd7212229f38ed2382af8299c862e89b24b9ccd55edeb94a5cc7cfba69e048",
+    "assets/thaumcraft/textures/items/curio_arcane.png": "a2a6510c85549820059461bd92dc8645f54497d1e9c3dd7878b0a6fe7fd1f1b0",
+    "assets/thaumcraft/textures/items/curio_preserved.png": "c201604fe327db5987cdd91b357ee0fed0d386580d201a7a6a7421b8e50537b2",
+    "assets/thaumcraft/textures/items/curio_ancient.png": "e54cde1fa1ce3d586f70de4d9ccf4ad9775f1fe4eea45aa89cfdcb82ad0fe839",
+    "assets/thaumcraft/textures/items/curio_eldritch.png": "945033d209b12326a6cdcb0f28e8ebe3085b4cf81fb8cbdf71c43512210a52c8",
+    "assets/thaumcraft/textures/items/curio_knowledge.png": "f87cd06440141058036cb615a78481f40e60ed7c1f6278e38c17851b688831c2",
+    "assets/thaumcraft/textures/items/curio_twisted.png": "12621a158e8fa110b03ee71fe730e48eb4a81fd45fd8ed410d042f34f304b757",
+    "assets/thaumcraft/textures/items/crimson_rites.png": "e596276bdd8e11b31a489b11803c71a9358aa4093d6f39478237c29821002646",
+    "assets/thaumcraft/textures/items/loot_bag_common.png": "c30213ff0ad37479caa8a1cc1b9065aa1b8c345e78832b622cd5aae393638dee",
+    "assets/thaumcraft/textures/items/loot_bag_uncommon.png": "ca3653d3a64c22135faed2dac9d12879a56723f7b537e649b87d5d3552f075fc",
+    "assets/thaumcraft/textures/items/loot_bag_rare.png": "997e3d9d929f4643dbfdc1540630cae6b61091b022bc3943452a14f0cccccc06",
+    "assets/thaumcraft/textures/items/primordial_pearl.png": "85299775a6fd243084aedae269d872cbbb4f608d4b0d1f4023fddcd9b6a2f5cf",
+    "assets/thaumcraft/textures/items/primordial_pearl.png.mcmeta": "802acdb8f55f30146d5ed18414b21ba35650d4e550f81825ea104131c12dc4fc",
+    "assets/thaumcraft/textures/items/primordial_pearl_nodule.png": "07c26292d0ada3920c28222cb61ba819fe67dff4ed3dc3f1bd0d945805b33a3e",
+    "assets/thaumcraft/textures/items/primordial_pearl_nodule.png.mcmeta": "23a869aaa4a9c6ec0c81ac27b0aa522ea4df0fa254202a2b81e5ea66fde4d8b8",
+    "assets/thaumcraft/textures/items/primordial_pearl_mote.png": "9b867ad16e0bfb4d00f258f93acf8edea2ce3e240b408b0a6af3c0dd94dcb37b",
+    "assets/thaumcraft/textures/items/primordial_pearl_mote.png.mcmeta": "40dcb5f1dc81fa6ca0d18a5cb0a993f38e7fc1638b6f8b4f3e5278855aee5e50",
+    "assets/thaumcraft/textures/items/pech_wand.png": "1fe9d3d170d3f5988927601bcf002b1f8e953aa01e953a0d2c2c823323e0e4e1",
+    "assets/thaumcraft/textures/items/nugget_iron.png": "1af91e298dc0acdc64b28a2c0447596dce6b8a840aeae7be7b15530978063f43",
+    "assets/thaumcraft/textures/items/nugget_copper.png": "d1bb12eab8388857162ad33fca68821429899f5b245dd1a9494693e951b1f5c1",
+    "assets/thaumcraft/textures/items/nugget_tin.png": "e61a0f2ff16f7f57be174512c2fbb3fb763bd9ca505964f6d5146ef4685479f5",
+    "assets/thaumcraft/textures/items/nugget_silver.png": "ed2a240dc2aa0978c656150b023370fe413f856e2559c8406abc31fd8596e3b2",
+    "assets/thaumcraft/textures/items/nugget_lead.png": "46dc2518b18f5f03df0d6dfe999154d0821345a34fb7d85cecd7f4af74798abe",
+    "assets/thaumcraft/textures/items/nugget_quartz.png": "48e6c1c3dab183b05beedcaf6d40acf37c4bb9378ab15a6cb8165857dd6a8821",
+    "assets/thaumcraft/textures/items/rare_earth.png": "c720cae02623dcb7feebbc0289d64e275cf0cb4ded99a4d8995a0e048cfc5ce8",
+    "assets/thaumcraft/textures/items/cluster_iron.png": "2f4148db7debe7d188db1d7c86f43b2cb0a9bd20552585c3ca0195d1823c1003",
+    "assets/thaumcraft/textures/items/cluster_gold.png": "4a9f8254d9f2007a910709acfff7be67c3025eaa6d5643d7576409798a416ab4",
+    "assets/thaumcraft/textures/items/cluster_copper.png": "05d487b17c06121e03c5fe28b14c19a4edf6e15e31113113aaed1e7a677dc3e8",
+    "assets/thaumcraft/textures/items/cluster_tin.png": "ddeeeb8c51f59ef12593ef46a791ad36808753b8db1a6b67109777a1f2cae81d",
+    "assets/thaumcraft/textures/items/cluster_silver.png": "28d5093cc199992fab01e4584de8552fd6086880f6d46e7d6e5e0f56877fa4f5",
+    "assets/thaumcraft/textures/items/cluster_lead.png": "ccfc3c8e5fd1219aaa57287b19f44e62b05370f83a7a354ab783ab2bed94c442",
+    "assets/thaumcraft/textures/items/cluster_cinnabar.png": "f57861065390868f815b9bd830ce351f7cef65e2c53f46e958c5ff22d9573336",
+    "assets/thaumcraft/textures/items/cluster_quartz.png": "ab2f33a5791da88db24567f5b6e07367f9ea0074df83e1e20e11d5427281e5ae",
+    "assets/thaumcraft/textures/items/vis_resonator.png": "53fa1ac88776f38c4baaa37aace7c0f8adfb2e525f53343b6ac348d0156c3e18",
+    "assets/thaumcraft/textures/items/mechanism_simple.png": "57a69b7888770fa5d4b85e153e03b39ea7363a5880589da76846dc9b2dc301c1",
+    "assets/thaumcraft/textures/items/mechanism_complex.png": "0e415ba509fb6a2c890a9404609434aa20b347ac65d799453995aa34ebeb0a0c",
+    "assets/thaumcraft/textures/items/filter.png": "79b2165e81c30ecdaa4ab3d2f0e05f31f28e77267c9dfa47d5e575761f7f38e7",
+    "assets/thaumcraft/textures/items/morphic_resonator.png": "fbac546e21afa942cefdfa4454dfa1afd7e324ac83a15d5275c7e247153ef536",
+    "assets/thaumcraft/textures/items/mirrored_glass.png": "c0a4953d8d9a3ed843f385dc082fc4f38a75ecdff5993dec9baa0cff1af9c254",
+    "assets/thaumcraft/textures/items/mind_clockwork.png": "a5c14fde44ac2eb0fd5a33add38f1012304198b849fa5bc9e0fc05db1252b341",
+    "assets/thaumcraft/textures/items/mind_clockwork.png.mcmeta": "46ce491c9af28e0981d590f95aff1ebf97ca8d843ca427120d4637bdb17d02bd",
+    "assets/thaumcraft/textures/items/mind_biothaumic.png": "9997668de7e90de13c4ac17a726ef8cb0ef10cd5bc3bf6251a793ff0547bd277",
+    "assets/thaumcraft/textures/items/mind_biothaumic.png.mcmeta": "53ae09babaf36fd978ed48936808923fcbc6b0ff9462da4d5813492741c5dc78",
+    "assets/thaumcraft/textures/items/module_vision.png": "c2abd73cccff2cb04eabd033aaeeebd26b715285f1e1a65ea98bf9967578be1c",
+    "assets/thaumcraft/textures/items/module_aggression.png": "0b768fb905fc8526892944f7d7b0661bd2e42393e475748c671875c17d7f2602",
+    "assets/thaumcraft/textures/items/crystal_essence.png": "69b3f9564fad2e4ebd2f89f30fccd263c64cfc05a86cf0df23582dea3e1a1a5d",
+    "assets/thaumcraft/textures/items/chunk_beef.png": "23921f5488c15d4f8d193ae412ed300226503b658f924062f975e8244d965bcf",
+    "assets/thaumcraft/textures/items/chunk_chicken.png": "7baafc0082a6891d66afed5103b7839272cdde24e5594421b38120f3c44e4a5e",
+    "assets/thaumcraft/textures/items/chunk_pork.png": "e61fad61cdb08a97f4a90031d0a30ebb28c3e1ac073bbc5cb4a01098eda2e296",
+    "assets/thaumcraft/textures/items/chunk_fish.png": "9c4f49aae368a73ebbb812aab8e5b5ddddccae397e3878e3d812e73251d19a7d",
+    "assets/thaumcraft/textures/items/chunk_rabbit.png": "490e6d67710a1b26e856575600cf60be719cf640551a44d224f63cac19b71677",
+    "assets/thaumcraft/textures/items/chunk_mutton.png": "6efec5ebd06dfcf3cc959228f3566aee80c8b5cbe4d87511235e722680279a5a",
+    "assets/thaumcraft/textures/items/tripletreat.png": "07cb9c464b41467e5874dc48a56b8fa95fbd1bbdfd0c5bd298351083d4d86180",
+    "assets/thaumcraft/textures/items/brain.png": "ab98084f6083f3e6ff30ec94edf87ae256dcf8b433c14ddd9b56195522697f9d",
+    "assets/thaumcraft/textures/items/label.png": "33254f4dc65ba1ecae796e39dcab51db170a054167de4f3ca4111b6f10af1dd0",
+    "assets/thaumcraft/textures/items/label_overlay.png": "a7531f2eef4b42bb6a05e25c19f277ab292f384e61b821310de54e8162c3dffe",
+    "assets/thaumcraft/textures/items/phial.png": "5090d998a511b3c919df772313d5cbd44bc01cbe8e8a281aa3c150bd8348ee48",
+    "assets/thaumcraft/textures/items/phial_overlay.png": "6cdc33264e64f3878d7bd62a1fde106a8194bfae33a0114d48a3a3ed50519670",
+    "assets/thaumcraft/textures/items/phial_overlay.png.mcmeta": "802acdb8f55f30146d5ed18414b21ba35650d4e550f81825ea104131c12dc4fc",
+    "assets/thaumcraft/textures/items/jar_brace.png": "ee447bf4d1d64ff2536ed8876409a7a156d83b7c9228ef2db0ef8f83e4961260",
+    "assets/thaumcraft/textures/items/bottle_taint.png": "a99ca9346839431821e0a121f7f2ebe72aefa32f47822c6ee347c9bf2902825d",
+    "assets/thaumcraft/textures/items/sanity_soap.png": "d7afd8146273daf719ec1c2af3554cf3a712cf8fd2495aca413a48b57d01da06",
+    "assets/thaumcraft/textures/items/bath_salts.png": "b8a2377f8340cbb382c526f0130e05b44ba190cc31e47315e4b7dca0cc0bb171",
+    "assets/thaumcraft/textures/items/bath_salts.png.mcmeta": "46ce491c9af28e0981d590f95aff1ebf97ca8d843ca427120d4637bdb17d02bd",
+    "assets/thaumcraft/textures/items/turret_basic.png": "5e0ed323dc9da1f8d7815cd4e6652b0e4d77c89b9d4b8133140ee2883931bd66",
+    "assets/thaumcraft/textures/items/turret_advanced.png": "e57f3662692cefa91f52a8c102da1159f4b452bdd565bc11e39ce2c86d2db51d",
+    "assets/thaumcraft/textures/items/turret_bore.png": "a1971e5903114a1471b763b00e23d066ed876ce52f250249c600c726b18ac66f",
+    "assets/thaumcraft/textures/items/causality_collapser.png": "1a73f7c6f336167760ee13b3dec7d6540ec0038ffb571d3c10701a8093adadc9",
+    "assets/thaumcraft/textures/items/causality_collapser.png.mcmeta": "46ce491c9af28e0981d590f95aff1ebf97ca8d843ca427120d4637bdb17d02bd",
+    "assets/thaumcraft/textures/items/resonator.png": "5620eb6d7aa3eabe28dba94f4e483ed290ed0b0d6bf0cec5b7cadf81dc8464db",
+    "assets/thaumcraft/textures/items/sanity_checker.png": "6c429f568bca86524cde7977b352dbc380f3096bbb04b4f0eb55ac55ab348a6d",
+    "assets/thaumcraft/textures/items/hand_mirror.png": "c1f7d09b4557294a5ae7b85d413e736dd99386bb63c7810729cfe465b3412710",
+    "assets/thaumcraft/textures/items/void_axe.png": "425b23d88fb3042a1b9743bb43931bcca8596b03a623ac3d90a7ece63cb649ee",
+    "assets/thaumcraft/textures/items/void_sword.png": "2bb9f3a52cf5f9a0298630e6317ed3df041728a5a97e99719b31dbc78ca09a5a",
+    "assets/thaumcraft/textures/items/void_shovel.png": "11fbf6643fee70c7cc23e52b3cd8979dab6c695b516c3d69e404e99a325b52b8",
+    "assets/thaumcraft/textures/items/void_pick.png": "ef10130ec8a7cf4aea4b6e7dbae1269a6d4d053c3a27b7ce1da9ca2ae9b47dbf",
+    "assets/thaumcraft/textures/items/void_hoe.png": "da0eacd658ccfe39913fc12829b54bcf93d4e96a1c279d496a7352ab28aa7e83",
+    "assets/thaumcraft/textures/items/elemental_axe.png": "4a948ae34d01732c233ef3bfd867f550f2e8917920c160ed1f8206aa2ec0ae71",
+    "assets/thaumcraft/textures/items/elemental_sword.png": "17bff7c0e26bf316ab81b0adb5356a763c4c28ef0a6d2a557a61bf6a145202d7",
+    "assets/thaumcraft/textures/items/elemental_shovel.png": "b62238822a08e2c048b649f98334f947141f30465ba5bfd5948f2e3dc5ca4e78",
+    "assets/thaumcraft/textures/items/elemental_pick.png": "0ac6f29ad9e81e344acf199e19d432f5e258c954116de8c7c552d3e04fce08d2",
+    "assets/thaumcraft/textures/items/elemental_hoe.png": "6fb40a07a9a9c067559c7a8de475cc0cb76379d6ee028fad48a151c44e4d5e8c",
+    "assets/thaumcraft/textures/items/primal_crusher.png": "314c7de78219bc97eed5494d8db09dfa8e87e30cbd9a3cd6a77d1165a34a22b2",
+    "assets/thaumcraft/textures/items/crimson_blade.png": "eb5792652051161e4f71366422525f06ba14496f065891040913bec9825aab48",
+    "assets/thaumcraft/textures/items/grapple_gun.png": "e1638dda08fbf69eefdb394a977786f4a8a9f928ff2dc3457fc514474d82f4d1",
+    "assets/thaumcraft/textures/items/grapple_gun_tip.png": "18c3f258d565a81f42a882b9b1661c973148ecdacb18044708e2a1bd27b6c411",
+    "assets/thaumcraft/textures/items/grapple_gun_spool.png": "84c570ab915bbaf0a63bb40c4ad45200cb39ed1c440d249b8c13251749e854dd",
+    "assets/thaumcraft/textures/items/goggles.png": "9b5c293aad93efa2a41a53ef87fc5c1eb5f6f84db55f8082a84a5db4530a3ae6",
+    "assets/thaumcraft/textures/items/cloth_chest.png": "02ed9d93a73e6c99e02b9d927536e31803415b481a876f2f915694e3222e185c",
+    "assets/thaumcraft/textures/items/cloth_chest_over.png": "47b3c4ea1356bc533bcb5ad2ab0a1cdbde527056393d10987ffdf8a3567215d5",
+    "assets/thaumcraft/textures/items/cloth_legs.png": "6937534e956b8bf80cce11fcb8180da64d16a1d08dab7023dcd532207fbda925",
+    "assets/thaumcraft/textures/items/cloth_legs_over.png": "993c1dc086337242f7daf899b25895859d11a7ddf07286c70bb65296520e4aab",
+    "assets/thaumcraft/textures/items/cloth_boots.png": "4ba6f199051e1d4f30e73a36f3fb8c07d193d9740be9166173f64fc784aa048d",
+    "assets/thaumcraft/textures/items/cloth_boots_over.png": "b0efd723268e0ddcc674a1fd502b0b7451335abbade8cbec0c7e5d376c857893",
+    "assets/thaumcraft/textures/items/traveller_boots.png": "f46fe7dcb08bdb17f631a5ddf7ae09490874415adac52bc5e1ba770f0d8a9e23",
+    "assets/thaumcraft/textures/items/fortress_helm.png": "507b0e9374e1163cd5d92d307c8d27e6d97a332da48a3f8a78c2aaa18487e226",
+    "assets/thaumcraft/textures/items/fortress_chest.png": "b30bc77e12885f8b94bc80a350e6bc5efd8431270c398f3330fa4391875edd8e",
+    "assets/thaumcraft/textures/items/fortress_legs.png": "86662525609486161a828d517bda4c2221f55bf434daf109918e3b9ab589171c",
+    "assets/thaumcraft/textures/items/void_helm.png": "33c6df5b5877d91e4d98a5e03decd3006aa0e62467248818c28a0907e8966c74",
+    "assets/thaumcraft/textures/items/void_chest.png": "5ebb0c2bf9ee88180a080698968b53678c7c84e6d857cc6d351d059d7e4bfb43",
+    "assets/thaumcraft/textures/items/void_legs.png": "6afce13ca9211ca6cadcdc98ca4c67f2162957a2e3911f2ebfac402a272c7b5d",
+    "assets/thaumcraft/textures/items/void_boots.png": "ba439915eddae0c32ccb17d6a1e2331c5c5a09c886661e3c814697cf90c6cb0b",
+    "assets/thaumcraft/textures/items/void_robe_helm.png": "0d6f1de57a20bf40c50e989d23edfc5b6439719d2a1b9ed0517cc1b8abd26536",
+    "assets/thaumcraft/textures/items/void_robe_chest_over.png": "a89b9269b019ea75763f9c4600c36b41fb653a9d91f35a9b4c0d73686438257f",
+    "assets/thaumcraft/textures/items/void_robe_chest.png": "bd8b461f1ed3ddbe0f903f0bfd03f8c5e2f56f5598a7ce1d0630deca201f7920",
+    "assets/thaumcraft/textures/items/void_robe_legs_over.png": "c07c81e1503f9b7d9c97ce97d2312f6649a87199b679fb6de11af884e0546fe6",
+    "assets/thaumcraft/textures/items/void_robe_legs.png": "7e1fc6efdff8df57d34da4ca9c846da3e4ff511c361cd1eb833b25f4e182cb64",
+    "assets/thaumcraft/textures/items/crimson_plate_helm.png": "921bacbc546e9e9803685dcc8451d5bcfaa298cb91be869f216516acaa68fe7c",
+    "assets/thaumcraft/textures/items/crimson_plate_chest.png": "a1711e448eb04abf114e1edb055c60240b4d7ae46715349ef6ae14422ecce3d8",
+    "assets/thaumcraft/textures/items/crimson_plate_legs.png": "f753eae16cb047c564fabd9f334bcd2ec25cf07e7f1882f3a1d60c830b919a74",
+    "assets/thaumcraft/textures/items/crimson_boots.png": "e70eb3b0e8347776d01a80d7b94ee2ce62ed2947a2be2cf0d304e8bc18dbd048",
+    "assets/thaumcraft/textures/items/crimson_robe_helm.png": "ab5605c31e833f258c92a832fe4a59af80ed2b38b5942c72263513a3f0e1b969",
+    "assets/thaumcraft/textures/items/crimson_robe_chest.png": "bacca8701a2f07597b6c972e35c48880abcbf4ed76a0d704c20750d6aa1621f0",
+    "assets/thaumcraft/textures/items/crimson_robe_legs.png": "a5985eaf10d508799c59a21e796c706e0ab6267493c759412c89c196395e1552",
+    "assets/thaumcraft/textures/items/crimson_praetor_helm.png": "4f248582ed7321d29729d52388400ed7327ccc9f825b5dfe860b0db17da1b7f6",
+    "assets/thaumcraft/textures/items/crimson_praetor_chest.png": "6b8b5dffb45a29498316086654b4aee208c8d76da7d4c654d8c67b91f60385ca",
+    "assets/thaumcraft/textures/items/crimson_praetor_legs.png": "69f96b7333bff7631c26c9facc651ccb8c288a39ba3faca956f83f176cd87219",
+    "assets/thaumcraft/textures/items/amulet_mundane.png": "e070b5e8452b9e57bddeefaae86db30f479eb2c034d4bd79a0757294780b6b35",
+    "assets/thaumcraft/textures/items/ring_mundane.png": "b4e72dd558f15d6e6e26de7e6a9d1458435f0c60fdde398f6d8901e2a140f1c8",
+    "assets/thaumcraft/textures/items/girdle_mundane.png": "6ace045abd3f3d7ac9471eabbffb79851fc8715840a3edf049d062e39599d28f",
+    "assets/thaumcraft/textures/items/ring_apprentice.png": "955293fbf5a8968f534b5698a8a425ef82f1203e445f83e564c1ce41c229a83e",
+    "assets/thaumcraft/textures/items/amulet_fancy.png": "33942acb69bcb8c1c67ea8d40fc7de013fc5cbeae41219b348a31d8e6c579441",
+    "assets/thaumcraft/textures/items/ring_fancy.png": "9be304bd118d0ee0f385b4c7cfa5e6c5b2b0c937319983fee1c84897140fb827",
+    "assets/thaumcraft/textures/items/girdle_fancy.png": "b26f7b908e5c6adb9df31bea170781e1ecc1fb66ddc42c9daf3d7ce85b4f36fa",
+    "assets/thaumcraft/textures/items/amulet_vis_stone.png": "1a79ea22d0dd9ed6b30dcf881dbae6aac43d6f0efa1d132424781aed43ad278c",
+    "assets/thaumcraft/textures/items/amulet_vis.png": "9144aafde35408326b3684aa465a834824c2a099299f5780150d61dc5521227e",
+    "assets/thaumcraft/textures/items/amulet_vis.png.mcmeta": "98e59597bde41fa0438dcea0006e88049947a9ac007a45ae334617118fc12915",
+    "assets/thaumcraft/textures/items/verdant_charm.png": "ecd51f265459e81c1a4d22ca3f9df2da8680f67640d859339cea783aba6af920",
+    "assets/thaumcraft/textures/items/verdant_charm_over_0.png": "da7aad20a9610009bb8123ca647be46938b2847a64fffa41b5fcec59d505cf96",
+    "assets/thaumcraft/textures/items/verdant_charm_over_0.png.mcmeta": "aef12d1818eb9381d5ace32bb5d25f238c344bad0b205e0a5c76d43d2c1e170c",
+    "assets/thaumcraft/textures/items/verdant_charm_over_1.png": "f85e7a0381091db6764a9d09fba3d4ab7a51e3db96ef336e6372526384510c1e",
+    "assets/thaumcraft/textures/items/verdant_charm_over_1.png.mcmeta": "aef12d1818eb9381d5ace32bb5d25f238c344bad0b205e0a5c76d43d2c1e170c",
+    "assets/thaumcraft/textures/items/verdant_charm_over_2.png": "6b46725190375262b5afe99f2508a5c06572e6b181d0800f448a98182a0c8e21",
+    "assets/thaumcraft/textures/items/verdant_charm_over_2.png.mcmeta": "aef12d1818eb9381d5ace32bb5d25f238c344bad0b205e0a5c76d43d2c1e170c",
+    "assets/thaumcraft/textures/items/curiosity_band.png": "8f188332f72ce1f66d8a7cef7b8e337493c3a565ff977466b7adf4f4ab1a1e5e",
+    "assets/thaumcraft/textures/items/voidseer_charm.png": "a02b7990527b9837ddb578ac21ed2de15474d7532d95b8016e66da8950ad5524",
+    "assets/thaumcraft/textures/items/voidseer_charm.png.mcmeta": "2baa628f9190322e0bd54964e932eae90f56ea19574ae8d030e019c8c7d583ae",
+    "assets/thaumcraft/textures/items/cloud_ring.png": "b68031f9feaab53358c94033c6a3724093177e2f474f8c6ba5f2382fcbef214f",
+    "assets/thaumcraft/textures/items/charm_undying.png": "8528810db005fffa58a4debb4fd884a933802e595d3bdbbc9a10082880412f13",
+    "assets/thaumcraft/textures/items/flux_sponge.png": "b19985dd2cb9ae0f963e3c133e122bedfc9162d246eb44cddf9dcd7eba44f1d4",
+    "assets/thaumcraft/textures/items/enchanted_placeholder.png": "a98d3ba2d56b60b4714503668ffbc30ff555a030cf5228e39cd46cb2c885702d",
+    "assets/thaumcraft/textures/items/enchanted_placeholder.png.mcmeta": "98e59597bde41fa0438dcea0006e88049947a9ac007a45ae334617118fc12915",
+    "assets/thaumcraft/textures/entity/armor/caster_basic.png": "e686075c5b3c5b41946086021860c0310cdfddc3daefd07609a495474b7279c1",
+    "assets/thaumcraft/textures/entity/armor/caster_advanced.png": "0a66d596a46042d29c926022207329fd8f8d1a8199057351f273110e52b0c32f",
+    "assets/thaumcraft/textures/items/focus_1.png": "81e11756286e42ce34190a2565fe1b8635078d99a69ffbc8b5dca0be2e7b0f0e",
+    "assets/thaumcraft/textures/items/focus_2.png": "1f20556e3c67910b0d8e4022ad3b743e4568daac6b27074490d12a037130b9a9",
+    "assets/thaumcraft/textures/items/focus_3.png": "10bc637ac98c9aef7c04320b6fa431c0f3ebf0f83ff8265c65b66beff9dcf894",
+    "assets/thaumcraft/textures/items/focus_pouch.png": "ec2713ee9b2b3680bcb9d6cc34083c6298abd0f470a952c516041415cf27fffc",
+    "assets/thaumcraft/textures/items/golem_bell.png": "c8e696824d90db6b47b276debabdd7384d82aeb29062c5684c8638418821187d",
+    "assets/thaumcraft/textures/items/golem.png": "0780776e5ed001939085a484113fcb769ece0453a0675f65820bc4ec5d1eb770",
+    "assets/thaumcraft/textures/items/seals/seal_blank.png": "e2f2db1d8e307bf600cd0b697712904cc68e03b56a71318b684b5d61636fa839",
+    "assets/thaumcraft/textures/items/seals/seal_pickup.png": "2245400e7bf4a112f0f8b06a981fb90f422225dc65290666d025fa5020fa27b9",
+    "assets/thaumcraft/textures/items/seals/seal_pickup.png.mcmeta": "ce4810c33cbb1a6869568d3dbe837ad777801df34ab8a9c0af9d9c3683ece15d",
+    "assets/thaumcraft/textures/items/seals/seal_pickup_advanced.png": "5c78d631deec6e7aeaf97c2c49954531021ac9606faf4c23bd1ed38b3c4690f5",
+    "assets/thaumcraft/textures/items/seals/seal_pickup_advanced.png.mcmeta": "ce4810c33cbb1a6869568d3dbe837ad777801df34ab8a9c0af9d9c3683ece15d",
+    "assets/thaumcraft/textures/items/seals/seal_fill.png": "b5ec225f66cd3a60ed209f3da9b3b9f4e16e58b7e92570d456e1635839e80d30",
+    "assets/thaumcraft/textures/items/seals/seal_fill.png.mcmeta": "9915f05e11338d283f4480b6aa943124ee87fc641e5f6ccb41469fb9abe7a69e",
+    "assets/thaumcraft/textures/items/seals/seal_fill_advanced.png": "99da3e7689f1755ed236e73b1023202b0eaef6ccc1d54d1e7dd2c636e1ea3d94",
+    "assets/thaumcraft/textures/items/seals/seal_fill_advanced.png.mcmeta": "9915f05e11338d283f4480b6aa943124ee87fc641e5f6ccb41469fb9abe7a69e",
+    "assets/thaumcraft/textures/items/seals/seal_empty.png": "09539ad2fe7f9f7715dcf319fe5f5eadaafc7a6d59ca6adeb39bb3db0d55d3b5",
+    "assets/thaumcraft/textures/items/seals/seal_empty.png.mcmeta": "b6212825af1c64cca8c7e39189fed245f43635cccd00ef441ed1130d5477e364",
+    "assets/thaumcraft/textures/items/seals/seal_empty_advanced.png": "5d7adf117f3e6fee1053994cf20696c562d86956efbcef581f0033809f08fef6",
+    "assets/thaumcraft/textures/items/seals/seal_empty_advanced.png.mcmeta": "b6212825af1c64cca8c7e39189fed245f43635cccd00ef441ed1130d5477e364",
+    "assets/thaumcraft/textures/items/seals/seal_harvest.png": "24e69bf79c2c2daa52fe0e6e8f7fe3ee44241db847215fe9ddb3e26151c92964",
+    "assets/thaumcraft/textures/items/seals/seal_harvest.png.mcmeta": "251b2df44eb2a429888ee973e5a3dcffb957ffdae47f626938efe15174c2e749",
+    "assets/thaumcraft/textures/items/seals/seal_butcher.png": "648be3b2d7dbde04f3f993d5d3a55278de3d932a1811d2e605eb7638475d9b3c",
+    "assets/thaumcraft/textures/items/seals/seal_butcher.png.mcmeta": "b6212825af1c64cca8c7e39189fed245f43635cccd00ef441ed1130d5477e364",
+    "assets/thaumcraft/textures/items/seals/seal_guard.png": "b282338a1158e10b10db9f1d11b1bf113573aaea143d70c32d94e6a20d687cf9",
+    "assets/thaumcraft/textures/items/seals/seal_guard.png.mcmeta": "38d40266f7f9815770df28674cea89922f19ef141a712eeb5f720606f04bfa06",
+    "assets/thaumcraft/textures/items/seals/seal_guard_advanced.png": "193c7965a6025e7877832210578c5434d02a3bae1ac96c24793af1e01bbc48fd",
+    "assets/thaumcraft/textures/items/seals/seal_guard_advanced.png.mcmeta": "38d40266f7f9815770df28674cea89922f19ef141a712eeb5f720606f04bfa06",
+    "assets/thaumcraft/textures/items/seals/seal_lumber.png": "bb7ee666575d8dad6aaad5ca91119ea25ec2edb9149a8509c00601033a428805",
+    "assets/thaumcraft/textures/items/seals/seal_lumber.png.mcmeta": "251b2df44eb2a429888ee973e5a3dcffb957ffdae47f626938efe15174c2e749",
+    "assets/thaumcraft/textures/items/seals/seal_breaker.png": "ddec8da2b8ca81add7a18569697028c921cafe30af095a3bfcc78bfe61e619b4",
+    "assets/thaumcraft/textures/items/seals/seal_breaker.png.mcmeta": "e67d4554f6bc0abc3902aaeaa375c1a9d2b5882dcf69ea7e051100bc71eccc73",
+    "assets/thaumcraft/textures/items/seals/seal_use.png": "55773694ccaf58595fb963a23a8654f83d790e046693d241f587937512ad2207",
+    "assets/thaumcraft/textures/items/seals/seal_use.png.mcmeta": "e67d4554f6bc0abc3902aaeaa375c1a9d2b5882dcf69ea7e051100bc71eccc73",
+    "assets/thaumcraft/textures/items/seals/seal_provider.png": "ef7fc2c02fc928f563ebe40ab0f25acd795eeab44e83fe319425be0685686b89",
+    "assets/thaumcraft/textures/items/seals/seal_provider.png.mcmeta": "251b2df44eb2a429888ee973e5a3dcffb957ffdae47f626938efe15174c2e749",
+    "assets/thaumcraft/textures/items/seals/seal_stock.png": "adc5b0c084662f7d1803324f4c87ee3e9587fccd8f8a40b350e359f0cf1bac40",
+    "assets/thaumcraft/textures/items/seals/seal_stock.png.mcmeta": "430216108dd70bb4b77ac1018d27698f147f81986c5e13ea1a4c6937eefa6d83",
+    "assets/thaumcraft/textures/items/seals/seal_breaker_advanced.png": "7997b5641b283e149e3cfe1a48ce46316a1300d1e6d281d2c641b70e30491cdd",
+    "assets/thaumcraft/textures/items/seals/seal_breaker_advanced.png.mcmeta": "e67d4554f6bc0abc3902aaeaa375c1a9d2b5882dcf69ea7e051100bc71eccc73"
+  },
+  "dynamic_variants": {
+    "crystal_essence": "All original aspect types, NBT Aspects[0]{key,amount:1}",
+    "phial_filled": "All original aspect types, NBT Aspects[0]{key,amount:10}",
+    "label_filled": "All original aspect types as additional visual samples, NBT Aspects[0]{key,amount:1}; original creative tab only had blank label",
+    "primordial_pearl": "Damage 0..8, three visual/name bands: pearl <3, nodule <6, mote >=6",
+    "verdant_charm": "NBT byte type 0,1,2",
+    "grapple_gun": "NBT byte loaded 0,1",
+    "caster_basic": "NBT focus compound controls original attached-focus geometry",
+    "focus": "Arbitrary effect programs/package/color are data, not a finite item registry",
+    "golem": "NBT props bitfield, material/head/arm/leg/addon combinations are data, not separate items"
+  },
+  "incomplete_mechanics": "New items form a visual catalogue; use actions, spell programs, seals and golem assembly remain unimplemented."
+}

@@ -1,0 +1,77 @@
+{
+  "version": "0.10.0-dev",
+  "originalVersion": "Thaumcraft 6.1.BETA26",
+  "originalJarSha256": "9425f8643581b27ff8845b087c8bc6fc10425a32942f1a3f0e265ce6b38f7b5f",
+  "requiredGameTests": 186,
+  "previousGameTests": 149,
+  "equipmentAndConsumablesGameTests": 37,
+  "actualIntegratedServerScreenshots": 12,
+  "clientUsesActualServerPackets": true,
+  "clientModeKeyUsesActualKeyboardHandler": true,
+  "pureBucketDispenserActualTick": true,
+  "jsonFiles": 2633,
+  "jarResourceByteParity": 3329,
+  "originalTextureByteParity": 592,
+  "originalSoundByteParity": 9,
+  "originalWarpWardIconPixelParity": true,
+  "jar": {
+    "name": "thaumcraft-1.20.1-0.10.0-dev.jar",
+    "bytes": 7394047,
+    "sha256": "038ed0bb73c7fa6bb00f0b0ebe72cc8fa2f3f59c232fbf2a5b7508b0ab6350dc"
+  },
+  "screenshots": [
+    {
+      "file": "screenshots-0.10/tc6-equipment-elemental-hoe-tilled.png",
+      "sha256": "2dd239a96468d3e31ed87b8e7f9ae8d137bfc8a43d630f303213b993aa8e69a7"
+    },
+    {
+      "file": "screenshots-0.10/tc6-equipment-fortress-mask-goggles.png",
+      "sha256": "d29b10e73ca722c21042119d7b0c206f50bdb8ab0084ee9a1c1ce122c93f4759"
+    },
+    {
+      "file": "screenshots-0.10/tc6-equipment-goggles-container.png",
+      "sha256": "032923d1a1ea606cbd6563a4cac499f840499e9fc50a40f45a4bc8a910469e3a"
+    },
+    {
+      "file": "screenshots-0.10/tc6-equipment-pedestal-charged.png",
+      "sha256": "dd015da24ced5b4410de1d03a21225d2808049098c50620c2024ee29eee837a6"
+    },
+    {
+      "file": "screenshots-0.10/tc6-equipment-purifying-bath.png",
+      "sha256": "68b598fb0bb639a76a1bff45cc8137dd6a614e30fe8f67faebcad43a21071658"
+    },
+    {
+      "file": "screenshots-0.10/tc6-equipment-sanity-85.png",
+      "sha256": "1ef57cb80955b807883339585da0c71154fdb81e610a94f179faad3e3e70ab1b"
+    },
+    {
+      "file": "screenshots-0.10/tc6-equipment-sanity-overflow.png",
+      "sha256": "c22d6400b754b3835570983bc2b2c31b84b3044372a1f2cd45ae0f17e0b8b12e"
+    },
+    {
+      "file": "screenshots-0.10/tc6-equipment-soap-use.png",
+      "sha256": "0682a9c679639e13d1fa504a4e548fabbe4f842c0278e4afc200e1ded188ab84"
+    },
+    {
+      "file": "screenshots-0.10/tc6-equipment-thaumium-pick-mined.png",
+      "sha256": "fb2107b5096dd42dbc432f0c4fbe3b0cb3aef4c98bea2cd0e15b9e7029bf8290"
+    },
+    {
+      "file": "screenshots-0.10/tc6-equipment-thaumium-worn.png",
+      "sha256": "27e53a990f21f25e949ca86a31436d448ce196b20c6ffc80295fbe045bc704ef"
+    },
+    {
+      "file": "screenshots-0.10/tc6-equipment-traveller-worn.png",
+      "sha256": "15c57fb21d4909ac8d67ed84414b97a79e54dc1d8dd708aacbf2353c174ad555"
+    },
+    {
+      "file": "screenshots-0.10/tc6-equipment-void-robes-worn.png",
+      "sha256": "bf8b8407995b60f84f8390fe85d2a828642d80f2797312e65ec43a9925213a8e"
+    }
+  ],
+  "limitations": [
+    "Original equipment recipes and full research progression remain incomplete",
+    "Accessories/Baubles slots, full WarpEvents, infusion and all item mechanics remain in development",
+    "No full two-client multiplayer or long survival acceptance; see EQUIPMENT.md and PORTING.md"
+  ]
+}

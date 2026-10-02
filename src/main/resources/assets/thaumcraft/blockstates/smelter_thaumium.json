@@ -1,0 +1,34 @@
+{
+  "variants": {
+    "enabled=false,facing=north": {
+      "model": "thaumcraft:catalog/smelter_thaumium/0"
+    },
+    "enabled=true,facing=north": {
+      "model": "thaumcraft:catalog/smelter_thaumium/1"
+    },
+    "enabled=false,facing=south": {
+      "model": "thaumcraft:catalog/smelter_thaumium/2",
+      "y": 180
+    },
+    "enabled=true,facing=south": {
+      "model": "thaumcraft:catalog/smelter_thaumium/3",
+      "y": 180
+    },
+    "enabled=false,facing=east": {
+      "model": "thaumcraft:catalog/smelter_thaumium/4",
+      "y": 90
+    },
+    "enabled=true,facing=east": {
+      "model": "thaumcraft:catalog/smelter_thaumium/5",
+      "y": 90
+    },
+    "enabled=false,facing=west": {
+      "model": "thaumcraft:catalog/smelter_thaumium/6",
+      "y": 270
+    },
+    "enabled=true,facing=west": {
+      "model": "thaumcraft:catalog/smelter_thaumium/7",
+      "y": 270
+    }
+  }
+}

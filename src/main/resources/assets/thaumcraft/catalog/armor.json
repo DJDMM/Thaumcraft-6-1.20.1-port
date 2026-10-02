@@ -1,0 +1,30 @@
+{
+  "original_version": "6.1.BETA26",
+  "models": [
+    {
+      "name": "Robe",
+      "source_sha256": "e30c816107381612657b41fefd6f309873dfea6ae12e33e6f920caa0ad32c842",
+      "cuboid_statements": 58,
+      "child_links": 56
+    },
+    {
+      "name": "KnightArmor",
+      "source_sha256": "27f3de18c309f8a499acba176b2adf97efd656886ce69a09ab0712e37d34fa8d",
+      "cuboid_statements": 38,
+      "child_links": 36
+    },
+    {
+      "name": "LeaderArmor",
+      "source_sha256": "048522efade75460b887ef08897478d2d5d0f4066d710caadc80550d9ef689e7",
+      "cuboid_statements": 50,
+      "child_links": 50
+    },
+    {
+      "name": "FortressArmor",
+      "source_sha256": "479e866c10858d0ae51ea4e6245fb4accfd5fa7be7d35849b0981d466d83d159",
+      "cuboid_statements": 64,
+      "child_links": 66
+    }
+  ],
+  "phase": "visual_only"
+}

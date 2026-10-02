@@ -1,0 +1,12 @@
+{
+  "type": "item",
+  "targets": [
+    "minecraft:soul_sand"
+  ],
+  "aspects": {
+    "terra": 3,
+    "vinculum": 1,
+    "spiritus": 3
+  },
+  "_source": "Thaumcraft 6 ConfigAspects.java:200"
+}

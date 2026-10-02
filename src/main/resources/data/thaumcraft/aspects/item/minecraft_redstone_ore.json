@@ -1,0 +1,11 @@
+{
+  "type": "item",
+  "targets": [
+    "minecraft:redstone_ore"
+  ],
+  "aspects": {
+    "terra": 5,
+    "potentia": 15
+  },
+  "_source": "Thaumcraft 6 ConfigAspects.java:135"
+}

@@ -1,0 +1,7 @@
+{
+  "parent": "thaumcraft:block/bellows",
+  "textures": {
+    "particle": "thaumcraft:blocks/bellows",
+    "side": "thaumcraft:blocks/bellows"
+  }
+}

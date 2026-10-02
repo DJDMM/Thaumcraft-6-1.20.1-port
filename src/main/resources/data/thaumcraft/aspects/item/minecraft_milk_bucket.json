@@ -1,0 +1,13 @@
+{
+  "type": "item",
+  "targets": [
+    "minecraft:milk_bucket"
+  ],
+  "aspects": {
+    "victus": 10,
+    "bestia": 5,
+    "aqua": 5
+  },
+  "_source": "Thaumcraft 6 ConfigAspects.java:410",
+  "base": "minecraft:bucket"
+}

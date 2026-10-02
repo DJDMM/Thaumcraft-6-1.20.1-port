@@ -1,0 +1,49 @@
+{
+  "version": "0.7.1-dev",
+  "requiredGameTests": 112,
+  "newTreeSpawnRateGameTests": 4,
+  "jsonFiles": 762,
+  "jarResourceByteParity": 1094,
+  "jar": {
+    "name": "thaumcraft-1.20.1-0.7.1-dev.jar",
+    "bytes": 3387121,
+    "sha256": "0aa89fd4e03ebf51778363c2d592d9988482771ea21cf314c005c817e6cfbff5"
+  },
+  "dependency": {
+    "name": "TerraBlender-forge-1.20.1-3.0.1.10.jar",
+    "sha256": "ca678c11b878ad9c7143636fbec911f29e2c1453a6cc091e16b14e6d9608fb5f"
+  },
+  "plainsPerChunkAttemptProbability": {
+    "greatwood": {
+      "old": "1/16",
+      "corrected": "1/25 * .2 = 1/125"
+    },
+    "silverwood": {
+      "old": "1/80",
+      "corrected": "1/80 * .1 = 1/800"
+    }
+  },
+  "forestPerChunkAttemptProbability": {
+    "greatwood": "1/25",
+    "silverwood": "1/160"
+  },
+  "magicalForestDecorator": "Unchanged 18/12/8 conditional draws, 2..3 attempts; extra global rarity25/160",
+  "validation": [
+    "Actual loaded placed-feature codec verifies rarity/configured targets",
+    "Actual registered natural features reject equality and grow below strict support thresholds",
+    "Magical Silverwood exception still consumes the gate RNG draw",
+    "Sapling growth and forest decorator do not inherit the global biome gate",
+    "Biome palettes used by the fixtures are restored in finally",
+    "Static nested-tag/ADD/REMOVE feature graph has no cycles across 67 biomes"
+  ],
+  "previousBiomeClientEvidence": "0.7.0 actual client, 16 PNG and 100 chunk/aura reload checks; not rerun for 0.7.1",
+  "manualGameplayClient": "User is playing the earlier 0.7.0 client; it was not stopped or its world modified",
+  "limitations": [
+    "Attempts are not guaranteed grown trees; ground/space checks can reject a candidate",
+    "Existing generated trees remain; new rates require restarting on 0.7.1 and generating new terrain",
+    "Taiga stable .2, Grove and Mangrove mappings are documented modern adaptations",
+    "Old separate Forest Hills/Birch Forest Hills IDs have no exact modern counterpart",
+    "Magical exception is implemented in the feature; dormant Eerie/Outer are not added to global feature tags",
+    "No full survival or two-client network verification; full TC6 is still incomplete"
+  ]
+}

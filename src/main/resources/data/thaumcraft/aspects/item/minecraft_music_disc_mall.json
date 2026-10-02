@@ -1,0 +1,13 @@
+{
+  "type": "item",
+  "targets": [
+    "minecraft:music_disc_mall"
+  ],
+  "aspects": {
+    "sensus": 15,
+    "aer": 5,
+    "humanus": 5,
+    "desiderium": 10
+  },
+  "_source": "Thaumcraft 6 ConfigAspects.java:348"
+}

@@ -1,0 +1,11 @@
+{
+  "type": "item",
+  "targets": [
+    "minecraft:paper"
+  ],
+  "aspects": {
+    "cognitio": 2
+  },
+  "_source": "Thaumcraft 6 ConfigAspects.java:360",
+  "derive": true
+}

@@ -1,0 +1,12 @@
+{
+  "type": "item",
+  "targets": [
+    "minecraft:oak_pressure_plate"
+  ],
+  "aspects": {
+    "machina": 5,
+    "sensus": 5
+  },
+  "_source": "Thaumcraft 6 ConfigAspects.java:423",
+  "derive": true
+}

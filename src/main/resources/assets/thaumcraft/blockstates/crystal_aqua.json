@@ -1,0 +1,30 @@
+{
+  "variants": {
+    "facing=up": {
+      "model": "thaumcraft:block/crystal_aqua"
+    },
+    "facing=down": {
+      "model": "thaumcraft:block/crystal_aqua",
+      "x": 180
+    },
+    "facing=north": {
+      "model": "thaumcraft:block/crystal_aqua",
+      "x": 90
+    },
+    "facing=south": {
+      "model": "thaumcraft:block/crystal_aqua",
+      "x": 90,
+      "y": 180
+    },
+    "facing=west": {
+      "model": "thaumcraft:block/crystal_aqua",
+      "x": 90,
+      "y": 270
+    },
+    "facing=east": {
+      "model": "thaumcraft:block/crystal_aqua",
+      "x": 90,
+      "y": 90
+    }
+  }
+}

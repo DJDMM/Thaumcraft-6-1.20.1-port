@@ -1,0 +1,15 @@
+{
+  "research": "UNLOCKALCHEMY@3",
+  "catalyst": {
+    "item": "minecraft:glowstone_dust"
+  },
+  "result": {
+    "item": "thaumcraft:nitor",
+    "count": 1
+  },
+  "aspects": {
+    "potentia": 10,
+    "ignis": 10,
+    "lux": 10
+  }
+}

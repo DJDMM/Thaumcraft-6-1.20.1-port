@@ -1,0 +1,10 @@
+{
+  "type": "item",
+  "targets": [
+    "minecraft:enchanted_book"
+  ],
+  "aspects": {},
+  "_source": "Thaumcraft 6 ConfigAspects.java:361",
+  "derive": true,
+  "base": "minecraft:book"
+}

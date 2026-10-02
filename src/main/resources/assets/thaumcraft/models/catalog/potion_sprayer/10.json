@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/cube_bottom_top",
+  "textures": {
+    "bottom": "thaumcraft:blocks/potion_sprayer_bottom",
+    "top": "thaumcraft:blocks/potion_sprayer_top",
+    "side": "thaumcraft:blocks/potion_sprayer_side"
+  }
+}

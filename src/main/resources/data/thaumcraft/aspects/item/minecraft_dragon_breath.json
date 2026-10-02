@@ -1,0 +1,13 @@
+{
+  "type": "item",
+  "targets": [
+    "minecraft:dragon_breath"
+  ],
+  "aspects": {
+    "tenebrae": 10,
+    "perditio": 10,
+    "ignis": 10,
+    "alkimia": 10
+  },
+  "_source": "Thaumcraft 6 ConfigAspects.java:320"
+}

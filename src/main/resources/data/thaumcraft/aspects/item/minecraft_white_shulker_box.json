@@ -1,0 +1,9 @@
+{
+  "type": "item",
+  "targets": [
+    "minecraft:white_shulker_box"
+  ],
+  "aspects": {},
+  "_source": "Thaumcraft 6 ConfigAspects.java:334",
+  "base": "minecraft:purple_shulker_box"
+}

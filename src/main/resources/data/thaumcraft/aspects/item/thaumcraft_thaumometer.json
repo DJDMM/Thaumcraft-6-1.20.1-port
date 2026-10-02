@@ -1,0 +1,12 @@
+{
+  "type": "item",
+  "targets": [
+    "thaumcraft:thaumometer"
+  ],
+  "aspects": {
+    "sensus": 10,
+    "auram": 10
+  },
+  "_source": "Thaumcraft 6 ConfigAspects.java:536",
+  "derive": true
+}

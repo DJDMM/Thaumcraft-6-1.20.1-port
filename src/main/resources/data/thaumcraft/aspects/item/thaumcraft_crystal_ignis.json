@@ -1,0 +1,11 @@
+{
+  "type": "item",
+  "targets": [
+    "thaumcraft:crystal_ignis"
+  ],
+  "aspects": {
+    "ignis": 15,
+    "vitreus": 10
+  },
+  "_source": "Thaumcraft 6 ConfigAspects.java:486"
+}

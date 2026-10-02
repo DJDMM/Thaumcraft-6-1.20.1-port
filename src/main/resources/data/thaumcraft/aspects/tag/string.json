@@ -1,0 +1,11 @@
+{
+  "type": "item_tag",
+  "targets": [
+    "forge:string"
+  ],
+  "aspects": {
+    "bestia": 5,
+    "fabrico": 1
+  },
+  "_source": "Thaumcraft 6 ConfigAspects.java:287"
+}

@@ -1,0 +1,12 @@
+{
+  "type": "item",
+  "targets": [
+    "minecraft:ender_eye"
+  ],
+  "aspects": {
+    "sensus": 10,
+    "praecantatio": 5
+  },
+  "_source": "Thaumcraft 6 ConfigAspects.java:374",
+  "derive": true
+}

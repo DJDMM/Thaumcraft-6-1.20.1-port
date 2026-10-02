@@ -1,0 +1,12 @@
+{
+  "type": "item",
+  "targets": [
+    "minecraft:ghast_tear"
+  ],
+  "aspects": {
+    "exanimis": 5,
+    "spiritus": 10,
+    "alkimia": 10
+  },
+  "_source": "Thaumcraft 6 ConfigAspects.java:313"
+}

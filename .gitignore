@@ -1,0 +1,10 @@
+.gradle/
+build/
+run/
+.idea/
+*.iml
+logs/
+validation/*
+!validation/artifact-report-*.json
+*.log
+hs_err_pid*.log

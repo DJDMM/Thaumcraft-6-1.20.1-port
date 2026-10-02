@@ -1,0 +1,8 @@
+{
+  "replace": false,
+  "values": [
+    "#thaumcraft:tree_support/full",
+    "#thaumcraft:tree_support/lush",
+    "#thaumcraft:tree_support/reduced"
+  ]
+}

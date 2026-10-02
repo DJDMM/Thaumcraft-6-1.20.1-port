@@ -1,0 +1,10 @@
+{
+  "type": "entity",
+  "targets": [
+    "minecraft:experience_orb"
+  ],
+  "aspects": {
+    "cognitio": 10
+  },
+  "_source": "Thaumcraft 6 ConfigAspects.java:58"
+}

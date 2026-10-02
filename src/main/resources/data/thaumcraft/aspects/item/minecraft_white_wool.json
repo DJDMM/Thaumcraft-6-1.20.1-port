@@ -1,0 +1,11 @@
+{
+  "type": "item",
+  "targets": [
+    "minecraft:white_wool"
+  ],
+  "aspects": {
+    "bestia": 15,
+    "fabrico": 5
+  },
+  "_source": "Thaumcraft 6 ConfigAspects.java:267"
+}

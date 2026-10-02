@@ -1,0 +1,12 @@
+{
+  "type": "entity",
+  "targets": [
+    "minecraft:mule"
+  ],
+  "aspects": {
+    "bestia": 15,
+    "terra": 5,
+    "aer": 5
+  },
+  "_source": "Thaumcraft 6 ConfigAspects.java:54"
+}

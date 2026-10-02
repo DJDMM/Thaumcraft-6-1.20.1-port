@@ -1,0 +1,13 @@
+{
+  "type": "item",
+  "targets": [
+    "minecraft:beacon"
+  ],
+  "aspects": {
+    "auram": 10,
+    "praecantatio": 10,
+    "permutatio": 10
+  },
+  "_source": "Thaumcraft 6 ConfigAspects.java:437",
+  "derive": true
+}

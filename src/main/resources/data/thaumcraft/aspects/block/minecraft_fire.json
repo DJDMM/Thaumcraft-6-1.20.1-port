@@ -1,0 +1,10 @@
+{
+  "type": "block",
+  "targets": [
+    "minecraft:fire"
+  ],
+  "aspects": {
+    "ignis": 20
+  },
+  "_source": "Thaumcraft 6 ConfigAspects.java:273"
+}

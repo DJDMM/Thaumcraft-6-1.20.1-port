@@ -1,0 +1,12 @@
+{
+  "type": "item",
+  "targets": [
+    "minecraft:repeater"
+  ],
+  "aspects": {
+    "machina": 15,
+    "potentia": 10
+  },
+  "_source": "Thaumcraft 6 ConfigAspects.java:444",
+  "derive": true
+}

@@ -1,0 +1,11 @@
+{
+  "type": "item",
+  "targets": [
+    "minecraft:fermented_spider_eye"
+  ],
+  "aspects": {
+    "alkimia": 5
+  },
+  "_source": "Thaumcraft 6 ConfigAspects.java:322",
+  "derive": true
+}

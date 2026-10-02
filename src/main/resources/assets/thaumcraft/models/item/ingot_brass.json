@@ -1,0 +1,6 @@
+{
+  "textures": {
+    "layer0": "thaumcraft:items/ingot_brass"
+  },
+  "parent": "minecraft:item/generated"
+}

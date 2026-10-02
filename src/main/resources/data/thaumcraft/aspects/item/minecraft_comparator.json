@@ -1,0 +1,13 @@
+{
+  "type": "item",
+  "targets": [
+    "minecraft:comparator"
+  ],
+  "aspects": {
+    "machina": 15,
+    "ordo": 5,
+    "sensus": 5
+  },
+  "_source": "Thaumcraft 6 ConfigAspects.java:443",
+  "derive": true
+}

@@ -1,0 +1,12 @@
+{
+  "type": "entity",
+  "targets": [
+    "minecraft:vindicator"
+  ],
+  "aspects": {
+    "aversio": 5,
+    "praecantatio": 5,
+    "humanus": 10
+  },
+  "_source": "Thaumcraft 6 ConfigAspects.java:92"
+}

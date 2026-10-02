@@ -1,0 +1,87 @@
+{
+  "multipart": [
+    {
+      "apply": {
+        "model": "thaumcraft:catalog/tube_oneway/0",
+        "x": 90,
+        "y": 180
+      },
+      "when": {
+        "north": "true"
+      }
+    },
+    {
+      "apply": {
+        "model": "thaumcraft:catalog/tube_oneway/1",
+        "x": 90
+      },
+      "when": {
+        "south": "true"
+      }
+    },
+    {
+      "apply": {
+        "model": "thaumcraft:catalog/tube_oneway/2",
+        "x": 90,
+        "y": 270
+      },
+      "when": {
+        "east": "true"
+      }
+    },
+    {
+      "apply": {
+        "model": "thaumcraft:catalog/tube_oneway/3",
+        "x": 90,
+        "y": 90
+      },
+      "when": {
+        "west": "true"
+      }
+    },
+    {
+      "apply": {
+        "model": "thaumcraft:catalog/tube_oneway/4",
+        "x": 180
+      },
+      "when": {
+        "up": "true"
+      }
+    },
+    {
+      "apply": {
+        "model": "thaumcraft:catalog/tube_oneway/5"
+      },
+      "when": {
+        "down": "true"
+      }
+    },
+    {
+      "apply": {
+        "model": "thaumcraft:catalog/tube_oneway/6"
+      },
+      "when": {
+        "OR": [
+          {
+            "north": "false"
+          },
+          {
+            "east": "false"
+          },
+          {
+            "south": "false"
+          },
+          {
+            "west": "false"
+          },
+          {
+            "up": "false"
+          },
+          {
+            "down": "false"
+          }
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "type": "entity",
+  "targets": [
+    "minecraft:spider"
+  ],
+  "aspects": {
+    "bestia": 10,
+    "perditio": 10,
+    "vinculum": 10
+  },
+  "_source": "Thaumcraft 6 ConfigAspects.java:68"
+}

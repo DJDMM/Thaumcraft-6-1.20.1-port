@@ -1,0 +1,30 @@
+{
+  "variants": {
+    "facing=down": {
+      "model": "thaumcraft:catalog/essentia_input/0",
+      "x": 180
+    },
+    "facing=up": {
+      "model": "thaumcraft:catalog/essentia_input/1"
+    },
+    "facing=east": {
+      "model": "thaumcraft:catalog/essentia_input/2",
+      "x": 90,
+      "y": 90
+    },
+    "facing=west": {
+      "model": "thaumcraft:catalog/essentia_input/3",
+      "x": 90,
+      "y": 270
+    },
+    "facing=north": {
+      "model": "thaumcraft:catalog/essentia_input/4",
+      "x": 90
+    },
+    "facing=south": {
+      "model": "thaumcraft:catalog/essentia_input/5",
+      "x": 90,
+      "y": 180
+    }
+  }
+}

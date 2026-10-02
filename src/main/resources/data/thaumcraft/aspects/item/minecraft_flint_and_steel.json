@@ -1,0 +1,12 @@
+{
+  "type": "item",
+  "targets": [
+    "minecraft:flint_and_steel"
+  ],
+  "aspects": {
+    "ignis": 10,
+    "instrumentum": 5
+  },
+  "_source": "Thaumcraft 6 ConfigAspects.java:395",
+  "derive": true
+}

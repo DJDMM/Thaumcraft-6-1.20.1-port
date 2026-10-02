@@ -1,0 +1,13 @@
+{
+  "type": "item_tag",
+  "targets": [
+    "forge:nether_stars"
+  ],
+  "aspects": {
+    "alienis": 10,
+    "praecantatio": 20,
+    "ordo": 20,
+    "auram": 10
+  },
+  "_source": "Thaumcraft 6 ConfigAspects.java:355"
+}

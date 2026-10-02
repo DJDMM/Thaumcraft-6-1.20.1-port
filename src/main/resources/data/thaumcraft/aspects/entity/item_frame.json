@@ -1,0 +1,11 @@
+{
+  "type": "entity",
+  "targets": [
+    "minecraft:item_frame"
+  ],
+  "aspects": {
+    "sensus": 5,
+    "fabrico": 5
+  },
+  "_source": "Thaumcraft 6 ConfigAspects.java:83"
+}

@@ -1,0 +1,12 @@
+{
+  "type": "item",
+  "targets": [
+    "minecraft:green_dye"
+  ],
+  "aspects": {
+    "aqua": 1,
+    "ignis": 1
+  },
+  "_source": "Thaumcraft 6 ConfigAspects.java:463",
+  "base": "minecraft:cactus"
+}

@@ -1,0 +1,12 @@
+{
+  "type": "entity",
+  "targets": [
+    "minecraft:guardian"
+  ],
+  "aspects": {
+    "bestia": 10,
+    "alienis": 10,
+    "aqua": 10
+  },
+  "_source": "Thaumcraft 6 ConfigAspects.java:85"
+}

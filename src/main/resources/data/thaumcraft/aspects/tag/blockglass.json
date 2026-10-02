@@ -1,0 +1,10 @@
+{
+  "type": "item_tag",
+  "targets": [
+    "forge:glass"
+  ],
+  "aspects": {
+    "vitreus": 5
+  },
+  "_source": "Thaumcraft 6 ConfigAspects.java:201"
+}

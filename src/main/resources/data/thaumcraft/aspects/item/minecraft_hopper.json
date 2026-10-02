@@ -1,0 +1,13 @@
+{
+  "type": "item",
+  "targets": [
+    "minecraft:hopper"
+  ],
+  "aspects": {
+    "machina": 5,
+    "permutatio": 10,
+    "vacuos": 5
+  },
+  "_source": "Thaumcraft 6 ConfigAspects.java:445",
+  "derive": true
+}

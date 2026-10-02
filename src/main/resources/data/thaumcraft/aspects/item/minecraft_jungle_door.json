@@ -1,0 +1,12 @@
+{
+  "type": "item",
+  "targets": [
+    "minecraft:jungle_door"
+  ],
+  "aspects": {
+    "vinculum": 5,
+    "machina": 5
+  },
+  "_source": "Thaumcraft 6 ConfigAspects.java:385",
+  "derive": true
+}

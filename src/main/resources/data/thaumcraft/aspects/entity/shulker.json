@@ -1,0 +1,13 @@
+{
+  "type": "entity",
+  "targets": [
+    "minecraft:shulker"
+  ],
+  "aspects": {
+    "alienis": 10,
+    "vinculum": 5,
+    "volatus": 5,
+    "praemunio": 5
+  },
+  "_source": "Thaumcraft 6 ConfigAspects.java:90"
+}

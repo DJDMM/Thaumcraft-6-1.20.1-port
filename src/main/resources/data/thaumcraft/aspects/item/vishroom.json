@@ -1,0 +1,12 @@
+{
+  "type": "item",
+  "targets": [
+    "thaumcraft:vishroom"
+  ],
+  "aspects": {
+    "herba": 2,
+    "mortuus": 1,
+    "praecantatio": 1,
+    "perditio": 1
+  }
+}

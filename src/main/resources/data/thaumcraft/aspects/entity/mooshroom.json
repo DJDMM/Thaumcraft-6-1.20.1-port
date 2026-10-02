@@ -1,0 +1,12 @@
+{
+  "type": "entity",
+  "targets": [
+    "minecraft:mooshroom"
+  ],
+  "aspects": {
+    "bestia": 15,
+    "herba": 15,
+    "terra": 15
+  },
+  "_source": "Thaumcraft 6 ConfigAspects.java:61"
+}

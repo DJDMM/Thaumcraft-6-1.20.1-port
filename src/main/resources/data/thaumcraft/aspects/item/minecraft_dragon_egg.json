@@ -1,0 +1,14 @@
+{
+  "type": "item",
+  "targets": [
+    "minecraft:dragon_egg"
+  ],
+  "aspects": {
+    "alienis": 15,
+    "bestia": 15,
+    "tenebrae": 15,
+    "motus": 15,
+    "praecantatio": 5
+  },
+  "_source": "Thaumcraft 6 ConfigAspects.java:363"
+}

@@ -1,0 +1,12 @@
+{
+  "type": "item",
+  "targets": [
+    "minecraft:carrot_on_a_stick"
+  ],
+  "aspects": {
+    "motus": 5,
+    "desiderium": 10
+  },
+  "_source": "Thaumcraft 6 ConfigAspects.java:439",
+  "derive": true
+}

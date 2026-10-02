@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "thaumcraft:catalog/slab_ancient/0"
+    },
+    "type=top": {
+      "model": "thaumcraft:catalog/slab_ancient/1"
+    },
+    "type=double": {
+      "model": "thaumcraft:catalog/slab_ancient/2"
+    }
+  }
+}

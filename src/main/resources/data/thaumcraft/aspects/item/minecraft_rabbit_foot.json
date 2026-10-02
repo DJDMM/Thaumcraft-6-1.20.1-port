@@ -1,0 +1,13 @@
+{
+  "type": "item",
+  "targets": [
+    "minecraft:rabbit_foot"
+  ],
+  "aspects": {
+    "bestia": 5,
+    "praemunio": 5,
+    "motus": 10,
+    "alkimia": 5
+  },
+  "_source": "Thaumcraft 6 ConfigAspects.java:309"
+}

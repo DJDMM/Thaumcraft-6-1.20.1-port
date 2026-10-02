@@ -1,0 +1,12 @@
+{
+  "type": "item_tag",
+  "targets": [
+    "forge:gunpowder"
+  ],
+  "aspects": {
+    "ignis": 10,
+    "perditio": 10,
+    "alkimia": 5
+  },
+  "_source": "Thaumcraft 6 ConfigAspects.java:295"
+}

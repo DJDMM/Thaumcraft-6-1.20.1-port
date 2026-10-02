@@ -1,0 +1,11 @@
+{
+  "type": "forge:remove_features",
+  "biomes": "thaumcraft:magical_forest",
+  "features": [
+    "thaumcraft:greatwood_tree",
+    "thaumcraft:silverwood_tree"
+  ],
+  "steps": [
+    "vegetal_decoration"
+  ]
+}

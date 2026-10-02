@@ -1,0 +1,12 @@
+{
+  "type": "item",
+  "targets": [
+    "minecraft:spectral_arrow"
+  ],
+  "aspects": {
+    "sensus": 10,
+    "praecantatio": 5
+  },
+  "_source": "Thaumcraft 6 ConfigAspects.java:405",
+  "derive": true
+}

@@ -1,0 +1,42 @@
+{
+  "version": "0.9.0-dev",
+  "originalVersion": "Thaumcraft 6.1.BETA26",
+  "originalSourceCommit": "954022bb777b7546281fb36df8522f0ba6b43f81",
+  "originalJarSha256": "9425f8643581b27ff8845b087c8bc6fc10425a32942f1a3f0e265ce6b38f7b5f",
+  "requiredGameTests": 143,
+  "previousGameTests": 120,
+  "essentiaGameTests": 23,
+  "clientWorldJars": 16,
+  "clientMutationChecks": true,
+  "essentiaScreenshots": 2,
+  "catalogueRegressionScreenshots": 28,
+  "catalogueModelAudit": "3264 rendered block states, 334 dynamic item samples; 710 item checks, 89570 baked quads, 38 custom item renderers, 1339 custom block states",
+  "jsonFiles": 2626,
+  "jarResourceByteParity": 3311,
+  "originalTextureByteParity": 591,
+  "jar": {
+    "name": "thaumcraft-1.20.1-0.9.0-dev.jar",
+    "bytes": 6984948,
+    "sha256": "ec46b0b914b64b8f813ab3ab8bfc2f3b0990e82b396301444994c67538457c9e"
+  },
+  "dependency": {
+    "name": "TerraBlender-forge-1.20.1-3.0.1.10.jar",
+    "sha256": "ca678c11b878ad9c7143636fbec911f29e2c1453a6cc091e16b14e6d9608fb5f"
+  },
+  "screenshots": [
+    {
+      "file": "screenshots-0.9/tc6-essentia-levels.png",
+      "sha256": "d96f6438fa364c65518c55675f0ba3c12a9e2e1f750b8da9b6d268961bcdcc7a"
+    },
+    {
+      "file": "screenshots-0.9/tc6-essentia-labels-braces.png",
+      "sha256": "8d97d84e1d051dd5051bbf51a2fa1c35daea574a51c5b2173dd7436c98914f5c"
+    }
+  ],
+  "limitations": [
+    "Smelter/alembic, working pipes and airborne network await implementation",
+    "WARDEDJARS progression and arcane jar recipes remain gated and unimplemented",
+    "Label crooked rotation omitted; jar/brace sounds currently vanilla",
+    "No full survival playthrough, real chunk unload/server restart, or two-client multiplayer validation"
+  ]
+}

@@ -1,0 +1,15 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "thaumcraft:blocks/mirrorframe2",
+    "layer1": "thaumcraft:blocks/mirrorpane"
+  },
+  "overrides": [
+    {
+      "predicate": {
+        "thaumcraft:linked": 1
+      },
+      "model": "thaumcraft:item/mirror_essentia_on"
+    }
+  ]
+}

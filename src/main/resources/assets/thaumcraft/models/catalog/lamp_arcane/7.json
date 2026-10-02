@@ -1,0 +1,7 @@
+{
+  "parent": "thaumcraft:block/lamp",
+  "textures": {
+    "particle": "thaumcraft:blocks/lamp_off",
+    "side": "thaumcraft:blocks/lamp_off"
+  }
+}

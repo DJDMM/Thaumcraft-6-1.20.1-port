@@ -1,0 +1,11 @@
+{
+  "type": "item",
+  "targets": [
+    "minecraft:glass_bottle"
+  ],
+  "aspects": {
+    "vacuos": 5
+  },
+  "_source": "Thaumcraft 6 ConfigAspects.java:376",
+  "derive": true
+}

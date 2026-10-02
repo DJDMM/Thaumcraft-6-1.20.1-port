@@ -1,0 +1,11 @@
+{
+  "type": "item",
+  "targets": [
+    "minecraft:poisonous_potato"
+  ],
+  "aspects": {
+    "herba": 5,
+    "mortuus": 5
+  },
+  "_source": "Thaumcraft 6 ConfigAspects.java:258"
+}

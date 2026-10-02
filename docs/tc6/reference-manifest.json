@@ -1,0 +1,239 @@
+{
+  "date": "2026-09-30",
+  "baseline": "Thaumcraft 6.1.BETA26 / Minecraft 1.12.2",
+  "source_commit": "954022bb777b7546281fb36df8522f0ba6b43f81",
+  "guide_commit": "cd14373456bfa3090663eb9dbf804f369313a7d7",
+  "official_release": "https://www.curseforge.com/minecraft/mc-mods/thaumcraft/files/2629023",
+  "jar_download": "https://edge.forgecdn.net/files/2629/23/Thaumcraft-1.12.2-6.1.BETA26.jar",
+  "jar_sha256": "9425f8643581b27ff8845b087c8bc6fc10425a32942f1a3f0e265ce6b38f7b5f",
+  "jar_bytes": 11360786,
+  "resource_comparison": [
+    {
+      "path": "assets/thaumcraft/lang/en_us.lang",
+      "sha256": "3b78dfdbe0c035ff89bba3cb7ecbb5116800f34f10bf459f17eeae4de439c086",
+      "matches_official_jar": true,
+      "source_url": "https://github.com/TheDarkTower314/Thaumcraft-6-Source-Code/blob/954022bb777b7546281fb36df8522f0ba6b43f81/src/main/resources/assets/thaumcraft/lang/en_us.lang"
+    },
+    {
+      "path": "assets/thaumcraft/lang/ru_ru.lang",
+      "sha256": "284c7f8a8f4fa1982cf7e3ab821167275c8a828e72e1433899962076413a1e14",
+      "matches_official_jar": true,
+      "source_url": "https://github.com/TheDarkTower314/Thaumcraft-6-Source-Code/blob/954022bb777b7546281fb36df8522f0ba6b43f81/src/main/resources/assets/thaumcraft/lang/ru_ru.lang"
+    },
+    {
+      "path": "assets/thaumcraft/research/alchemy.json",
+      "sha256": "195b04d9dfa811c765cdcf9b17513bd3358ff942a3cd04df06173fbc876ba5d4",
+      "matches_official_jar": true,
+      "source_url": "https://github.com/TheDarkTower314/Thaumcraft-6-Source-Code/blob/954022bb777b7546281fb36df8522f0ba6b43f81/src/main/resources/assets/thaumcraft/research/alchemy.json"
+    },
+    {
+      "path": "assets/thaumcraft/research/artifice.json",
+      "sha256": "615ac0c944aa19bf6bb3bf5f02158eb99577aa979bf0767dfd3aef0badc7834c",
+      "matches_official_jar": true,
+      "source_url": "https://github.com/TheDarkTower314/Thaumcraft-6-Source-Code/blob/954022bb777b7546281fb36df8522f0ba6b43f81/src/main/resources/assets/thaumcraft/research/artifice.json"
+    },
+    {
+      "path": "assets/thaumcraft/research/auromancy.json",
+      "sha256": "654e16833b2b8715af74adf3a26b5bc68d874f559c38a56b170628f8a75da604",
+      "matches_official_jar": true,
+      "source_url": "https://github.com/TheDarkTower314/Thaumcraft-6-Source-Code/blob/954022bb777b7546281fb36df8522f0ba6b43f81/src/main/resources/assets/thaumcraft/research/auromancy.json"
+    },
+    {
+      "path": "assets/thaumcraft/research/basics.json",
+      "sha256": "22addef24e9b0d0e0f4b2570d2da2e4ee9393876a341f592cfc2f32586a9d1aa",
+      "matches_official_jar": true,
+      "source_url": "https://github.com/TheDarkTower314/Thaumcraft-6-Source-Code/blob/954022bb777b7546281fb36df8522f0ba6b43f81/src/main/resources/assets/thaumcraft/research/basics.json"
+    },
+    {
+      "path": "assets/thaumcraft/research/eldritch.json",
+      "sha256": "122f8a547debd0559512d7c0e28a74a087f31a75f49119e9738e56f335fee83e",
+      "matches_official_jar": true,
+      "source_url": "https://github.com/TheDarkTower314/Thaumcraft-6-Source-Code/blob/954022bb777b7546281fb36df8522f0ba6b43f81/src/main/resources/assets/thaumcraft/research/eldritch.json"
+    },
+    {
+      "path": "assets/thaumcraft/research/golemancy.json",
+      "sha256": "a574bee623f4597c6bf37de9e020413e1fb2b5f5bdba8c68fcb2cfa77f101268",
+      "matches_official_jar": true,
+      "source_url": "https://github.com/TheDarkTower314/Thaumcraft-6-Source-Code/blob/954022bb777b7546281fb36df8522f0ba6b43f81/src/main/resources/assets/thaumcraft/research/golemancy.json"
+    },
+    {
+      "path": "assets/thaumcraft/research/infusion.json",
+      "sha256": "54d76698e0f842396e992fd9dec26a18b74f593cf765bcf6eb76211660e85913",
+      "matches_official_jar": true,
+      "source_url": "https://github.com/TheDarkTower314/Thaumcraft-6-Source-Code/blob/954022bb777b7546281fb36df8522f0ba6b43f81/src/main/resources/assets/thaumcraft/research/infusion.json"
+    },
+    {
+      "path": "assets/thaumcraft/research/scans.json",
+      "sha256": "36bcb8c263effada0a9b746adf09b331f50dc818e93c8c7f7a7d5a29be5c34b5",
+      "matches_official_jar": true,
+      "source_url": "https://github.com/TheDarkTower314/Thaumcraft-6-Source-Code/blob/954022bb777b7546281fb36df8522f0ba6b43f81/src/main/resources/assets/thaumcraft/research/scans.json"
+    },
+    {
+      "path": "assets/thaumcraft/textures/gui/gui_research_back_1.jpg",
+      "sha256": "4cabe672801b0713bcbb3e0eb839c89e9ec5dd09f5debf0266ad337ca2a0f573",
+      "matches_official_jar": true,
+      "source_url": "https://github.com/TheDarkTower314/Thaumcraft-6-Source-Code/blob/954022bb777b7546281fb36df8522f0ba6b43f81/src/main/resources/assets/thaumcraft/textures/gui/gui_research_back_1.jpg",
+      "pixels": [
+        1024,
+        1024
+      ]
+    },
+    {
+      "path": "assets/thaumcraft/textures/gui/gui_research_back_2.jpg",
+      "sha256": "64fa59e7020c156b76e2964b1078a1bc390b0435bf1a8034f718ff91d82d248d",
+      "matches_official_jar": true,
+      "source_url": "https://github.com/TheDarkTower314/Thaumcraft-6-Source-Code/blob/954022bb777b7546281fb36df8522f0ba6b43f81/src/main/resources/assets/thaumcraft/textures/gui/gui_research_back_2.jpg",
+      "pixels": [
+        1024,
+        1024
+      ]
+    },
+    {
+      "path": "assets/thaumcraft/textures/gui/gui_research_back_3.jpg",
+      "sha256": "dc824b0275b3dfb7c3a651c52969ff87487ca4d14dbf7b56e7e37c7385041c61",
+      "matches_official_jar": true,
+      "source_url": "https://github.com/TheDarkTower314/Thaumcraft-6-Source-Code/blob/954022bb777b7546281fb36df8522f0ba6b43f81/src/main/resources/assets/thaumcraft/textures/gui/gui_research_back_3.jpg",
+      "pixels": [
+        1024,
+        1024
+      ]
+    },
+    {
+      "path": "assets/thaumcraft/textures/gui/gui_research_back_4.jpg",
+      "sha256": "7eadaa7fbcaae70cdf6bff7c8f847c37c219501030f6556c918034e6779c1857",
+      "matches_official_jar": true,
+      "source_url": "https://github.com/TheDarkTower314/Thaumcraft-6-Source-Code/blob/954022bb777b7546281fb36df8522f0ba6b43f81/src/main/resources/assets/thaumcraft/textures/gui/gui_research_back_4.jpg",
+      "pixels": [
+        1024,
+        1024
+      ]
+    },
+    {
+      "path": "assets/thaumcraft/textures/gui/gui_research_back_5.jpg",
+      "sha256": "003d295e2a817e55755e2bed80c08b34fa8c6afb18a06d9f57213ce96c89cdfd",
+      "matches_official_jar": true,
+      "source_url": "https://github.com/TheDarkTower314/Thaumcraft-6-Source-Code/blob/954022bb777b7546281fb36df8522f0ba6b43f81/src/main/resources/assets/thaumcraft/textures/gui/gui_research_back_5.jpg",
+      "pixels": [
+        1024,
+        1024
+      ]
+    },
+    {
+      "path": "assets/thaumcraft/textures/gui/gui_research_back_6.jpg",
+      "sha256": "e246194929e71e708c36e1938b2d6a2cf8d8229d749a944f9f98156ed5c479a2",
+      "matches_official_jar": true,
+      "source_url": "https://github.com/TheDarkTower314/Thaumcraft-6-Source-Code/blob/954022bb777b7546281fb36df8522f0ba6b43f81/src/main/resources/assets/thaumcraft/textures/gui/gui_research_back_6.jpg",
+      "pixels": [
+        1024,
+        1024
+      ]
+    },
+    {
+      "path": "assets/thaumcraft/textures/gui/gui_research_back_7.jpg",
+      "sha256": "c5f7c4b4403b125598411e48d4a6bce25d5e651f24e4e427336416b9483cc054",
+      "matches_official_jar": true,
+      "source_url": "https://github.com/TheDarkTower314/Thaumcraft-6-Source-Code/blob/954022bb777b7546281fb36df8522f0ba6b43f81/src/main/resources/assets/thaumcraft/textures/gui/gui_research_back_7.jpg",
+      "pixels": [
+        1024,
+        1024
+      ]
+    },
+    {
+      "path": "assets/thaumcraft/textures/gui/gui_research_back_over.png",
+      "sha256": "41444751d6cc4367879583fc844c1aad6bca88689c8796167e5e6219f6734046",
+      "matches_official_jar": true,
+      "source_url": "https://github.com/TheDarkTower314/Thaumcraft-6-Source-Code/blob/954022bb777b7546281fb36df8522f0ba6b43f81/src/main/resources/assets/thaumcraft/textures/gui/gui_research_back_over.png",
+      "pixels": [
+        512,
+        512
+      ]
+    },
+    {
+      "path": "assets/thaumcraft/textures/gui/gui_research_browser.png",
+      "sha256": "d79a9f11241943c1534d211fd550ade2f12951e8e98130a9eea3fc9d8abbdce5",
+      "matches_official_jar": true,
+      "source_url": "https://github.com/TheDarkTower314/Thaumcraft-6-Source-Code/blob/954022bb777b7546281fb36df8522f0ba6b43f81/src/main/resources/assets/thaumcraft/textures/gui/gui_research_browser.png",
+      "pixels": [
+        256,
+        256
+      ]
+    },
+    {
+      "path": "assets/thaumcraft/textures/gui/gui_research_table.png",
+      "sha256": "aa51f1474d7cb5f8dc774ff150c5c067b4ad0535f8fb120b44728be4120bb6ad",
+      "matches_official_jar": true,
+      "source_url": "https://github.com/TheDarkTower314/Thaumcraft-6-Source-Code/blob/954022bb777b7546281fb36df8522f0ba6b43f81/src/main/resources/assets/thaumcraft/textures/gui/gui_research_table.png",
+      "pixels": [
+        256,
+        256
+      ]
+    },
+    {
+      "path": "assets/thaumcraft/textures/gui/gui_researchbook.png",
+      "sha256": "4db8e4fad6eaf1fdf486374b9402ae26fed402a920aa939c9746f60545d5f4c8",
+      "matches_official_jar": true,
+      "source_url": "https://github.com/TheDarkTower314/Thaumcraft-6-Source-Code/blob/954022bb777b7546281fb36df8522f0ba6b43f81/src/main/resources/assets/thaumcraft/textures/gui/gui_researchbook.png",
+      "pixels": [
+        512,
+        512
+      ]
+    },
+    {
+      "path": "assets/thaumcraft/textures/gui/gui_researchbook_overlay.png",
+      "sha256": "43abf7ae4d76f9932f6a1d030fb716abb3028a660a0b847d0bf2c32c692ac70f",
+      "matches_official_jar": true,
+      "source_url": "https://github.com/TheDarkTower314/Thaumcraft-6-Source-Code/blob/954022bb777b7546281fb36df8522f0ba6b43f81/src/main/resources/assets/thaumcraft/textures/gui/gui_researchbook_overlay.png",
+      "pixels": [
+        512,
+        512
+      ]
+    }
+  ],
+  "screenshots": [
+    {
+      "file": "references/tc6-alchemy-tree.jpg",
+      "pixels": [
+        1600,
+        856
+      ],
+      "sha256": "c8bf5b9ba021bba1f71e7c91e8eec5a3575215b5496275229cee65db28d7e7f0",
+      "author": "Mephie/Tyith and MinecraftGuides.net contributors",
+      "source_url": "https://github.com/xiaoschannel/Minecraft-Guides-Thaumcraft6/blob/cd14373456bfa3090663eb9dbf804f369313a7d7/pages/03.getting-started/16.alchemy/alchemy%20tab.jpg",
+      "kind": "original TC6 guide screenshot, unmodified; not a port screenshot"
+    },
+    {
+      "file": "references/tc6-infusion-tree.jpg",
+      "pixels": [
+        1600,
+        856
+      ],
+      "sha256": "76c806d4c7186ac6710723f16a314ede468dc7c5a3a5789ae86abc2dce938a41",
+      "author": "Mephie/Tyith and MinecraftGuides.net contributors",
+      "source_url": "https://github.com/xiaoschannel/Minecraft-Guides-Thaumcraft6/blob/cd14373456bfa3090663eb9dbf804f369313a7d7/pages/03.getting-started/20.discovering-infusion/infusion%20tab.jpg",
+      "kind": "original TC6 guide screenshot, unmodified; not a port screenshot"
+    },
+    {
+      "file": "references/tc6-eldritch-tree.jpg",
+      "pixels": [
+        1600,
+        856
+      ],
+      "sha256": "622a02ddbeb0cad2a270096d55f5550494e706c5257cb5ec7a5bfdb7302f81ae",
+      "author": "Mephie/Tyith and MinecraftGuides.net contributors",
+      "source_url": "https://github.com/xiaoschannel/Minecraft-Guides-Thaumcraft6/blob/cd14373456bfa3090663eb9dbf804f369313a7d7/pages/10.eldritch/delving-into-the-eldritch/Eldritch%20tab.jpg",
+      "kind": "original TC6 guide screenshot, unmodified; not a port screenshot"
+    },
+    {
+      "file": "references/tc6-first-steps.jpg",
+      "pixels": [
+        745,
+        659
+      ],
+      "sha256": "3d5a04668138734854be2d6f0faf0ec2b77ae8131bbe5e3a7acbb146b8651dd9",
+      "author": "Mephie/Tyith and MinecraftGuides.net contributors",
+      "source_url": "https://github.com/xiaoschannel/Minecraft-Guides-Thaumcraft6/blob/cd14373456bfa3090663eb9dbf804f369313a7d7/pages/03.getting-started/07.thaumonomicon/first-steps.jpg",
+      "kind": "original TC6 guide screenshot, unmodified; not a port screenshot"
+    }
+  ],
+  "scope": "Resource bytes were compared; this does not certify decompiled Java. Specific bytecode checks are documented separately."
+}

@@ -1,0 +1,6 @@
+newmtl texture
+Kd 1 1 1
+map_Kd #texture
+newmtl lava
+Kd 1 1 1
+map_Kd minecraft:block/lava_still

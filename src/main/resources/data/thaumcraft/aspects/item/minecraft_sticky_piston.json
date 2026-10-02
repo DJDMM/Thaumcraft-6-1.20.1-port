@@ -1,0 +1,12 @@
+{
+  "type": "item",
+  "targets": [
+    "minecraft:sticky_piston"
+  ],
+  "aspects": {
+    "machina": 10,
+    "motus": 10
+  },
+  "_source": "Thaumcraft 6 ConfigAspects.java:429",
+  "derive": true
+}

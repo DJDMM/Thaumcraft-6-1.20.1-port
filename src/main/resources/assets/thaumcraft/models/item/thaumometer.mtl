@@ -1,0 +1,6 @@
+newmtl body
+Kd 1 1 1
+map_Kd thaumcraft:items/thaumometer
+newmtl pane
+Kd 1 1 1
+map_Kd thaumcraft:items/thaumometer_screen

@@ -1,0 +1,12 @@
+{
+  "type": "item",
+  "targets": [
+    "minecraft:acacia_door"
+  ],
+  "aspects": {
+    "vinculum": 5,
+    "machina": 5
+  },
+  "_source": "Thaumcraft 6 ConfigAspects.java:383",
+  "derive": true
+}

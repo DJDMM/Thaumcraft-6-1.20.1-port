@@ -1,0 +1,12 @@
+{
+  "type": "entity",
+  "targets": [
+    "minecraft:stray"
+  ],
+  "aspects": {
+    "exanimis": 20,
+    "humanus": 5,
+    "vinculum": 5
+  },
+  "_source": "Thaumcraft 6 ConfigAspects.java:98"
+}

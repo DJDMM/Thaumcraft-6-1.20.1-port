@@ -1,0 +1,12 @@
+{
+  "type": "entity",
+  "targets": [
+    "minecraft:endermite"
+  ],
+  "aspects": {
+    "bestia": 5,
+    "alienis": 5,
+    "motus": 5
+  },
+  "_source": "Thaumcraft 6 ConfigAspects.java:88"
+}

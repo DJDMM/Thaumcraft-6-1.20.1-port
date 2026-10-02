@@ -1,0 +1,12 @@
+{
+  "type": "item_tag",
+  "targets": [
+    "forge:ores/tin"
+  ],
+  "aspects": {
+    "metallum": 10,
+    "terra": 5,
+    "vitreus": 5
+  },
+  "_source": "Thaumcraft 6 ConfigAspects.java:157"
+}

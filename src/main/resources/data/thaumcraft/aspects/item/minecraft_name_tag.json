@@ -1,0 +1,11 @@
+{
+  "type": "item",
+  "targets": [
+    "minecraft:name_tag"
+  ],
+  "aspects": {
+    "cognitio": 10,
+    "bestia": 10
+  },
+  "_source": "Thaumcraft 6 ConfigAspects.java:269"
+}

@@ -1,0 +1,11 @@
+{
+  "type": "entity",
+  "targets": [
+    "minecraft:painting"
+  ],
+  "aspects": {
+    "sensus": 10,
+    "fabrico": 5
+  },
+  "_source": "Thaumcraft 6 ConfigAspects.java:84"
+}

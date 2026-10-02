@@ -1,0 +1,6 @@
+{
+  "textures": {
+    "all": "thaumcraft:blocks/metal_brass"
+  },
+  "parent": "minecraft:block/cube_all"
+}

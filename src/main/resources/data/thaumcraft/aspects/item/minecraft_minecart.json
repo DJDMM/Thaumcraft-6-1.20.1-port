@@ -1,0 +1,11 @@
+{
+  "type": "item",
+  "targets": [
+    "minecraft:minecart"
+  ],
+  "aspects": {
+    "motus": 15
+  },
+  "_source": "Thaumcraft 6 ConfigAspects.java:381",
+  "derive": true
+}

@@ -1,0 +1,12 @@
+{
+  "type": "item",
+  "targets": [
+    "minecraft:enchanting_table"
+  ],
+  "aspects": {
+    "praecantatio": 25,
+    "fabrico": 15
+  },
+  "_source": "Thaumcraft 6 ConfigAspects.java:434",
+  "derive": true
+}

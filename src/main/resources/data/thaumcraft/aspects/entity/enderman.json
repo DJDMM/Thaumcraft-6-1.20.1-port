@@ -1,0 +1,12 @@
+{
+  "type": "entity",
+  "targets": [
+    "minecraft:enderman"
+  ],
+  "aspects": {
+    "alienis": 10,
+    "motus": 15,
+    "desiderium": 5
+  },
+  "_source": "Thaumcraft 6 ConfigAspects.java:72"
+}

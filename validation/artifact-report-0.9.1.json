@@ -1,0 +1,76 @@
+{
+  "version": "0.9.1-dev",
+  "originalVersion": "Thaumcraft 6.1.BETA26",
+  "originalJarSha256": "9425f8643581b27ff8845b087c8bc6fc10425a32942f1a3f0e265ce6b38f7b5f",
+  "requiredGameTests": 149,
+  "previousGameTests": 143,
+  "scannerHudGameTests": 6,
+  "firstPersonScreenshots": 8,
+  "clientUsesActualServerPackets": true,
+  "clientActualBlockAndEntityScans": true,
+  "clientHoverDoesNotAwardKnowledge": true,
+  "guiScales": [
+    2,
+    3
+  ],
+  "overflowAura": {
+    "vis": 450,
+    "flux": 350
+  },
+  "jsonFiles": 2627,
+  "jarResourceByteParity": 3314,
+  "originalTextureByteParity": 592,
+  "originalScanSoundByteParity": true,
+  "scannerLensTranslucent": true,
+  "worldNumbersFaceCamera": true,
+  "particleBlend": "SRC_ALPHA, ONE",
+  "jar": {
+    "name": "thaumcraft-1.20.1-0.9.1-dev.jar",
+    "bytes": 7074968,
+    "sha256": "5110f1bdfd3c464b554bc9cf6a032a5455c71d16741f0bcac55183d1213b0d41"
+  },
+  "screenshots": [
+    {
+      "file": "screenshots-0.9.1/tc6-thaumometer-hidden-gui.png",
+      "sha256": "10420193a47d72e1d474665d56bcf1bc98fd44448d21b443a5fce52fb343655c"
+    },
+    {
+      "file": "screenshots-0.9.1/tc6-thaumometer-no-scanner.png",
+      "sha256": "0029b905c1a814b3e8bbb076da89baa91d7fff4c80d2d9c941cc78bf86632fb6"
+    },
+    {
+      "file": "screenshots-0.9.1/tc6-thaumometer-offhand-sneak.png",
+      "sha256": "522f50142b657470e1d4749af00355ee282ade198d2f174ac7f82e16373658ec"
+    },
+    {
+      "file": "screenshots-0.9.1/tc6-thaumometer-overflow-sneak.png",
+      "sha256": "3f1dfbeb7127d0f06bb0fd44c2dbeed78f6ac9f6789df8850bd53933219482f6"
+    },
+    {
+      "file": "screenshots-0.9.1/tc6-thaumometer-scanned-block.png",
+      "sha256": "e0340ab509b7acb903b72fa356ab7e9782ecc3d30054814ce8ef043db7b30193"
+    },
+    {
+      "file": "screenshots-0.9.1/tc6-thaumometer-scanned-entity.png",
+      "sha256": "7d5d9e625696f89befe0dd35bfd2ae87ceb25077abce2d24ab1b24a4f680722c"
+    },
+    {
+      "file": "screenshots-0.9.1/tc6-thaumometer-unknown-block.png",
+      "sha256": "ac192faf9350348ba9a6fe77eb1d1ba4ed119ec51e784ba8468d181067c3b118"
+    },
+    {
+      "file": "screenshots-0.9.1/tc6-thaumometer-unknown-entity.png",
+      "sha256": "1a7690cddbe81ff522635eb1f7953b20495cd25600dc478e8f85217abac339ac"
+    }
+  ],
+  "adaptations": [
+    "Functional block/opposite-hand aspect overlay; original blockTags is dormant",
+    "Shared 9-block hover/scan targeting, 5-tick aura snapshots",
+    "Tick-based aspect easing and scan FX after authoritative server response"
+  ],
+  "limitations": [
+    "No full two-client multiplayer gameplay validation",
+    "FLUX research auto-unlock and complete TC6 scanning handlers remain unimplemented",
+    "Full mod mechanics remain in development; see PORTING.md"
+  ]
+}

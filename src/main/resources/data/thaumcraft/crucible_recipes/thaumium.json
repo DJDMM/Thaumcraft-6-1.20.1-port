@@ -1,0 +1,14 @@
+{
+  "research": "METALLURGY@2",
+  "catalyst": {
+    "item": "minecraft:iron_ingot"
+  },
+  "result": {
+    "item": "thaumcraft:ingot_thaumium",
+    "count": 1
+  },
+  "aspects": {
+    "praecantatio": 5,
+    "terra": 5
+  }
+}

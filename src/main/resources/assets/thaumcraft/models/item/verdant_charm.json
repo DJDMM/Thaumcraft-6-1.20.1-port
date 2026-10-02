@@ -1,0 +1,23 @@
+{
+  "parent": "minecraft:item/generated",
+  "overrides": [
+    {
+      "predicate": {
+        "thaumcraft:type": 0
+      },
+      "model": "thaumcraft:item/verdant_charm_0"
+    },
+    {
+      "predicate": {
+        "thaumcraft:type": 1
+      },
+      "model": "thaumcraft:item/verdant_charm_1"
+    },
+    {
+      "predicate": {
+        "thaumcraft:type": 2
+      },
+      "model": "thaumcraft:item/verdant_charm_2"
+    }
+  ]
+}

@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/cube_all",
+  "textures": {
+    "texture": "thaumcraft:blocks/golembuilder",
+    "all": "thaumcraft:blocks/base_stone"
+  }
+}

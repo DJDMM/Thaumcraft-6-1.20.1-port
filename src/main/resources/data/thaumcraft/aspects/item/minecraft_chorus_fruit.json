@@ -1,0 +1,12 @@
+{
+  "type": "item",
+  "targets": [
+    "minecraft:chorus_fruit"
+  ],
+  "aspects": {
+    "alienis": 5,
+    "sensus": 5,
+    "herba": 5
+  },
+  "_source": "Thaumcraft 6 ConfigAspects.java:277"
+}

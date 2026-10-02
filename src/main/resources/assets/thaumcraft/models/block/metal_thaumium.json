@@ -1,0 +1,6 @@
+{
+  "textures": {
+    "all": "thaumcraft:blocks/metal_thaumium"
+  },
+  "parent": "minecraft:block/cube_all"
+}

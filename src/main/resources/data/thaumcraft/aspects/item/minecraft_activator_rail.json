@@ -1,0 +1,11 @@
+{
+  "type": "item",
+  "targets": [
+    "minecraft:activator_rail"
+  ],
+  "aspects": {
+    "machina": 5
+  },
+  "_source": "Thaumcraft 6 ConfigAspects.java:416",
+  "derive": true
+}

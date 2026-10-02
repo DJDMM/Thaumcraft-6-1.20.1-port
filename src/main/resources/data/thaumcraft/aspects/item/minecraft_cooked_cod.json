@@ -1,0 +1,13 @@
+{
+  "type": "item",
+  "targets": [
+    "minecraft:cooked_cod",
+    "minecraft:cooked_salmon"
+  ],
+  "aspects": {
+    "fabrico": 1,
+    "bestia": 5,
+    "victus": 5
+  },
+  "_source": "Thaumcraft 6 ConfigAspects.java:297"
+}

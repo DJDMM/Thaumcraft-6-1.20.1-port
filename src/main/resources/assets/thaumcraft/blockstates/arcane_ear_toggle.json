@@ -1,0 +1,56 @@
+{
+  "variants": {
+    "enabled=false,facing=down": {
+      "model": "thaumcraft:catalog/arcane_ear_toggle/0",
+      "x": 180
+    },
+    "enabled=false,facing=up": {
+      "model": "thaumcraft:catalog/arcane_ear_toggle/1"
+    },
+    "enabled=false,facing=east": {
+      "model": "thaumcraft:catalog/arcane_ear_toggle/2",
+      "x": 90,
+      "y": 90
+    },
+    "enabled=false,facing=west": {
+      "model": "thaumcraft:catalog/arcane_ear_toggle/3",
+      "x": 90,
+      "y": 270
+    },
+    "enabled=false,facing=north": {
+      "model": "thaumcraft:catalog/arcane_ear_toggle/4",
+      "x": 90
+    },
+    "enabled=false,facing=south": {
+      "model": "thaumcraft:catalog/arcane_ear_toggle/5",
+      "x": 90,
+      "y": 180
+    },
+    "enabled=true,facing=down": {
+      "model": "thaumcraft:catalog/arcane_ear_toggle/6",
+      "x": 180
+    },
+    "enabled=true,facing=up": {
+      "model": "thaumcraft:catalog/arcane_ear_toggle/7"
+    },
+    "enabled=true,facing=east": {
+      "model": "thaumcraft:catalog/arcane_ear_toggle/8",
+      "x": 90,
+      "y": 90
+    },
+    "enabled=true,facing=west": {
+      "model": "thaumcraft:catalog/arcane_ear_toggle/9",
+      "x": 90,
+      "y": 270
+    },
+    "enabled=true,facing=north": {
+      "model": "thaumcraft:catalog/arcane_ear_toggle/10",
+      "x": 90
+    },
+    "enabled=true,facing=south": {
+      "model": "thaumcraft:catalog/arcane_ear_toggle/11",
+      "x": 90,
+      "y": 180
+    }
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "variants": {
+    "": [
+      {
+        "model": "thaumcraft:catalog/candle_brown/0"
+      },
+      {
+        "model": "thaumcraft:catalog/candle_brown/1",
+        "y": 90
+      },
+      {
+        "model": "thaumcraft:catalog/candle_brown/2",
+        "y": 180
+      },
+      {
+        "model": "thaumcraft:catalog/candle_brown/3",
+        "y": 270
+      }
+    ]
+  }
+}

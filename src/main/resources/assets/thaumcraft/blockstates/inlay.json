@@ -1,0 +1,177 @@
+{
+  "multipart": [
+    {
+      "apply": [
+        {
+          "model": "thaumcraft:catalog/inlay/0"
+        },
+        {
+          "model": "thaumcraft:catalog/inlay/1"
+        },
+        {
+          "model": "thaumcraft:catalog/inlay/2"
+        },
+        {
+          "model": "thaumcraft:catalog/inlay/3"
+        }
+      ],
+      "when": {
+        "OR": [
+          {
+            "north": "none",
+            "east": "none",
+            "south": "none",
+            "west": "none"
+          },
+          {
+            "north": "side|ext",
+            "east": "side|ext"
+          },
+          {
+            "east": "side|ext",
+            "south": "side|ext"
+          },
+          {
+            "south": "side|ext",
+            "west": "side|ext"
+          },
+          {
+            "west": "side|ext",
+            "north": "side|ext"
+          }
+        ]
+      }
+    },
+    {
+      "apply": [
+        {
+          "model": "thaumcraft:catalog/inlay/4"
+        },
+        {
+          "model": "thaumcraft:catalog/inlay/5"
+        }
+      ],
+      "when": {
+        "OR": [
+          {
+            "north": "side|ext"
+          },
+          {
+            "north": "none",
+            "east": "none",
+            "south": "side|ext",
+            "west": "none"
+          }
+        ]
+      }
+    },
+    {
+      "apply": [
+        {
+          "model": "thaumcraft:catalog/inlay/6"
+        },
+        {
+          "model": "thaumcraft:catalog/inlay/7"
+        }
+      ],
+      "when": {
+        "OR": [
+          {
+            "south": "side|ext"
+          },
+          {
+            "north": "side|ext",
+            "east": "none",
+            "south": "none",
+            "west": "none"
+          }
+        ]
+      }
+    },
+    {
+      "apply": [
+        {
+          "model": "thaumcraft:catalog/inlay/8",
+          "y": 270
+        },
+        {
+          "model": "thaumcraft:catalog/inlay/9",
+          "y": 270
+        }
+      ],
+      "when": {
+        "OR": [
+          {
+            "east": "side|ext"
+          },
+          {
+            "north": "none",
+            "east": "none",
+            "south": "none",
+            "west": "side|ext"
+          }
+        ]
+      }
+    },
+    {
+      "apply": [
+        {
+          "model": "thaumcraft:catalog/inlay/10",
+          "y": 270
+        },
+        {
+          "model": "thaumcraft:catalog/inlay/11",
+          "y": 270
+        }
+      ],
+      "when": {
+        "OR": [
+          {
+            "west": "side|ext"
+          },
+          {
+            "north": "none",
+            "east": "side|ext",
+            "south": "none",
+            "west": "none"
+          }
+        ]
+      }
+    },
+    {
+      "apply": {
+        "model": "thaumcraft:catalog/inlay/12",
+        "y": 180
+      },
+      "when": {
+        "north": "ext"
+      }
+    },
+    {
+      "apply": {
+        "model": "thaumcraft:catalog/inlay/13"
+      },
+      "when": {
+        "south": "ext"
+      }
+    },
+    {
+      "apply": {
+        "model": "thaumcraft:catalog/inlay/14",
+        "y": 270
+      },
+      "when": {
+        "east": "ext"
+      }
+    },
+    {
+      "apply": {
+        "model": "thaumcraft:catalog/inlay/15",
+        "y": 90
+      },
+      "when": {
+        "west": "ext"
+      }
+    }
+  ]
+}

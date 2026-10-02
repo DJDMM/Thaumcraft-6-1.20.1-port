@@ -1,0 +1,12 @@
+{
+  "type": "item",
+  "targets": [
+    "thaumcraft:crucible"
+  ],
+  "aspects": {
+    "fabrico": 20,
+    "alkimia": 20
+  },
+  "_source": "Thaumcraft 6 ConfigAspects.java:528",
+  "base": "minecraft:cauldron"
+}

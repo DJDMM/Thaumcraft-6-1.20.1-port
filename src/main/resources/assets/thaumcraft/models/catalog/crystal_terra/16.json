@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:builtin/generated",
+  "textures": {
+    "all": "thaumcraft:blocks/empty"
+  }
+}

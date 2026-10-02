@@ -1,0 +1,11 @@
+{
+  "type": "item",
+  "targets": [
+    "minecraft:bookshelf"
+  ],
+  "aspects": {
+    "cognitio": 8
+  },
+  "_source": "Thaumcraft 6 ConfigAspects.java:362",
+  "derive": true
+}

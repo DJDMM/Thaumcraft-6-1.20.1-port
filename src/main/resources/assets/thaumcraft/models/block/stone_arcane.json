@@ -1,0 +1,6 @@
+{
+  "textures": {
+    "all": "thaumcraft:blocks/arcane_stone_1"
+  },
+  "parent": "minecraft:block/cube_all"
+}

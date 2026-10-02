@@ -1,0 +1,10 @@
+{
+  "type": "item",
+  "targets": [
+    "thaumcraft:vis_crystal_ignis"
+  ],
+  "aspects": {
+    "ignis": 1
+  },
+  "_source": "Thaumcraft 6 ItemCrystalEssence.getAspects (single aspect crystal)"
+}

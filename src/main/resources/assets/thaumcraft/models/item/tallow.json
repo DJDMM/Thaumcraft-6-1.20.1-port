@@ -1,0 +1,6 @@
+{
+  "textures": {
+    "layer0": "thaumcraft:items/tallow"
+  },
+  "parent": "minecraft:item/generated"
+}

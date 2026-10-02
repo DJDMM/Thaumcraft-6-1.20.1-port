@@ -1,0 +1,12 @@
+{
+  "type": "item",
+  "targets": [
+    "minecraft:sugar"
+  ],
+  "aspects": {
+    "desiderium": 1,
+    "potentia": 1
+  },
+  "_source": "Thaumcraft 6 ConfigAspects.java:264",
+  "derive": true
+}

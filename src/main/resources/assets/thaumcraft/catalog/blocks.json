@@ -1,0 +1,4251 @@
+{
+  "original_version": "6.1.BETA26",
+  "phase": "visual_only",
+  "blocks": [
+    {
+      "id": "ore_amber",
+      "source_class": "BlockOreTC",
+      "legacy_name_key": "tile.ore_amber.name",
+      "item": true,
+      "properties": {},
+      "default_values": {},
+      "source_sha256": "893d6140f490aeb7e94ff7e1317c6e9d16c6afd362e9570f78985ad3a217c4f5",
+      "model_status": "existing"
+    },
+    {
+      "id": "ore_cinnabar",
+      "source_class": "BlockOreTC",
+      "legacy_name_key": "tile.ore_cinnabar.name",
+      "item": true,
+      "properties": {},
+      "default_values": {},
+      "source_sha256": "12c229a066c1ab93cc78b7111c1de390e0fe8edd2f47018eed536cfd9d7d1f44",
+      "model_status": "existing"
+    },
+    {
+      "id": "ore_quartz",
+      "source_class": "BlockOreTC",
+      "legacy_name_key": "tile.ore_quartz.name",
+      "item": true,
+      "properties": {},
+      "default_values": {},
+      "source_sha256": "1bfcd71d022a29be7134d4c3818b11e188d58108e7f155f1fb0d1da316cb7d8c",
+      "model_status": "existing"
+    },
+    {
+      "id": "crystal_aer",
+      "source_class": "BlockCrystal",
+      "legacy_name_key": "tile.crystal_aer.name",
+      "item": true,
+      "properties": {
+        "size": [
+          "0",
+          "1",
+          "2",
+          "3"
+        ],
+        "gen": [
+          "1",
+          "2",
+          "3",
+          "4"
+        ]
+      },
+      "default_values": {
+        "size": "0",
+        "gen": "1"
+      },
+      "source_sha256": "b8f29f905a58002c72cf4912b400b72ff0305f71492e54008aa8680654be5782",
+      "model_status": "existing"
+    },
+    {
+      "id": "crystal_ignis",
+      "source_class": "BlockCrystal",
+      "legacy_name_key": "tile.crystal_ignis.name",
+      "item": true,
+      "properties": {
+        "size": [
+          "0",
+          "1",
+          "2",
+          "3"
+        ],
+        "gen": [
+          "1",
+          "2",
+          "3",
+          "4"
+        ]
+      },
+      "default_values": {
+        "size": "0",
+        "gen": "1"
+      },
+      "source_sha256": "b8f29f905a58002c72cf4912b400b72ff0305f71492e54008aa8680654be5782",
+      "model_status": "existing"
+    },
+    {
+      "id": "crystal_aqua",
+      "source_class": "BlockCrystal",
+      "legacy_name_key": "tile.crystal_aqua.name",
+      "item": true,
+      "properties": {
+        "size": [
+          "0",
+          "1",
+          "2",
+          "3"
+        ],
+        "gen": [
+          "1",
+          "2",
+          "3",
+          "4"
+        ]
+      },
+      "default_values": {
+        "size": "0",
+        "gen": "1"
+      },
+      "source_sha256": "b8f29f905a58002c72cf4912b400b72ff0305f71492e54008aa8680654be5782",
+      "model_status": "existing"
+    },
+    {
+      "id": "crystal_terra",
+      "source_class": "BlockCrystal",
+      "legacy_name_key": "tile.crystal_terra.name",
+      "item": true,
+      "properties": {
+        "size": [
+          "0",
+          "1",
+          "2",
+          "3"
+        ],
+        "gen": [
+          "1",
+          "2",
+          "3",
+          "4"
+        ]
+      },
+      "default_values": {
+        "size": "0",
+        "gen": "1"
+      },
+      "source_sha256": "b8f29f905a58002c72cf4912b400b72ff0305f71492e54008aa8680654be5782",
+      "model_status": "existing"
+    },
+    {
+      "id": "crystal_ordo",
+      "source_class": "BlockCrystal",
+      "legacy_name_key": "tile.crystal_ordo.name",
+      "item": true,
+      "properties": {
+        "size": [
+          "0",
+          "1",
+          "2",
+          "3"
+        ],
+        "gen": [
+          "1",
+          "2",
+          "3",
+          "4"
+        ]
+      },
+      "default_values": {
+        "size": "0",
+        "gen": "1"
+      },
+      "source_sha256": "b8f29f905a58002c72cf4912b400b72ff0305f71492e54008aa8680654be5782",
+      "model_status": "existing"
+    },
+    {
+      "id": "crystal_perditio",
+      "source_class": "BlockCrystal",
+      "legacy_name_key": "tile.crystal_perditio.name",
+      "item": true,
+      "properties": {
+        "size": [
+          "0",
+          "1",
+          "2",
+          "3"
+        ],
+        "gen": [
+          "1",
+          "2",
+          "3",
+          "4"
+        ]
+      },
+      "default_values": {
+        "size": "0",
+        "gen": "1"
+      },
+      "source_sha256": "b8f29f905a58002c72cf4912b400b72ff0305f71492e54008aa8680654be5782",
+      "model_status": "existing"
+    },
+    {
+      "id": "crystal_vitium",
+      "source_class": "BlockCrystal",
+      "legacy_name_key": "tile.crystal_vitium.name",
+      "item": true,
+      "properties": {
+        "size": [
+          "0",
+          "1",
+          "2",
+          "3"
+        ],
+        "gen": [
+          "1",
+          "2",
+          "3",
+          "4"
+        ]
+      },
+      "default_values": {
+        "size": "0",
+        "gen": "1"
+      },
+      "source_sha256": "b8f29f905a58002c72cf4912b400b72ff0305f71492e54008aa8680654be5782",
+      "model_status": "adapted_original"
+    },
+    {
+      "id": "stone_arcane",
+      "source_class": "BlockStoneTC",
+      "legacy_name_key": "tile.stone_arcane.name",
+      "item": true,
+      "properties": {},
+      "default_values": {},
+      "source_sha256": "5412e6958ae313bd4acdcebb189dff3634f9703b05ca3ef3b5c94630e80b34e9",
+      "model_status": "existing"
+    },
+    {
+      "id": "stone_arcane_brick",
+      "source_class": "BlockStoneTC",
+      "legacy_name_key": "tile.stone_arcane_brick.name",
+      "item": true,
+      "properties": {},
+      "default_values": {},
+      "source_sha256": "bc91c78a81b9fb612c62eba50f058a22d372084956ca09533d562f6a791eebc8",
+      "model_status": "existing"
+    },
+    {
+      "id": "stone_ancient",
+      "source_class": "BlockStoneTC",
+      "legacy_name_key": "tile.stone_ancient.name",
+      "item": true,
+      "properties": {},
+      "default_values": {},
+      "source_sha256": "5016de6897b08a284f2fb40cae6b383ad7bd31cffb56790876fc052cbb1f0246",
+      "model_status": "adapted_original"
+    },
+    {
+      "id": "stone_ancient_tile",
+      "source_class": "BlockStoneTC",
+      "legacy_name_key": "tile.stone_ancient_tile.name",
+      "item": true,
+      "properties": {},
+      "default_values": {},
+      "source_sha256": "c1d88d7acf53715cb8db8feea8a9eacef6ed3536a0b9b509daadebfb341df052",
+      "model_status": "adapted_original"
+    },
+    {
+      "id": "stone_ancient_rock",
+      "source_class": "BlockStoneTC",
+      "legacy_name_key": "tile.stone_ancient_rock.name",
+      "item": true,
+      "properties": {},
+      "default_values": {},
+      "source_sha256": "fbcc8d30317c9723cfae7fcac6edc6c4efa6551ab1dd2119323d7e4883eb3a11",
+      "model_status": "adapted_original"
+    },
+    {
+      "id": "stone_ancient_glyphed",
+      "source_class": "BlockStoneTC",
+      "legacy_name_key": "tile.stone_ancient_glyphed.name",
+      "item": true,
+      "properties": {},
+      "default_values": {},
+      "source_sha256": "cfb5836e084d851e271de9652d5ce804a27e1d1451f1c3838a7c9e7bd6dd62b6",
+      "model_status": "adapted_original"
+    },
+    {
+      "id": "stone_ancient_doorway",
+      "source_class": "BlockStoneTC",
+      "legacy_name_key": "tile.stone_ancient_doorway.name",
+      "item": true,
+      "properties": {},
+      "default_values": {},
+      "source_sha256": "daaa37cffdd68ee47735a5fc700ba4955c73e4c6409c04a33f844340fd75019d",
+      "model_status": "adapted_original"
+    },
+    {
+      "id": "stone_eldritch_tile",
+      "source_class": "BlockStoneTC",
+      "legacy_name_key": "tile.stone_eldritch_tile.name",
+      "item": true,
+      "properties": {},
+      "default_values": {},
+      "source_sha256": "859bd974452151bbd5707a200e6785b034855816332bbf16999d54bfe79b156a",
+      "model_status": "adapted_original"
+    },
+    {
+      "id": "stone_porous",
+      "source_class": "BlockStonePorous",
+      "legacy_name_key": "tile.stone_porous.name",
+      "item": true,
+      "properties": {},
+      "default_values": {},
+      "source_sha256": "0010c6c4563eba05f84e7098e3fcc4e7d172b638cb3ee0df4925acb5d59f2813",
+      "model_status": "adapted_original"
+    },
+    {
+      "id": "stairs_arcane",
+      "source_class": "BlockStairsTC",
+      "legacy_name_key": "tile.stairs_arcane.name",
+      "item": true,
+      "properties": {
+        "facing": [
+          "east",
+          "west",
+          "south",
+          "north"
+        ],
+        "half": [
+          "bottom",
+          "top"
+        ],
+        "shape": [
+          "straight",
+          "outer_right",
+          "outer_left",
+          "inner_right",
+          "inner_left"
+        ]
+      },
+      "default_values": {
+        "facing": "north",
+        "half": "bottom",
+        "shape": "straight"
+      },
+      "source_sha256": "a9f3296b016ee5ac779344b475c131fdfd71427d08f243808d78ae6d448168db",
+      "model_status": "adapted_original"
+    },
+    {
+      "id": "stairs_arcane_brick",
+      "source_class": "BlockStairsTC",
+      "legacy_name_key": "tile.stairs_arcane_brick.name",
+      "item": true,
+      "properties": {
+        "facing": [
+          "east",
+          "west",
+          "south",
+          "north"
+        ],
+        "half": [
+          "bottom",
+          "top"
+        ],
+        "shape": [
+          "straight",
+          "outer_right",
+          "outer_left",
+          "inner_right",
+          "inner_left"
+        ]
+      },
+      "default_values": {
+        "facing": "north",
+        "half": "bottom",
+        "shape": "straight"
+      },
+      "source_sha256": "37f7d27e0917b734ddd7e5055e9d471c914816605f268b49e8e8b8314cf46099",
+      "model_status": "adapted_original"
+    },
+    {
+      "id": "stairs_ancient",
+      "source_class": "BlockStairsTC",
+      "legacy_name_key": "tile.stairs_ancient.name",
+      "item": true,
+      "properties": {
+        "facing": [
+          "east",
+          "west",
+          "south",
+          "north"
+        ],
+        "half": [
+          "bottom",
+          "top"
+        ],
+        "shape": [
+          "straight",
+          "outer_right",
+          "outer_left",
+          "inner_right",
+          "inner_left"
+        ]
+      },
+      "default_values": {
+        "facing": "north",
+        "half": "bottom",
+        "shape": "straight"
+      },
+      "source_sha256": "826098be9544d811f77f8aed3ee49a9794f5d0ce1fc6223f5a8ce71fa3bc6472",
+      "model_status": "adapted_original"
+    },
+    {
+      "id": "slab_arcane_stone",
+      "source_class": "BlockSlabTC",
+      "legacy_name_key": "tile.slab_arcane_stone.name",
+      "item": true,
+      "properties": {
+        "type": [
+          "bottom",
+          "top",
+          "double"
+        ]
+      },
+      "default_values": {
+        "type": "bottom"
+      },
+      "source_sha256": "85fe2d038d342048b08210c612155a5290a6b9cb789cdfbd2f0c6739c93c568d",
+      "model_status": "adapted_original"
+    },
+    {
+      "id": "slab_double_arcane_stone",
+      "source_class": "BlockSlabTC",
+      "legacy_name_key": "tile.slab_double_arcane_stone.name",
+      "item": false,
+      "properties": {},
+      "default_values": {},
+      "source_sha256": "0e32dbc0b35965b3d1d78854deae31a13d51a317bad1e1e660d951f21b2d1af2",
+      "model_status": "adapted_original"
+    },
+    {
+      "id": "slab_arcane_brick",
+      "source_class": "BlockSlabTC",
+      "legacy_name_key": "tile.slab_arcane_brick.name",
+      "item": true,
+      "properties": {
+        "type": [
+          "bottom",
+          "top",
+          "double"
+        ]
+      },
+      "default_values": {
+        "type": "bottom"
+      },
+      "source_sha256": "0efe9005422ebc30bfe59d69e1fe79734648ac54896bbf38819b01ab3762c3cc",
+      "model_status": "adapted_original"
+    },
+    {
+      "id": "slab_double_arcane_brick",
+      "source_class": "BlockSlabTC",
+      "legacy_name_key": "tile.slab_double_arcane_brick.name",
+      "item": false,
+      "properties": {},
+      "default_values": {},
+      "source_sha256": "2052a7ed99754b46899508a0a519f5645f5dfbc8e4f22b8048b167ab6fe829a6",
+      "model_status": "adapted_original"
+    },
+    {
+      "id": "slab_ancient",
+      "source_class": "BlockSlabTC",
+      "legacy_name_key": "tile.slab_ancient.name",
+      "item": true,
+      "properties": {
+        "type": [
+          "bottom",
+          "top",
+          "double"
+        ]
+      },
+      "default_values": {
+        "type": "bottom"
+      },
+      "source_sha256": "778dfa99d983ca4730c00fd2fe0ee107b1dd206654ceca9457d11016115bdc9f",
+      "model_status": "adapted_original"
+    },
+    {
+      "id": "slab_double_ancient",
+      "source_class": "BlockSlabTC",
+      "legacy_name_key": "tile.slab_double_ancient.name",
+      "item": false,
+      "properties": {},
+      "default_values": {},
+      "source_sha256": "ef4167be10b99d082dc3d7ef413612e859a25afe37d2c1e948de7330fda6ad2a",
+      "model_status": "adapted_original"
+    },
+    {
+      "id": "slab_eldritch",
+      "source_class": "BlockSlabTC",
+      "legacy_name_key": "tile.slab_eldritch.name",
+      "item": true,
+      "properties": {
+        "type": [
+          "bottom",
+          "top",
+          "double"
+        ]
+      },
+      "default_values": {
+        "type": "bottom"
+      },
+      "source_sha256": "c96d5ca6e3d4fc0a0353554455c2a9b0e331d94c0e32f20fadb652b95023bfef",
+      "model_status": "adapted_original"
+    },
+    {
+      "id": "slab_double_eldritch",
+      "source_class": "BlockSlabTC",
+      "legacy_name_key": "tile.slab_double_eldritch.name",
+      "item": false,
+      "properties": {},
+      "default_values": {},
+      "source_sha256": "199978e91329f2884b0ea2c5f0b0d846597149d3be0e75e510e9f3dfab726cca",
+      "model_status": "adapted_original"
+    },
+    {
+      "id": "sapling_greatwood",
+      "source_class": "BlockSaplingTC",
+      "legacy_name_key": "tile.sapling_greatwood.name",
+      "item": true,
+      "properties": {
+        "stage": [
+          "0",
+          "1"
+        ]
+      },
+      "default_values": {
+        "stage": "0"
+      },
+      "source_sha256": "581c22706303c5f8aed3a4ce75eea7b97ed648e9a8bf951715b77997cc7a361a",
+      "model_status": "existing"
+    },
+    {
+      "id": "sapling_silverwood",
+      "source_class": "BlockSaplingTC",
+      "legacy_name_key": "tile.sapling_silverwood.name",
+      "item": true,
+      "properties": {
+        "stage": [
+          "0",
+          "1"
+        ]
+      },
+      "default_values": {
+        "stage": "0"
+      },
+      "source_sha256": "96f571340d70185fe1fc5db2fb46f71aabef2f70772d0dd91cc5b3d846c24f58",
+      "model_status": "existing"
+    },
+    {
+      "id": "log_greatwood",
+      "source_class": "BlockLogsTC",
+      "legacy_name_key": "tile.log_greatwood.name",
+      "item": true,
+      "properties": {
+        "axis": [
+          "x",
+          "y",
+          "z"
+        ]
+      },
+      "default_values": {
+        "axis": "y"
+      },
+      "source_sha256": "3da78773018e9fd9e4a8145825bc15a096e4be045fe5ecf4c8901dca240924bd",
+      "model_status": "existing"
+    },
+    {
+      "id": "log_silverwood",
+      "source_class": "BlockLogsTC",
+      "legacy_name_key": "tile.log_silverwood.name",
+      "item": true,
+      "properties": {
+        "axis": [
+          "x",
+          "y",
+          "z"
+        ]
+      },
+      "default_values": {
+        "axis": "y"
+      },
+      "source_sha256": "2c4bbf11125b8e018bab11ea72831785b9a62e8145bc42ff117d476f3e147899",
+      "model_status": "existing"
+    },
+    {
+      "id": "leaves_greatwood",
+      "source_class": "BlockLeavesTC",
+      "legacy_name_key": "tile.leaves_greatwood.name",
+      "item": true,
+      "properties": {
+        "check_decay": [
+          "true",
+          "false"
+        ],
+        "decayable": [
+          "true",
+          "false"
+        ]
+      },
+      "default_values": {
+        "check_decay": "false",
+        "decayable": "false"
+      },
+      "source_sha256": "8cd4ed17ad7e304514594aac934d65921f5f1e7dab75bd071fc2fc7713c21d8b",
+      "model_status": "existing"
+    },
+    {
+      "id": "leaves_silverwood",
+      "source_class": "BlockLeavesTC",
+      "legacy_name_key": "tile.leaves_silverwood.name",
+      "item": true,
+      "properties": {
+        "check_decay": [
+          "true",
+          "false"
+        ],
+        "decayable": [
+          "true",
+          "false"
+        ]
+      },
+      "default_values": {
+        "check_decay": "false",
+        "decayable": "false"
+      },
+      "source_sha256": "95c3d3bfcc948b7038471a65f9d7678bab13cf024d288411d51dfc8c630e4559",
+      "model_status": "existing"
+    },
+    {
+      "id": "shimmerleaf",
+      "source_class": "BlockPlantShimmerleaf",
+      "legacy_name_key": "tile.shimmerleaf.name",
+      "item": true,
+      "properties": {},
+      "default_values": {},
+      "source_sha256": "f2d855aa5ae336c3b80e1ebe2eccb45bce08370589f9b31d09a394d3ea74c122",
+      "model_status": "existing"
+    },
+    {
+      "id": "cinderpearl",
+      "source_class": "BlockPlantCinderpearl",
+      "legacy_name_key": "tile.cinderpearl.name",
+      "item": true,
+      "properties": {},
+      "default_values": {},
+      "source_sha256": "b2f1cf87143385a5077682eb2db0744588f514d846a9005f991e109f84fb46c4",
+      "model_status": "existing"
+    },
+    {
+      "id": "vishroom",
+      "source_class": "BlockPlantVishroom",
+      "legacy_name_key": "tile.vishroom.name",
+      "item": true,
+      "properties": {},
+      "default_values": {},
+      "source_sha256": "05d985ae92ce971261dd14ab2011110e4e45b944315fb03b395b887d435e1912",
+      "model_status": "existing"
+    },
+    {
+      "id": "plank_greatwood",
+      "source_class": "BlockPlanksTC",
+      "legacy_name_key": "tile.plank_greatwood.name",
+      "item": true,
+      "properties": {},
+      "default_values": {},
+      "source_sha256": "8dc95de99ac3ef2921bb83e0e703b944176e992b2f7a5947f8ea38c49c3bec76",
+      "model_status": "existing"
+    },
+    {
+      "id": "plank_silverwood",
+      "source_class": "BlockPlanksTC",
+      "legacy_name_key": "tile.plank_silverwood.name",
+      "item": true,
+      "properties": {},
+      "default_values": {},
+      "source_sha256": "204d7cb09c566f77360115f173077ed6b70d644f67e0525c170b52027e02ad71",
+      "model_status": "existing"
+    },
+    {
+      "id": "stairs_greatwood",
+      "source_class": "BlockStairsTC",
+      "legacy_name_key": "tile.stairs_greatwood.name",
+      "item": true,
+      "properties": {
+        "facing": [
+          "east",
+          "west",
+          "south",
+          "north"
+        ],
+        "half": [
+          "bottom",
+          "top"
+        ],
+        "shape": [
+          "straight",
+          "outer_right",
+          "outer_left",
+          "inner_right",
+          "inner_left"
+        ]
+      },
+      "default_values": {
+        "facing": "north",
+        "half": "bottom",
+        "shape": "straight"
+      },
+      "source_sha256": "6fffe79f4145b2fd1b0ea4d29c14ddd600e6a30441f3d4e493b5b46912ade35b",
+      "model_status": "existing"
+    },
+    {
+      "id": "stairs_silverwood",
+      "source_class": "BlockStairsTC",
+      "legacy_name_key": "tile.stairs_silverwood.name",
+      "item": true,
+      "properties": {
+        "facing": [
+          "east",
+          "west",
+          "south",
+          "north"
+        ],
+        "half": [
+          "bottom",
+          "top"
+        ],
+        "shape": [
+          "straight",
+          "outer_right",
+          "outer_left",
+          "inner_right",
+          "inner_left"
+        ]
+      },
+      "default_values": {
+        "facing": "north",
+        "half": "bottom",
+        "shape": "straight"
+      },
+      "source_sha256": "3a5baae857a30d5899de2b2d27ef027be187dcecd09490b3eba157ed90cfa56e",
+      "model_status": "existing"
+    },
+    {
+      "id": "slab_greatwood",
+      "source_class": "BlockSlabTC",
+      "legacy_name_key": "tile.slab_greatwood.name",
+      "item": true,
+      "properties": {
+        "type": [
+          "bottom",
+          "top",
+          "double"
+        ]
+      },
+      "default_values": {
+        "type": "bottom"
+      },
+      "source_sha256": "a6c2d678507a9a9f91c409301de738ac86a836d252c63bbdf3024b50b80b0eeb",
+      "model_status": "existing"
+    },
+    {
+      "id": "slab_double_greatwood",
+      "source_class": "BlockSlabTC",
+      "legacy_name_key": "tile.slab_double_greatwood.name",
+      "item": false,
+      "properties": {},
+      "default_values": {},
+      "source_sha256": "92c69c291f343115529996f97da88ee6cb7524dedbd11d5c7150e092e597790e",
+      "model_status": "adapted_original"
+    },
+    {
+      "id": "slab_silverwood",
+      "source_class": "BlockSlabTC",
+      "legacy_name_key": "tile.slab_silverwood.name",
+      "item": true,
+      "properties": {
+        "type": [
+          "bottom",
+          "top",
+          "double"
+        ]
+      },
+      "default_values": {
+        "type": "bottom"
+      },
+      "source_sha256": "0e46d52f3ac7bfe1cbde4e88e8d83aa65f13ea6585fa3319260c53231d5d34d6",
+      "model_status": "existing"
+    },
+    {
+      "id": "slab_double_silverwood",
+      "source_class": "BlockSlabTC",
+      "legacy_name_key": "tile.slab_double_silverwood.name",
+      "item": false,
+      "properties": {},
+      "default_values": {},
+      "source_sha256": "c58d1467ed9cb2d2acb2ab23e5a05d79dfe289b4a31eaa648815c739f4d15ee0",
+      "model_status": "adapted_original"
+    },
+    {
+      "id": "amber_block",
+      "source_class": "BlockTranslucent",
+      "legacy_name_key": "tile.amber_block.name",
+      "item": true,
+      "properties": {},
+      "default_values": {},
+      "source_sha256": "587131b49ea2df07ee2f15bd6f87ed474ed51989d33c105a9d7cda35db328478",
+      "model_status": "adapted_original"
+    },
+    {
+      "id": "amber_brick",
+      "source_class": "BlockTranslucent",
+      "legacy_name_key": "tile.amber_brick.name",
+      "item": true,
+      "properties": {},
+      "default_values": {},
+      "source_sha256": "af2a2a63aab07b3e2ed31f79ecb086299dbd5d4cce64797ee8462a753353d404",
+      "model_status": "adapted_original"
+    },
+    {
+      "id": "flesh_block",
+      "source_class": "BlockFlesh",
+      "legacy_name_key": "tile.flesh_block.name",
+      "item": true,
+      "properties": {},
+      "default_values": {},
+      "source_sha256": "b87c02e7cbc19e2dc59022b22e7679fd9c65aaa3709e9246773f436490b3dd48",
+      "model_status": "adapted_original"
+    },
+    {
+      "id": "loot_crate_common",
+      "source_class": "BlockLoot",
+      "legacy_name_key": "tile.loot_crate_common.name",
+      "item": true,
+      "properties": {},
+      "default_values": {},
+      "source_sha256": "e7e5dcbfaef9ad3dfbc2c85f4080af7a0e6fd01bc7253d86d991f8c6b01d68c7",
+      "model_status": "adapted_original"
+    },
+    {
+      "id": "loot_crate_uncommon",
+      "source_class": "BlockLoot",
+      "legacy_name_key": "tile.loot_crate_uncommon.name",
+      "item": true,
+      "properties": {},
+      "default_values": {},
+      "source_sha256": "1d047f62d08d8a5ce10801a26f29083acd0b7c126a18e574bae09070e313d465",
+      "model_status": "adapted_original"
+    },
+    {
+      "id": "loot_crate_rare",
+      "source_class": "BlockLoot",
+      "legacy_name_key": "tile.loot_crate_rare.name",
+      "item": true,
+      "properties": {},
+      "default_values": {},
+      "source_sha256": "93d592d84439f23dbcb3a888da04c075993b169ed6ccfeee3510bac1b1b7c8aa",
+      "model_status": "adapted_original"
+    },
+    {
+      "id": "loot_urn_common",
+      "source_class": "BlockLoot",
+      "legacy_name_key": "tile.loot_urn_common.name",
+      "item": true,
+      "properties": {},
+      "default_values": {},
+      "source_sha256": "97f46b4a135eada1215a566f751e289a35cfc69c92224956f8766038afea2d76",
+      "model_status": "adapted_original"
+    },
+    {
+      "id": "loot_urn_uncommon",
+      "source_class": "BlockLoot",
+      "legacy_name_key": "tile.loot_urn_uncommon.name",
+      "item": true,
+      "properties": {},
+      "default_values": {},
+      "source_sha256": "28478dfe5d70755a74cb16538bfbd36f75c0281a6954d192111580fd7fa76859",
+      "model_status": "adapted_original"
+    },
+    {
+      "id": "loot_urn_rare",
+      "source_class": "BlockLoot",
+      "legacy_name_key": "tile.loot_urn_rare.name",
+      "item": true,
+      "properties": {},
+      "default_values": {},
+      "source_sha256": "a42b2dc6240c6941f30445255b6e34852ae4275e90848889e69ef3f858396809",
+      "model_status": "adapted_original"
+    },
+    {
+      "id": "taint_fibre",
+      "source_class": "BlockTaintFibre",
+      "legacy_name_key": "tile.taint_fibre.name",
+      "item": true,
+      "properties": {
+        "north": [
+          "false",
+          "true"
+        ],
+        "south": [
+          "false",
+          "true"
+        ],
+        "east": [
+          "false",
+          "true"
+        ],
+        "west": [
+          "false",
+          "true"
+        ],
+        "up": [
+          "false",
+          "true"
+        ],
+        "down": [
+          "false",
+          "true"
+        ],
+        "growth1": [
+          "false",
+          "true"
+        ],
+        "growth2": [
+          "false",
+          "true"
+        ],
+        "growth3": [
+          "false",
+          "true"
+        ],
+        "growth4": [
+          "false",
+          "true"
+        ]
+      },
+      "default_values": {
+        "north": "false",
+        "south": "false",
+        "east": "false",
+        "west": "false",
+        "up": "false",
+        "down": "false",
+        "growth1": "false",
+        "growth2": "false",
+        "growth3": "false",
+        "growth4": "false"
+      },
+      "source_sha256": "fdcfcd6d879c7522fb7fa347fd441c36e44dbbcc0458f9d53a3dc51fa47d8e06",
+      "model_status": "adapted_original"
+    },
+    {
+      "id": "taint_crust",
+      "source_class": "BlockTaint",
+      "legacy_name_key": "tile.taint_crust.name",
+      "item": true,
+      "properties": {},
+      "default_values": {},
+      "source_sha256": "047bef51f684efb0f46bf1274634ad18a6143790164180c84e0aeb28886383a7",
+      "model_status": "adapted_original"
+    },
+    {
+      "id": "taint_soil",
+      "source_class": "BlockTaint",
+      "legacy_name_key": "tile.taint_soil.name",
+      "item": true,
+      "properties": {},
+      "default_values": {},
+      "source_sha256": "dbcdd1542bf2a76eda9d6d521962809898040cbb71005593b2d15c0e13789f76",
+      "model_status": "adapted_original"
+    },
+    {
+      "id": "taint_rock",
+      "source_class": "BlockTaint",
+      "legacy_name_key": "tile.taint_rock.name",
+      "item": true,
+      "properties": {},
+      "default_values": {},
+      "source_sha256": "fcea483350e61c13f20a7c912a2a30358a70913d2c4764ea84b8e754bed5d1d3",
+      "model_status": "adapted_original"
+    },
+    {
+      "id": "taint_geyser",
+      "source_class": "BlockTaint",
+      "legacy_name_key": "tile.taint_geyser.name",
+      "item": true,
+      "properties": {},
+      "default_values": {},
+      "source_sha256": "8e6933a6d54573470a80766bf90b30ac41de32b926f2d4fa802bbea74c2192f3",
+      "model_status": "adapted_original"
+    },
+    {
+      "id": "taint_feature",
+      "source_class": "BlockTaintFeature",
+      "legacy_name_key": "tile.taint_feature.name",
+      "item": true,
+      "properties": {
+        "facing": [
+          "down",
+          "up",
+          "east",
+          "west",
+          "north",
+          "south"
+        ]
+      },
+      "default_values": {
+        "facing": "north"
+      },
+      "source_sha256": "6dfa8d8228927d3ba6fe9c527a9cceb35625e9e2545f7ea598d7ce840350632b",
+      "model_status": "adapted_original"
+    },
+    {
+      "id": "taint_log",
+      "source_class": "BlockTaintLog",
+      "legacy_name_key": "tile.taint_log.name",
+      "item": true,
+      "properties": {
+        "axis": [
+          "x",
+          "y",
+          "z"
+        ]
+      },
+      "default_values": {
+        "axis": "y"
+      },
+      "source_sha256": "e3467edfecc01bed70fa522c17a4c86a5d983272205cd652589cbc2ff7d2c3ff",
+      "model_status": "adapted_original"
+    },
+    {
+      "id": "grass_ambient",
+      "source_class": "BlockGrassAmbient",
+      "legacy_name_key": "tile.grass_ambient.name",
+      "item": true,
+      "properties": {
+        "snowy": [
+          "false",
+          "true"
+        ]
+      },
+      "default_values": {
+        "snowy": "false"
+      },
+      "source_sha256": "6934c43fbebcf9789e5f0317044880cb33bd87f699a2817136ebf6f2344fe0ef",
+      "model_status": "existing"
+    },
+    {
+      "id": "table_wood",
+      "source_class": "BlockTable",
+      "legacy_name_key": "tile.table_wood.name",
+      "item": true,
+      "properties": {},
+      "default_values": {},
+      "source_sha256": "a2eae70e31347485e6a763e3e9b1dac969a197cf5df1d38d428a2c8ded9b0653",
+      "model_status": "existing"
+    },
+    {
+      "id": "table_stone",
+      "source_class": "BlockTable",
+      "legacy_name_key": "tile.table_stone.name",
+      "item": true,
+      "properties": {},
+      "default_values": {},
+      "source_sha256": "5136fd1239c6e340fba9626c42eca00cbe1603fe5f966986d796a45a57710265",
+      "model_status": "adapted_original"
+    },
+    {
+      "id": "pedestal_arcane",
+      "source_class": "BlockPedestal",
+      "legacy_name_key": "tile.pedestal_arcane.name",
+      "item": true,
+      "properties": {
+        "charge": [
+          "0",
+          "1",
+          "2",
+          "3",
+          "4",
+          "5",
+          "6",
+          "7",
+          "8",
+          "9",
+          "10",
+          "11",
+          "12",
+          "13",
+          "14",
+          "15"
+        ]
+      },
+      "default_values": {
+        "charge": "0"
+      },
+      "source_sha256": "2a98a5bf607a6260c011981e2cd1a361f04619165eb66f6f9a141f2cc1c345b0",
+      "model_status": "adapted_original"
+    },
+    {
+      "id": "pedestal_ancient",
+      "source_class": "BlockPedestal",
+      "legacy_name_key": "tile.pedestal_ancient.name",
+      "item": true,
+      "properties": {
+        "charge": [
+          "0",
+          "1",
+          "2",
+          "3",
+          "4",
+          "5",
+          "6",
+          "7",
+          "8",
+          "9",
+          "10",
+          "11",
+          "12",
+          "13",
+          "14",
+          "15"
+        ]
+      },
+      "default_values": {
+        "charge": "0"
+      },
+      "source_sha256": "81d65d97052227b833f980fead5070d70e63ef7f67f77773db1569943b139b63",
+      "model_status": "adapted_original"
+    },
+    {
+      "id": "pedestal_eldritch",
+      "source_class": "BlockPedestal",
+      "legacy_name_key": "tile.pedestal_eldritch.name",
+      "item": true,
+      "properties": {
+        "charge": [
+          "0",
+          "1",
+          "2",
+          "3",
+          "4",
+          "5",
+          "6",
+          "7",
+          "8",
+          "9",
+          "10",
+          "11",
+          "12",
+          "13",
+          "14",
+          "15"
+        ]
+      },
+      "default_values": {
+        "charge": "0"
+      },
+      "source_sha256": "c1fb896def1bbe20d5765508f2104859b86a5e04fffe516342919029dd2fafb9",
+      "model_status": "adapted_original"
+    },
+    {
+      "id": "metal_brass",
+      "source_class": "BlockMetalTC",
+      "legacy_name_key": "tile.metal_brass.name",
+      "item": true,
+      "properties": {},
+      "default_values": {},
+      "source_sha256": "9d4f8ce0ce0779f77e9c5416ae31b09f558444d04a6a2293e07496250196af5c",
+      "model_status": "existing"
+    },
+    {
+      "id": "metal_thaumium",
+      "source_class": "BlockMetalTC",
+      "legacy_name_key": "tile.metal_thaumium.name",
+      "item": true,
+      "properties": {},
+      "default_values": {},
+      "source_sha256": "650d316abe6cfb9a1f8ea69df8d70380ce421e4a56649c6ea11cb4de40d0428d",
+      "model_status": "existing"
+    },
+    {
+      "id": "metal_void",
+      "source_class": "BlockMetalTC",
+      "legacy_name_key": "tile.metal_void.name",
+      "item": true,
+      "properties": {},
+      "default_values": {},
+      "source_sha256": "4e139291158ee8dc1cdbc6be3f20c138045043faaf065c0ed615ea81d55ef216",
+      "model_status": "existing"
+    },
+    {
+      "id": "metal_alchemical",
+      "source_class": "BlockMetalTC",
+      "legacy_name_key": "tile.metal_alchemical.name",
+      "item": true,
+      "properties": {},
+      "default_values": {},
+      "source_sha256": "be05c20373e670815ecf8eaa98b8b8cae1f2dbf2a2948067c5bb5a47119e1994",
+      "model_status": "adapted_original"
+    },
+    {
+      "id": "metal_alchemical_advanced",
+      "source_class": "BlockMetalTC",
+      "legacy_name_key": "tile.metal_alchemical_advanced.name",
+      "item": true,
+      "properties": {},
+      "default_values": {},
+      "source_sha256": "c970b4778aa33a63bdadbb742045796382bc16f7f6fd6abbaa9b44ca7a58274a",
+      "model_status": "adapted_original"
+    },
+    {
+      "id": "paving_stone_travel",
+      "source_class": "BlockPavingStone",
+      "legacy_name_key": "tile.paving_stone_travel.name",
+      "item": true,
+      "properties": {},
+      "default_values": {},
+      "source_sha256": "e1d7647269e8c590d782d32cd43d19de637e455e53c3fd65e29f9ed3e4217c1e",
+      "model_status": "adapted_original"
+    },
+    {
+      "id": "paving_stone_barrier",
+      "source_class": "BlockPavingStone",
+      "legacy_name_key": "tile.paving_stone_barrier.name",
+      "item": true,
+      "properties": {},
+      "default_values": {},
+      "source_sha256": "9394cfcf5f90ea4bd4eb188eb7fa94bb7cf2aa49befe2eef14fa8d0887c15748",
+      "model_status": "adapted_original"
+    },
+    {
+      "id": "pillar_arcane",
+      "source_class": "BlockPillar",
+      "legacy_name_key": "tile.pillar_arcane.name",
+      "item": true,
+      "properties": {
+        "facing": [
+          "north",
+          "south",
+          "east",
+          "west"
+        ]
+      },
+      "default_values": {
+        "facing": "north"
+      },
+      "source_sha256": "f274d309ecd62ebab0da528f0e703acc3a5d33dadde01c41e67533f92c19693f",
+      "model_status": "adapted_original"
+    },
+    {
+      "id": "pillar_ancient",
+      "source_class": "BlockPillar",
+      "legacy_name_key": "tile.pillar_ancient.name",
+      "item": true,
+      "properties": {
+        "facing": [
+          "north",
+          "south",
+          "east",
+          "west"
+        ]
+      },
+      "default_values": {
+        "facing": "north"
+      },
+      "source_sha256": "5cc7fd867af9881de7e19ad56f4b265f39cdca520ccf8c106b38b5a6515491da",
+      "model_status": "adapted_original"
+    },
+    {
+      "id": "pillar_eldritch",
+      "source_class": "BlockPillar",
+      "legacy_name_key": "tile.pillar_eldritch.name",
+      "item": true,
+      "properties": {
+        "facing": [
+          "north",
+          "south",
+          "east",
+          "west"
+        ]
+      },
+      "default_values": {
+        "facing": "north"
+      },
+      "source_sha256": "7e9e1d80908f800449f81992381fd6b9af9d51150773e35845da9d1e49c88cc2",
+      "model_status": "adapted_original"
+    },
+    {
+      "id": "matrix_speed",
+      "source_class": "BlockStoneTC",
+      "legacy_name_key": "tile.matrix_speed.name",
+      "item": true,
+      "properties": {},
+      "default_values": {},
+      "source_sha256": "e7d73d9e054fe67de6b5032b7f73921dd5d6597b432094a85ee6d6a274ebd22f",
+      "model_status": "adapted_original"
+    },
+    {
+      "id": "matrix_cost",
+      "source_class": "BlockStoneTC",
+      "legacy_name_key": "tile.matrix_cost.name",
+      "item": true,
+      "properties": {},
+      "default_values": {},
+      "source_sha256": "1eec19b4d3038072aca964f122a7e8b18064a1ad72807519ac276de86c3f2fac",
+      "model_status": "adapted_original"
+    },
+    {
+      "id": "banner_crimson_cult",
+      "source_class": "BlockBannerTC",
+      "legacy_name_key": "tile.banner_crimson_cult.name",
+      "item": true,
+      "properties": {
+        "rotation": [
+          "0",
+          "1",
+          "2",
+          "3",
+          "4",
+          "5",
+          "6",
+          "7",
+          "8",
+          "9",
+          "10",
+          "11",
+          "12",
+          "13",
+          "14",
+          "15"
+        ],
+        "wall": [
+          "false",
+          "true"
+        ]
+      },
+      "default_values": {
+        "rotation": "0",
+        "wall": "false"
+      },
+      "source_sha256": "ce46e7819a5b628ec7a5b287d06d294028050b6d1c7012334d1b0a676e87c505",
+      "model_status": "adapted_original"
+    },
+    {
+      "id": "vis_battery",
+      "source_class": "BlockVisBattery",
+      "legacy_name_key": "tile.vis_battery.name",
+      "item": true,
+      "properties": {
+        "charge": [
+          "0",
+          "1",
+          "2",
+          "3",
+          "4",
+          "5",
+          "6",
+          "7",
+          "8",
+          "9",
+          "10"
+        ]
+      },
+      "default_values": {
+        "charge": "0"
+      },
+      "source_sha256": "5c411e99c21ee07f02ea444c14cfc7f6d3b83f8bbe8746bdf5c8ade185a067f5",
+      "model_status": "adapted_original"
+    },
+    {
+      "id": "inlay",
+      "source_class": "BlockInlay",
+      "legacy_name_key": "tile.inlay.name",
+      "item": true,
+      "properties": {
+        "north": [
+          "none",
+          "side",
+          "ext"
+        ],
+        "east": [
+          "none",
+          "side",
+          "ext"
+        ],
+        "south": [
+          "none",
+          "side",
+          "ext"
+        ],
+        "west": [
+          "none",
+          "side",
+          "ext"
+        ]
+      },
+      "default_values": {
+        "north": "none",
+        "east": "none",
+        "south": "none",
+        "west": "none"
+      },
+      "source_sha256": "704be960a3a5e24509fe7da0f52a03668bf03f1adb5658e7a5f19726c80fffd7",
+      "model_status": "adapted_original"
+    },
+    {
+      "id": "arcane_workbench",
+      "source_class": "BlockArcaneWorkbench",
+      "legacy_name_key": "tile.arcane_workbench.name",
+      "item": true,
+      "properties": {},
+      "default_values": {},
+      "source_sha256": "35c5bb2e45e893081ea0fdd47553196bf7a98eb5d543ac2067d28a4c03539757",
+      "model_status": "existing"
+    },
+    {
+      "id": "arcane_workbench_charger",
+      "source_class": "BlockArcaneWorkbenchCharger",
+      "legacy_name_key": "tile.arcane_workbench_charger.name",
+      "item": true,
+      "properties": {},
+      "default_values": {},
+      "source_sha256": "2ca1b001dd362a75234e2cea00373b6ca123603d3fd5250767d25fbbef53bbcd",
+      "model_status": "adapted_original"
+    },
+    {
+      "id": "dioptra",
+      "source_class": "BlockDioptra",
+      "legacy_name_key": "tile.dioptra.name",
+      "item": true,
+      "properties": {
+        "enabled": [
+          "false",
+          "true"
+        ]
+      },
+      "default_values": {
+        "enabled": "false"
+      },
+      "source_sha256": "f5f271f3e47620bb047591da4d524db1ecc6d21f1e61164a29d1be346630791c",
+      "model_status": "adapted_original"
+    },
+    {
+      "id": "research_table",
+      "source_class": "BlockResearchTable",
+      "legacy_name_key": "tile.research_table.name",
+      "item": true,
+      "properties": {
+        "facing": [
+          "east",
+          "west",
+          "north",
+          "south"
+        ]
+      },
+      "default_values": {
+        "facing": "north"
+      },
+      "source_sha256": "a4ff28197c5a7e3ea5855a2b18ee6e4fe4ab7f760c11829a6dd7de7f5823df44",
+      "model_status": "existing"
+    },
+    {
+      "id": "crucible",
+      "source_class": "BlockCrucible",
+      "legacy_name_key": "tile.crucible.name",
+      "item": true,
+      "properties": {},
+      "default_values": {},
+      "source_sha256": "799b5b4b62e1472b21bd4f99977f42a7f5f3da8956dc5c569d7b3588e7b6507e",
+      "model_status": "existing"
+    },
+    {
+      "id": "arcane_ear",
+      "source_class": "BlockArcaneEar",
+      "legacy_name_key": "tile.arcane_ear.name",
+      "item": true,
+      "properties": {
+        "enabled": [
+          "false",
+          "true"
+        ],
+        "facing": [
+          "down",
+          "up",
+          "east",
+          "west",
+          "north",
+          "south"
+        ]
+      },
+      "default_values": {
+        "enabled": "false",
+        "facing": "north"
+      },
+      "source_sha256": "c5ed0fd0519620f379e3f1637bd67d909a08a54f6181788983a96d2f889cd329",
+      "model_status": "adapted_original"
+    },
+    {
+      "id": "arcane_ear_toggle",
+      "source_class": "BlockArcaneEarToggle",
+      "legacy_name_key": "tile.arcane_ear_toggle.name",
+      "item": true,
+      "properties": {
+        "enabled": [
+          "false",
+          "true"
+        ],
+        "facing": [
+          "down",
+          "up",
+          "east",
+          "west",
+          "north",
+          "south"
+        ]
+      },
+      "default_values": {
+        "enabled": "false",
+        "facing": "north"
+      },
+      "source_sha256": "549d493404eb5eb8b883eabf911354702e3b2706862b7a9649783f2c39d5880c",
+      "model_status": "adapted_original"
+    },
+    {
+      "id": "lamp_arcane",
+      "source_class": "BlockLamp",
+      "legacy_name_key": "tile.lamp_arcane.name",
+      "item": true,
+      "properties": {
+        "facing": [
+          "up",
+          "down",
+          "north",
+          "south",
+          "east",
+          "west"
+        ],
+        "enabled": [
+          "true",
+          "false"
+        ]
+      },
+      "default_values": {
+        "facing": "north",
+        "enabled": "false"
+      },
+      "source_sha256": "37403a833f2faa74debfad15bf1a0a10b82350ea116b8f462a9f2618ab368391",
+      "model_status": "adapted_original"
+    },
+    {
+      "id": "lamp_fertility",
+      "source_class": "BlockLamp",
+      "legacy_name_key": "tile.lamp_fertility.name",
+      "item": true,
+      "properties": {
+        "facing": [
+          "up",
+          "down",
+          "north",
+          "south",
+          "east",
+          "west"
+        ],
+        "enabled": [
+          "true",
+          "false"
+        ]
+      },
+      "default_values": {
+        "facing": "north",
+        "enabled": "false"
+      },
+      "source_sha256": "44690dbca2e901e0037482b08167a5c481b858ba48533a96ec70f71acfb5a524",
+      "model_status": "adapted_original"
+    },
+    {
+      "id": "lamp_growth",
+      "source_class": "BlockLamp",
+      "legacy_name_key": "tile.lamp_growth.name",
+      "item": true,
+      "properties": {
+        "facing": [
+          "up",
+          "down",
+          "north",
+          "south",
+          "east",
+          "west"
+        ],
+        "enabled": [
+          "true",
+          "false"
+        ]
+      },
+      "default_values": {
+        "facing": "north",
+        "enabled": "false"
+      },
+      "source_sha256": "6a51d61621045afb463cf95d6179de281806034b48c293fb340bd8af2015cfcc",
+      "model_status": "adapted_original"
+    },
+    {
+      "id": "levitator",
+      "source_class": "BlockLevitator",
+      "legacy_name_key": "tile.levitator.name",
+      "item": true,
+      "properties": {
+        "enabled": [
+          "false",
+          "true"
+        ],
+        "facing": [
+          "down",
+          "up",
+          "east",
+          "west",
+          "north",
+          "south"
+        ]
+      },
+      "default_values": {
+        "enabled": "false",
+        "facing": "north"
+      },
+      "source_sha256": "eefa8095a0e4efa117edf00a8451b6d662096164b1ce8ea398301291c6bee1b9",
+      "model_status": "adapted_original"
+    },
+    {
+      "id": "centrifuge",
+      "source_class": "BlockCentrifuge",
+      "legacy_name_key": "tile.centrifuge.name",
+      "item": true,
+      "properties": {},
+      "default_values": {},
+      "source_sha256": "c99f51f5f21c9328f0f8c55a22ffb1dc5ecd5d795c7bb3adeda10c2a04f38608",
+      "model_status": "adapted_original"
+    },
+    {
+      "id": "bellows",
+      "source_class": "BlockBellows",
+      "legacy_name_key": "tile.bellows.name",
+      "item": true,
+      "properties": {
+        "enabled": [
+          "false",
+          "true"
+        ],
+        "facing": [
+          "up",
+          "down",
+          "west",
+          "south",
+          "north",
+          "east"
+        ]
+      },
+      "default_values": {
+        "enabled": "false",
+        "facing": "north"
+      },
+      "source_sha256": "d4ca719d42ae9d82670859721e187b9999038bdf27b00c569ccbbb02181921aa",
+      "model_status": "adapted_original"
+    },
+    {
+      "id": "smelter_basic",
+      "source_class": "BlockSmelter",
+      "legacy_name_key": "tile.smelter_basic.name",
+      "item": true,
+      "properties": {
+        "enabled": [
+          "false",
+          "true"
+        ],
+        "facing": [
+          "north",
+          "south",
+          "east",
+          "west"
+        ]
+      },
+      "default_values": {
+        "enabled": "false",
+        "facing": "north"
+      },
+      "source_sha256": "bc14b8f7d62b8eebc6b4d868fcd83db70e78d4821f77f46b62cb733ab9eb0486",
+      "model_status": "adapted_original"
+    },
+    {
+      "id": "smelter_thaumium",
+      "source_class": "BlockSmelter",
+      "legacy_name_key": "tile.smelter_thaumium.name",
+      "item": true,
+      "properties": {
+        "enabled": [
+          "false",
+          "true"
+        ],
+        "facing": [
+          "north",
+          "south",
+          "east",
+          "west"
+        ]
+      },
+      "default_values": {
+        "enabled": "false",
+        "facing": "north"
+      },
+      "source_sha256": "fdb32cb2d733d56041efe2973f13df5c083b6b546957dae1a77c481dc3355ade",
+      "model_status": "adapted_original"
+    },
+    {
+      "id": "smelter_void",
+      "source_class": "BlockSmelter",
+      "legacy_name_key": "tile.smelter_void.name",
+      "item": true,
+      "properties": {
+        "enabled": [
+          "false",
+          "true"
+        ],
+        "facing": [
+          "north",
+          "south",
+          "east",
+          "west"
+        ]
+      },
+      "default_values": {
+        "enabled": "false",
+        "facing": "north"
+      },
+      "source_sha256": "3580a8cd09082f7270201f6f6be1b49dc4515dc0fbf8ecfa366bff71b492b128",
+      "model_status": "adapted_original"
+    },
+    {
+      "id": "smelter_aux",
+      "source_class": "BlockSmelterAux",
+      "legacy_name_key": "tile.smelter_aux.name",
+      "item": true,
+      "properties": {
+        "facing": [
+          "north",
+          "south",
+          "east",
+          "west"
+        ]
+      },
+      "default_values": {
+        "facing": "north"
+      },
+      "source_sha256": "8f537e057a9351486ed40e41b2ee3b41046f91e7d771ab01c009e4810ee11a9b",
+      "model_status": "adapted_original"
+    },
+    {
+      "id": "smelter_vent",
+      "source_class": "BlockSmelterVent",
+      "legacy_name_key": "tile.smelter_vent.name",
+      "item": true,
+      "properties": {
+        "facing": [
+          "north",
+          "south",
+          "east",
+          "west"
+        ]
+      },
+      "default_values": {
+        "facing": "north"
+      },
+      "source_sha256": "c098b68a2556ccf4f69174e554e37d101e3e39c8aa34db139c327a54e17a6cdb",
+      "model_status": "adapted_original"
+    },
+    {
+      "id": "alembic",
+      "source_class": "BlockAlembic",
+      "legacy_name_key": "tile.alembic.name",
+      "item": true,
+      "properties": {},
+      "default_values": {},
+      "source_sha256": "3aa636d124bad62e859070deb3bbd088c5a54609cacc0ea61b115491c81742aa",
+      "model_status": "adapted_original"
+    },
+    {
+      "id": "recharge_pedestal",
+      "source_class": "BlockRechargePedestal",
+      "legacy_name_key": "tile.recharge_pedestal.name",
+      "item": true,
+      "properties": {},
+      "default_values": {},
+      "source_sha256": "41d059d00a0e0646f416e0837d64ae2e43eae3ea9cab94b0320875109b1ed8d0",
+      "model_status": "adapted_original"
+    },
+    {
+      "id": "wand_workbench",
+      "source_class": "BlockFocalManipulator",
+      "legacy_name_key": "tile.wand_workbench.name",
+      "item": true,
+      "properties": {},
+      "default_values": {},
+      "source_sha256": "efaa894178498aa9100b59456a6571a1042ab8f3247470b26165c0f9ea0db09f",
+      "model_status": "adapted_original"
+    },
+    {
+      "id": "hungry_chest",
+      "source_class": "BlockHungryChest",
+      "legacy_name_key": "tile.hungry_chest.name",
+      "item": true,
+      "properties": {
+        "facing": [
+          "up",
+          "down",
+          "west",
+          "south",
+          "north",
+          "east"
+        ]
+      },
+      "default_values": {
+        "facing": "north"
+      },
+      "source_sha256": "bc0b013b9b7423605da7f7140bff628b9ca64501904b254b75403cc900f6cd1c",
+      "model_status": "adapted_original"
+    },
+    {
+      "id": "tube",
+      "source_class": "BlockTube",
+      "legacy_name_key": "tile.tube.name",
+      "item": true,
+      "properties": {
+        "north": [
+          "false",
+          "true"
+        ],
+        "south": [
+          "false",
+          "true"
+        ],
+        "east": [
+          "false",
+          "true"
+        ],
+        "west": [
+          "false",
+          "true"
+        ],
+        "up": [
+          "false",
+          "true"
+        ],
+        "down": [
+          "false",
+          "true"
+        ]
+      },
+      "default_values": {
+        "north": "false",
+        "south": "false",
+        "east": "false",
+        "west": "false",
+        "up": "false",
+        "down": "false"
+      },
+      "source_sha256": "454f80fba1e9ed30c1f596bafef3f7634468c37229084c0fbc3a070882ff4f9e",
+      "model_status": "adapted_original"
+    },
+    {
+      "id": "tube_valve",
+      "source_class": "BlockTube",
+      "legacy_name_key": "tile.tube_valve.name",
+      "item": true,
+      "properties": {
+        "north": [
+          "false",
+          "true"
+        ],
+        "south": [
+          "false",
+          "true"
+        ],
+        "east": [
+          "false",
+          "true"
+        ],
+        "west": [
+          "false",
+          "true"
+        ],
+        "up": [
+          "false",
+          "true"
+        ],
+        "down": [
+          "false",
+          "true"
+        ],
+        "facing": [
+          "down",
+          "up",
+          "north",
+          "south",
+          "west",
+          "east"
+        ]
+      },
+      "default_values": {
+        "north": "false",
+        "south": "false",
+        "east": "false",
+        "west": "false",
+        "up": "false",
+        "down": "false",
+        "facing": "north"
+      },
+      "source_sha256": "e33497126a01d584bbd8f6cd86a7e869d82d4e4f91ab13a072fa1a3f5f72b08f",
+      "model_status": "adapted_original"
+    },
+    {
+      "id": "tube_restrict",
+      "source_class": "BlockTube",
+      "legacy_name_key": "tile.tube_restrict.name",
+      "item": true,
+      "properties": {
+        "north": [
+          "false",
+          "true"
+        ],
+        "south": [
+          "false",
+          "true"
+        ],
+        "east": [
+          "false",
+          "true"
+        ],
+        "west": [
+          "false",
+          "true"
+        ],
+        "up": [
+          "false",
+          "true"
+        ],
+        "down": [
+          "false",
+          "true"
+        ]
+      },
+      "default_values": {
+        "north": "false",
+        "south": "false",
+        "east": "false",
+        "west": "false",
+        "up": "false",
+        "down": "false"
+      },
+      "source_sha256": "8d800a52682c55b8459bde50ffd253a68cd5171cbd9e75ebea110046ecbf6082",
+      "model_status": "adapted_original"
+    },
+    {
+      "id": "tube_oneway",
+      "source_class": "BlockTube",
+      "legacy_name_key": "tile.tube_oneway.name",
+      "item": true,
+      "properties": {
+        "north": [
+          "false",
+          "true"
+        ],
+        "south": [
+          "false",
+          "true"
+        ],
+        "east": [
+          "false",
+          "true"
+        ],
+        "west": [
+          "false",
+          "true"
+        ],
+        "up": [
+          "false",
+          "true"
+        ],
+        "down": [
+          "false",
+          "true"
+        ],
+        "facing": [
+          "down",
+          "up",
+          "north",
+          "south",
+          "west",
+          "east"
+        ]
+      },
+      "default_values": {
+        "north": "false",
+        "south": "false",
+        "east": "false",
+        "west": "false",
+        "up": "false",
+        "down": "false",
+        "facing": "north"
+      },
+      "source_sha256": "454f80fba1e9ed30c1f596bafef3f7634468c37229084c0fbc3a070882ff4f9e",
+      "model_status": "adapted_original"
+    },
+    {
+      "id": "tube_filter",
+      "source_class": "BlockTube",
+      "legacy_name_key": "tile.tube_filter.name",
+      "item": true,
+      "properties": {
+        "north": [
+          "false",
+          "true"
+        ],
+        "south": [
+          "false",
+          "true"
+        ],
+        "east": [
+          "false",
+          "true"
+        ],
+        "west": [
+          "false",
+          "true"
+        ],
+        "up": [
+          "false",
+          "true"
+        ],
+        "down": [
+          "false",
+          "true"
+        ]
+      },
+      "default_values": {
+        "north": "false",
+        "south": "false",
+        "east": "false",
+        "west": "false",
+        "up": "false",
+        "down": "false"
+      },
+      "source_sha256": "9e7d4f4ec9f150fe9f0b4344317f93369e5f10df9e4c114995ee8d543f97dac7",
+      "model_status": "adapted_original"
+    },
+    {
+      "id": "tube_buffer",
+      "source_class": "BlockTube",
+      "legacy_name_key": "tile.tube_buffer.name",
+      "item": true,
+      "properties": {
+        "north": [
+          "false",
+          "true"
+        ],
+        "south": [
+          "false",
+          "true"
+        ],
+        "east": [
+          "false",
+          "true"
+        ],
+        "west": [
+          "false",
+          "true"
+        ],
+        "up": [
+          "false",
+          "true"
+        ],
+        "down": [
+          "false",
+          "true"
+        ]
+      },
+      "default_values": {
+        "north": "false",
+        "south": "false",
+        "east": "false",
+        "west": "false",
+        "up": "false",
+        "down": "false"
+      },
+      "source_sha256": "548ec79edd0993966f3cd015ade17867f6528a5520ded19e6b11de093c67d897",
+      "model_status": "adapted_original"
+    },
+    {
+      "id": "jar_normal",
+      "source_class": "BlockJar",
+      "legacy_name_key": "tile.jar_normal.name",
+      "item": true,
+      "properties": {},
+      "default_values": {},
+      "source_sha256": "664db2f39ff2d2eceb84451c1cd844918be377bc844143403716da732ebf2314",
+      "model_status": "adapted_original"
+    },
+    {
+      "id": "jar_void",
+      "source_class": "BlockJar",
+      "legacy_name_key": "tile.jar_void.name",
+      "item": true,
+      "properties": {},
+      "default_values": {},
+      "source_sha256": "1894b21497554b596e39d7da7dd25d38f7f645bb495950e064bf942df59c73e2",
+      "model_status": "adapted_original"
+    },
+    {
+      "id": "jar_brain",
+      "source_class": "BlockJar",
+      "legacy_name_key": "tile.jar_brain.name",
+      "item": true,
+      "properties": {},
+      "default_values": {},
+      "source_sha256": "50624e528b065a8e2fcb10e3ce749c9e9ef0ad7233944b565b70dd5eb7be6e0e",
+      "model_status": "adapted_original"
+    },
+    {
+      "id": "infusion_matrix",
+      "source_class": "BlockInfusionMatrix",
+      "legacy_name_key": "tile.infusion_matrix.name",
+      "item": true,
+      "properties": {},
+      "default_values": {},
+      "source_sha256": "5f8f8ee821ad02b04b4d80268809ac4630045a4d6faeeeaf5a9ac614a17581de",
+      "model_status": "adapted_original"
+    },
+    {
+      "id": "infernal_furnace",
+      "source_class": "BlockInfernalFurnace",
+      "legacy_name_key": "tile.infernal_furnace.name",
+      "item": true,
+      "properties": {
+        "facing": [
+          "north",
+          "south",
+          "east",
+          "west"
+        ]
+      },
+      "default_values": {
+        "facing": "north"
+      },
+      "source_sha256": "89ec0d2901f9840e56196bcc93de1919370552461452b696000abc48ce982b6a",
+      "model_status": "adapted_original"
+    },
+    {
+      "id": "everfull_urn",
+      "source_class": "BlockWaterJug",
+      "legacy_name_key": "tile.everfull_urn.name",
+      "item": true,
+      "properties": {},
+      "default_values": {},
+      "source_sha256": "bd644a86494812a1b28627d81b97679370a5364aa156921bceb3a0d4f78f5001",
+      "model_status": "adapted_original"
+    },
+    {
+      "id": "thaumatorium",
+      "source_class": "BlockThaumatorium",
+      "legacy_name_key": "tile.thaumatorium.name",
+      "item": true,
+      "properties": {
+        "facing": [
+          "up",
+          "down",
+          "west",
+          "south",
+          "north",
+          "east"
+        ]
+      },
+      "default_values": {
+        "facing": "north"
+      },
+      "source_sha256": "2857ec30c2e282de9ae50439f6f47899afa0debfca24ae2d1fff0f8dcef77db3",
+      "model_status": "adapted_original"
+    },
+    {
+      "id": "thaumatorium_top",
+      "source_class": "BlockThaumatorium",
+      "legacy_name_key": "tile.thaumatorium_top.name",
+      "item": true,
+      "properties": {
+        "facing": [
+          "up",
+          "down",
+          "west",
+          "south",
+          "north",
+          "east"
+        ]
+      },
+      "default_values": {
+        "facing": "north"
+      },
+      "source_sha256": "9cb59ef749359a66e58ed280a6f201fabfdcc3edb9975130a2e36954ccbe639e",
+      "model_status": "adapted_original"
+    },
+    {
+      "id": "brain_box",
+      "source_class": "BlockBrainBox",
+      "legacy_name_key": "tile.brain_box.name",
+      "item": true,
+      "properties": {
+        "facing": [
+          "up",
+          "down",
+          "west",
+          "east",
+          "south",
+          "north"
+        ]
+      },
+      "default_values": {
+        "facing": "north"
+      },
+      "source_sha256": "97162b94b81932b888739f57c6b915e02d31ef7f08be2c2490b99616c1d9c562",
+      "model_status": "adapted_original"
+    },
+    {
+      "id": "spa",
+      "source_class": "BlockSpa",
+      "legacy_name_key": "tile.spa.name",
+      "item": true,
+      "properties": {},
+      "default_values": {},
+      "source_sha256": "04c0e7b9803858914241684ce4742ba0d7fc1b0305a359b0136c17e453f14261",
+      "model_status": "adapted_original"
+    },
+    {
+      "id": "golem_builder",
+      "source_class": "BlockGolemBuilder",
+      "legacy_name_key": "tile.golem_builder.name",
+      "item": true,
+      "properties": {
+        "facing": [
+          "up",
+          "down",
+          "west",
+          "south",
+          "north",
+          "east"
+        ]
+      },
+      "default_values": {
+        "facing": "north"
+      },
+      "source_sha256": "4fda06db93a5bac00fe069d7dee8e6dc09a72a031959bc2e9d04bf1def10a92b",
+      "model_status": "adapted_original"
+    },
+    {
+      "id": "mirror",
+      "source_class": "BlockMirror",
+      "legacy_name_key": "tile.mirror.name",
+      "item": true,
+      "properties": {
+        "facing": [
+          "down",
+          "up",
+          "east",
+          "west",
+          "north",
+          "south"
+        ]
+      },
+      "default_values": {
+        "facing": "north"
+      },
+      "source_sha256": "b0458a7051f45f771627f40f59c7d4e47ceb9a03ef4bee5c0f74fc5ee5b5d624",
+      "model_status": "adapted_original"
+    },
+    {
+      "id": "mirror_essentia",
+      "source_class": "BlockMirror",
+      "legacy_name_key": "tile.mirror_essentia.name",
+      "item": true,
+      "properties": {
+        "facing": [
+          "down",
+          "up",
+          "east",
+          "west",
+          "north",
+          "south"
+        ]
+      },
+      "default_values": {
+        "facing": "north"
+      },
+      "source_sha256": "6bcdde7d3a9c21d5a2b78909ce4a3ee809d33d9c199685b2352b9bdf4c1e4a55",
+      "model_status": "adapted_original"
+    },
+    {
+      "id": "essentia_input",
+      "source_class": "BlockEssentiaTransport",
+      "legacy_name_key": "tile.essentia_input.name",
+      "item": true,
+      "properties": {
+        "facing": [
+          "down",
+          "up",
+          "east",
+          "west",
+          "north",
+          "south"
+        ]
+      },
+      "default_values": {
+        "facing": "north"
+      },
+      "source_sha256": "93d4dc7dea94faee22a99ecd98f96dc3df1577c682de145baeceac701f716690",
+      "model_status": "adapted_original"
+    },
+    {
+      "id": "essentia_output",
+      "source_class": "BlockEssentiaTransport",
+      "legacy_name_key": "tile.essentia_output.name",
+      "item": true,
+      "properties": {
+        "facing": [
+          "down",
+          "up",
+          "east",
+          "west",
+          "north",
+          "south"
+        ]
+      },
+      "default_values": {
+        "facing": "north"
+      },
+      "source_sha256": "81f796a5ea06dda4e37411a9a18b6133c3639b0b0a0d3a17333a9370ed3b884c",
+      "model_status": "adapted_original"
+    },
+    {
+      "id": "redstone_relay",
+      "source_class": "BlockRedstoneRelay",
+      "legacy_name_key": "tile.redstone_relay.name",
+      "item": true,
+      "properties": {
+        "enabled": [
+          "false",
+          "true"
+        ],
+        "facing": [
+          "east",
+          "west",
+          "north",
+          "south"
+        ]
+      },
+      "default_values": {
+        "enabled": "false",
+        "facing": "north"
+      },
+      "source_sha256": "86a3f374757cc0570aaa77ca4bdde46806f5ca5e0674d9a3b37ecb83cbe705db",
+      "model_status": "adapted_original"
+    },
+    {
+      "id": "pattern_crafter",
+      "source_class": "BlockPatternCrafter",
+      "legacy_name_key": "tile.pattern_crafter.name",
+      "item": true,
+      "properties": {
+        "enabled": [
+          "false",
+          "true"
+        ],
+        "facing": [
+          "east",
+          "west",
+          "north",
+          "south"
+        ]
+      },
+      "default_values": {
+        "enabled": "false",
+        "facing": "north"
+      },
+      "source_sha256": "ca8e7b7203707e219ddb33ac8ad62b91f278e799a55df1f9200c635a4b0cbdb3",
+      "model_status": "adapted_original"
+    },
+    {
+      "id": "potion_sprayer",
+      "source_class": "BlockPotionSprayer",
+      "legacy_name_key": "tile.potion_sprayer.name",
+      "item": true,
+      "properties": {
+        "enabled": [
+          "false",
+          "true"
+        ],
+        "facing": [
+          "down",
+          "up",
+          "east",
+          "west",
+          "north",
+          "south"
+        ]
+      },
+      "default_values": {
+        "enabled": "false",
+        "facing": "north"
+      },
+      "source_sha256": "a7df3982eacdddba1c28aa0ebb7337c17c26b7b43e296c21b21dc26b197bbdbf",
+      "model_status": "adapted_original"
+    },
+    {
+      "id": "activator_rail",
+      "source_class": "BlockRailPowered",
+      "legacy_name_key": "tile.activator_rail.name",
+      "item": true,
+      "properties": {
+        "powered": [
+          "false",
+          "true"
+        ],
+        "shape": [
+          "north_south",
+          "east_west",
+          "ascending_east",
+          "ascending_west",
+          "ascending_north",
+          "ascending_south"
+        ]
+      },
+      "default_values": {
+        "powered": "false",
+        "shape": "north_south"
+      },
+      "source_sha256": "c943efd3e1c9456f92499b1bbb62d1a84c27a3bb981e2f222c2c937096a3b7b1",
+      "model_status": "adapted_original"
+    },
+    {
+      "id": "stabilizer",
+      "source_class": "BlockStabilizer",
+      "legacy_name_key": "tile.stabilizer.name",
+      "item": true,
+      "properties": {},
+      "default_values": {},
+      "source_sha256": "81db2d75bc85a338affa0af13d59bceb4e4974641e1d41485c5f41fb837a9749",
+      "model_status": "adapted_original"
+    },
+    {
+      "id": "vis_generator",
+      "source_class": "BlockVisGenerator",
+      "legacy_name_key": "tile.vis_generator.name",
+      "item": true,
+      "properties": {
+        "enabled": [
+          "false",
+          "true"
+        ],
+        "facing": [
+          "down",
+          "up",
+          "east",
+          "west",
+          "north",
+          "south"
+        ]
+      },
+      "default_values": {
+        "enabled": "false",
+        "facing": "north"
+      },
+      "source_sha256": "68f8a936354da47cccb35e0c891f670711358ac6dcc64e5d4fe694bbc0a08885",
+      "model_status": "adapted_original"
+    },
+    {
+      "id": "condenser",
+      "source_class": "BlockCondenser",
+      "legacy_name_key": "tile.condenser.name",
+      "item": true,
+      "properties": {
+        "enabled": [
+          "false",
+          "true"
+        ]
+      },
+      "default_values": {
+        "enabled": "false"
+      },
+      "source_sha256": "3a66cdcd5ab78fbfc8f8c991948649fe84fd1c6dbc7dfd2c75b8bbc2a6f60403",
+      "model_status": "adapted_original"
+    },
+    {
+      "id": "condenser_lattice",
+      "source_class": "BlockCondenserLattice",
+      "legacy_name_key": "tile.condenser_lattice.name",
+      "item": true,
+      "properties": {
+        "north": [
+          "false",
+          "true"
+        ],
+        "south": [
+          "false",
+          "true"
+        ],
+        "east": [
+          "false",
+          "true"
+        ],
+        "west": [
+          "false",
+          "true"
+        ],
+        "up": [
+          "false",
+          "true"
+        ],
+        "down": [
+          "false",
+          "true"
+        ]
+      },
+      "default_values": {
+        "north": "false",
+        "south": "false",
+        "east": "false",
+        "west": "false",
+        "up": "false",
+        "down": "false"
+      },
+      "source_sha256": "e9a0dab5131dd6536ab4d3d548f75eba705d49a6ccdc75d7f47cf984cad210bb",
+      "model_status": "adapted_original"
+    },
+    {
+      "id": "condenser_lattice_dirty",
+      "source_class": "BlockCondenserLattice",
+      "legacy_name_key": "tile.condenser_lattice_dirty.name",
+      "item": true,
+      "properties": {
+        "north": [
+          "false",
+          "true"
+        ],
+        "south": [
+          "false",
+          "true"
+        ],
+        "east": [
+          "false",
+          "true"
+        ],
+        "west": [
+          "false",
+          "true"
+        ],
+        "up": [
+          "false",
+          "true"
+        ],
+        "down": [
+          "false",
+          "true"
+        ]
+      },
+      "default_values": {
+        "north": "false",
+        "south": "false",
+        "east": "false",
+        "west": "false",
+        "up": "false",
+        "down": "false"
+      },
+      "source_sha256": "3e76837b3895df4c7c82e9f3fc233ef0c13579cee92fb5be944f612bc4075557",
+      "model_status": "adapted_original"
+    },
+    {
+      "id": "void_siphon",
+      "source_class": "BlockVoidSiphon",
+      "legacy_name_key": "tile.void_siphon.name",
+      "item": true,
+      "properties": {
+        "enabled": [
+          "false",
+          "true"
+        ]
+      },
+      "default_values": {
+        "enabled": "false"
+      },
+      "source_sha256": "d3d10a432df276fb73ae44aad901803dad3ef433863aff38b79ab3df0c50e633",
+      "model_status": "adapted_original"
+    },
+    {
+      "id": "flux_goo",
+      "source_class": "BlockFluxGoo",
+      "legacy_name_key": "tile.flux_goo.name",
+      "item": false,
+      "properties": {},
+      "default_values": {},
+      "source_sha256": "8cf32632f56b367ee964820d1d2d2bbc940dcaf42ac6108c442217a9fb35b41b",
+      "model_status": "adapted_original"
+    },
+    {
+      "id": "liquid_death",
+      "source_class": "BlockFluidDeath",
+      "legacy_name_key": "tile.liquid_death.name",
+      "item": false,
+      "properties": {},
+      "default_values": {},
+      "source_sha256": "709655a5277d04d9edf6846e83b3e8ecbe39ba00ad1a426877491b771ab20350",
+      "model_status": "adapted_original"
+    },
+    {
+      "id": "purifying_fluid",
+      "source_class": "BlockFluidPure",
+      "legacy_name_key": "tile.purifying_fluid.name",
+      "item": false,
+      "properties": {},
+      "default_values": {},
+      "source_sha256": "ebdc4c0b78fd948098e40f05340c2ea26234a48edebebda446b83be013096d64",
+      "model_status": "adapted_original"
+    },
+    {
+      "id": "hole",
+      "source_class": "BlockHole",
+      "legacy_name_key": "tile.hole.name",
+      "item": true,
+      "properties": {},
+      "default_values": {},
+      "source_sha256": "fc35ebf82f74d1aa8a6c0846099ed8ff6440edfe54dd3b9eaed166ca64bf2c97",
+      "model_status": "adapted_original"
+    },
+    {
+      "id": "effect_shock",
+      "source_class": "BlockEffect",
+      "legacy_name_key": "tile.effect_shock.name",
+      "item": true,
+      "properties": {},
+      "default_values": {},
+      "source_sha256": "5fbd43de3f625859799b9307623f65b5ae535b750f3e278da8bd2e9aade1f7fa",
+      "model_status": "adapted_original"
+    },
+    {
+      "id": "effect_sap",
+      "source_class": "BlockEffect",
+      "legacy_name_key": "tile.effect_sap.name",
+      "item": true,
+      "properties": {},
+      "default_values": {},
+      "source_sha256": "5fbd43de3f625859799b9307623f65b5ae535b750f3e278da8bd2e9aade1f7fa",
+      "model_status": "adapted_original"
+    },
+    {
+      "id": "effect_glimmer",
+      "source_class": "BlockEffect",
+      "legacy_name_key": "tile.effect_glimmer.name",
+      "item": true,
+      "properties": {},
+      "default_values": {},
+      "source_sha256": "5fbd43de3f625859799b9307623f65b5ae535b750f3e278da8bd2e9aade1f7fa",
+      "model_status": "adapted_original"
+    },
+    {
+      "id": "placeholder_brick",
+      "source_class": "BlockPlaceholder",
+      "legacy_name_key": "tile.placeholder_brick.name",
+      "item": true,
+      "properties": {},
+      "default_values": {},
+      "source_sha256": "19396671b5caf643ad73dc67b1abcea57d7853e3e5d2c13ca7a83316087805e0",
+      "model_status": "adapted_original"
+    },
+    {
+      "id": "placeholder_obsidian",
+      "source_class": "BlockPlaceholder",
+      "legacy_name_key": "tile.placeholder_obsidian.name",
+      "item": true,
+      "properties": {},
+      "default_values": {},
+      "source_sha256": "5b8c5a3eb13ecb416090901b9cb42d5244bf8c8666dbb94c1f88730cff4c22ec",
+      "model_status": "adapted_original"
+    },
+    {
+      "id": "placeholder_bars",
+      "source_class": "BlockPlaceholder",
+      "legacy_name_key": "tile.placeholder_bars.name",
+      "item": true,
+      "properties": {},
+      "default_values": {},
+      "source_sha256": "0b701894571476350c83846562a1c36a5fd48b730d509bea6fb3210f583c351e",
+      "model_status": "adapted_original"
+    },
+    {
+      "id": "placeholder_anvil",
+      "source_class": "BlockPlaceholder",
+      "legacy_name_key": "tile.placeholder_anvil.name",
+      "item": true,
+      "properties": {},
+      "default_values": {},
+      "source_sha256": "991d1769d56a1800723a36f02d4547659eb63064180d7d19f3128ccbe96d73ef",
+      "model_status": "adapted_original"
+    },
+    {
+      "id": "placeholder_cauldron",
+      "source_class": "BlockPlaceholder",
+      "legacy_name_key": "tile.placeholder_cauldron.name",
+      "item": true,
+      "properties": {},
+      "default_values": {},
+      "source_sha256": "991d1769d56a1800723a36f02d4547659eb63064180d7d19f3128ccbe96d73ef",
+      "model_status": "adapted_original"
+    },
+    {
+      "id": "placeholder_table",
+      "source_class": "BlockPlaceholder",
+      "legacy_name_key": "tile.placeholder_table.name",
+      "item": true,
+      "properties": {},
+      "default_values": {},
+      "source_sha256": "0b701894571476350c83846562a1c36a5fd48b730d509bea6fb3210f583c351e",
+      "model_status": "adapted_original"
+    },
+    {
+      "id": "empty",
+      "source_class": "BlockTranslucent",
+      "legacy_name_key": "tile.empty.name",
+      "item": true,
+      "properties": {},
+      "default_values": {},
+      "source_sha256": "69b4f2652b8de6d8e601e890aac4eaf4a12a5007a7307b311fddc2d9ca17462c",
+      "model_status": "adapted_original"
+    },
+    {
+      "id": "barrier",
+      "source_class": "BlockBarrier",
+      "legacy_name_key": "tile.barrier.name",
+      "item": true,
+      "properties": {},
+      "default_values": {},
+      "source_sha256": "33d134ff647be3e5dc314b1f79c1e74452d10275afdd330d84d6c7d0388e839d",
+      "model_status": "adapted_original"
+    },
+    {
+      "id": "candle_white",
+      "source_class": "BlockCandle",
+      "legacy_name_key": "tile.candle_white.name",
+      "item": true,
+      "properties": {},
+      "default_values": {},
+      "source_sha256": "3a2c4ccde5da1ab192e5b59b052c828a7fba0c2d39b9aa478136c2d7495a0a34",
+      "model_status": "adapted_original"
+    },
+    {
+      "id": "candle_orange",
+      "source_class": "BlockCandle",
+      "legacy_name_key": "tile.candle_orange.name",
+      "item": true,
+      "properties": {},
+      "default_values": {},
+      "source_sha256": "3a2c4ccde5da1ab192e5b59b052c828a7fba0c2d39b9aa478136c2d7495a0a34",
+      "model_status": "adapted_original"
+    },
+    {
+      "id": "candle_magenta",
+      "source_class": "BlockCandle",
+      "legacy_name_key": "tile.candle_magenta.name",
+      "item": true,
+      "properties": {},
+      "default_values": {},
+      "source_sha256": "3a2c4ccde5da1ab192e5b59b052c828a7fba0c2d39b9aa478136c2d7495a0a34",
+      "model_status": "adapted_original"
+    },
+    {
+      "id": "candle_lightblue",
+      "source_class": "BlockCandle",
+      "legacy_name_key": "tile.candle_lightblue.name",
+      "item": true,
+      "properties": {},
+      "default_values": {},
+      "source_sha256": "3a2c4ccde5da1ab192e5b59b052c828a7fba0c2d39b9aa478136c2d7495a0a34",
+      "model_status": "adapted_original"
+    },
+    {
+      "id": "candle_yellow",
+      "source_class": "BlockCandle",
+      "legacy_name_key": "tile.candle_yellow.name",
+      "item": true,
+      "properties": {},
+      "default_values": {},
+      "source_sha256": "3a2c4ccde5da1ab192e5b59b052c828a7fba0c2d39b9aa478136c2d7495a0a34",
+      "model_status": "adapted_original"
+    },
+    {
+      "id": "candle_lime",
+      "source_class": "BlockCandle",
+      "legacy_name_key": "tile.candle_lime.name",
+      "item": true,
+      "properties": {},
+      "default_values": {},
+      "source_sha256": "3a2c4ccde5da1ab192e5b59b052c828a7fba0c2d39b9aa478136c2d7495a0a34",
+      "model_status": "adapted_original"
+    },
+    {
+      "id": "candle_pink",
+      "source_class": "BlockCandle",
+      "legacy_name_key": "tile.candle_pink.name",
+      "item": true,
+      "properties": {},
+      "default_values": {},
+      "source_sha256": "3a2c4ccde5da1ab192e5b59b052c828a7fba0c2d39b9aa478136c2d7495a0a34",
+      "model_status": "adapted_original"
+    },
+    {
+      "id": "candle_gray",
+      "source_class": "BlockCandle",
+      "legacy_name_key": "tile.candle_gray.name",
+      "item": true,
+      "properties": {},
+      "default_values": {},
+      "source_sha256": "3a2c4ccde5da1ab192e5b59b052c828a7fba0c2d39b9aa478136c2d7495a0a34",
+      "model_status": "adapted_original"
+    },
+    {
+      "id": "candle_silver",
+      "source_class": "BlockCandle",
+      "legacy_name_key": "tile.candle_silver.name",
+      "item": true,
+      "properties": {},
+      "default_values": {},
+      "source_sha256": "3a2c4ccde5da1ab192e5b59b052c828a7fba0c2d39b9aa478136c2d7495a0a34",
+      "model_status": "adapted_original"
+    },
+    {
+      "id": "candle_cyan",
+      "source_class": "BlockCandle",
+      "legacy_name_key": "tile.candle_cyan.name",
+      "item": true,
+      "properties": {},
+      "default_values": {},
+      "source_sha256": "3a2c4ccde5da1ab192e5b59b052c828a7fba0c2d39b9aa478136c2d7495a0a34",
+      "model_status": "adapted_original"
+    },
+    {
+      "id": "candle_purple",
+      "source_class": "BlockCandle",
+      "legacy_name_key": "tile.candle_purple.name",
+      "item": true,
+      "properties": {},
+      "default_values": {},
+      "source_sha256": "3a2c4ccde5da1ab192e5b59b052c828a7fba0c2d39b9aa478136c2d7495a0a34",
+      "model_status": "adapted_original"
+    },
+    {
+      "id": "candle_blue",
+      "source_class": "BlockCandle",
+      "legacy_name_key": "tile.candle_blue.name",
+      "item": true,
+      "properties": {},
+      "default_values": {},
+      "source_sha256": "3a2c4ccde5da1ab192e5b59b052c828a7fba0c2d39b9aa478136c2d7495a0a34",
+      "model_status": "adapted_original"
+    },
+    {
+      "id": "candle_brown",
+      "source_class": "BlockCandle",
+      "legacy_name_key": "tile.candle_brown.name",
+      "item": true,
+      "properties": {},
+      "default_values": {},
+      "source_sha256": "3a2c4ccde5da1ab192e5b59b052c828a7fba0c2d39b9aa478136c2d7495a0a34",
+      "model_status": "adapted_original"
+    },
+    {
+      "id": "candle_green",
+      "source_class": "BlockCandle",
+      "legacy_name_key": "tile.candle_green.name",
+      "item": true,
+      "properties": {},
+      "default_values": {},
+      "source_sha256": "3a2c4ccde5da1ab192e5b59b052c828a7fba0c2d39b9aa478136c2d7495a0a34",
+      "model_status": "adapted_original"
+    },
+    {
+      "id": "candle_red",
+      "source_class": "BlockCandle",
+      "legacy_name_key": "tile.candle_red.name",
+      "item": true,
+      "properties": {},
+      "default_values": {},
+      "source_sha256": "3a2c4ccde5da1ab192e5b59b052c828a7fba0c2d39b9aa478136c2d7495a0a34",
+      "model_status": "adapted_original"
+    },
+    {
+      "id": "candle_black",
+      "source_class": "BlockCandle",
+      "legacy_name_key": "tile.candle_black.name",
+      "item": true,
+      "properties": {},
+      "default_values": {},
+      "source_sha256": "3a2c4ccde5da1ab192e5b59b052c828a7fba0c2d39b9aa478136c2d7495a0a34",
+      "model_status": "adapted_original"
+    },
+    {
+      "id": "banner_white",
+      "source_class": "BlockBannerTC",
+      "legacy_name_key": "tile.banner_white.name",
+      "item": true,
+      "properties": {
+        "rotation": [
+          "0",
+          "1",
+          "2",
+          "3",
+          "4",
+          "5",
+          "6",
+          "7",
+          "8",
+          "9",
+          "10",
+          "11",
+          "12",
+          "13",
+          "14",
+          "15"
+        ],
+        "wall": [
+          "false",
+          "true"
+        ]
+      },
+      "default_values": {
+        "rotation": "0",
+        "wall": "false"
+      },
+      "source_sha256": "2130f888dda206620aaf0b4a1caee96006ff8573a52eb20f70dbe1a9d07b3268",
+      "model_status": "adapted_original"
+    },
+    {
+      "id": "banner_orange",
+      "source_class": "BlockBannerTC",
+      "legacy_name_key": "tile.banner_orange.name",
+      "item": true,
+      "properties": {
+        "rotation": [
+          "0",
+          "1",
+          "2",
+          "3",
+          "4",
+          "5",
+          "6",
+          "7",
+          "8",
+          "9",
+          "10",
+          "11",
+          "12",
+          "13",
+          "14",
+          "15"
+        ],
+        "wall": [
+          "false",
+          "true"
+        ]
+      },
+      "default_values": {
+        "rotation": "0",
+        "wall": "false"
+      },
+      "source_sha256": "2130f888dda206620aaf0b4a1caee96006ff8573a52eb20f70dbe1a9d07b3268",
+      "model_status": "adapted_original"
+    },
+    {
+      "id": "banner_magenta",
+      "source_class": "BlockBannerTC",
+      "legacy_name_key": "tile.banner_magenta.name",
+      "item": true,
+      "properties": {
+        "rotation": [
+          "0",
+          "1",
+          "2",
+          "3",
+          "4",
+          "5",
+          "6",
+          "7",
+          "8",
+          "9",
+          "10",
+          "11",
+          "12",
+          "13",
+          "14",
+          "15"
+        ],
+        "wall": [
+          "false",
+          "true"
+        ]
+      },
+      "default_values": {
+        "rotation": "0",
+        "wall": "false"
+      },
+      "source_sha256": "2130f888dda206620aaf0b4a1caee96006ff8573a52eb20f70dbe1a9d07b3268",
+      "model_status": "adapted_original"
+    },
+    {
+      "id": "banner_lightblue",
+      "source_class": "BlockBannerTC",
+      "legacy_name_key": "tile.banner_lightblue.name",
+      "item": true,
+      "properties": {
+        "rotation": [
+          "0",
+          "1",
+          "2",
+          "3",
+          "4",
+          "5",
+          "6",
+          "7",
+          "8",
+          "9",
+          "10",
+          "11",
+          "12",
+          "13",
+          "14",
+          "15"
+        ],
+        "wall": [
+          "false",
+          "true"
+        ]
+      },
+      "default_values": {
+        "rotation": "0",
+        "wall": "false"
+      },
+      "source_sha256": "2130f888dda206620aaf0b4a1caee96006ff8573a52eb20f70dbe1a9d07b3268",
+      "model_status": "adapted_original"
+    },
+    {
+      "id": "banner_yellow",
+      "source_class": "BlockBannerTC",
+      "legacy_name_key": "tile.banner_yellow.name",
+      "item": true,
+      "properties": {
+        "rotation": [
+          "0",
+          "1",
+          "2",
+          "3",
+          "4",
+          "5",
+          "6",
+          "7",
+          "8",
+          "9",
+          "10",
+          "11",
+          "12",
+          "13",
+          "14",
+          "15"
+        ],
+        "wall": [
+          "false",
+          "true"
+        ]
+      },
+      "default_values": {
+        "rotation": "0",
+        "wall": "false"
+      },
+      "source_sha256": "2130f888dda206620aaf0b4a1caee96006ff8573a52eb20f70dbe1a9d07b3268",
+      "model_status": "adapted_original"
+    },
+    {
+      "id": "banner_lime",
+      "source_class": "BlockBannerTC",
+      "legacy_name_key": "tile.banner_lime.name",
+      "item": true,
+      "properties": {
+        "rotation": [
+          "0",
+          "1",
+          "2",
+          "3",
+          "4",
+          "5",
+          "6",
+          "7",
+          "8",
+          "9",
+          "10",
+          "11",
+          "12",
+          "13",
+          "14",
+          "15"
+        ],
+        "wall": [
+          "false",
+          "true"
+        ]
+      },
+      "default_values": {
+        "rotation": "0",
+        "wall": "false"
+      },
+      "source_sha256": "2130f888dda206620aaf0b4a1caee96006ff8573a52eb20f70dbe1a9d07b3268",
+      "model_status": "adapted_original"
+    },
+    {
+      "id": "banner_pink",
+      "source_class": "BlockBannerTC",
+      "legacy_name_key": "tile.banner_pink.name",
+      "item": true,
+      "properties": {
+        "rotation": [
+          "0",
+          "1",
+          "2",
+          "3",
+          "4",
+          "5",
+          "6",
+          "7",
+          "8",
+          "9",
+          "10",
+          "11",
+          "12",
+          "13",
+          "14",
+          "15"
+        ],
+        "wall": [
+          "false",
+          "true"
+        ]
+      },
+      "default_values": {
+        "rotation": "0",
+        "wall": "false"
+      },
+      "source_sha256": "2130f888dda206620aaf0b4a1caee96006ff8573a52eb20f70dbe1a9d07b3268",
+      "model_status": "adapted_original"
+    },
+    {
+      "id": "banner_gray",
+      "source_class": "BlockBannerTC",
+      "legacy_name_key": "tile.banner_gray.name",
+      "item": true,
+      "properties": {
+        "rotation": [
+          "0",
+          "1",
+          "2",
+          "3",
+          "4",
+          "5",
+          "6",
+          "7",
+          "8",
+          "9",
+          "10",
+          "11",
+          "12",
+          "13",
+          "14",
+          "15"
+        ],
+        "wall": [
+          "false",
+          "true"
+        ]
+      },
+      "default_values": {
+        "rotation": "0",
+        "wall": "false"
+      },
+      "source_sha256": "2130f888dda206620aaf0b4a1caee96006ff8573a52eb20f70dbe1a9d07b3268",
+      "model_status": "adapted_original"
+    },
+    {
+      "id": "banner_silver",
+      "source_class": "BlockBannerTC",
+      "legacy_name_key": "tile.banner_silver.name",
+      "item": true,
+      "properties": {
+        "rotation": [
+          "0",
+          "1",
+          "2",
+          "3",
+          "4",
+          "5",
+          "6",
+          "7",
+          "8",
+          "9",
+          "10",
+          "11",
+          "12",
+          "13",
+          "14",
+          "15"
+        ],
+        "wall": [
+          "false",
+          "true"
+        ]
+      },
+      "default_values": {
+        "rotation": "0",
+        "wall": "false"
+      },
+      "source_sha256": "2130f888dda206620aaf0b4a1caee96006ff8573a52eb20f70dbe1a9d07b3268",
+      "model_status": "adapted_original"
+    },
+    {
+      "id": "banner_cyan",
+      "source_class": "BlockBannerTC",
+      "legacy_name_key": "tile.banner_cyan.name",
+      "item": true,
+      "properties": {
+        "rotation": [
+          "0",
+          "1",
+          "2",
+          "3",
+          "4",
+          "5",
+          "6",
+          "7",
+          "8",
+          "9",
+          "10",
+          "11",
+          "12",
+          "13",
+          "14",
+          "15"
+        ],
+        "wall": [
+          "false",
+          "true"
+        ]
+      },
+      "default_values": {
+        "rotation": "0",
+        "wall": "false"
+      },
+      "source_sha256": "2130f888dda206620aaf0b4a1caee96006ff8573a52eb20f70dbe1a9d07b3268",
+      "model_status": "adapted_original"
+    },
+    {
+      "id": "banner_purple",
+      "source_class": "BlockBannerTC",
+      "legacy_name_key": "tile.banner_purple.name",
+      "item": true,
+      "properties": {
+        "rotation": [
+          "0",
+          "1",
+          "2",
+          "3",
+          "4",
+          "5",
+          "6",
+          "7",
+          "8",
+          "9",
+          "10",
+          "11",
+          "12",
+          "13",
+          "14",
+          "15"
+        ],
+        "wall": [
+          "false",
+          "true"
+        ]
+      },
+      "default_values": {
+        "rotation": "0",
+        "wall": "false"
+      },
+      "source_sha256": "2130f888dda206620aaf0b4a1caee96006ff8573a52eb20f70dbe1a9d07b3268",
+      "model_status": "adapted_original"
+    },
+    {
+      "id": "banner_blue",
+      "source_class": "BlockBannerTC",
+      "legacy_name_key": "tile.banner_blue.name",
+      "item": true,
+      "properties": {
+        "rotation": [
+          "0",
+          "1",
+          "2",
+          "3",
+          "4",
+          "5",
+          "6",
+          "7",
+          "8",
+          "9",
+          "10",
+          "11",
+          "12",
+          "13",
+          "14",
+          "15"
+        ],
+        "wall": [
+          "false",
+          "true"
+        ]
+      },
+      "default_values": {
+        "rotation": "0",
+        "wall": "false"
+      },
+      "source_sha256": "2130f888dda206620aaf0b4a1caee96006ff8573a52eb20f70dbe1a9d07b3268",
+      "model_status": "adapted_original"
+    },
+    {
+      "id": "banner_brown",
+      "source_class": "BlockBannerTC",
+      "legacy_name_key": "tile.banner_brown.name",
+      "item": true,
+      "properties": {
+        "rotation": [
+          "0",
+          "1",
+          "2",
+          "3",
+          "4",
+          "5",
+          "6",
+          "7",
+          "8",
+          "9",
+          "10",
+          "11",
+          "12",
+          "13",
+          "14",
+          "15"
+        ],
+        "wall": [
+          "false",
+          "true"
+        ]
+      },
+      "default_values": {
+        "rotation": "0",
+        "wall": "false"
+      },
+      "source_sha256": "2130f888dda206620aaf0b4a1caee96006ff8573a52eb20f70dbe1a9d07b3268",
+      "model_status": "adapted_original"
+    },
+    {
+      "id": "banner_green",
+      "source_class": "BlockBannerTC",
+      "legacy_name_key": "tile.banner_green.name",
+      "item": true,
+      "properties": {
+        "rotation": [
+          "0",
+          "1",
+          "2",
+          "3",
+          "4",
+          "5",
+          "6",
+          "7",
+          "8",
+          "9",
+          "10",
+          "11",
+          "12",
+          "13",
+          "14",
+          "15"
+        ],
+        "wall": [
+          "false",
+          "true"
+        ]
+      },
+      "default_values": {
+        "rotation": "0",
+        "wall": "false"
+      },
+      "source_sha256": "eda37e1144b0190a66481acbeba2088c8a7e62b689f84bf36628aaaa4eca1fae",
+      "model_status": "adapted_original"
+    },
+    {
+      "id": "banner_red",
+      "source_class": "BlockBannerTC",
+      "legacy_name_key": "tile.banner_red.name",
+      "item": true,
+      "properties": {
+        "rotation": [
+          "0",
+          "1",
+          "2",
+          "3",
+          "4",
+          "5",
+          "6",
+          "7",
+          "8",
+          "9",
+          "10",
+          "11",
+          "12",
+          "13",
+          "14",
+          "15"
+        ],
+        "wall": [
+          "false",
+          "true"
+        ]
+      },
+      "default_values": {
+        "rotation": "0",
+        "wall": "false"
+      },
+      "source_sha256": "2130f888dda206620aaf0b4a1caee96006ff8573a52eb20f70dbe1a9d07b3268",
+      "model_status": "adapted_original"
+    },
+    {
+      "id": "banner_black",
+      "source_class": "BlockBannerTC",
+      "legacy_name_key": "tile.banner_black.name",
+      "item": true,
+      "properties": {
+        "rotation": [
+          "0",
+          "1",
+          "2",
+          "3",
+          "4",
+          "5",
+          "6",
+          "7",
+          "8",
+          "9",
+          "10",
+          "11",
+          "12",
+          "13",
+          "14",
+          "15"
+        ],
+        "wall": [
+          "false",
+          "true"
+        ]
+      },
+      "default_values": {
+        "rotation": "0",
+        "wall": "false"
+      },
+      "source_sha256": "2130f888dda206620aaf0b4a1caee96006ff8573a52eb20f70dbe1a9d07b3268",
+      "model_status": "adapted_original"
+    },
+    {
+      "id": "nitor_white",
+      "source_class": "BlockNitor",
+      "legacy_name_key": "tile.nitor_white.name",
+      "item": true,
+      "properties": {},
+      "default_values": {},
+      "source_sha256": "8b38a28d879f27bd8dc54b78f71ad90cb1bf39afe0a1ba161e5d9e213bad7a55",
+      "model_status": "adapted_original"
+    },
+    {
+      "id": "nitor_orange",
+      "source_class": "BlockNitor",
+      "legacy_name_key": "tile.nitor_orange.name",
+      "item": true,
+      "properties": {},
+      "default_values": {},
+      "source_sha256": "8b38a28d879f27bd8dc54b78f71ad90cb1bf39afe0a1ba161e5d9e213bad7a55",
+      "model_status": "adapted_original"
+    },
+    {
+      "id": "nitor_magenta",
+      "source_class": "BlockNitor",
+      "legacy_name_key": "tile.nitor_magenta.name",
+      "item": true,
+      "properties": {},
+      "default_values": {},
+      "source_sha256": "8b38a28d879f27bd8dc54b78f71ad90cb1bf39afe0a1ba161e5d9e213bad7a55",
+      "model_status": "adapted_original"
+    },
+    {
+      "id": "nitor_lightblue",
+      "source_class": "BlockNitor",
+      "legacy_name_key": "tile.nitor_lightblue.name",
+      "item": true,
+      "properties": {},
+      "default_values": {},
+      "source_sha256": "8b38a28d879f27bd8dc54b78f71ad90cb1bf39afe0a1ba161e5d9e213bad7a55",
+      "model_status": "adapted_original"
+    },
+    {
+      "id": "nitor_yellow",
+      "source_class": "BlockNitor",
+      "legacy_name_key": "tile.nitor_yellow.name",
+      "item": true,
+      "properties": {},
+      "default_values": {},
+      "source_sha256": "8b38a28d879f27bd8dc54b78f71ad90cb1bf39afe0a1ba161e5d9e213bad7a55",
+      "model_status": "adapted_original"
+    },
+    {
+      "id": "nitor_lime",
+      "source_class": "BlockNitor",
+      "legacy_name_key": "tile.nitor_lime.name",
+      "item": true,
+      "properties": {},
+      "default_values": {},
+      "source_sha256": "8b38a28d879f27bd8dc54b78f71ad90cb1bf39afe0a1ba161e5d9e213bad7a55",
+      "model_status": "adapted_original"
+    },
+    {
+      "id": "nitor_pink",
+      "source_class": "BlockNitor",
+      "legacy_name_key": "tile.nitor_pink.name",
+      "item": true,
+      "properties": {},
+      "default_values": {},
+      "source_sha256": "8b38a28d879f27bd8dc54b78f71ad90cb1bf39afe0a1ba161e5d9e213bad7a55",
+      "model_status": "adapted_original"
+    },
+    {
+      "id": "nitor_gray",
+      "source_class": "BlockNitor",
+      "legacy_name_key": "tile.nitor_gray.name",
+      "item": true,
+      "properties": {},
+      "default_values": {},
+      "source_sha256": "8b38a28d879f27bd8dc54b78f71ad90cb1bf39afe0a1ba161e5d9e213bad7a55",
+      "model_status": "adapted_original"
+    },
+    {
+      "id": "nitor_silver",
+      "source_class": "BlockNitor",
+      "legacy_name_key": "tile.nitor_silver.name",
+      "item": true,
+      "properties": {},
+      "default_values": {},
+      "source_sha256": "8b38a28d879f27bd8dc54b78f71ad90cb1bf39afe0a1ba161e5d9e213bad7a55",
+      "model_status": "adapted_original"
+    },
+    {
+      "id": "nitor_cyan",
+      "source_class": "BlockNitor",
+      "legacy_name_key": "tile.nitor_cyan.name",
+      "item": true,
+      "properties": {},
+      "default_values": {},
+      "source_sha256": "8b38a28d879f27bd8dc54b78f71ad90cb1bf39afe0a1ba161e5d9e213bad7a55",
+      "model_status": "adapted_original"
+    },
+    {
+      "id": "nitor_purple",
+      "source_class": "BlockNitor",
+      "legacy_name_key": "tile.nitor_purple.name",
+      "item": true,
+      "properties": {},
+      "default_values": {},
+      "source_sha256": "8b38a28d879f27bd8dc54b78f71ad90cb1bf39afe0a1ba161e5d9e213bad7a55",
+      "model_status": "adapted_original"
+    },
+    {
+      "id": "nitor_blue",
+      "source_class": "BlockNitor",
+      "legacy_name_key": "tile.nitor_blue.name",
+      "item": true,
+      "properties": {},
+      "default_values": {},
+      "source_sha256": "8b38a28d879f27bd8dc54b78f71ad90cb1bf39afe0a1ba161e5d9e213bad7a55",
+      "model_status": "adapted_original"
+    },
+    {
+      "id": "nitor_brown",
+      "source_class": "BlockNitor",
+      "legacy_name_key": "tile.nitor_brown.name",
+      "item": true,
+      "properties": {},
+      "default_values": {},
+      "source_sha256": "8b38a28d879f27bd8dc54b78f71ad90cb1bf39afe0a1ba161e5d9e213bad7a55",
+      "model_status": "adapted_original"
+    },
+    {
+      "id": "nitor_green",
+      "source_class": "BlockNitor",
+      "legacy_name_key": "tile.nitor_green.name",
+      "item": true,
+      "properties": {},
+      "default_values": {},
+      "source_sha256": "8b38a28d879f27bd8dc54b78f71ad90cb1bf39afe0a1ba161e5d9e213bad7a55",
+      "model_status": "adapted_original"
+    },
+    {
+      "id": "nitor_red",
+      "source_class": "BlockNitor",
+      "legacy_name_key": "tile.nitor_red.name",
+      "item": true,
+      "properties": {},
+      "default_values": {},
+      "source_sha256": "8b38a28d879f27bd8dc54b78f71ad90cb1bf39afe0a1ba161e5d9e213bad7a55",
+      "model_status": "adapted_original"
+    },
+    {
+      "id": "nitor_black",
+      "source_class": "BlockNitor",
+      "legacy_name_key": "tile.nitor_black.name",
+      "item": true,
+      "properties": {},
+      "default_values": {},
+      "source_sha256": "8b38a28d879f27bd8dc54b78f71ad90cb1bf39afe0a1ba161e5d9e213bad7a55",
+      "model_status": "adapted_original"
+    }
+  ],
+  "imports": {
+    "block/arcane_stone": {
+      "source": "assets/thaumcraft/models/block/arcane_stone.json",
+      "existing": true
+    },
+    "block/ancient_stone": {
+      "source": "assets/thaumcraft/models/block/ancient_stone.json",
+      "existing": true
+    },
+    "block/eldritch_stone": {
+      "source": "assets/thaumcraft/models/block/eldritch_stone.json",
+      "existing": true
+    },
+    "block/arcane_stairs": {
+      "source": "assets/thaumcraft/models/block/arcane_stairs.json",
+      "existing": true
+    },
+    "block/arcane_outer_stairs": {
+      "source": "assets/thaumcraft/models/block/arcane_outer_stairs.json",
+      "existing": true
+    },
+    "block/arcane_inner_stairs": {
+      "source": "assets/thaumcraft/models/block/arcane_inner_stairs.json",
+      "existing": true
+    },
+    "block/arcane_brick_stairs": {
+      "source": "assets/thaumcraft/models/block/arcane_brick_stairs.json",
+      "existing": true
+    },
+    "block/arcane_brick_outer_stairs": {
+      "source": "assets/thaumcraft/models/block/arcane_brick_outer_stairs.json",
+      "existing": true
+    },
+    "block/arcane_brick_inner_stairs": {
+      "source": "assets/thaumcraft/models/block/arcane_brick_inner_stairs.json",
+      "existing": true
+    },
+    "block/ancient_stairs": {
+      "source": "assets/thaumcraft/models/block/ancient_stairs.json",
+      "existing": true
+    },
+    "block/ancient_outer_stairs": {
+      "source": "assets/thaumcraft/models/block/ancient_outer_stairs.json",
+      "existing": true
+    },
+    "block/ancient_inner_stairs": {
+      "source": "assets/thaumcraft/models/block/ancient_inner_stairs.json",
+      "existing": true
+    },
+    "block/greatwood_stairs": {
+      "source": "assets/thaumcraft/models/block/greatwood_stairs.json",
+      "existing": true
+    },
+    "block/greatwood_outer_stairs": {
+      "source": "assets/thaumcraft/models/block/greatwood_outer_stairs.json",
+      "existing": true
+    },
+    "block/greatwood_inner_stairs": {
+      "source": "assets/thaumcraft/models/block/greatwood_inner_stairs.json",
+      "existing": true
+    },
+    "block/silverwood_stairs": {
+      "source": "assets/thaumcraft/models/block/silverwood_stairs.json",
+      "existing": true
+    },
+    "block/silverwood_outer_stairs": {
+      "source": "assets/thaumcraft/models/block/silverwood_outer_stairs.json",
+      "existing": true
+    },
+    "block/silverwood_inner_stairs": {
+      "source": "assets/thaumcraft/models/block/silverwood_inner_stairs.json",
+      "existing": true
+    },
+    "block/loot_crate_common": {
+      "source": "assets/thaumcraft/models/block/loot_crate_common.json",
+      "existing": true
+    },
+    "block/loot_crate_uncommon": {
+      "source": "assets/thaumcraft/models/block/loot_crate_uncommon.json",
+      "existing": true
+    },
+    "block/loot_crate_rare": {
+      "source": "assets/thaumcraft/models/block/loot_crate_rare.json",
+      "existing": true
+    },
+    "block/loot_urn_common": {
+      "source": "assets/thaumcraft/models/block/loot_urn_common.json",
+      "existing": true
+    },
+    "block/loot_urn_uncommon": {
+      "source": "assets/thaumcraft/models/block/loot_urn_uncommon.json",
+      "existing": true
+    },
+    "block/loot_urn_rare": {
+      "source": "assets/thaumcraft/models/block/loot_urn_rare.json",
+      "existing": true
+    },
+    "block/taint_fibre": {
+      "source": "assets/thaumcraft/models/block/taint_fibre.json",
+      "existing": true
+    },
+    "block/taint_growth_1": {
+      "source": "assets/thaumcraft/models/block/taint_growth_1.json",
+      "existing": true
+    },
+    "block/taint_growth_2": {
+      "source": "assets/thaumcraft/models/block/taint_growth_2.json",
+      "existing": true
+    },
+    "block/taint_growth_3": {
+      "source": "assets/thaumcraft/models/block/taint_growth_3.json",
+      "existing": true
+    },
+    "block/taint_growth_4": {
+      "source": "assets/thaumcraft/models/block/taint_growth_4.json",
+      "existing": true
+    },
+    "block/taint_orb_0": {
+      "source": "assets/thaumcraft/models/block/taint_orb_0.json",
+      "existing": true
+    },
+    "block/taint_orb_1": {
+      "source": "assets/thaumcraft/models/block/taint_orb_1.json",
+      "existing": true
+    },
+    "block/taint_orb_2": {
+      "source": "assets/thaumcraft/models/block/taint_orb_2.json",
+      "existing": true
+    },
+    "block/log_taintwood": {
+      "source": "assets/thaumcraft/models/block/log_taintwood.json",
+      "existing": true
+    },
+    "block/table_wood": {
+      "source": "assets/thaumcraft/models/block/table_wood.json",
+      "existing": true
+    },
+    "block/table_stone": {
+      "source": "assets/thaumcraft/models/block/table_stone.json",
+      "existing": true
+    },
+    "block/pedestal_normal": {
+      "source": "assets/thaumcraft/models/block/pedestal_normal.json",
+      "existing": true
+    },
+    "block/pedestal_ancient": {
+      "source": "assets/thaumcraft/models/block/pedestal_ancient.json",
+      "existing": true
+    },
+    "block/pedestal_eldritch": {
+      "source": "assets/thaumcraft/models/block/pedestal_eldritch.json",
+      "existing": true
+    },
+    "block/paving_stone_travel": {
+      "source": "assets/thaumcraft/models/block/paving_stone_travel.json",
+      "existing": true
+    },
+    "block/paving_stone_barrier": {
+      "source": "assets/thaumcraft/models/block/paving_stone_barrier.json",
+      "existing": true
+    },
+    "block/banner": {
+      "source": "assets/thaumcraft/models/block/banner.json",
+      "existing": true
+    },
+    "item/banner_crimson_cult": {
+      "source": "assets/thaumcraft/models/item/banner_crimson_cult.json",
+      "existing": true
+    },
+    "block/inlay_dot_0": {
+      "source": "assets/thaumcraft/models/block/inlay_dot_0.json",
+      "existing": true
+    },
+    "block/inlay_dot_1": {
+      "source": "assets/thaumcraft/models/block/inlay_dot_1.json",
+      "existing": true
+    },
+    "block/inlay_dot_2": {
+      "source": "assets/thaumcraft/models/block/inlay_dot_2.json",
+      "existing": true
+    },
+    "block/inlay_dot_3": {
+      "source": "assets/thaumcraft/models/block/inlay_dot_3.json",
+      "existing": true
+    },
+    "block/inlay_side0": {
+      "source": "assets/thaumcraft/models/block/inlay_side0.json",
+      "existing": true
+    },
+    "block/inlay_side1": {
+      "source": "assets/thaumcraft/models/block/inlay_side1.json",
+      "existing": true
+    },
+    "block/inlay_side_alt0": {
+      "source": "assets/thaumcraft/models/block/inlay_side_alt0.json",
+      "existing": true
+    },
+    "block/inlay_side_alt1": {
+      "source": "assets/thaumcraft/models/block/inlay_side_alt1.json",
+      "existing": true
+    },
+    "block/inlay_extend": {
+      "source": "assets/thaumcraft/models/block/inlay_extend.json",
+      "existing": true
+    },
+    "block/arcane_workbench": {
+      "source": "assets/thaumcraft/models/block/arcane_workbench.json",
+      "existing": true
+    },
+    "block/dioptra": {
+      "source": "assets/thaumcraft/models/block/dioptra.json",
+      "existing": true
+    },
+    "block/research_table": {
+      "source": "assets/thaumcraft/models/block/research_table.json",
+      "existing": true
+    },
+    "block/crucible": {
+      "source": "assets/thaumcraft/models/block/crucible.json",
+      "existing": true
+    },
+    "block/arcane_ear_off": {
+      "source": "assets/thaumcraft/models/block/arcane_ear_off.json",
+      "existing": true
+    },
+    "block/arcane_ear_on": {
+      "source": "assets/thaumcraft/models/block/arcane_ear_on.json",
+      "existing": true
+    },
+    "block/lamp": {
+      "source": "assets/thaumcraft/models/block/lamp.json",
+      "existing": true
+    },
+    "block/levitator_off": {
+      "source": "assets/thaumcraft/models/block/levitator_off.json",
+      "existing": true
+    },
+    "block/levitator_on": {
+      "source": "assets/thaumcraft/models/block/levitator_on.json",
+      "existing": true
+    },
+    "block/centrifuge": {
+      "source": "assets/thaumcraft/models/block/centrifuge.json",
+      "existing": true
+    },
+    "block/bellows": {
+      "source": "assets/thaumcraft/models/block/bellows.json",
+      "existing": true
+    },
+    "block/smelter_basic_off": {
+      "source": "assets/thaumcraft/models/block/smelter_basic_off.json",
+      "existing": true
+    },
+    "block/smelter_basic_on": {
+      "source": "assets/thaumcraft/models/block/smelter_basic_on.json",
+      "existing": true
+    },
+    "block/smelter_thaumium_off": {
+      "source": "assets/thaumcraft/models/block/smelter_thaumium_off.json",
+      "existing": true
+    },
+    "block/smelter_thaumium_on": {
+      "source": "assets/thaumcraft/models/block/smelter_thaumium_on.json",
+      "existing": true
+    },
+    "block/smelter_void_off": {
+      "source": "assets/thaumcraft/models/block/smelter_void_off.json",
+      "existing": true
+    },
+    "block/smelter_void_on": {
+      "source": "assets/thaumcraft/models/block/smelter_void_on.json",
+      "existing": true
+    },
+    "block/smelter_aux": {
+      "source": "assets/thaumcraft/models/block/smelter_aux.json",
+      "existing": true
+    },
+    "block/smelter_vent": {
+      "source": "assets/thaumcraft/models/block/smelter_vent.json",
+      "existing": true
+    },
+    "block/alembic_normal": {
+      "source": "assets/thaumcraft/models/block/alembic_normal.json",
+      "existing": true
+    },
+    "block/recharge_pedestal": {
+      "source": "assets/thaumcraft/models/block/recharge_pedestal.json",
+      "existing": true
+    },
+    "block/wand_workbench": {
+      "source": "assets/thaumcraft/models/block/wand_workbench.json",
+      "existing": true
+    },
+    "block/chest": {
+      "source": "assets/thaumcraft/models/block/chest.json",
+      "existing": true
+    },
+    "block/tube_side": {
+      "source": "assets/thaumcraft/models/block/tube_side.json",
+      "existing": true
+    },
+    "block/tube_core": {
+      "source": "assets/thaumcraft/models/block/tube_core.json",
+      "existing": true
+    },
+    "block/tube_core_valve": {
+      "source": "assets/thaumcraft/models/block/tube_core_valve.json",
+      "existing": true
+    },
+    "block/tube_side_restrict": {
+      "source": "assets/thaumcraft/models/block/tube_side_restrict.json",
+      "existing": true
+    },
+    "block/tube_filter_core": {
+      "source": "assets/thaumcraft/models/block/tube_filter_core.json",
+      "existing": true
+    },
+    "block/tube_buffer_core": {
+      "source": "assets/thaumcraft/models/block/tube_buffer_core.json",
+      "existing": true
+    },
+    "block/jar_normal": {
+      "source": "assets/thaumcraft/models/block/jar_normal.json",
+      "existing": true
+    },
+    "block/jar_normal_25": {
+      "source": "assets/thaumcraft/models/block/jar_normal_25.json",
+      "existing": false,
+      "elements": 3,
+      "sha256_original": "80d683a5cacbb6c5de5ec7f1702466dbe52bae1e9005ae27ccb1cb5177daf54a"
+    },
+    "block/jar_normal_50": {
+      "source": "assets/thaumcraft/models/block/jar_normal_50.json",
+      "existing": false,
+      "elements": 3,
+      "sha256_original": "b0c54e0a746ea3c6491c0fc270b34852d90a1a3c8e34d8bd8da6ed9a86758cfa"
+    },
+    "block/jar_normal_75": {
+      "source": "assets/thaumcraft/models/block/jar_normal_75.json",
+      "existing": false,
+      "elements": 3,
+      "sha256_original": "036b768639989755ead2b61fbe801955bfe3b4c5bfd81929ecb2b6bcf8c6613b"
+    },
+    "block/jar_normal_100": {
+      "source": "assets/thaumcraft/models/block/jar_normal_100.json",
+      "existing": false,
+      "elements": 3,
+      "sha256_original": "778e20aa63ed91d03e6f2eb500ffaa52016b9aab6b0a35d236439d5b5b0ccd1e"
+    },
+    "block/jar_void": {
+      "source": "assets/thaumcraft/models/block/jar_void.json",
+      "existing": true
+    },
+    "block/jar_void_25": {
+      "source": "assets/thaumcraft/models/block/jar_void_25.json",
+      "existing": false,
+      "elements": 3,
+      "sha256_original": "0f9d3b786dbb16e4e56ba37360f3c1f9db8227909838a446553cb3c3b1df5e9f"
+    },
+    "block/jar_void_50": {
+      "source": "assets/thaumcraft/models/block/jar_void_50.json",
+      "existing": false,
+      "elements": 3,
+      "sha256_original": "5352be7805c9c80553a9b04152765bdcfa0c67e3db28dd93fb12d1e15b11e17e"
+    },
+    "block/jar_void_75": {
+      "source": "assets/thaumcraft/models/block/jar_void_75.json",
+      "existing": false,
+      "elements": 3,
+      "sha256_original": "6d77ec6681a5621fc8e266713cee0c35805f03b3811c7624650dd1309c4ed837"
+    },
+    "block/jar_void_100": {
+      "source": "assets/thaumcraft/models/block/jar_void_100.json",
+      "existing": false,
+      "elements": 3,
+      "sha256_original": "6561e4afe9fe2cb9616e68c41716a6a0aa3c07a633450182e0f7d05edf36f961"
+    },
+    "block/jar_brain_item": {
+      "source": "assets/thaumcraft/models/block/jar_brain_item.json",
+      "existing": true
+    },
+    "block/infusion_matrix": {
+      "source": "assets/thaumcraft/models/block/infusion_matrix.json",
+      "existing": true
+    },
+    "block/infernal_furnace": {
+      "source": "assets/thaumcraft/models/block/infernal_furnace.json",
+      "existing": true
+    },
+    "block/everfull_urn": {
+      "source": "assets/thaumcraft/models/block/everfull_urn.json",
+      "existing": true
+    },
+    "block/brain_box": {
+      "source": "assets/thaumcraft/models/block/brain_box.json",
+      "existing": true
+    },
+    "block/empty": {
+      "source": "assets/thaumcraft/models/block/empty.json",
+      "existing": true
+    },
+    "block/essentia_input": {
+      "source": "assets/thaumcraft/models/block/essentia_input.json",
+      "existing": true
+    },
+    "block/essentia_output": {
+      "source": "assets/thaumcraft/models/block/essentia_output.json",
+      "existing": true
+    },
+    "block/redstone_relay_off": {
+      "source": "assets/thaumcraft/models/block/redstone_relay_off.json",
+      "existing": true
+    },
+    "block/redstone_relay_on": {
+      "source": "assets/thaumcraft/models/block/redstone_relay_on.json",
+      "existing": true
+    },
+    "block/pattern_crafter": {
+      "source": "assets/thaumcraft/models/block/pattern_crafter.json",
+      "existing": true
+    },
+    "block/pattern_crafter_inv": {
+      "source": "assets/thaumcraft/models/block/pattern_crafter_inv.json",
+      "existing": true
+    },
+    "block/activator_rail_flat": {
+      "source": "assets/thaumcraft/models/block/activator_rail_flat.json",
+      "existing": true
+    },
+    "block/activator_rail_raised_ne": {
+      "source": "assets/thaumcraft/models/block/activator_rail_raised_ne.json",
+      "existing": true
+    },
+    "block/activator_rail_raised_sw": {
+      "source": "assets/thaumcraft/models/block/activator_rail_raised_sw.json",
+      "existing": true
+    },
+    "block/activator_rail_active_flat": {
+      "source": "assets/thaumcraft/models/block/activator_rail_active_flat.json",
+      "existing": true
+    },
+    "block/activator_rail_active_raised_ne": {
+      "source": "assets/thaumcraft/models/block/activator_rail_active_raised_ne.json",
+      "existing": true
+    },
+    "block/activator_rail_active_raised_sw": {
+      "source": "assets/thaumcraft/models/block/activator_rail_active_raised_sw.json",
+      "existing": true
+    },
+    "block/stabilizer": {
+      "source": "assets/thaumcraft/models/block/stabilizer.json",
+      "existing": true
+    },
+    "block/vis_generator": {
+      "source": "assets/thaumcraft/models/block/vis_generator.json",
+      "existing": true
+    },
+    "block/condenser": {
+      "source": "assets/thaumcraft/models/block/condenser.json",
+      "existing": true
+    },
+    "block/condenser_lattice_side": {
+      "source": "assets/thaumcraft/models/block/condenser_lattice_side.json",
+      "existing": true
+    },
+    "block/condenser_lattice_core": {
+      "source": "assets/thaumcraft/models/block/condenser_lattice_core.json",
+      "existing": true
+    },
+    "block/condenser_lattice_core_dirty": {
+      "source": "assets/thaumcraft/models/block/condenser_lattice_core_dirty.json",
+      "existing": true
+    },
+    "block/void_siphon": {
+      "source": "assets/thaumcraft/models/block/void_siphon.json",
+      "existing": true
+    },
+    "block/candle": {
+      "source": "assets/thaumcraft/models/block/candle.json",
+      "existing": true
+    }
+  },
+  "assets": {
+    "assets/thaumcraft/textures/blocks/ore_amber.png": "03c230cce33f26ae61504ca7177b795d859f71bc20c170371643bd6cc1501386",
+    "assets/thaumcraft/textures/blocks/ore_cinnabar.png": "f555d17104a9516cd6c36dd514ff33e3c8b387df50d08e6ea57b625562f660b0",
+    "assets/thaumcraft/textures/blocks/ore_quartz.png": "3f15c5d3a839f87e73b3183d9a78130a1ad0780b86b532ad4d8280f8eb5dc76a",
+    "assets/thaumcraft/textures/blocks/empty.png": "edb0a7e60d76bfde7030504ebb9b4d9e79c5a32a35b7d4cfb7f786fce9076735",
+    "assets/thaumcraft/textures/items/crystal_planter.png": "7beb6d3e520eed694c5523d557044b589e8c2a2d970012e2ca2eb949ceeff0b4",
+    "assets/thaumcraft/textures/blocks/arcane_brick_stone.png": "feec42a14a725e7a5f84ca7886928503aa5dcb24babac8829552e9e1d1e495bb",
+    "assets/thaumcraft/textures/blocks/ancient_tile.png": "f5378c227dc926685a37bbb02c3a7bf84d8c551b5dddb4f3fa09af28eb7645b5",
+    "assets/thaumcraft/textures/blocks/ancient_rock_stone_1.png": "875f7c75d69fabc003727c22e1c174df2d173afb8e2180b4fd3f9e3dbdce02e5",
+    "assets/thaumcraft/textures/blocks/ancient_rock_stone_2.png": "84de00d8192489214e7ff80f310d1c1c58c7e2db8c553ea36bea45ebdffd0fa2",
+    "assets/thaumcraft/textures/blocks/ancient_rock_stone_3.png": "c2f9bb476decff5efc50f1fd18efca5213ba528f600c1a9ef3f197fdd70200ba",
+    "assets/thaumcraft/textures/blocks/ancient_glyph.png": "a7d1780093d2063d736f8ce081451b72b0bece2b7b7f744c694cd6d2cc924653",
+    "assets/thaumcraft/textures/blocks/eldritch_door.png": "67a4059e7a1091633499f9879e0e7396f75984ce02db998a5709753e631d6bea",
+    "assets/thaumcraft/textures/blocks/porous_stone.png": "e9a66a204bdf21efcfbf1a3f4ffa79644ab092ea115fc092386f65e3d6210e03",
+    "assets/thaumcraft/textures/blocks/arcane_stone_1.png": "1ffe08de5439f897f8a88276bd9d9514d8225cbe61bc7b6843f8b508d1dfe702",
+    "assets/thaumcraft/textures/blocks/arcane_stone_2.png": "d80004c95957dc4a13e5e5cc7d400b5068d9d7bf721ba8b529154f691cf0f912",
+    "assets/thaumcraft/textures/blocks/arcane_stone_3.png": "f71286f9045ebac11a6d33dbbc34fbc8bfd8957378d87d692892e216cd69760a",
+    "assets/thaumcraft/textures/blocks/ancient_stone_1.png": "519d0f524bc4868e814a509156b10b06b3b634392e814bfedca044686ddfb3c6",
+    "assets/thaumcraft/textures/blocks/ancient_stone_2.png": "13e459c9428dcf210892784bdb152712b5e90928a5e8fda469bf91055b080b1e",
+    "assets/thaumcraft/textures/blocks/ancient_stone_3.png": "3ccf626917b7d73fe5ffe2907a84f9f459bd6b798d5613fdf082e30b61d66a53",
+    "assets/thaumcraft/textures/blocks/eldritch_stone_1.png": "d974511375ce184958755790fda9bf377638d84f219fc22c0363f5b141f4f57c",
+    "assets/thaumcraft/textures/blocks/eldritch_stone_2.png": "5ddb4ca4e639b2ba895cc363db68f214b4117048b924260928d8b710edcf1a72",
+    "assets/thaumcraft/textures/blocks/eldritch_stone_3.png": "8db913fc0b25441f2cc17724a11a112b5a07ec61b1c768ceb90f7884b5f2f210",
+    "assets/thaumcraft/textures/blocks/sapling_greatwood.png": "3f28d9e6422fc32fd69064d96e9344c45b5e6318cc13478ca7a0c1769b26720e",
+    "assets/thaumcraft/textures/blocks/sapling_silverwood.png": "11c47fb8b3468c29260a69ee6695f8ba882e1a87576cc24dc659d7a017dc381d",
+    "assets/thaumcraft/textures/blocks/log_greatwood_top.png": "c2043194478f34b59cbd7efc8d9043d69d8997bc01e1ddebc22bb3d3f4ac1ac5",
+    "assets/thaumcraft/textures/blocks/log_greatwood.png": "498e85df34774634e2dc83095381f3ac281feced0f05be72ce3b99d808439769",
+    "assets/thaumcraft/textures/blocks/log_silverwood_top.png": "328fcba2015163a0639a5c5a6ed2b74171a50f80f27c86c3db0caba061e14651",
+    "assets/thaumcraft/textures/blocks/log_silverwood.png": "d8f9b480ec80bdc8f2b01df7a1c1dd5123546e292356e3c227cc9dbc0feb0dcf",
+    "assets/thaumcraft/textures/blocks/leaves_greatwood.png": "355e179437bffb8a5709650c3cb46ae3202be894fedf4ca8fc7300d07af717cb",
+    "assets/thaumcraft/textures/blocks/leaves_silverwood.png": "9e7b6e0f3af18372797dc3df7b80427c2e0145461f75c65d167b5e8ab41dd605",
+    "assets/thaumcraft/textures/blocks/shimmerleaf.png": "00fa2d090df020d196ac2918eb5724a18ae88fb7597a3f598588c1c94466c72a",
+    "assets/thaumcraft/textures/blocks/cinderpearl.png": "511b7c3baf184c20ca03dd07e4ad6dab38bf59e8413e4b370abc5c68ee2d2fd1",
+    "assets/thaumcraft/textures/blocks/vishroom.png": "f79b2ebea72fb36e0765dece0ec417399976d80deb2abe2ba2de11b5be2d890b",
+    "assets/thaumcraft/textures/blocks/plank_greatwood.png": "dc8d895ce511b4a78f27b5f01a17eb24e6ab4e6cc85361b409b7168c2f56e86b",
+    "assets/thaumcraft/textures/blocks/plank_silverwood.png": "b1b5abd15eae93724b03d661c67578733fb0f60d820f8a3388fb7f61bf1421ce",
+    "assets/thaumcraft/textures/blocks/amber_top.png": "9b23820b6dd86744941cd165b31d369748c9ed326f006febc6e5dc432435fa93",
+    "assets/thaumcraft/textures/blocks/amber_side.png": "94a054acfc153e045a851c0aab0fc7466ea187e3e8061798e9dbc6b02fde10b5",
+    "assets/thaumcraft/textures/blocks/amber_brick.png": "7ec6cdd0b2e47729cce0f0f086dc8e07b701822514398576e89533be447c9a0d",
+    "assets/thaumcraft/textures/blocks/flesh.png": "74132daf068008dfbad7ff58f818cfcf1f72418c51c35995555fec2ebf7ebbd5",
+    "assets/thaumcraft/textures/blocks/taint_fibres.png": "1eab5d353f05ca6e1d3d987b1a9f7c4139757eded284a0dc61f09d96b09cdab3",
+    "assets/thaumcraft/textures/blocks/taint_crust_0.png": "a40620ee65db1e62906ddda58b93f5a51c503d8dd81c438946ad5c415192f1f2",
+    "assets/thaumcraft/textures/blocks/taint_crust_1.png": "132e5e6b6a8e6b640680bcd11e4454b6967996a0156b7b725bb83cffcdb2789e",
+    "assets/thaumcraft/textures/blocks/taint_crust_2.png": "6a6615d70b2295e4602b565e283775b14c404546b080118bf5d83241ac7f1a48",
+    "assets/thaumcraft/textures/blocks/taint_soil_0.png": "c69acde4d9f62c00d3fd9ccaeb1c37c8aa5559e49844c4238a51a0d34e14266e",
+    "assets/thaumcraft/textures/blocks/taint_soil_1.png": "487888e3f8d9a1bf605f8c5816d24594fa0aed9060bfa213e867fa9afd6f8574",
+    "assets/thaumcraft/textures/blocks/taint_soil_2.png": "2f5d2be0f79850154a3ab30ac7f45cd2a09c3d3a5ea9e622501227f18a6323f6",
+    "assets/thaumcraft/textures/blocks/taint_rock.png": "9b6d0a44284e22323f74ee3fcaf843c97d9f162ec5a0c6edfe958007606574ec",
+    "assets/thaumcraft/textures/blocks/taint_geyser_side.png": "92a31f9ba32abc62bf737057ff3c8cc8d72fceafb50e2e6fb71f9b7cb035235c",
+    "assets/thaumcraft/textures/blocks/log_taintwood_top.png": "8edde370b91c764a61c9f22c5eb15254b860f7554c5aeea72eb2d73f316dc11b",
+    "assets/thaumcraft/textures/blocks/taint_geyser_top.png": "c36a9797555c1c21223a1aec5b6477dda8ee1a68439f166a0f306b5954661ec2",
+    "assets/thaumcraft/textures/blocks/log_taintwood_1.png": "3e343213466b67b2eb5549419003d8627d3f38e500b56e38a8bfdbf0600f6d35",
+    "assets/thaumcraft/textures/blocks/log_taintwood_2.png": "acef796692109276fe21fcdb73ad954d61e11e323c1b452c6719b5c45d249bff",
+    "assets/thaumcraft/textures/blocks/metal_brass.png": "14d72d418e260cd4825fc4077f8ab1077b644e4e536e8c235b7d0afa6372e260",
+    "assets/thaumcraft/textures/blocks/metal_thaumium.png": "4aa8cb2fd64d673d95857f212dc0ddd50ab98181165b6efd14b5ffbd383bde89",
+    "assets/thaumcraft/textures/blocks/metal_void.png": "1e000dcb6afb438310b0d2611a693b99ba919dc267b43fc11f87abaa205b1f76",
+    "assets/thaumcraft/textures/blocks/metal_alchemical.png": "346dd0000d48f1e287e8e01312b5df8d90eb2b5bf57ba058edfb6d65bca08e63",
+    "assets/thaumcraft/textures/blocks/metal_alchemical_advanced.png": "dc4cfef7ce77f578585d0b657c27bc4b12c2b0ca3e2379d9e0d6c8e8a9ef0e1a",
+    "assets/thaumcraft/textures/blocks/pillar_normal.png": "b547f3b64dd7a583914a1954ef2f5dfa546a067b0763ffe6d52ff76634bb6d94",
+    "assets/thaumcraft/models/block/pillar.obj": "db048355f80d16b1c7cccbe53a17f139ab8e56aa903d04443d9e75d41354e007",
+    "assets/thaumcraft/models/block/pillar.mtl": "fd5c59fec28a81aff4d56cde567bb0bca6b74029201690fa52f2ae8b57c36b5e",
+    "assets/thaumcraft/textures/blocks/pillar_ancient.png": "d0e5906d5fe861200acf10a3d0ed08b580380ef9213c3f684eefff875f38a502",
+    "assets/thaumcraft/textures/blocks/pillar_eldritch.png": "3340d6136dcebee9ba0ba006fd7ca0cb85aa0e4bc06a6dd75e37b10a215e3505",
+    "assets/thaumcraft/textures/blocks/matrix_speed.png": "d43c095b342115c78b1cf247e742ec8d48db4b4d42a5976b48adff8c3ddda12e",
+    "assets/thaumcraft/textures/blocks/matrix_cost.png": "8fe60111ba4880e542871631b26ed15de1ee807aeb2bc76fb2312a82297f0ecb",
+    "assets/thaumcraft/textures/items/banner_stand.png": "04142604f730e7f30ab1e7968e7d2d38602c02c4e9cb482e7d5008edbe9d1cb0",
+    "assets/thaumcraft/textures/items/banner_cultist.png": "09ad090bbfd651b38aa9c0f484dc2517fa21326114c4c1bfb0728a78239f1027",
+    "assets/thaumcraft/textures/blocks/vis_battery_0.png": "2643169ee5eb4d7f0c9129baa0543c8388f082f06263bedfc8bb769b9f592863",
+    "assets/thaumcraft/textures/blocks/vis_battery_1.png": "d2429bd5b4ea95262b714af11cb6f606d4af45434e6a53092e398d6a29f8a92f",
+    "assets/thaumcraft/textures/blocks/vis_battery_2.png": "96a2f957768ee5238b64eb1c736ec7deb619441343b9eb45fd0dc60102c5019c",
+    "assets/thaumcraft/textures/blocks/vis_battery_3.png": "e391332a06b3b8301a1310f2d63c474ad150513715d4993c857f11ef5c3ea65f",
+    "assets/thaumcraft/textures/blocks/vis_battery_4.png": "dd1dfceae686696ae76f0097cd9f2f5b16ca06bdfc20582c04f425b3c6fdd9a5",
+    "assets/thaumcraft/textures/blocks/inlay_connect_under.png": "283b2c184cfe72341d48e99056696a691c0def4f8d684e898de8930aa8e8c5a0",
+    "assets/thaumcraft/textures/blocks/inlay_connect1.png": "7342bc58bbec389fe42b0c6dda1596f89929d02487946620ec459ca247d4c28b",
+    "assets/thaumcraft/textures/blocks/arcane_workbench_charger.png": "53fb73d197bb3bd9c4e1fd23838af961a3e158e4f4fd9bae0456b76b1326bcd1",
+    "assets/thaumcraft/models/block/arcane_workbench_charger.obj": "ce20fbd2d2ea1bc9ec85c7b1b3de803b55545009723feb8bc62331d439741c3e",
+    "assets/thaumcraft/models/block/arcane_workbench_charger.mtl": "893575066980f362de0da8c21154878f3e22fcb7b87ad63a683c20ac9600833d",
+    "assets/thaumcraft/textures/blocks/dioptra_side_off.png": "4f69f3c70de0206e65fcfad5234ffe31e6bc73de9a04e9157c421a15601148c2",
+    "assets/thaumcraft/textures/blocks/dioptra_top.png": "0ced8266b4a73223c09be0db7627123bbbae9d3dd0ad082be2ec99ad08c5bb8a",
+    "assets/thaumcraft/textures/blocks/dioptra_side_on.png": "03be34a693e18e49f4cea132fc6da0a97824118f7759e9157881e47a9ceae922",
+    "assets/thaumcraft/textures/blocks/arcane_ear_toggle_off.png": "2cfb63f63baf95f6fd37a116459e36915440d689a78ff76042741ee5c76b3b61",
+    "assets/thaumcraft/textures/blocks/arcane_ear_toggle_on.png": "05c83059422d3aab6c95976d4662f1354d3d7b23592d0c052ac24953b598fcde",
+    "assets/thaumcraft/textures/blocks/lamp_off.png": "233bceba8d706a37a5b169301b5415496de0af4b8339f8ec431827f1b69e4c99",
+    "assets/thaumcraft/textures/blocks/lamp_on.png": "428ae9efabc0380a3c9a16b9b335537a531512b4ea3119c27aaab08a7ed6acc9",
+    "assets/thaumcraft/textures/blocks/lamp_fert_off.png": "ae74055e4ba4d3c9ffeded73196e812316f344d58cdc4f6b0ccec989c92bd773",
+    "assets/thaumcraft/textures/blocks/lamp_fert_on.png": "7e9374d6556ea0350330aecc233c86cb2d5235c4d7757e4a14d795bd18753b48",
+    "assets/thaumcraft/textures/blocks/lamp_grow_off.png": "0f085eb3a4aced90adccf9e63158a8ba67300421a2b656dfadc1da9cbbc50f7d",
+    "assets/thaumcraft/textures/blocks/lamp_grow_on.png": "42f9a487e00c703035c5fe721ee672fc64c564eeaf6fab380e2f6349d28866ef",
+    "assets/thaumcraft/textures/blocks/centrifuge.png": "441c126285ae0f89d44e1c974e5cc4174051e6b8eb35146869357d5933b1e7da",
+    "assets/thaumcraft/textures/blocks/bellows.png": "c12887c37a927fa26447cf2a2ffe279d76cc78a82b0e63bc675f161046976d0d",
+    "assets/thaumcraft/textures/models/chesthungry.png": "2b8dc5862822afa315c2c797e7b8081daa7be89517bdb36c69ff437ee04ac8cb",
+    "assets/thaumcraft/textures/blocks/tube.png": "e4e7a7a0fbbc025a1e3bacce21661e04fd398a79c582c6dae6ab5989271e585d",
+    "assets/thaumcraft/textures/blocks/base_metal.png": "78b06aeb88466da22154655e75333bad8685a8a4b89a6fa623ae84b64b7bb86b",
+    "assets/thaumcraft/textures/items/tube_normal.png": "595a5bf379112cbeeaa1e27ce441268bc2788ba42d2d5678ffc8657d880f9ae7",
+    "assets/thaumcraft/textures/items/tube_valve.png": "35e15a98e850d7983fdacc7a0c47e01771371085b1bf05d1bf1949a6857d54bd",
+    "assets/thaumcraft/textures/items/tube_restrict.png": "4576f3fef0451b70dd6967188b1e66bcc6b29759733584f3cb2015f8b6c0410d",
+    "assets/thaumcraft/textures/items/tube_oneway.png": "cb32b95645cd2ad655f3ee5c0c64baf985bbaa0cef03076f3ccf02e412ffccb9",
+    "assets/thaumcraft/textures/items/tube_filter.png": "c998b3e4841b8ef91edfbc4ac00f748fe7b3efd3fb15930e35583b676aa0851e",
+    "assets/thaumcraft/textures/items/tube_buffer.png": "a8f9c645178b69b73ccdf066eaee6ed905199d10733ff37c951d645bb5fb8d23",
+    "assets/thaumcraft/textures/blocks/infuser_normal.png": "9fb131e14369d67a30d8243c4a2a23a26229b43a7fc39e100763ae73105d35cc",
+    "assets/thaumcraft/textures/blocks/thaumatorium.png": "9481e61415c521e305d35a12a034f8ff2855c349c251d546f14ef8dd33ba976f",
+    "assets/thaumcraft/models/block/thaumatorium.obj": "89ab66770b7c44ff4522ed17ecfdf5746bfeb363952e910eac7f6635eb9177e6",
+    "assets/thaumcraft/models/block/thaumatorium.mtl": "56fd8640f07fe7ea764fd97aca739a87479a043de9714e7edb3babf250ce36b3",
+    "assets/thaumcraft/textures/blocks/spa_side.png": "1a029bfdc15cd4ba6dd44c83d7364ca499006d6f94806036c4fa204c2033a00c",
+    "assets/thaumcraft/textures/blocks/spa_top.png": "759852af1626df8803a34de1cbaee548519f7af76d69189ac716318d62fb1e50",
+    "assets/thaumcraft/textures/blocks/golembuilder.png": "5d8444402bf10d324bc3441d06e8e64f8d092e20ecb1176217366e2402d096ee",
+    "assets/thaumcraft/textures/blocks/base_stone.png": "5f0035f0fa4f28404ce7c066243bcc48aeef5922ffd9b89f6d1166bb90a115b1",
+    "assets/thaumcraft/models/block/golembuilder.obj": "ee701ec3bcfa64597806d2cf8750d768b6018a1a25c227140b368abf18196048",
+    "assets/thaumcraft/models/block/golembuilder.mtl": "32c5b46eb82ef5342e6f5d2ad45e2f4eda97d0ef941251f5e66aac671e1dea26",
+    "assets/thaumcraft/textures/blocks/mirrorframe.png": "0512b6a79b2af3b22174273b24da2836bd4f1cad1ffbc6d8356591693a2dd331",
+    "assets/thaumcraft/textures/blocks/mirrorpane.png": "e40cbf5daedfa1bdf7a3d9a4d09bb5306f5fb9f9f0d98e2a2ec3abc8548016a4",
+    "assets/thaumcraft/textures/blocks/mirrorframe2.png": "55573361752c58b751ad2e3badebec80b524eb0f760f49ca1d9d2cc0ee39387b",
+    "assets/thaumcraft/textures/blocks/potion_sprayer_bottom.png": "05b53f1ed24464d09a26ecd846d7f72c383130e4e848679ececea110b17fbfc5",
+    "assets/thaumcraft/textures/blocks/potion_sprayer_top.png": "c8e0a17b37f02f4c2c34bc9528c412fd2294db3448a2f3b1c08141b76f74c3d0",
+    "assets/thaumcraft/textures/blocks/potion_sprayer_side.png": "1b0b9a1d7eab85d272c723c499063aa60004342539b72ab3bca4745bc682e6d9",
+    "assets/thaumcraft/textures/blocks/rail_activator.png": "0b5da45ae1c69bd5d6f75dd8910f1b7c5b3dc6bc8916177f9da184dfbca4e62f",
+    "assets/thaumcraft/textures/blocks/condenser_off.png": "2c860a91b7187b54226ac7928250f89f7e1cbcabd5eec9d803ee96f46f3a885e",
+    "assets/thaumcraft/textures/blocks/flux_goo.png": "61ee827d9564d5a315655ffed41e6e98312b45cbab03c97416aba41f3a6ccf47",
+    "assets/thaumcraft/textures/blocks/animatedglow.png": "1a8e61c3605d49bec6317028a148cffa792a100aa4f9865694ce9713d874c3f7",
+    "assets/thaumcraft/textures/blocks/nitor.png": "231381c298d11ce9e65b5005a2971b212e3311b55df7535733ed422bd12a8fa0"
+  },
+  "limitations": [
+    "Catalog devices have visual state properties; TC6 operation is not implemented",
+    "Neutral render geometry is separate from operational effects",
+    "Mirror planes and crystal surface selection are neutral visual adaptations; no linked tunnel or crystal growth",
+    "Mirror planes and crystal surface selection are neutral visual adaptations; no linked tunnel or crystal growth"
+  ]
+}

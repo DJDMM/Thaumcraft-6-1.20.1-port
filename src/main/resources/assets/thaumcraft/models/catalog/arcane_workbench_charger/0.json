@@ -1,0 +1,11 @@
+{
+  "loader": "forge:obj",
+  "model": "thaumcraft:models/block/arcane_workbench_charger.obj",
+  "flip_v": false,
+  "textures": {
+    "texture": "thaumcraft:blocks/arcane_workbench_charger",
+    "particle": "thaumcraft:blocks/arcane_workbench_charger"
+  },
+  "render_type": "cutout",
+  "parent": "minecraft:block/block"
+}

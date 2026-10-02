@@ -1,0 +1,11 @@
+{
+  "type": "item_tag",
+  "targets": [
+    "forge:dusts/glowstone"
+  ],
+  "aspects": {
+    "sensus": 5,
+    "lux": 10
+  },
+  "_source": "Thaumcraft 6 ConfigAspects.java:149"
+}

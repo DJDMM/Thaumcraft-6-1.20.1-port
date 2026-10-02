@@ -1,0 +1,10 @@
+{
+  "values": [
+    "thaumcraft:metal_thaumium",
+    "thaumcraft:metal_void",
+    "thaumcraft:metal_brass",
+    "thaumcraft:stone_arcane",
+    "thaumcraft:stone_arcane_brick"
+  ],
+  "replace": false
+}

@@ -1,0 +1,12 @@
+{
+  "type": "entity",
+  "targets": [
+    "minecraft:witch"
+  ],
+  "aspects": {
+    "humanus": 15,
+    "praecantatio": 5,
+    "alkimia": 10
+  },
+  "_source": "Thaumcraft 6 ConfigAspects.java:79"
+}

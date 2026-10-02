@@ -1,0 +1,11 @@
+{
+  "type": "entity",
+  "targets": [
+    "minecraft:polar_bear"
+  ],
+  "aspects": {
+    "bestia": 15,
+    "gelum": 10
+  },
+  "_source": "Thaumcraft 6 ConfigAspects.java:89"
+}

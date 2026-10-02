@@ -1,0 +1,11 @@
+{
+  "type": "item_tag",
+  "targets": [
+    "forge:ingots/tin"
+  ],
+  "aspects": {
+    "metallum": 10,
+    "vitreus": 5
+  },
+  "_source": "Thaumcraft 6 ConfigAspects.java:155"
+}

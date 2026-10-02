@@ -1,0 +1,52 @@
+{
+  "variants": {
+    "charge=0": {
+      "model": "thaumcraft:catalog/pedestal_arcane/0"
+    },
+    "charge=1": {
+      "model": "thaumcraft:catalog/pedestal_arcane/1"
+    },
+    "charge=2": {
+      "model": "thaumcraft:catalog/pedestal_arcane/2"
+    },
+    "charge=3": {
+      "model": "thaumcraft:catalog/pedestal_arcane/3"
+    },
+    "charge=4": {
+      "model": "thaumcraft:catalog/pedestal_arcane/4"
+    },
+    "charge=5": {
+      "model": "thaumcraft:catalog/pedestal_arcane/5"
+    },
+    "charge=6": {
+      "model": "thaumcraft:catalog/pedestal_arcane/6"
+    },
+    "charge=7": {
+      "model": "thaumcraft:catalog/pedestal_arcane/7"
+    },
+    "charge=8": {
+      "model": "thaumcraft:catalog/pedestal_arcane/8"
+    },
+    "charge=9": {
+      "model": "thaumcraft:catalog/pedestal_arcane/9"
+    },
+    "charge=10": {
+      "model": "thaumcraft:catalog/pedestal_arcane/10"
+    },
+    "charge=11": {
+      "model": "thaumcraft:catalog/pedestal_arcane/11"
+    },
+    "charge=12": {
+      "model": "thaumcraft:catalog/pedestal_arcane/12"
+    },
+    "charge=13": {
+      "model": "thaumcraft:catalog/pedestal_arcane/13"
+    },
+    "charge=14": {
+      "model": "thaumcraft:catalog/pedestal_arcane/14"
+    },
+    "charge=15": {
+      "model": "thaumcraft:catalog/pedestal_arcane/15"
+    }
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "type": "item",
+  "targets": [
+    "minecraft:mushroom_stew"
+  ],
+  "aspects": {
+    "victus": 5
+  },
+  "_source": "Thaumcraft 6 ConfigAspects.java:380",
+  "derive": true
+}

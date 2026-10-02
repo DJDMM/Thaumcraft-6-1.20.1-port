@@ -1,0 +1,282 @@
+{
+  "version": "0.5.0-dev",
+  "requiredGameTests": 71,
+  "jsonFiles": 680,
+  "clientSmoke": {
+    "bookScreenshots": 20,
+    "theoryScreenshots": 21,
+    "archiveRecords": 156,
+    "bookSimulatedRequests": 3,
+    "theoryLocalRequests": 8,
+    "archiveRequests": 0,
+    "actualGuiScales": [
+      2,
+      3,
+      4
+    ]
+  },
+  "jar": {
+    "name": "thaumcraft-1.20.1-0.5.0-dev.jar",
+    "bytes": 3185390,
+    "sha256": "64b3bdd8fecdced26c5cd977457c4cc199244c7cf4c22a90839ac46bf0c4bd49"
+  },
+  "jarResourceByteParity": 995,
+  "originalResearchJsonByteParity": 8,
+  "originalTheoryTextureByteParity": 11,
+  "images": [
+    {
+      "name": "thaumcraft-research-basics.png",
+      "group": "book",
+      "bytes": 1174525,
+      "sha256": "58d368f3da3b5c978bd0d9895f07bb6dae07a632fc300ce06a33b0d30f97b372"
+    },
+    {
+      "name": "thaumcraft-research-start.png",
+      "group": "book",
+      "bytes": 556351,
+      "sha256": "e955253d37d4118e23c4fe3e72c7e92f8d1657831036f85ec8bda0626382514b"
+    },
+    {
+      "name": "thaumcraft-research-pending.png",
+      "group": "book",
+      "bytes": 556689,
+      "sha256": "13047006139a4b93fea47a75c07edb0e1b1717f522442aa6735928d93dfe368c"
+    },
+    {
+      "name": "thaumcraft-research-firststeps-stage1.png",
+      "group": "book",
+      "bytes": 570404,
+      "sha256": "0261a79424fa80defb07a8ab91affb52b341c0fd18431ee173f9d79e279767aa"
+    },
+    {
+      "name": "thaumcraft-research-firststeps-stage2.png",
+      "group": "book",
+      "bytes": 565307,
+      "sha256": "1a50d55ff8c3c6218745f5feeb9e36a474b3c10287cf119897e50b2535ddf4a5"
+    },
+    {
+      "name": "thaumcraft-research-firststeps-complete.png",
+      "group": "book",
+      "bytes": 571852,
+      "sha256": "16d8eb3884af77ae8d921e8dbf405ed18d614000c26d97566970ef2f99442b2c"
+    },
+    {
+      "name": "thaumcraft-research-unlockalchemy.png",
+      "group": "book",
+      "bytes": 573190,
+      "sha256": "38635fa506caa052ec384ce0041ddcff40d161e6da7e6cbf727ae6492c26bf54"
+    },
+    {
+      "name": "thaumcraft-research-alchemy.png",
+      "group": "book",
+      "bytes": 1318039,
+      "sha256": "9b475884c782469df99995a05d3c8502043fb747b566c6b51170b641f3c385e8"
+    },
+    {
+      "name": "thaumcraft-research-alumentum-cost.png",
+      "group": "book",
+      "bytes": 572300,
+      "sha256": "2c9d36eef5d87602ffe0993db0fcc1cd6485ec1240c27adbc788dbb5eedfcfee"
+    },
+    {
+      "name": "thaumcraft-research-native-lesson.png",
+      "group": "book",
+      "bytes": 561090,
+      "sha256": "b366801250ed27ea9e08cdbdf1149ddfe89df897f1927ee4e99540b11e8a0989"
+    },
+    {
+      "name": "thaumcraft-book-basics.png",
+      "group": "book",
+      "bytes": 1280032,
+      "sha256": "796e977de4f88869d6f037ca65dcf66b3eb13cf7eefceaadd96b5588ebe64d4c"
+    },
+    {
+      "name": "thaumcraft-book-alchemy.png",
+      "group": "book",
+      "bytes": 1360023,
+      "sha256": "a7fdc4d40221c237f152602f2936ab02382cee2d030d6eb90fdcd613273d02fa"
+    },
+    {
+      "name": "thaumcraft-book-eldritch.png",
+      "group": "book",
+      "bytes": 1083676,
+      "sha256": "84b129f635ef4fa188bb74209c08c83013d6376883bab35247509b720a726389"
+    },
+    {
+      "name": "thaumcraft-book-firststeps-page.png",
+      "group": "book",
+      "bytes": 574250,
+      "sha256": "c080b24c640b436ee506267a8f6d7aab14892332281a3db1587458cb4d9b558e"
+    },
+    {
+      "name": "thaumcraft-book-ore-illustration.png",
+      "group": "book",
+      "bytes": 565294,
+      "sha256": "7d8964cfe635431aa0f7cb6dfe7cddf94f26d2f6582afe8b86ca6595c5bd367d"
+    },
+    {
+      "name": "thaumcraft-book-practice-page.png",
+      "group": "book",
+      "bytes": 567944,
+      "sha256": "d8a45ac3fcd1f179e792d4773fca9fbb3fec229ef4d2ce41aa5b553fe2beee10"
+    },
+    {
+      "name": "thaumcraft-book-search.png",
+      "group": "book",
+      "bytes": 507021,
+      "sha256": "014bf5cf055ca993c525fa5a43d4471d5b184c75ea7265d29c87d6550d834c2b"
+    },
+    {
+      "name": "thaumcraft-book-search-result.png",
+      "group": "book",
+      "bytes": 574250,
+      "sha256": "c080b24c640b436ee506267a8f6d7aab14892332281a3db1587458cb4d9b558e"
+    },
+    {
+      "name": "thaumcraft-book-gui3.png",
+      "group": "book",
+      "bytes": 590110,
+      "sha256": "8a2c156ab731442a49de0b17681cbd5cb2316623818679ac449cf7b9b27445ad"
+    },
+    {
+      "name": "thaumcraft-book-gui4.png",
+      "group": "book",
+      "bytes": 565090,
+      "sha256": "e8d6c6dd80c6445ba04d40a5575f67e79afeb8ab8119c0ff6b9c4e5cd85c0582"
+    },
+    {
+      "name": "thaumcraft-theory-idle-gui2.png",
+      "group": "theory",
+      "bytes": 373072,
+      "sha256": "cbc34912aa9f028d3f75e0361e2a5d5be9dd3fde14eac69347037cd3e3e70787"
+    },
+    {
+      "name": "thaumcraft-theory-two-cards-gui2.png",
+      "group": "theory",
+      "bytes": 369682,
+      "sha256": "9c2dbb4812f7c1a552eb2632a2928fe84735639b28ce0ae4813298fd6251246d"
+    },
+    {
+      "name": "thaumcraft-theory-three-cards-gui2.png",
+      "group": "theory",
+      "bytes": 361583,
+      "sha256": "b26f55fd8fc64cd4ca675f75bccacdd2300612578e3ecca887c7b16ac39b2f2b"
+    },
+    {
+      "name": "thaumcraft-theory-complete-gui2.png",
+      "group": "theory",
+      "bytes": 388143,
+      "sha256": "d580028a6a72f5d2764d8e56ccd70d29d00c8d7b50bd566da7aa4d13f32afda9"
+    },
+    {
+      "name": "thaumcraft-theory-no-ink-gui2.png",
+      "group": "theory",
+      "bytes": 370667,
+      "sha256": "eeaae8249784e6810ba9e69546c4c983d96e253880451e3f554ea0b28c49e0b5"
+    },
+    {
+      "name": "thaumcraft-theory-no-paper-gui2.png",
+      "group": "theory",
+      "bytes": 450014,
+      "sha256": "f37b36c8342548fb70fceef980b373661bfc5f0203307e2df3a7897cffb14aa6"
+    },
+    {
+      "name": "thaumcraft-theory-pending-gui2.png",
+      "group": "theory",
+      "bytes": 369431,
+      "sha256": "c090a35374c4d12b4c9c66cc89972af0252cb5c6117f04e39090feb7dbd3dde1"
+    },
+    {
+      "name": "thaumcraft-theory-idle-gui3.png",
+      "group": "theory",
+      "bytes": 391591,
+      "sha256": "cf669a8009721f1b81460ec7e6474077d82684e0a038c361c16f1cb6d0553b16"
+    },
+    {
+      "name": "thaumcraft-theory-two-cards-gui3.png",
+      "group": "theory",
+      "bytes": 392202,
+      "sha256": "1187e4efa8735d4172ca972fe6873dead0dfb9967f719ed6d3716cd526c199a0"
+    },
+    {
+      "name": "thaumcraft-theory-three-cards-gui3.png",
+      "group": "theory",
+      "bytes": 407175,
+      "sha256": "42a81dd4a745ba3dae97b65ef214fe7af0e64cc93826c394af2eb092067165a2"
+    },
+    {
+      "name": "thaumcraft-theory-complete-gui3.png",
+      "group": "theory",
+      "bytes": 410056,
+      "sha256": "0ec8e3b2e2b01df32d58087c626198b5d4e8ca7f76a8db02d6e746e193a3575f"
+    },
+    {
+      "name": "thaumcraft-theory-no-ink-gui3.png",
+      "group": "theory",
+      "bytes": 392809,
+      "sha256": "3af07bb81b7cb7643ce761993ac5c22f0bcffc55c211acd9ac816a357af39d29"
+    },
+    {
+      "name": "thaumcraft-theory-no-paper-gui3.png",
+      "group": "theory",
+      "bytes": 526003,
+      "sha256": "7e5d6d78ffdc16f0a1919b81ece065c4592ed0f72dadb355e6fdb2e1c68cd591"
+    },
+    {
+      "name": "thaumcraft-theory-pending-gui3.png",
+      "group": "theory",
+      "bytes": 391982,
+      "sha256": "47c40e146393d233d4eb5f80b9cba6758b4559afff141c380e6fd4be53be60dc"
+    },
+    {
+      "name": "thaumcraft-theory-idle-gui4.png",
+      "group": "theory",
+      "bytes": 400902,
+      "sha256": "59da7f402ac8565ce7108541eb7ebae203d69cb07c834042e84e392224cf6086"
+    },
+    {
+      "name": "thaumcraft-theory-two-cards-gui4.png",
+      "group": "theory",
+      "bytes": 402369,
+      "sha256": "3e49035d9d59c575c8cfcea3a6e913f5a9339570e4e5866554d5dd34c63b0897"
+    },
+    {
+      "name": "thaumcraft-theory-three-cards-gui4.png",
+      "group": "theory",
+      "bytes": 524326,
+      "sha256": "5ef6c3f1a56f984e9bc5dfece5fe436b4e5bcc71f433e8e432e0d513808de95a"
+    },
+    {
+      "name": "thaumcraft-theory-complete-gui4.png",
+      "group": "theory",
+      "bytes": 419185,
+      "sha256": "04a81fd2b9f150e542778bbd59c7914dd263d450c90aaf55e8365068a1c042fb"
+    },
+    {
+      "name": "thaumcraft-theory-no-ink-gui4.png",
+      "group": "theory",
+      "bytes": 403772,
+      "sha256": "ca4bc15969d2f2d9bc6a085206064bd2018226d3cecd5b68abb25eed1c9285d4"
+    },
+    {
+      "name": "thaumcraft-theory-no-paper-gui4.png",
+      "group": "theory",
+      "bytes": 540697,
+      "sha256": "c13fb381c6a051f627f621190d3780af7d208793c4392fff9427a05f009abcc0"
+    },
+    {
+      "name": "thaumcraft-theory-pending-gui4.png",
+      "group": "theory",
+      "bytes": 402175,
+      "sha256": "38635db08487c5f2e298f817351c450336176790cf841f667fe54eb6981688f8"
+    }
+  ],
+  "limitations": [
+    "Prepared-state GUI smoke without a world or network",
+    "No two-client network test",
+    "Six canonical research entries",
+    "Nine of 33 registered cards; one of 14 aids",
+    "Temporary JSON table model; no original selection animation",
+    "No full survival playthrough or 1.12.2 world migration"
+  ]
+}

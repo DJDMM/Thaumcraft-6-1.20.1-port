@@ -1,0 +1,8 @@
+{
+  "type": "forge:add_features",
+  "biomes": "#thaumcraft:has_silverwood",
+  "features": [
+    "thaumcraft:silverwood_tree"
+  ],
+  "step": "vegetal_decoration"
+}

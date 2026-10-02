@@ -1,0 +1,12 @@
+{
+  "type": "item",
+  "targets": [
+    "minecraft:spider_eye"
+  ],
+  "aspects": {
+    "sensus": 5,
+    "bestia": 5,
+    "mortuus": 5
+  },
+  "_source": "Thaumcraft 6 ConfigAspects.java:294"
+}

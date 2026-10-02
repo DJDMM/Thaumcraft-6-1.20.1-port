@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "II",
+    "SI",
+    "S "
+  ],
+  "key": {
+    "I": {
+      "tag": "forge:ingots/thaumium"
+    },
+    "S": {
+      "tag": "forge:rods/wooden"
+    }
+  },
+  "result": {
+    "item": "thaumcraft:thaumium_axe"
+  }
+}

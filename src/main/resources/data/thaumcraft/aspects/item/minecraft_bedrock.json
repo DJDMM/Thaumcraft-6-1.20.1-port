@@ -1,0 +1,13 @@
+{
+  "type": "item",
+  "targets": [
+    "minecraft:bedrock"
+  ],
+  "aspects": {
+    "vacuos": 25,
+    "perditio": 25,
+    "terra": 25,
+    "tenebrae": 25
+  },
+  "_source": "Thaumcraft 6 ConfigAspects.java:184"
+}

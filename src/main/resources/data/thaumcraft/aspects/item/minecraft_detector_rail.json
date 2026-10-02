@@ -1,0 +1,12 @@
+{
+  "type": "item",
+  "targets": [
+    "minecraft:detector_rail"
+  ],
+  "aspects": {
+    "machina": 5,
+    "sensus": 1
+  },
+  "_source": "Thaumcraft 6 ConfigAspects.java:414",
+  "derive": true
+}

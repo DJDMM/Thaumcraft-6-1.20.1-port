@@ -1,0 +1,14 @@
+{
+  "research": "HEDGEALCHEMY@1",
+  "catalyst": {
+    "item": "minecraft:rotten_flesh"
+  },
+  "result": {
+    "item": "minecraft:leather",
+    "count": 1
+  },
+  "aspects": {
+    "aer": 3,
+    "bestia": 3
+  }
+}

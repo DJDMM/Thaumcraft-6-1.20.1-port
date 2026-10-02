@@ -1,0 +1,20 @@
+{
+  "research": "ALUMENTUM",
+  "catalyst": [
+    {
+      "item": "minecraft:coal"
+    },
+    {
+      "item": "minecraft:charcoal"
+    }
+  ],
+  "result": {
+    "item": "thaumcraft:alumentum",
+    "count": 1
+  },
+  "aspects": {
+    "potentia": 10,
+    "ignis": 10,
+    "perditio": 5
+  }
+}

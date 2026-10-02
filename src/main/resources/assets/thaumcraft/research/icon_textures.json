@@ -1,0 +1,2067 @@
+{
+  "icons": {
+    "focus:thaumcraft.AIR": {
+      "texture": "thaumcraft:textures/foci/air.png",
+      "background": "thaumcraft:textures/foci/_effect.png",
+      "color": 16777086,
+      "kind": "focus",
+      "width": 32,
+      "height": 32,
+      "animate": false
+    },
+    "focus:thaumcraft.BOLT": {
+      "texture": "thaumcraft:textures/foci/bolt.png",
+      "background": "thaumcraft:textures/foci/_medium.png",
+      "color": 11377029,
+      "kind": "focus",
+      "width": 32,
+      "height": 32,
+      "animate": false
+    },
+    "focus:thaumcraft.BREAK": {
+      "texture": "thaumcraft:textures/foci/break.png",
+      "background": "thaumcraft:textures/foci/_effect.png",
+      "color": 9063176,
+      "kind": "focus",
+      "width": 32,
+      "height": 32,
+      "animate": false
+    },
+    "focus:thaumcraft.CLOUD": {
+      "texture": "thaumcraft:textures/foci/cloud.png",
+      "background": "thaumcraft:textures/foci/_medium.png",
+      "color": 10071429,
+      "kind": "focus",
+      "width": 32,
+      "height": 32,
+      "animate": false
+    },
+    "focus:thaumcraft.CURSE": {
+      "texture": "thaumcraft:textures/foci/curse.png",
+      "background": "thaumcraft:textures/foci/_effect.png",
+      "color": 6946821,
+      "kind": "focus",
+      "width": 32,
+      "height": 32,
+      "animate": false
+    },
+    "focus:thaumcraft.EARTH": {
+      "texture": "thaumcraft:textures/foci/earth.png",
+      "background": "thaumcraft:textures/foci/_effect.png",
+      "color": 5685248,
+      "kind": "focus",
+      "width": 32,
+      "height": 32,
+      "animate": false
+    },
+    "focus:thaumcraft.EXCHANGE": {
+      "texture": "thaumcraft:textures/foci/exchange.png",
+      "background": "thaumcraft:textures/foci/_effect.png",
+      "color": 5735255,
+      "kind": "focus",
+      "width": 32,
+      "height": 32,
+      "animate": false
+    },
+    "focus:thaumcraft.FLUX": {
+      "texture": "thaumcraft:textures/foci/flux.png",
+      "background": "thaumcraft:textures/foci/_effect.png",
+      "color": 8388736,
+      "kind": "focus",
+      "width": 32,
+      "height": 32,
+      "animate": false
+    },
+    "focus:thaumcraft.FROST": {
+      "texture": "thaumcraft:textures/foci/frost.png",
+      "background": "thaumcraft:textures/foci/_effect.png",
+      "color": 14811135,
+      "kind": "focus",
+      "width": 32,
+      "height": 32,
+      "animate": false
+    },
+    "focus:thaumcraft.HEAL": {
+      "texture": "thaumcraft:textures/foci/heal.png",
+      "background": "thaumcraft:textures/foci/_effect.png",
+      "color": 14548997,
+      "kind": "focus",
+      "width": 32,
+      "height": 32,
+      "animate": false
+    },
+    "focus:thaumcraft.MINE": {
+      "texture": "thaumcraft:textures/foci/mine.png",
+      "background": "thaumcraft:textures/foci/_medium.png",
+      "color": 8760709,
+      "kind": "focus",
+      "width": 32,
+      "height": 32,
+      "animate": false
+    },
+    "focus:thaumcraft.PLAN": {
+      "texture": "thaumcraft:textures/foci/plan.png",
+      "background": "thaumcraft:textures/foci/_medium.png",
+      "color": 8760728,
+      "kind": "focus",
+      "width": 32,
+      "height": 32,
+      "animate": false
+    },
+    "focus:thaumcraft.PROJECTILE": {
+      "texture": "thaumcraft:textures/foci/projectile.png",
+      "background": "thaumcraft:textures/foci/_medium.png",
+      "color": 11382149,
+      "kind": "focus",
+      "width": 32,
+      "height": 32,
+      "animate": false
+    },
+    "focus:thaumcraft.RIFT": {
+      "texture": "thaumcraft:textures/foci/rift.png",
+      "background": "thaumcraft:textures/foci/_effect.png",
+      "color": 3084645,
+      "kind": "focus",
+      "width": 32,
+      "height": 32,
+      "animate": false
+    },
+    "focus:thaumcraft.SCATTER": {
+      "texture": "thaumcraft:textures/foci/scatter.png",
+      "background": null,
+      "color": 10066329,
+      "kind": "focus",
+      "width": 32,
+      "height": 32,
+      "animate": false
+    },
+    "focus:thaumcraft.SPELLBAT": {
+      "texture": "thaumcraft:textures/foci/spellbat.png",
+      "background": "thaumcraft:textures/foci/_medium.png",
+      "color": 8760748,
+      "kind": "focus",
+      "width": 32,
+      "height": 32,
+      "animate": false
+    },
+    "focus:thaumcraft.SPLITTARGET": {
+      "texture": "thaumcraft:textures/foci/split_target.png",
+      "background": null,
+      "color": 10066329,
+      "kind": "focus",
+      "width": 32,
+      "height": 32,
+      "animate": false
+    },
+    "focus:thaumcraft.SPLITTRAJECTORY": {
+      "texture": "thaumcraft:textures/foci/split_trajectory.png",
+      "background": null,
+      "color": 10066329,
+      "kind": "focus",
+      "width": 32,
+      "height": 32,
+      "animate": false
+    },
+    "minecraft:hardened_clay": {
+      "item": "minecraft:terracotta"
+    },
+    "minecraft:iron_pickaxe": {
+      "item": "minecraft:iron_pickaxe"
+    },
+    "thaumcraft:alumentum": {
+      "item": "thaumcraft:alumentum",
+      "texture": "thaumcraft:textures/items/alumentum.png",
+      "kind": "item-sprite",
+      "width": 16,
+      "height": 16,
+      "animate": false
+    },
+    "thaumcraft:amulet_vis;1;1": {
+      "item": "thaumcraft:amulet_vis",
+      "texture": "thaumcraft:textures/items/amulet_vis.png",
+      "kind": "item-sprite",
+      "width": 16,
+      "height": 128,
+      "animate": true
+    },
+    "thaumcraft:arcane_ear": {
+      "item": "thaumcraft:arcane_ear",
+      "texture": "thaumcraft:textures/blocks/arcane_ear_off.png",
+      "kind": "model-surface",
+      "width": 16,
+      "height": 16,
+      "animate": false
+    },
+    "thaumcraft:arcane_workbench_charger": {
+      "item": "thaumcraft:arcane_workbench_charger",
+      "texture": "thaumcraft:textures/blocks/arcane_workbench_charger.png",
+      "kind": "model-surface",
+      "width": 32,
+      "height": 32,
+      "animate": false
+    },
+    "thaumcraft:bath_salts": {
+      "item": "thaumcraft:bath_salts",
+      "texture": "thaumcraft:textures/items/bath_salts.png",
+      "kind": "item-sprite",
+      "width": 16,
+      "height": 64,
+      "animate": true
+    },
+    "thaumcraft:bellows": {
+      "item": "thaumcraft:bellows",
+      "texture": "thaumcraft:textures/blocks/bellows.png",
+      "kind": "model-surface",
+      "width": 128,
+      "height": 128,
+      "animate": false
+    },
+    "thaumcraft:bottle_taint": {
+      "item": "thaumcraft:bottle_taint",
+      "texture": "thaumcraft:textures/items/bottle_taint.png",
+      "kind": "item-sprite",
+      "width": 16,
+      "height": 16,
+      "animate": false
+    },
+    "thaumcraft:causality_collapser": {
+      "item": "thaumcraft:causality_collapser",
+      "texture": "thaumcraft:textures/items/causality_collapser.png",
+      "kind": "item-sprite",
+      "width": 16,
+      "height": 128,
+      "animate": true
+    },
+    "thaumcraft:centrifuge": {
+      "item": "thaumcraft:centrifuge",
+      "texture": "thaumcraft:textures/blocks/centrifuge.png",
+      "kind": "model-surface",
+      "width": 16,
+      "height": 16,
+      "animate": false
+    },
+    "thaumcraft:charm_undying": {
+      "item": "thaumcraft:charm_undying",
+      "texture": "thaumcraft:textures/items/charm_undying.png",
+      "kind": "item-sprite",
+      "width": 16,
+      "height": 16,
+      "animate": false
+    },
+    "thaumcraft:cloud_ring": {
+      "item": "thaumcraft:cloud_ring",
+      "texture": "thaumcraft:textures/items/cloud_ring.png",
+      "kind": "item-sprite",
+      "width": 16,
+      "height": 16,
+      "animate": false
+    },
+    "thaumcraft:condenser": {
+      "item": "thaumcraft:condenser",
+      "texture": "thaumcraft:textures/blocks/condenser.png",
+      "kind": "model-surface",
+      "width": 32,
+      "height": 32,
+      "animate": false
+    },
+    "thaumcraft:crucible": {
+      "item": "thaumcraft:crucible",
+      "texture": "thaumcraft:textures/blocks/crucible_side.png",
+      "kind": "model-surface",
+      "width": 16,
+      "height": 16,
+      "animate": false
+    },
+    "thaumcraft:crystal_aer": {
+      "item": "thaumcraft:crystal_aer",
+      "texture": "thaumcraft:textures/items/crystal_planter.png",
+      "kind": "item-sprite",
+      "width": 16,
+      "height": 16,
+      "animate": false
+    },
+    "thaumcraft:crystal_aqua": {
+      "item": "thaumcraft:crystal_aqua",
+      "texture": "thaumcraft:textures/items/crystal_planter.png",
+      "kind": "item-sprite",
+      "width": 16,
+      "height": 16,
+      "animate": false
+    },
+    "thaumcraft:crystal_ignis": {
+      "item": "thaumcraft:crystal_ignis",
+      "texture": "thaumcraft:textures/items/crystal_planter.png",
+      "kind": "item-sprite",
+      "width": 16,
+      "height": 16,
+      "animate": false
+    },
+    "thaumcraft:crystal_ordo": {
+      "item": "thaumcraft:crystal_ordo",
+      "texture": "thaumcraft:textures/items/crystal_planter.png",
+      "kind": "item-sprite",
+      "width": 16,
+      "height": 16,
+      "animate": false
+    },
+    "thaumcraft:crystal_perditio": {
+      "item": "thaumcraft:crystal_perditio",
+      "texture": "thaumcraft:textures/items/crystal_planter.png",
+      "kind": "item-sprite",
+      "width": 16,
+      "height": 16,
+      "animate": false
+    },
+    "thaumcraft:crystal_terra": {
+      "item": "thaumcraft:crystal_terra",
+      "texture": "thaumcraft:textures/items/crystal_planter.png",
+      "kind": "item-sprite",
+      "width": 16,
+      "height": 16,
+      "animate": false
+    },
+    "thaumcraft:curio;1;6": {
+      "item": "thaumcraft:curio",
+      "texture": "thaumcraft:textures/items/crimson_rites.png",
+      "kind": "item-sprite",
+      "width": 32,
+      "height": 32,
+      "animate": false
+    },
+    "thaumcraft:curiosity_band": {
+      "item": "thaumcraft:curiosity_band",
+      "texture": "thaumcraft:textures/items/curiosity_band.png",
+      "kind": "item-sprite",
+      "width": 16,
+      "height": 16,
+      "animate": false
+    },
+    "thaumcraft:dioptra": {
+      "item": "thaumcraft:dioptra",
+      "texture": "thaumcraft:textures/blocks/dioptra_side_on.png",
+      "kind": "model-surface",
+      "width": 16,
+      "height": 16,
+      "animate": false
+    },
+    "thaumcraft:elemental_axe": {
+      "item": "thaumcraft:elemental_axe",
+      "texture": "thaumcraft:textures/items/elemental_axe.png",
+      "kind": "item-sprite",
+      "width": 16,
+      "height": 16,
+      "animate": false
+    },
+    "thaumcraft:elemental_hoe": {
+      "item": "thaumcraft:elemental_hoe",
+      "texture": "thaumcraft:textures/items/elemental_hoe.png",
+      "kind": "item-sprite",
+      "width": 16,
+      "height": 16,
+      "animate": false
+    },
+    "thaumcraft:elemental_pick": {
+      "item": "thaumcraft:elemental_pick",
+      "texture": "thaumcraft:textures/items/elemental_pick.png",
+      "kind": "item-sprite",
+      "width": 16,
+      "height": 16,
+      "animate": false
+    },
+    "thaumcraft:elemental_shovel": {
+      "item": "thaumcraft:elemental_shovel",
+      "texture": "thaumcraft:textures/items/elemental_shovel.png",
+      "kind": "item-sprite",
+      "width": 16,
+      "height": 16,
+      "animate": false
+    },
+    "thaumcraft:elemental_sword": {
+      "item": "thaumcraft:elemental_sword",
+      "texture": "thaumcraft:textures/items/elemental_sword.png",
+      "kind": "item-sprite",
+      "width": 16,
+      "height": 16,
+      "animate": false
+    },
+    "thaumcraft:essentia_input": {
+      "item": "thaumcraft:essentia_input",
+      "texture": "thaumcraft:textures/blocks/essentia_input.png",
+      "kind": "model-surface",
+      "width": 16,
+      "height": 16,
+      "animate": false
+    },
+    "thaumcraft:everfull_urn": {
+      "item": "thaumcraft:everfull_urn",
+      "texture": "thaumcraft:textures/blocks/everfull_urn.png",
+      "kind": "model-surface",
+      "width": 16,
+      "height": 16,
+      "animate": false
+    },
+    "thaumcraft:focus_2": {
+      "item": "thaumcraft:focus_2",
+      "texture": "thaumcraft:textures/items/focus_2.png",
+      "kind": "item-sprite",
+      "width": 16,
+      "height": 16,
+      "animate": false
+    },
+    "thaumcraft:focus_3": {
+      "item": "thaumcraft:focus_3",
+      "texture": "thaumcraft:textures/items/focus_3.png",
+      "kind": "item-sprite",
+      "width": 16,
+      "height": 16,
+      "animate": false
+    },
+    "thaumcraft:focus_pouch": {
+      "item": "thaumcraft:focus_pouch",
+      "texture": "thaumcraft:textures/items/focus_pouch.png",
+      "kind": "item-sprite",
+      "width": 16,
+      "height": 16,
+      "animate": false
+    },
+    "thaumcraft:fortress_helm": {
+      "item": "thaumcraft:fortress_helm",
+      "texture": "thaumcraft:textures/items/fortress_helm.png",
+      "kind": "item-sprite",
+      "width": 16,
+      "height": 16,
+      "animate": false
+    },
+    "thaumcraft:grapple_gun": {
+      "item": "thaumcraft:grapple_gun",
+      "texture": "thaumcraft:textures/items/grapple_gun.png",
+      "kind": "item-sprite",
+      "width": 16,
+      "height": 16,
+      "animate": false
+    },
+    "thaumcraft:hand_mirror": {
+      "item": "thaumcraft:hand_mirror",
+      "texture": "thaumcraft:textures/items/hand_mirror.png",
+      "kind": "item-sprite",
+      "width": 16,
+      "height": 16,
+      "animate": false
+    },
+    "thaumcraft:hungry_chest": {
+      "item": "thaumcraft:hungry_chest",
+      "texture": "thaumcraft:textures/models/chesthungry.png",
+      "kind": "model-surface",
+      "width": 64,
+      "height": 64,
+      "animate": false
+    },
+    "thaumcraft:infernal_furnace": {
+      "item": "thaumcraft:infernal_furnace",
+      "texture": "thaumcraft:textures/blocks/infernal_furnace.png",
+      "kind": "model-surface",
+      "width": 128,
+      "height": 128,
+      "animate": false
+    },
+    "thaumcraft:infusion_matrix": {
+      "item": "thaumcraft:infusion_matrix",
+      "texture": "thaumcraft:textures/blocks/infuser_normal.png",
+      "kind": "model-surface",
+      "width": 64,
+      "height": 64,
+      "animate": false
+    },
+    "thaumcraft:ingot_brass": {
+      "item": "thaumcraft:ingot_brass",
+      "texture": "thaumcraft:textures/items/ingot_brass.png",
+      "kind": "item-sprite",
+      "width": 16,
+      "height": 16,
+      "animate": false
+    },
+    "thaumcraft:ingot_thaumium": {
+      "item": "thaumcraft:ingot_thaumium",
+      "texture": "thaumcraft:textures/items/ingot_thaumium.png",
+      "kind": "item-sprite",
+      "width": 16,
+      "height": 16,
+      "animate": false
+    },
+    "thaumcraft:jar_brain": {
+      "item": "thaumcraft:jar_brain",
+      "texture": "thaumcraft:textures/blocks/jar_side.png",
+      "kind": "model-surface",
+      "width": 16,
+      "height": 16,
+      "animate": false
+    },
+    "thaumcraft:jar_normal": {
+      "item": "thaumcraft:jar_normal",
+      "texture": "thaumcraft:textures/blocks/jar_side.png",
+      "kind": "model-surface",
+      "width": 16,
+      "height": 16,
+      "animate": false
+    },
+    "thaumcraft:lamp_arcane": {
+      "item": "thaumcraft:lamp_arcane",
+      "texture": "thaumcraft:textures/blocks/lamp_off.png",
+      "kind": "model-surface",
+      "width": 16,
+      "height": 16,
+      "animate": false
+    },
+    "thaumcraft:lamp_fertility": {
+      "item": "thaumcraft:lamp_fertility",
+      "texture": "thaumcraft:textures/blocks/lamp_fert_off.png",
+      "kind": "model-surface",
+      "width": 16,
+      "height": 16,
+      "animate": false
+    },
+    "thaumcraft:lamp_growth": {
+      "item": "thaumcraft:lamp_growth",
+      "texture": "thaumcraft:textures/blocks/lamp_grow_off.png",
+      "kind": "model-surface",
+      "width": 16,
+      "height": 16,
+      "animate": false
+    },
+    "thaumcraft:levitator": {
+      "item": "thaumcraft:levitator",
+      "texture": "thaumcraft:textures/blocks/levitator_side_off.png",
+      "kind": "model-surface",
+      "width": 16,
+      "height": 16,
+      "animate": false
+    },
+    "thaumcraft:log_greatwood": {
+      "item": "thaumcraft:log_greatwood",
+      "texture": "thaumcraft:textures/blocks/log_greatwood.png",
+      "kind": "model-surface",
+      "width": 16,
+      "height": 16,
+      "animate": false
+    },
+    "thaumcraft:matrix_cost": {
+      "item": "thaumcraft:matrix_cost",
+      "texture": "thaumcraft:textures/blocks/matrix_cost.png",
+      "kind": "model-surface",
+      "width": 16,
+      "height": 16,
+      "animate": false
+    },
+    "thaumcraft:matrix_speed": {
+      "item": "thaumcraft:matrix_speed",
+      "texture": "thaumcraft:textures/blocks/matrix_speed.png",
+      "kind": "model-surface",
+      "width": 16,
+      "height": 16,
+      "animate": false
+    },
+    "thaumcraft:mind": {
+      "item": "thaumcraft:mind",
+      "texture": "thaumcraft:textures/items/mind_clockwork.png",
+      "kind": "item-sprite",
+      "width": 16,
+      "height": 80,
+      "animate": true
+    },
+    "thaumcraft:mind;1;1": {
+      "item": "thaumcraft:mind",
+      "texture": "thaumcraft:textures/items/mind_biothaumic.png",
+      "kind": "item-sprite",
+      "width": 16,
+      "height": 80,
+      "animate": true
+    },
+    "thaumcraft:mirror": {
+      "item": "thaumcraft:mirror",
+      "texture": "thaumcraft:textures/blocks/mirrorframe.png",
+      "kind": "item-sprite",
+      "width": 16,
+      "height": 16,
+      "animate": false
+    },
+    "thaumcraft:mirror_essentia": {
+      "item": "thaumcraft:mirror_essentia",
+      "texture": "thaumcraft:textures/blocks/mirrorframe2.png",
+      "kind": "item-sprite",
+      "width": 16,
+      "height": 16,
+      "animate": false
+    },
+    "thaumcraft:module": {
+      "item": "thaumcraft:module",
+      "texture": "thaumcraft:textures/items/module_vision.png",
+      "kind": "item-sprite",
+      "width": 16,
+      "height": 16,
+      "animate": false
+    },
+    "thaumcraft:nitor": {
+      "item": "thaumcraft:nitor",
+      "texture": "thaumcraft:textures/blocks/nitor.png",
+      "kind": "item-sprite",
+      "width": 16,
+      "height": 16,
+      "animate": false
+    },
+    "thaumcraft:pattern_crafter": {
+      "item": "thaumcraft:pattern_crafter",
+      "texture": "thaumcraft:textures/blocks/pattern_crafter.png",
+      "kind": "model-surface",
+      "width": 16,
+      "height": 16,
+      "animate": false
+    },
+    "thaumcraft:paving_stone_barrier": {
+      "item": "thaumcraft:paving_stone_barrier",
+      "texture": "thaumcraft:textures/blocks/paving_stone_barrier.png",
+      "kind": "model-surface",
+      "width": 16,
+      "height": 16,
+      "animate": true
+    },
+    "thaumcraft:paving_stone_travel": {
+      "item": "thaumcraft:paving_stone_travel",
+      "texture": "thaumcraft:textures/blocks/paving_stone_travel.png",
+      "kind": "model-surface",
+      "width": 16,
+      "height": 16,
+      "animate": true
+    },
+    "thaumcraft:plate": {
+      "item": "thaumcraft:plate_brass",
+      "texture": "thaumcraft:textures/items/plate_brass.png",
+      "kind": "item-sprite",
+      "width": 16,
+      "height": 16,
+      "animate": false
+    },
+    "thaumcraft:plate;1;1": {
+      "item": "thaumcraft:plate_iron",
+      "texture": "thaumcraft:textures/items/plate_iron.png",
+      "kind": "item-sprite",
+      "width": 16,
+      "height": 16,
+      "animate": false
+    },
+    "thaumcraft:plate;1;2": {
+      "item": "thaumcraft:plate_thaumium",
+      "texture": "thaumcraft:textures/items/plate_thaumium.png",
+      "kind": "item-sprite",
+      "width": 16,
+      "height": 16,
+      "animate": false
+    },
+    "thaumcraft:plate;1;3": {
+      "item": "thaumcraft:plate_void",
+      "texture": "thaumcraft:textures/items/plate_void.png",
+      "kind": "item-sprite",
+      "width": 16,
+      "height": 16,
+      "animate": false
+    },
+    "thaumcraft:potion_sprayer": {
+      "item": "thaumcraft:potion_sprayer",
+      "texture": "thaumcraft:textures/blocks/potion_sprayer_side.png",
+      "kind": "model-surface",
+      "width": 16,
+      "height": 16,
+      "animate": false
+    },
+    "thaumcraft:primal_crusher": {
+      "item": "thaumcraft:primal_crusher",
+      "texture": "thaumcraft:textures/items/primal_crusher.png",
+      "kind": "item-sprite",
+      "width": 16,
+      "height": 16,
+      "animate": false
+    },
+    "thaumcraft:primordial_pearl": {
+      "item": "thaumcraft:primordial_pearl",
+      "texture": "thaumcraft:textures/items/primordial_pearl.png",
+      "kind": "item-sprite",
+      "width": 16,
+      "height": 256,
+      "animate": true
+    },
+    "thaumcraft:recharge_pedestal": {
+      "item": "thaumcraft:recharge_pedestal",
+      "texture": "thaumcraft:textures/blocks/recharge_pedestal_side.png",
+      "kind": "model-surface",
+      "width": 16,
+      "height": 16,
+      "animate": false
+    },
+    "thaumcraft:redstone_relay": {
+      "item": "thaumcraft:redstone_relay",
+      "texture": "thaumcraft:textures/blocks/levitator_side_off.png",
+      "kind": "model-surface",
+      "width": 16,
+      "height": 16,
+      "animate": false
+    },
+    "thaumcraft:sanity_soap": {
+      "item": "thaumcraft:sanity_soap",
+      "texture": "thaumcraft:textures/items/sanity_soap.png",
+      "kind": "item-sprite",
+      "width": 16,
+      "height": 16,
+      "animate": false
+    },
+    "thaumcraft:sapling_greatwood": {
+      "item": "thaumcraft:sapling_greatwood",
+      "texture": "thaumcraft:textures/blocks/sapling_greatwood.png",
+      "kind": "item-sprite",
+      "width": 16,
+      "height": 16,
+      "animate": false
+    },
+    "thaumcraft:sapling_silverwood": {
+      "item": "thaumcraft:sapling_silverwood",
+      "texture": "thaumcraft:textures/blocks/sapling_silverwood.png",
+      "kind": "item-sprite",
+      "width": 16,
+      "height": 16,
+      "animate": false
+    },
+    "thaumcraft:seal": {
+      "item": "thaumcraft:seal",
+      "texture": "thaumcraft:textures/items/seals/seal_blank.png",
+      "kind": "item-sprite",
+      "width": 16,
+      "height": 16,
+      "animate": false
+    },
+    "thaumcraft:smelter_aux": {
+      "item": "thaumcraft:smelter_aux",
+      "texture": "thaumcraft:textures/blocks/smelter_aux.png",
+      "kind": "model-surface",
+      "width": 16,
+      "height": 16,
+      "animate": false
+    },
+    "thaumcraft:smelter_basic": {
+      "item": "thaumcraft:smelter_basic",
+      "texture": "thaumcraft:textures/blocks/smelter_basic_side.png",
+      "kind": "model-surface",
+      "width": 16,
+      "height": 16,
+      "animate": false
+    },
+    "thaumcraft:smelter_thaumium": {
+      "item": "thaumcraft:smelter_thaumium",
+      "texture": "thaumcraft:textures/blocks/smelter_thaumium_side.png",
+      "kind": "model-surface",
+      "width": 16,
+      "height": 16,
+      "animate": false
+    },
+    "thaumcraft:smelter_vent": {
+      "item": "thaumcraft:smelter_vent",
+      "texture": "thaumcraft:textures/blocks/smelter_vent.png",
+      "kind": "model-surface",
+      "width": 32,
+      "height": 32,
+      "animate": false
+    },
+    "thaumcraft:smelter_void": {
+      "item": "thaumcraft:smelter_void",
+      "texture": "thaumcraft:textures/blocks/smelter_void_side.png",
+      "kind": "model-surface",
+      "width": 16,
+      "height": 16,
+      "animate": false
+    },
+    "thaumcraft:spa": {
+      "item": "thaumcraft:spa",
+      "texture": "thaumcraft:textures/blocks/spa_side.png",
+      "kind": "model-surface",
+      "width": 16,
+      "height": 16,
+      "animate": false
+    },
+    "thaumcraft:stabilizer": {
+      "item": "thaumcraft:stabilizer",
+      "texture": "thaumcraft:textures/blocks/stabilizer.png",
+      "kind": "model-surface",
+      "width": 64,
+      "height": 64,
+      "animate": false
+    },
+    "thaumcraft:stone_ancient": {
+      "item": "thaumcraft:stone_ancient",
+      "texture": "thaumcraft:textures/blocks/ancient_stone_0.png",
+      "kind": "model-surface",
+      "width": 16,
+      "height": 16,
+      "animate": false
+    },
+    "thaumcraft:stone_eldritch_tile": {
+      "item": "thaumcraft:stone_eldritch_tile",
+      "texture": "thaumcraft:textures/blocks/eldritch_stone_1.png",
+      "kind": "model-surface",
+      "width": 16,
+      "height": 16,
+      "animate": false
+    },
+    "thaumcraft:tallow": {
+      "item": "thaumcraft:tallow",
+      "texture": "thaumcraft:textures/items/tallow.png",
+      "kind": "item-sprite",
+      "width": 16,
+      "height": 16,
+      "animate": false
+    },
+    "thaumcraft:textures/items/alumentum.png": {
+      "texture": "thaumcraft:textures/items/alumentum.png",
+      "kind": "direct",
+      "animate": true,
+      "width": 16,
+      "height": 16
+    },
+    "thaumcraft:textures/items/bucket_death.png": {
+      "texture": "thaumcraft:textures/items/bucket_death.png",
+      "kind": "direct",
+      "animate": true,
+      "width": 16,
+      "height": 16
+    },
+    "thaumcraft:textures/items/cluster_iron.png": {
+      "texture": "thaumcraft:textures/items/cluster_iron.png",
+      "kind": "direct",
+      "animate": true,
+      "width": 16,
+      "height": 16
+    },
+    "thaumcraft:textures/items/ingot_brass.png": {
+      "texture": "thaumcraft:textures/items/ingot_brass.png",
+      "kind": "direct",
+      "animate": true,
+      "width": 16,
+      "height": 16
+    },
+    "thaumcraft:textures/items/seals/seal_breaker.png": {
+      "texture": "thaumcraft:textures/items/seals/seal_breaker.png",
+      "kind": "direct",
+      "animate": true,
+      "width": 16,
+      "height": 48
+    },
+    "thaumcraft:textures/items/seals/seal_butcher.png": {
+      "texture": "thaumcraft:textures/items/seals/seal_butcher.png",
+      "kind": "direct",
+      "animate": true,
+      "width": 16,
+      "height": 48
+    },
+    "thaumcraft:textures/items/seals/seal_empty.png": {
+      "texture": "thaumcraft:textures/items/seals/seal_empty.png",
+      "kind": "direct",
+      "animate": true,
+      "width": 16,
+      "height": 48
+    },
+    "thaumcraft:textures/items/seals/seal_fill.png": {
+      "texture": "thaumcraft:textures/items/seals/seal_fill.png",
+      "kind": "direct",
+      "animate": true,
+      "width": 16,
+      "height": 48
+    },
+    "thaumcraft:textures/items/seals/seal_guard.png": {
+      "texture": "thaumcraft:textures/items/seals/seal_guard.png",
+      "kind": "direct",
+      "animate": true,
+      "width": 16,
+      "height": 48
+    },
+    "thaumcraft:textures/items/seals/seal_harvest.png": {
+      "texture": "thaumcraft:textures/items/seals/seal_harvest.png",
+      "kind": "direct",
+      "animate": true,
+      "width": 16,
+      "height": 48
+    },
+    "thaumcraft:textures/items/seals/seal_lumber.png": {
+      "texture": "thaumcraft:textures/items/seals/seal_lumber.png",
+      "kind": "direct",
+      "animate": true,
+      "width": 16,
+      "height": 48
+    },
+    "thaumcraft:textures/items/seals/seal_pickup.png": {
+      "texture": "thaumcraft:textures/items/seals/seal_pickup.png",
+      "kind": "direct",
+      "animate": true,
+      "width": 16,
+      "height": 48
+    },
+    "thaumcraft:textures/items/seals/seal_provider.png": {
+      "texture": "thaumcraft:textures/items/seals/seal_provider.png",
+      "kind": "direct",
+      "animate": true,
+      "width": 16,
+      "height": 48
+    },
+    "thaumcraft:textures/items/seals/seal_stock.png": {
+      "texture": "thaumcraft:textures/items/seals/seal_stock.png",
+      "kind": "direct",
+      "animate": true,
+      "width": 16,
+      "height": 48
+    },
+    "thaumcraft:textures/items/seals/seal_use.png": {
+      "texture": "thaumcraft:textures/items/seals/seal_use.png",
+      "kind": "direct",
+      "animate": true,
+      "width": 16,
+      "height": 48
+    },
+    "thaumcraft:textures/items/tallow.png": {
+      "texture": "thaumcraft:textures/items/tallow.png",
+      "kind": "direct",
+      "animate": true,
+      "width": 16,
+      "height": 16
+    },
+    "thaumcraft:textures/items/thaumonomicon.png": {
+      "texture": "thaumcraft:textures/items/thaumonomicon.png",
+      "kind": "direct",
+      "animate": true,
+      "width": 32,
+      "height": 32
+    },
+    "thaumcraft:textures/misc/golem/addon_fighter.png": {
+      "texture": "thaumcraft:textures/misc/golem/addon_fighter.png",
+      "kind": "direct",
+      "animate": true,
+      "width": 16,
+      "height": 16
+    },
+    "thaumcraft:textures/misc/golem/arms_breakers.png": {
+      "texture": "thaumcraft:textures/misc/golem/arms_breakers.png",
+      "kind": "direct",
+      "animate": true,
+      "width": 16,
+      "height": 16
+    },
+    "thaumcraft:textures/misc/golem/head_basic.png": {
+      "texture": "thaumcraft:textures/misc/golem/head_basic.png",
+      "kind": "direct",
+      "animate": true,
+      "width": 16,
+      "height": 16
+    },
+    "thaumcraft:textures/misc/golem/legs_climber.png": {
+      "texture": "thaumcraft:textures/misc/golem/legs_climber.png",
+      "kind": "direct",
+      "animate": true,
+      "width": 16,
+      "height": 16
+    },
+    "thaumcraft:textures/misc/golem/legs_flyer.png": {
+      "texture": "thaumcraft:textures/misc/golem/legs_flyer.png",
+      "kind": "direct",
+      "animate": true,
+      "width": 16,
+      "height": 16
+    },
+    "thaumcraft:textures/research/cat_alchemy.png": {
+      "texture": "thaumcraft:textures/research/cat_alchemy.png",
+      "kind": "direct",
+      "animate": true,
+      "width": 32,
+      "height": 32
+    },
+    "thaumcraft:textures/research/cat_artifice.png": {
+      "texture": "thaumcraft:textures/research/cat_artifice.png",
+      "kind": "direct",
+      "animate": true,
+      "width": 32,
+      "height": 32
+    },
+    "thaumcraft:textures/research/cat_auromancy.png": {
+      "texture": "thaumcraft:textures/research/cat_auromancy.png",
+      "kind": "direct",
+      "animate": true,
+      "width": 32,
+      "height": 32
+    },
+    "thaumcraft:textures/research/cat_eldritch.png": {
+      "texture": "thaumcraft:textures/research/cat_eldritch.png",
+      "kind": "direct",
+      "animate": true,
+      "width": 32,
+      "height": 32
+    },
+    "thaumcraft:textures/research/cat_golemancy.png": {
+      "texture": "thaumcraft:textures/research/cat_golemancy.png",
+      "kind": "direct",
+      "animate": true,
+      "width": 32,
+      "height": 32
+    },
+    "thaumcraft:textures/research/cat_infusion.png": {
+      "texture": "thaumcraft:textures/research/cat_infusion.png",
+      "kind": "direct",
+      "animate": true,
+      "width": 32,
+      "height": 32
+    },
+    "thaumcraft:textures/research/golem_logistics.png": {
+      "texture": "thaumcraft:textures/research/golem_logistics.png",
+      "kind": "direct",
+      "animate": true,
+      "width": 16,
+      "height": 16
+    },
+    "thaumcraft:textures/research/knowledge_theory.png": {
+      "texture": "thaumcraft:textures/research/knowledge_theory.png",
+      "kind": "direct",
+      "animate": true,
+      "width": 16,
+      "height": 16
+    },
+    "thaumcraft:textures/research/r_angryzombie.png": {
+      "texture": "thaumcraft:textures/research/r_angryzombie.png",
+      "kind": "direct",
+      "animate": true,
+      "width": 16,
+      "height": 16
+    },
+    "thaumcraft:textures/research/r_celestial.png": {
+      "texture": "thaumcraft:textures/research/r_celestial.png",
+      "kind": "direct",
+      "animate": true,
+      "width": 32,
+      "height": 32
+    },
+    "thaumcraft:textures/research/r_crab.png": {
+      "texture": "thaumcraft:textures/research/r_crab.png",
+      "kind": "direct",
+      "animate": true,
+      "width": 16,
+      "height": 16
+    },
+    "thaumcraft:textures/research/r_cultist.png": {
+      "texture": "thaumcraft:textures/research/r_cultist.png",
+      "kind": "direct",
+      "animate": true,
+      "width": 16,
+      "height": 16
+    },
+    "thaumcraft:textures/research/r_eldritchguardian.png": {
+      "texture": "thaumcraft:textures/research/r_eldritchguardian.png",
+      "kind": "direct",
+      "animate": true,
+      "width": 16,
+      "height": 16
+    },
+    "thaumcraft:textures/research/r_firebat.png": {
+      "texture": "thaumcraft:textures/research/r_firebat.png",
+      "kind": "direct",
+      "animate": true,
+      "width": 16,
+      "height": 16
+    },
+    "thaumcraft:textures/research/r_flux.png": {
+      "texture": "thaumcraft:textures/research/r_flux.png",
+      "kind": "direct",
+      "animate": true,
+      "width": 32,
+      "height": 32
+    },
+    "thaumcraft:textures/research/r_fluxrift.png": {
+      "texture": "thaumcraft:textures/research/r_fluxrift.png",
+      "kind": "direct",
+      "animate": true,
+      "width": 32,
+      "height": 32
+    },
+    "thaumcraft:textures/research/r_inf_enchant.png": {
+      "texture": "thaumcraft:textures/research/r_inf_enchant.png",
+      "kind": "direct",
+      "animate": true,
+      "width": 32,
+      "height": 32
+    },
+    "thaumcraft:textures/research/r_mask0.png": {
+      "texture": "thaumcraft:textures/research/r_mask0.png",
+      "kind": "direct",
+      "animate": true,
+      "width": 16,
+      "height": 16
+    },
+    "thaumcraft:textures/research/r_mask1.png": {
+      "texture": "thaumcraft:textures/research/r_mask1.png",
+      "kind": "direct",
+      "animate": true,
+      "width": 16,
+      "height": 16
+    },
+    "thaumcraft:textures/research/r_mask2.png": {
+      "texture": "thaumcraft:textures/research/r_mask2.png",
+      "kind": "direct",
+      "animate": true,
+      "width": 16,
+      "height": 16
+    },
+    "thaumcraft:textures/research/r_pech.png": {
+      "texture": "thaumcraft:textures/research/r_pech.png",
+      "kind": "direct",
+      "animate": true,
+      "width": 16,
+      "height": 16
+    },
+    "thaumcraft:textures/research/r_runicupg.png": {
+      "texture": "thaumcraft:textures/research/r_runicupg.png",
+      "kind": "direct",
+      "animate": true,
+      "width": 32,
+      "height": 32
+    },
+    "thaumcraft:textures/research/r_taintacle.png": {
+      "texture": "thaumcraft:textures/research/r_taintacle.png",
+      "kind": "direct",
+      "animate": true,
+      "width": 16,
+      "height": 16
+    },
+    "thaumcraft:textures/research/r_taintcrawler.png": {
+      "texture": "thaumcraft:textures/research/r_taintcrawler.png",
+      "kind": "direct",
+      "animate": true,
+      "width": 16,
+      "height": 16
+    },
+    "thaumcraft:textures/research/r_taintseed.png": {
+      "texture": "thaumcraft:textures/research/r_taintseed.png",
+      "kind": "direct",
+      "animate": true,
+      "width": 16,
+      "height": 16
+    },
+    "thaumcraft:textures/research/r_taintswarm.png": {
+      "texture": "thaumcraft:textures/research/r_taintswarm.png",
+      "kind": "direct",
+      "animate": true,
+      "width": 16,
+      "height": 16
+    },
+    "thaumcraft:textures/research/r_thaumslime.png": {
+      "texture": "thaumcraft:textures/research/r_thaumslime.png",
+      "kind": "direct",
+      "animate": true,
+      "width": 16,
+      "height": 16
+    },
+    "thaumcraft:textures/research/r_warp.png": {
+      "texture": "thaumcraft:textures/research/r_warp.png",
+      "kind": "direct",
+      "animate": true,
+      "width": 32,
+      "height": 32
+    },
+    "thaumcraft:textures/research/r_wisp.png": {
+      "texture": "thaumcraft:textures/research/r_wisp.png",
+      "kind": "direct",
+      "animate": true,
+      "width": 16,
+      "height": 16
+    },
+    "thaumcraft:thaumatorium": {
+      "item": "thaumcraft:thaumatorium",
+      "texture": "thaumcraft:textures/blocks/thaumatorium.png",
+      "kind": "model-surface",
+      "width": 64,
+      "height": 64,
+      "animate": false
+    },
+    "thaumcraft:thaumometer": {
+      "item": "thaumcraft:thaumometer",
+      "texture": "thaumcraft:textures/items/scanner.png",
+      "kind": "model-surface",
+      "width": 256,
+      "height": 256,
+      "animate": false
+    },
+    "thaumcraft:thaumonomicon": {
+      "item": "thaumcraft:thaumonomicon",
+      "texture": "thaumcraft:textures/items/thaumonomicon.png",
+      "kind": "item-sprite",
+      "width": 32,
+      "height": 32,
+      "animate": false
+    },
+    "thaumcraft:traveller_boots": {
+      "item": "thaumcraft:traveller_boots",
+      "texture": "thaumcraft:textures/items/traveller_boots.png",
+      "kind": "item-sprite",
+      "width": 16,
+      "height": 16,
+      "animate": false
+    },
+    "thaumcraft:tube": {
+      "item": "thaumcraft:tube",
+      "texture": "thaumcraft:textures/items/tube_normal.png",
+      "kind": "item-sprite",
+      "width": 16,
+      "height": 16,
+      "animate": false
+    },
+    "thaumcraft:turret;1;0": {
+      "item": "thaumcraft:turret",
+      "texture": "thaumcraft:textures/items/turret_basic.png",
+      "kind": "item-sprite",
+      "width": 16,
+      "height": 16,
+      "animate": false
+    },
+    "thaumcraft:turret;1;1": {
+      "item": "thaumcraft:turret",
+      "texture": "thaumcraft:textures/items/turret_advanced.png",
+      "kind": "item-sprite",
+      "width": 16,
+      "height": 16,
+      "animate": false
+    },
+    "thaumcraft:turret;1;2": {
+      "item": "thaumcraft:turret",
+      "texture": "thaumcraft:textures/items/turret_bore.png",
+      "kind": "item-sprite",
+      "width": 16,
+      "height": 16,
+      "animate": false
+    },
+    "thaumcraft:verdant_charm": {
+      "item": "thaumcraft:verdant_charm",
+      "texture": "thaumcraft:textures/items/verdant_charm.png",
+      "kind": "item-sprite",
+      "width": 16,
+      "height": 16,
+      "animate": false
+    },
+    "thaumcraft:vis_battery": {
+      "item": "thaumcraft:vis_battery",
+      "texture": "thaumcraft:textures/blocks/vis_battery_0.png",
+      "kind": "model-surface",
+      "width": 16,
+      "height": 16,
+      "animate": false
+    },
+    "thaumcraft:vis_generator": {
+      "item": "thaumcraft:vis_generator",
+      "texture": "thaumcraft:textures/blocks/vis_generator.png",
+      "kind": "model-surface",
+      "width": 32,
+      "height": 32,
+      "animate": false
+    },
+    "thaumcraft:void_robe_helm": {
+      "item": "thaumcraft:void_robe_helm",
+      "texture": "thaumcraft:textures/items/void_robe_helm.png",
+      "kind": "item-sprite",
+      "width": 16,
+      "height": 16,
+      "animate": false
+    },
+    "thaumcraft:void_seed": {
+      "item": "thaumcraft:void_seed",
+      "texture": "thaumcraft:textures/items/void_seed.png",
+      "kind": "item-sprite",
+      "width": 16,
+      "height": 16,
+      "animate": false
+    },
+    "thaumcraft:void_siphon": {
+      "item": "thaumcraft:void_siphon",
+      "texture": "thaumcraft:textures/blocks/void_siphon.png",
+      "kind": "model-surface",
+      "width": 32,
+      "height": 32,
+      "animate": false
+    },
+    "thaumcraft:voidseer_charm": {
+      "item": "thaumcraft:voidseer_charm",
+      "texture": "thaumcraft:textures/items/voidseer_charm.png",
+      "kind": "item-sprite",
+      "width": 16,
+      "height": 64,
+      "animate": true
+    }
+  },
+  "textures": {
+    "thaumcraft:textures/gui/gui_research_back_1.jpg": {
+      "width": 1024,
+      "height": 1024
+    },
+    "thaumcraft:textures/gui/gui_research_back_2.jpg": {
+      "width": 1024,
+      "height": 1024
+    },
+    "thaumcraft:textures/gui/gui_research_back_3.jpg": {
+      "width": 1024,
+      "height": 1024
+    },
+    "thaumcraft:textures/gui/gui_research_back_4.jpg": {
+      "width": 1024,
+      "height": 1024
+    },
+    "thaumcraft:textures/gui/gui_research_back_5.jpg": {
+      "width": 1024,
+      "height": 1024
+    },
+    "thaumcraft:textures/gui/gui_research_back_6.jpg": {
+      "width": 1024,
+      "height": 1024
+    },
+    "thaumcraft:textures/gui/gui_research_back_7.jpg": {
+      "width": 1024,
+      "height": 1024
+    },
+    "thaumcraft:textures/gui/gui_research_back_over.png": {
+      "width": 512,
+      "height": 512
+    },
+    "thaumcraft:textures/gui/gui_research_browser.png": {
+      "width": 256,
+      "height": 256
+    },
+    "thaumcraft:textures/gui/gui_research_table.png": {
+      "width": 256,
+      "height": 256
+    },
+    "thaumcraft:textures/gui/gui_researchbook.png": {
+      "width": 512,
+      "height": 512
+    },
+    "thaumcraft:textures/gui/gui_researchbook_overlay.png": {
+      "width": 512,
+      "height": 512
+    },
+    "thaumcraft:textures/research/cat_alchemy.png": {
+      "width": 32,
+      "height": 32
+    },
+    "thaumcraft:textures/research/cat_artifice.png": {
+      "width": 32,
+      "height": 32
+    },
+    "thaumcraft:textures/research/cat_auromancy.png": {
+      "width": 32,
+      "height": 32
+    },
+    "thaumcraft:textures/research/cat_eldritch.png": {
+      "width": 32,
+      "height": 32
+    },
+    "thaumcraft:textures/research/cat_golemancy.png": {
+      "width": 32,
+      "height": 32
+    },
+    "thaumcraft:textures/research/cat_infusion.png": {
+      "width": 32,
+      "height": 32
+    },
+    "thaumcraft:textures/research/golem_logistics.png": {
+      "width": 16,
+      "height": 16
+    },
+    "thaumcraft:textures/research/knowledge_observation.png": {
+      "width": 16,
+      "height": 16
+    },
+    "thaumcraft:textures/research/knowledge_theory.png": {
+      "width": 16,
+      "height": 16
+    },
+    "thaumcraft:textures/research/quill.png": {
+      "width": 16,
+      "height": 16
+    },
+    "thaumcraft:textures/research/r_angryzombie.png": {
+      "width": 16,
+      "height": 16
+    },
+    "thaumcraft:textures/research/r_celestial.png": {
+      "width": 32,
+      "height": 32
+    },
+    "thaumcraft:textures/research/r_crab.png": {
+      "width": 16,
+      "height": 16
+    },
+    "thaumcraft:textures/research/r_cultist.png": {
+      "width": 16,
+      "height": 16
+    },
+    "thaumcraft:textures/research/r_eldritchguardian.png": {
+      "width": 16,
+      "height": 16
+    },
+    "thaumcraft:textures/research/r_eldritchmajor.png": {
+      "width": 32,
+      "height": 32
+    },
+    "thaumcraft:textures/research/r_eldritchminor.png": {
+      "width": 32,
+      "height": 32
+    },
+    "thaumcraft:textures/research/r_enchant.png": {
+      "width": 32,
+      "height": 32
+    },
+    "thaumcraft:textures/research/r_firebat.png": {
+      "width": 16,
+      "height": 16
+    },
+    "thaumcraft:textures/research/r_flux.png": {
+      "width": 32,
+      "height": 32
+    },
+    "thaumcraft:textures/research/r_fluxrift.png": {
+      "width": 32,
+      "height": 32
+    },
+    "thaumcraft:textures/research/r_inf_enchant.png": {
+      "width": 32,
+      "height": 32
+    },
+    "thaumcraft:textures/research/r_inf_heart.png": {
+      "width": 32,
+      "height": 32
+    },
+    "thaumcraft:textures/research/r_infernalfurnace.png": {
+      "width": 32,
+      "height": 32
+    },
+    "thaumcraft:textures/research/r_mask0.png": {
+      "width": 16,
+      "height": 16
+    },
+    "thaumcraft:textures/research/r_mask1.png": {
+      "width": 16,
+      "height": 16
+    },
+    "thaumcraft:textures/research/r_mask2.png": {
+      "width": 16,
+      "height": 16
+    },
+    "thaumcraft:textures/research/r_nodes.png": {
+      "width": 32,
+      "height": 32
+    },
+    "thaumcraft:textures/research/r_nodes_2.png": {
+      "width": 32,
+      "height": 32
+    },
+    "thaumcraft:textures/research/r_outer.png": {
+      "width": 32,
+      "height": 32
+    },
+    "thaumcraft:textures/research/r_pech.png": {
+      "width": 16,
+      "height": 16
+    },
+    "thaumcraft:textures/research/r_runicupg.png": {
+      "width": 32,
+      "height": 32
+    },
+    "thaumcraft:textures/research/r_taintacle.png": {
+      "width": 16,
+      "height": 16
+    },
+    "thaumcraft:textures/research/r_taintcrawler.png": {
+      "width": 16,
+      "height": 16
+    },
+    "thaumcraft:textures/research/r_taintseed.png": {
+      "width": 16,
+      "height": 16
+    },
+    "thaumcraft:textures/research/r_taintswarm.png": {
+      "width": 16,
+      "height": 16
+    },
+    "thaumcraft:textures/research/r_thaumslime.png": {
+      "width": 16,
+      "height": 16
+    },
+    "thaumcraft:textures/research/r_warp.png": {
+      "width": 32,
+      "height": 32
+    },
+    "thaumcraft:textures/research/r_wisp.png": {
+      "width": 16,
+      "height": 16
+    },
+    "thaumcraft:textures/research/rd_chest.png": {
+      "width": 32,
+      "height": 32
+    },
+    "thaumcraft:textures/research/rd_flask.png": {
+      "width": 32,
+      "height": 32
+    },
+    "thaumcraft:textures/research/rd_map.png": {
+      "width": 32,
+      "height": 32
+    },
+    "thaumcraft:textures/research/research1.png": {
+      "width": 1024,
+      "height": 1024
+    },
+    "thaumcraft:textures/research/research3.png": {
+      "width": 256,
+      "height": 256
+    },
+    "thaumcraft:textures/research/research4.png": {
+      "width": 256,
+      "height": 256
+    },
+    "thaumcraft:textures/research/research5.png": {
+      "width": 256,
+      "height": 256
+    },
+    "thaumcraft:textures/items/thaumonomicon_cheat.png": {
+      "width": 32,
+      "height": 32
+    },
+    "thaumcraft:textures/items/alumentum.png": {
+      "width": 16,
+      "height": 16
+    },
+    "thaumcraft:textures/items/resonator.png": {
+      "width": 16,
+      "height": 16
+    },
+    "thaumcraft:textures/items/tube_buffer.png": {
+      "width": 16,
+      "height": 16
+    },
+    "thaumcraft:textures/items/tube_filter.png": {
+      "width": 16,
+      "height": 16
+    },
+    "thaumcraft:textures/items/tube_oneway.png": {
+      "width": 16,
+      "height": 16
+    },
+    "thaumcraft:textures/items/tube_restrict.png": {
+      "width": 16,
+      "height": 16
+    },
+    "thaumcraft:textures/items/tube_valve.png": {
+      "width": 16,
+      "height": 16
+    },
+    "thaumcraft:textures/foci/air.png": {
+      "width": 32,
+      "height": 32
+    },
+    "thaumcraft:textures/foci/_effect.png": {
+      "width": 32,
+      "height": 32
+    },
+    "thaumcraft:textures/foci/bolt.png": {
+      "width": 32,
+      "height": 32
+    },
+    "thaumcraft:textures/foci/_medium.png": {
+      "width": 32,
+      "height": 32
+    },
+    "thaumcraft:textures/foci/break.png": {
+      "width": 32,
+      "height": 32
+    },
+    "thaumcraft:textures/foci/cloud.png": {
+      "width": 32,
+      "height": 32
+    },
+    "thaumcraft:textures/foci/curse.png": {
+      "width": 32,
+      "height": 32
+    },
+    "thaumcraft:textures/foci/earth.png": {
+      "width": 32,
+      "height": 32
+    },
+    "thaumcraft:textures/foci/exchange.png": {
+      "width": 32,
+      "height": 32
+    },
+    "thaumcraft:textures/foci/flux.png": {
+      "width": 32,
+      "height": 32
+    },
+    "thaumcraft:textures/foci/frost.png": {
+      "width": 32,
+      "height": 32
+    },
+    "thaumcraft:textures/foci/heal.png": {
+      "width": 32,
+      "height": 32
+    },
+    "thaumcraft:textures/foci/mine.png": {
+      "width": 32,
+      "height": 32
+    },
+    "thaumcraft:textures/foci/plan.png": {
+      "width": 32,
+      "height": 32
+    },
+    "thaumcraft:textures/foci/projectile.png": {
+      "width": 32,
+      "height": 32
+    },
+    "thaumcraft:textures/foci/rift.png": {
+      "width": 32,
+      "height": 32
+    },
+    "thaumcraft:textures/foci/scatter.png": {
+      "width": 32,
+      "height": 32
+    },
+    "thaumcraft:textures/foci/spellbat.png": {
+      "width": 32,
+      "height": 32
+    },
+    "thaumcraft:textures/foci/split_target.png": {
+      "width": 32,
+      "height": 32
+    },
+    "thaumcraft:textures/foci/split_trajectory.png": {
+      "width": 32,
+      "height": 32
+    },
+    "thaumcraft:textures/items/amulet_vis.png": {
+      "width": 16,
+      "height": 128
+    },
+    "thaumcraft:textures/blocks/arcane_ear_off.png": {
+      "width": 16,
+      "height": 16
+    },
+    "thaumcraft:textures/blocks/arcane_workbench_charger.png": {
+      "width": 32,
+      "height": 32
+    },
+    "thaumcraft:textures/items/bath_salts.png": {
+      "width": 16,
+      "height": 64
+    },
+    "thaumcraft:textures/blocks/bellows.png": {
+      "width": 128,
+      "height": 128
+    },
+    "thaumcraft:textures/items/bottle_taint.png": {
+      "width": 16,
+      "height": 16
+    },
+    "thaumcraft:textures/items/causality_collapser.png": {
+      "width": 16,
+      "height": 128
+    },
+    "thaumcraft:textures/blocks/centrifuge.png": {
+      "width": 16,
+      "height": 16
+    },
+    "thaumcraft:textures/items/charm_undying.png": {
+      "width": 16,
+      "height": 16
+    },
+    "thaumcraft:textures/items/cloud_ring.png": {
+      "width": 16,
+      "height": 16
+    },
+    "thaumcraft:textures/blocks/condenser.png": {
+      "width": 32,
+      "height": 32
+    },
+    "thaumcraft:textures/blocks/crucible_side.png": {
+      "width": 16,
+      "height": 16
+    },
+    "thaumcraft:textures/items/crystal_planter.png": {
+      "width": 16,
+      "height": 16
+    },
+    "thaumcraft:textures/items/crimson_rites.png": {
+      "width": 32,
+      "height": 32
+    },
+    "thaumcraft:textures/items/curiosity_band.png": {
+      "width": 16,
+      "height": 16
+    },
+    "thaumcraft:textures/blocks/dioptra_side_on.png": {
+      "width": 16,
+      "height": 16
+    },
+    "thaumcraft:textures/items/elemental_axe.png": {
+      "width": 16,
+      "height": 16
+    },
+    "thaumcraft:textures/items/elemental_hoe.png": {
+      "width": 16,
+      "height": 16
+    },
+    "thaumcraft:textures/items/elemental_pick.png": {
+      "width": 16,
+      "height": 16
+    },
+    "thaumcraft:textures/items/elemental_shovel.png": {
+      "width": 16,
+      "height": 16
+    },
+    "thaumcraft:textures/items/elemental_sword.png": {
+      "width": 16,
+      "height": 16
+    },
+    "thaumcraft:textures/blocks/essentia_input.png": {
+      "width": 16,
+      "height": 16
+    },
+    "thaumcraft:textures/blocks/everfull_urn.png": {
+      "width": 16,
+      "height": 16
+    },
+    "thaumcraft:textures/items/focus_2.png": {
+      "width": 16,
+      "height": 16
+    },
+    "thaumcraft:textures/items/focus_3.png": {
+      "width": 16,
+      "height": 16
+    },
+    "thaumcraft:textures/items/focus_pouch.png": {
+      "width": 16,
+      "height": 16
+    },
+    "thaumcraft:textures/items/fortress_helm.png": {
+      "width": 16,
+      "height": 16
+    },
+    "thaumcraft:textures/items/grapple_gun.png": {
+      "width": 16,
+      "height": 16
+    },
+    "thaumcraft:textures/items/hand_mirror.png": {
+      "width": 16,
+      "height": 16
+    },
+    "thaumcraft:textures/models/chesthungry.png": {
+      "width": 64,
+      "height": 64
+    },
+    "thaumcraft:textures/blocks/infernal_furnace.png": {
+      "width": 128,
+      "height": 128
+    },
+    "thaumcraft:textures/blocks/infuser_normal.png": {
+      "width": 64,
+      "height": 64
+    },
+    "thaumcraft:textures/items/ingot_brass.png": {
+      "width": 16,
+      "height": 16
+    },
+    "thaumcraft:textures/items/ingot_thaumium.png": {
+      "width": 16,
+      "height": 16
+    },
+    "thaumcraft:textures/blocks/jar_side.png": {
+      "width": 16,
+      "height": 16
+    },
+    "thaumcraft:textures/blocks/lamp_off.png": {
+      "width": 16,
+      "height": 16
+    },
+    "thaumcraft:textures/blocks/lamp_fert_off.png": {
+      "width": 16,
+      "height": 16
+    },
+    "thaumcraft:textures/blocks/lamp_grow_off.png": {
+      "width": 16,
+      "height": 16
+    },
+    "thaumcraft:textures/blocks/levitator_side_off.png": {
+      "width": 16,
+      "height": 16
+    },
+    "thaumcraft:textures/blocks/log_greatwood.png": {
+      "width": 16,
+      "height": 16
+    },
+    "thaumcraft:textures/blocks/matrix_cost.png": {
+      "width": 16,
+      "height": 16
+    },
+    "thaumcraft:textures/blocks/matrix_speed.png": {
+      "width": 16,
+      "height": 16
+    },
+    "thaumcraft:textures/items/mind_clockwork.png": {
+      "width": 16,
+      "height": 80
+    },
+    "thaumcraft:textures/items/mind_biothaumic.png": {
+      "width": 16,
+      "height": 80
+    },
+    "thaumcraft:textures/blocks/mirrorframe.png": {
+      "width": 16,
+      "height": 16
+    },
+    "thaumcraft:textures/blocks/mirrorframe2.png": {
+      "width": 16,
+      "height": 16
+    },
+    "thaumcraft:textures/items/module_vision.png": {
+      "width": 16,
+      "height": 16
+    },
+    "thaumcraft:textures/blocks/nitor.png": {
+      "width": 16,
+      "height": 16
+    },
+    "thaumcraft:textures/blocks/pattern_crafter.png": {
+      "width": 16,
+      "height": 16
+    },
+    "thaumcraft:textures/blocks/paving_stone_barrier.png": {
+      "width": 16,
+      "height": 16
+    },
+    "thaumcraft:textures/blocks/paving_stone_travel.png": {
+      "width": 16,
+      "height": 16
+    },
+    "thaumcraft:textures/items/plate_brass.png": {
+      "width": 16,
+      "height": 16
+    },
+    "thaumcraft:textures/items/plate_iron.png": {
+      "width": 16,
+      "height": 16
+    },
+    "thaumcraft:textures/items/plate_thaumium.png": {
+      "width": 16,
+      "height": 16
+    },
+    "thaumcraft:textures/items/plate_void.png": {
+      "width": 16,
+      "height": 16
+    },
+    "thaumcraft:textures/blocks/potion_sprayer_side.png": {
+      "width": 16,
+      "height": 16
+    },
+    "thaumcraft:textures/items/primal_crusher.png": {
+      "width": 16,
+      "height": 16
+    },
+    "thaumcraft:textures/items/primordial_pearl.png": {
+      "width": 16,
+      "height": 256
+    },
+    "thaumcraft:textures/blocks/recharge_pedestal_side.png": {
+      "width": 16,
+      "height": 16
+    },
+    "thaumcraft:textures/items/sanity_soap.png": {
+      "width": 16,
+      "height": 16
+    },
+    "thaumcraft:textures/blocks/sapling_greatwood.png": {
+      "width": 16,
+      "height": 16
+    },
+    "thaumcraft:textures/blocks/sapling_silverwood.png": {
+      "width": 16,
+      "height": 16
+    },
+    "thaumcraft:textures/items/seals/seal_blank.png": {
+      "width": 16,
+      "height": 16
+    },
+    "thaumcraft:textures/blocks/smelter_aux.png": {
+      "width": 16,
+      "height": 16
+    },
+    "thaumcraft:textures/blocks/smelter_basic_side.png": {
+      "width": 16,
+      "height": 16
+    },
+    "thaumcraft:textures/blocks/smelter_thaumium_side.png": {
+      "width": 16,
+      "height": 16
+    },
+    "thaumcraft:textures/blocks/smelter_vent.png": {
+      "width": 32,
+      "height": 32
+    },
+    "thaumcraft:textures/blocks/smelter_void_side.png": {
+      "width": 16,
+      "height": 16
+    },
+    "thaumcraft:textures/blocks/spa_side.png": {
+      "width": 16,
+      "height": 16
+    },
+    "thaumcraft:textures/blocks/stabilizer.png": {
+      "width": 64,
+      "height": 64
+    },
+    "thaumcraft:textures/blocks/ancient_stone_0.png": {
+      "width": 16,
+      "height": 16
+    },
+    "thaumcraft:textures/blocks/eldritch_stone_1.png": {
+      "width": 16,
+      "height": 16
+    },
+    "thaumcraft:textures/items/tallow.png": {
+      "width": 16,
+      "height": 16
+    },
+    "thaumcraft:textures/items/bucket_death.png": {
+      "width": 16,
+      "height": 16
+    },
+    "thaumcraft:textures/items/cluster_iron.png": {
+      "width": 16,
+      "height": 16
+    },
+    "thaumcraft:textures/items/seals/seal_breaker.png": {
+      "width": 16,
+      "height": 48
+    },
+    "thaumcraft:textures/items/seals/seal_butcher.png": {
+      "width": 16,
+      "height": 48
+    },
+    "thaumcraft:textures/items/seals/seal_empty.png": {
+      "width": 16,
+      "height": 48
+    },
+    "thaumcraft:textures/items/seals/seal_fill.png": {
+      "width": 16,
+      "height": 48
+    },
+    "thaumcraft:textures/items/seals/seal_guard.png": {
+      "width": 16,
+      "height": 48
+    },
+    "thaumcraft:textures/items/seals/seal_harvest.png": {
+      "width": 16,
+      "height": 48
+    },
+    "thaumcraft:textures/items/seals/seal_lumber.png": {
+      "width": 16,
+      "height": 48
+    },
+    "thaumcraft:textures/items/seals/seal_pickup.png": {
+      "width": 16,
+      "height": 48
+    },
+    "thaumcraft:textures/items/seals/seal_provider.png": {
+      "width": 16,
+      "height": 48
+    },
+    "thaumcraft:textures/items/seals/seal_stock.png": {
+      "width": 16,
+      "height": 48
+    },
+    "thaumcraft:textures/items/seals/seal_use.png": {
+      "width": 16,
+      "height": 48
+    },
+    "thaumcraft:textures/items/thaumonomicon.png": {
+      "width": 32,
+      "height": 32
+    },
+    "thaumcraft:textures/misc/golem/addon_fighter.png": {
+      "width": 16,
+      "height": 16
+    },
+    "thaumcraft:textures/misc/golem/arms_breakers.png": {
+      "width": 16,
+      "height": 16
+    },
+    "thaumcraft:textures/misc/golem/head_basic.png": {
+      "width": 16,
+      "height": 16
+    },
+    "thaumcraft:textures/misc/golem/legs_climber.png": {
+      "width": 16,
+      "height": 16
+    },
+    "thaumcraft:textures/misc/golem/legs_flyer.png": {
+      "width": 16,
+      "height": 16
+    },
+    "thaumcraft:textures/blocks/thaumatorium.png": {
+      "width": 64,
+      "height": 64
+    },
+    "thaumcraft:textures/items/scanner.png": {
+      "width": 256,
+      "height": 256
+    },
+    "thaumcraft:textures/items/traveller_boots.png": {
+      "width": 16,
+      "height": 16
+    },
+    "thaumcraft:textures/items/tube_normal.png": {
+      "width": 16,
+      "height": 16
+    },
+    "thaumcraft:textures/items/turret_basic.png": {
+      "width": 16,
+      "height": 16
+    },
+    "thaumcraft:textures/items/turret_advanced.png": {
+      "width": 16,
+      "height": 16
+    },
+    "thaumcraft:textures/items/turret_bore.png": {
+      "width": 16,
+      "height": 16
+    },
+    "thaumcraft:textures/items/verdant_charm.png": {
+      "width": 16,
+      "height": 16
+    },
+    "thaumcraft:textures/blocks/vis_battery_0.png": {
+      "width": 16,
+      "height": 16
+    },
+    "thaumcraft:textures/blocks/vis_generator.png": {
+      "width": 32,
+      "height": 32
+    },
+    "thaumcraft:textures/items/void_robe_helm.png": {
+      "width": 16,
+      "height": 16
+    },
+    "thaumcraft:textures/items/void_seed.png": {
+      "width": 16,
+      "height": 16
+    },
+    "thaumcraft:textures/blocks/void_siphon.png": {
+      "width": 32,
+      "height": 32
+    },
+    "thaumcraft:textures/items/voidseer_charm.png": {
+      "width": 16,
+      "height": 64
+    }
+  }
+}

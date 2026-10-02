@@ -1,0 +1,11 @@
+{
+  "type": "item",
+  "targets": [
+    "minecraft:cocoa_beans"
+  ],
+  "aspects": {
+    "desiderium": 2,
+    "potentia": 2
+  },
+  "_source": "Thaumcraft 6 ConfigAspects.java:464"
+}

@@ -1,0 +1,12 @@
+{
+  "type": "entity",
+  "targets": [
+    "minecraft:chicken"
+  ],
+  "aspects": {
+    "bestia": 5,
+    "volatus": 5,
+    "aer": 5
+  },
+  "_source": "Thaumcraft 6 ConfigAspects.java:64"
+}

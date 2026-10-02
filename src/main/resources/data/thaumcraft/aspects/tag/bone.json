@@ -1,0 +1,11 @@
+{
+  "type": "item_tag",
+  "targets": [
+    "forge:bones"
+  ],
+  "aspects": {
+    "mortuus": 5,
+    "victus": 5
+  },
+  "_source": "Thaumcraft 6 ConfigAspects.java:292"
+}

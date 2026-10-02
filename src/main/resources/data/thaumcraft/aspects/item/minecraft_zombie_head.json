@@ -1,0 +1,12 @@
+{
+  "type": "item",
+  "targets": [
+    "minecraft:zombie_head"
+  ],
+  "aspects": {
+    "mortuus": 10,
+    "spiritus": 10,
+    "humanus": 10
+  },
+  "_source": "Thaumcraft 6 ConfigAspects.java:316"
+}

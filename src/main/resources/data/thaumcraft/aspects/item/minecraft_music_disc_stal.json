@@ -1,0 +1,13 @@
+{
+  "type": "item",
+  "targets": [
+    "minecraft:music_disc_stal"
+  ],
+  "aspects": {
+    "sensus": 15,
+    "aer": 5,
+    "tenebrae": 5,
+    "desiderium": 10
+  },
+  "_source": "Thaumcraft 6 ConfigAspects.java:350"
+}

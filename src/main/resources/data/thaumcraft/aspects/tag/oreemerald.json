@@ -1,0 +1,12 @@
+{
+  "type": "item_tag",
+  "targets": [
+    "forge:ores/emerald"
+  ],
+  "aspects": {
+    "terra": 5,
+    "desiderium": 10,
+    "vitreus": 15
+  },
+  "_source": "Thaumcraft 6 ConfigAspects.java:136"
+}

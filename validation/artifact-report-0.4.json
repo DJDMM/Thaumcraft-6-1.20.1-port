@@ -1,0 +1,125 @@
+{
+  "version": "0.4.0-dev",
+  "requiredGameTests": 54,
+  "clientSmoke": {
+    "screenshots": 20,
+    "archiveRecords": 156,
+    "simulatedRequests": 3,
+    "archiveRequests": 0
+  },
+  "jar": {
+    "name": "thaumcraft-1.20.1-0.4.0-dev.jar",
+    "bytes": 2879591,
+    "sha256": "152663d955dd8d0e276f084884d939faa3267fcf855b2df1088dca1db42b0596"
+  },
+  "jarResourceByteParity": 972,
+  "originalResearchJsonByteParity": 8,
+  "images": [
+    {
+      "name": "thaumcraft-research-basics.png",
+      "bytes": 1174525,
+      "sha256": "58d368f3da3b5c978bd0d9895f07bb6dae07a632fc300ce06a33b0d30f97b372"
+    },
+    {
+      "name": "thaumcraft-research-start.png",
+      "bytes": 556415,
+      "sha256": "ad0e567ad82dbe736f20c9d0cecf80164ac42fafad3583ad9bb273cfe94a00a4"
+    },
+    {
+      "name": "thaumcraft-research-pending.png",
+      "bytes": 556745,
+      "sha256": "ca3c9dc03df2007b1e2ef72f586e772337d5068023eaaeeadb0688164e8a7acb"
+    },
+    {
+      "name": "thaumcraft-research-firststeps-stage1.png",
+      "bytes": 570499,
+      "sha256": "c6a47cd427f6adbb8f16ae3613a6c4118767cad0f4b0bbf37c5e90f274f666a3"
+    },
+    {
+      "name": "thaumcraft-research-firststeps-stage2.png",
+      "bytes": 565307,
+      "sha256": "1a50d55ff8c3c6218745f5feeb9e36a474b3c10287cf119897e50b2535ddf4a5"
+    },
+    {
+      "name": "thaumcraft-research-firststeps-complete.png",
+      "bytes": 571631,
+      "sha256": "e6dc464cfa7ca880883037a424a9d23e33a61c4056d1419d3727889970e1dec0"
+    },
+    {
+      "name": "thaumcraft-research-unlockalchemy.png",
+      "bytes": 573190,
+      "sha256": "38635fa506caa052ec384ce0041ddcff40d161e6da7e6cbf727ae6492c26bf54"
+    },
+    {
+      "name": "thaumcraft-research-alchemy.png",
+      "bytes": 1318039,
+      "sha256": "9b475884c782469df99995a05d3c8502043fb747b566c6b51170b641f3c385e8"
+    },
+    {
+      "name": "thaumcraft-research-alumentum-cost.png",
+      "bytes": 572300,
+      "sha256": "2c9d36eef5d87602ffe0993db0fcc1cd6485ec1240c27adbc788dbb5eedfcfee"
+    },
+    {
+      "name": "thaumcraft-research-native-lesson.png",
+      "bytes": 561167,
+      "sha256": "e69ccd3164c98c66f14dae0136b5d04de02d9b6e0e5581327c67e360143c1ba1"
+    },
+    {
+      "name": "thaumcraft-book-basics.png",
+      "bytes": 1279562,
+      "sha256": "c49c6ad6d8f439bbe7657065885d2c3e2af9ff34ba6bebb658711639b553b34c"
+    },
+    {
+      "name": "thaumcraft-book-alchemy.png",
+      "bytes": 1360939,
+      "sha256": "7f0137a740a7baa0b88089109f8867ce25ce4117c3225140ac8907c93fecb700"
+    },
+    {
+      "name": "thaumcraft-book-eldritch.png",
+      "bytes": 1083438,
+      "sha256": "44d6136f627dcf11b878217828edf12f0fef637b7bd48af5bab3aa58e2df02c5"
+    },
+    {
+      "name": "thaumcraft-book-firststeps-page.png",
+      "bytes": 574723,
+      "sha256": "f765def80c8fdc4cecab7b319750a21810c1a729faf007be9031363f36b7f9df"
+    },
+    {
+      "name": "thaumcraft-book-ore-illustration.png",
+      "bytes": 565446,
+      "sha256": "bcaa9623cbeb9a4b2e2bd892fd05154c00a6c8b5f43e56474e1fac56ef40b62e"
+    },
+    {
+      "name": "thaumcraft-book-practice-page.png",
+      "bytes": 567696,
+      "sha256": "d93ba06ccd736ce2ee34850921051205590a3553950c4053542f61a13eabd13f"
+    },
+    {
+      "name": "thaumcraft-book-search.png",
+      "bytes": 507021,
+      "sha256": "014bf5cf055ca993c525fa5a43d4471d5b184c75ea7265d29c87d6550d834c2b"
+    },
+    {
+      "name": "thaumcraft-book-search-result.png",
+      "bytes": 574723,
+      "sha256": "f765def80c8fdc4cecab7b319750a21810c1a729faf007be9031363f36b7f9df"
+    },
+    {
+      "name": "thaumcraft-book-gui3.png",
+      "bytes": 590110,
+      "sha256": "8a2c156ab731442a49de0b17681cbd5cb2316623818679ac449cf7b9b27445ad"
+    },
+    {
+      "name": "thaumcraft-book-gui4.png",
+      "bytes": 565090,
+      "sha256": "e8d6c6dd80c6445ba04d40a5575f67e79afeb8ab8119c0ff6b9c4e5cd85c0582"
+    }
+  ],
+  "limitations": [
+    "Prepared-state client smoke without a world or network packets",
+    "No two-client network test",
+    "Only five initial canonical research entries",
+    "No full survival playthrough or 1.12.2 world migration"
+  ]
+}

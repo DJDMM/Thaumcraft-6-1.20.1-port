@@ -1,0 +1,12 @@
+{
+  "type": "item",
+  "targets": [
+    "minecraft:acacia_fence_gate"
+  ],
+  "aspects": {
+    "vinculum": 5,
+    "machina": 5
+  },
+  "_source": "Thaumcraft 6 ConfigAspects.java:417",
+  "derive": true
+}

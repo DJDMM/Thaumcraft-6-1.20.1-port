@@ -1,0 +1,11 @@
+{
+  "replace": false,
+  "values": [
+    "thaumcraft:vis_crystal_aer",
+    "thaumcraft:vis_crystal_ignis",
+    "thaumcraft:vis_crystal_aqua",
+    "thaumcraft:vis_crystal_terra",
+    "thaumcraft:vis_crystal_ordo",
+    "thaumcraft:vis_crystal_perditio"
+  ]
+}

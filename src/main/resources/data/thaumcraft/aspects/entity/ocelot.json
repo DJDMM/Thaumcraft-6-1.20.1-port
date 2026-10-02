@@ -1,0 +1,11 @@
+{
+  "type": "entity",
+  "targets": [
+    "minecraft:ocelot"
+  ],
+  "aspects": {
+    "bestia": 10,
+    "perditio": 10
+  },
+  "_source": "Thaumcraft 6 ConfigAspects.java:63"
+}

@@ -1,0 +1,12 @@
+{
+  "type": "item",
+  "targets": [
+    "minecraft:brewing_stand"
+  ],
+  "aspects": {
+    "fabrico": 15,
+    "alkimia": 25
+  },
+  "_source": "Thaumcraft 6 ConfigAspects.java:411",
+  "derive": true
+}

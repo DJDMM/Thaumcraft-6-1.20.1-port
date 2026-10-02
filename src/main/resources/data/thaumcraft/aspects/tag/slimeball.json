@@ -1,0 +1,12 @@
+{
+  "type": "item_tag",
+  "targets": [
+    "forge:slimeballs"
+  ],
+  "aspects": {
+    "aqua": 5,
+    "victus": 5,
+    "alkimia": 1
+  },
+  "_source": "Thaumcraft 6 ConfigAspects.java:288"
+}

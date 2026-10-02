@@ -1,0 +1,12 @@
+{
+  "type": "item",
+  "targets": [
+    "minecraft:dirt_path"
+  ],
+  "aspects": {
+    "terra": 5,
+    "herba": 2,
+    "ordo": 2
+  },
+  "_source": "Thaumcraft 6 ConfigAspects.java:190"
+}

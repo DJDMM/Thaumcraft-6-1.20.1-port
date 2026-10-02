@@ -1,0 +1,12 @@
+{
+  "type": "item",
+  "targets": [
+    "minecraft:nether_wart"
+  ],
+  "aspects": {
+    "herba": 1,
+    "vitium": 2,
+    "alkimia": 3
+  },
+  "_source": "Thaumcraft 6 ConfigAspects.java:243"
+}

@@ -1,0 +1,12 @@
+{
+  "type": "item_tag",
+  "targets": [
+    "forge:dusts/gold"
+  ],
+  "aspects": {
+    "metallum": 10,
+    "desiderium": 10,
+    "perditio": 1
+  },
+  "_source": "Thaumcraft 6 ConfigAspects.java:144"
+}

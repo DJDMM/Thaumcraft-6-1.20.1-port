@@ -1,0 +1,12 @@
+{
+  "type": "item",
+  "targets": [
+    "minecraft:wither_skeleton_skull"
+  ],
+  "aspects": {
+    "mortuus": 10,
+    "spiritus": 10,
+    "exanimis": 10
+  },
+  "_source": "Thaumcraft 6 ConfigAspects.java:315"
+}

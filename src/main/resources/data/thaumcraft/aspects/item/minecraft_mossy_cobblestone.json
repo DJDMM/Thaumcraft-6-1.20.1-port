@@ -1,0 +1,12 @@
+{
+  "type": "item",
+  "targets": [
+    "minecraft:mossy_cobblestone"
+  ],
+  "aspects": {
+    "terra": 5,
+    "herba": 3,
+    "perditio": 1
+  },
+  "_source": "Thaumcraft 6 ConfigAspects.java:202"
+}

@@ -1,0 +1,13 @@
+{
+  "type": "item",
+  "targets": [
+    "minecraft:dragon_head"
+  ],
+  "aspects": {
+    "mortuus": 10,
+    "spiritus": 10,
+    "ignis": 10,
+    "tenebrae": 10
+  },
+  "_source": "Thaumcraft 6 ConfigAspects.java:319"
+}

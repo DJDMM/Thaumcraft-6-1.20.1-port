@@ -1,0 +1,209 @@
+{
+  "variants": {
+    "facing=east,half=bottom,shape=straight": {
+      "model": "thaumcraft:catalog/stairs_ancient/0"
+    },
+    "facing=west,half=bottom,shape=straight": {
+      "model": "thaumcraft:catalog/stairs_ancient/1",
+      "y": 180,
+      "uvlock": true
+    },
+    "facing=south,half=bottom,shape=straight": {
+      "model": "thaumcraft:catalog/stairs_ancient/2",
+      "y": 90,
+      "uvlock": true
+    },
+    "facing=north,half=bottom,shape=straight": {
+      "model": "thaumcraft:catalog/stairs_ancient/3",
+      "y": 270,
+      "uvlock": true
+    },
+    "facing=east,half=bottom,shape=outer_right": {
+      "model": "thaumcraft:catalog/stairs_ancient/4"
+    },
+    "facing=west,half=bottom,shape=outer_right": {
+      "model": "thaumcraft:catalog/stairs_ancient/5",
+      "y": 180,
+      "uvlock": true
+    },
+    "facing=south,half=bottom,shape=outer_right": {
+      "model": "thaumcraft:catalog/stairs_ancient/6",
+      "y": 90,
+      "uvlock": true
+    },
+    "facing=north,half=bottom,shape=outer_right": {
+      "model": "thaumcraft:catalog/stairs_ancient/7",
+      "y": 270,
+      "uvlock": true
+    },
+    "facing=east,half=bottom,shape=outer_left": {
+      "model": "thaumcraft:catalog/stairs_ancient/8",
+      "y": 270,
+      "uvlock": true
+    },
+    "facing=west,half=bottom,shape=outer_left": {
+      "model": "thaumcraft:catalog/stairs_ancient/9",
+      "y": 90,
+      "uvlock": true
+    },
+    "facing=south,half=bottom,shape=outer_left": {
+      "model": "thaumcraft:catalog/stairs_ancient/10"
+    },
+    "facing=north,half=bottom,shape=outer_left": {
+      "model": "thaumcraft:catalog/stairs_ancient/11",
+      "y": 180,
+      "uvlock": true
+    },
+    "facing=east,half=bottom,shape=inner_right": {
+      "model": "thaumcraft:catalog/stairs_ancient/12"
+    },
+    "facing=west,half=bottom,shape=inner_right": {
+      "model": "thaumcraft:catalog/stairs_ancient/13",
+      "y": 180,
+      "uvlock": true
+    },
+    "facing=south,half=bottom,shape=inner_right": {
+      "model": "thaumcraft:catalog/stairs_ancient/14",
+      "y": 90,
+      "uvlock": true
+    },
+    "facing=north,half=bottom,shape=inner_right": {
+      "model": "thaumcraft:catalog/stairs_ancient/15",
+      "y": 270,
+      "uvlock": true
+    },
+    "facing=east,half=bottom,shape=inner_left": {
+      "model": "thaumcraft:catalog/stairs_ancient/16",
+      "y": 270,
+      "uvlock": true
+    },
+    "facing=west,half=bottom,shape=inner_left": {
+      "model": "thaumcraft:catalog/stairs_ancient/17",
+      "y": 90,
+      "uvlock": true
+    },
+    "facing=south,half=bottom,shape=inner_left": {
+      "model": "thaumcraft:catalog/stairs_ancient/18"
+    },
+    "facing=north,half=bottom,shape=inner_left": {
+      "model": "thaumcraft:catalog/stairs_ancient/19",
+      "y": 180,
+      "uvlock": true
+    },
+    "facing=east,half=top,shape=straight": {
+      "model": "thaumcraft:catalog/stairs_ancient/20",
+      "x": 180,
+      "uvlock": true
+    },
+    "facing=west,half=top,shape=straight": {
+      "model": "thaumcraft:catalog/stairs_ancient/21",
+      "x": 180,
+      "y": 180,
+      "uvlock": true
+    },
+    "facing=south,half=top,shape=straight": {
+      "model": "thaumcraft:catalog/stairs_ancient/22",
+      "x": 180,
+      "y": 90,
+      "uvlock": true
+    },
+    "facing=north,half=top,shape=straight": {
+      "model": "thaumcraft:catalog/stairs_ancient/23",
+      "x": 180,
+      "y": 270,
+      "uvlock": true
+    },
+    "facing=east,half=top,shape=outer_right": {
+      "model": "thaumcraft:catalog/stairs_ancient/24",
+      "x": 180,
+      "y": 90,
+      "uvlock": true
+    },
+    "facing=west,half=top,shape=outer_right": {
+      "model": "thaumcraft:catalog/stairs_ancient/25",
+      "x": 180,
+      "y": 270,
+      "uvlock": true
+    },
+    "facing=south,half=top,shape=outer_right": {
+      "model": "thaumcraft:catalog/stairs_ancient/26",
+      "x": 180,
+      "y": 180,
+      "uvlock": true
+    },
+    "facing=north,half=top,shape=outer_right": {
+      "model": "thaumcraft:catalog/stairs_ancient/27",
+      "x": 180,
+      "uvlock": true
+    },
+    "facing=east,half=top,shape=outer_left": {
+      "model": "thaumcraft:catalog/stairs_ancient/28",
+      "x": 180,
+      "uvlock": true
+    },
+    "facing=west,half=top,shape=outer_left": {
+      "model": "thaumcraft:catalog/stairs_ancient/29",
+      "x": 180,
+      "y": 180,
+      "uvlock": true
+    },
+    "facing=south,half=top,shape=outer_left": {
+      "model": "thaumcraft:catalog/stairs_ancient/30",
+      "x": 180,
+      "y": 90,
+      "uvlock": true
+    },
+    "facing=north,half=top,shape=outer_left": {
+      "model": "thaumcraft:catalog/stairs_ancient/31",
+      "x": 180,
+      "y": 270,
+      "uvlock": true
+    },
+    "facing=east,half=top,shape=inner_right": {
+      "model": "thaumcraft:catalog/stairs_ancient/32",
+      "x": 180,
+      "y": 90,
+      "uvlock": true
+    },
+    "facing=west,half=top,shape=inner_right": {
+      "model": "thaumcraft:catalog/stairs_ancient/33",
+      "x": 180,
+      "y": 270,
+      "uvlock": true
+    },
+    "facing=south,half=top,shape=inner_right": {
+      "model": "thaumcraft:catalog/stairs_ancient/34",
+      "x": 180,
+      "y": 180,
+      "uvlock": true
+    },
+    "facing=north,half=top,shape=inner_right": {
+      "model": "thaumcraft:catalog/stairs_ancient/35",
+      "x": 180,
+      "uvlock": true
+    },
+    "facing=east,half=top,shape=inner_left": {
+      "model": "thaumcraft:catalog/stairs_ancient/36",
+      "x": 180,
+      "uvlock": true
+    },
+    "facing=west,half=top,shape=inner_left": {
+      "model": "thaumcraft:catalog/stairs_ancient/37",
+      "x": 180,
+      "y": 180,
+      "uvlock": true
+    },
+    "facing=south,half=top,shape=inner_left": {
+      "model": "thaumcraft:catalog/stairs_ancient/38",
+      "x": 180,
+      "y": 90,
+      "uvlock": true
+    },
+    "facing=north,half=top,shape=inner_left": {
+      "model": "thaumcraft:catalog/stairs_ancient/39",
+      "x": 180,
+      "y": 270,
+      "uvlock": true
+    }
+  }
+}

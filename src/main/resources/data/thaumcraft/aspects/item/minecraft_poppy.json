@@ -1,0 +1,20 @@
+{
+  "type": "item",
+  "targets": [
+    "minecraft:poppy",
+    "minecraft:blue_orchid",
+    "minecraft:allium",
+    "minecraft:azure_bluet",
+    "minecraft:red_tulip",
+    "minecraft:orange_tulip",
+    "minecraft:white_tulip",
+    "minecraft:pink_tulip",
+    "minecraft:oxeye_daisy"
+  ],
+  "aspects": {
+    "herba": 5,
+    "victus": 1,
+    "sensus": 5
+  },
+  "_source": "Thaumcraft 6 ConfigAspects.java:244"
+}

@@ -1,0 +1,12 @@
+{
+  "type": "item_tag",
+  "targets": [
+    "forge:ores/gold"
+  ],
+  "aspects": {
+    "terra": 5,
+    "metallum": 10,
+    "desiderium": 10
+  },
+  "_source": "Thaumcraft 6 ConfigAspects.java:143"
+}

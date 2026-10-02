@@ -1,0 +1,12 @@
+{
+  "type": "entity",
+  "targets": [
+    "minecraft:wolf"
+  ],
+  "aspects": {
+    "bestia": 15,
+    "terra": 10,
+    "aversio": 5
+  },
+  "_source": "Thaumcraft 6 ConfigAspects.java:66"
+}

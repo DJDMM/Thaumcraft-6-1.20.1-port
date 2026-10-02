@@ -1,0 +1,18 @@
+{
+  "category": "misc",
+  "result": {
+    "count": 1,
+    "item": "thaumcraft:metal_void"
+  },
+  "pattern": [
+    "###",
+    "###",
+    "###"
+  ],
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "#": {
+      "item": "thaumcraft:ingot_void"
+    }
+  }
+}

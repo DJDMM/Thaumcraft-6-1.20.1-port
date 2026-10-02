@@ -1,0 +1,13 @@
+{
+  "type": "item",
+  "targets": [
+    "minecraft:note_block"
+  ],
+  "aspects": {
+    "sensus": 20,
+    "machina": 10,
+    "aer": 15
+  },
+  "_source": "Thaumcraft 6 ConfigAspects.java:431",
+  "derive": true
+}

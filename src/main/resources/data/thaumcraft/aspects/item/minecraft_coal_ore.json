@@ -1,0 +1,12 @@
+{
+  "type": "item",
+  "targets": [
+    "minecraft:coal_ore"
+  ],
+  "aspects": {
+    "terra": 5,
+    "potentia": 15,
+    "ignis": 15
+  },
+  "_source": "Thaumcraft 6 ConfigAspects.java:146"
+}

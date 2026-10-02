@@ -1,0 +1,15 @@
+{
+  "type": "item",
+  "targets": [
+    "minecraft:cod",
+    "minecraft:salmon",
+    "minecraft:tropical_fish",
+    "minecraft:pufferfish"
+  ],
+  "aspects": {
+    "bestia": 5,
+    "victus": 5,
+    "aqua": 5
+  },
+  "_source": "Thaumcraft 6 ConfigAspects.java:296"
+}

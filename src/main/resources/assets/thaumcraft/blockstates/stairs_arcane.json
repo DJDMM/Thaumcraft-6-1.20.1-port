@@ -1,0 +1,209 @@
+{
+  "variants": {
+    "facing=east,half=bottom,shape=straight": {
+      "model": "thaumcraft:catalog/stairs_arcane/0"
+    },
+    "facing=west,half=bottom,shape=straight": {
+      "model": "thaumcraft:catalog/stairs_arcane/1",
+      "y": 180,
+      "uvlock": true
+    },
+    "facing=south,half=bottom,shape=straight": {
+      "model": "thaumcraft:catalog/stairs_arcane/2",
+      "y": 90,
+      "uvlock": true
+    },
+    "facing=north,half=bottom,shape=straight": {
+      "model": "thaumcraft:catalog/stairs_arcane/3",
+      "y": 270,
+      "uvlock": true
+    },
+    "facing=east,half=bottom,shape=outer_right": {
+      "model": "thaumcraft:catalog/stairs_arcane/4"
+    },
+    "facing=west,half=bottom,shape=outer_right": {
+      "model": "thaumcraft:catalog/stairs_arcane/5",
+      "y": 180,
+      "uvlock": true
+    },
+    "facing=south,half=bottom,shape=outer_right": {
+      "model": "thaumcraft:catalog/stairs_arcane/6",
+      "y": 90,
+      "uvlock": true
+    },
+    "facing=north,half=bottom,shape=outer_right": {
+      "model": "thaumcraft:catalog/stairs_arcane/7",
+      "y": 270,
+      "uvlock": true
+    },
+    "facing=east,half=bottom,shape=outer_left": {
+      "model": "thaumcraft:catalog/stairs_arcane/8",
+      "y": 270,
+      "uvlock": true
+    },
+    "facing=west,half=bottom,shape=outer_left": {
+      "model": "thaumcraft:catalog/stairs_arcane/9",
+      "y": 90,
+      "uvlock": true
+    },
+    "facing=south,half=bottom,shape=outer_left": {
+      "model": "thaumcraft:catalog/stairs_arcane/10"
+    },
+    "facing=north,half=bottom,shape=outer_left": {
+      "model": "thaumcraft:catalog/stairs_arcane/11",
+      "y": 180,
+      "uvlock": true
+    },
+    "facing=east,half=bottom,shape=inner_right": {
+      "model": "thaumcraft:catalog/stairs_arcane/12"
+    },
+    "facing=west,half=bottom,shape=inner_right": {
+      "model": "thaumcraft:catalog/stairs_arcane/13",
+      "y": 180,
+      "uvlock": true
+    },
+    "facing=south,half=bottom,shape=inner_right": {
+      "model": "thaumcraft:catalog/stairs_arcane/14",
+      "y": 90,
+      "uvlock": true
+    },
+    "facing=north,half=bottom,shape=inner_right": {
+      "model": "thaumcraft:catalog/stairs_arcane/15",
+      "y": 270,
+      "uvlock": true
+    },
+    "facing=east,half=bottom,shape=inner_left": {
+      "model": "thaumcraft:catalog/stairs_arcane/16",
+      "y": 270,
+      "uvlock": true
+    },
+    "facing=west,half=bottom,shape=inner_left": {
+      "model": "thaumcraft:catalog/stairs_arcane/17",
+      "y": 90,
+      "uvlock": true
+    },
+    "facing=south,half=bottom,shape=inner_left": {
+      "model": "thaumcraft:catalog/stairs_arcane/18"
+    },
+    "facing=north,half=bottom,shape=inner_left": {
+      "model": "thaumcraft:catalog/stairs_arcane/19",
+      "y": 180,
+      "uvlock": true
+    },
+    "facing=east,half=top,shape=straight": {
+      "model": "thaumcraft:catalog/stairs_arcane/20",
+      "x": 180,
+      "uvlock": true
+    },
+    "facing=west,half=top,shape=straight": {
+      "model": "thaumcraft:catalog/stairs_arcane/21",
+      "x": 180,
+      "y": 180,
+      "uvlock": true
+    },
+    "facing=south,half=top,shape=straight": {
+      "model": "thaumcraft:catalog/stairs_arcane/22",
+      "x": 180,
+      "y": 90,
+      "uvlock": true
+    },
+    "facing=north,half=top,shape=straight": {
+      "model": "thaumcraft:catalog/stairs_arcane/23",
+      "x": 180,
+      "y": 270,
+      "uvlock": true
+    },
+    "facing=east,half=top,shape=outer_right": {
+      "model": "thaumcraft:catalog/stairs_arcane/24",
+      "x": 180,
+      "y": 90,
+      "uvlock": true
+    },
+    "facing=west,half=top,shape=outer_right": {
+      "model": "thaumcraft:catalog/stairs_arcane/25",
+      "x": 180,
+      "y": 270,
+      "uvlock": true
+    },
+    "facing=south,half=top,shape=outer_right": {
+      "model": "thaumcraft:catalog/stairs_arcane/26",
+      "x": 180,
+      "y": 180,
+      "uvlock": true
+    },
+    "facing=north,half=top,shape=outer_right": {
+      "model": "thaumcraft:catalog/stairs_arcane/27",
+      "x": 180,
+      "uvlock": true
+    },
+    "facing=east,half=top,shape=outer_left": {
+      "model": "thaumcraft:catalog/stairs_arcane/28",
+      "x": 180,
+      "uvlock": true
+    },
+    "facing=west,half=top,shape=outer_left": {
+      "model": "thaumcraft:catalog/stairs_arcane/29",
+      "x": 180,
+      "y": 180,
+      "uvlock": true
+    },
+    "facing=south,half=top,shape=outer_left": {
+      "model": "thaumcraft:catalog/stairs_arcane/30",
+      "x": 180,
+      "y": 90,
+      "uvlock": true
+    },
+    "facing=north,half=top,shape=outer_left": {
+      "model": "thaumcraft:catalog/stairs_arcane/31",
+      "x": 180,
+      "y": 270,
+      "uvlock": true
+    },
+    "facing=east,half=top,shape=inner_right": {
+      "model": "thaumcraft:catalog/stairs_arcane/32",
+      "x": 180,
+      "y": 90,
+      "uvlock": true
+    },
+    "facing=west,half=top,shape=inner_right": {
+      "model": "thaumcraft:catalog/stairs_arcane/33",
+      "x": 180,
+      "y": 270,
+      "uvlock": true
+    },
+    "facing=south,half=top,shape=inner_right": {
+      "model": "thaumcraft:catalog/stairs_arcane/34",
+      "x": 180,
+      "y": 180,
+      "uvlock": true
+    },
+    "facing=north,half=top,shape=inner_right": {
+      "model": "thaumcraft:catalog/stairs_arcane/35",
+      "x": 180,
+      "uvlock": true
+    },
+    "facing=east,half=top,shape=inner_left": {
+      "model": "thaumcraft:catalog/stairs_arcane/36",
+      "x": 180,
+      "uvlock": true
+    },
+    "facing=west,half=top,shape=inner_left": {
+      "model": "thaumcraft:catalog/stairs_arcane/37",
+      "x": 180,
+      "y": 180,
+      "uvlock": true
+    },
+    "facing=south,half=top,shape=inner_left": {
+      "model": "thaumcraft:catalog/stairs_arcane/38",
+      "x": 180,
+      "y": 90,
+      "uvlock": true
+    },
+    "facing=north,half=top,shape=inner_left": {
+      "model": "thaumcraft:catalog/stairs_arcane/39",
+      "x": 180,
+      "y": 270,
+      "uvlock": true
+    }
+  }
+}

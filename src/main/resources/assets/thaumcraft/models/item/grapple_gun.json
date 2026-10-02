@@ -1,0 +1,17 @@
+{
+  "parent": "minecraft:item/generated",
+  "overrides": [
+    {
+      "predicate": {
+        "thaumcraft:type": 0
+      },
+      "model": "thaumcraft:item/grapple_gun_1"
+    },
+    {
+      "predicate": {
+        "thaumcraft:type": 1
+      },
+      "model": "thaumcraft:item/grapple_gun_2"
+    }
+  ]
+}

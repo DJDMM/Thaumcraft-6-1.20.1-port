@@ -1,0 +1,4 @@
+{
+  "parent": "thaumcraft:block/jar_brain_item",
+  "render_type": "minecraft:translucent"
+}

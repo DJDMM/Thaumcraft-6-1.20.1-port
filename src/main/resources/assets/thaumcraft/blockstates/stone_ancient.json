@@ -1,0 +1,78 @@
+{
+  "variants": {
+    "": [
+      {
+        "model": "thaumcraft:catalog/stone_ancient/0"
+      },
+      {
+        "model": "thaumcraft:catalog/stone_ancient/1",
+        "x": 90
+      },
+      {
+        "model": "thaumcraft:catalog/stone_ancient/2",
+        "x": 180
+      },
+      {
+        "model": "thaumcraft:catalog/stone_ancient/3",
+        "x": 270
+      },
+      {
+        "model": "thaumcraft:catalog/stone_ancient/4",
+        "y": 90
+      },
+      {
+        "model": "thaumcraft:catalog/stone_ancient/5",
+        "y": 180
+      },
+      {
+        "model": "thaumcraft:catalog/stone_ancient/6",
+        "y": 270
+      },
+      {
+        "model": "thaumcraft:catalog/stone_ancient/7",
+        "x": 90,
+        "y": 90
+      },
+      {
+        "model": "thaumcraft:catalog/stone_ancient/8",
+        "x": 180,
+        "y": 90
+      },
+      {
+        "model": "thaumcraft:catalog/stone_ancient/9",
+        "x": 270,
+        "y": 90
+      },
+      {
+        "model": "thaumcraft:catalog/stone_ancient/10",
+        "x": 90,
+        "y": 180
+      },
+      {
+        "model": "thaumcraft:catalog/stone_ancient/11",
+        "x": 180,
+        "y": 180
+      },
+      {
+        "model": "thaumcraft:catalog/stone_ancient/12",
+        "x": 270,
+        "y": 180
+      },
+      {
+        "model": "thaumcraft:catalog/stone_ancient/13",
+        "x": 90,
+        "y": 270
+      },
+      {
+        "model": "thaumcraft:catalog/stone_ancient/14",
+        "x": 180,
+        "y": 270
+      },
+      {
+        "model": "thaumcraft:catalog/stone_ancient/15",
+        "x": 270,
+        "y": 270
+      }
+    ]
+  }
+}

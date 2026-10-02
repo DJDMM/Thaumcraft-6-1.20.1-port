@@ -1,0 +1,11 @@
+{
+  "type": "item",
+  "targets": [
+    "minecraft:magma_block"
+  ],
+  "aspects": {
+    "ignis": 10,
+    "terra": 5
+  },
+  "_source": "Thaumcraft 6 ConfigAspects.java:274"
+}

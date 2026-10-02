@@ -1,0 +1,11 @@
+{
+  "type": "item",
+  "targets": [
+    "minecraft:large_fern"
+  ],
+  "aspects": {
+    "herba": 5,
+    "aer": 1
+  },
+  "_source": "Thaumcraft 6 ConfigAspects.java:233"
+}

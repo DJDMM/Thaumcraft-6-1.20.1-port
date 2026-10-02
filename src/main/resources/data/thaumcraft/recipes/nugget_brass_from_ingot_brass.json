@@ -1,0 +1,13 @@
+{
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "thaumcraft:ingot_brass"
+    }
+  ],
+  "result": {
+    "count": 9,
+    "item": "thaumcraft:nugget_brass"
+  },
+  "type": "minecraft:crafting_shapeless"
+}

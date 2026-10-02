@@ -1,0 +1,13 @@
+{
+  "type": "item",
+  "targets": [
+    "minecraft:totem_of_undying"
+  ],
+  "aspects": {
+    "ordo": 10,
+    "perditio": 10,
+    "victus": 25,
+    "exanimis": 10
+  },
+  "_source": "Thaumcraft 6 ConfigAspects.java:326"
+}

@@ -1,0 +1,12 @@
+{
+  "type": "item",
+  "targets": [
+    "minecraft:golden_apple"
+  ],
+  "aspects": {
+    "praecantatio": 5,
+    "victus": 10
+  },
+  "_source": "Thaumcraft 6 ConfigAspects.java:377",
+  "derive": true
+}

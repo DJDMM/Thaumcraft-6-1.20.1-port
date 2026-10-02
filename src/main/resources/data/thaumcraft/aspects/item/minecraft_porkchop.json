@@ -1,0 +1,12 @@
+{
+  "type": "item",
+  "targets": [
+    "minecraft:porkchop"
+  ],
+  "aspects": {
+    "bestia": 5,
+    "victus": 5,
+    "terra": 5
+  },
+  "_source": "Thaumcraft 6 ConfigAspects.java:300"
+}

@@ -1,0 +1,10 @@
+{
+  "type": "item",
+  "targets": [
+    "minecraft:chainmail_boots"
+  ],
+  "aspects": {
+    "metallum": 33
+  },
+  "_source": "Thaumcraft 6 ConfigAspects.java:359"
+}

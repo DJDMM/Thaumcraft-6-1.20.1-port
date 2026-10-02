@@ -1,0 +1,13 @@
+{
+  "type": "entity",
+  "targets": [
+    "minecraft:skeleton_horse"
+  ],
+  "aspects": {
+    "bestia": 5,
+    "exanimis": 10,
+    "terra": 5,
+    "aer": 5
+  },
+  "_source": "Thaumcraft 6 ConfigAspects.java:55"
+}

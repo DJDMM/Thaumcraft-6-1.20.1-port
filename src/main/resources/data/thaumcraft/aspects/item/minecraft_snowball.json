@@ -1,0 +1,10 @@
+{
+  "type": "item",
+  "targets": [
+    "minecraft:snowball"
+  ],
+  "aspects": {
+    "gelum": 1
+  },
+  "_source": "Thaumcraft 6 ConfigAspects.java:281"
+}

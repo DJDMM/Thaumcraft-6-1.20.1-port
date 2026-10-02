@@ -1,0 +1,11 @@
+{
+  "type": "item",
+  "targets": [
+    "thaumcraft:thaumonomicon"
+  ],
+  "aspects": {
+    "praecantatio": 10
+  },
+  "_source": "Thaumcraft 6 ConfigAspects.java:532",
+  "base": "minecraft:bookshelf"
+}

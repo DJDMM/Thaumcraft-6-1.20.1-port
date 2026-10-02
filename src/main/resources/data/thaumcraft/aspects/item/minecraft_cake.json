@@ -1,0 +1,12 @@
+{
+  "type": "item",
+  "targets": [
+    "minecraft:cake"
+  ],
+  "aspects": {
+    "desiderium": 1,
+    "victus": 2
+  },
+  "_source": "Thaumcraft 6 ConfigAspects.java:265",
+  "derive": true
+}

@@ -1,0 +1,12 @@
+{
+  "type": "entity",
+  "targets": [
+    "minecraft:magma_cube"
+  ],
+  "aspects": {
+    "aqua": 5,
+    "ignis": 10,
+    "alkimia": 5
+  },
+  "_source": "Thaumcraft 6 ConfigAspects.java:76"
+}

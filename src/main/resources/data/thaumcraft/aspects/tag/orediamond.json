@@ -1,0 +1,12 @@
+{
+  "type": "item_tag",
+  "targets": [
+    "forge:ores/diamond"
+  ],
+  "aspects": {
+    "terra": 5,
+    "desiderium": 15,
+    "vitreus": 15
+  },
+  "_source": "Thaumcraft 6 ConfigAspects.java:132"
+}

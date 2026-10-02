@@ -1,0 +1,11 @@
+{
+  "type": "entity",
+  "targets": [
+    "minecraft:ghast"
+  ],
+  "aspects": {
+    "exanimis": 15,
+    "ignis": 15
+  },
+  "_source": "Thaumcraft 6 ConfigAspects.java:70"
+}

@@ -1,0 +1,13 @@
+{
+  "type": "item_tag",
+  "targets": [
+    "forge:ores/cinnabar"
+  ],
+  "aspects": {
+    "terra": 5,
+    "metallum": 10,
+    "alkimia": 5,
+    "mortuus": 5
+  },
+  "_source": "Thaumcraft 6 ConfigAspects.java:480"
+}

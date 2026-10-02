@@ -1,0 +1,13 @@
+{
+  "type": "item",
+  "targets": [
+    "minecraft:enchanted_golden_apple"
+  ],
+  "aspects": {
+    "praecantatio": 5,
+    "victus": 15,
+    "praemunio": 15
+  },
+  "_source": "Thaumcraft 6 ConfigAspects.java:378",
+  "derive": true
+}

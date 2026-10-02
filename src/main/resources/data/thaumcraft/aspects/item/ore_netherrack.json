@@ -1,0 +1,11 @@
+{
+  "type": "item",
+  "targets": [
+    "minecraft:netherrack"
+  ],
+  "aspects": {
+    "terra": 5,
+    "ignis": 2
+  },
+  "_source": "Thaumcraft 6 ConfigAspects.java:198"
+}

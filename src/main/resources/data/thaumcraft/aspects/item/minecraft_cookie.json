@@ -1,0 +1,11 @@
+{
+  "type": "item",
+  "targets": [
+    "minecraft:cookie"
+  ],
+  "aspects": {
+    "desiderium": 1
+  },
+  "_source": "Thaumcraft 6 ConfigAspects.java:282",
+  "derive": true
+}

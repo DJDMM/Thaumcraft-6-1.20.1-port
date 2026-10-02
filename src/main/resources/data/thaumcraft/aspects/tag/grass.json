@@ -1,0 +1,11 @@
+{
+  "type": "item_tag",
+  "targets": [
+    "minecraft:grass_block"
+  ],
+  "aspects": {
+    "terra": 5,
+    "herba": 2
+  },
+  "_source": "Thaumcraft 6 ConfigAspects.java:189"
+}

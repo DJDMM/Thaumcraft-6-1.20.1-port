@@ -1,0 +1,76 @@
+plugins {
+    id 'eclipse'
+    id 'idea'
+    id 'net.minecraftforge.gradle' version '6.0.54'
+}
+version = '0.10.0-dev'
+group = 'thaumcraft.port'
+base { archivesName = 'thaumcraft-1.20.1' }
+java.toolchain.languageVersion = JavaLanguageVersion.of(17)
+minecraft {
+    mappings channel: 'official', version: '1.20.1'
+    copyIdeResources = true
+    runs {
+        configureEach {
+            workingDirectory project.file('run')
+            property 'forge.logging.console.level', 'info'
+            property 'mixin.env.remapRefMap', 'true'
+            property 'mixin.env.refMapRemappingFile', "${buildDir}/createSrgToMcp/output.srg"
+            mods { thaumcraft { source sourceSets.main } }
+        }
+        client {
+            if (project.hasProperty('equipmentSmokeTest')) {
+                workingDirectory project.file('run/equipment-smoke')
+                property 'thaumcraft.equipmentSmokeTest', 'true'
+                args '--width', '1600', '--height', '1000'
+            }
+            if (project.hasProperty('thaumometerSmokeTest')) {
+                workingDirectory project.file('run/thaumometer-smoke')
+                property 'thaumcraft.thaumometerSmokeTest', 'true'
+                args '--width', '1600', '--height', '1000'
+            }
+            if (project.hasProperty('essentiaSmokeTest')) {
+                workingDirectory project.file('run/essentia-smoke')
+                property 'thaumcraft.essentiaSmokeTest', 'true'
+                args '--width', '1600', '--height', '1000'
+            }
+            if (project.hasProperty('catalogSmokeTest')) {
+                workingDirectory project.file('run/visual-catalog')
+                property 'thaumcraft.catalogSmokeTest', 'true'
+                args '--width', '1600', '--height', '1000'
+            }
+            if (project.hasProperty('gameplayTest')) {
+                property 'thaumcraft.gameplayHints', 'true'
+                args '--width', '1600', '--height', '1000'
+            }
+            if (project.hasProperty('biomeSmokeTest')) {
+                property 'thaumcraft.biomeSmokeTest', 'true'
+                args '--width', '1600', '--height', '1000'
+            }
+            if (project.hasProperty('theorySmokeTest')) {
+                property 'thaumcraft.theorySmokeTest', 'true'
+                args '--width', '1600', '--height', '1000'
+            }
+            if (project.hasProperty('clientSmokeTest')) {
+                property 'thaumcraft.clientSmokeTest', 'true'
+                args '--width', '1600', '--height', '1000'
+            }
+        }
+        server { args '--nogui' }
+        gameTestServer {
+            workingDirectory project.file('run/gametest-server')
+            property 'forge.enabledGameTestNamespaces', 'thaumcraft'
+        }
+    }
+}
+repositories {
+    // Glitchfiend publishes TerraBlender's Forge artifacts in the Forge Maven.
+    maven { url = 'https://maven.minecraftforge.net/' }
+}
+
+dependencies {
+    minecraft 'net.minecraftforge:forge:1.20.1-47.4.10'
+    implementation fg.deobf('com.github.glitchfiend:TerraBlender-forge:1.20.1-3.0.1.10')
+}
+tasks.named('jar', Jar).configure { finalizedBy 'reobfJar' }
+tasks.withType(JavaCompile).configureEach { options.encoding = 'UTF-8' }

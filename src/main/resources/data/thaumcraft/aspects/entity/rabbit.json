@@ -1,0 +1,12 @@
+{
+  "type": "entity",
+  "targets": [
+    "minecraft:rabbit"
+  ],
+  "aspects": {
+    "bestia": 5,
+    "terra": 5,
+    "motus": 5
+  },
+  "_source": "Thaumcraft 6 ConfigAspects.java:87"
+}

@@ -1,0 +1,11 @@
+{
+  "type": "item",
+  "targets": [
+    "minecraft:andesite",
+    "minecraft:polished_andesite"
+  ],
+  "aspects": {
+    "terra": 5
+  },
+  "_source": "Thaumcraft 6 ConfigAspects.java:182"
+}

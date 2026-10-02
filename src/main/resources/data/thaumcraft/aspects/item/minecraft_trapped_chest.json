@@ -1,0 +1,11 @@
+{
+  "type": "item",
+  "targets": [
+    "minecraft:trapped_chest"
+  ],
+  "aspects": {
+    "vinculum": 10
+  },
+  "_source": "Thaumcraft 6 ConfigAspects.java:373",
+  "derive": true
+}

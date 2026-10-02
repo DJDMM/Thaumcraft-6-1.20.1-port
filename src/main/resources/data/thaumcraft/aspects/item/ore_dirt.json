@@ -1,0 +1,11 @@
+{
+  "type": "item",
+  "targets": [
+    "minecraft:dirt",
+    "minecraft:coarse_dirt"
+  ],
+  "aspects": {
+    "terra": 5
+  },
+  "_source": "Thaumcraft 6 ConfigAspects.java:185"
+}

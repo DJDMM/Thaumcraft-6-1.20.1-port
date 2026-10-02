@@ -1,0 +1,10 @@
+{
+  "type": "item",
+  "targets": [
+    "thaumcraft:vis_crystal_terra"
+  ],
+  "aspects": {
+    "terra": 1
+  },
+  "_source": "Thaumcraft 6 ItemCrystalEssence.getAspects (single aspect crystal)"
+}

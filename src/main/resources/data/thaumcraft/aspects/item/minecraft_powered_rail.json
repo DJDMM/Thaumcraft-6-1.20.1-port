@@ -1,0 +1,12 @@
+{
+  "type": "item",
+  "targets": [
+    "minecraft:powered_rail"
+  ],
+  "aspects": {
+    "machina": 5,
+    "potentia": 1
+  },
+  "_source": "Thaumcraft 6 ConfigAspects.java:415",
+  "derive": true
+}

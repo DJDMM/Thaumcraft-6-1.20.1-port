@@ -1,0 +1,11 @@
+{
+  "type": "item",
+  "targets": [
+    "minecraft:mossy_stone_bricks"
+  ],
+  "aspects": {
+    "herba": 1
+  },
+  "_source": "Thaumcraft 6 ConfigAspects.java:204",
+  "base": "minecraft:stone_bricks"
+}

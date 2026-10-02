@@ -1,0 +1,7 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [" C ", "G G", " G "],
+  "key": {"C": {"item": "minecraft:clay_ball"}, "G": {"tag": "forge:glass"}},
+  "result": {"item": "thaumcraft:phial_empty", "count": 8}
+}

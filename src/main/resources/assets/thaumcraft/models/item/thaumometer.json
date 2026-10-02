@@ -1,0 +1,123 @@
+{
+  "loader": "forge:obj",
+  "model": "thaumcraft:models/item/thaumometer.obj",
+  "flip_v": true,
+  "automatic_culling": false,
+  "shade_quads": true,
+  "gui_light": "front",
+  "render_type": "minecraft:translucent",
+  "textures": {
+    "particle": "thaumcraft:items/thaumometer"
+  },
+  "display": {
+    "gui": {
+      "rotation": [
+        90,
+        0,
+        0
+      ],
+      "translation": [
+        2.8,
+        -2.8,
+        0
+      ],
+      "scale": [
+        0.35,
+        0.35,
+        0.35
+      ]
+    },
+    "ground": {
+      "rotation": [
+        90,
+        0,
+        0
+      ],
+      "scale": [
+        0.2,
+        0.2,
+        0.2
+      ]
+    },
+    "fixed": {
+      "rotation": [
+        -90,
+        0,
+        0
+      ],
+      "scale": [
+        0.4,
+        0.4,
+        0.4
+      ]
+    },
+    "firstperson_righthand": {
+      "rotation": [
+        90,
+        0,
+        0
+      ],
+      "translation": [
+        -0.96,
+        0.096,
+        -6.4
+      ],
+      "scale": [
+        0.4,
+        0.4,
+        0.4
+      ]
+    },
+    "firstperson_lefthand": {
+      "rotation": [
+        90,
+        0,
+        0
+      ],
+      "translation": [
+        -0.96,
+        0.096,
+        -6.4
+      ],
+      "scale": [
+        0.4,
+        0.4,
+        0.4
+      ]
+    },
+    "thirdperson_righthand": {
+      "rotation": [
+        90,
+        90,
+        0
+      ],
+      "translation": [
+        0,
+        0,
+        -1.6
+      ],
+      "scale": [
+        0.2,
+        0.2,
+        0.2
+      ]
+    },
+    "thirdperson_lefthand": {
+      "rotation": [
+        90,
+        90,
+        0
+      ],
+      "translation": [
+        0,
+        0,
+        -1.6
+      ],
+      "scale": [
+        0.2,
+        0.2,
+        0.2
+      ]
+    }
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "textures": {
+    "layer0": "thaumcraft:items/ingot_void"
+  },
+  "parent": "minecraft:item/generated"
+}

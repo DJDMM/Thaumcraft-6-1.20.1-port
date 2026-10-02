@@ -1,0 +1,6 @@
+{
+  "textures": {
+    "layer0": "thaumcraft:items/plate_thaumium"
+  },
+  "parent": "minecraft:item/generated"
+}

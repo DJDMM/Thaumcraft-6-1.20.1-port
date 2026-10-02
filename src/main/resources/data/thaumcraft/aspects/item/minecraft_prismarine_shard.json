@@ -1,0 +1,11 @@
+{
+  "type": "item",
+  "targets": [
+    "minecraft:prismarine_shard"
+  ],
+  "aspects": {
+    "aqua": 5,
+    "terra": 5
+  },
+  "_source": "Thaumcraft 6 ConfigAspects.java:368"
+}

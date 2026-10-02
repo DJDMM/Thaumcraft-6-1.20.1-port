@@ -1,0 +1,56 @@
+{
+  "variants": {
+    "facing=up,enabled=true": {
+      "model": "thaumcraft:catalog/lamp_arcane/0",
+      "x": 180
+    },
+    "facing=up,enabled=false": {
+      "model": "thaumcraft:catalog/lamp_arcane/1",
+      "x": 180
+    },
+    "facing=down,enabled=true": {
+      "model": "thaumcraft:catalog/lamp_arcane/2"
+    },
+    "facing=down,enabled=false": {
+      "model": "thaumcraft:catalog/lamp_arcane/3"
+    },
+    "facing=north,enabled=true": {
+      "model": "thaumcraft:catalog/lamp_arcane/4",
+      "x": 90,
+      "y": 180
+    },
+    "facing=north,enabled=false": {
+      "model": "thaumcraft:catalog/lamp_arcane/5",
+      "x": 90,
+      "y": 180
+    },
+    "facing=south,enabled=true": {
+      "model": "thaumcraft:catalog/lamp_arcane/6",
+      "x": 90
+    },
+    "facing=south,enabled=false": {
+      "model": "thaumcraft:catalog/lamp_arcane/7",
+      "x": 90
+    },
+    "facing=east,enabled=true": {
+      "model": "thaumcraft:catalog/lamp_arcane/8",
+      "x": 90,
+      "y": 270
+    },
+    "facing=east,enabled=false": {
+      "model": "thaumcraft:catalog/lamp_arcane/9",
+      "x": 90,
+      "y": 270
+    },
+    "facing=west,enabled=true": {
+      "model": "thaumcraft:catalog/lamp_arcane/10",
+      "x": 90,
+      "y": 90
+    },
+    "facing=west,enabled=false": {
+      "model": "thaumcraft:catalog/lamp_arcane/11",
+      "x": 90,
+      "y": 90
+    }
+  }
+}

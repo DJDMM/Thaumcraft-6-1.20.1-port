@@ -1,0 +1,10 @@
+{
+  "type": "item",
+  "targets": [
+    "minecraft:vine"
+  ],
+  "aspects": {
+    "herba": 5
+  },
+  "_source": "Thaumcraft 6 ConfigAspects.java:238"
+}

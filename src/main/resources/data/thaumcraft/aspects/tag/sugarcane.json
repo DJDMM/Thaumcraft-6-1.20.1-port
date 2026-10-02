@@ -1,0 +1,12 @@
+{
+  "type": "item_tag",
+  "targets": [
+    "minecraft:sugar_cane"
+  ],
+  "aspects": {
+    "herba": 5,
+    "aqua": 3,
+    "aer": 2
+  },
+  "_source": "Thaumcraft 6 ConfigAspects.java:251"
+}

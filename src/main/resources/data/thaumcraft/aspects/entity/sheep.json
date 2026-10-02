@@ -1,0 +1,11 @@
+{
+  "type": "entity",
+  "targets": [
+    "minecraft:sheep"
+  ],
+  "aspects": {
+    "bestia": 10,
+    "terra": 10
+  },
+  "_source": "Thaumcraft 6 ConfigAspects.java:59"
+}

@@ -1,0 +1,13 @@
+{
+  "type": "entity",
+  "targets": [
+    "minecraft:zombie_horse"
+  ],
+  "aspects": {
+    "bestia": 10,
+    "exanimis": 5,
+    "terra": 5,
+    "aer": 5
+  },
+  "_source": "Thaumcraft 6 ConfigAspects.java:56"
+}

@@ -1,0 +1,12 @@
+{
+  "type": "item_tag",
+  "targets": [
+    "forge:ingots/nether_brick"
+  ],
+  "aspects": {
+    "ignis": 1,
+    "ordo": 1
+  },
+  "_source": "Thaumcraft 6 ConfigAspects.java:199",
+  "base": "minecraft:netherrack"
+}

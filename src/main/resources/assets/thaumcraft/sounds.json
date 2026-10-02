@@ -1,0 +1,54 @@
+{
+  "scan": {
+    "sounds": [
+      {
+        "name": "thaumcraft:scan",
+        "stream": false
+      }
+    ]
+  },
+  "coins": {
+    "sounds": [
+      {
+        "name": "thaumcraft:coins",
+        "stream": false
+      }
+    ]
+  },
+  "craftstart": {
+    "sounds": [
+      {
+        "name": "thaumcraft:craftstart",
+        "stream": false
+      }
+    ]
+  },
+  "learn": {
+    "sounds": [
+      {
+        "name": "thaumcraft:learn",
+        "stream": false
+      }
+    ]
+  },
+  "wind": {
+    "sounds": [
+      "thaumcraft:wind1",
+      "thaumcraft:wind2"
+    ]
+  },
+  "zap": {
+    "sounds": [
+      "thaumcraft:zap1",
+      "thaumcraft:zap2"
+    ]
+  },
+  "wandfail": {
+    "sounds": [
+      {
+        "name": "thaumcraft:wandfail",
+        "stream": false
+      }
+    ]
+  }
+}

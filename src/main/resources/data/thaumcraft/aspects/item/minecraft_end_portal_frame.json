@@ -1,0 +1,13 @@
+{
+  "type": "item",
+  "targets": [
+    "minecraft:end_portal_frame"
+  ],
+  "aspects": {
+    "alienis": 10,
+    "potentia": 10,
+    "motus": 10,
+    "praecantatio": 5
+  },
+  "_source": "Thaumcraft 6 ConfigAspects.java:366"
+}

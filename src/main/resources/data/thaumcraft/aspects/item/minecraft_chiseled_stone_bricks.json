@@ -1,0 +1,11 @@
+{
+  "type": "item",
+  "targets": [
+    "minecraft:chiseled_stone_bricks"
+  ],
+  "aspects": {
+    "ordo": 1
+  },
+  "_source": "Thaumcraft 6 ConfigAspects.java:206",
+  "base": "minecraft:stone_bricks"
+}

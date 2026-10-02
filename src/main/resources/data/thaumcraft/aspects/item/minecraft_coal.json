@@ -1,0 +1,12 @@
+{
+  "type": "item",
+  "targets": [
+    "minecraft:coal",
+    "minecraft:charcoal"
+  ],
+  "aspects": {
+    "potentia": 10,
+    "ignis": 10
+  },
+  "_source": "Thaumcraft 6 ConfigAspects.java:147"
+}

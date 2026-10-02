@@ -1,0 +1,12 @@
+{
+  "type": "item",
+  "targets": [
+    "minecraft:cooked_mutton"
+  ],
+  "aspects": {
+    "fabrico": 1,
+    "bestia": 5,
+    "victus": 5
+  },
+  "_source": "Thaumcraft 6 ConfigAspects.java:305"
+}

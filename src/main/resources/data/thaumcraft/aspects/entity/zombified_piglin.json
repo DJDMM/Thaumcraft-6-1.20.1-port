@@ -1,0 +1,12 @@
+{
+  "type": "entity",
+  "targets": [
+    "minecraft:zombified_piglin"
+  ],
+  "aspects": {
+    "exanimis": 15,
+    "ignis": 15,
+    "bestia": 10
+  },
+  "_source": "Thaumcraft 6 ConfigAspects.java:71"
+}

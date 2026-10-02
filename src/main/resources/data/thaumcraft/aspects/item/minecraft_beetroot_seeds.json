@@ -1,0 +1,11 @@
+{
+  "type": "item",
+  "targets": [
+    "minecraft:beetroot_seeds"
+  ],
+  "aspects": {
+    "herba": 5,
+    "victus": 1
+  },
+  "_source": "Thaumcraft 6 ConfigAspects.java:242"
+}

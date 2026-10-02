@@ -1,0 +1,6 @@
+{
+  "parent": "thaumcraft:block/log_taintwood",
+  "textures": {
+    "all": "thaumcraft:blocks/log_taintwood_1"
+  }
+}

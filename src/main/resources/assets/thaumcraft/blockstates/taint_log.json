@@ -1,0 +1,106 @@
+{
+  "variants": {
+    "axis=x": [
+      {
+        "model": "thaumcraft:catalog/taint_log/0",
+        "x": 90,
+        "y": 90
+      },
+      {
+        "model": "thaumcraft:catalog/taint_log/1",
+        "x": 90,
+        "y": 90
+      },
+      {
+        "model": "thaumcraft:catalog/taint_log/2",
+        "x": 90,
+        "y": 90
+      },
+      {
+        "model": "thaumcraft:catalog/taint_log/3",
+        "x": 90,
+        "y": 90
+      },
+      {
+        "model": "thaumcraft:catalog/taint_log/4",
+        "x": 90,
+        "y": 90
+      },
+      {
+        "model": "thaumcraft:catalog/taint_log/5",
+        "x": 90,
+        "y": 90
+      },
+      {
+        "model": "thaumcraft:catalog/taint_log/6",
+        "x": 90,
+        "y": 90
+      },
+      {
+        "model": "thaumcraft:catalog/taint_log/7",
+        "x": 90,
+        "y": 90
+      }
+    ],
+    "axis=y": [
+      {
+        "model": "thaumcraft:catalog/taint_log/8"
+      },
+      {
+        "model": "thaumcraft:catalog/taint_log/9"
+      },
+      {
+        "model": "thaumcraft:catalog/taint_log/10"
+      },
+      {
+        "model": "thaumcraft:catalog/taint_log/11"
+      },
+      {
+        "model": "thaumcraft:catalog/taint_log/12"
+      },
+      {
+        "model": "thaumcraft:catalog/taint_log/13"
+      },
+      {
+        "model": "thaumcraft:catalog/taint_log/14"
+      },
+      {
+        "model": "thaumcraft:catalog/taint_log/15"
+      }
+    ],
+    "axis=z": [
+      {
+        "model": "thaumcraft:catalog/taint_log/16",
+        "x": 90
+      },
+      {
+        "model": "thaumcraft:catalog/taint_log/17",
+        "x": 90
+      },
+      {
+        "model": "thaumcraft:catalog/taint_log/18",
+        "x": 90
+      },
+      {
+        "model": "thaumcraft:catalog/taint_log/19",
+        "x": 90
+      },
+      {
+        "model": "thaumcraft:catalog/taint_log/20",
+        "x": 90
+      },
+      {
+        "model": "thaumcraft:catalog/taint_log/21",
+        "x": 90
+      },
+      {
+        "model": "thaumcraft:catalog/taint_log/22",
+        "x": 90
+      },
+      {
+        "model": "thaumcraft:catalog/taint_log/23",
+        "x": 90
+      }
+    ]
+  }
+}

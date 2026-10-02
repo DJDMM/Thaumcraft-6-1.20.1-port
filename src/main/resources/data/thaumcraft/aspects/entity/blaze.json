@@ -1,0 +1,12 @@
+{
+  "type": "entity",
+  "targets": [
+    "minecraft:blaze"
+  ],
+  "aspects": {
+    "alienis": 5,
+    "ignis": 15,
+    "volatus": 5
+  },
+  "_source": "Thaumcraft 6 ConfigAspects.java:75"
+}

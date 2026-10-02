@@ -1,0 +1,12 @@
+{
+  "type": "entity",
+  "targets": [
+    "minecraft:wither"
+  ],
+  "aspects": {
+    "exanimis": 50,
+    "perditio": 25,
+    "ignis": 25
+  },
+  "_source": "Thaumcraft 6 ConfigAspects.java:78"
+}

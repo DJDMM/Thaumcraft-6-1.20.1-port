@@ -1,0 +1,11 @@
+{
+  "type": "item_tag",
+  "targets": [
+    "minecraft:sand"
+  ],
+  "aspects": {
+    "terra": 5,
+    "perditio": 5
+  },
+  "_source": "Thaumcraft 6 ConfigAspects.java:188"
+}

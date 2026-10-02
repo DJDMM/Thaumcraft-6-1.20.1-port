@@ -1,0 +1,11 @@
+{
+  "type": "item",
+  "targets": [
+    "minecraft:rabbit_hide"
+  ],
+  "aspects": {
+    "bestia": 5,
+    "praemunio": 2
+  },
+  "_source": "Thaumcraft 6 ConfigAspects.java:308"
+}

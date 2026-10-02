@@ -1,0 +1,12 @@
+{
+  "type": "item",
+  "targets": [
+    "minecraft:golden_horse_armor"
+  ],
+  "aspects": {
+    "metallum": 10,
+    "praemunio": 15,
+    "bestia": 5
+  },
+  "_source": "Thaumcraft 6 ConfigAspects.java:271"
+}

@@ -1,0 +1,12 @@
+{
+  "type": "entity",
+  "targets": [
+    "minecraft:end_crystal"
+  ],
+  "aspects": {
+    "alienis": 15,
+    "auram": 15,
+    "victus": 15
+  },
+  "_source": "Thaumcraft 6 ConfigAspects.java:82"
+}

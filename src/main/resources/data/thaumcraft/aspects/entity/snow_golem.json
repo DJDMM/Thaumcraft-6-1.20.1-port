@@ -1,0 +1,13 @@
+{
+  "type": "entity",
+  "targets": [
+    "minecraft:snow_golem"
+  ],
+  "aspects": {
+    "gelum": 10,
+    "humanus": 5,
+    "machina": 5,
+    "praecantatio": 5
+  },
+  "_source": "Thaumcraft 6 ConfigAspects.java:62"
+}

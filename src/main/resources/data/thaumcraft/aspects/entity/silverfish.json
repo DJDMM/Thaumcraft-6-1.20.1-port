@@ -1,0 +1,11 @@
+{
+  "type": "entity",
+  "targets": [
+    "minecraft:silverfish"
+  ],
+  "aspects": {
+    "bestia": 5,
+    "terra": 10
+  },
+  "_source": "Thaumcraft 6 ConfigAspects.java:74"
+}

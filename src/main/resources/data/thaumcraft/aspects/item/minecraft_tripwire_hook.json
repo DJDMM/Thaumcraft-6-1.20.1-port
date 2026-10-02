@@ -1,0 +1,12 @@
+{
+  "type": "item",
+  "targets": [
+    "minecraft:tripwire_hook"
+  ],
+  "aspects": {
+    "sensus": 5,
+    "machina": 5,
+    "vinculum": 5
+  },
+  "_source": "Thaumcraft 6 ConfigAspects.java:448"
+}

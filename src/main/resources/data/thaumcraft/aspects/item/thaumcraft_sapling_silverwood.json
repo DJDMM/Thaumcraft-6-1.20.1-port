@@ -1,0 +1,6 @@
+{
+  "type": "item",
+  "targets": ["thaumcraft:sapling_silverwood"],
+  "aspects": {"herba": 15, "auram": 5},
+  "_source": "Thaumcraft 6 ConfigAspects.java:504"
+}

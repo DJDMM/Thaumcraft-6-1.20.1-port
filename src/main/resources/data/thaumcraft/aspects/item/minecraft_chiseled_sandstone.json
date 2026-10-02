@@ -1,0 +1,11 @@
+{
+  "type": "item",
+  "targets": [
+    "minecraft:chiseled_sandstone"
+  ],
+  "aspects": {
+    "ordo": 1
+  },
+  "_source": "Thaumcraft 6 ConfigAspects.java:207",
+  "base": "minecraft:sandstone"
+}

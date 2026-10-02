@@ -1,0 +1,10 @@
+{
+  "type": "item",
+  "targets": [
+    "minecraft:chainmail_chestplate"
+  ],
+  "aspects": {
+    "metallum": 67
+  },
+  "_source": "Thaumcraft 6 ConfigAspects.java:357"
+}

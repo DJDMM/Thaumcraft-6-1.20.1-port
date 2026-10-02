@@ -1,0 +1,40 @@
+{
+  "variants": {
+    "enabled=false,facing=up": {
+      "model": "thaumcraft:catalog/bellows/0"
+    },
+    "enabled=true,facing=up": {
+      "model": "thaumcraft:catalog/bellows/1"
+    },
+    "enabled=false,facing=down": {
+      "model": "thaumcraft:catalog/bellows/2"
+    },
+    "enabled=true,facing=down": {
+      "model": "thaumcraft:catalog/bellows/3"
+    },
+    "enabled=false,facing=west": {
+      "model": "thaumcraft:catalog/bellows/4"
+    },
+    "enabled=true,facing=west": {
+      "model": "thaumcraft:catalog/bellows/5"
+    },
+    "enabled=false,facing=south": {
+      "model": "thaumcraft:catalog/bellows/6"
+    },
+    "enabled=true,facing=south": {
+      "model": "thaumcraft:catalog/bellows/7"
+    },
+    "enabled=false,facing=north": {
+      "model": "thaumcraft:catalog/bellows/8"
+    },
+    "enabled=true,facing=north": {
+      "model": "thaumcraft:catalog/bellows/9"
+    },
+    "enabled=false,facing=east": {
+      "model": "thaumcraft:catalog/bellows/10"
+    },
+    "enabled=true,facing=east": {
+      "model": "thaumcraft:catalog/bellows/11"
+    }
+  }
+}

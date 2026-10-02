@@ -1,0 +1,12 @@
+{
+  "type": "entity",
+  "targets": [
+    "minecraft:slime"
+  ],
+  "aspects": {
+    "victus": 10,
+    "aqua": 10,
+    "alkimia": 5
+  },
+  "_source": "Thaumcraft 6 ConfigAspects.java:69"
+}

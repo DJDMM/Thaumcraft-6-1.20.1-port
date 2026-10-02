@@ -1,0 +1,11 @@
+{
+  "type": "item",
+  "targets": [
+    "minecraft:cobweb"
+  ],
+  "aspects": {
+    "vinculum": 5,
+    "bestia": 1
+  },
+  "_source": "Thaumcraft 6 ConfigAspects.java:285"
+}

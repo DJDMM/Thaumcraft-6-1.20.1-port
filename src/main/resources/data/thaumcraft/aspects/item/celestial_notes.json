@@ -1,0 +1,23 @@
+{
+  "type": "item",
+  "targets": [
+    "thaumcraft:celestial_notes_sun",
+    "thaumcraft:celestial_notes_stars_1",
+    "thaumcraft:celestial_notes_stars_2",
+    "thaumcraft:celestial_notes_stars_3",
+    "thaumcraft:celestial_notes_stars_4",
+    "thaumcraft:celestial_notes_moon_1",
+    "thaumcraft:celestial_notes_moon_2",
+    "thaumcraft:celestial_notes_moon_3",
+    "thaumcraft:celestial_notes_moon_4",
+    "thaumcraft:celestial_notes_moon_5",
+    "thaumcraft:celestial_notes_moon_6",
+    "thaumcraft:celestial_notes_moon_7",
+    "thaumcraft:celestial_notes_moon_8"
+  ],
+  "aspects": {
+    "cognitio": 5,
+    "tenebrae": 5,
+    "lux": 5
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "loader": "forge:obj",
+  "model": "thaumcraft:models/block/thaumatorium.obj",
+  "flip_v": false,
+  "textures": {
+    "texture": "thaumcraft:blocks/thaumatorium",
+    "particle": "thaumcraft:blocks/thaumatorium"
+  },
+  "render_type": "cutout",
+  "parent": "minecraft:block/block",
+  "display": {
+    "gui": {
+      "translation": [
+        0,
+        -4.0,
+        0
+      ],
+      "scale": [
+        0.65,
+        0.65,
+        0.65
+      ],
+      "rotation": [
+        300,
+        0,
+        45
+      ]
+    }
+  }
+}

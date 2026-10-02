@@ -1,0 +1,30 @@
+{
+  "loader": "forge:obj",
+  "model": "thaumcraft:models/block/golembuilder.obj",
+  "flip_v": false,
+  "textures": {
+    "texture": "thaumcraft:blocks/golembuilder",
+    "particle": "thaumcraft:blocks/golembuilder"
+  },
+  "render_type": "cutout",
+  "parent": "minecraft:block/block",
+  "display": {
+    "gui": {
+      "translation": [
+        0,
+        -2.0,
+        0
+      ],
+      "scale": [
+        0.4,
+        0.4,
+        0.4
+      ],
+      "rotation": [
+        30,
+        45,
+        0
+      ]
+    }
+  }
+}

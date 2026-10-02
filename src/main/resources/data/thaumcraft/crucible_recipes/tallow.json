@@ -1,0 +1,13 @@
+{
+  "research": "HEDGEALCHEMY@1",
+  "catalyst": {
+    "item": "minecraft:rotten_flesh"
+  },
+  "result": {
+    "item": "thaumcraft:tallow",
+    "count": 1
+  },
+  "aspects": {
+    "ignis": 1
+  }
+}

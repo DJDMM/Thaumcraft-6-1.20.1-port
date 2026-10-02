@@ -1,0 +1,10 @@
+{
+  "loader": "forge:obj",
+  "model": "thaumcraft:models/block/golembuilder_neutral.obj",
+  "flip_v": false,
+  "textures": {
+    "texture": "thaumcraft:blocks/golembuilder",
+    "particle": "thaumcraft:blocks/golembuilder"
+  },
+  "render_type": "cutout"
+}

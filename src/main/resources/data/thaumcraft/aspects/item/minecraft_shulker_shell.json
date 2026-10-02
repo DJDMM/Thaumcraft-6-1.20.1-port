@@ -1,0 +1,13 @@
+{
+  "type": "item",
+  "targets": [
+    "minecraft:shulker_shell"
+  ],
+  "aspects": {
+    "praemunio": 10,
+    "alienis": 5,
+    "bestia": 5,
+    "vacuos": 5
+  },
+  "_source": "Thaumcraft 6 ConfigAspects.java:327"
+}

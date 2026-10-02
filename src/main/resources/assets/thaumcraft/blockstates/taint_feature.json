@@ -1,0 +1,205 @@
+{
+  "variants": {
+    "facing=down": [
+      {
+        "model": "thaumcraft:catalog/taint_feature/0",
+        "x": 180
+      },
+      {
+        "model": "thaumcraft:catalog/taint_feature/1",
+        "x": 180
+      },
+      {
+        "model": "thaumcraft:catalog/taint_feature/2",
+        "x": 180
+      },
+      {
+        "model": "thaumcraft:catalog/taint_feature/3",
+        "x": 180,
+        "y": 90
+      },
+      {
+        "model": "thaumcraft:catalog/taint_feature/4",
+        "x": 180,
+        "y": 90
+      },
+      {
+        "model": "thaumcraft:catalog/taint_feature/5",
+        "x": 180,
+        "y": 90
+      },
+      {
+        "model": "thaumcraft:catalog/taint_feature/6",
+        "x": 180,
+        "y": 180
+      },
+      {
+        "model": "thaumcraft:catalog/taint_feature/7",
+        "x": 180,
+        "y": 180
+      },
+      {
+        "model": "thaumcraft:catalog/taint_feature/8",
+        "x": 180,
+        "y": 180
+      }
+    ],
+    "facing=up": [
+      {
+        "model": "thaumcraft:catalog/taint_feature/9"
+      },
+      {
+        "model": "thaumcraft:catalog/taint_feature/10"
+      },
+      {
+        "model": "thaumcraft:catalog/taint_feature/11"
+      },
+      {
+        "model": "thaumcraft:catalog/taint_feature/12",
+        "y": 90
+      },
+      {
+        "model": "thaumcraft:catalog/taint_feature/13",
+        "y": 90
+      },
+      {
+        "model": "thaumcraft:catalog/taint_feature/14",
+        "y": 90
+      },
+      {
+        "model": "thaumcraft:catalog/taint_feature/15",
+        "y": 180
+      },
+      {
+        "model": "thaumcraft:catalog/taint_feature/16",
+        "y": 180
+      },
+      {
+        "model": "thaumcraft:catalog/taint_feature/17",
+        "y": 180
+      }
+    ],
+    "facing=east": [
+      {
+        "model": "thaumcraft:catalog/taint_feature/18",
+        "x": 90,
+        "y": 90
+      },
+      {
+        "model": "thaumcraft:catalog/taint_feature/19",
+        "x": 90,
+        "y": 90
+      },
+      {
+        "model": "thaumcraft:catalog/taint_feature/20",
+        "x": 90,
+        "y": 90
+      },
+      {
+        "model": "thaumcraft:catalog/taint_feature/21",
+        "x": 270,
+        "y": 270
+      },
+      {
+        "model": "thaumcraft:catalog/taint_feature/22",
+        "x": 270,
+        "y": 270
+      },
+      {
+        "model": "thaumcraft:catalog/taint_feature/23",
+        "x": 270,
+        "y": 270
+      }
+    ],
+    "facing=west": [
+      {
+        "model": "thaumcraft:catalog/taint_feature/24",
+        "x": 90,
+        "y": 270
+      },
+      {
+        "model": "thaumcraft:catalog/taint_feature/25",
+        "x": 90,
+        "y": 270
+      },
+      {
+        "model": "thaumcraft:catalog/taint_feature/26",
+        "x": 90,
+        "y": 270
+      },
+      {
+        "model": "thaumcraft:catalog/taint_feature/27",
+        "x": 270,
+        "y": 90
+      },
+      {
+        "model": "thaumcraft:catalog/taint_feature/28",
+        "x": 270,
+        "y": 90
+      },
+      {
+        "model": "thaumcraft:catalog/taint_feature/29",
+        "x": 270,
+        "y": 90
+      }
+    ],
+    "facing=north": [
+      {
+        "model": "thaumcraft:catalog/taint_feature/30",
+        "x": 90
+      },
+      {
+        "model": "thaumcraft:catalog/taint_feature/31",
+        "x": 90
+      },
+      {
+        "model": "thaumcraft:catalog/taint_feature/32",
+        "x": 90
+      },
+      {
+        "model": "thaumcraft:catalog/taint_feature/33",
+        "x": 270,
+        "y": 180
+      },
+      {
+        "model": "thaumcraft:catalog/taint_feature/34",
+        "x": 270,
+        "y": 180
+      },
+      {
+        "model": "thaumcraft:catalog/taint_feature/35",
+        "x": 270,
+        "y": 180
+      }
+    ],
+    "facing=south": [
+      {
+        "model": "thaumcraft:catalog/taint_feature/36",
+        "x": 90,
+        "y": 180
+      },
+      {
+        "model": "thaumcraft:catalog/taint_feature/37",
+        "x": 90,
+        "y": 180
+      },
+      {
+        "model": "thaumcraft:catalog/taint_feature/38",
+        "x": 90,
+        "y": 180
+      },
+      {
+        "model": "thaumcraft:catalog/taint_feature/39",
+        "x": 270
+      },
+      {
+        "model": "thaumcraft:catalog/taint_feature/40",
+        "x": 270
+      },
+      {
+        "model": "thaumcraft:catalog/taint_feature/41",
+        "x": 270
+      }
+    ]
+  }
+}

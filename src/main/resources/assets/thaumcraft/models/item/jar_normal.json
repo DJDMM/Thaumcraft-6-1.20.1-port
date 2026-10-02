@@ -1,0 +1,36 @@
+{
+  "parent": "thaumcraft:block/jar_normal",
+  "overrides": [
+    {
+      "predicate": {
+        "thaumcraft:fill": 0
+      },
+      "model": "thaumcraft:block/jar_normal"
+    },
+    {
+      "predicate": {
+        "thaumcraft:fill": 1
+      },
+      "model": "thaumcraft:block/jar_normal_25"
+    },
+    {
+      "predicate": {
+        "thaumcraft:fill": 2
+      },
+      "model": "thaumcraft:block/jar_normal_50"
+    },
+    {
+      "predicate": {
+        "thaumcraft:fill": 3
+      },
+      "model": "thaumcraft:block/jar_normal_75"
+    },
+    {
+      "predicate": {
+        "thaumcraft:fill": 4
+      },
+      "model": "thaumcraft:block/jar_normal_100"
+    }
+  ],
+  "render_type": "minecraft:translucent"
+}

@@ -1,0 +1,8 @@
+{
+  "type": "forge:add_features",
+  "biomes": "minecraft:desert",
+  "features": [
+    "thaumcraft:cinderpearl_patch"
+  ],
+  "step": "vegetal_decoration"
+}

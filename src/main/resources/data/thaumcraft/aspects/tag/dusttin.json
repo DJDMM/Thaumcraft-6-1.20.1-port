@@ -1,0 +1,12 @@
+{
+  "type": "item_tag",
+  "targets": [
+    "forge:dusts/tin"
+  ],
+  "aspects": {
+    "metallum": 10,
+    "perditio": 1,
+    "vitreus": 5
+  },
+  "_source": "Thaumcraft 6 ConfigAspects.java:156"
+}

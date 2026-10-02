@@ -1,0 +1,1269 @@
+{
+  "original_version": "6.1.BETA26",
+  "phase": "visual_only",
+  "entities": [
+    {
+      "id": "cultist_portal_greater",
+      "legacy_id": "CultistPortalGreater",
+      "legacy_class": "EntityCultistPortalGreater",
+      "living": true,
+      "width": 1.5,
+      "height": 3,
+      "tracking_blocks": 64,
+      "update_interval": 20,
+      "track_velocity": false,
+      "model": "portal",
+      "texture": "textures/misc/cultist_portal.png",
+      "original_spawn_egg": true,
+      "egg_colors": [
+        6842578,
+        32896
+      ],
+      "mechanics": "visual_only",
+      "natural_spawn": false
+    },
+    {
+      "id": "cultist_portal_lesser",
+      "legacy_id": "CultistPortalLesser",
+      "legacy_class": "EntityCultistPortalLesser",
+      "living": true,
+      "width": 1.5,
+      "height": 3,
+      "tracking_blocks": 64,
+      "update_interval": 20,
+      "track_velocity": false,
+      "model": "portal",
+      "texture": "textures/misc/cultist_portal.png",
+      "original_spawn_egg": true,
+      "egg_colors": [
+        9438728,
+        6316242
+      ],
+      "mechanics": "visual_only",
+      "natural_spawn": false
+    },
+    {
+      "id": "flux_rift",
+      "legacy_id": "FluxRift",
+      "legacy_class": "EntityFluxRift",
+      "living": false,
+      "width": 2,
+      "height": 2,
+      "tracking_blocks": 64,
+      "update_interval": 20,
+      "track_velocity": false,
+      "model": "rift",
+      "texture": "minecraft:textures/entity/end_portal.png",
+      "original_spawn_egg": false,
+      "egg_colors": [
+        6842578,
+        8421504
+      ],
+      "mechanics": "visual_only",
+      "natural_spawn": false
+    },
+    {
+      "id": "special_item",
+      "legacy_id": "SpecialItem",
+      "legacy_class": "EntitySpecialItem",
+      "living": false,
+      "width": 0.25,
+      "height": 0.25,
+      "tracking_blocks": 64,
+      "update_interval": 20,
+      "track_velocity": true,
+      "model": "item",
+      "texture": "",
+      "original_spawn_egg": false,
+      "egg_colors": [
+        6842578,
+        8421504
+      ],
+      "mechanics": "visual_only",
+      "natural_spawn": false
+    },
+    {
+      "id": "following_item",
+      "legacy_id": "FollowItem",
+      "legacy_class": "EntityFollowingItem",
+      "living": false,
+      "width": 0.25,
+      "height": 0.25,
+      "tracking_blocks": 64,
+      "update_interval": 20,
+      "track_velocity": false,
+      "model": "item",
+      "texture": "",
+      "original_spawn_egg": false,
+      "egg_colors": [
+        6842578,
+        8421504
+      ],
+      "mechanics": "visual_only",
+      "natural_spawn": false
+    },
+    {
+      "id": "falling_taint",
+      "legacy_id": "FallingTaint",
+      "legacy_class": "EntityFallingTaint",
+      "living": false,
+      "width": 0.6,
+      "height": 1.8,
+      "tracking_blocks": 64,
+      "update_interval": 3,
+      "track_velocity": true,
+      "model": "block",
+      "texture": "",
+      "original_spawn_egg": false,
+      "egg_colors": [
+        6842578,
+        8421504
+      ],
+      "mechanics": "visual_only",
+      "natural_spawn": false
+    },
+    {
+      "id": "alumentum",
+      "legacy_id": "Alumentum",
+      "legacy_class": "EntityAlumentum",
+      "living": false,
+      "width": 0.25,
+      "height": 0.25,
+      "tracking_blocks": 64,
+      "update_interval": 20,
+      "track_velocity": true,
+      "model": "none",
+      "texture": "",
+      "original_spawn_egg": false,
+      "egg_colors": [
+        6842578,
+        8421504
+      ],
+      "mechanics": "visual_only",
+      "natural_spawn": false
+    },
+    {
+      "id": "golem_dart",
+      "legacy_id": "GolemDart",
+      "legacy_class": "EntityGolemDart",
+      "living": false,
+      "width": 0.2,
+      "height": 0.2,
+      "tracking_blocks": 64,
+      "update_interval": 20,
+      "track_velocity": false,
+      "model": "dart",
+      "texture": "minecraft:textures/entity/projectiles/arrow.png",
+      "original_spawn_egg": false,
+      "egg_colors": [
+        6842578,
+        8421504
+      ],
+      "mechanics": "visual_only",
+      "natural_spawn": false
+    },
+    {
+      "id": "eldritch_orb",
+      "legacy_id": "EldritchOrb",
+      "legacy_class": "EntityEldritchOrb",
+      "living": false,
+      "width": 0.25,
+      "height": 0.25,
+      "tracking_blocks": 64,
+      "update_interval": 20,
+      "track_velocity": true,
+      "model": "eldritch_orb",
+      "texture": "textures/misc/particles.png",
+      "original_spawn_egg": false,
+      "egg_colors": [
+        6842578,
+        8421504
+      ],
+      "mechanics": "visual_only",
+      "natural_spawn": false
+    },
+    {
+      "id": "bottle_taint",
+      "legacy_id": "BottleTaint",
+      "legacy_class": "EntityBottleTaint",
+      "living": false,
+      "width": 0.25,
+      "height": 0.25,
+      "tracking_blocks": 64,
+      "update_interval": 20,
+      "track_velocity": true,
+      "model": "bottle",
+      "texture": "",
+      "original_spawn_egg": false,
+      "egg_colors": [
+        6842578,
+        8421504
+      ],
+      "mechanics": "visual_only",
+      "natural_spawn": false
+    },
+    {
+      "id": "golem_orb",
+      "legacy_id": "GolemOrb",
+      "legacy_class": "EntityGolemOrb",
+      "living": false,
+      "width": 0.25,
+      "height": 0.25,
+      "tracking_blocks": 64,
+      "update_interval": 3,
+      "track_velocity": true,
+      "model": "golem_orb",
+      "texture": "textures/misc/particles.png",
+      "original_spawn_egg": false,
+      "egg_colors": [
+        6842578,
+        8421504
+      ],
+      "mechanics": "visual_only",
+      "natural_spawn": false
+    },
+    {
+      "id": "grapple",
+      "legacy_id": "Grapple",
+      "legacy_class": "EntityGrapple",
+      "living": false,
+      "width": 0.1,
+      "height": 0.1,
+      "tracking_blocks": 64,
+      "update_interval": 20,
+      "track_velocity": true,
+      "model": "Grappler",
+      "texture": "textures/entity/grappler.png",
+      "original_spawn_egg": false,
+      "egg_colors": [
+        6842578,
+        8421504
+      ],
+      "mechanics": "visual_only",
+      "natural_spawn": false
+    },
+    {
+      "id": "causality_collapser",
+      "legacy_id": "CausalityCollapser",
+      "legacy_class": "EntityCausalityCollapser",
+      "living": false,
+      "width": 0.25,
+      "height": 0.25,
+      "tracking_blocks": 64,
+      "update_interval": 20,
+      "track_velocity": true,
+      "model": "none",
+      "texture": "",
+      "original_spawn_egg": false,
+      "egg_colors": [
+        6842578,
+        8421504
+      ],
+      "mechanics": "visual_only",
+      "natural_spawn": false
+    },
+    {
+      "id": "focus_projectile",
+      "legacy_id": "FocusProjectile",
+      "legacy_class": "EntityFocusProjectile",
+      "living": false,
+      "width": 0.15,
+      "height": 0.15,
+      "tracking_blocks": 64,
+      "update_interval": 20,
+      "track_velocity": true,
+      "model": "none",
+      "texture": "",
+      "original_spawn_egg": false,
+      "egg_colors": [
+        6842578,
+        8421504
+      ],
+      "mechanics": "visual_only",
+      "natural_spawn": false
+    },
+    {
+      "id": "focus_cloud",
+      "legacy_id": "FocusCloud",
+      "legacy_class": "EntityFocusCloud",
+      "living": false,
+      "width": 0.6,
+      "height": 1.8,
+      "tracking_blocks": 64,
+      "update_interval": 20,
+      "track_velocity": true,
+      "model": "cloud",
+      "texture": "textures/misc/particles.png",
+      "original_spawn_egg": false,
+      "egg_colors": [
+        6842578,
+        8421504
+      ],
+      "mechanics": "visual_only",
+      "natural_spawn": false
+    },
+    {
+      "id": "focus_mine",
+      "legacy_id": "Focusmine",
+      "legacy_class": "EntityFocusMine",
+      "living": false,
+      "width": 0.15,
+      "height": 0.15,
+      "tracking_blocks": 64,
+      "update_interval": 20,
+      "track_velocity": true,
+      "model": "mine",
+      "texture": "textures/entity/mine.png",
+      "original_spawn_egg": false,
+      "egg_colors": [
+        6842578,
+        8421504
+      ],
+      "mechanics": "visual_only",
+      "natural_spawn": false
+    },
+    {
+      "id": "turret_basic",
+      "legacy_id": "TurretBasic",
+      "legacy_class": "EntityTurretCrossbow",
+      "living": true,
+      "width": 0.95,
+      "height": 1.25,
+      "tracking_blocks": 64,
+      "update_interval": 3,
+      "track_velocity": true,
+      "model": "Crossbow",
+      "texture": "textures/entity/crossbow.png",
+      "original_spawn_egg": false,
+      "egg_colors": [
+        6842578,
+        8421504
+      ],
+      "mechanics": "visual_only",
+      "natural_spawn": false
+    },
+    {
+      "id": "turret_advanced",
+      "legacy_id": "TurretAdvanced",
+      "legacy_class": "EntityTurretCrossbowAdvanced",
+      "living": true,
+      "width": 0.95,
+      "height": 1.5,
+      "tracking_blocks": 64,
+      "update_interval": 3,
+      "track_velocity": true,
+      "model": "obj_crossbow",
+      "texture": "textures/entity/crossbow_advanced.png",
+      "original_spawn_egg": false,
+      "egg_colors": [
+        6842578,
+        8421504
+      ],
+      "mechanics": "visual_only",
+      "natural_spawn": false
+    },
+    {
+      "id": "arcane_bore",
+      "legacy_id": "ArcaneBore",
+      "legacy_class": "EntityArcaneBore",
+      "living": true,
+      "width": 0.9,
+      "height": 0.9,
+      "tracking_blocks": 64,
+      "update_interval": 3,
+      "track_velocity": true,
+      "model": "ArcaneBore",
+      "texture": "textures/entity/arcanebore.png",
+      "original_spawn_egg": false,
+      "egg_colors": [
+        6842578,
+        8421504
+      ],
+      "mechanics": "visual_only",
+      "natural_spawn": false
+    },
+    {
+      "id": "golem",
+      "legacy_id": "Golem",
+      "legacy_class": "EntityThaumcraftGolem",
+      "living": true,
+      "width": 0.4,
+      "height": 0.9,
+      "tracking_blocks": 64,
+      "update_interval": 3,
+      "track_velocity": true,
+      "model": "obj_golem",
+      "texture": "textures/entity/golems/mat_wood.png",
+      "original_spawn_egg": false,
+      "egg_colors": [
+        6842578,
+        8421504
+      ],
+      "mechanics": "visual_only",
+      "natural_spawn": false
+    },
+    {
+      "id": "eldritch_warden",
+      "legacy_id": "EldritchWarden",
+      "legacy_class": "EntityEldritchWarden",
+      "living": true,
+      "width": 1.5,
+      "height": 3.5,
+      "tracking_blocks": 64,
+      "update_interval": 3,
+      "track_velocity": true,
+      "model": "EldritchGuardian",
+      "texture": "textures/entity/eldritch_warden.png",
+      "original_spawn_egg": true,
+      "egg_colors": [
+        6842578,
+        8421504
+      ],
+      "mechanics": "visual_only",
+      "natural_spawn": false
+    },
+    {
+      "id": "eldritch_golem",
+      "legacy_id": "EldritchGolem",
+      "legacy_class": "EntityEldritchGolem",
+      "living": true,
+      "width": 1.75,
+      "height": 3.5,
+      "tracking_blocks": 64,
+      "update_interval": 3,
+      "track_velocity": true,
+      "model": "EldritchGolem",
+      "texture": "textures/entity/eldritch_golem.png",
+      "original_spawn_egg": true,
+      "egg_colors": [
+        6842578,
+        8947848
+      ],
+      "mechanics": "visual_only",
+      "natural_spawn": false
+    },
+    {
+      "id": "cultist_leader",
+      "legacy_id": "CultistLeader",
+      "legacy_class": "EntityCultistLeader",
+      "living": true,
+      "width": 0.75,
+      "height": 2.25,
+      "tracking_blocks": 64,
+      "update_interval": 3,
+      "track_velocity": true,
+      "model": "humanoid",
+      "texture": "textures/entity/cultist.png",
+      "original_spawn_egg": true,
+      "egg_colors": [
+        6842578,
+        9438728
+      ],
+      "mechanics": "visual_only",
+      "natural_spawn": false
+    },
+    {
+      "id": "taintacle_giant",
+      "legacy_id": "TaintacleGiant",
+      "legacy_class": "EntityTaintacleGiant",
+      "living": true,
+      "width": 1.1,
+      "height": 6,
+      "tracking_blocks": 96,
+      "update_interval": 3,
+      "track_velocity": false,
+      "model": "Taintacle14",
+      "texture": "textures/entity/taintacle.png",
+      "original_spawn_egg": true,
+      "egg_colors": [
+        6842578,
+        10618530
+      ],
+      "mechanics": "visual_only",
+      "natural_spawn": false
+    },
+    {
+      "id": "brainy_zombie",
+      "legacy_id": "BrainyZombie",
+      "legacy_class": "EntityBrainyZombie",
+      "living": true,
+      "width": 0.6,
+      "height": 1.95,
+      "tracking_blocks": 64,
+      "update_interval": 3,
+      "track_velocity": true,
+      "model": "zombie",
+      "texture": "textures/entity/bzombie.png",
+      "original_spawn_egg": true,
+      "egg_colors": [
+        16761087,
+        32768
+      ],
+      "mechanics": "visual_only",
+      "natural_spawn": false
+    },
+    {
+      "id": "giant_brainy_zombie",
+      "legacy_id": "GiantBrainyZombie",
+      "legacy_class": "EntityGiantBrainyZombie",
+      "living": true,
+      "width": 0.6,
+      "height": 1.95,
+      "tracking_blocks": 64,
+      "update_interval": 3,
+      "track_velocity": true,
+      "model": "zombie",
+      "texture": "textures/entity/bzombie.png",
+      "original_spawn_egg": true,
+      "egg_colors": [
+        16761087,
+        16384
+      ],
+      "mechanics": "visual_only",
+      "natural_spawn": false
+    },
+    {
+      "id": "wisp",
+      "legacy_id": "Wisp",
+      "legacy_class": "EntityWisp",
+      "living": true,
+      "width": 0.9,
+      "height": 0.9,
+      "tracking_blocks": 64,
+      "update_interval": 3,
+      "track_velocity": false,
+      "model": "wisp",
+      "texture": "textures/misc/particles.png",
+      "original_spawn_egg": true,
+      "egg_colors": [
+        16761087,
+        16777215
+      ],
+      "mechanics": "visual_only",
+      "natural_spawn": false
+    },
+    {
+      "id": "fire_bat",
+      "legacy_id": "Firebat",
+      "legacy_class": "EntityFireBat",
+      "living": true,
+      "width": 0.5,
+      "height": 0.9,
+      "tracking_blocks": 64,
+      "update_interval": 3,
+      "track_velocity": false,
+      "model": "FireBat",
+      "texture": "textures/entity/firebat.png",
+      "original_spawn_egg": true,
+      "egg_colors": [
+        16761087,
+        15728640
+      ],
+      "mechanics": "visual_only",
+      "natural_spawn": false
+    },
+    {
+      "id": "spell_bat",
+      "legacy_id": "Spellbat",
+      "legacy_class": "EntitySpellBat",
+      "living": true,
+      "width": 0.5,
+      "height": 0.9,
+      "tracking_blocks": 64,
+      "update_interval": 3,
+      "track_velocity": false,
+      "model": "FireBat",
+      "texture": "textures/entity/spellbat.png",
+      "original_spawn_egg": true,
+      "egg_colors": [
+        16761087,
+        15728640
+      ],
+      "mechanics": "visual_only",
+      "natural_spawn": false
+    },
+    {
+      "id": "pech",
+      "legacy_id": "Pech",
+      "legacy_class": "EntityPech",
+      "living": true,
+      "width": 0.6,
+      "height": 1.8,
+      "tracking_blocks": 64,
+      "update_interval": 3,
+      "track_velocity": true,
+      "model": "Pech",
+      "texture": "textures/entity/pech_forage.png",
+      "original_spawn_egg": true,
+      "egg_colors": [
+        16761087,
+        4194368
+      ],
+      "mechanics": "visual_only",
+      "natural_spawn": false
+    },
+    {
+      "id": "mind_spider",
+      "legacy_id": "MindSpider",
+      "legacy_class": "EntityMindSpider",
+      "living": true,
+      "width": 0.7,
+      "height": 0.5,
+      "tracking_blocks": 64,
+      "update_interval": 3,
+      "track_velocity": true,
+      "model": "spider",
+      "texture": "minecraft:textures/entity/spider/spider.png",
+      "original_spawn_egg": true,
+      "egg_colors": [
+        4996656,
+        4473924
+      ],
+      "mechanics": "visual_only",
+      "natural_spawn": false
+    },
+    {
+      "id": "eldritch_guardian",
+      "legacy_id": "EldritchGuardian",
+      "legacy_class": "EntityEldritchGuardian",
+      "living": true,
+      "width": 0.8,
+      "height": 2.25,
+      "tracking_blocks": 64,
+      "update_interval": 3,
+      "track_velocity": true,
+      "model": "EldritchGuardian",
+      "texture": "textures/entity/eldritch_guardian.png",
+      "original_spawn_egg": true,
+      "egg_colors": [
+        8421504,
+        0
+      ],
+      "mechanics": "visual_only",
+      "natural_spawn": false
+    },
+    {
+      "id": "cultist_knight",
+      "legacy_id": "CultistKnight",
+      "legacy_class": "EntityCultistKnight",
+      "living": true,
+      "width": 0.6,
+      "height": 1.8,
+      "tracking_blocks": 64,
+      "update_interval": 3,
+      "track_velocity": true,
+      "model": "humanoid",
+      "texture": "textures/entity/cultist.png",
+      "original_spawn_egg": true,
+      "egg_colors": [
+        9438728,
+        128
+      ],
+      "mechanics": "visual_only",
+      "natural_spawn": false
+    },
+    {
+      "id": "cultist_cleric",
+      "legacy_id": "CultistCleric",
+      "legacy_class": "EntityCultistCleric",
+      "living": true,
+      "width": 0.6,
+      "height": 1.8,
+      "tracking_blocks": 64,
+      "update_interval": 3,
+      "track_velocity": true,
+      "model": "humanoid",
+      "texture": "textures/entity/cultist.png",
+      "original_spawn_egg": true,
+      "egg_colors": [
+        9438728,
+        8388608
+      ],
+      "mechanics": "visual_only",
+      "natural_spawn": false
+    },
+    {
+      "id": "eldritch_crab",
+      "legacy_id": "EldritchCrab",
+      "legacy_class": "EntityEldritchCrab",
+      "living": true,
+      "width": 0.8,
+      "height": 0.6,
+      "tracking_blocks": 64,
+      "update_interval": 3,
+      "track_velocity": true,
+      "model": "EldritchCrab",
+      "texture": "textures/entity/crab.png",
+      "original_spawn_egg": true,
+      "egg_colors": [
+        8421504,
+        5570560
+      ],
+      "mechanics": "visual_only",
+      "natural_spawn": false
+    },
+    {
+      "id": "inhabited_zombie",
+      "legacy_id": "InhabitedZombie",
+      "legacy_class": "EntityInhabitedZombie",
+      "living": true,
+      "width": 0.6,
+      "height": 1.95,
+      "tracking_blocks": 64,
+      "update_interval": 3,
+      "track_velocity": true,
+      "model": "zombie",
+      "texture": "textures/entity/czombie.png",
+      "original_spawn_egg": true,
+      "egg_colors": [
+        8421504,
+        5570560
+      ],
+      "mechanics": "visual_only",
+      "natural_spawn": false
+    },
+    {
+      "id": "thaumic_slime",
+      "legacy_id": "ThaumSlime",
+      "legacy_class": "EntityThaumicSlime",
+      "living": true,
+      "width": 1.0200001,
+      "height": 1.0200001,
+      "tracking_blocks": 64,
+      "update_interval": 3,
+      "track_velocity": true,
+      "model": "slime",
+      "texture": "textures/entity/tslime.png",
+      "original_spawn_egg": true,
+      "egg_colors": [
+        10618530,
+        16744703
+      ],
+      "mechanics": "visual_only",
+      "natural_spawn": false
+    },
+    {
+      "id": "taint_crawler",
+      "legacy_id": "TaintCrawler",
+      "legacy_class": "EntityTaintCrawler",
+      "living": true,
+      "width": 0.5,
+      "height": 0.4,
+      "tracking_blocks": 64,
+      "update_interval": 3,
+      "track_velocity": true,
+      "model": "silverfish",
+      "texture": "textures/entity/crawler.png",
+      "original_spawn_egg": true,
+      "egg_colors": [
+        10618530,
+        3158064
+      ],
+      "mechanics": "visual_only",
+      "natural_spawn": false
+    },
+    {
+      "id": "taintacle",
+      "legacy_id": "Taintacle",
+      "legacy_class": "EntityTaintacle",
+      "living": true,
+      "width": 0.8,
+      "height": 3,
+      "tracking_blocks": 64,
+      "update_interval": 3,
+      "track_velocity": false,
+      "model": "Taintacle10",
+      "texture": "textures/entity/taintacle.png",
+      "original_spawn_egg": true,
+      "egg_colors": [
+        10618530,
+        4469572
+      ],
+      "mechanics": "visual_only",
+      "natural_spawn": false
+    },
+    {
+      "id": "taintacle_tiny",
+      "legacy_id": "TaintacleTiny",
+      "legacy_class": "EntityTaintacleSmall",
+      "living": true,
+      "width": 0.22,
+      "height": 1,
+      "tracking_blocks": 64,
+      "update_interval": 3,
+      "track_velocity": false,
+      "model": "Taintacle6",
+      "texture": "textures/entity/taintacle.png",
+      "original_spawn_egg": false,
+      "egg_colors": [
+        6842578,
+        8421504
+      ],
+      "mechanics": "visual_only",
+      "natural_spawn": false
+    },
+    {
+      "id": "taint_swarm",
+      "legacy_id": "TaintSwarm",
+      "legacy_class": "EntityTaintSwarm",
+      "living": true,
+      "width": 2,
+      "height": 2,
+      "tracking_blocks": 64,
+      "update_interval": 3,
+      "track_velocity": false,
+      "model": "swarm",
+      "texture": "textures/misc/particles.png",
+      "original_spawn_egg": true,
+      "egg_colors": [
+        10618530,
+        16744576
+      ],
+      "mechanics": "visual_only",
+      "natural_spawn": false
+    },
+    {
+      "id": "taint_seed",
+      "legacy_id": "TaintSeed",
+      "legacy_class": "EntityTaintSeed",
+      "living": true,
+      "width": 1.5,
+      "height": 1.25,
+      "tracking_blocks": 64,
+      "update_interval": 20,
+      "track_velocity": false,
+      "model": "TaintSeed",
+      "texture": "textures/entity/taintseed.png",
+      "original_spawn_egg": true,
+      "egg_colors": [
+        10618530,
+        4465237
+      ],
+      "mechanics": "visual_only",
+      "natural_spawn": false
+    },
+    {
+      "id": "taint_seed_prime",
+      "legacy_id": "TaintSeedPrime",
+      "legacy_class": "EntityTaintSeedPrime",
+      "living": true,
+      "width": 2,
+      "height": 2,
+      "tracking_blocks": 64,
+      "update_interval": 20,
+      "track_velocity": false,
+      "model": "TaintSeed",
+      "texture": "textures/entity/taintseed.png",
+      "original_spawn_egg": true,
+      "egg_colors": [
+        10618530,
+        5583718
+      ],
+      "mechanics": "visual_only",
+      "natural_spawn": false
+    }
+  ],
+  "models": [
+    {
+      "model": "ArcaneBore",
+      "source_sha256": "62764a4e7168b84d68d4b632c0de1db21086dfe818ba8118d66b954c0cd573bd",
+      "add_box_statements": 11,
+      "child_links": 5,
+      "constructor_preserved": true
+    },
+    {
+      "model": "Crossbow",
+      "source_sha256": "245d87244718b9b25059238f369ff35153b0b9cf5ecc111c39c65c1e71adb774",
+      "add_box_statements": 20,
+      "child_links": 14,
+      "constructor_preserved": true
+    },
+    {
+      "model": "EldritchCrab",
+      "source_sha256": "03f405fe07d43f1c8fb013a163dae03c50273241faa8b698cdda57584921e3b7",
+      "add_box_statements": 21,
+      "child_links": 0,
+      "constructor_preserved": true
+    },
+    {
+      "model": "EldritchGolem",
+      "source_sha256": "b7439c499ceb9b1c3f18c477b853cc65ff847c5982ea7e962410450a7e668b1c",
+      "add_box_statements": 36,
+      "child_links": 8,
+      "constructor_preserved": true
+    },
+    {
+      "model": "EldritchGuardian",
+      "source_sha256": "85c131777804be2b21ef67b19c0704f2b259624d5b8f6c58e2e95b5ff45815e0",
+      "add_box_statements": 54,
+      "child_links": 15,
+      "constructor_preserved": true
+    },
+    {
+      "model": "FireBat",
+      "source_sha256": "1900be0dab1d5b9814f66cddb370a46bfefe386757acbf53b570c98b49e1dc36",
+      "add_box_statements": 9,
+      "child_links": 6,
+      "constructor_preserved": true
+    },
+    {
+      "model": "Grappler",
+      "source_sha256": "c6bab54412272a049c8811ef4b27f5fd3bc936656b41f471e5f2884a950433cb",
+      "add_box_statements": 4,
+      "child_links": 0,
+      "constructor_preserved": true
+    },
+    {
+      "model": "Pech",
+      "source_sha256": "786cfdd6ddee59c28fc32bec23d9c66efb7450c3e2b6894885a6af378c042afc",
+      "add_box_statements": 9,
+      "child_links": 0,
+      "constructor_preserved": true
+    },
+    {
+      "model": "TaintSeed",
+      "source_sha256": "2f2f300767f3dc7c58ce56bb3f074f23c1cfdcaa9ead75b7ed2ab38d931efe22",
+      "add_box_statements": 3,
+      "child_links": 2,
+      "constructor_preserved": true
+    },
+    {
+      "model": "Taintacle",
+      "source_sha256": "2ca94cb6b87f07b28eba6429c10fd7d0b1ba97e5845da57f9672a60bdb9c6df4",
+      "add_box_statements": 4,
+      "child_links": 4,
+      "constructor_preserved": true
+    }
+  ],
+  "assets": [
+    {
+      "path": "assets/thaumcraft/models/obj/crossbow_advanced.obj",
+      "sha256": "dcad4b7111a3c5e64e98488fb0b3a5e7e89642ea5cfa9b445cab455f7a3a4741"
+    },
+    {
+      "path": "assets/thaumcraft/models/obj/golem_armor.obj",
+      "sha256": "f12e4898219aba6d8f0984aecdd823646e2a666aa6e07f4e8201c9fa77ac53d8"
+    },
+    {
+      "path": "assets/thaumcraft/models/obj/golem_arms_basic.obj",
+      "sha256": "e085828e8064ddaaf9d1d01add1e7523550789e140047e0672ea12e3a49e66e2"
+    },
+    {
+      "path": "assets/thaumcraft/models/obj/golem_arms_breakers.obj",
+      "sha256": "9a9a59215570546a1186838e0f21412e628d43760066ee3c7b10eec8e2ab4160"
+    },
+    {
+      "path": "assets/thaumcraft/models/obj/golem_arms_claws.obj",
+      "sha256": "059dc244451cef54b7b52f985bb06a7de7e9fe3ef0a961fd9046e2ecfce074c9"
+    },
+    {
+      "path": "assets/thaumcraft/models/obj/golem_arms_darter.obj",
+      "sha256": "6f680a8e021494bdcdcd191919470c1180f55c2b8a36d255207e0fa4384376fd"
+    },
+    {
+      "path": "assets/thaumcraft/models/obj/golem_arms_fine.obj",
+      "sha256": "a6c67e49ce4450dd045c1c9031c8d1d7d6b51c384336489bad7ed3e4f3df2614"
+    },
+    {
+      "path": "assets/thaumcraft/models/obj/golem_base.obj",
+      "sha256": "91fa8e6f13a6d026723bef24050d3ae65de8727209fccff685ad2dda7d7e41ed"
+    },
+    {
+      "path": "assets/thaumcraft/models/obj/golem_hauler.obj",
+      "sha256": "f6b7677e46e0af0ba474baec877670ced3f9f6616f238774efbef8e5c05ef6bf"
+    },
+    {
+      "path": "assets/thaumcraft/models/obj/golem_head_basic.obj",
+      "sha256": "39e664d38075999698d8a97a693aa19e175bfd6e1fef6f8b16d74b5dc5e6c272"
+    },
+    {
+      "path": "assets/thaumcraft/models/obj/golem_head_scout.obj",
+      "sha256": "9030aec2e92d07700a3b132460f1af4ad8e70315bd9679bfd84e07a0966afcc7"
+    },
+    {
+      "path": "assets/thaumcraft/models/obj/golem_head_scout_smart.obj",
+      "sha256": "1d96f415d640963e88460a70884479742453432131226debaa40d1d480c7ccf6"
+    },
+    {
+      "path": "assets/thaumcraft/models/obj/golem_head_smart.obj",
+      "sha256": "63234db561dd60db539489f33e28c70575d35aa60a2cf25a7e1c1fa98b633237"
+    },
+    {
+      "path": "assets/thaumcraft/models/obj/golem_head_smart_armor.obj",
+      "sha256": "d7ef024a20bbe03f89e6a94c888b08280152871cea1f74296465522d31de8a5a"
+    },
+    {
+      "path": "assets/thaumcraft/models/obj/golem_legs_climber.obj",
+      "sha256": "f9b9d405e3ef6e61b7dd117eb7693a090d5bf4207654dc4ad9955daeaf30be3f"
+    },
+    {
+      "path": "assets/thaumcraft/models/obj/golem_legs_floater.obj",
+      "sha256": "40c99a9d0107f95f4343efd132686b3ff9cbd8f902acb0c1421b5edddbf345a8"
+    },
+    {
+      "path": "assets/thaumcraft/models/obj/golem_legs_walker.obj",
+      "sha256": "20e30e69ba14516d2f5d8da01fa82213b6a41cae2e8f39a7f70005b93610452e"
+    },
+    {
+      "path": "assets/thaumcraft/models/obj/golem_legs_wheel.obj",
+      "sha256": "d5e04391a2c97f77b00e8b0a8fdafd18678ae45163c9c74586e6738b919d976f"
+    },
+    {
+      "path": "assets/thaumcraft/textures/blocks/base_metal.png",
+      "sha256": "78b06aeb88466da22154655e75333bad8685a8a4b89a6fa623ae84b64b7bb86b"
+    },
+    {
+      "path": "assets/thaumcraft/textures/entity/arcanebore.png",
+      "sha256": "a2b3a59c55afe619933d73847a7a8db236ce616ffba815f6d2adb9afe4255aa7"
+    },
+    {
+      "path": "assets/thaumcraft/textures/entity/armor/bootstraveler.png",
+      "sha256": "47198419b7cd431170e360a484911fa8fa23827bcad65c7b39a8ecf4edf289da"
+    },
+    {
+      "path": "assets/thaumcraft/textures/entity/armor/caster_advanced.png",
+      "sha256": "0a66d596a46042d29c926022207329fd8f8d1a8199057351f273110e52b0c32f"
+    },
+    {
+      "path": "assets/thaumcraft/textures/entity/armor/caster_basic.png",
+      "sha256": "e686075c5b3c5b41946086021860c0310cdfddc3daefd07609a495474b7279c1"
+    },
+    {
+      "path": "assets/thaumcraft/textures/entity/armor/cultistboots.png",
+      "sha256": "46ba4cd49ade837af86069e2daa0591745cc575b7dc982a0d8ea42d90cbb9cf7"
+    },
+    {
+      "path": "assets/thaumcraft/textures/entity/armor/cultist_leader_armor.png",
+      "sha256": "62e11254b79c0c9ec92f9d205ad74d5d8260e871029cd61ff58455339dcb6910"
+    },
+    {
+      "path": "assets/thaumcraft/textures/entity/armor/cultist_plate_armor.png",
+      "sha256": "e35bb492e7cdfc1ec06ee10918b3a443417b32849e1869b39b250aabe0d26fcd"
+    },
+    {
+      "path": "assets/thaumcraft/textures/entity/armor/cultist_robe_armor.png",
+      "sha256": "873c50431b727eefb1fc9ddcead76864dc42fa5cb013246e784a72745ea547f9"
+    },
+    {
+      "path": "assets/thaumcraft/textures/entity/armor/fortress_armor.png",
+      "sha256": "22e39ef81224365bcb8d41a9014232d46a92a0752109c7994c1ccdc460ad842d"
+    },
+    {
+      "path": "assets/thaumcraft/textures/entity/armor/goggles.png",
+      "sha256": "7412c9195bb02dbd456feb3cbd6a2dc6c9f20797c91fb66d8143706c5b4148e6"
+    },
+    {
+      "path": "assets/thaumcraft/textures/entity/armor/robes_1.png",
+      "sha256": "e0e1c4923c17f07f984af17790c80b2afd2523b4b5bc1536aa2d50dcc1eee47e"
+    },
+    {
+      "path": "assets/thaumcraft/textures/entity/armor/robes_1_overlay.png",
+      "sha256": "2f0cf93617377f85c18fed283cf687bdf5524549f70713239c6bdcceac9b54d5"
+    },
+    {
+      "path": "assets/thaumcraft/textures/entity/armor/robes_2.png",
+      "sha256": "aad4f2dfcf1e255aa8719acf5b87d765bb3416e6a741af920a779d0f0550f526"
+    },
+    {
+      "path": "assets/thaumcraft/textures/entity/armor/robes_2_overlay.png",
+      "sha256": "e8b7eabad1e8325cf3a45dc615c276eab097dc27be3b6a252380183f331d4307"
+    },
+    {
+      "path": "assets/thaumcraft/textures/entity/armor/thaumium_1.png",
+      "sha256": "d1ed81f59eb326ae14ce016c4284f8a343349282caec54141485e7131c826d51"
+    },
+    {
+      "path": "assets/thaumcraft/textures/entity/armor/thaumium_2.png",
+      "sha256": "a4a83435d0c8e03e90abdaa3e8637a4ffd5d3bac1ebf284c116eec77c9e985e9"
+    },
+    {
+      "path": "assets/thaumcraft/textures/entity/armor/void_1.png",
+      "sha256": "e2f42ab4a94effcaf2c95dec3e0c453f03973fc2542e6947fae481bf74b8682d"
+    },
+    {
+      "path": "assets/thaumcraft/textures/entity/armor/void_2.png",
+      "sha256": "1210c1368c0ff9bb77c937d359d2baa6707714994d567aaec9d32d94e59c5d10"
+    },
+    {
+      "path": "assets/thaumcraft/textures/entity/armor/void_robe_armor.png",
+      "sha256": "bff89db19a49bff96c0c6a20002044310f70722b7cb022a0fa6827db41ab6624"
+    },
+    {
+      "path": "assets/thaumcraft/textures/entity/armor/void_robe_armor_overlay.png",
+      "sha256": "5620ac55dd492b11d8b29b9b395e4359344d910aee57d60a45ed967eebe8bd84"
+    },
+    {
+      "path": "assets/thaumcraft/textures/entity/armor/zombie_plate_armor.png",
+      "sha256": "4bcfe24c5007f042641f61844b3a76e19c9699ad1ff2cdf9c2a00ce16ee38148"
+    },
+    {
+      "path": "assets/thaumcraft/textures/entity/bzombie.png",
+      "sha256": "802e3a399b6bd9466fb2282605a081635dd8e4fe2328604ee53ee94c90ac92c7"
+    },
+    {
+      "path": "assets/thaumcraft/textures/entity/bzombievil.png",
+      "sha256": "dd9970ab0175c12a5455a57a34499f47f2a65bea6b3f0ad07da4a1055d4c7356"
+    },
+    {
+      "path": "assets/thaumcraft/textures/entity/crab.png",
+      "sha256": "e3d6e8461b884b070744dc178cec9e400b1ea6a730880ae9298a4ab17ef17fd3"
+    },
+    {
+      "path": "assets/thaumcraft/textures/entity/crawler.png",
+      "sha256": "70509af446644de3a5ebd90a32e122619c135989223b2d058fbc200c36e9f4ed"
+    },
+    {
+      "path": "assets/thaumcraft/textures/entity/crossbow.png",
+      "sha256": "8b3f5c8653eb337682c51261571907311a0811354b270fe12260cbee89b52255"
+    },
+    {
+      "path": "assets/thaumcraft/textures/entity/crossbow_advanced.png",
+      "sha256": "43fd8e306744ca9db96765c008f0ea32da337127f75a10cdd71ccfbff2ff5ade"
+    },
+    {
+      "path": "assets/thaumcraft/textures/entity/cultist.png",
+      "sha256": "593d07ffdd8b6604669ccc18886671d310956dd409eca696da4e640b0a7e963c"
+    },
+    {
+      "path": "assets/thaumcraft/textures/entity/czombie.png",
+      "sha256": "60aae76435481da6f13a7391d0f1194b07356bfcf11c9f9a74b7d094227d08cb"
+    },
+    {
+      "path": "assets/thaumcraft/textures/entity/eldritch_golem.png",
+      "sha256": "a4f9a5dd04fcf0e275bc0321d9d39fcfed04dbb8c2f34702a832db1356c2b1e4"
+    },
+    {
+      "path": "assets/thaumcraft/textures/entity/eldritch_guardian.png",
+      "sha256": "cca6fa177cdd9f533e2b5a1e51287dbf967b6f7bb470b550e3a58ea8d8a5aaad"
+    },
+    {
+      "path": "assets/thaumcraft/textures/entity/eldritch_taintacle.png",
+      "sha256": "3a6bf12d1eba659b8066db28b47198519d60c47e2cb93da896164be46a18bde1"
+    },
+    {
+      "path": "assets/thaumcraft/textures/entity/eldritch_warden.png",
+      "sha256": "0b474204072934e8bfa2a90f0d786131f21a1e2a4ed55bb6ce2f38c733d3c56b"
+    },
+    {
+      "path": "assets/thaumcraft/textures/entity/firebat.png",
+      "sha256": "433bbaa4c294de8eb1bdacfbca5022241a5002622fa09cafac6655b16a15f8ec"
+    },
+    {
+      "path": "assets/thaumcraft/textures/entity/golems/golem_arms_breakers.png",
+      "sha256": "5dda2becbe89bfc3e2f3f004e581e2532481094e7db45fe6839376779905a8a2"
+    },
+    {
+      "path": "assets/thaumcraft/textures/entity/golems/golem_arms_claws.png",
+      "sha256": "42d2fb0725921994bc91982c675b3f95ef0ced9226c84a076f8faa9386db3c6a"
+    },
+    {
+      "path": "assets/thaumcraft/textures/entity/golems/golem_arms_darter.png",
+      "sha256": "08d2b30b971fcc2d9611c42632a936a196c1bb2c97cd5d56c68db0089d3a8bf9"
+    },
+    {
+      "path": "assets/thaumcraft/textures/entity/golems/golem_hauler.png",
+      "sha256": "6f5b28aece544903d772791e1461f4e6074d635011ddb1a49d676f6cddfa5617"
+    },
+    {
+      "path": "assets/thaumcraft/textures/entity/golems/golem_head_other.png",
+      "sha256": "37d87bde9cb0df9f907509cdc98992f5c17f2999cd5527677941db9429d41bfb"
+    },
+    {
+      "path": "assets/thaumcraft/textures/entity/golems/golem_legs_floater.png",
+      "sha256": "fb100241c23cdb63428eaafbdc8f6ffb9b520c77068b752ed245341e0a3da04c"
+    },
+    {
+      "path": "assets/thaumcraft/textures/entity/golems/golem_legs_wheel.png",
+      "sha256": "f5fc288f0e7c3263d09aab366ef60653d9a0cb9badf8a3fd826895786222e998"
+    },
+    {
+      "path": "assets/thaumcraft/textures/entity/golems/mat_brass.png",
+      "sha256": "8d2ade7c6303a0c08bb6949b86d0d33afde85b4ad095957a950b7e309701f54b"
+    },
+    {
+      "path": "assets/thaumcraft/textures/entity/golems/mat_clay.png",
+      "sha256": "088fc435a22bff486cd7caf0db4ff45245b28118fe71a56534308819ed748de9"
+    },
+    {
+      "path": "assets/thaumcraft/textures/entity/golems/mat_iron.png",
+      "sha256": "0199d788ab315923b81252deb16fdb5378c023f53cc94db5e563deca80e36b53"
+    },
+    {
+      "path": "assets/thaumcraft/textures/entity/golems/mat_thaumium.png",
+      "sha256": "0d23f4004b3b20f7fba4163126d5f584317aff61a272a5de8eaecd1278305d09"
+    },
+    {
+      "path": "assets/thaumcraft/textures/entity/golems/mat_void.png",
+      "sha256": "34c80e8c4dc00a1f04feafcbfc568cdcc3b46699d9b13ebefbcac0ffdd0b4d7e"
+    },
+    {
+      "path": "assets/thaumcraft/textures/entity/golems/mat_wood.png",
+      "sha256": "c8fc920fd963c99db88ba5175bad79e61f624367177c212406ac4fa8b5a4ac0b"
+    },
+    {
+      "path": "assets/thaumcraft/textures/entity/grappler.png",
+      "sha256": "1754585d86e43c2f69af1904cc23b2143b9ada0f2bf2be28ac908162e45e0c81"
+    },
+    {
+      "path": "assets/thaumcraft/textures/entity/mine.png",
+      "sha256": "2f0f6bb1f27dce20a7bc60aa39e34ad021f3fd6b2eaaf94d118adbc7ac0e59c8"
+    },
+    {
+      "path": "assets/thaumcraft/textures/entity/pech_forage.png",
+      "sha256": "92d6d4debc2ebef1a4ed8fae700cf2ea5085e35dbb8e23ea81b1b5756f7741bf"
+    },
+    {
+      "path": "assets/thaumcraft/textures/entity/pech_stalker.png",
+      "sha256": "562842a92664e8cdabaf71256d5f2afa102465f240774342a5df840d9c0eb29c"
+    },
+    {
+      "path": "assets/thaumcraft/textures/entity/pech_thaum.png",
+      "sha256": "eaf6e0b215ecca0bcac40f0db98afe8f1058df6804393c1056ff9c7e6f646d93"
+    },
+    {
+      "path": "assets/thaumcraft/textures/entity/spellbat.png",
+      "sha256": "9c226f72b402ef9104eba2054dff80c60708401d7711af43ea123414788783a0"
+    },
+    {
+      "path": "assets/thaumcraft/textures/entity/taintacle.png",
+      "sha256": "5db28790f96b5819c465e29279c13e460f160b5c632f88901ab8173c28728c81"
+    },
+    {
+      "path": "assets/thaumcraft/textures/entity/taintseed.png",
+      "sha256": "3dff245d2be8f6de4f30a593a81bf215708786debefd6ba692e5d690f4a3e9b8"
+    },
+    {
+      "path": "assets/thaumcraft/textures/entity/tslime.png",
+      "sha256": "db074675d6230ec6b820888800a9c2a28c2d60f50375921509fb6b5c4b250893"
+    },
+    {
+      "path": "assets/thaumcraft/textures/misc/auranodes.png",
+      "sha256": "3b46124e4a48422bbb64d7948707c3d4422e9399970b7637e255726e5156bda4"
+    },
+    {
+      "path": "assets/thaumcraft/textures/misc/cultist_portal.png",
+      "sha256": "991ea3352a09d903c861fb61aba2253da07eec70e7461582ccbb7e590b86c9f6"
+    },
+    {
+      "path": "assets/thaumcraft/textures/misc/particles.png",
+      "sha256": "3c31a3bed7a007ef4d671745bd627112c79d1ac70049e23194a1454929f17000"
+    },
+    {
+      "path": "assets/thaumcraft/textures/misc/rope.png",
+      "sha256": "f75e805f1afda461060563d2ff2a6b5d73f530604ae67a86e9bc3c8e1ea8d684"
+    },
+    {
+      "path": "assets/thaumcraft/textures/misc/wispy.png",
+      "sha256": "da4ff953f2a8bc67ce006efd4731eccd0b6573cf2e9b233cfb0ac073be50dca3"
+    },
+    {
+      "path": "assets/thaumcraft/textures/models/taint_fibres.png",
+      "sha256": "738d0bab65a6321f639c57fda1dd01f77ed948ef058a4e83f20001276356954f"
+    }
+  ],
+  "limitations": [
+    "No AI, combat, trading, drops, natural spawning, machinery, focus spell effects or rift gameplay",
+    "Golem multipart variants use catalogue NBT fields rather than TC6 properties persistence",
+    "Modern translucent/emissive pipeline replaces legacy fixed-function GL and distortion shaders"
+  ]
+}

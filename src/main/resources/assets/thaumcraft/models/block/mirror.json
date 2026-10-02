@@ -1,0 +1,57 @@
+{
+  "parent": "minecraft:block/block",
+  "loader": "forge:composite",
+  "textures": {
+    "particle": "thaumcraft:blocks/mirrorframe"
+  },
+  "ambientocclusion": false,
+  "render_type": "cutout",
+  "children": {
+    "frame": {
+      "parent": "minecraft:item/generated",
+      "textures": {
+        "layer0": "thaumcraft:blocks/mirrorframe"
+      },
+      "transform": {
+        "translation": [
+          0,
+          0,
+          0.45875
+        ]
+      },
+      "render_type": "cutout"
+    },
+    "pane": {
+      "parent": "minecraft:block/block",
+      "textures": {
+        "pane": "thaumcraft:blocks/mirrorpane"
+      },
+      "elements": [
+        {
+          "from": [
+            0,
+            0,
+            15.68
+          ],
+          "to": [
+            16,
+            16,
+            15.68
+          ],
+          "faces": {
+            "north": {
+              "texture": "#pane",
+              "uv": [
+                0,
+                0,
+                16,
+                16
+              ]
+            }
+          }
+        }
+      ],
+      "render_type": "cutout"
+    }
+  }
+}

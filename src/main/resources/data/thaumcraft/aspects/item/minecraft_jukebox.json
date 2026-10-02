@@ -1,0 +1,13 @@
+{
+  "type": "item",
+  "targets": [
+    "minecraft:jukebox"
+  ],
+  "aspects": {
+    "sensus": 20,
+    "machina": 10,
+    "aer": 15
+  },
+  "_source": "Thaumcraft 6 ConfigAspects.java:430",
+  "derive": true
+}

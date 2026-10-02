@@ -1,0 +1,12 @@
+{
+  "type": "item_tag",
+  "targets": [
+    "forge:obsidian"
+  ],
+  "aspects": {
+    "terra": 5,
+    "ignis": 5,
+    "tenebrae": 5
+  },
+  "_source": "Thaumcraft 6 ConfigAspects.java:203"
+}

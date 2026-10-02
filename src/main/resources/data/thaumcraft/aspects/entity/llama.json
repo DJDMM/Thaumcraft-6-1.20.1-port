@@ -1,0 +1,11 @@
+{
+  "type": "entity",
+  "targets": [
+    "minecraft:llama"
+  ],
+  "aspects": {
+    "bestia": 15,
+    "aqua": 5
+  },
+  "_source": "Thaumcraft 6 ConfigAspects.java:94"
+}

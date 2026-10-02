@@ -1,0 +1,10 @@
+{
+  "type": "item_tag",
+  "targets": [
+    "forge:dusts/redstone"
+  ],
+  "aspects": {
+    "potentia": 10
+  },
+  "_source": "Thaumcraft 6 ConfigAspects.java:148"
+}

@@ -1,0 +1,1313 @@
+{
+  "guide_commit": "cd14373456bfa3090663eb9dbf804f369313a7d7",
+  "expected_pages": 161,
+  "read_pages": 161,
+  "missing": [],
+  "unknown_paths": [],
+  "sections": {
+    "01.thaumcraft-6": 1,
+    "02.world-generation": 13,
+    "03.getting-started": 19,
+    "04.fundamentals": 19,
+    "05.auromancy": 25,
+    "06.alchemy": 17,
+    "07.arcane-infusion": 17,
+    "08.golemancy": 17,
+    "09.artifice": 19,
+    "10.eldritch": 10,
+    "11.pdf-download": 1,
+    "12.credits": 1,
+    "13.change-log": 1,
+    "feed": 1
+  },
+  "pages": [
+    {
+      "path": "pages/01.thaumcraft-6/docs.md",
+      "sha256": "d045ed12362afd80042d24c103e685d9feace33c966f977149c9d4a45b4aac3d",
+      "read_by": [
+        "root"
+      ],
+      "url": "https://github.com/xiaoschannel/Minecraft-Guides-Thaumcraft6/blob/cd14373456bfa3090663eb9dbf804f369313a7d7/pages/01.thaumcraft-6/docs.md"
+    },
+    {
+      "path": "pages/02.world-generation/01.magical-forest-biome/docs.md",
+      "sha256": "525fb607c462e6f36d575c13065dad83130b7b9d486586bca8b01d4d7692da7f",
+      "read_by": [
+        "trees"
+      ],
+      "url": "https://github.com/xiaoschannel/Minecraft-Guides-Thaumcraft6/blob/cd14373456bfa3090663eb9dbf804f369313a7d7/pages/02.world-generation/01.magical-forest-biome/docs.md"
+    },
+    {
+      "path": "pages/02.world-generation/02.silverwood-trees/docs.md",
+      "sha256": "fcdf84c4deaa2c07b7a3b144c02d30689d338e519c1225135e6a50eb2eb45c5f",
+      "read_by": [
+        "trees"
+      ],
+      "url": "https://github.com/xiaoschannel/Minecraft-Guides-Thaumcraft6/blob/cd14373456bfa3090663eb9dbf804f369313a7d7/pages/02.world-generation/02.silverwood-trees/docs.md"
+    },
+    {
+      "path": "pages/02.world-generation/03.greatwood-trees/docs.md",
+      "sha256": "bcd55092f18f460cb02353cb00d0d7f7acf2ff8e0ee40b85d09640caeecc3b06",
+      "read_by": [
+        "trees"
+      ],
+      "url": "https://github.com/xiaoschannel/Minecraft-Guides-Thaumcraft6/blob/cd14373456bfa3090663eb9dbf804f369313a7d7/pages/02.world-generation/03.greatwood-trees/docs.md"
+    },
+    {
+      "path": "pages/02.world-generation/04.shimmerleaf-and-cinderpearl/docs.md",
+      "sha256": "e93189a73cfbccd33f086e96ccecb77e02e2da40360d3e0602ea581c4f2402d3",
+      "read_by": [
+        "trees"
+      ],
+      "url": "https://github.com/xiaoschannel/Minecraft-Guides-Thaumcraft6/blob/cd14373456bfa3090663eb9dbf804f369313a7d7/pages/02.world-generation/04.shimmerleaf-and-cinderpearl/docs.md"
+    },
+    {
+      "path": "pages/02.world-generation/05.vishroom/docs.md",
+      "sha256": "6cca68b3985cab39f206eda0eda8c1cb5ed9d4ac128a414edecab5f537dbeff4",
+      "read_by": [
+        "trees"
+      ],
+      "url": "https://github.com/xiaoschannel/Minecraft-Guides-Thaumcraft6/blob/cd14373456bfa3090663eb9dbf804f369313a7d7/pages/02.world-generation/05.vishroom/docs.md"
+    },
+    {
+      "path": "pages/02.world-generation/06.crystals/docs.md",
+      "sha256": "32c3f3d1bbcf9f36a245f9792a117c4d6394e7b7212025bc813c76de410d9d83",
+      "read_by": [
+        "trees"
+      ],
+      "url": "https://github.com/xiaoschannel/Minecraft-Guides-Thaumcraft6/blob/cd14373456bfa3090663eb9dbf804f369313a7d7/pages/02.world-generation/06.crystals/docs.md"
+    },
+    {
+      "path": "pages/02.world-generation/07.amber-bearing-stone-and-cinnabar-ore/docs.md",
+      "sha256": "8ce23c784a381e0b594b398a280f9a06b91e8d0d44581bccf9682eefb897ed4d",
+      "read_by": [
+        "trees"
+      ],
+      "url": "https://github.com/xiaoschannel/Minecraft-Guides-Thaumcraft6/blob/cd14373456bfa3090663eb9dbf804f369313a7d7/pages/02.world-generation/07.amber-bearing-stone-and-cinnabar-ore/docs.md"
+    },
+    {
+      "path": "pages/02.world-generation/08.vis/docs.md",
+      "sha256": "a9f5d17a60b0ad653a3cb2c3c0a667e661264ccf6b39e1da9f468c0465baf10e",
+      "read_by": [
+        "trees"
+      ],
+      "url": "https://github.com/xiaoschannel/Minecraft-Guides-Thaumcraft6/blob/cd14373456bfa3090663eb9dbf804f369313a7d7/pages/02.world-generation/08.vis/docs.md"
+    },
+    {
+      "path": "pages/02.world-generation/09.aspects/docs.md",
+      "sha256": "30e03f72f13695cf831a9444bd33891c6df57295e0589aa923654b2533633590",
+      "read_by": [
+        "trees"
+      ],
+      "url": "https://github.com/xiaoschannel/Minecraft-Guides-Thaumcraft6/blob/cd14373456bfa3090663eb9dbf804f369313a7d7/pages/02.world-generation/09.aspects/docs.md"
+    },
+    {
+      "path": "pages/02.world-generation/10.flux-and-rifts/docs.md",
+      "sha256": "e20150e90465186b8cee1591b38f6bcf9ac36f6660c59d5db461b4ff2bc4c150",
+      "read_by": [
+        "trees"
+      ],
+      "url": "https://github.com/xiaoschannel/Minecraft-Guides-Thaumcraft6/blob/cd14373456bfa3090663eb9dbf804f369313a7d7/pages/02.world-generation/10.flux-and-rifts/docs.md"
+    },
+    {
+      "path": "pages/02.world-generation/11.taint/docs.md",
+      "sha256": "cd1c2053ed5415446844fd2ccb7a9bc03bc2dfe999e262aef747b4f5256e34b8",
+      "read_by": [
+        "trees"
+      ],
+      "url": "https://github.com/xiaoschannel/Minecraft-Guides-Thaumcraft6/blob/cd14373456bfa3090663eb9dbf804f369313a7d7/pages/02.world-generation/11.taint/docs.md"
+    },
+    {
+      "path": "pages/02.world-generation/12.warp/docs.md",
+      "sha256": "8edd4afe6dd3896a9dc0ab185bb235a7130bf9a6f3fdabc044daab842ad15c73",
+      "read_by": [
+        "trees"
+      ],
+      "url": "https://github.com/xiaoschannel/Minecraft-Guides-Thaumcraft6/blob/cd14373456bfa3090663eb9dbf804f369313a7d7/pages/02.world-generation/12.warp/docs.md"
+    },
+    {
+      "path": "pages/02.world-generation/chapter.md",
+      "sha256": "7307dd2e4dabc61086872f2200476017bece835741e386b69ed0f98b73daaf80",
+      "read_by": [
+        "trees"
+      ],
+      "url": "https://github.com/xiaoschannel/Minecraft-Guides-Thaumcraft6/blob/cd14373456bfa3090663eb9dbf804f369313a7d7/pages/02.world-generation/chapter.md"
+    },
+    {
+      "path": "pages/03.getting-started/04.prerequisites/docs.md",
+      "sha256": "8098aaf9e513223ae0e2fd2957d2bf2f5ec230900b94f70798c2a849efc87dd0",
+      "read_by": [
+        "scan"
+      ],
+      "url": "https://github.com/xiaoschannel/Minecraft-Guides-Thaumcraft6/blob/cd14373456bfa3090663eb9dbf804f369313a7d7/pages/03.getting-started/04.prerequisites/docs.md"
+    },
+    {
+      "path": "pages/03.getting-started/05.crystals/docs.md",
+      "sha256": "bc64b9d57d3e77a39e881ca7bd6043d1540fd0b5b3a1ed052269b706278856d6",
+      "read_by": [
+        "scan"
+      ],
+      "url": "https://github.com/xiaoschannel/Minecraft-Guides-Thaumcraft6/blob/cd14373456bfa3090663eb9dbf804f369313a7d7/pages/03.getting-started/05.crystals/docs.md"
+    },
+    {
+      "path": "pages/03.getting-started/06.salis-mundus/docs.md",
+      "sha256": "f0f7c6283d8339c43931b530f2862f4ae8b7ba522989294d9c26b86fd17ab89c",
+      "read_by": [
+        "scan"
+      ],
+      "url": "https://github.com/xiaoschannel/Minecraft-Guides-Thaumcraft6/blob/cd14373456bfa3090663eb9dbf804f369313a7d7/pages/03.getting-started/06.salis-mundus/docs.md"
+    },
+    {
+      "path": "pages/03.getting-started/07.thaumonomicon/docs.md",
+      "sha256": "adcc2ffc8624e19d1d8e2ce646d401e5bdaa33ffd9905c69ee77421fa589a0b4",
+      "read_by": [
+        "scan"
+      ],
+      "url": "https://github.com/xiaoschannel/Minecraft-Guides-Thaumcraft6/blob/cd14373456bfa3090663eb9dbf804f369313a7d7/pages/03.getting-started/07.thaumonomicon/docs.md"
+    },
+    {
+      "path": "pages/03.getting-started/08.arcane-workbench/docs.md",
+      "sha256": "e33456c75bd6d81b7bffc1c02bc2dc758e8286b77f1a4825c8cf36c8c36f7df9",
+      "read_by": [
+        "scan"
+      ],
+      "url": "https://github.com/xiaoschannel/Minecraft-Guides-Thaumcraft6/blob/cd14373456bfa3090663eb9dbf804f369313a7d7/pages/03.getting-started/08.arcane-workbench/docs.md"
+    },
+    {
+      "path": "pages/03.getting-started/09.observations/docs.md",
+      "sha256": "36289987536da482c0f453631fe679934b1ae5ffbd02edc08540025fc82e19b3",
+      "read_by": [
+        "scan"
+      ],
+      "url": "https://github.com/xiaoschannel/Minecraft-Guides-Thaumcraft6/blob/cd14373456bfa3090663eb9dbf804f369313a7d7/pages/03.getting-started/09.observations/docs.md"
+    },
+    {
+      "path": "pages/03.getting-started/10.thaumometer/docs.md",
+      "sha256": "3a32b47ca9e3c5d7a2bb508118c59d4f02ff91a8201be0801857dcaf8b3de59f",
+      "read_by": [
+        "scan"
+      ],
+      "url": "https://github.com/xiaoschannel/Minecraft-Guides-Thaumcraft6/blob/cd14373456bfa3090663eb9dbf804f369313a7d7/pages/03.getting-started/10.thaumometer/docs.md"
+    },
+    {
+      "path": "pages/03.getting-started/11.celestial-observation/docs.md",
+      "sha256": "60d407e8572016209e53452d0311b60daf5a85ece1b2688d61c2c24bc82b447d",
+      "read_by": [
+        "scan"
+      ],
+      "url": "https://github.com/xiaoschannel/Minecraft-Guides-Thaumcraft6/blob/cd14373456bfa3090663eb9dbf804f369313a7d7/pages/03.getting-started/11.celestial-observation/docs.md"
+    },
+    {
+      "path": "pages/03.getting-started/12.theories-research/docs.md",
+      "sha256": "661b8a337bb43231e54a9767ddfb126847d5cecb000a7a2647aaeb5357cad99d",
+      "read_by": [
+        "scan"
+      ],
+      "url": "https://github.com/xiaoschannel/Minecraft-Guides-Thaumcraft6/blob/cd14373456bfa3090663eb9dbf804f369313a7d7/pages/03.getting-started/12.theories-research/docs.md"
+    },
+    {
+      "path": "pages/03.getting-started/13.usable-research-items/docs.md",
+      "sha256": "8c5ac166bfebbd366be88f401e18e9158e4ba06046cff0533fa4175c8d885b48",
+      "read_by": [
+        "scan"
+      ],
+      "url": "https://github.com/xiaoschannel/Minecraft-Guides-Thaumcraft6/blob/cd14373456bfa3090663eb9dbf804f369313a7d7/pages/03.getting-started/13.usable-research-items/docs.md"
+    },
+    {
+      "path": "pages/03.getting-started/14.knowledge-totals/docs.md",
+      "sha256": "44be5b3ee32633007590b3537c993db1c204838320f739df642f0814cd2f9277",
+      "read_by": [
+        "scan"
+      ],
+      "url": "https://github.com/xiaoschannel/Minecraft-Guides-Thaumcraft6/blob/cd14373456bfa3090663eb9dbf804f369313a7d7/pages/03.getting-started/14.knowledge-totals/docs.md"
+    },
+    {
+      "path": "pages/03.getting-started/15.aspects-of-essentia/docs.md",
+      "sha256": "6146e842e40990894fa2095c06dc59fb0c4a79e157f664525cfd5de5e3fbd42d",
+      "read_by": [
+        "scan"
+      ],
+      "url": "https://github.com/xiaoschannel/Minecraft-Guides-Thaumcraft6/blob/cd14373456bfa3090663eb9dbf804f369313a7d7/pages/03.getting-started/15.aspects-of-essentia/docs.md"
+    },
+    {
+      "path": "pages/03.getting-started/16.alchemy/docs.md",
+      "sha256": "faa02ae1a91b4213c599f5820353f7e03e98d2f3f8a8f8f90d6727504f9727fc",
+      "read_by": [
+        "scan"
+      ],
+      "url": "https://github.com/xiaoschannel/Minecraft-Guides-Thaumcraft6/blob/cd14373456bfa3090663eb9dbf804f369313a7d7/pages/03.getting-started/16.alchemy/docs.md"
+    },
+    {
+      "path": "pages/03.getting-started/17.alchemical-metallurgy-basics/docs.md",
+      "sha256": "896234958a104e86ac7cd3e04f5e4eaa3005763beea961f0c1df81913f364e52",
+      "read_by": [
+        "scan"
+      ],
+      "url": "https://github.com/xiaoschannel/Minecraft-Guides-Thaumcraft6/blob/cd14373456bfa3090663eb9dbf804f369313a7d7/pages/03.getting-started/17.alchemical-metallurgy-basics/docs.md"
+    },
+    {
+      "path": "pages/03.getting-started/18.discovering-artifice/docs.md",
+      "sha256": "2d9b88c75ef93a73e3b31e76e9c7b2d52b81d07a6684574d238871824e776c05",
+      "read_by": [
+        "scan"
+      ],
+      "url": "https://github.com/xiaoschannel/Minecraft-Guides-Thaumcraft6/blob/cd14373456bfa3090663eb9dbf804f369313a7d7/pages/03.getting-started/18.discovering-artifice/docs.md"
+    },
+    {
+      "path": "pages/03.getting-started/19.discovering-auromancy/docs.md",
+      "sha256": "b7cbc557a589e36a4f234487c3248097f7e118514562d3330d9b373cad7251bc",
+      "read_by": [
+        "scan"
+      ],
+      "url": "https://github.com/xiaoschannel/Minecraft-Guides-Thaumcraft6/blob/cd14373456bfa3090663eb9dbf804f369313a7d7/pages/03.getting-started/19.discovering-auromancy/docs.md"
+    },
+    {
+      "path": "pages/03.getting-started/20.discovering-infusion/docs.md",
+      "sha256": "9792e25d286c980c651ef549d5e91991177b66a09357f50733daac71b643d9ed",
+      "read_by": [
+        "scan"
+      ],
+      "url": "https://github.com/xiaoschannel/Minecraft-Guides-Thaumcraft6/blob/cd14373456bfa3090663eb9dbf804f369313a7d7/pages/03.getting-started/20.discovering-infusion/docs.md"
+    },
+    {
+      "path": "pages/03.getting-started/21.discovering-golemancy/docs.md",
+      "sha256": "687fe88f021f0b7e8395102ab8b8c519fae8afd93cab8ee334985315f97cc816",
+      "read_by": [
+        "scan"
+      ],
+      "url": "https://github.com/xiaoschannel/Minecraft-Guides-Thaumcraft6/blob/cd14373456bfa3090663eb9dbf804f369313a7d7/pages/03.getting-started/21.discovering-golemancy/docs.md"
+    },
+    {
+      "path": "pages/03.getting-started/chapter.md",
+      "sha256": "7e3e96e3d42f45d2a6d12c6c2e85b74a55c1fd9ae35da4237881ff9b7ec8557e",
+      "read_by": [
+        "scan"
+      ],
+      "url": "https://github.com/xiaoschannel/Minecraft-Guides-Thaumcraft6/blob/cd14373456bfa3090663eb9dbf804f369313a7d7/pages/03.getting-started/chapter.md"
+    },
+    {
+      "path": "pages/04.fundamentals/01.angry-zombie/docs.md",
+      "sha256": "0e1309c08ba66c771eb667da37b1d5fba3f77fc4ab9c42516f9ba5680724be45",
+      "read_by": [
+        "trees"
+      ],
+      "url": "https://github.com/xiaoschannel/Minecraft-Guides-Thaumcraft6/blob/cd14373456bfa3090663eb9dbf804f369313a7d7/pages/04.fundamentals/01.angry-zombie/docs.md"
+    },
+    {
+      "path": "pages/04.fundamentals/02.ores/docs.md",
+      "sha256": "7c3be073ed3a2b63240fe43c5bc4d15a9b34334253bab87cf0d544fcb66069bf",
+      "read_by": [
+        "trees"
+      ],
+      "url": "https://github.com/xiaoschannel/Minecraft-Guides-Thaumcraft6/blob/cd14373456bfa3090663eb9dbf804f369313a7d7/pages/04.fundamentals/02.ores/docs.md"
+    },
+    {
+      "path": "pages/04.fundamentals/03.crystal-farming/docs.md",
+      "sha256": "e8655aca9be30464484e35d23c286b0c9a97817d2f76f44d8eda6aab7bb57a0f",
+      "read_by": [
+        "trees"
+      ],
+      "url": "https://github.com/xiaoschannel/Minecraft-Guides-Thaumcraft6/blob/cd14373456bfa3090663eb9dbf804f369313a7d7/pages/04.fundamentals/03.crystal-farming/docs.md"
+    },
+    {
+      "path": "pages/04.fundamentals/04.warp/docs.md",
+      "sha256": "be1748929bbff85c817a2da1dd405381049a774412d4b847b6fb4a1a7b463889",
+      "read_by": [
+        "trees"
+      ],
+      "url": "https://github.com/xiaoschannel/Minecraft-Guides-Thaumcraft6/blob/cd14373456bfa3090663eb9dbf804f369313a7d7/pages/04.fundamentals/04.warp/docs.md"
+    },
+    {
+      "path": "pages/04.fundamentals/05.flux/docs.md",
+      "sha256": "b44ef4fb538ff6a1a75cc5179e2fd509c882203145405b7bf9c1781309403e35",
+      "read_by": [
+        "trees"
+      ],
+      "url": "https://github.com/xiaoschannel/Minecraft-Guides-Thaumcraft6/blob/cd14373456bfa3090663eb9dbf804f369313a7d7/pages/04.fundamentals/05.flux/docs.md"
+    },
+    {
+      "path": "pages/04.fundamentals/06.flux-rifts/docs.md",
+      "sha256": "1fdec4671d9c3df2cefed58aa98aa0014f471422ad58a64915ac41a77b472b6b",
+      "read_by": [
+        "trees"
+      ],
+      "url": "https://github.com/xiaoschannel/Minecraft-Guides-Thaumcraft6/blob/cd14373456bfa3090663eb9dbf804f369313a7d7/pages/04.fundamentals/06.flux-rifts/docs.md"
+    },
+    {
+      "path": "pages/04.fundamentals/07.flux-clean-up/docs.md",
+      "sha256": "fd81020d813a7b434eab5c962baa3ca42ae6a19b792f2d7338c61cc9bbcdb283",
+      "read_by": [
+        "trees"
+      ],
+      "url": "https://github.com/xiaoschannel/Minecraft-Guides-Thaumcraft6/blob/cd14373456bfa3090663eb9dbf804f369313a7d7/pages/04.fundamentals/07.flux-clean-up/docs.md"
+    },
+    {
+      "path": "pages/04.fundamentals/08.closing-flux-rifts-primordial-pearls/docs.md",
+      "sha256": "faf73f430bda91a8269c8798b1fe156d5b8fe5f145cdefe594a11f7c89504ee4",
+      "read_by": [
+        "trees"
+      ],
+      "url": "https://github.com/xiaoschannel/Minecraft-Guides-Thaumcraft6/blob/cd14373456bfa3090663eb9dbf804f369313a7d7/pages/04.fundamentals/08.closing-flux-rifts-primordial-pearls/docs.md"
+    },
+    {
+      "path": "pages/04.fundamentals/09.eldritch-guardian/docs.md",
+      "sha256": "315ba0312aa581a1648120d00bdcb0e6dbbe5ce987ee7865e5fef27ad5a23b8d",
+      "read_by": [
+        "trees"
+      ],
+      "url": "https://github.com/xiaoschannel/Minecraft-Guides-Thaumcraft6/blob/cd14373456bfa3090663eb9dbf804f369313a7d7/pages/04.fundamentals/09.eldritch-guardian/docs.md"
+    },
+    {
+      "path": "pages/04.fundamentals/10.pech/docs.md",
+      "sha256": "0d7101543a7596d461b64b5ffbdd8a2b0f6cc7bf36ffa0ee96392f0ddf69c0ef",
+      "read_by": [
+        "trees"
+      ],
+      "url": "https://github.com/xiaoschannel/Minecraft-Guides-Thaumcraft6/blob/cd14373456bfa3090663eb9dbf804f369313a7d7/pages/04.fundamentals/10.pech/docs.md"
+    },
+    {
+      "path": "pages/04.fundamentals/11.plants/docs.md",
+      "sha256": "9a818c200c5277736960599c3aa3dc172889830f4fbfd99c5a31141e1db3876c",
+      "read_by": [
+        "trees"
+      ],
+      "url": "https://github.com/xiaoschannel/Minecraft-Guides-Thaumcraft6/blob/cd14373456bfa3090663eb9dbf804f369313a7d7/pages/04.fundamentals/11.plants/docs.md"
+    },
+    {
+      "path": "pages/04.fundamentals/12.fire-bat/docs.md",
+      "sha256": "885db6c0191757c14111639686970791d12c190b7ba257cb0c430394e9b4d037",
+      "read_by": [
+        "trees"
+      ],
+      "url": "https://github.com/xiaoschannel/Minecraft-Guides-Thaumcraft6/blob/cd14373456bfa3090663eb9dbf804f369313a7d7/pages/04.fundamentals/12.fire-bat/docs.md"
+    },
+    {
+      "path": "pages/04.fundamentals/13.taintacle/docs.md",
+      "sha256": "04cf931387dad32153f615186f047f6e7dbf9a24ee04434ce297beaca58deddd",
+      "read_by": [
+        "trees"
+      ],
+      "url": "https://github.com/xiaoschannel/Minecraft-Guides-Thaumcraft6/blob/cd14373456bfa3090663eb9dbf804f369313a7d7/pages/04.fundamentals/13.taintacle/docs.md"
+    },
+    {
+      "path": "pages/04.fundamentals/14.taint-seeds/docs.md",
+      "sha256": "bfc36242b6dd6480a1a0c8c70146db8f9af496a6d4cddebc415e63ee860b26f3",
+      "read_by": [
+        "trees"
+      ],
+      "url": "https://github.com/xiaoschannel/Minecraft-Guides-Thaumcraft6/blob/cd14373456bfa3090663eb9dbf804f369313a7d7/pages/04.fundamentals/14.taint-seeds/docs.md"
+    },
+    {
+      "path": "pages/04.fundamentals/15.taint-swarm/docs.md",
+      "sha256": "e83bb117fbb24bfd3c3caa991553146db787d5c59828a166eebb6c3131e94064",
+      "read_by": [
+        "trees"
+      ],
+      "url": "https://github.com/xiaoschannel/Minecraft-Guides-Thaumcraft6/blob/cd14373456bfa3090663eb9dbf804f369313a7d7/pages/04.fundamentals/15.taint-swarm/docs.md"
+    },
+    {
+      "path": "pages/04.fundamentals/16.tainted-crawler/docs.md",
+      "sha256": "f0fdcb53acd6b644d1765244942f7c9d2ba96ddcfc8bc53d76736be6beb267f4",
+      "read_by": [
+        "trees"
+      ],
+      "url": "https://github.com/xiaoschannel/Minecraft-Guides-Thaumcraft6/blob/cd14373456bfa3090663eb9dbf804f369313a7d7/pages/04.fundamentals/16.tainted-crawler/docs.md"
+    },
+    {
+      "path": "pages/04.fundamentals/17.thaumic-slime/docs.md",
+      "sha256": "6a12c71b790aabf9b167aed4b372a77c5029c7ac68ddcd57740da42c615c8512",
+      "read_by": [
+        "trees"
+      ],
+      "url": "https://github.com/xiaoschannel/Minecraft-Guides-Thaumcraft6/blob/cd14373456bfa3090663eb9dbf804f369313a7d7/pages/04.fundamentals/17.thaumic-slime/docs.md"
+    },
+    {
+      "path": "pages/04.fundamentals/18.wisp/docs.md",
+      "sha256": "6124532267781d4bc000aba61529d68ad9be2dbb957a2ad0703859297ee43518",
+      "read_by": [
+        "trees"
+      ],
+      "url": "https://github.com/xiaoschannel/Minecraft-Guides-Thaumcraft6/blob/cd14373456bfa3090663eb9dbf804f369313a7d7/pages/04.fundamentals/18.wisp/docs.md"
+    },
+    {
+      "path": "pages/04.fundamentals/docs.md",
+      "sha256": "84e9f0d64788265abf8632a30228aad52deb57227b46d36687677dc94ec96a40",
+      "read_by": [
+        "trees"
+      ],
+      "url": "https://github.com/xiaoschannel/Minecraft-Guides-Thaumcraft6/blob/cd14373456bfa3090663eb9dbf804f369313a7d7/pages/04.fundamentals/docs.md"
+    },
+    {
+      "path": "pages/05.auromancy/01.basic-auromancy/docs.md",
+      "sha256": "7308538e8cd392fcf047fbd555d8e215f31ae74d04fe4582f690427b34eb5d33",
+      "read_by": [
+        "scan"
+      ],
+      "url": "https://github.com/xiaoschannel/Minecraft-Guides-Thaumcraft6/blob/cd14373456bfa3090663eb9dbf804f369313a7d7/pages/05.auromancy/01.basic-auromancy/docs.md"
+    },
+    {
+      "path": "pages/05.auromancy/02.focal-manipulator/docs.md",
+      "sha256": "582913b9bca7b12d9dd1a488161e796eb580a0df0f4ead76ed2b45ffa2192b44",
+      "read_by": [
+        "scan"
+      ],
+      "url": "https://github.com/xiaoschannel/Minecraft-Guides-Thaumcraft6/blob/cd14373456bfa3090663eb9dbf804f369313a7d7/pages/05.auromancy/02.focal-manipulator/docs.md"
+    },
+    {
+      "path": "pages/05.auromancy/03.focus-pouch/docs.md",
+      "sha256": "4c25e4fb8611c9741a85218a97def33bbae30122eaf10e17b611c5f3a1974d68",
+      "read_by": [
+        "scan"
+      ],
+      "url": "https://github.com/xiaoschannel/Minecraft-Guides-Thaumcraft6/blob/cd14373456bfa3090663eb9dbf804f369313a7d7/pages/05.auromancy/03.focus-pouch/docs.md"
+    },
+    {
+      "path": "pages/05.auromancy/04.recharge-pedestal/docs.md",
+      "sha256": "4d0e14960c0f5248221ecb8c1ad90b203c8f24da68e4a5fb607e36beb22084fb",
+      "read_by": [
+        "scan"
+      ],
+      "url": "https://github.com/xiaoschannel/Minecraft-Guides-Thaumcraft6/blob/cd14373456bfa3090663eb9dbf804f369313a7d7/pages/05.auromancy/04.recharge-pedestal/docs.md"
+    },
+    {
+      "path": "pages/05.auromancy/05.vis-battery/docs.md",
+      "sha256": "f9574103be030eb6893f6d5a427a06f96ab526f18da8fb7cc0fb3e77b76beb54",
+      "read_by": [
+        "scan"
+      ],
+      "url": "https://github.com/xiaoschannel/Minecraft-Guides-Thaumcraft6/blob/cd14373456bfa3090663eb9dbf804f369313a7d7/pages/05.auromancy/05.vis-battery/docs.md"
+    },
+    {
+      "path": "pages/05.auromancy/06.workbench-charger/docs.md",
+      "sha256": "1b14c1da6d2343cafad869d418e82bec6b3e9a2b8d2bccf6fd1a9bfeef6b5103",
+      "read_by": [
+        "scan"
+      ],
+      "url": "https://github.com/xiaoschannel/Minecraft-Guides-Thaumcraft6/blob/cd14373456bfa3090663eb9dbf804f369313a7d7/pages/05.auromancy/06.workbench-charger/docs.md"
+    },
+    {
+      "path": "pages/05.auromancy/07.elemental-effects/docs.md",
+      "sha256": "2699c0c6dcf5cdb9500cfef9427dfccf0ce9c7ead0b7cd7423ecf27b79ce686e",
+      "read_by": [
+        "scan"
+      ],
+      "url": "https://github.com/xiaoschannel/Minecraft-Guides-Thaumcraft6/blob/cd14373456bfa3090663eb9dbf804f369313a7d7/pages/05.auromancy/07.elemental-effects/docs.md"
+    },
+    {
+      "path": "pages/05.auromancy/08.focus-effect-flux/docs.md",
+      "sha256": "70250f5f8da0c55781ecb548e54436f34dd1311d9c68ccef57a1b2e8048c4227",
+      "read_by": [
+        "scan"
+      ],
+      "url": "https://github.com/xiaoschannel/Minecraft-Guides-Thaumcraft6/blob/cd14373456bfa3090663eb9dbf804f369313a7d7/pages/05.auromancy/08.focus-effect-flux/docs.md"
+    },
+    {
+      "path": "pages/05.auromancy/09.focus-effect-exchange/docs.md",
+      "sha256": "458d10c048c4ce1d6f5a82e4fc527900370759d4833a9c7aa58dc8014922a755",
+      "read_by": [
+        "scan"
+      ],
+      "url": "https://github.com/xiaoschannel/Minecraft-Guides-Thaumcraft6/blob/cd14373456bfa3090663eb9dbf804f369313a7d7/pages/05.auromancy/09.focus-effect-exchange/docs.md"
+    },
+    {
+      "path": "pages/05.auromancy/10.focus-effect-heal/docs.md",
+      "sha256": "415465cb3de82b8290cbf88cb01c83d3c30145c188dca9d452b402fddc40fbab",
+      "read_by": [
+        "scan"
+      ],
+      "url": "https://github.com/xiaoschannel/Minecraft-Guides-Thaumcraft6/blob/cd14373456bfa3090663eb9dbf804f369313a7d7/pages/05.auromancy/10.focus-effect-heal/docs.md"
+    },
+    {
+      "path": "pages/05.auromancy/11.focus-effect-curse/docs.md",
+      "sha256": "21991b72e5fcd8f9591cbee9ade173f1fefa6e81568c837571962169781f0482",
+      "read_by": [
+        "scan"
+      ],
+      "url": "https://github.com/xiaoschannel/Minecraft-Guides-Thaumcraft6/blob/cd14373456bfa3090663eb9dbf804f369313a7d7/pages/05.auromancy/11.focus-effect-curse/docs.md"
+    },
+    {
+      "path": "pages/05.auromancy/12.focus-effect-break/docs.md",
+      "sha256": "ecb3ccddd1c1b3276553a8ae093e6511e1d7cada9e4af7adfafe872f314947e2",
+      "read_by": [
+        "scan"
+      ],
+      "url": "https://github.com/xiaoschannel/Minecraft-Guides-Thaumcraft6/blob/cd14373456bfa3090663eb9dbf804f369313a7d7/pages/05.auromancy/12.focus-effect-break/docs.md"
+    },
+    {
+      "path": "pages/05.auromancy/13.focus-effect-rift/docs.md",
+      "sha256": "0691ef8dd9cb8ea96e39f54ce1327ee9cbb2e315617164ee652a7332e2168207",
+      "read_by": [
+        "scan"
+      ],
+      "url": "https://github.com/xiaoschannel/Minecraft-Guides-Thaumcraft6/blob/cd14373456bfa3090663eb9dbf804f369313a7d7/pages/05.auromancy/13.focus-effect-rift/docs.md"
+    },
+    {
+      "path": "pages/05.auromancy/14.vis-amulet/docs.md",
+      "sha256": "0acefc0e9eeeab7bb653a9a07eb148f0ece6d8328da45d54fed34fea3645b0be",
+      "read_by": [
+        "scan"
+      ],
+      "url": "https://github.com/xiaoschannel/Minecraft-Guides-Thaumcraft6/blob/cd14373456bfa3090663eb9dbf804f369313a7d7/pages/05.auromancy/14.vis-amulet/docs.md"
+    },
+    {
+      "path": "pages/05.auromancy/15.focus-medium-projectiles/docs.md",
+      "sha256": "22eaf0580f17e6f4fc71093d9b0f7eef5902466586cfe1a133882ebe1e4eec35",
+      "read_by": [
+        "scan"
+      ],
+      "url": "https://github.com/xiaoschannel/Minecraft-Guides-Thaumcraft6/blob/cd14373456bfa3090663eb9dbf804f369313a7d7/pages/05.auromancy/15.focus-medium-projectiles/docs.md"
+    },
+    {
+      "path": "pages/05.auromancy/16.focus-medium-bolt/docs.md",
+      "sha256": "6f1812aae6746d2fe8210cf93f3473c43019e199cd54100be36bd81be25a9fce",
+      "read_by": [
+        "scan"
+      ],
+      "url": "https://github.com/xiaoschannel/Minecraft-Guides-Thaumcraft6/blob/cd14373456bfa3090663eb9dbf804f369313a7d7/pages/05.auromancy/16.focus-medium-bolt/docs.md"
+    },
+    {
+      "path": "pages/05.auromancy/17.focus-medium-arcane-mine/docs.md",
+      "sha256": "e8c0e09c60dbdec7d7efa1919aa90e57ea735f23f03853afc1612b0c757351e6",
+      "read_by": [
+        "scan"
+      ],
+      "url": "https://github.com/xiaoschannel/Minecraft-Guides-Thaumcraft6/blob/cd14373456bfa3090663eb9dbf804f369313a7d7/pages/05.auromancy/17.focus-medium-arcane-mine/docs.md"
+    },
+    {
+      "path": "pages/05.auromancy/18.focus-medium-cloud/docs.md",
+      "sha256": "06d951f4b053b2c0a3b1ab9033a3aed7895509b68cedbaf068412ff4e016e063",
+      "read_by": [
+        "scan"
+      ],
+      "url": "https://github.com/xiaoschannel/Minecraft-Guides-Thaumcraft6/blob/cd14373456bfa3090663eb9dbf804f369313a7d7/pages/05.auromancy/18.focus-medium-cloud/docs.md"
+    },
+    {
+      "path": "pages/05.auromancy/19.focus-modifier-scatter/docs.md",
+      "sha256": "4d36f55d2fcfa0f41187e8da988d555a13857b149dfaa43c023249d193c2f991",
+      "read_by": [
+        "scan"
+      ],
+      "url": "https://github.com/xiaoschannel/Minecraft-Guides-Thaumcraft6/blob/cd14373456bfa3090663eb9dbf804f369313a7d7/pages/05.auromancy/19.focus-modifier-scatter/docs.md"
+    },
+    {
+      "path": "pages/05.auromancy/20.focus-modifier-split/docs.md",
+      "sha256": "212b4f56da413bc3bf0537d62df43bf11f0efafb84941ed739ed004e71c75047",
+      "read_by": [
+        "scan"
+      ],
+      "url": "https://github.com/xiaoschannel/Minecraft-Guides-Thaumcraft6/blob/cd14373456bfa3090663eb9dbf804f369313a7d7/pages/05.auromancy/20.focus-modifier-split/docs.md"
+    },
+    {
+      "path": "pages/05.auromancy/21.focus-modifier-plan/docs.md",
+      "sha256": "b28f9a9e3bc8b2ee93cbb81da213db43c899b735585ce0adaa399eeac31affb0",
+      "read_by": [
+        "scan"
+      ],
+      "url": "https://github.com/xiaoschannel/Minecraft-Guides-Thaumcraft6/blob/cd14373456bfa3090663eb9dbf804f369313a7d7/pages/05.auromancy/21.focus-modifier-plan/docs.md"
+    },
+    {
+      "path": "pages/05.auromancy/22.focus-modifier-spellbat/docs.md",
+      "sha256": "5f70ca5cb4da8d926420cdd198020faba285d841e3837014ecb9f6b99ca1ad0e",
+      "read_by": [
+        "scan"
+      ],
+      "url": "https://github.com/xiaoschannel/Minecraft-Guides-Thaumcraft6/blob/cd14373456bfa3090663eb9dbf804f369313a7d7/pages/05.auromancy/22.focus-modifier-spellbat/docs.md"
+    },
+    {
+      "path": "pages/05.auromancy/23.advanced-foci-basic-infusion/docs.md",
+      "sha256": "ad5e245a9e2b6699809a906f79eef78e5b75ad941d8b01f41c50303e4be763d7",
+      "read_by": [
+        "scan"
+      ],
+      "url": "https://github.com/xiaoschannel/Minecraft-Guides-Thaumcraft6/blob/cd14373456bfa3090663eb9dbf804f369313a7d7/pages/05.auromancy/23.advanced-foci-basic-infusion/docs.md"
+    },
+    {
+      "path": "pages/05.auromancy/24.greater-foci/docs.md",
+      "sha256": "cc745aa2b7d532c5133810e5419aa5f634d6c10a3ee793f7d6eb5ab5019e6fa8",
+      "read_by": [
+        "scan"
+      ],
+      "url": "https://github.com/xiaoschannel/Minecraft-Guides-Thaumcraft6/blob/cd14373456bfa3090663eb9dbf804f369313a7d7/pages/05.auromancy/24.greater-foci/docs.md"
+    },
+    {
+      "path": "pages/05.auromancy/chapter.md",
+      "sha256": "ed214151028815efec59437913735f696c280138e0175a0a854ef86b3d880437",
+      "read_by": [
+        "scan"
+      ],
+      "url": "https://github.com/xiaoschannel/Minecraft-Guides-Thaumcraft6/blob/cd14373456bfa3090663eb9dbf804f369313a7d7/pages/05.auromancy/chapter.md"
+    },
+    {
+      "path": "pages/06.alchemy/01.hedge-alchemy-alumentum/docs.md",
+      "sha256": "f24c69335bd02345c7c69d1156f2826d06adba4401679f3baccaee48a24e985b",
+      "read_by": [
+        "arcane"
+      ],
+      "url": "https://github.com/xiaoschannel/Minecraft-Guides-Thaumcraft6/blob/cd14373456bfa3090663eb9dbf804f369313a7d7/pages/06.alchemy/01.hedge-alchemy-alumentum/docs.md"
+    },
+    {
+      "path": "pages/06.alchemy/02.everfull-urn/docs.md",
+      "sha256": "4f2ef2ef0fcc1cf83e75d407185351492fd8ab993829fbbf279c49448c25ab78",
+      "read_by": [
+        "arcane"
+      ],
+      "url": "https://github.com/xiaoschannel/Minecraft-Guides-Thaumcraft6/blob/cd14373456bfa3090663eb9dbf804f369313a7d7/pages/06.alchemy/02.everfull-urn/docs.md"
+    },
+    {
+      "path": "pages/06.alchemy/03.essentia-smelting/docs.md",
+      "sha256": "1753f84d73ba3aeef815a37f2294981385518d0e7f039470dd1c95aabc33a09a",
+      "read_by": [
+        "arcane"
+      ],
+      "url": "https://github.com/xiaoschannel/Minecraft-Guides-Thaumcraft6/blob/cd14373456bfa3090663eb9dbf804f369313a7d7/pages/06.alchemy/03.essentia-smelting/docs.md"
+    },
+    {
+      "path": "pages/06.alchemy/04.essentia-tubes/docs.md",
+      "sha256": "94d1b68d091ba0a6d8809b066f4620a06f8cc1479265d1fee6d10de59012448c",
+      "read_by": [
+        "arcane"
+      ],
+      "url": "https://github.com/xiaoschannel/Minecraft-Guides-Thaumcraft6/blob/cd14373456bfa3090663eb9dbf804f369313a7d7/pages/06.alchemy/04.essentia-tubes/docs.md"
+    },
+    {
+      "path": "pages/06.alchemy/05.alchemical-metallurgy/docs.md",
+      "sha256": "df14882d56f9607f45d4b7ac19f0aeb979ad83813f756907b6783eb7f2112dd8",
+      "read_by": [
+        "arcane"
+      ],
+      "url": "https://github.com/xiaoschannel/Minecraft-Guides-Thaumcraft6/blob/cd14373456bfa3090663eb9dbf804f369313a7d7/pages/06.alchemy/05.alchemical-metallurgy/docs.md"
+    },
+    {
+      "path": "pages/06.alchemy/06.thaumium-essentia-smeltery/docs.md",
+      "sha256": "36a10a758e65c4de49a70702d8ee3f322d7f7eeff710be9777f72a909fe49d07",
+      "read_by": [
+        "arcane"
+      ],
+      "url": "https://github.com/xiaoschannel/Minecraft-Guides-Thaumcraft6/blob/cd14373456bfa3090663eb9dbf804f369313a7d7/pages/06.alchemy/06.thaumium-essentia-smeltery/docs.md"
+    },
+    {
+      "path": "pages/06.alchemy/07.void-metal-smeltery/docs.md",
+      "sha256": "c32e90cf08b844750776f41e946ab05a9a087288b8cfb4d91fcce7fbcaa91587",
+      "read_by": [
+        "arcane"
+      ],
+      "url": "https://github.com/xiaoschannel/Minecraft-Guides-Thaumcraft6/blob/cd14373456bfa3090663eb9dbf804f369313a7d7/pages/06.alchemy/07.void-metal-smeltery/docs.md"
+    },
+    {
+      "path": "pages/06.alchemy/08.improved-essentia-distillation/docs.md",
+      "sha256": "e870b64682c46636e03c7d3df18e666603f2a9420d69cac30c4c545447a442d9",
+      "read_by": [
+        "arcane"
+      ],
+      "url": "https://github.com/xiaoschannel/Minecraft-Guides-Thaumcraft6/blob/cd14373456bfa3090663eb9dbf804f369313a7d7/pages/06.alchemy/08.improved-essentia-distillation/docs.md"
+    },
+    {
+      "path": "pages/06.alchemy/09.essentia-centrifuge/docs.md",
+      "sha256": "8a0e442c1267d3ca636ca78cf6828eb6561d741f7b7620fab13912c42f9db901",
+      "read_by": [
+        "arcane"
+      ],
+      "url": "https://github.com/xiaoschannel/Minecraft-Guides-Thaumcraft6/blob/cd14373456bfa3090663eb9dbf804f369313a7d7/pages/06.alchemy/09.essentia-centrifuge/docs.md"
+    },
+    {
+      "path": "pages/06.alchemy/10.alchemical-automation/docs.md",
+      "sha256": "14273c1c140928e998635571a018d4522d4b4f0477b10d8b655633a3a3e31edb",
+      "read_by": [
+        "arcane"
+      ],
+      "url": "https://github.com/xiaoschannel/Minecraft-Guides-Thaumcraft6/blob/cd14373456bfa3090663eb9dbf804f369313a7d7/pages/06.alchemy/10.alchemical-automation/docs.md"
+    },
+    {
+      "path": "pages/06.alchemy/11.advanced-essentia-transport/docs.md",
+      "sha256": "f2ea4658eca9581694baa45bad1e2df697768c4a1d4ed8c6b2742d91565a4975",
+      "read_by": [
+        "arcane"
+      ],
+      "url": "https://github.com/xiaoschannel/Minecraft-Guides-Thaumcraft6/blob/cd14373456bfa3090663eb9dbf804f369313a7d7/pages/06.alchemy/11.advanced-essentia-transport/docs.md"
+    },
+    {
+      "path": "pages/06.alchemy/12.metal-purification/docs.md",
+      "sha256": "c234f33d5cc0bacd36a392f39c79e03662f8acb40d65c339b6f6167ccd21c559",
+      "read_by": [
+        "arcane"
+      ],
+      "url": "https://github.com/xiaoschannel/Minecraft-Guides-Thaumcraft6/blob/cd14373456bfa3090663eb9dbf804f369313a7d7/pages/06.alchemy/12.metal-purification/docs.md"
+    },
+    {
+      "path": "pages/06.alchemy/13.liquid-death/docs.md",
+      "sha256": "a4a03b81792a7117ff2f872f9bd51e5767d9f0e1dcb88cef4f5ba0f7cbf70c78",
+      "read_by": [
+        "arcane"
+      ],
+      "url": "https://github.com/xiaoschannel/Minecraft-Guides-Thaumcraft6/blob/cd14373456bfa3090663eb9dbf804f369313a7d7/pages/06.alchemy/13.liquid-death/docs.md"
+    },
+    {
+      "path": "pages/06.alchemy/14.bottled-taint/docs.md",
+      "sha256": "b5bf353cc60e478ca163d1c90e37c842f7e3fcdc6acd9fb7edbc94cdd72c25d8",
+      "read_by": [
+        "arcane"
+      ],
+      "url": "https://github.com/xiaoschannel/Minecraft-Guides-Thaumcraft6/blob/cd14373456bfa3090663eb9dbf804f369313a7d7/pages/06.alchemy/14.bottled-taint/docs.md"
+    },
+    {
+      "path": "pages/06.alchemy/15.potion-sprayer/docs.md",
+      "sha256": "6f7dc3951fdc22903540291ae25f5b410a768393b53e6607483935c5e1268743",
+      "read_by": [
+        "arcane"
+      ],
+      "url": "https://github.com/xiaoschannel/Minecraft-Guides-Thaumcraft6/blob/cd14373456bfa3090663eb9dbf804f369313a7d7/pages/06.alchemy/15.potion-sprayer/docs.md"
+    },
+    {
+      "path": "pages/06.alchemy/16.purifying-bath-salts-sanity-soap-arcane-spa/docs.md",
+      "sha256": "bd5fd2923f060b1cb2743b5424679cfcc3edb6617a7bb1a07d6512f8c92d7d8f",
+      "read_by": [
+        "arcane"
+      ],
+      "url": "https://github.com/xiaoschannel/Minecraft-Guides-Thaumcraft6/blob/cd14373456bfa3090663eb9dbf804f369313a7d7/pages/06.alchemy/16.purifying-bath-salts-sanity-soap-arcane-spa/docs.md"
+    },
+    {
+      "path": "pages/06.alchemy/docs.md",
+      "sha256": "9c364391e95d5830ac4582d7097372dea2ae2ada1c91243cc9639525c6299f38",
+      "read_by": [
+        "arcane"
+      ],
+      "url": "https://github.com/xiaoschannel/Minecraft-Guides-Thaumcraft6/blob/cd14373456bfa3090663eb9dbf804f369313a7d7/pages/06.alchemy/docs.md"
+    },
+    {
+      "path": "pages/07.arcane-infusion/01.basic-infusion-and-infusion/docs.md",
+      "sha256": "9c6d2b2386905d8f09f102cfc67841a2da6a28eb6f94538450211733ec4f317e",
+      "read_by": [
+        "arcane"
+      ],
+      "url": "https://github.com/xiaoschannel/Minecraft-Guides-Thaumcraft6/blob/cd14373456bfa3090663eb9dbf804f369313a7d7/pages/07.arcane-infusion/01.basic-infusion-and-infusion/docs.md"
+    },
+    {
+      "path": "pages/07.arcane-infusion/02.infusion-stabilization-stable-infusion/docs.md",
+      "sha256": "b30af160206e62e555e4ccfe0a5fa1e52e953a0367f2b54ca20fd54914f86e00",
+      "read_by": [
+        "arcane"
+      ],
+      "url": "https://github.com/xiaoschannel/Minecraft-Guides-Thaumcraft6/blob/cd14373456bfa3090663eb9dbf804f369313a7d7/pages/07.arcane-infusion/02.infusion-stabilization-stable-infusion/docs.md"
+    },
+    {
+      "path": "pages/07.arcane-infusion/03.cloud-stepper-ring/docs.md",
+      "sha256": "a31b663a62b4c042a1e0a9fa4b58318c9e352169c957f19f5cc3c2d9b70dc86b",
+      "read_by": [
+        "arcane"
+      ],
+      "url": "https://github.com/xiaoschannel/Minecraft-Guides-Thaumcraft6/blob/cd14373456bfa3090663eb9dbf804f369313a7d7/pages/07.arcane-infusion/03.cloud-stepper-ring/docs.md"
+    },
+    {
+      "path": "pages/07.arcane-infusion/04.infusion-boosting/docs.md",
+      "sha256": "c0668804da1ad24383404bbd951f2d8896885455933edcc552841c07dea518fb",
+      "read_by": [
+        "arcane"
+      ],
+      "url": "https://github.com/xiaoschannel/Minecraft-Guides-Thaumcraft6/blob/cd14373456bfa3090663eb9dbf804f369313a7d7/pages/07.arcane-infusion/04.infusion-boosting/docs.md"
+    },
+    {
+      "path": "pages/07.arcane-infusion/05.arcane-paving-stones/docs.md",
+      "sha256": "ef20f6979b2f37302b63a964afe50aae040ea0b74da01fd2ac23994d22eece39",
+      "read_by": [
+        "arcane"
+      ],
+      "url": "https://github.com/xiaoschannel/Minecraft-Guides-Thaumcraft6/blob/cd14373456bfa3090663eb9dbf804f369313a7d7/pages/07.arcane-infusion/05.arcane-paving-stones/docs.md"
+    },
+    {
+      "path": "pages/07.arcane-infusion/06.verdant-charms/docs.md",
+      "sha256": "c4e016aa7611b54a1131539b91b7392a45eed9f153235370e6915cd649b0b6a3",
+      "read_by": [
+        "arcane"
+      ],
+      "url": "https://github.com/xiaoschannel/Minecraft-Guides-Thaumcraft6/blob/cd14373456bfa3090663eb9dbf804f369313a7d7/pages/07.arcane-infusion/06.verdant-charms/docs.md"
+    },
+    {
+      "path": "pages/07.arcane-infusion/07.headband-of-curiosity/docs.md",
+      "sha256": "7af27242284fd59f6f15c65a2d2e008643e990b3d863ecc11957f230188a452b",
+      "read_by": [
+        "arcane"
+      ],
+      "url": "https://github.com/xiaoschannel/Minecraft-Guides-Thaumcraft6/blob/cd14373456bfa3090663eb9dbf804f369313a7d7/pages/07.arcane-infusion/07.headband-of-curiosity/docs.md"
+    },
+    {
+      "path": "pages/07.arcane-infusion/08.boots-of-the-traveller/docs.md",
+      "sha256": "7b36b8c9eadc597fb2dff6cc3365bb2e15dc65bb6cb9465ab8dab983e3b6cc71",
+      "read_by": [
+        "arcane"
+      ],
+      "url": "https://github.com/xiaoschannel/Minecraft-Guides-Thaumcraft6/blob/cd14373456bfa3090663eb9dbf804f369313a7d7/pages/07.arcane-infusion/08.boots-of-the-traveller/docs.md"
+    },
+    {
+      "path": "pages/07.arcane-infusion/09.elemental-tools/docs.md",
+      "sha256": "7ab128b6f42930cc8127efae6e1ae61385b2453922c2f306504559748d734fc7",
+      "read_by": [
+        "arcane"
+      ],
+      "url": "https://github.com/xiaoschannel/Minecraft-Guides-Thaumcraft6/blob/cd14373456bfa3090663eb9dbf804f369313a7d7/pages/07.arcane-infusion/09.elemental-tools/docs.md"
+    },
+    {
+      "path": "pages/07.arcane-infusion/10.thaumium-fortress-armor/docs.md",
+      "sha256": "06fdc9094d6f1cdb5d076de393e66919fd656be4d711a79b3cdef3c6f952c786",
+      "read_by": [
+        "arcane"
+      ],
+      "url": "https://github.com/xiaoschannel/Minecraft-Guides-Thaumcraft6/blob/cd14373456bfa3090663eb9dbf804f369313a7d7/pages/07.arcane-infusion/10.thaumium-fortress-armor/docs.md"
+    },
+    {
+      "path": "pages/07.arcane-infusion/11.infusion-enchantment/docs.md",
+      "sha256": "a14c3f32c54922d68a74afdaba66a56aa8d0f31b7fe53f540ecd00c2c832441b",
+      "read_by": [
+        "arcane"
+      ],
+      "url": "https://github.com/xiaoschannel/Minecraft-Guides-Thaumcraft6/blob/cd14373456bfa3090663eb9dbf804f369313a7d7/pages/07.arcane-infusion/11.infusion-enchantment/docs.md"
+    },
+    {
+      "path": "pages/07.arcane-infusion/12.runic-shielding/docs.md",
+      "sha256": "2dda5b335f9c8a586f4a6de0e4d806f3709a40f0f5e78c62b54648d8d1561137",
+      "read_by": [
+        "arcane"
+      ],
+      "url": "https://github.com/xiaoschannel/Minecraft-Guides-Thaumcraft6/blob/cd14373456bfa3090663eb9dbf804f369313a7d7/pages/07.arcane-infusion/12.runic-shielding/docs.md"
+    },
+    {
+      "path": "pages/07.arcane-infusion/13.fortress-armor-faceplates/docs.md",
+      "sha256": "a780566ca3b34a98284aec257d77e2e94e3a8119fe93c23fa14519bc4bc940d6",
+      "read_by": [
+        "arcane"
+      ],
+      "url": "https://github.com/xiaoschannel/Minecraft-Guides-Thaumcraft6/blob/cd14373456bfa3090663eb9dbf804f369313a7d7/pages/07.arcane-infusion/13.fortress-armor-faceplates/docs.md"
+    },
+    {
+      "path": "pages/07.arcane-infusion/14.infusion-stabilization/docs.md",
+      "sha256": "f0d3ad92ba3b2789fc99f025f3d2f2f4ddc16782fa53df80204844182e7d92e4",
+      "read_by": [
+        "arcane"
+      ],
+      "url": "https://github.com/xiaoschannel/Minecraft-Guides-Thaumcraft6/blob/cd14373456bfa3090663eb9dbf804f369313a7d7/pages/07.arcane-infusion/14.infusion-stabilization/docs.md"
+    },
+    {
+      "path": "pages/07.arcane-infusion/15.crystal-farming/docs.md",
+      "sha256": "8141bad49fa220ce4d27704dbae014868ded84a5b782e27f71cce79c446ab7ff",
+      "read_by": [
+        "arcane"
+      ],
+      "url": "https://github.com/xiaoschannel/Minecraft-Guides-Thaumcraft6/blob/cd14373456bfa3090663eb9dbf804f369313a7d7/pages/07.arcane-infusion/15.crystal-farming/docs.md"
+    },
+    {
+      "path": "pages/07.arcane-infusion/16.charm-of-undying/docs.md",
+      "sha256": "2f4be4e2cf70c83eb6a7930b4dc1c5e64cb84c54c3e241148d3404f4b0f55424",
+      "read_by": [
+        "arcane"
+      ],
+      "url": "https://github.com/xiaoschannel/Minecraft-Guides-Thaumcraft6/blob/cd14373456bfa3090663eb9dbf804f369313a7d7/pages/07.arcane-infusion/16.charm-of-undying/docs.md"
+    },
+    {
+      "path": "pages/07.arcane-infusion/chapter.md",
+      "sha256": "578bfd271c6366fa29878a7412505a3cea57edf5d377b2bdd3ed04d90480e1f9",
+      "read_by": [
+        "arcane"
+      ],
+      "url": "https://github.com/xiaoschannel/Minecraft-Guides-Thaumcraft6/blob/cd14373456bfa3090663eb9dbf804f369313a7d7/pages/07.arcane-infusion/chapter.md"
+    },
+    {
+      "path": "pages/08.golemancy/01.brain-in-a-jar/docs.md",
+      "sha256": "fb040126a40c13d08defcca8d8f59a092ed90af01b340f84b4c477a2a0e7dbb7",
+      "read_by": [
+        "trees"
+      ],
+      "url": "https://github.com/xiaoschannel/Minecraft-Guides-Thaumcraft6/blob/cd14373456bfa3090663eb9dbf804f369313a7d7/pages/08.golemancy/01.brain-in-a-jar/docs.md"
+    },
+    {
+      "path": "pages/08.golemancy/02.golem-materials/docs.md",
+      "sha256": "cdbf3405fe0b301947988370f642e21289a8c93df5153970a1470a01df4e6bda",
+      "read_by": [
+        "trees"
+      ],
+      "url": "https://github.com/xiaoschannel/Minecraft-Guides-Thaumcraft6/blob/cd14373456bfa3090663eb9dbf804f369313a7d7/pages/08.golemancy/02.golem-materials/docs.md"
+    },
+    {
+      "path": "pages/08.golemancy/03.golem-upgrades/docs.md",
+      "sha256": "6441b526b9a59628f9aeb4b2e0e7c2601f29853b36bb124e7c45f3df6f7730ee",
+      "read_by": [
+        "trees"
+      ],
+      "url": "https://github.com/xiaoschannel/Minecraft-Guides-Thaumcraft6/blob/cd14373456bfa3090663eb9dbf804f369313a7d7/pages/08.golemancy/03.golem-upgrades/docs.md"
+    },
+    {
+      "path": "pages/08.golemancy/04.seals/01.control-seal-collect/docs.md",
+      "sha256": "bccfd5058ba08a8e49695151b349bd4af5092b2e0b722fb9e086e08ef329fce8",
+      "read_by": [
+        "trees"
+      ],
+      "url": "https://github.com/xiaoschannel/Minecraft-Guides-Thaumcraft6/blob/cd14373456bfa3090663eb9dbf804f369313a7d7/pages/08.golemancy/04.seals/01.control-seal-collect/docs.md"
+    },
+    {
+      "path": "pages/08.golemancy/04.seals/02.control-seal-store/docs.md",
+      "sha256": "f17773fb1c631c48ce38e5cdb2c4a8315efed19c192fec13a299700c390f53e2",
+      "read_by": [
+        "trees"
+      ],
+      "url": "https://github.com/xiaoschannel/Minecraft-Guides-Thaumcraft6/blob/cd14373456bfa3090663eb9dbf804f369313a7d7/pages/08.golemancy/04.seals/02.control-seal-store/docs.md"
+    },
+    {
+      "path": "pages/08.golemancy/04.seals/03.control-seal-empty/docs.md",
+      "sha256": "aff8363841005e35cc3804c852e89e86b149b0b9387e4c460614c02a97d4acfa",
+      "read_by": [
+        "trees"
+      ],
+      "url": "https://github.com/xiaoschannel/Minecraft-Guides-Thaumcraft6/blob/cd14373456bfa3090663eb9dbf804f369313a7d7/pages/08.golemancy/04.seals/03.control-seal-empty/docs.md"
+    },
+    {
+      "path": "pages/08.golemancy/04.seals/04.control-seal-provide/docs.md",
+      "sha256": "a220872d46ecb23b5c6efbaf5c4ae24744dbd27a1e4bf2d47bf45005faed7e41",
+      "read_by": [
+        "trees"
+      ],
+      "url": "https://github.com/xiaoschannel/Minecraft-Guides-Thaumcraft6/blob/cd14373456bfa3090663eb9dbf804f369313a7d7/pages/08.golemancy/04.seals/04.control-seal-provide/docs.md"
+    },
+    {
+      "path": "pages/08.golemancy/04.seals/05.control-seal-block-break/docs.md",
+      "sha256": "05c35d07102be0c7f7bfc1621a81c253db4bd23d7157d8c4232be998b1e8778a",
+      "read_by": [
+        "trees"
+      ],
+      "url": "https://github.com/xiaoschannel/Minecraft-Guides-Thaumcraft6/blob/cd14373456bfa3090663eb9dbf804f369313a7d7/pages/08.golemancy/04.seals/05.control-seal-block-break/docs.md"
+    },
+    {
+      "path": "pages/08.golemancy/04.seals/06.control-seal-guard/docs.md",
+      "sha256": "6b2f1916cf413cd1c9b23455d694a59e68baee96b7dd5f385c0c39d7ca3152f1",
+      "read_by": [
+        "trees"
+      ],
+      "url": "https://github.com/xiaoschannel/Minecraft-Guides-Thaumcraft6/blob/cd14373456bfa3090663eb9dbf804f369313a7d7/pages/08.golemancy/04.seals/06.control-seal-guard/docs.md"
+    },
+    {
+      "path": "pages/08.golemancy/04.seals/07.control-seal-butcher/docs.md",
+      "sha256": "53caab29e9c4ba04693e7bd133d68c0eac1752357233bd23b879ac01ea5f15b1",
+      "read_by": [
+        "trees"
+      ],
+      "url": "https://github.com/xiaoschannel/Minecraft-Guides-Thaumcraft6/blob/cd14373456bfa3090663eb9dbf804f369313a7d7/pages/08.golemancy/04.seals/07.control-seal-butcher/docs.md"
+    },
+    {
+      "path": "pages/08.golemancy/04.seals/08.control-seal-harvest/docs.md",
+      "sha256": "019886ca71e4cbf67ecd621caebdb94899eb2ad340530213fce7a3647fecbd7e",
+      "read_by": [
+        "trees"
+      ],
+      "url": "https://github.com/xiaoschannel/Minecraft-Guides-Thaumcraft6/blob/cd14373456bfa3090663eb9dbf804f369313a7d7/pages/08.golemancy/04.seals/08.control-seal-harvest/docs.md"
+    },
+    {
+      "path": "pages/08.golemancy/04.seals/09.control-seal-lumberjack/docs.md",
+      "sha256": "12cdadc8ed8b02fd1b453ca6966af053385058c66072132ac4b06ba4a87d21e0",
+      "read_by": [
+        "trees"
+      ],
+      "url": "https://github.com/xiaoschannel/Minecraft-Guides-Thaumcraft6/blob/cd14373456bfa3090663eb9dbf804f369313a7d7/pages/08.golemancy/04.seals/09.control-seal-lumberjack/docs.md"
+    },
+    {
+      "path": "pages/08.golemancy/04.seals/10.control-seal-use/docs.md",
+      "sha256": "80ddb6e722e54de9a5899a84053f5e79d954ac429f12b7d4bf39331759bf3a9e",
+      "read_by": [
+        "trees"
+      ],
+      "url": "https://github.com/xiaoschannel/Minecraft-Guides-Thaumcraft6/blob/cd14373456bfa3090663eb9dbf804f369313a7d7/pages/08.golemancy/04.seals/10.control-seal-use/docs.md"
+    },
+    {
+      "path": "pages/08.golemancy/04.seals/11.control-seal-stock/docs.md",
+      "sha256": "3375ff269f4f22edab1cde53092593867cc4199a701f6526fa1d69fe1e649785",
+      "read_by": [
+        "trees"
+      ],
+      "url": "https://github.com/xiaoschannel/Minecraft-Guides-Thaumcraft6/blob/cd14373456bfa3090663eb9dbf804f369313a7d7/pages/08.golemancy/04.seals/11.control-seal-stock/docs.md"
+    },
+    {
+      "path": "pages/08.golemancy/04.seals/docs.md",
+      "sha256": "8b4fc4579a0e5eca91a8fd3ee190197ced24eeb13c32ed23ec87749be515cccb",
+      "read_by": [
+        "trees"
+      ],
+      "url": "https://github.com/xiaoschannel/Minecraft-Guides-Thaumcraft6/blob/cd14373456bfa3090663eb9dbf804f369313a7d7/pages/08.golemancy/04.seals/docs.md"
+    },
+    {
+      "path": "pages/08.golemancy/05.advanced-seals/docs.md",
+      "sha256": "2f72f0072e13a7c0fff35e15ff013cabe2bd0db3a3cd3a1e6b1f813c2eb915dd",
+      "read_by": [
+        "trees"
+      ],
+      "url": "https://github.com/xiaoschannel/Minecraft-Guides-Thaumcraft6/blob/cd14373456bfa3090663eb9dbf804f369313a7d7/pages/08.golemancy/05.advanced-seals/docs.md"
+    },
+    {
+      "path": "pages/08.golemancy/docs.md",
+      "sha256": "14179b3281cc4a1b5f117a32fd3b095a41d3766c42d58870cf3383bed0952803",
+      "read_by": [
+        "trees"
+      ],
+      "url": "https://github.com/xiaoschannel/Minecraft-Guides-Thaumcraft6/blob/cd14373456bfa3090663eb9dbf804f369313a7d7/pages/08.golemancy/docs.md"
+    },
+    {
+      "path": "pages/09.artifice/01.arcane-lamp/docs.md",
+      "sha256": "0bb455fd3e2d7eb6af3c0a63cb18a9d2d574a5333b5aeaf57f258867ca95797a",
+      "read_by": [
+        "arcane"
+      ],
+      "url": "https://github.com/xiaoschannel/Minecraft-Guides-Thaumcraft6/blob/cd14373456bfa3090663eb9dbf804f369313a7d7/pages/09.artifice/01.arcane-lamp/docs.md"
+    },
+    {
+      "path": "pages/09.artifice/02.lamp-of-growth/docs.md",
+      "sha256": "c5ccdbe622be69df6373df62ca9a5db74ec4a4dc9aec01030c2e5c9c225b2179",
+      "read_by": [
+        "arcane"
+      ],
+      "url": "https://github.com/xiaoschannel/Minecraft-Guides-Thaumcraft6/blob/cd14373456bfa3090663eb9dbf804f369313a7d7/pages/09.artifice/02.lamp-of-growth/docs.md"
+    },
+    {
+      "path": "pages/09.artifice/03.lamp-of-fertility/docs.md",
+      "sha256": "86825b6a8d6d8232538ca0791fba5ada19ffe678b85dcb0c19d87e68c580dbda",
+      "read_by": [
+        "arcane"
+      ],
+      "url": "https://github.com/xiaoschannel/Minecraft-Guides-Thaumcraft6/blob/cd14373456bfa3090663eb9dbf804f369313a7d7/pages/09.artifice/03.lamp-of-fertility/docs.md"
+    },
+    {
+      "path": "pages/09.artifice/04.magic-mirror/docs.md",
+      "sha256": "eace37e61a2a0ad9b15e2910a1abed60644a9090b7ee61532701257bdd711e0e",
+      "read_by": [
+        "arcane"
+      ],
+      "url": "https://github.com/xiaoschannel/Minecraft-Guides-Thaumcraft6/blob/cd14373456bfa3090663eb9dbf804f369313a7d7/pages/09.artifice/04.magic-mirror/docs.md"
+    },
+    {
+      "path": "pages/09.artifice/05.magic-hand-mirror/docs.md",
+      "sha256": "3ff2f9dee9b5d6066a8eb3fe33d9494fd148586ab718d8e74c57a7419ab7dc51",
+      "read_by": [
+        "arcane"
+      ],
+      "url": "https://github.com/xiaoschannel/Minecraft-Guides-Thaumcraft6/blob/cd14373456bfa3090663eb9dbf804f369313a7d7/pages/09.artifice/05.magic-hand-mirror/docs.md"
+    },
+    {
+      "path": "pages/09.artifice/06.essentia-mirrors/docs.md",
+      "sha256": "8be9549062c678181a0129b31226bda6fbf22ed12a62b268e08726d430aed4b9",
+      "read_by": [
+        "arcane"
+      ],
+      "url": "https://github.com/xiaoschannel/Minecraft-Guides-Thaumcraft6/blob/cd14373456bfa3090663eb9dbf804f369313a7d7/pages/09.artifice/06.essentia-mirrors/docs.md"
+    },
+    {
+      "path": "pages/09.artifice/07.hungry-chest/docs.md",
+      "sha256": "ebd6efbe3619844f7b0eb9d729175834cd0b0fdc567ec517364f6f1516b34445",
+      "read_by": [
+        "arcane"
+      ],
+      "url": "https://github.com/xiaoschannel/Minecraft-Guides-Thaumcraft6/blob/cd14373456bfa3090663eb9dbf804f369313a7d7/pages/09.artifice/07.hungry-chest/docs.md"
+    },
+    {
+      "path": "pages/09.artifice/08.arcane-levitator/docs.md",
+      "sha256": "22ee03c27898bb5ff0dd28d37c3826109fc2e887d7b19185e2b5089fd8d5b5e5",
+      "read_by": [
+        "arcane"
+      ],
+      "url": "https://github.com/xiaoschannel/Minecraft-Guides-Thaumcraft6/blob/cd14373456bfa3090663eb9dbf804f369313a7d7/pages/09.artifice/08.arcane-levitator/docs.md"
+    },
+    {
+      "path": "pages/09.artifice/09.infernal-furnace/docs.md",
+      "sha256": "c34ae6fa509c74a91a36bf2af581aa08cad425cc1069363c1385b31c85e8721a",
+      "read_by": [
+        "arcane"
+      ],
+      "url": "https://github.com/xiaoschannel/Minecraft-Guides-Thaumcraft6/blob/cd14373456bfa3090663eb9dbf804f369313a7d7/pages/09.artifice/09.infernal-furnace/docs.md"
+    },
+    {
+      "path": "pages/09.artifice/10.arcane-bellows/docs.md",
+      "sha256": "54569f6fcef6d5d894aa0c7339c022663a5384a10cd144d1d698feef5baa1159",
+      "read_by": [
+        "arcane"
+      ],
+      "url": "https://github.com/xiaoschannel/Minecraft-Guides-Thaumcraft6/blob/cd14373456bfa3090663eb9dbf804f369313a7d7/pages/09.artifice/10.arcane-bellows/docs.md"
+    },
+    {
+      "path": "pages/09.artifice/11.thaumic-dioptra/docs.md",
+      "sha256": "32f43a0737c60330d744060e23ea7aaf8d238e047f4c90dcfcd56f519593608e",
+      "read_by": [
+        "arcane"
+      ],
+      "url": "https://github.com/xiaoschannel/Minecraft-Guides-Thaumcraft6/blob/cd14373456bfa3090663eb9dbf804f369313a7d7/pages/09.artifice/11.thaumic-dioptra/docs.md"
+    },
+    {
+      "path": "pages/09.artifice/12.arcane-pattern-crafter/docs.md",
+      "sha256": "f86c99b732fa5e23b6fcf161d353a8f602b27c5a52cc8bcfe50af3d91d05751c",
+      "read_by": [
+        "arcane"
+      ],
+      "url": "https://github.com/xiaoschannel/Minecraft-Guides-Thaumcraft6/blob/cd14373456bfa3090663eb9dbf804f369313a7d7/pages/09.artifice/12.arcane-pattern-crafter/docs.md"
+    },
+    {
+      "path": "pages/09.artifice/13.arcane-grappler/docs.md",
+      "sha256": "2127c88f8f0df7f3c37ae5fef033dcd5db5350f3ea55f049589b3e679b659ddb",
+      "read_by": [
+        "arcane"
+      ],
+      "url": "https://github.com/xiaoschannel/Minecraft-Guides-Thaumcraft6/blob/cd14373456bfa3090663eb9dbf804f369313a7d7/pages/09.artifice/13.arcane-grappler/docs.md"
+    },
+    {
+      "path": "pages/09.artifice/14.vis-generator/docs.md",
+      "sha256": "5c303e56b89bf4fa7761dab10ae5aef64f53e110b2cb46c4dc2b79da3b0a1631",
+      "read_by": [
+        "arcane"
+      ],
+      "url": "https://github.com/xiaoschannel/Minecraft-Guides-Thaumcraft6/blob/cd14373456bfa3090663eb9dbf804f369313a7d7/pages/09.artifice/14.vis-generator/docs.md"
+    },
+    {
+      "path": "pages/09.artifice/15.arcane-ear/docs.md",
+      "sha256": "5b62b40e2e193941c4623ba6ce7edc2af6d14b5e409fd0c0748620f5777924cb",
+      "read_by": [
+        "arcane"
+      ],
+      "url": "https://github.com/xiaoschannel/Minecraft-Guides-Thaumcraft6/blob/cd14373456bfa3090663eb9dbf804f369313a7d7/pages/09.artifice/15.arcane-ear/docs.md"
+    },
+    {
+      "path": "pages/09.artifice/16.automated-crossbow/docs.md",
+      "sha256": "99f4a47166cc56be43302a219e3166a5e96ad5637085e2681789a0b3f5570a4b",
+      "read_by": [
+        "arcane"
+      ],
+      "url": "https://github.com/xiaoschannel/Minecraft-Guides-Thaumcraft6/blob/cd14373456bfa3090663eb9dbf804f369313a7d7/pages/09.artifice/16.automated-crossbow/docs.md"
+    },
+    {
+      "path": "pages/09.artifice/17.advanced-automated-crossbow/docs.md",
+      "sha256": "54efd36108a9250ac87872755c8bf3a01a0ec2da3d389eda8d2831fce8298061",
+      "read_by": [
+        "arcane"
+      ],
+      "url": "https://github.com/xiaoschannel/Minecraft-Guides-Thaumcraft6/blob/cd14373456bfa3090663eb9dbf804f369313a7d7/pages/09.artifice/17.advanced-automated-crossbow/docs.md"
+    },
+    {
+      "path": "pages/09.artifice/18.arcane-bore/docs.md",
+      "sha256": "9f877fb21add9a347f99a6a760094871b3c2f6ba445abc3a07900ddb1bfc909a",
+      "read_by": [
+        "arcane"
+      ],
+      "url": "https://github.com/xiaoschannel/Minecraft-Guides-Thaumcraft6/blob/cd14373456bfa3090663eb9dbf804f369313a7d7/pages/09.artifice/18.arcane-bore/docs.md"
+    },
+    {
+      "path": "pages/09.artifice/chapter.md",
+      "sha256": "9523185107cbff36c3876c8d32f2bb193f1467f3b7243c33fcec0e9da415a04e",
+      "read_by": [
+        "arcane"
+      ],
+      "url": "https://github.com/xiaoschannel/Minecraft-Guides-Thaumcraft6/blob/cd14373456bfa3090663eb9dbf804f369313a7d7/pages/09.artifice/chapter.md"
+    },
+    {
+      "path": "pages/10.eldritch/chapter.md",
+      "sha256": "5054c1088a30ff51cd297ae95b0893932adf520b032131b9c27de6e34a180bc5",
+      "read_by": [
+        "trees"
+      ],
+      "url": "https://github.com/xiaoschannel/Minecraft-Guides-Thaumcraft6/blob/cd14373456bfa3090663eb9dbf804f369313a7d7/pages/10.eldritch/chapter.md"
+    },
+    {
+      "path": "pages/10.eldritch/delving-into-the-eldritch/docs.md",
+      "sha256": "7e21919fe71c4da59aa412e0b728536a2c838e2caf1ae2ffec51e380e771cdb0",
+      "read_by": [
+        "trees"
+      ],
+      "url": "https://github.com/xiaoschannel/Minecraft-Guides-Thaumcraft6/blob/cd14373456bfa3090663eb9dbf804f369313a7d7/pages/10.eldritch/delving-into-the-eldritch/docs.md"
+    },
+    {
+      "path": "pages/10.eldritch/primal-crusher/docs.md",
+      "sha256": "4423194ebe8b9fe929e069fc99894c44988b04b0588d697d6f0f6df4f06f2c91",
+      "read_by": [
+        "trees"
+      ],
+      "url": "https://github.com/xiaoschannel/Minecraft-Guides-Thaumcraft6/blob/cd14373456bfa3090663eb9dbf804f369313a7d7/pages/10.eldritch/primal-crusher/docs.md"
+    },
+    {
+      "path": "pages/10.eldritch/the-crimson-cult/docs.md",
+      "sha256": "b8b84d70f5fa0a07a8e7fec08513271a0f8abfd859fd8769e83af8dee96c050d",
+      "read_by": [
+        "trees"
+      ],
+      "url": "https://github.com/xiaoschannel/Minecraft-Guides-Thaumcraft6/blob/cd14373456bfa3090663eb9dbf804f369313a7d7/pages/10.eldritch/the-crimson-cult/docs.md"
+    },
+    {
+      "path": "pages/10.eldritch/the-crimson-rites/docs.md",
+      "sha256": "4f87dbf4ae1e39686adf433d150427af8f6aa1bb1c094106d9c64586d9beacab",
+      "read_by": [
+        "trees"
+      ],
+      "url": "https://github.com/xiaoschannel/Minecraft-Guides-Thaumcraft6/blob/cd14373456bfa3090663eb9dbf804f369313a7d7/pages/10.eldritch/the-crimson-rites/docs.md"
+    },
+    {
+      "path": "pages/10.eldritch/unlocking-eldritch/docs.md",
+      "sha256": "75209334da6402ba97cb2d642472079508478c87b5da8aa9902ec795d6bddb57",
+      "read_by": [
+        "trees"
+      ],
+      "url": "https://github.com/xiaoschannel/Minecraft-Guides-Thaumcraft6/blob/cd14373456bfa3090663eb9dbf804f369313a7d7/pages/10.eldritch/unlocking-eldritch/docs.md"
+    },
+    {
+      "path": "pages/10.eldritch/void-seeds/docs.md",
+      "sha256": "7084249d691a3a9cc2f6e9da7b7bfd204c6cfabd1f95e6b9ee22c976c8b512c7",
+      "read_by": [
+        "trees"
+      ],
+      "url": "https://github.com/xiaoschannel/Minecraft-Guides-Thaumcraft6/blob/cd14373456bfa3090663eb9dbf804f369313a7d7/pages/10.eldritch/void-seeds/docs.md"
+    },
+    {
+      "path": "pages/10.eldritch/void-siphon/docs.md",
+      "sha256": "d789832db54239e1912b613f63a6307ad61405764c82f11704e108bae397dde0",
+      "read_by": [
+        "trees"
+      ],
+      "url": "https://github.com/xiaoschannel/Minecraft-Guides-Thaumcraft6/blob/cd14373456bfa3090663eb9dbf804f369313a7d7/pages/10.eldritch/void-siphon/docs.md"
+    },
+    {
+      "path": "pages/10.eldritch/void-thaumaturge-armor/docs.md",
+      "sha256": "56f797666043c47c2b51c1dfae2f8c41d0c9253c2419043e08451f5872c54daa",
+      "read_by": [
+        "trees"
+      ],
+      "url": "https://github.com/xiaoschannel/Minecraft-Guides-Thaumcraft6/blob/cd14373456bfa3090663eb9dbf804f369313a7d7/pages/10.eldritch/void-thaumaturge-armor/docs.md"
+    },
+    {
+      "path": "pages/10.eldritch/voidseer's-pearl/docs.md",
+      "sha256": "1a6ba949caae1269cb71b3e91f9435c68378ee9a153c54cbd26abdcc1d5de172",
+      "read_by": [
+        "trees"
+      ],
+      "url": "https://github.com/xiaoschannel/Minecraft-Guides-Thaumcraft6/blob/cd14373456bfa3090663eb9dbf804f369313a7d7/pages/10.eldritch/voidseer%27s-pearl/docs.md"
+    },
+    {
+      "path": "pages/11.pdf-download/chapter.md",
+      "sha256": "064394844369452c2147c315cd3207e5aba505f8c603854ce3eda3effa59b3bc",
+      "read_by": [
+        "root"
+      ],
+      "url": "https://github.com/xiaoschannel/Minecraft-Guides-Thaumcraft6/blob/cd14373456bfa3090663eb9dbf804f369313a7d7/pages/11.pdf-download/chapter.md"
+    },
+    {
+      "path": "pages/12.credits/docs.md",
+      "sha256": "577bf87005e358501a76dfa2d86f8096c745ba31f7a239f6826aae7702ff5ee7",
+      "read_by": [
+        "root"
+      ],
+      "url": "https://github.com/xiaoschannel/Minecraft-Guides-Thaumcraft6/blob/cd14373456bfa3090663eb9dbf804f369313a7d7/pages/12.credits/docs.md"
+    },
+    {
+      "path": "pages/13.change-log/docs.md",
+      "sha256": "907df933ae5189d789da156fcf46a211f0cefbb3fa177f7af29e32e4a6aa9bca",
+      "read_by": [
+        "root"
+      ],
+      "url": "https://github.com/xiaoschannel/Minecraft-Guides-Thaumcraft6/blob/cd14373456bfa3090663eb9dbf804f369313a7d7/pages/13.change-log/docs.md"
+    },
+    {
+      "path": "pages/feed/docs.md",
+      "sha256": "474b6a685015d8b8d88e887d406f8211169611507ffe98e22ec10e4c9fbcda9a",
+      "read_by": [
+        "root"
+      ],
+      "url": "https://github.com/xiaoschannel/Minecraft-Guides-Thaumcraft6/blob/cd14373456bfa3090663eb9dbf804f369313a7d7/pages/feed/docs.md"
+    }
+  ]
+}

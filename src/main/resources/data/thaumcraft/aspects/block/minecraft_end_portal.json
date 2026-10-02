@@ -1,0 +1,12 @@
+{
+  "type": "block",
+  "targets": [
+    "minecraft:end_portal"
+  ],
+  "aspects": {
+    "alienis": 10,
+    "motus": 20,
+    "praecantatio": 10
+  },
+  "_source": "Thaumcraft 6 ConfigAspects.java:365"
+}

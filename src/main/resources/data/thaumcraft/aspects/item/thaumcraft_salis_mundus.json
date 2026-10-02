@@ -1,0 +1,11 @@
+{
+  "type": "item",
+  "targets": [
+    "thaumcraft:salis_mundus"
+  ],
+  "aspects": {
+    "praecantatio": 5,
+    "potentia": 5
+  },
+  "_source": "Thaumcraft 6 ConfigAspects.java:527"
+}

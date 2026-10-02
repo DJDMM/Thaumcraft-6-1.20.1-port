@@ -1,0 +1,30 @@
+{
+  "variants": {
+    "facing=up": {
+      "model": "thaumcraft:catalog/brain_box/0",
+      "x": 180
+    },
+    "facing=down": {
+      "model": "thaumcraft:catalog/brain_box/1"
+    },
+    "facing=west": {
+      "model": "thaumcraft:catalog/brain_box/2",
+      "x": 90,
+      "y": 90
+    },
+    "facing=east": {
+      "model": "thaumcraft:catalog/brain_box/3",
+      "x": 90,
+      "y": 270
+    },
+    "facing=south": {
+      "model": "thaumcraft:catalog/brain_box/4",
+      "x": 90
+    },
+    "facing=north": {
+      "model": "thaumcraft:catalog/brain_box/5",
+      "x": 90,
+      "y": 180
+    }
+  }
+}

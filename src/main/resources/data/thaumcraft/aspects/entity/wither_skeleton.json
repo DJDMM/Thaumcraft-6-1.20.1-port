@@ -1,0 +1,12 @@
+{
+  "type": "entity",
+  "targets": [
+    "minecraft:wither_skeleton"
+  ],
+  "aspects": {
+    "exanimis": 25,
+    "humanus": 5,
+    "perditio": 10
+  },
+  "_source": "Thaumcraft 6 ConfigAspects.java:49"
+}

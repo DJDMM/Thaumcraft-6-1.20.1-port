@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "enabled=false": {
+      "model": "thaumcraft:catalog/condenser/0"
+    },
+    "enabled=true": {
+      "model": "thaumcraft:catalog/condenser/1"
+    }
+  }
+}

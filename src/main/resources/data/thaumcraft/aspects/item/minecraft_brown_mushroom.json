@@ -1,0 +1,12 @@
+{
+  "type": "item",
+  "targets": [
+    "minecraft:brown_mushroom"
+  ],
+  "aspects": {
+    "herba": 5,
+    "tenebrae": 2,
+    "terra": 2
+  },
+  "_source": "Thaumcraft 6 ConfigAspects.java:247"
+}

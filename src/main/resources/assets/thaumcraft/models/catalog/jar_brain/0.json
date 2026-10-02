@@ -1,0 +1,4 @@
+{
+  "parent": "thaumcraft:block/jar_normal",
+  "render_type": "minecraft:translucent"
+}

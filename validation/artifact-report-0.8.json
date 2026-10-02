@@ -1,0 +1,164 @@
+{
+  "version": "0.8.0-dev",
+  "originalVersion": "Thaumcraft 6.1.BETA26",
+  "originalSourceCommit": "954022bb777b7546281fb36df8522f0ba6b43f81",
+  "originalJarSha256": "9425f8643581b27ff8845b087c8bc6fc10425a32942f1a3f0e265ce6b38f7b5f",
+  "requiredGameTests": 120,
+  "catalogueGameTests": 8,
+  "originalItems": 108,
+  "itemForms": 185,
+  "originalBlocks": 200,
+  "originalBlockItems": 191,
+  "originalEntityTypes": 43,
+  "livingEntityTypes": 29,
+  "javaEntityModelConstructors": 10,
+  "javaArmorModelConstructors": 4,
+  "jsonFiles": 2621,
+  "jarResourceByteParity": 3305,
+  "originalTextureByteParity": 590,
+  "clientModelAudit": "3264 rendered block states, 334 dynamic item samples; 710 item checks, 89570 baked quads, 38 custom item renderers, 1339 custom block states",
+  "clientScreenshots": 28,
+  "screenshots": [
+    {
+      "file": "screenshots-0.8/tc6-catalog-items-1.png",
+      "sha256": "9c3d4eca46d93c05188f68c91b5c8278d0781676eed3cec98e6190d5d5eb2748"
+    },
+    {
+      "file": "screenshots-0.8/tc6-catalog-items-2.png",
+      "sha256": "8c7d83fca05b1637f167fe01b6ea7dc3c7f7a8424b39bd9c413a527b55f19d25"
+    },
+    {
+      "file": "screenshots-0.8/tc6-catalog-items-3.png",
+      "sha256": "6f324e8d7feed2004d98a71a5729e38c2ef253a48cd37197d951cfae2f68894e"
+    },
+    {
+      "file": "screenshots-0.8/tc6-catalog-items-4.png",
+      "sha256": "2aa6b23b3dcfb2956944935f3e00dd93346b63e6010675bdc96ee07eedc24945"
+    },
+    {
+      "file": "screenshots-0.8/tc6-catalog-nbt-variants-1.png",
+      "sha256": "afe54a890e64fd6ec9d26b20f3812f8dd619d5920d3b67998c8da747a41aea74"
+    },
+    {
+      "file": "screenshots-0.8/tc6-catalog-nbt-variants-2.png",
+      "sha256": "f6081ad05a766564e6a8312241fec075b66b12c1cfac834370581ca224126436"
+    },
+    {
+      "file": "screenshots-0.8/tc6-catalog-nbt-variants-3.png",
+      "sha256": "9f580acd9173edc4c5792c761c7542fb07abb53db822ebb8a8456475768b6d20"
+    },
+    {
+      "file": "screenshots-0.8/tc6-catalog-nbt-variants-4.png",
+      "sha256": "82ff7e3bbff783dcaf9f1c3fed7b0ecf7a7ae55107af342a615e2458bc65bcbc"
+    },
+    {
+      "file": "screenshots-0.8/tc6-catalog-nbt-variants-5.png",
+      "sha256": "0ffa5e3c02b765b72ac30acf328951bad5ae24c1e9f0104c1c29bc7d96477383"
+    },
+    {
+      "file": "screenshots-0.8/tc6-catalog-nbt-variants-6.png",
+      "sha256": "d42a6ce67d407d4785c37760d6b59133ca4b42a1119d7b8faca58cfcf33c9b3a"
+    },
+    {
+      "file": "screenshots-0.8/tc6-catalog-nbt-variants-7.png",
+      "sha256": "467fcdeb8db56b7a4df36a385af8a257869d06445fe02973ad7bb3b3feb9e283"
+    },
+    {
+      "file": "screenshots-0.8/tc6-catalog-blocks-1.png",
+      "sha256": "1661c1089417e9d729ef093f43bb04425fdfae4b34ae392d1e45bcac13ae7779"
+    },
+    {
+      "file": "screenshots-0.8/tc6-catalog-blocks-2.png",
+      "sha256": "6ea32a87a06eb9ccc062fc3075e179b134ff80f25a8550f2a2e5bb20de67bc66"
+    },
+    {
+      "file": "screenshots-0.8/tc6-catalog-blocks-3.png",
+      "sha256": "1ad2ebc3c244ca6e50f3ee65f011414fc182a5dd63fe3b88fad15b2a6a7256ff"
+    },
+    {
+      "file": "screenshots-0.8/tc6-catalog-blocks-4.png",
+      "sha256": "d270a55801cdedba29f6f30bbe6745a9b69d03cc468169aa894e2b15712b24fd"
+    },
+    {
+      "file": "screenshots-0.8/tc6-catalog-block-poses-1.png",
+      "sha256": "74620d208087ce33e0f8371bd98e4074911e74732e90bed93c7b79b457ddb224"
+    },
+    {
+      "file": "screenshots-0.8/tc6-catalog-block-poses-2.png",
+      "sha256": "2e5a2abbde604e31ac6a46ef403e08bc6e80219367bd53c4287d7213d5a76795"
+    },
+    {
+      "file": "screenshots-0.8/tc6-catalog-block-poses-3.png",
+      "sha256": "a647eca525e8752b607d08b310f5d1c89a665c9016a91090ff5513e496ab20a1"
+    },
+    {
+      "file": "screenshots-0.8/tc6-catalog-block-poses-4.png",
+      "sha256": "3fd74c2c538713b95165bab9dae25c1f59a009c81afcfc68a1faceace181944e"
+    },
+    {
+      "file": "screenshots-0.8/tc6-catalog-block-poses-5.png",
+      "sha256": "e240fcf05ccec84fececa0f7adc82d1934d4ae73f2aebb05eca39d8210c431d9"
+    },
+    {
+      "file": "screenshots-0.8/tc6-catalog-entities-1.png",
+      "sha256": "9b0e826b8de44473ae7a6931b4da3510012f26eec6380f348604ed222c7cb11f"
+    },
+    {
+      "file": "screenshots-0.8/tc6-catalog-entities-2.png",
+      "sha256": "7747da4d0a52478826fe8c2978ef6568eeded0f78289e324da15e042273ea36d"
+    },
+    {
+      "file": "screenshots-0.8/tc6-catalog-entities-3.png",
+      "sha256": "430e5dee4257eac9a12fe5b35b10ee6a6abbb80b4863dc2f84b55d75a59113aa"
+    },
+    {
+      "file": "screenshots-0.8/tc6-catalog-effects-1.png",
+      "sha256": "e20fdf3f34e7614a2cb5d7e4c6298b958ab3fc0e565cd5340fb07f1560c85a9b"
+    },
+    {
+      "file": "screenshots-0.8/tc6-catalog-effects-2.png",
+      "sha256": "3227a697d5bf17ce4c75c4e50da8d533777dd81cb12894d1f5e80b89b23a1bd8"
+    },
+    {
+      "file": "screenshots-0.8/tc6-catalog-entity-variants-1.png",
+      "sha256": "954e184db2224efa478129e2d721d16b8639486583d90da3e2ab71515600f6f7"
+    },
+    {
+      "file": "screenshots-0.8/tc6-catalog-armor-1.png",
+      "sha256": "723fb5819696e455c1227e1d5602fdd384d0450ed2767a975c74146b5c7dcd83"
+    },
+    {
+      "file": "screenshots-0.8/tc6-catalog-armor-variants-1.png",
+      "sha256": "ca4ebb79e520189a65cdbd30d0ef8021bcb994e352d4e2ff71d93032ba0ab3d4"
+    }
+  ],
+  "jar": {
+    "name": "thaumcraft-1.20.1-0.8.0-dev.jar",
+    "bytes": 6916849,
+    "sha256": "b606017ce0283cf300422f9917654fd77e8db77c25f34910c451d875d3aacdfc"
+  },
+  "dependency": {
+    "name": "TerraBlender-forge-1.20.1-3.0.1.10.jar",
+    "sha256": "ca678c11b878ad9c7143636fbec911f29e2c1453a6cc091e16b14e6d9608fb5f"
+  },
+  "validation": [
+    "All previous 112 server GameTests retained and passed",
+    "Original registries, actual block placement, visual BlockEntity lifecycle, entity construction and NBT persistence",
+    "Wearable armor, original pearl damage bands, all 43 neutral constructor dimensions and big-endian golem material tint",
+    "Actual banner floor/wall and six-way valve placement; block-state NBT retains pose",
+    "Baked quads checked for missing atlas sprites for all static states and dynamic item samples",
+    "Dedicated builtin item renderers and custom block renderer registrations checked",
+    "All nonliving entity registrations and worn armor variants captured",
+    "Static placed models and actual neutral BER paths captured for device and orientation previews",
+    "Final catalogue screenshots reviewed after capture; initial screenshots are historical only"
+  ],
+  "limitations": [
+    "Catalogue additions have no original recipes, AI, natural mob spawn, trading, combat or device operations",
+    "New wearable armor uses temporary leather stats; prior thaumium implementation is preserved",
+    "Fluid blocks are visual catalogue entries without original flow or interactions",
+    "Rift material uses a modern end-portal shader; camera/goggles legacy GLSL uniforms are not ported",
+    "Spell particle emission, owner-dependent grapple lines and device operational animations await mechanics",
+    "Original item metadata is split into modern IDs; old 1.12.2 worlds are not converted",
+    "No complete survival playthrough or two-client multiplayer validation"
+  ]
+}

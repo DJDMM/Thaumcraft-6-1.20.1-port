@@ -1,0 +1,6 @@
+{
+  "type": "item",
+  "targets": ["thaumcraft:sapling_greatwood"],
+  "aspects": {"herba": 15, "victus": 5},
+  "_source": "Thaumcraft 6 ConfigAspects.java:503"
+}

@@ -1,0 +1,10 @@
+{
+  "type": "item_tag",
+  "targets": [
+    "minecraft:leaves"
+  ],
+  "aspects": {
+    "herba": 5
+  },
+  "_source": "Thaumcraft 6 ConfigAspects.java:228"
+}

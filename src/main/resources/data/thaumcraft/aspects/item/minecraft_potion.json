@@ -1,0 +1,11 @@
+{
+  "type": "item",
+  "targets": [
+    "minecraft:potion"
+  ],
+  "aspects": {
+    "aqua": 5,
+    "vitreus": 5
+  },
+  "_source": "Thaumcraft 6 ConfigAspects.java:283"
+}

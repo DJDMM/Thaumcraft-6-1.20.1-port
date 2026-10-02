@@ -1,0 +1,12 @@
+{
+  "type": "item_tag",
+  "targets": [
+    "forge:ores/uranium"
+  ],
+  "aspects": {
+    "metallum": 10,
+    "mortuus": 5,
+    "potentia": 10
+  },
+  "_source": "Thaumcraft 6 ConfigAspects.java:171"
+}

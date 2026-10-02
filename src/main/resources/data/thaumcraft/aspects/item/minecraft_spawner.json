@@ -1,0 +1,13 @@
+{
+  "type": "item",
+  "targets": [
+    "minecraft:spawner"
+  ],
+  "aspects": {
+    "bestia": 20,
+    "motus": 20,
+    "exanimis": 20,
+    "praecantatio": 20
+  },
+  "_source": "Thaumcraft 6 ConfigAspects.java:367"
+}

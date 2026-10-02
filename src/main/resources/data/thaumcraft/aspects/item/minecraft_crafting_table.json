@@ -1,0 +1,11 @@
+{
+  "type": "item",
+  "targets": [
+    "minecraft:crafting_table"
+  ],
+  "aspects": {
+    "fabrico": 20
+  },
+  "_source": "Thaumcraft 6 ConfigAspects.java:435",
+  "derive": true
+}

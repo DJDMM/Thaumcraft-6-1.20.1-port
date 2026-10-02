@@ -1,0 +1,17 @@
+{
+  "multipart": [
+    {
+      "apply": {
+        "model": "thaumcraft:block/crucible"
+      }
+    },
+    {
+      "when": {
+        "filled": "true"
+      },
+      "apply": {
+        "model": "thaumcraft:block/crucible_water"
+      }
+    }
+  ]
+}

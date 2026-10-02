@@ -1,0 +1,21 @@
+{
+  "variants": {
+    "": [
+      {
+        "model": "thaumcraft:catalog/candle_pink/0"
+      },
+      {
+        "model": "thaumcraft:catalog/candle_pink/1",
+        "y": 90
+      },
+      {
+        "model": "thaumcraft:catalog/candle_pink/2",
+        "y": 180
+      },
+      {
+        "model": "thaumcraft:catalog/candle_pink/3",
+        "y": 270
+      }
+    ]
+  }
+}

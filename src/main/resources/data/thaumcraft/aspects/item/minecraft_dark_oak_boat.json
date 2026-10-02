@@ -1,0 +1,12 @@
+{
+  "type": "item",
+  "targets": [
+    "minecraft:dark_oak_boat"
+  ],
+  "aspects": {
+    "aqua": 10,
+    "motus": 15
+  },
+  "_source": "Thaumcraft 6 ConfigAspects.java:392",
+  "derive": true
+}

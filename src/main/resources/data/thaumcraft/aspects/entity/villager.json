@@ -1,0 +1,10 @@
+{
+  "type": "entity",
+  "targets": [
+    "minecraft:villager"
+  ],
+  "aspects": {
+    "humanus": 15
+  },
+  "_source": "Thaumcraft 6 ConfigAspects.java:80"
+}

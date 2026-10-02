@@ -1,0 +1,12 @@
+{
+  "type": "item",
+  "targets": [
+    "minecraft:prismarine_crystals"
+  ],
+  "aspects": {
+    "aqua": 5,
+    "vitreus": 5,
+    "lux": 5
+  },
+  "_source": "Thaumcraft 6 ConfigAspects.java:369"
+}

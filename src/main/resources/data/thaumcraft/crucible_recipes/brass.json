@@ -1,0 +1,13 @@
+{
+  "research": "METALLURGY@1",
+  "catalyst": {
+    "item": "minecraft:iron_ingot"
+  },
+  "result": {
+    "item": "thaumcraft:ingot_brass",
+    "count": 1
+  },
+  "aspects": {
+    "instrumentum": 5
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "type": "item",
+  "targets": [
+    "minecraft:farmland"
+  ],
+  "aspects": {
+    "terra": 5,
+    "aqua": 2,
+    "ordo": 2
+  },
+  "_source": "Thaumcraft 6 ConfigAspects.java:187"
+}

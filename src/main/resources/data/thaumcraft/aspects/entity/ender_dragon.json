@@ -1,0 +1,13 @@
+{
+  "type": "entity",
+  "targets": [
+    "minecraft:ender_dragon"
+  ],
+  "aspects": {
+    "alienis": 50,
+    "bestia": 30,
+    "perditio": 50,
+    "volatus": 10
+  },
+  "_source": "Thaumcraft 6 ConfigAspects.java:77"
+}

@@ -1,0 +1,10 @@
+{
+  "type": "item",
+  "targets": [
+    "minecraft:experience_bottle"
+  ],
+  "aspects": {
+    "cognitio": 20
+  },
+  "_source": "Thaumcraft 6 ConfigAspects.java:268"
+}

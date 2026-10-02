@@ -1,0 +1,22 @@
+{
+  "variants": {
+    "": [
+      {
+        "model": "thaumcraft:catalog/stone_eldritch_tile/0"
+      },
+      {
+        "model": "thaumcraft:catalog/stone_eldritch_tile/1",
+        "x": 90
+      },
+      {
+        "model": "thaumcraft:catalog/stone_eldritch_tile/2",
+        "y": 90
+      },
+      {
+        "model": "thaumcraft:catalog/stone_eldritch_tile/3",
+        "x": 90,
+        "y": 90
+      }
+    ]
+  }
+}

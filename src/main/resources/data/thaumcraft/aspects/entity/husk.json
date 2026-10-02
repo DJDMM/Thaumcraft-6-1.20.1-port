@@ -1,0 +1,12 @@
+{
+  "type": "entity",
+  "targets": [
+    "minecraft:husk"
+  ],
+  "aspects": {
+    "exanimis": 20,
+    "humanus": 10,
+    "ignis": 5
+  },
+  "_source": "Thaumcraft 6 ConfigAspects.java:46"
+}

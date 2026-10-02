@@ -1,0 +1,13 @@
+{
+  "type": "item",
+  "targets": [
+    "minecraft:daylight_detector"
+  ],
+  "aspects": {
+    "sensus": 10,
+    "lux": 10,
+    "machina": 5
+  },
+  "_source": "Thaumcraft 6 ConfigAspects.java:450",
+  "derive": true
+}

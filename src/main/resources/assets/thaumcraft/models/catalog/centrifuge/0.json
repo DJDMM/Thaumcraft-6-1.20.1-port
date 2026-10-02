@@ -1,0 +1,7 @@
+{
+  "parent": "thaumcraft:block/centrifuge",
+  "textures": {
+    "particle": "thaumcraft:blocks/centrifuge",
+    "side": "thaumcraft:blocks/centrifuge"
+  }
+}

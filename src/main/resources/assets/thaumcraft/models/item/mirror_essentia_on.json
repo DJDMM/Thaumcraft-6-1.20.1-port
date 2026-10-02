@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "thaumcraft:blocks/mirrorframe2",
+    "layer1": "thaumcraft:blocks/mirrorpaneopen"
+  }
+}

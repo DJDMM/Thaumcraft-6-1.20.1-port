@@ -1,0 +1,22 @@
+{
+  "variants": {
+    "": [
+      {
+        "model": "thaumcraft:catalog/taint_rock/0"
+      },
+      {
+        "model": "thaumcraft:catalog/taint_rock/1",
+        "x": 90
+      },
+      {
+        "model": "thaumcraft:catalog/taint_rock/2",
+        "y": 90
+      },
+      {
+        "model": "thaumcraft:catalog/taint_rock/3",
+        "x": 90,
+        "y": 90
+      }
+    ]
+  }
+}

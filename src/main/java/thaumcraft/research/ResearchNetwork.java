@@ -1,0 +1,96 @@
+package thaumcraft.research;
+
+import net.minecraft.nbt.CompoundTag;
+import net.minecraft.network.FriendlyByteBuf;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.server.level.ServerPlayer;
+import net.minecraft.world.InteractionHand;
+import net.minecraftforge.api.distmarker.Dist;
+import net.minecraftforge.fml.DistExecutor;
+import net.minecraftforge.network.NetworkDirection;
+import net.minecraftforge.network.NetworkEvent;
+import net.minecraftforge.network.NetworkRegistry;
+import net.minecraftforge.network.PacketDistributor;
+import net.minecraftforge.network.simple.SimpleChannel;
+import thaumcraft.client.research.ResearchClient;
+
+import java.util.Optional;
+import java.util.function.Supplier;
+
+public final class ResearchNetwork {
+    private static final SimpleChannel CHANNEL = NetworkRegistry.newSimpleChannel(
+            ResourceLocation.fromNamespaceAndPath("thaumcraft", "research"), () -> "2", "2"::equals, "2"::equals);
+
+    public static void register() {
+        CHANNEL.registerMessage(0, Snapshot.class, Snapshot::encode, Snapshot::decode,
+                Snapshot::handle, Optional.of(NetworkDirection.PLAY_TO_CLIENT));
+        CHANNEL.registerMessage(1, Discover.class, Discover::encode, Discover::decode,
+                Discover::handle, Optional.of(NetworkDirection.PLAY_TO_SERVER));
+        CHANNEL.registerMessage(2, Advance.class, Advance::encode, Advance::decode,
+                Advance::handle, Optional.of(NetworkDirection.PLAY_TO_SERVER));
+    }
+    public static void open(ServerPlayer player) { send(player, true, null); }
+    public static void sync(ServerPlayer player) { send(player, false, null); }
+    public static void requestDiscover(String key) { CHANNEL.sendToServer(new Discover(key)); }
+    public static void requestAdvance(String key, int expectedStage) { CHANNEL.sendToServer(new Advance(key, expectedStage)); }
+
+    private static boolean holdsBook(ServerPlayer player) {
+        return player.getItemInHand(InteractionHand.MAIN_HAND).is(ResearchModule.THAUMONOMICON.get())
+                || player.getItemInHand(InteractionHand.OFF_HAND).is(ResearchModule.THAUMONOMICON.get());
+    }
+    static ResearchProgression.Result processAdvance(ServerPlayer player, String key, int expectedStage) {
+        return holdsBook(player) ? ResearchProgression.advance(player, key, expectedStage) : ResearchProgression.Result.NO_BOOK;
+    }
+    static ResearchProgression.Result processDiscover(ServerPlayer player, String key) {
+        if (!holdsBook(player)) return ResearchProgression.Result.NO_BOOK;
+        if (!ResearchProgression.legacyLessonAvailable(KnowledgeStore.get(player), key)) return ResearchProgression.Result.UNSUPPORTED;
+        return KnowledgeStore.discoverResearch(player, key) ? ResearchProgression.Result.COMPLETE : ResearchProgression.Result.MISSING_REQUIREMENTS;
+    }
+    private static void send(ServerPlayer player, boolean open, ResearchProgression.Result result) {
+        if (player.connection == null) return; // Offline GameTest players have no network session.
+        CompoundTag state = KnowledgeStore.get(player).save();
+        state.putInt("ScanCount", KnowledgeStore.get(player).scanCount());
+        state.remove("Scans");
+        state.remove("CreditedScans");
+        if (result != null) state.putString("ProgressResult", result.name());
+        CHANNEL.send(PacketDistributor.PLAYER.with(() -> player), new Snapshot(state, open));
+    }
+
+    public record Snapshot(CompoundTag state, boolean open) {
+        static void encode(Snapshot packet, FriendlyByteBuf buf) { buf.writeNbt(packet.state); buf.writeBoolean(packet.open); }
+        static Snapshot decode(FriendlyByteBuf buf) {
+            CompoundTag state = buf.readNbt();
+            return new Snapshot(state == null ? new CompoundTag() : state, buf.readBoolean());
+        }
+        static void handle(Snapshot packet, Supplier<NetworkEvent.Context> context) {
+            context.get().enqueueWork(() -> DistExecutor.unsafeRunWhenOn(Dist.CLIENT,
+                    () -> () -> ResearchClient.receive(packet.state, packet.open)));
+            context.get().setPacketHandled(true);
+        }
+    }
+    public record Discover(String key) {
+        static void encode(Discover packet, FriendlyByteBuf buf) { buf.writeUtf(packet.key, 128); }
+        static Discover decode(FriendlyByteBuf buf) { return new Discover(buf.readUtf(128)); }
+        static void handle(Discover packet, Supplier<NetworkEvent.Context> context) {
+            ServerPlayer player = context.get().getSender();
+            context.get().enqueueWork(() -> {
+                if (player == null) return;
+                send(player, false, processDiscover(player, packet.key));
+            });
+            context.get().setPacketHandled(true);
+        }
+    }
+    public record Advance(String key, int expectedStage) {
+        static void encode(Advance packet, FriendlyByteBuf buf) { buf.writeUtf(packet.key, 128); buf.writeVarInt(packet.expectedStage); }
+        static Advance decode(FriendlyByteBuf buf) { return new Advance(buf.readUtf(128), buf.readVarInt()); }
+        static void handle(Advance packet, Supplier<NetworkEvent.Context> context) {
+            ServerPlayer player = context.get().getSender();
+            context.get().enqueueWork(() -> {
+                if (player == null) return;
+                send(player, false, processAdvance(player, packet.key, packet.expectedStage));
+            });
+            context.get().setPacketHandled(true);
+        }
+    }
+}
+

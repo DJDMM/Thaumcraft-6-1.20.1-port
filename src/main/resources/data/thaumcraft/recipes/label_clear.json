@@ -1,0 +1,6 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [{"item": "thaumcraft:label_filled"}],
+  "result": {"item": "thaumcraft:label_blank"}
+}

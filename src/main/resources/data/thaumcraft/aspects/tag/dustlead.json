@@ -1,0 +1,12 @@
+{
+  "type": "item_tag",
+  "targets": [
+    "forge:dusts/lead"
+  ],
+  "aspects": {
+    "metallum": 10,
+    "perditio": 1,
+    "ordo": 5
+  },
+  "_source": "Thaumcraft 6 ConfigAspects.java:164"
+}

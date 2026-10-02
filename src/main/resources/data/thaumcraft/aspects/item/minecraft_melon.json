@@ -1,0 +1,11 @@
+{
+  "type": "item",
+  "targets": [
+    "minecraft:melon"
+  ],
+  "aspects": {
+    "herba": 10
+  },
+  "_source": "Thaumcraft 6 ConfigAspects.java:260",
+  "derive": true
+}

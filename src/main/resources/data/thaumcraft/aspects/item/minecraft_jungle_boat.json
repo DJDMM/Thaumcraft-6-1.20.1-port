@@ -1,0 +1,12 @@
+{
+  "type": "item",
+  "targets": [
+    "minecraft:jungle_boat"
+  ],
+  "aspects": {
+    "aqua": 10,
+    "motus": 15
+  },
+  "_source": "Thaumcraft 6 ConfigAspects.java:393",
+  "derive": true
+}

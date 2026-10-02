@@ -1,0 +1,12 @@
+{
+  "type": "entity",
+  "targets": [
+    "minecraft:pig"
+  ],
+  "aspects": {
+    "bestia": 10,
+    "terra": 10,
+    "desiderium": 5
+  },
+  "_source": "Thaumcraft 6 ConfigAspects.java:57"
+}

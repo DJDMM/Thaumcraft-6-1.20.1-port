@@ -1,0 +1,12 @@
+{
+  "type": "item",
+  "targets": [
+    "minecraft:light_weighted_pressure_plate"
+  ],
+  "aspects": {
+    "machina": 5,
+    "sensus": 5
+  },
+  "_source": "Thaumcraft 6 ConfigAspects.java:425",
+  "derive": true
+}

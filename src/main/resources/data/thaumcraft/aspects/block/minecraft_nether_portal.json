@@ -1,0 +1,12 @@
+{
+  "type": "block",
+  "targets": [
+    "minecraft:nether_portal"
+  ],
+  "aspects": {
+    "ignis": 10,
+    "motus": 20,
+    "praecantatio": 10
+  },
+  "_source": "Thaumcraft 6 ConfigAspects.java:364"
+}

@@ -1,0 +1,13 @@
+{
+  "type": "item",
+  "targets": [
+    "minecraft:creeper_head"
+  ],
+  "aspects": {
+    "mortuus": 10,
+    "spiritus": 10,
+    "perditio": 5,
+    "ignis": 5
+  },
+  "_source": "Thaumcraft 6 ConfigAspects.java:318"
+}

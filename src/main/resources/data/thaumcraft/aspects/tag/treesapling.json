@@ -1,0 +1,11 @@
+{
+  "type": "item_tag",
+  "targets": [
+    "minecraft:saplings"
+  ],
+  "aspects": {
+    "herba": 15,
+    "victus": 5
+  },
+  "_source": "Thaumcraft 6 ConfigAspects.java:227"
+}

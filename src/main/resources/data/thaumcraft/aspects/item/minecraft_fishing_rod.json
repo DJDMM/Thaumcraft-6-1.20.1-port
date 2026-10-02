@@ -1,0 +1,12 @@
+{
+  "type": "item",
+  "targets": [
+    "minecraft:fishing_rod"
+  ],
+  "aspects": {
+    "aqua": 10,
+    "instrumentum": 5
+  },
+  "_source": "Thaumcraft 6 ConfigAspects.java:396",
+  "derive": true
+}

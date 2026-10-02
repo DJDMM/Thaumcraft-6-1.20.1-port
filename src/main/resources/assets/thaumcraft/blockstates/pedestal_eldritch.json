@@ -1,0 +1,52 @@
+{
+  "variants": {
+    "charge=0": {
+      "model": "thaumcraft:catalog/pedestal_eldritch/0"
+    },
+    "charge=1": {
+      "model": "thaumcraft:catalog/pedestal_eldritch/1"
+    },
+    "charge=2": {
+      "model": "thaumcraft:catalog/pedestal_eldritch/2"
+    },
+    "charge=3": {
+      "model": "thaumcraft:catalog/pedestal_eldritch/3"
+    },
+    "charge=4": {
+      "model": "thaumcraft:catalog/pedestal_eldritch/4"
+    },
+    "charge=5": {
+      "model": "thaumcraft:catalog/pedestal_eldritch/5"
+    },
+    "charge=6": {
+      "model": "thaumcraft:catalog/pedestal_eldritch/6"
+    },
+    "charge=7": {
+      "model": "thaumcraft:catalog/pedestal_eldritch/7"
+    },
+    "charge=8": {
+      "model": "thaumcraft:catalog/pedestal_eldritch/8"
+    },
+    "charge=9": {
+      "model": "thaumcraft:catalog/pedestal_eldritch/9"
+    },
+    "charge=10": {
+      "model": "thaumcraft:catalog/pedestal_eldritch/10"
+    },
+    "charge=11": {
+      "model": "thaumcraft:catalog/pedestal_eldritch/11"
+    },
+    "charge=12": {
+      "model": "thaumcraft:catalog/pedestal_eldritch/12"
+    },
+    "charge=13": {
+      "model": "thaumcraft:catalog/pedestal_eldritch/13"
+    },
+    "charge=14": {
+      "model": "thaumcraft:catalog/pedestal_eldritch/14"
+    },
+    "charge=15": {
+      "model": "thaumcraft:catalog/pedestal_eldritch/15"
+    }
+  }
+}

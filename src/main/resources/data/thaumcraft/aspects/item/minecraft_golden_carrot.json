@@ -1,0 +1,12 @@
+{
+  "type": "item",
+  "targets": [
+    "minecraft:golden_carrot"
+  ],
+  "aspects": {
+    "sensus": 10,
+    "alkimia": 5
+  },
+  "_source": "Thaumcraft 6 ConfigAspects.java:441",
+  "derive": true
+}
