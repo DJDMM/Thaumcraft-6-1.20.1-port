@@ -48,7 +48,7 @@ public final class CatalogBlockRenderer implements BlockEntityRenderer<CatalogBl
         renderVisual(CatalogBlocks.block(id).defaultBlockState(),null,null,pose,buffers,light,overlay);
     }
     public void renderVisual(BlockState state,BlockGetter level,BlockPos pos,PoseStack pose,MultiBufferSource buffers,int light,int overlay) {
-        String id=((CatalogBlock)state.getBlock()).catalogId();
+        String id=net.minecraft.core.registries.BuiltInRegistries.BLOCK.getKey(state.getBlock()).getPath();
         pose.pushPose();
         if(id.startsWith("banner_")) {
             pose.translate(.5,1.5,.5);

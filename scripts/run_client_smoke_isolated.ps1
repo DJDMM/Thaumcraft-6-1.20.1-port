@@ -6,7 +6,7 @@ desktop switching is performed. Keep this runner alive until the client exits.
 #>
 [CmdletBinding()]
 param(
-    [ValidateSet('TheoryComplete', 'EssentiaProduction', 'ThaumonomiconComplete')]
+    [ValidateSet('TheoryComplete', 'EssentiaProduction', 'ThaumonomiconComplete', 'Infusion')]
     [string]$SmokeTest = 'TheoryComplete',
     [string]$JavaHome = 'C:\Program Files\Eclipse Adoptium\jdk-17.0.18.8-hotspot',
     [ValidatePattern('^[A-Za-z0-9_-]{1,100}$')]
@@ -15,6 +15,7 @@ param(
 )
 $ErrorActionPreference = 'Stop'
 $profiles = @{
+    Infusion = @{ property = 'infusionSmokeTest'; directory = 'infusion-smoke'; prefix = 'infusion-client'; marker = 'THAUMCRAFT_INFUSION_CLIENT_SMOKE'; audit = 'THAUMCRAFT_INFUSION_RENDER_AUDIT_OK' }
     ThaumonomiconComplete = @{ property = 'thaumonomiconCompleteSmokeTest'; directory = 'thaumonomicon-complete-smoke'; prefix = 'thaumonomicon-client'; marker = 'THAUMCRAFT_THAUMONOMICON_COMPLETE_CLIENT_SMOKE'; audit = 'THAUMCRAFT_THAUMONOMICON_RENDER_AUDIT_OK' }
     TheoryComplete = @{ property = 'theoryCompleteSmokeTest'; directory = 'theory-complete-smoke'; prefix = 'theory-client'; marker = 'THAUMCRAFT_THEORY_COMPLETE_CLIENT_SMOKE'; audit = 'THAUMCRAFT_THEORY_TABLE_RENDER_AUDIT_OK' }
     EssentiaProduction = @{ property = 'essentiaProductionSmokeTest'; directory = 'essentia-production-smoke'; prefix = 'essentia-production-client'; marker = 'THAUMCRAFT_ESSENTIA_PRODUCTION_CLIENT_SMOKE'; audit = 'THAUMCRAFT_ESSENTIA_PRODUCTION_RENDER_AUDIT_OK' }

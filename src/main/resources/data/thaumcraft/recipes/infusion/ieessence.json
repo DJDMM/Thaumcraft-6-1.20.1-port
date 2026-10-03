@@ -1,0 +1,24 @@
+{
+  "type": "thaumcraft:infusion",
+  "mode": "enchantment",
+  "enchantment": "ESSENCE",
+  "research": "INFUSIONENCHANTMENT",
+  "instability": 4,
+  "aspects": {
+    "bestia": 40,
+    "vitium": 60
+  },
+  "components": [
+    {
+      "item": "minecraft:enchanted_book",
+      "damage": 0
+    },
+    {
+      "item": "thaumcraft:crystal_essence",
+      "damage": 0
+    }
+  ],
+  "display_central": {
+    "item": "minecraft:stone_sword"
+  }
+}

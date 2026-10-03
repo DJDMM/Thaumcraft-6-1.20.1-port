@@ -13,11 +13,12 @@ import java.io.InputStreamReader;
 import java.nio.charset.StandardCharsets;
 import java.util.*;
 
-/** TC6 initial stages. Display strings are never used to decide a payment. */
+/** Implemented TC6 stages. Display strings are never used to decide a payment. */
 public final class ResearchProgression {
     private static final Set<String> IMPLEMENTED = Set.of("FIRSTSTEPS", "KNOWLEDGETYPES", "THEORYRESEARCH", "CELESTIALSCANNING",
             "UNLOCKALCHEMY", "BASEALCHEMY", "ALUMENTUM", "METALLURGY", "UNLOCKARTIFICE", "BASEARTIFICE",
-            "UNLOCKINFUSION", "BASEINFUSION", "ESSENTIASMELTER", "WARDEDJARS", "TUBES");
+            "UNLOCKINFUSION", "BASEINFUSION", "ESSENTIASMELTER", "WARDEDJARS", "TUBES",
+            "UNLOCKAUROMANCY", "INFUSION", "INFUSIONBOOST");
     private static final Set<String> REMAINING_LESSONS = Set.of("PORT_TALLOW");
     private static final Set<String> OLD_PROFILE_LESSONS = Set.of("PORT_START", "PORT_SCAN", "PORT_ALCHEMY",
             "PORT_NITOR", "PORT_ALUMENTUM", "PORT_BRASS", "PORT_THAUMIUM");
@@ -128,7 +129,7 @@ public final class ResearchProgression {
 
     private static Map<String, List<Requirements>> load() {
         Map<String, List<Requirements>> result = new HashMap<>();
-        for (String filename : List.of("basics", "alchemy", "artifice", "infusion")) {
+        for (String filename : List.of("basics", "alchemy", "auromancy", "artifice", "infusion")) {
             String path = "/data/thaumcraft/legacy_research/" + filename + ".json";
             try (var stream = ResearchProgression.class.getResourceAsStream(path)) {
                 if (stream == null) throw new IllegalStateException("Missing original research " + path);
@@ -165,7 +166,11 @@ public final class ResearchProgression {
         });
         List<String> craft = strings(stage, "required_craft").stream().map(ResearchProgression::craftId).toList();
         List<Obtain> obtain = new ArrayList<>();
-        for (String raw : strings(stage, "required_item")) obtain.add(Obtain.parse(raw));
+        for (String raw : strings(stage, "required_item")) {
+            // BETA26 drops invalid IDs (e.g. minecraft:thaumcraft:enchanted_placeholder).
+            // Do not repair them into costs the released research never charged.
+            if (ResourceLocation.tryParse(raw.split(";", 2)[0]) != null) obtain.add(Obtain.parse(raw));
+        }
         for (String key : stage.keySet()) if (key.startsWith("required_") &&
                 !Set.of("required_knowledge", "required_craft", "required_item", "required_research").contains(key))
             throw new IllegalArgumentException("Unsupported requirement " + key);

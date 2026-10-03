@@ -1,0 +1,29 @@
+{
+  "type": "thaumcraft:infusion",
+  "research": "CRYSTALFARMER",
+  "instability": 0,
+  "aspects": {
+    "aer": 10,
+    "vitreus": 10,
+    "vinculum": 5
+  },
+  "central": {
+    "item": "thaumcraft:crystal_essence",
+    "nbt": "{Aspects:[{key:'aer',amount:1}]}",
+    "damage": 0
+  },
+  "components": [
+    {
+      "item": "minecraft:wheat_seeds",
+      "damage": 0
+    },
+    {
+      "item": "thaumcraft:salis_mundus",
+      "damage": 0
+    }
+  ],
+  "mode": "replace",
+  "result": {
+    "item": "thaumcraft:crystal_aer"
+  }
+}

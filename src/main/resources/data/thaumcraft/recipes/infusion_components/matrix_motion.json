@@ -1,0 +1,79 @@
+{
+  "type": "thaumcraft:arcane_shaped",
+  "category": "misc",
+  "research": "INFUSIONBOOST",
+  "pattern": [
+    "SNS",
+    "NGN",
+    "SNS"
+  ],
+  "key": {
+    "S": {
+      "item": "thaumcraft:stone_arcane"
+    },
+    "N": [
+      {
+        "item": "thaumcraft:nitor"
+      },
+      {
+        "item": "thaumcraft:nitor_white"
+      },
+      {
+        "item": "thaumcraft:nitor_orange"
+      },
+      {
+        "item": "thaumcraft:nitor_magenta"
+      },
+      {
+        "item": "thaumcraft:nitor_lightblue"
+      },
+      {
+        "item": "thaumcraft:nitor_yellow"
+      },
+      {
+        "item": "thaumcraft:nitor_lime"
+      },
+      {
+        "item": "thaumcraft:nitor_pink"
+      },
+      {
+        "item": "thaumcraft:nitor_gray"
+      },
+      {
+        "item": "thaumcraft:nitor_silver"
+      },
+      {
+        "item": "thaumcraft:nitor_cyan"
+      },
+      {
+        "item": "thaumcraft:nitor_purple"
+      },
+      {
+        "item": "thaumcraft:nitor_blue"
+      },
+      {
+        "item": "thaumcraft:nitor_brown"
+      },
+      {
+        "item": "thaumcraft:nitor_green"
+      },
+      {
+        "item": "thaumcraft:nitor_red"
+      },
+      {
+        "item": "thaumcraft:nitor_black"
+      }
+    ],
+    "G": {
+      "item": "minecraft:diamond_block"
+    }
+  },
+  "result": {
+    "item": "thaumcraft:matrix_speed"
+  },
+  "vis": 500,
+  "crystals": {
+    "aer": 1,
+    "ordo": 1
+  }
+}

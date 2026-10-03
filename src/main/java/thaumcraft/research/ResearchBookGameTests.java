@@ -33,8 +33,8 @@ public final class ResearchBookGameTests {
         knowledge.setResearchStage(types.key(),types.stages().size()+1);
         helper.assertTrue(ResearchBookVisibility.visible(knowledge,types,false)
                 && ResearchBookVisibility.visible(knowledge,theory,false),"Actual completed hidden prerequisite did not reveal its child");
-        helper.assertTrue(!ResearchBookVisibility.visible(knowledge,ResearchCatalog.get("INFUSION"),false)
-                && ResearchBookVisibility.visible(knowledge,ResearchCatalog.get("INFUSION"),true),"Unsupported mechanic leaked into progression or disappeared from reference");
+        helper.assertTrue(!ResearchBookVisibility.visible(knowledge,ResearchCatalog.get("INFUSIONANCIENT"),false)
+                && ResearchBookVisibility.visible(knowledge,ResearchCatalog.get("INFUSIONANCIENT"),true),"Unsupported mechanic leaked into progression or disappeared from reference");
         helper.succeed();
     }
     @GameTest(template="empty") public static void chapterLookupNeverRevealsFutureRecipesAndStrictAddendaStayLocked(GameTestHelper helper) {

@@ -1,0 +1,21 @@
+{
+  "type": "thaumcraft:arcane_shaped",
+  "category": "misc",
+  "research": "INFUSIONSTABLE",
+  "ingredients": [
+    {
+      "tag": "forge:dusts/redstone"
+    },
+    {
+      "tag": "forge:ingots/gold"
+    }
+  ],
+  "result": {
+    "item": "thaumcraft:inlay",
+    "count": 2
+  },
+  "vis": 25,
+  "crystals": {
+    "aqua": 1
+  }
+}

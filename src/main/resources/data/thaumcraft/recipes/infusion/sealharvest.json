@@ -1,0 +1,44 @@
+{
+  "type": "thaumcraft:infusion",
+  "research": "SEALHARVEST",
+  "instability": 0,
+  "aspects": {
+    "herba": 10,
+    "sensus": 10,
+    "humanus": 10
+  },
+  "central": {
+    "item": "thaumcraft:seal_blank",
+    "damage": 0
+  },
+  "components": [
+    {
+      "item": "minecraft:wheat_seeds",
+      "damage": 0
+    },
+    {
+      "item": "minecraft:pumpkin_seeds",
+      "damage": 0
+    },
+    {
+      "item": "minecraft:melon_seeds",
+      "damage": 0
+    },
+    {
+      "item": "minecraft:beetroot_seeds",
+      "damage": 0
+    },
+    {
+      "item": "minecraft:sugar_cane",
+      "damage": 0
+    },
+    {
+      "item": "minecraft:cactus",
+      "damage": 0
+    }
+  ],
+  "mode": "replace",
+  "result": {
+    "item": "thaumcraft:seal_harvest"
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "type": "thaumcraft:infusion",
+  "mode": "enchantment",
+  "enchantment": "SOUNDING",
+  "research": "INFUSIONENCHANTMENT",
+  "instability": 4,
+  "aspects": {
+    "sensus": 40,
+    "ignis": 60
+  },
+  "components": [
+    {
+      "item": "minecraft:enchanted_book",
+      "damage": 0
+    },
+    {
+      "item": "minecraft:filled_map",
+      "damage": 0
+    }
+  ],
+  "display_central": {
+    "item": "minecraft:golden_pickaxe"
+  }
+}

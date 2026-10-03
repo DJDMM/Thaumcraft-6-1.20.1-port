@@ -41,7 +41,9 @@ public final class CatalogGameTests {
             var block=entry.getValue().get();
             helper.getLevel().setBlock(pos,block.defaultBlockState(),3);
             helper.assertTrue(helper.getLevel().getBlockState(pos).is(block),"Placement failed "+entry.getKey());
-            if(CatalogBlocks.special(entry.getKey())) helper.assertTrue(helper.getLevel().getBlockEntity(pos) instanceof CatalogBlockEntity,"Special geometry lost tile "+entry.getKey());
+            if(CatalogBlocks.special(entry.getKey())) helper.assertTrue(entry.getKey().equals("infusion_matrix")
+                    ? helper.getLevel().getBlockEntity(pos) instanceof thaumcraft.infusion.InfusionMatrixBlockEntity
+                    : helper.getLevel().getBlockEntity(pos) instanceof CatalogBlockEntity,"Special geometry lost tile "+entry.getKey());
             helper.getLevel().removeBlock(pos,false);
             helper.assertTrue(helper.getLevel().getBlockEntity(pos)==null,"Visual tile leaked after removal");
         }

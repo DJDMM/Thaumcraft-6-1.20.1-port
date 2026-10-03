@@ -1,0 +1,47 @@
+{
+  "type": "thaumcraft:infusion",
+  "research": "VOIDROBEARMOR",
+  "instability": 6,
+  "aspects": {
+    "metallum": 25,
+    "sensus": 25,
+    "praemunio": 25,
+    "potentia": 25,
+    "alienis": 25,
+    "vacuos": 25
+  },
+  "central": {
+    "item": "thaumcraft:void_helm",
+    "damage": 0
+  },
+  "components": [
+    {
+      "item": "thaumcraft:goggles",
+      "damage": "any"
+    },
+    {
+      "item": "thaumcraft:fabric",
+      "damage": 0
+    },
+    {
+      "item": "thaumcraft:fabric",
+      "damage": 0
+    },
+    {
+      "item": "thaumcraft:salis_mundus",
+      "damage": 0
+    },
+    {
+      "item": "thaumcraft:fabric",
+      "damage": 0
+    },
+    {
+      "item": "thaumcraft:fabric",
+      "damage": 0
+    }
+  ],
+  "mode": "replace",
+  "result": {
+    "item": "thaumcraft:void_robe_helm"
+  }
+}

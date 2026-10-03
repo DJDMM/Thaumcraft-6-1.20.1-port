@@ -1,0 +1,27 @@
+{
+  "type": "thaumcraft:infusion",
+  "research": "CLOUDRING",
+  "instability": 1,
+  "aspects": {
+    "aer": 50
+  },
+  "central": {
+    "item": "thaumcraft:baubles_ring_mundane",
+    "damage": 0
+  },
+  "components": [
+    {
+      "item": "thaumcraft:crystal_essence",
+      "nbt": "{Aspects:[{key:'aer',amount:1}]}",
+      "damage": 0
+    },
+    {
+      "item": "minecraft:feather",
+      "damage": 0
+    }
+  ],
+  "mode": "replace",
+  "result": {
+    "item": "thaumcraft:cloud_ring"
+  }
+}

@@ -100,5 +100,40 @@
         "stream": false
       }
     ]
+  },
+  "craftfail": {
+    "category": "master",
+    "sounds": [
+      {
+        "name": "thaumcraft:craftfail",
+        "stream": false
+      }
+    ]
+  },
+  "wand": {
+    "category": "master",
+    "sounds": [
+      "thaumcraft:wand1",
+      "thaumcraft:wand2",
+      "thaumcraft:wand3"
+    ]
+  },
+  "infuser": {
+    "category": "block",
+    "sounds": [
+      {
+        "name": "thaumcraft:infuser",
+        "stream": false
+      }
+    ]
+  },
+  "infuserstart": {
+    "category": "block",
+    "sounds": [
+      {
+        "name": "thaumcraft:infuserstart",
+        "stream": false
+      }
+    ]
   }
 }

@@ -84,6 +84,10 @@ public final class CatalogItemClientEvents {
     @SubscribeEvent public static void blockColors(RegisterColorHandlersEvent.Block event) {
         thaumcraft.catalog.blocks.CatalogBlocks.ENTRIES.forEach((id,block) -> {
             if(id.startsWith("candle_"))event.register((state,world,pos,tint) -> tint==0?thaumcraft.catalog.blocks.client.CatalogBlockRenderer.color(id):-1,block.get());
+            if(id.equals("inlay"))event.register((state,world,pos,tint) -> {
+                int charge=state.getValue(thaumcraft.infusion.InfusionInlayBlock.CHARGE);
+                int gray=(int)(255*(charge==0?.3F:charge/15F*.5F+.5F));return gray<<16|gray<<8|gray;
+            },block.get());
         });
     }
 

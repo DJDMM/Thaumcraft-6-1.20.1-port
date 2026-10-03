@@ -20,6 +20,8 @@
 
 ## Карта документов
 
+- [Наполнение 0.15](../../INFUSION.md): [алтарь, пьедесталы и стабилизаторы](INFUSION-ALTAR-BETA26-AUDIT.md), [56 реальных рецептов](INFUSION-RECIPES-BETA26-AUDIT.md), [воздушное извлечение](ESSENTIA-AIRBORNE-BETA26-AUDIT.md). Поздние исходные prerequisites сохраняются; рабочий рецепт не завершает механику его результата.
+
 - [Полная книга 0.14](../../THAUMONOMICON.md): [375 рецептов](THAUMONOMICON-RECIPES-BETA26-AUDIT.md), [шесть конструкций](THAUMONOMICON-MULTIBLOCK-BETA26-AUDIT.md), [знания и прочтение](THAUMONOMICON-KNOWLEDGE-BETA26-AUDIT.md). Это завершение интерфейса/справки, а не всех игровых механик.
 
 - [Производство, хранение и трубы эссенции 0.13](../../ESSENTIA.md); [плавильни и перегонные кубы](ESSENTIA-PRODUCTION-BETA26-AUDIT.md), [шесть труб](ESSENTIA-TUBES-BETA26-AUDIT.md), [исследования и рецепты](ESSENTIA-PROGRESSION-BETA26-AUDIT.md).

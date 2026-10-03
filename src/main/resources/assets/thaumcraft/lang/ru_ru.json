@@ -1723,5 +1723,18 @@
   "recipe.type.arcane": "Магический крафт",
   "recipe.type.arcane.shapeless": "Бесформенный магический крафт",
   "recipe.type.crucible": "Тигель",
-  "recipe.type.infusion": "Наполнение"
+  "recipe.type.infusion": "Наполнение",
+  "potion.flux_taint": "Яд от заражения",
+  "potion.vis_exhaust": "Вирус Выбросов",
+  "stability.VERY_STABLE": "Очень стабильная",
+  "stability.STABLE": "Стабильная",
+  "stability.UNSTABLE": "Нестабильная",
+  "stability.VERY_UNSTABLE": "Чрезвычайно нестабильная",
+  "effect.thaumcraft.flux_taint": "Яд от заражения",
+  "effect.thaumcraft.vis_exhaust": "Вирус Выбросов",
+  "stability.gain": "прирост / цикл",
+  "stability.range": "от 0 до ",
+  "stability.loss": "потери / цикл",
+  "tooltip.thaumcraft.vis_resonator": "Показывает вис и флюкс местной ауры.",
+  "tooltip.thaumcraft.caster_utility": "Активирует устройства и алтарь наполнения. Заклинания пока не перенесены."
 }

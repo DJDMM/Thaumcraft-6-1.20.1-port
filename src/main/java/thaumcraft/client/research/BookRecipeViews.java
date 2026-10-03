@@ -38,6 +38,7 @@ final class BookRecipeViews {
             this(id, kind, ingredients, width, height, output, research, vis, crystals, aspects, false, 0, 0, "", false);
         }
         boolean unlocked(PlayerKnowledge knowledge) {
+            if (infusion()) return thaumcraft.infusion.InfusionRecipes.known(knowledge,research);
             return research.isEmpty()||java.util.Arrays.stream(research.split("&&")).allMatch(knowledge::knowsResearch);
         }
         ItemStack central() { return infusion() && !ingredients.isEmpty() ? displayIngredient(ingredients.get(0)) : ItemStack.EMPTY; }
@@ -96,6 +97,19 @@ final class BookRecipeViews {
                     || pinned.stream().anyMatch(definition -> definition.kind().equals("crucible") && matchesReferenceIdentity(view.id(), view.output(), definition))) result.put(view.id, view);
         }
         for (Recipe<?> recipe : mc.level.getRecipeManager().getRecipes()) {
+            if (recipe instanceof thaumcraft.infusion.InfusionRecipe infusion) {
+                String realPath = path.startsWith("runicarmorfake") ? "runicarmor" : path.endsWith("fake") ? path.substring(0,path.length()-4) : path;
+                boolean selected = recipe.getId().getPath().substring(recipe.getId().getPath().lastIndexOf('/')+1).equals(realPath) || pinned.stream().anyMatch(definition -> definition.kind().equals(infusion.kind())
+                        && matchesReferenceIdentity(recipe.getId(),recipe.getResultItem(mc.level.registryAccess()),definition));
+                if (!selected) continue;
+                ItemStack central = pinned.isEmpty() || pinned.get(0).ingredients().isEmpty() ? infusion.displayCentral() : displayIngredient(pinned.get(0).ingredients().get(0));
+                List<Ingredient> ingredients = new ArrayList<>(); ingredients.add(Ingredient.of(central));
+                infusion.components(central).forEach(component -> ingredients.add(component.displayIngredient()));
+                result.put(recipe.getId(),new View(recipe.getId(),infusion.kind(),List.copyOf(ingredients),0,0,infusion.previewOutput(central),
+                        infusion.research(),0,new int[6],infusion.aspects(central),false,infusion.instability(central),0,
+                        infusion.kind().equals("runic")?"runic_dynamic":infusion.kind().equals("infusion_enchantment")?"enchantment_dynamic":"",false));
+                continue;
+            }
             if (path.equals("jarlabelessence") && recipe instanceof thaumcraft.essentia.EssentiaLabelRecipe) {
                 // One representative aspect for the actual NBT-aware label recipe.
                 // Its full phial remainder is supplied by the recipe, not consumed.
@@ -145,7 +159,9 @@ final class BookRecipeViews {
         // suppresses its pinned version so resource packs/datapacks retain authority.
         for (BookRecipeCatalog.Definition definition : pinned) {
             ItemStack output = definition.output();
-            boolean live = result.values().stream().anyMatch(view -> view.kind().equals(definition.kind())&&matchesReferenceIdentity(view.id(), view.output(), definition));
+            boolean live = result.values().stream().anyMatch(view -> view.kind().equals(definition.kind())&&(matchesReferenceIdentity(view.id(), view.output(), definition)
+                    || definition.id().getPath().startsWith("runicarmorfake")&&view.id().getPath().endsWith("runicarmor")
+                    || definition.id().getPath().equals(view.id().getPath().substring(view.id().getPath().lastIndexOf('/')+1)+"fake")));
             if (!live) result.put(definition.id(), new View(definition.id(), definition.kind(), definition.ingredients(),
                     definition.width(), definition.height(), output, definition.research(), definition.vis(),
                     definition.crystals(), definition.aspects(), true, definition.instability(), definition.xp(), definition.note(), definition.shapeless()));
@@ -155,7 +171,7 @@ final class BookRecipeViews {
 
     private static boolean matchesReferenceIdentity(ResourceLocation current, ItemStack output, BookRecipeCatalog.Definition pinned) {
         if (current.equals(pinned.id()) || current.getNamespace().equals(pinned.id().getNamespace())
-                && current.getPath().replace("_", "").equals(pinned.id().getPath().replace("_", ""))) return true;
+                && current.getPath().substring(current.getPath().lastIndexOf('/')+1).replace("_", "").equals(pinned.id().getPath().replace("_", ""))) return true;
         ItemStack reference = pinned.output();
         return output.getCount() == reference.getCount() && ItemStack.isSameItemSameTags(output, reference);
     }

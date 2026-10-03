@@ -1,0 +1,36 @@
+{
+  "type": "thaumcraft:infusion",
+  "research": "VERDANTCHARMS",
+  "instability": 5,
+  "aspects": {
+    "victus": 80,
+    "humanus": 80
+  },
+  "central": {
+    "item": "thaumcraft:verdant_charm",
+    "damage": 0
+  },
+  "components": [
+    {
+      "item": "minecraft:golden_apple",
+      "damage": 0
+    },
+    {
+      "item": "thaumcraft:crystal_essence",
+      "nbt": "{Aspects:[{key:'victus',amount:1}]}",
+      "damage": 0
+    },
+    {
+      "item": "minecraft:potion",
+      "nbt": "{\"Potion\":\"minecraft:strong_healing\"}",
+      "damage": 0
+    },
+    {
+      "item": "thaumcraft:crystal_essence",
+      "nbt": "{Aspects:[{key:'humanus',amount:1}]}",
+      "damage": 0
+    }
+  ],
+  "mode": "mutate",
+  "mutation": "{\"type\":1b}"
+}

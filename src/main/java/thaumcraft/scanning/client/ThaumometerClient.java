@@ -123,7 +123,7 @@ public final class ThaumometerClient {
         Minecraft mc = Minecraft.getInstance();
         if (mc.level == null || mc.player == null || snapshot == null || snapshotLevel != mc.level
                 || snapshotPlayer != mc.player || !mc.level.dimension().location().equals(snapshot.dimension())
-                || ThaumometerItem.heldHand(mc.player) == null) return null;
+                || ThaumometerItem.auraHand(mc.player) == null) return null;
         int age = mc.player.tickCount - receivedTick;
         return age >= 0 && age <= MAX_SNAPSHOT_AGE ? snapshot : null;
     }
@@ -196,7 +196,7 @@ public final class ThaumometerClient {
         Minecraft mc = Minecraft.getInstance();
         return mc.level != null && mc.player != null && mc.player.isAlive() && !mc.player.isSpectator()
                 && !mc.options.hideGui && mc.screen == null && !mc.isPaused()
-                && ThaumometerItem.heldHand(mc.player) != null;
+                && ThaumometerItem.auraHand(mc.player) != null;
     }
 
     @Nullable public static ScanningNetwork.Snapshot snapshotForSmokeTest() { return currentSnapshot(); }

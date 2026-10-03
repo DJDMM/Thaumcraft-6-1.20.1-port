@@ -1,0 +1,23 @@
+{
+  "type": "thaumcraft:infusion",
+  "mode": "enchantment",
+  "enchantment": "LAMPLIGHT",
+  "research": "INFUSIONENCHANTMENT",
+  "instability": 4,
+  "aspects": {
+    "lux": 80,
+    "aer": 20
+  },
+  "components": [
+    {
+      "item": "minecraft:enchanted_book",
+      "damage": 0
+    },
+    {
+      "tag": "thaumcraft:nitor"
+    }
+  ],
+  "display_central": {
+    "item": "minecraft:golden_pickaxe"
+  }
+}

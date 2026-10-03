@@ -112,7 +112,7 @@ public final class MultiblockBookPreview {
                     gui.pose().translate(entry.getKey().getX(), entry.getKey().getY(), entry.getKey().getZ());
                     BlockState state = entry.getValue();
                     if (state.is(Blocks.LAVA)) renderLava(gui);
-                    else if (state.getBlock() instanceof CatalogBlock block && block.catalogId().equals("infusion_matrix"))
+                    else if (state.getBlock() instanceof thaumcraft.infusion.InfusionMatrixBlock)
                         special.renderVisual(state, preview, entry.getKey(), gui.pose(), gui.bufferSource(), LIGHT, OverlayTexture.NO_OVERLAY);
                     else {
                         var model = minecraft.getBlockRenderer().getBlockModel(state);

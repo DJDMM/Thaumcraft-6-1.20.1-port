@@ -1,0 +1,21 @@
+{
+  "type": "thaumcraft:infusion",
+  "research": "CHARMUNDYING",
+  "instability": 2,
+  "aspects": {
+    "victus": 25
+  },
+  "central": {
+    "item": "minecraft:totem_of_undying",
+    "damage": 0
+  },
+  "components": [
+    {
+      "tag": "forge:plates/brass"
+    }
+  ],
+  "mode": "replace",
+  "result": {
+    "item": "thaumcraft:charm_undying"
+  }
+}

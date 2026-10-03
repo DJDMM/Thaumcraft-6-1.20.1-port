@@ -1,0 +1,21 @@
+{
+  "type": "thaumcraft:arcane_shaped",
+  "category": "misc",
+  "research": "UNLOCKAUROMANCY@2",
+  "ingredients": [
+    {
+      "tag": "forge:plates/iron"
+    },
+    {
+      "tag": "forge:gems/quartz"
+    }
+  ],
+  "result": {
+    "item": "thaumcraft:vis_resonator"
+  },
+  "vis": 50,
+  "crystals": {
+    "aer": 1,
+    "aqua": 1
+  }
+}

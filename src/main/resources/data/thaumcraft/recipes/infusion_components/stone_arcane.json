@@ -1,0 +1,26 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "pattern": [
+    "KKK",
+    "KCK",
+    "KKK"
+  ],
+  "key": {
+    "K": [
+      {
+        "tag": "forge:stone"
+      },
+      {
+        "item": "minecraft:stone"
+      }
+    ],
+    "C": {
+      "item": "thaumcraft:crystal_essence"
+    }
+  },
+  "result": {
+    "item": "thaumcraft:stone_arcane",
+    "count": 9
+  }
+}

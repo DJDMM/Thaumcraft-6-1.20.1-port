@@ -1,0 +1,80 @@
+{
+  "type": "thaumcraft:arcane_shaped",
+  "category": "misc",
+  "research": "INFUSION@2",
+  "pattern": [
+    "S S",
+    " N ",
+    "S S"
+  ],
+  "key": {
+    "S": {
+      "item": "thaumcraft:stone_arcane_brick"
+    },
+    "N": [
+      {
+        "item": "thaumcraft:nitor"
+      },
+      {
+        "item": "thaumcraft:nitor_white"
+      },
+      {
+        "item": "thaumcraft:nitor_orange"
+      },
+      {
+        "item": "thaumcraft:nitor_magenta"
+      },
+      {
+        "item": "thaumcraft:nitor_lightblue"
+      },
+      {
+        "item": "thaumcraft:nitor_yellow"
+      },
+      {
+        "item": "thaumcraft:nitor_lime"
+      },
+      {
+        "item": "thaumcraft:nitor_pink"
+      },
+      {
+        "item": "thaumcraft:nitor_gray"
+      },
+      {
+        "item": "thaumcraft:nitor_silver"
+      },
+      {
+        "item": "thaumcraft:nitor_cyan"
+      },
+      {
+        "item": "thaumcraft:nitor_purple"
+      },
+      {
+        "item": "thaumcraft:nitor_blue"
+      },
+      {
+        "item": "thaumcraft:nitor_brown"
+      },
+      {
+        "item": "thaumcraft:nitor_green"
+      },
+      {
+        "item": "thaumcraft:nitor_red"
+      },
+      {
+        "item": "thaumcraft:nitor_black"
+      }
+    ]
+  },
+  "result": {
+    "item": "thaumcraft:infusion_matrix"
+  },
+  "vis": 150,
+  "crystals": {
+    "aer": 1,
+    "ignis": 1,
+    "aqua": 1,
+    "terra": 1,
+    "ordo": 1,
+    "perditio": 1
+  }
+}

@@ -116,7 +116,7 @@ public final class EarlySurvivalProgressionGameTests {
         helper.assertTrue(state.rawKnowledge(KnowledgeType.OBSERVATION, "INFUSION") == beforeInfusion - 16,
                 "Infusion unlock did not spend one observation");
         result(helper, ResearchNetwork.processAdvance(player, "BASEINFUSION", 0), ResearchProgression.Result.COMPLETE);
-        result(helper, ResearchNetwork.processAdvance(player, "INFUSION", 0), ResearchProgression.Result.UNSUPPORTED);
+        result(helper, ResearchNetwork.processAdvance(player, "INFUSION", 0), ResearchProgression.Result.STARTED);
         helper.assertTrue(PlayerKnowledge.load(state.save()).isResearchCompleteStrict("UNLOCKINFUSION"), "Infusion branch unlock did not survive save");
         helper.succeed();
     }

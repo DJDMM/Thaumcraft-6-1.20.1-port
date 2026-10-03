@@ -1,0 +1,30 @@
+{
+  "type": "thaumcraft:infusion",
+  "research": "MIRRORHAND",
+  "instability": 5,
+  "aspects": {
+    "instrumentum": 50,
+    "motus": 50
+  },
+  "central": {
+    "item": "thaumcraft:mirror",
+    "damage": 0
+  },
+  "components": [
+    {
+      "tag": "forge:rods/wooden"
+    },
+    {
+      "item": "minecraft:compass",
+      "damage": 0
+    },
+    {
+      "item": "minecraft:filled_map",
+      "damage": 0
+    }
+  ],
+  "mode": "replace",
+  "result": {
+    "item": "thaumcraft:hand_mirror"
+  }
+}

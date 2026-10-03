@@ -1,0 +1,107 @@
+{
+  "type": "thaumcraft:infusion",
+  "research": "SEALBUTCHER",
+  "instability": 0,
+  "aspects": {
+    "bestia": 10,
+    "sensus": 10,
+    "humanus": 10
+  },
+  "central": {
+    "item": "thaumcraft:seal_guard",
+    "damage": 0
+  },
+  "components": [
+    {
+      "tag": "forge:leather"
+    },
+    {
+      "any": [
+        {
+          "item": "minecraft:white_wool",
+          "damage": "any"
+        },
+        {
+          "item": "minecraft:orange_wool",
+          "damage": "any"
+        },
+        {
+          "item": "minecraft:magenta_wool",
+          "damage": "any"
+        },
+        {
+          "item": "minecraft:light_blue_wool",
+          "damage": "any"
+        },
+        {
+          "item": "minecraft:yellow_wool",
+          "damage": "any"
+        },
+        {
+          "item": "minecraft:lime_wool",
+          "damage": "any"
+        },
+        {
+          "item": "minecraft:pink_wool",
+          "damage": "any"
+        },
+        {
+          "item": "minecraft:gray_wool",
+          "damage": "any"
+        },
+        {
+          "item": "minecraft:light_gray_wool",
+          "damage": "any"
+        },
+        {
+          "item": "minecraft:cyan_wool",
+          "damage": "any"
+        },
+        {
+          "item": "minecraft:purple_wool",
+          "damage": "any"
+        },
+        {
+          "item": "minecraft:blue_wool",
+          "damage": "any"
+        },
+        {
+          "item": "minecraft:brown_wool",
+          "damage": "any"
+        },
+        {
+          "item": "minecraft:green_wool",
+          "damage": "any"
+        },
+        {
+          "item": "minecraft:red_wool",
+          "damage": "any"
+        },
+        {
+          "item": "minecraft:black_wool",
+          "damage": "any"
+        }
+      ]
+    },
+    {
+      "item": "minecraft:rabbit_hide",
+      "damage": 0
+    },
+    {
+      "item": "minecraft:porkchop",
+      "damage": 0
+    },
+    {
+      "item": "minecraft:mutton",
+      "damage": 0
+    },
+    {
+      "item": "minecraft:beef",
+      "damage": 0
+    }
+  ],
+  "mode": "replace",
+  "result": {
+    "item": "thaumcraft:seal_butcher"
+  }
+}

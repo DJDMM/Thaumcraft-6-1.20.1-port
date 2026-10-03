@@ -1,0 +1,18 @@
+{
+  "type": "thaumcraft:infusion",
+  "mode": "runic",
+  "research": "RUNICSHIELDING",
+  "instability": 5,
+  "components": [
+    {
+      "item": "thaumcraft:salis_mundus",
+      "damage": 0
+    },
+    {
+      "tag": "forge:gems/amber"
+    }
+  ],
+  "display_central": {
+    "item": "minecraft:leather_chestplate"
+  }
+}

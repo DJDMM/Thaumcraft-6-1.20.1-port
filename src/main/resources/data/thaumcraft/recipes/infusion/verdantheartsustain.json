@@ -1,0 +1,36 @@
+{
+  "type": "thaumcraft:infusion",
+  "research": "VERDANTCHARMS",
+  "instability": 5,
+  "aspects": {
+    "desiderium": 80,
+    "aer": 80
+  },
+  "central": {
+    "item": "thaumcraft:verdant_charm",
+    "damage": 0
+  },
+  "components": [
+    {
+      "item": "thaumcraft:triple_meat_treat",
+      "damage": 0
+    },
+    {
+      "item": "thaumcraft:crystal_essence",
+      "nbt": "{Aspects:[{key:'desiderium',amount:1}]}",
+      "damage": 0
+    },
+    {
+      "item": "minecraft:potion",
+      "nbt": "{\"Potion\":\"minecraft:strong_regeneration\"}",
+      "damage": 0
+    },
+    {
+      "item": "thaumcraft:crystal_essence",
+      "nbt": "{Aspects:[{key:'aer',amount:1}]}",
+      "damage": 0
+    }
+  ],
+  "mode": "mutate",
+  "mutation": "{\"type\":2b}"
+}

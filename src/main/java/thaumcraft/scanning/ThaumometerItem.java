@@ -147,6 +147,14 @@ public final class ThaumometerItem extends Item {
         return null;
     }
 
+    /** TC6 Vis Resonator shows the aura meter without scanning objects or awarding knowledge. */
+    @Nullable public static InteractionHand auraHand(Player player) {
+        var scanner = heldHand(player); if (scanner != null) return scanner;
+        for (InteractionHand hand : InteractionHand.values())
+            if (ForgeRegistries.ITEMS.getKey(player.getItemInHand(hand).getItem()).equals(thaumcraft.infusion.InfusionModule.id("vis_resonator"))) return hand;
+        return null;
+    }
+
     private static InteractionHand otherHand(InteractionHand hand) {
         return hand == InteractionHand.MAIN_HAND ? InteractionHand.OFF_HAND : InteractionHand.MAIN_HAND;
     }

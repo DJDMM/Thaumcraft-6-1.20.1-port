@@ -1,0 +1,179 @@
+{
+  "type": "thaumcraft:infusion",
+  "research": "RIFTCLOSER",
+  "instability": 8,
+  "aspects": {
+    "alienis": 50,
+    "vitium": 50
+  },
+  "central": {
+    "item": "minecraft:tnt",
+    "damage": 0
+  },
+  "components": [
+    {
+      "item": "thaumcraft:morphic_resonator",
+      "damage": 0
+    },
+    {
+      "item": "minecraft:redstone_block",
+      "damage": 0
+    },
+    {
+      "item": "thaumcraft:alumentum",
+      "damage": 0
+    },
+    {
+      "any": [
+        {
+          "item": "thaumcraft:nitor_white",
+          "damage": "any"
+        },
+        {
+          "item": "thaumcraft:nitor_orange",
+          "damage": "any"
+        },
+        {
+          "item": "thaumcraft:nitor_magenta",
+          "damage": "any"
+        },
+        {
+          "item": "thaumcraft:nitor_lightblue",
+          "damage": "any"
+        },
+        {
+          "item": "thaumcraft:nitor",
+          "damage": "any"
+        },
+        {
+          "item": "thaumcraft:nitor_lime",
+          "damage": "any"
+        },
+        {
+          "item": "thaumcraft:nitor_pink",
+          "damage": "any"
+        },
+        {
+          "item": "thaumcraft:nitor_gray",
+          "damage": "any"
+        },
+        {
+          "item": "thaumcraft:nitor_silver",
+          "damage": "any"
+        },
+        {
+          "item": "thaumcraft:nitor_cyan",
+          "damage": "any"
+        },
+        {
+          "item": "thaumcraft:nitor_purple",
+          "damage": "any"
+        },
+        {
+          "item": "thaumcraft:nitor_blue",
+          "damage": "any"
+        },
+        {
+          "item": "thaumcraft:nitor_brown",
+          "damage": "any"
+        },
+        {
+          "item": "thaumcraft:nitor_green",
+          "damage": "any"
+        },
+        {
+          "item": "thaumcraft:nitor_red",
+          "damage": "any"
+        },
+        {
+          "item": "thaumcraft:nitor_black",
+          "damage": "any"
+        }
+      ]
+    },
+    {
+      "item": "thaumcraft:vis_resonator",
+      "damage": 0
+    },
+    {
+      "item": "minecraft:redstone_block",
+      "damage": 0
+    },
+    {
+      "item": "thaumcraft:alumentum",
+      "damage": 0
+    },
+    {
+      "any": [
+        {
+          "item": "thaumcraft:nitor_white",
+          "damage": "any"
+        },
+        {
+          "item": "thaumcraft:nitor_orange",
+          "damage": "any"
+        },
+        {
+          "item": "thaumcraft:nitor_magenta",
+          "damage": "any"
+        },
+        {
+          "item": "thaumcraft:nitor_lightblue",
+          "damage": "any"
+        },
+        {
+          "item": "thaumcraft:nitor",
+          "damage": "any"
+        },
+        {
+          "item": "thaumcraft:nitor_lime",
+          "damage": "any"
+        },
+        {
+          "item": "thaumcraft:nitor_pink",
+          "damage": "any"
+        },
+        {
+          "item": "thaumcraft:nitor_gray",
+          "damage": "any"
+        },
+        {
+          "item": "thaumcraft:nitor_silver",
+          "damage": "any"
+        },
+        {
+          "item": "thaumcraft:nitor_cyan",
+          "damage": "any"
+        },
+        {
+          "item": "thaumcraft:nitor_purple",
+          "damage": "any"
+        },
+        {
+          "item": "thaumcraft:nitor_blue",
+          "damage": "any"
+        },
+        {
+          "item": "thaumcraft:nitor_brown",
+          "damage": "any"
+        },
+        {
+          "item": "thaumcraft:nitor_green",
+          "damage": "any"
+        },
+        {
+          "item": "thaumcraft:nitor_red",
+          "damage": "any"
+        },
+        {
+          "item": "thaumcraft:nitor_black",
+          "damage": "any"
+        }
+      ]
+    }
+  ],
+  "mode": "replace",
+  "result": {
+    "item": "thaumcraft:causality_collapser"
+  }
+}

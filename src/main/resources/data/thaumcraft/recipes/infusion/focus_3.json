@@ -1,0 +1,36 @@
+{
+  "type": "thaumcraft:infusion",
+  "research": "FOCUSGREATER@1",
+  "instability": 5,
+  "aspects": {
+    "praecantatio": 25,
+    "ordo": 50,
+    "vacuos": 100
+  },
+  "central": {
+    "item": "thaumcraft:focus_2",
+    "damage": 0
+  },
+  "components": [
+    {
+      "item": "thaumcraft:quicksilver",
+      "damage": 0
+    },
+    {
+      "item": "thaumcraft:primordial_pearl",
+      "damage": "any"
+    },
+    {
+      "item": "thaumcraft:quicksilver",
+      "damage": 0
+    },
+    {
+      "item": "minecraft:nether_star",
+      "damage": 0
+    }
+  ],
+  "mode": "replace",
+  "result": {
+    "item": "thaumcraft:focus_3"
+  }
+}

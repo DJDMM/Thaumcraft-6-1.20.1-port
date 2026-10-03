@@ -38,7 +38,7 @@ public final class ScanningModule {
     private static void tick(TickEvent.PlayerTickEvent event) {
         if (event.phase == TickEvent.Phase.END && event.player instanceof ServerPlayer player
                 && player.tickCount % 5 == 0 && player.isAlive() && !player.isSpectator()
-                && ThaumometerItem.heldHand(player) != null) ScanningNetwork.sendHud(player);
+                && ThaumometerItem.auraHand(player) != null) ScanningNetwork.sendHud(player);
     }
 
     private static void reload(AddReloadListenerEvent event) {

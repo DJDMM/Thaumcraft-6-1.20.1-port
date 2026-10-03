@@ -1,0 +1,36 @@
+{
+  "type": "thaumcraft:infusion",
+  "research": "JARBRAIN",
+  "instability": 4,
+  "aspects": {
+    "cognitio": 25,
+    "sensus": 25,
+    "exanimis": 25
+  },
+  "central": {
+    "item": "thaumcraft:jar_normal",
+    "damage": 0
+  },
+  "components": [
+    {
+      "item": "thaumcraft:brain",
+      "damage": 0
+    },
+    {
+      "item": "minecraft:spider_eye",
+      "damage": 0
+    },
+    {
+      "item": "minecraft:water_bucket",
+      "damage": 0
+    },
+    {
+      "item": "minecraft:spider_eye",
+      "damage": 0
+    }
+  ],
+  "mode": "replace",
+  "result": {
+    "item": "thaumcraft:jar_brain"
+  }
+}

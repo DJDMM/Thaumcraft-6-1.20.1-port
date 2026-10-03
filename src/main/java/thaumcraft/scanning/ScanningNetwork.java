@@ -45,9 +45,9 @@ public final class ScanningNetwork {
         var hand = ThaumometerItem.heldHand(player);
         var level = player.serverLevel();
         Target target = null;
-        if (hand == null || !player.isAlive() || player.isSpectator())
+        if (ThaumometerItem.auraHand(player) == null || !player.isAlive() || player.isSpectator())
             return new Snapshot(level.dimension().location(), level.getGameTime(), 0, 0, 0, null);
-        var scan = ThaumometerItem.findTarget(player, hand);
+        var scan = hand == null ? null : ThaumometerItem.findTarget(player, hand);
         if (scan != null && scan.aspects().size() > 0)
             target = target(scan, KnowledgeStore.get(player).hasScanned(scan.key()));
         return new Snapshot(level.dimension().location(), level.getGameTime(),

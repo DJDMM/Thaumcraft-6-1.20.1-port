@@ -15,6 +15,7 @@ public final class ResearchClient {
         EarlySurvivalClientSmokeTest.snapshot(data);
         EssentiaProductionClientSmokeTest.snapshot(data);
         ThaumonomiconCompleteClientSmokeTest.snapshot(data);
+        InfusionClientSmokeTest.snapshot(data);
         PlayerKnowledge knowledge = PlayerKnowledge.load(data);
         Object connection = minecraft.getConnection();
         if (connection != previousConnection) { previousConnection = connection; previousKnowledge = null; }

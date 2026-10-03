@@ -20,46 +20,18 @@ import java.util.concurrent.ConcurrentHashMap;
 /** Repairs only the two old catalogue visual anchors without touching their placed blocks. */
 @Mod.EventBusSubscriber(modid = "thaumcraft", bus = Mod.EventBusSubscriber.Bus.FORGE)
 public final class LegacyTubeMigration {
-    // Chunk.Load can run on a worldgen worker before FULL. Only primitive coordinates are queued;
-    // neither block entities nor the level's chunk map are read or changed on that callback.
-    private static final ConcurrentHashMap<ServerLevel, ConcurrentHashMap<Long, Integer>> PENDING = new ConcurrentHashMap<>();
-    private static final int MAX_WAIT_TICKS = 200, CHUNKS_PER_TICK = 64;
+    private static final thaumcraft.world.LoadedChunkMigrationQueue PENDING = new thaumcraft.world.LoadedChunkMigrationQueue();
     private LegacyTubeMigration() {}
-
     @SubscribeEvent public static void onChunkLoad(ChunkEvent.Load event) {
-        if (event.getLevel() instanceof ServerLevel level && event.getChunk() instanceof LevelChunk chunk)
-            PENDING.computeIfAbsent(level, ignored -> new ConcurrentHashMap<>()).putIfAbsent(chunk.getPos().toLong(), 0);
+        if(event.getLevel() instanceof ServerLevel level && event.getChunk() instanceof LevelChunk chunk) PENDING.load(level,chunk);
     }
     @SubscribeEvent public static void onChunkUnload(ChunkEvent.Unload event) {
-        if (event.getLevel() instanceof ServerLevel level) {
-            var queue = PENDING.get(level);
-            if (queue != null) queue.remove(event.getChunk().getPos().toLong());
-        }
+        if(event.getLevel() instanceof ServerLevel level) PENDING.unload(level,event.getChunk().getPos());
     }
     @SubscribeEvent public static void onLevelTick(TickEvent.LevelTickEvent event) {
-        if (event.phase != TickEvent.Phase.END || !(event.level instanceof ServerLevel level)) return;
-        if (!level.getServer().isSameThread()) throw new IllegalStateException("Legacy tube migration must run on the server thread");
-        var queue = PENDING.get(level);
-        if (queue == null) return;
-        int visited = 0;
-        for (var entry : queue.entrySet()) {
-            if (++visited > CHUNKS_PER_TICK) break;
-            ChunkPos pos = new ChunkPos(entry.getKey());
-            LevelChunk chunk = level.getChunkSource().getChunkNow(pos.x, pos.z);
-            if (chunk == null) {
-                if (entry.getValue() >= MAX_WAIT_TICKS) queue.remove(entry.getKey(), entry.getValue());
-                else queue.replace(entry.getKey(), entry.getValue(), entry.getValue() + 1);
-                continue;
-            }
-            // getChunkNow never promotes or loads a chunk. Remove only the coordinate inspected;
-            // an off-thread new load can enqueue its own entry for a later END tick.
-            queue.remove(entry.getKey(), entry.getValue());
-            repairLoadedChunk(level, chunk);
-        }
+        if(event.phase==TickEvent.Phase.END && event.level instanceof ServerLevel level) PENDING.process(level,LegacyTubeMigration::repairLoadedChunk);
     }
-    @SubscribeEvent public static void onServerStopped(ServerStoppedEvent event) {
-        PENDING.keySet().removeIf(level -> level.getServer() == event.getServer());
-    }
+    @SubscribeEvent public static void onServerStopped(ServerStoppedEvent event) { PENDING.stop(event.getServer()); }
 
     private static void repairLoadedChunk(ServerLevel level, LevelChunk chunk) {
         for (BlockPos pos : new ArrayList<>(chunk.getBlockEntitiesPos())) {

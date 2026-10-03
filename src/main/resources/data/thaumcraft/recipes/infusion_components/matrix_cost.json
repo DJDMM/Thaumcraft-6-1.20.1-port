@@ -1,0 +1,30 @@
+{
+  "type": "thaumcraft:arcane_shaped",
+  "category": "misc",
+  "research": "INFUSIONBOOST",
+  "pattern": [
+    "SAS",
+    "AGA",
+    "SAS"
+  ],
+  "key": {
+    "S": {
+      "item": "thaumcraft:stone_arcane"
+    },
+    "A": {
+      "item": "thaumcraft:alumentum"
+    },
+    "G": {
+      "item": "minecraft:diamond_block"
+    }
+  },
+  "result": {
+    "item": "thaumcraft:matrix_cost"
+  },
+  "vis": 500,
+  "crystals": {
+    "aer": 1,
+    "aqua": 1,
+    "perditio": 1
+  }
+}

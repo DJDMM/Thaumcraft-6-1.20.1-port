@@ -1,0 +1,43 @@
+{
+  "type": "thaumcraft:infusion",
+  "research": "VOIDSIPHON",
+  "instability": 7,
+  "aspects": {
+    "alienis": 50,
+    "perditio": 50,
+    "vacuos": 100,
+    "fabrico": 50
+  },
+  "central": {
+    "item": "thaumcraft:metal_void",
+    "damage": 0
+  },
+  "components": [
+    {
+      "item": "thaumcraft:stone_arcane",
+      "damage": 0
+    },
+    {
+      "item": "thaumcraft:stone_arcane",
+      "damage": 0
+    },
+    {
+      "item": "thaumcraft:mechanism_complex",
+      "damage": 0
+    },
+    {
+      "tag": "forge:plates/brass"
+    },
+    {
+      "tag": "forge:plates/brass"
+    },
+    {
+      "item": "minecraft:nether_star",
+      "damage": 0
+    }
+  ],
+  "mode": "replace",
+  "result": {
+    "item": "thaumcraft:void_siphon"
+  }
+}

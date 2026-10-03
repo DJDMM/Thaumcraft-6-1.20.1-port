@@ -1,0 +1,38 @@
+{
+  "type": "thaumcraft:infusion",
+  "research": "ELEMENTALTOOLS",
+  "instability": 1,
+  "aspects": {
+    "aqua": 60,
+    "herba": 30
+  },
+  "central": {
+    "item": "thaumcraft:thaumium_axe",
+    "damage": "any"
+  },
+  "components": [
+    {
+      "item": "thaumcraft:crystal_essence",
+      "nbt": "{Aspects:[{key:'aqua',amount:1}]}",
+      "damage": 0
+    },
+    {
+      "item": "thaumcraft:crystal_essence",
+      "nbt": "{Aspects:[{key:'aqua',amount:1}]}",
+      "damage": 0
+    },
+    {
+      "item": "thaumcraft:nugget_rareearth",
+      "damage": 0
+    },
+    {
+      "item": "thaumcraft:plank_greatwood",
+      "damage": 0
+    }
+  ],
+  "mode": "replace",
+  "result": {
+    "item": "thaumcraft:elemental_axe",
+    "nbt": "{infench:[{id:0s,lvl:1s},{id:2s,lvl:1s}]}"
+  }
+}

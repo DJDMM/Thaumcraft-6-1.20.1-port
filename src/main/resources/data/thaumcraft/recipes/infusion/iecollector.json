@@ -1,0 +1,24 @@
+{
+  "type": "thaumcraft:infusion",
+  "mode": "enchantment",
+  "enchantment": "COLLECTOR",
+  "research": "INFUSIONENCHANTMENT",
+  "instability": 4,
+  "aspects": {
+    "desiderium": 80,
+    "aqua": 100
+  },
+  "components": [
+    {
+      "item": "minecraft:enchanted_book",
+      "damage": 0
+    },
+    {
+      "item": "minecraft:lead",
+      "damage": 0
+    }
+  ],
+  "display_central": {
+    "item": "minecraft:stone_axe"
+  }
+}

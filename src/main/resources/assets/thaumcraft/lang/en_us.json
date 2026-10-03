@@ -1727,5 +1727,18 @@
   "recipe.type.arcane": "Arcane crafting",
   "recipe.type.arcane.shapeless": "Shapeless arcane crafting",
   "recipe.type.crucible": "Crucible",
-  "recipe.type.infusion": "Infusion"
+  "recipe.type.infusion": "Infusion",
+  "potion.flux_taint": "Taint Poison",
+  "potion.vis_exhaust": "Flux Flu",
+  "stability.gain": "gain / cycle",
+  "stability.range": "0 to ",
+  "stability.loss": "loss / cycle",
+  "stability.VERY_STABLE": "Very Stable",
+  "stability.STABLE": "Stable",
+  "stability.UNSTABLE": "Unstable",
+  "stability.VERY_UNSTABLE": "Dangerously Unstable",
+  "effect.thaumcraft.flux_taint": "Taint Poison",
+  "effect.thaumcraft.vis_exhaust": "Flux Flu",
+  "tooltip.thaumcraft.vis_resonator": "Displays local aura vis and flux.",
+  "tooltip.thaumcraft.caster_utility": "Activates devices and infusion altars. Focus casting is not yet ported."
 }

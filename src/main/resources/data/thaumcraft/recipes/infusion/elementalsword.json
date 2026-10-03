@@ -1,0 +1,39 @@
+{
+  "type": "thaumcraft:infusion",
+  "research": "ELEMENTALTOOLS",
+  "instability": 1,
+  "aspects": {
+    "aer": 30,
+    "motus": 30,
+    "aversio": 30
+  },
+  "central": {
+    "item": "thaumcraft:thaumium_sword",
+    "damage": "any"
+  },
+  "components": [
+    {
+      "item": "thaumcraft:crystal_essence",
+      "nbt": "{Aspects:[{key:'aer',amount:1}]}",
+      "damage": 0
+    },
+    {
+      "item": "thaumcraft:crystal_essence",
+      "nbt": "{Aspects:[{key:'aer',amount:1}]}",
+      "damage": 0
+    },
+    {
+      "item": "thaumcraft:nugget_rareearth",
+      "damage": 0
+    },
+    {
+      "item": "thaumcraft:plank_greatwood",
+      "damage": 0
+    }
+  ],
+  "mode": "replace",
+  "result": {
+    "item": "thaumcraft:elemental_sword",
+    "nbt": "{infench:[{id:5s,lvl:2s}]}"
+  }
+}

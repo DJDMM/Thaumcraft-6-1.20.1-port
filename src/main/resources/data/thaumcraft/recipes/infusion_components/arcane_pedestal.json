@@ -1,0 +1,23 @@
+{
+  "type": "thaumcraft:arcane_shaped",
+  "category": "misc",
+  "research": "INFUSION",
+  "pattern": [
+    "SSS",
+    " B ",
+    "SSS"
+  ],
+  "key": {
+    "S": {
+      "item": "thaumcraft:slab_arcane_stone"
+    },
+    "B": {
+      "item": "thaumcraft:stone_arcane"
+    }
+  },
+  "result": {
+    "item": "thaumcraft:pedestal_arcane"
+  },
+  "vis": 10,
+  "crystals": {}
+}

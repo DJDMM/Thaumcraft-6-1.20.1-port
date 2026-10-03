@@ -1,0 +1,141 @@
+{
+  "version": "0.15.0-dev",
+  "originalVersion": "Thaumcraft6.1.BETA26",
+  "originalJarSha256": "9425f8643581b27ff8845b087c8bc6fc10425a32942f1a3f0e265ce6b38f7b5f",
+  "requiredGameTests": 350,
+  "previousGameTests": 300,
+  "newTestsBySuite": {
+    "airborneEssentia": 19,
+    "pedestals": 8,
+    "progression": 6,
+    "matrixAndRecipes": 12,
+    "protectionAndFairMigration": 5
+  },
+  "implementedCanonicalResearchEntries": 18,
+  "implementedCanonicalResearchKeys": [
+    "FIRSTSTEPS",
+    "KNOWLEDGETYPES",
+    "THEORYRESEARCH",
+    "CELESTIALSCANNING",
+    "UNLOCKALCHEMY",
+    "BASEALCHEMY",
+    "ALUMENTUM",
+    "METALLURGY",
+    "UNLOCKARTIFICE",
+    "BASEARTIFICE",
+    "UNLOCKINFUSION",
+    "BASEINFUSION",
+    "ESSENTIASMELTER",
+    "WARDEDJARS",
+    "TUBES",
+    "UNLOCKAUROMANCY",
+    "INFUSION",
+    "INFUSIONBOOST"
+  ],
+  "workingInfusionRecipeModes": {
+    "replace": 41,
+    "mutate": 6,
+    "enchantment": 8,
+    "runic": 1
+  },
+  "workingInfusionRecipeRegistrations": 56,
+  "ordinarySurvivalInfusionRecipePathsAvailable": 0,
+  "actualIntegratedServerScreenshots": 9,
+  "visuallyReviewedScreenshots": 9,
+  "bakedAltarBlockStates": 1347,
+  "actualRitualAndCasterPackets": true,
+  "actualRecipeEssentiaDebit": 25,
+  "actualConsumedReagents": 2,
+  "finalJarAmounts": [
+    20,
+    20,
+    20
+  ],
+  "loadedLegacyClientBlockEntityReplaced": true,
+  "readOnlyBookPreservesServerGameplayKnowledge": true,
+  "clientDesktop": "WinSta0\\ThaumcraftQA_5b03dde4abf243af82a078e5edc30c78",
+  "clientJvmExitCode": 0,
+  "clientDesktopOwnedWindows": 16,
+  "inputDesktopBefore": "Default",
+  "inputDesktopAfter": "Default",
+  "localJsonCount": 2773,
+  "jarResourceByteParityChecks": 3500,
+  "originalPngByteParityChecks": 597,
+  "originalJpgByteParityChecks": 7,
+  "originalOggByteParityChecks": 30,
+  "derivedEffectIconPixelChecks": 2,
+  "jarSha256": "c45c7addcbb6967bcecc59723f456c43f3f98d2d9d2378809b9807dd7842e692",
+  "terraBlenderSha256": "ca678c11b878ad9c7143636fbec911f29e2c1453a6cc091e16b14e6d9608fb5f",
+  "screenshots": [
+    {
+      "file": "tc6-infusion-unformed.png",
+      "sha256": "68493a4e50d55e69d991536eb0bdd42146d4a7a080ddc5fd596eb9cb52f59bd5",
+      "result": "pass",
+      "notes": "Eight raw stones, idle matrix, central/peripheral items and source jars visible; no missing textures."
+    },
+    {
+      "file": "tc6-infusion-formed.png",
+      "sha256": "ba13756b8cb2e03bc1a9a260ba549f7cb5f44a9bea88f1834e5e0cefe91f4031",
+      "result": "pass",
+      "notes": "Four oriented pillars replace raw stone; centre and pedestal inventories stay visible."
+    },
+    {
+      "file": "tc6-infusion-active.png",
+      "sha256": "9257dc26e1451b7826ef90073fb82950868018620664f9f7c6f4e75dfba2bf61",
+      "result": "pass",
+      "notes": "Activated matrix rotation and alpha-blended runes retain visible stone geometry; idle state agrees with caption."
+    },
+    {
+      "file": "tc6-infusion-crafting.png",
+      "sha256": "5c89ef2aced73df4621cc0a820eeeea55ade85c5a30758a6dbe8e9288cce5dc3",
+      "result": "pass",
+      "notes": "Actual halo rays visible during crafting; caption records twelve remaining essentia and real pedestal items."
+    },
+    {
+      "file": "tc6-infusion-complete.png",
+      "sha256": "7a70a6ec1132764a759b675c8e100a4b3641a905dd4b67be6f73d4fa74823743",
+      "result": "pass",
+      "notes": "Completion caption agrees with stopped crafting and zero remaining essentia; peripheral reagents gone and central output visible."
+    },
+    {
+      "file": "tc6-infusion-materials.png",
+      "sha256": "755448d6adbf5614718945049844d93bdf015302b1e0128300c29b3e652d901c",
+      "result": "pass",
+      "notes": "Arcane, Ancient and Eldritch matrices and pillars use three distinct original textures; stone detail remains visible beneath glow."
+    },
+    {
+      "file": "tc6-infusion-book-matrix.png",
+      "sha256": "511728ff193d55356932b17b8fbc07159a4d42b2730c90b01d09a4b50f9dfaba",
+      "result": "pass",
+      "notes": "Real book recipe shows four stones, Nitor, matrix result, 150 vis and six primal crystals; content stays within parchment."
+    },
+    {
+      "file": "tc6-infusion-book-elemental.png",
+      "sha256": "b96a444a663bbcb04ec9bb5954875058cf72f202e100cb50d3fbc300a18e673c",
+      "result": "pass",
+      "notes": "Real book page displays elemental axe, components, Aqua60 Instrumentum30 and instability1 without overlaps."
+    },
+    {
+      "file": "tc6-infusion-vis-resonator.png",
+      "sha256": "aaea4f81bdeda9cf541985ef9d7153041769ddf2fb2307285446de0b3d551608",
+      "result": "pass",
+      "notes": "Held resonator and synchronized aura HUD visible; no scanner target highlight or scan reward UI."
+    }
+  ],
+  "clientFixtureSourceSha256": "a012380eeabd9da6056873419fbd8d687de729a4ad9501a4df1d08d193d7d5da",
+  "logs": {
+    "infusion-0.15-gametest-build-queue.log": "38ef5169ec0ada5f7b3796dc7f33946d4f06c8b2090a1385260ce3af92f64dcd",
+    "infusion-client-infusion-015-client8-client.log": "5d8cc8fae4aa75131b1cc21d1b0be6bf13e1379a2923c3cab85a28ba42c1bc99",
+    "build-0.15-final.log": "adce794995d9d9ef451c2ed833cb7e8110651cc9c78f4424bdd943132bc9a73d",
+    "resources-0.15-final.log": "c36984949f48d7876080483d9b518a2ee9243023d817263e13020eaef0f2c67a",
+    "infusion-client-infusion-015-client8-prepare.log": "f3f50590cc4100174bfa04f3ff175e9996a69c8431e70ac79ba139806e931cca",
+    "infusion-client-infusion-015-client8-desktop.json": "1dd742aa9bbc1e3c61ae9cf9cd0b56f92e46a01c87aa8fc68dabe4e88bcbb857"
+  },
+  "limitations": [
+    "All56 infusion recipe research paths remain unavailable in ordinary survival; QA explicitly grants late facts",
+    "Creating a catalogue device does not implement its mechanics",
+    "Focus casting, Baubles slots, mirrors/transfuser, Flux Rift stability and full warp events remain incomplete",
+    "Flux goo finite flow/taint/slime mechanics and tainted champion healing remain incomplete",
+    "Native particles adapt original FX; no human survival run or independent multiplayer/launcher QA"
+  ]
+}

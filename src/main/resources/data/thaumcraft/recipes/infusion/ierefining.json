@@ -1,0 +1,24 @@
+{
+  "type": "thaumcraft:infusion",
+  "mode": "enchantment",
+  "enchantment": "REFINING",
+  "research": "INFUSIONENCHANTMENT",
+  "instability": 4,
+  "aspects": {
+    "ordo": 80,
+    "permutatio": 60
+  },
+  "components": [
+    {
+      "item": "minecraft:enchanted_book",
+      "damage": 0
+    },
+    {
+      "item": "thaumcraft:salis_mundus",
+      "damage": 0
+    }
+  ],
+  "display_central": {
+    "item": "minecraft:iron_pickaxe"
+  }
+}
