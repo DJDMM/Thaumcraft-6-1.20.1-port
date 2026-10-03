@@ -49,15 +49,19 @@ import java.util.concurrent.atomic.AtomicInteger;
 public final class AuromancyClientSmokeTest {
     private static final String WORLD="thaumcraft-auromancy-smoke-"+System.currentTimeMillis();
     private static final String[] SCENES={"empty","editor","configured","crafting","ritual","complete","selection","casting",
-            "projectile-editor","projectile-crafting","projectile-flight","frost-hit","frost-water","air-hit","earth-break"};
+            "projectile-editor","projectile-crafting","projectile-flight","frost-hit","frost-water","air-hit","earth-break",
+            "bolt-heal-editor","bolt-heal-crafting","bolt-heal-result","flux-hit","break-progress","break-harvest"};
     private static final BlockPos TABLE=new BlockPos(0,112,0);
     private static final AtomicInteger saved=new AtomicInteger();
+    private static final AtomicInteger beamSaved=new AtomicInteger();
     private static CompletableFuture<Void> work;
     private static TutorialSteps previousTutorial;
     private static boolean started,setup,prepared,captureRequested,captured,stopped,impactReady;
     private static int scene,phase,stableTicks,cowId;
     private static long began;
     private static float craftAura,castAura;
+    private static long boltReceived,boltRendered;
+    private static boolean beamCaptured;
     private AuromancyClientSmokeTest(){}
     private static void require(boolean ok,String why){if(!ok)throw new AssertionError(why);}
     private static ServerPlayer player(Minecraft mc){var p=mc.getSingleplayerServer().getPlayerList().getPlayer(mc.player.getUUID());require(p!=null,"Missing QA player");return p;}
@@ -184,8 +188,68 @@ public final class AuromancyClientSmokeTest {
                 if(phase==0){if(Math.abs(net.minecraft.util.Mth.wrapDegrees(mc.player.getYRot()-180))>1)return;phase=1;mc.gameMode.useItem(mc.player,InteractionHand.MAIN_HAND);return;}
                 if(!mc.level.isEmptyBlock(new BlockPos(0,113,0)))return;
                 if(phase==1){phase=2;submit(mc,()->{var p=player(mc);require(p.serverLevel().isEmptyBlock(new BlockPos(0,113,0)),"Earth client-only break");require(Math.abs(castAura-AuraManager.getVis(p.serverLevel(),TABLE)-3.5)<.01,"Earth cast+target extra .1vis");LogUtils.getLogger().info("THAUMCRAFT_AUROMANCY_ELEMENTAL_FLOW: source water frosted/scheduled; actual Air cast6damage/knockback/2.4vis; actual Earth cast glass harvest/3.4+.1vis; Air/Earth completed focus inputs are explicit gifted QA fixtures");});return;}
+            }else if(scene==15){
+                if(phase==0){phase=1;submit(mc,()->{
+                    var p=player(mc);var level=p.serverLevel();grant(p,"FOCUSBOLT");grant(p,"FOCUSHEAL");
+                    serverTable(mc).setItem(0,ItemStack.EMPTY);p.getInventory().clearContent();p.getInventory().selected=0;
+                    p.setItemInHand(InteractionHand.MAIN_HAND,CatalogModule.stack("caster_basic"));
+                    p.getInventory().setItem(9,CatalogModule.stack("focus_1"));
+                    p.getInventory().setItem(10,AspectCrystalItem.create(Aspect.ENERGY,2));p.getInventory().setItem(11,AspectCrystalItem.create(Aspect.LIFE,2));
+                    p.experienceLevel=10;AuraManager.drainVis(level,TABLE,Float.MAX_VALUE,false);AuraManager.addVis(level,TABLE,300);craftAura=300;
+                    level.setBlockAndUpdate(new BlockPos(0,113,0),Blocks.AIR.defaultBlockState());
+                    var cow=(Cow)level.getEntity(cowId);cow.clearFire();cow.removeAllEffects();cow.invulnerableTime=0;cow.setHealth(60);cow.setPos(.5,112,-8.5);cow.setDeltaMovement(Vec3.ZERO);
+                    level.setBlockAndUpdate(new BlockPos(0,111,-9),Blocks.STONE.defaultBlockState());
+                    p.connection.teleport(.5,112,3.5,180,0);p.inventoryMenu.broadcastChanges();});mc.setScreen(null);return;}
+                if(phase==1){phase=2;mc.gameMode.useItemOn(mc.player,InteractionHand.MAIN_HAND,new BlockHitResult(TABLE.getCenter(),Direction.NORTH,TABLE,false));return;}
+                if(!(mc.screen instanceof FocalManipulatorScreen screen))return;
+                if(phase==2){phase=3;mc.gameMode.handleInventoryMouseClick(screen.getMenu().containerId,1,0,ClickType.PICKUP,mc.player);
+                    mc.gameMode.handleInventoryMouseClick(screen.getMenu().containerId,0,0,ClickType.PICKUP,mc.player);return;}
+                if(phase==3){if(screen.getMenu().pending()||screen.getMenu().focus().isEmpty()||screen.getMenu().graph().nodes().isEmpty())return;
+                    phase=4;screen.selectForSmoke(1,FocusNodeRegistry.BOLT);screen.selectForSmoke(2,FocusNodeRegistry.HEAL);screen.setNameForSmoke("TC6 Bolt Heal");return;}
+                var compiled=FocusCompiler.compile(screen.getMenu().graph(),screen.getMenu().focus(),screen.getMenu().knowledge()::isResearchCompleteStrict);
+                if(screen.getMenu().pending()||!compiled.success()||!compiled.plan().effect().key().equals(FocusNodeRegistry.HEAL))return;
+                require(compiled.plan().complexity()==9&&compiled.plan().craftVis()==93,"Wrong Bolt Heal paid editor plan");
+            }else if(scene==16){
+                if(!(mc.screen instanceof FocalManipulatorScreen screen))return;
+                if(!prepared){prepared=true;screen.getMenu().start();return;}
+                if(!screen.getMenu().busy()||screen.getMenu().remainingVis()>=93)return;
+            }else if(scene==17){
+                if(phase==0){if(table.crafting()||FocusStacks.readPlan(table.getItem(0)).isEmpty())return;
+                    if(!(mc.screen instanceof FocalManipulatorScreen screen))return;phase=1;
+                    submit(mc,()->{var p=player(mc);require(p.experienceLevel==7&&p.getInventory().getItem(10).getCount()==1&&p.getInventory().getItem(11).getCount()==1,"Bolt Heal table XP/crystals");
+                        require(Math.abs(craftAura-AuraManager.getVis(p.serverLevel(),TABLE)-93)<.01,"Bolt Heal total table aura");castAura=AuraManager.getVis(p.serverLevel(),TABLE);});
+                    mc.gameMode.handleInventoryMouseClick(screen.getMenu().containerId,0,0,ClickType.QUICK_MOVE,mc.player);return;}
+                if(phase==1){int slot=focusSlot(mc.player,FocusNodeRegistry.HEAL);if(slot<0)return;phase=2;mc.setScreen(null);
+                    FocusSelectionNetwork.request(InteractionHand.MAIN_HAND,slot,mc.player.getMainHandItem(),mc.player.getInventory().getItem(slot));return;}
+                if(!installedEffect(mc,FocusNodeRegistry.HEAL))return;
+                if(phase==2){if(Math.abs(net.minecraft.util.Mth.wrapDegrees(mc.player.getYRot()-180))>1)return;
+                    boltReceived=FocusBoltClient.receivedCount();boltRendered=FocusBoltClient.renderedCount();phase=3;mc.gameMode.useItem(mc.player,InteractionHand.MAIN_HAND);return;}
+                if(phase==3){phase=4;submit(mc,()->{var p=player(mc);var cow=(Cow)p.serverLevel().getEntity(cowId);
+                    require(cow.getHealth()==61,"Real Bolt Heal failed beyond Touch reach");require(Math.abs(castAura-AuraManager.getVis(p.serverLevel(),TABLE)-1.8)<.01,"Bolt Heal single cast debit");});return;}
+                if(FocusBoltClient.receivedCount()<=boltReceived||FocusBoltClient.renderedCount()<=boltRendered||beamSaved.get()!=1)return;
+            }else if(scene==18){
+                if(!prepared){prepared=true;submit(mc,()->prepareEffect(mc,FocusNodeRegistry.FLUX,3));return;}
+                if(!installedEffect(mc,FocusNodeRegistry.FLUX)){int slot=focusSlot(mc.player,FocusNodeRegistry.FLUX);if(slot>=0)FocusSelectionNetwork.request(InteractionHand.MAIN_HAND,slot,mc.player.getMainHandItem(),mc.player.getInventory().getItem(slot));return;}
+                if(phase==0){if(Math.abs(net.minecraft.util.Mth.wrapDegrees(mc.player.getYRot()-180))>1)return;phase=1;mc.gameMode.useItem(mc.player,InteractionHand.MAIN_HAND);return;}
+                if(phase==1){phase=2;submit(mc,()->{var p=player(mc);require(((Cow)p.serverLevel().getEntity(cowId)).getHealth()==94,"Flux damage6");require(Math.abs(castAura-AuraManager.getVis(p.serverLevel(),TABLE)-2.2)<.01,"Flux single debit2.2");});return;}
+            }else if(scene==19){
+                if(!prepared){prepared=true;submit(mc,()->{
+                    prepareEffect(mc,FocusNodeRegistry.BREAK,1);var p=player(mc);var blank=CatalogModule.stack("focus_1");
+                    var graph=ElementalFocusGraphGameTests.graph(FocusNodeRegistry.TOUCH,FocusNodeRegistry.BREAK,Map.of(),Map.of("power",1,"silk",1,"fortune",0));
+                    p.getInventory().setItem(9,FocusStacks.apply(blank,FocusCompiler.compile(graph,blank,k->true).plan(),"TC6 Break Silk"));p.inventoryMenu.broadcastChanges();
+                    p.serverLevel().getEntity(cowId).setPos(20,112,20);p.serverLevel().setBlockAndUpdate(new BlockPos(0,113,0),Blocks.STONE.defaultBlockState());});return;}
+                if(!installedEffect(mc,FocusNodeRegistry.BREAK)){int slot=focusSlot(mc.player,FocusNodeRegistry.BREAK);if(slot>=0)FocusSelectionNetwork.request(InteractionHand.MAIN_HAND,slot,mc.player.getMainHandItem(),mc.player.getInventory().getItem(slot));return;}
+                if(phase==0){if(Math.abs(net.minecraft.util.Mth.wrapDegrees(mc.player.getYRot()-180))>1)return;phase=1;mc.gameMode.useItem(mc.player,InteractionHand.MAIN_HAND);return;}
+                if(phase==1){phase=2;submit(mc,()->{var p=player(mc);require(p.serverLevel().getBlockState(new BlockPos(0,113,0)).is(Blocks.STONE),"Break skipped original delay");
+                    require(Math.abs(castAura-AuraManager.getVis(p.serverLevel(),TABLE)-1.8)<.01,"Break target debit occurred before harvest");});return;}
+            }else if(scene==20){
+                if(!mc.level.isEmptyBlock(new BlockPos(0,113,0)))return;
+                if(!prepared){prepared=true;submit(mc,()->{var p=player(mc);var level=p.serverLevel();var pos=new BlockPos(0,113,0);
+                    require(level.isEmptyBlock(pos),"Break client-only block removal");require(Math.abs(castAura-AuraManager.getVis(level,TABLE)-2.3)<.01,"Break cast1.8+Silk target0.5vis");
+                    require(level.getEntitiesOfClass(net.minecraft.world.entity.item.ItemEntity.class,new AABB(pos).inflate(.75)).stream().anyMatch(drop->drop.getItem().is(Items.STONE)),"Break Silk did not produce stone");
+                    LogUtils.getLogger().info("THAUMCRAFT_AUROMANCY_FOUR_FLOW: real Bolt Heal table93vis/3XP/Potentia+Victus and physical install/use packet heal1 at12blocks/cast1.8vis; client received/rendered original Bolt; gifted Flux cast6damage/2.2vis; gifted delayed Break Silk real stone loot/1.8+.5vis");});return;}
             }
-            if(!captureRequested && !captured && ++stableTicks>=(scene==10?1:12))captureRequested=true;
+            if(!captureRequested && !captured && ++stableTicks>=(scene==10?1:scene==19?6:12))captureRequested=true;
             if(captured && saved.get()>scene){scene++;phase=0;stableTicks=0;prepared=false;captured=false;captureRequested=false;}
         }catch(Throwable error){fail(mc,error);}
     }
@@ -204,7 +268,14 @@ public final class AuromancyClientSmokeTest {
         p.connection.teleport(.5,112,3.5,180,0);castAura=AuraManager.getVis(level,TABLE);
     }
     @SubscribeEvent public static void rendered(TickEvent.RenderTickEvent event){
-        if(event.phase!=TickEvent.Phase.END || !Boolean.getBoolean("thaumcraft.auromancySmokeTest") || stopped || !captureRequested || captured)return;
+        if(event.phase!=TickEvent.Phase.END || !Boolean.getBoolean("thaumcraft.auromancySmokeTest") || stopped)return;
+        if(scene==17&&phase>=3&&!beamCaptured&&FocusBoltClient.renderedCount()>boltRendered){
+            beamCaptured=true;var mc=Minecraft.getInstance();try{
+                String name="tc6-auromancy-bolt-beam.png";File file=new File(new File(mc.gameDirectory,"screenshots"),name);Files.deleteIfExists(file.toPath());
+                Screenshot.grab(mc.gameDirectory,name,mc.getMainRenderTarget(),message->{if(file.isFile()&&file.length()>0){beamSaved.incrementAndGet();LogUtils.getLogger().info("THAUMCRAFT_AUROMANCY_BOLT_IMAGE: {}",file.getAbsolutePath());}else mc.execute(()->fail(mc,new AssertionError("Missing transient Bolt screenshot")));});
+            }catch(Throwable error){fail(mc,error);}return;
+        }
+        if(!captureRequested||captured)return;
         var mc=Minecraft.getInstance();try{captured=true;captureRequested=false;String name="tc6-auromancy-"+SCENES[scene]+".png";
             File file=new File(new File(mc.gameDirectory,"screenshots"),name);Files.deleteIfExists(file.toPath());
             Screenshot.grab(mc.gameDirectory,name,mc.getMainRenderTarget(),message->{if(file.isFile() && file.length()>0){saved.incrementAndGet();LogUtils.getLogger().info("THAUMCRAFT_AUROMANCY_SMOKE_IMAGE: {}",file.getAbsolutePath());}else mc.execute(()->fail(mc,new AssertionError("Missing screenshot")));});
@@ -237,6 +308,7 @@ public final class AuromancyClientSmokeTest {
         Cow cow=EntityType.COW.create(level);cow.setNoAi(true);cow.getAttribute(Attributes.MAX_HEALTH).setBaseValue(100);cow.setHealth(100);cow.setPos(.5,112,.5);level.addFreshEntity(cow);cowId=cow.getId();
     }
     private static void audit(Minecraft mc){
+        require(mc.getResourceManager().getResource(net.minecraft.resources.ResourceLocation.fromNamespaceAndPath("thaumcraft","textures/misc/essentia.png")).isPresent(),"Missing original Bolt beam texture");
         var block=CatalogBlocks.block("wand_workbench");for(var state:block.getStateDefinition().getPossibleStates()){
             var model=mc.getBlockRenderer().getBlockModel(state);require(model!=mc.getModelManager().getMissingModel(),"Missing focal block model");
             for(var quad:model.getQuads(state,null,net.minecraft.util.RandomSource.create(7)))require(!quad.getSprite().contents().name().getPath().equals("missingno"),"Missing focal sprite");

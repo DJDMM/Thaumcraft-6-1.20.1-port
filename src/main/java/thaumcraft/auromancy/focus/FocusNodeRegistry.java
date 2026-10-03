@@ -8,6 +8,7 @@ import java.util.*;
 public final class FocusNodeRegistry {
     public static final String ROOT = "ROOT", TOUCH = "thaumcraft.TOUCH", FIRE = "thaumcraft.FIRE";
     public static final String PROJECTILE="thaumcraft.PROJECTILE", AIR="thaumcraft.AIR", FROST="thaumcraft.FROST", EARTH="thaumcraft.EARTH";
+    public static final String BOLT="thaumcraft.BOLT", FLUX="thaumcraft.FLUX", HEAL="thaumcraft.HEAL", BREAK="thaumcraft.BREAK";
     public enum Type { MEDIUM, EFFECT, MOD }
     public enum Supply { TARGET, TRAJECTORY }
 
@@ -85,7 +86,7 @@ public final class FocusNodeRegistry {
         Map<String, Definition> definitions = new LinkedHashMap<>();
         add(definitions, ROOT, Type.MEDIUM, "BASEAUROMANCY", null, 10066329, "root", true, Set.of(), BOTH, false);
         add(definitions, TOUCH, Type.MEDIUM, "BASEAUROMANCY", "aversio", 11371909, "touch", true, TRAJECTORY, BOTH, false);
-        add(definitions, "thaumcraft.BOLT", Type.MEDIUM, "FOCUSBOLT", "potentia", 11377029, "bolt", false, TRAJECTORY, BOTH, false);
+        add(definitions, BOLT, Type.MEDIUM, "FOCUSBOLT", "potentia", 11377029, "bolt", true, TRAJECTORY, BOTH, false);
         add(definitions, PROJECTILE, Type.MEDIUM, "FOCUSPROJECTILE@2", "motus", 11382149, "projectile", true, TRAJECTORY, BOTH, false,
                 list("option", "focus.common.options", "FOCUSPROJECTILE", new int[]{0,1,2,3}, "focus.common.none", "focus.projectile.bouncy", "focus.projectile.seeking.hostile", "focus.projectile.seeking.friendly"),
                 range("speed", "focus.projectile.speed", 1, 5));
@@ -101,15 +102,15 @@ public final class FocusNodeRegistry {
                 range("power", "focus.common.power", 1, 5), range("duration", "focus.common.duration", 2, 10));
         add(definitions, AIR, Type.EFFECT, "FOCUSELEMENTAL", "aer", 16777086, "air", true, TARGET, Set.of(), false, range("power", "focus.common.power", 1, 5));
         add(definitions, EARTH, Type.EFFECT, "FOCUSELEMENTAL", "terra", 5685248, "earth", true, TARGET, Set.of(), false, range("power", "focus.common.power", 1, 5));
-        add(definitions, "thaumcraft.FLUX", Type.EFFECT, "FOCUSFLUX", "vitium", 8388736, "flux", false, TARGET, Set.of(), false, range("power", "focus.common.power", 1, 5));
-        add(definitions, "thaumcraft.BREAK", Type.EFFECT, "FOCUSBREAK", "perditio", 9063176, "break", false, TARGET, Set.of(), false,
+        add(definitions, FLUX, Type.EFFECT, "FOCUSFLUX", "vitium", 8388736, "flux", true, TARGET, Set.of(), false, range("power", "focus.common.power", 1, 5));
+        add(definitions, BREAK, Type.EFFECT, "FOCUSBREAK", "perditio", 9063176, "break", true, TARGET, Set.of(), false,
                 range("power", "focus.break.power", 1, 5), fortuneSetting(), silkSetting());
         add(definitions, "thaumcraft.RIFT", Type.EFFECT, "FOCUSRIFT", "alienis", 3084645, "rift", false, TARGET, Set.of(), false,
                 list("depth", "focus.rift.depth", null, new int[]{8,16,24,32}, "8", "16", "24", "32"), range("duration", "focus.common.duration", 2, 10));
         add(definitions, "thaumcraft.EXCHANGE", Type.EFFECT, "FOCUSEXCHANGE", "permutatio", 5735255, "exchange", false, TARGET, Set.of(), false, fortuneSetting(), silkSetting());
         add(definitions, "thaumcraft.CURSE", Type.EFFECT, "FOCUSCURSE", "mortuus", 6946821, "curse", false, TARGET, Set.of(), false,
                 range("power", "focus.common.power", 1, 5), range("duration", "focus.common.duration", 1, 10));
-        add(definitions, "thaumcraft.HEAL", Type.EFFECT, "FOCUSHEAL", "victus", 14548997, "heal", false, TARGET, Set.of(), false, range("power", "focus.heal.power", 1, 5));
+        add(definitions, HEAL, Type.EFFECT, "FOCUSHEAL", "victus", 14548997, "heal", true, TARGET, Set.of(), false, range("power", "focus.heal.power", 1, 5));
         add(definitions, "thaumcraft.SCATTER", Type.MOD, "FOCUSSCATTER", null, 10066329, "scatter", false, TRAJECTORY, TRAJECTORY, true,
                 range("forks", "focus.scatter.forks", 2, 10), list("cone", "focus.scatter.cone", null, new int[]{10,30,60,90,180,270,360}, "10", "30", "60", "90", "180", "270", "360"));
         add(definitions, "thaumcraft.SPLITTARGET", Type.MOD, "FOCUSSPLIT", null, 10066329, "split_target", false, TARGET, TARGET, false);

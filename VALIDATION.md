@@ -1,4 +1,76 @@
-# Проверка сборки 0.17.0-dev
+# Проверка сборки 0.18.0-dev
+
+Дата: 2026-10-03. Луч, Flux, Heal и Break **TC6 6.1.BETA26**,
+Forge47.4.10 / Java17. Контракты:
+[луч](docs/tc6/FOCUS-BOLT-BETA26-AUDIT.md),
+[Flux/Heal](docs/tc6/FOCUS-FLUX-HEAL-BETA26-AUDIT.md),
+[добыча](docs/tc6/FOCUS-BREAK-BETA26-AUDIT.md),
+[четыре исследования](docs/tc6/AUROMANCY-FOUR-PROGRESSION-BETA26-AUDIT.md).
+
+Итог: **499/499 required серверных GameTests**, build/reobfJar и проверка
+ресурсов прошли. К прежним441 добавлены58:6 Bolt,3 graph,
+19 Flux/Heal,19 Break,7 progression и4 table manufacture/save/load.
+Проверены настоящие health/armor/Forge callbacks и damage attribution,
+ROOT self-heal, дальность/LOS луча, paid continuation без повторного списания,
+процесс изготовления и paid NBT, strict gates/atomic XP+crystals,
+реальные сканы аспектов и расход зачарованных предметов/книг исследований.
+Break проверяет hardness progression, реальные crack packets, zero-based
+ordinal delay, main-hand-at-completion/placeholder enchantments, loot/NBT/XP,
+target-chunk vis, отмену break event, отсутствие износа, замену блока,
+insufficient aura, detached/reentrant очередь и cleanup при выгрузке.
+
+Первый полный прогон выявил два устаревших assertions о закрытых узлах
+и две ошибки новых fixtures: unmodifiable player-list witness и позиции
+разных aura chunks. Assertions обновлены по новой доступности; наблюдатель
+и позиции исправлены без ослабления условий. Финальный серверный прогон —
+`validation/focus-018-gametest2.log`, свежий собственный QA-мир.
+Прежние QA-миры сохранены под проверенными соседними путями.
+
+Финальный клиент **four-018-client3:21/21 сцен и отдельный transient Bolt
+frame, всего22 PNG**, все просмотрены через контактный лист; новая дуга,
+редактор Bolt Heal и трещины дополнительно просмотрены в полном размере.
+Настоящие menu/C2S создают Bolt Heal за93vis/3XP/Potentia+Victus; после
+physical selection/use-item packet корова в12 блоках получает1hp за
+единственный расход1.8vis. S2C пакет реально получен, дуга отрисована и
+снята до её исчезновения. В QA под дальней целью добавлена опора.
+Flux/Break используют явно подаренные готовые фокусы, физическую установку
+и реальные use packets:6damage/2.2vis и постепенная добыча камня с Silk,
+stone loot и1.8+0.5vis. Реальное изготовление этих эффектов и save/reload
+отдельно проверены серверными тестами. Исследования стола, начальная аура
+и фиксированная лунная фаза остаются явно указанными fixtures; игровая
+прогрессия отдельно проходит через scans/payments без выдачи новых стадий.
+Прежние15 клиентских сцен тоже повторно прошли.
+
+Client1 выявил коллизию автоматических ASM event invokers двух вложенных
+`Registration` в одном пакете: новый слушатель переименован в уникальный
+`BoltRegistration`, оба сетевых канала присутствуют в финальном handshake.
+Client2 прошёл поведение, но журнал показал отсутствующую beam texture;
+оригинальная `essentia.png` извлечена побайтово из BETA26. Client3 проверяет
+её доступность заранее; ошибок texture load/renderer/инициализации нет.
+Существующий алгоритм ауры и обычные миры для QA не изменялись.
+
+JVM завершилась0 на скрытом WinSta0 desktop,16 собственных окон,
+input desktop Default/Default. Не использовались переключение рабочего
+стола, активация окна или глобальный ввод; ручные игровые миры не тронуты.
+
+Ресурсы:2776JSON,3530 побайтовых проверок ресурсов JAR против исходников,
+623PNG/7JPG/31OGG совпадают с закреплённым BETA26, два derived effect icons
+совпадают по пикселям. CRC и byte parity JAR/mods ZIP/source ZIP проверены;
+source ZIP содержит итоговые документы и artifact report.
+
+JAR SHA-256:
+`bb8ce2979863f18ed4af67be42e66d12f144071f80e1835b94027886b5695192`.
+Проверяемые хеши, состав и пределы доказательства:
+[artifact-report-0.18.json](validation/artifact-report-0.18.json).
+
+**29** канонических записей и **11/21** типов узлов работают.
+Остальные10, Advanced/Greater, ветвления и поздние устройства ещё закрыты;
+infusion остаётся9/56 доступных путей и47 поздних gates. Impact particles
+адаптированы к native API, Bolt join tessellation — к современным quads.
+Полное ручное survival-прохождение и независимые multiplayer-клиенты
+этими fixtures не подтверждаются.
+
+## История: 0.17.0-dev
 
 Дата: 2026-10-03. Снаряды и стихийные фокусы **TC6 6.1.BETA26**,
 Forge47.4.10 / Java17. Контракты и явные адаптации — [AUROMANCY.md](AUROMANCY.md),

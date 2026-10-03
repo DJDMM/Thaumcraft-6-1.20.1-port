@@ -49,9 +49,11 @@ public final class ElementalProgressionGameTests {
         completeBase(state);
         for (String key : new String[]{"FOCUSELEMENTAL", "FOCUSPROJECTILE"})
             result(helper, ResearchNetwork.processAdvance(player, key, 0), ResearchProgression.Result.STARTED);
-        helper.assertTrue(ResearchCatalog.entries().stream().filter(entry -> ResearchProgression.isImplemented(entry.key())).count() == 25,
-                "Two supported branches changed the canonical inventory beyond25");
-        for (String key : new String[]{"FOCUSBOLT", "FOCUSCLOUD", "FOCUSFLUX", "FOCUSBREAK", "FOCUSADVANCED", "FOCUSGREATER", "FORTRESSMASK"})
+        helper.assertTrue(ResearchCatalog.entries().stream().filter(entry -> ResearchProgression.isImplemented(entry.key())).count() == 29,
+                "Supported branches changed the canonical inventory beyond29");
+        for (String key : new String[]{"FOCUSBOLT", "FOCUSFLUX", "FOCUSHEAL", "FOCUSBREAK"})
+            result(helper, ResearchNetwork.processAdvance(player, key, 0), ResearchProgression.Result.LOCKED);
+        for (String key : new String[]{"FOCUSCLOUD", "FOCUSADVANCED", "FOCUSGREATER", "FORTRESSMASK"})
             result(helper, ResearchNetwork.processAdvance(player, key, 0), ResearchProgression.Result.UNSUPPORTED);
         player.setItemInHand(InteractionHand.MAIN_HAND, ItemStack.EMPTY);
         result(helper, ResearchNetwork.processAdvance(player, "FOCUSELEMENTAL", 1), ResearchProgression.Result.NO_BOOK);

@@ -210,7 +210,7 @@ public final class FocalManipulatorGameTests {
         var socket=new FocusGraph(List.of(new FocusGraph.Node(0,-1,List.of(1),0,0,"ROOT",Map.of()),new FocusGraph.Node(1,0,List.of(),0,1,"",Map.of())));
         edit(f,socket,"");result(h,f.table.start(f.player,f.table.revision()),FocalManipulatorResult.INVALID);
         var unsupported=new FocusGraph(List.of(new FocusGraph.Node(0,-1,List.of(1),0,0,"ROOT",Map.of()),
-                new FocusGraph.Node(1,0,List.of(),0,1,"thaumcraft.BOLT",Map.of())));
+                new FocusGraph.Node(1,0,List.of(),0,1,"thaumcraft.CLOUD",Map.of())));
         result(h,f.table.edit(f.player,f.table.revision(),unsupported.save(),""),FocalManipulatorResult.UNSUPPORTED);
         var malformed=FocusGraph.touchFire(1,0).save();malformed.getList("nodes",Tag.TAG_COMPOUND).getCompound(2).putInt("setting.power",99);
         result(h,f.table.edit(f.player,f.table.revision(),malformed,""),FocalManipulatorResult.INVALID);

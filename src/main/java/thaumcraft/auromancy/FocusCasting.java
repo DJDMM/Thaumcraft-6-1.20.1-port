@@ -54,7 +54,13 @@ public final class FocusCasting {
         if(plan.effect().key().equals(thaumcraft.auromancy.focus.FocusNodeRegistry.FIRE))
             level.playSound(null, player.blockPosition().above(), SoundEvents.FIRECHARGE_USE, SoundSource.PLAYERS,
                     1, 1 + (float)(level.random.nextGaussian() * .05));
-        else FocusEffects.playCastSound(level,player,plan.effect().key());
+        else {
+            FocusEffects.playCastSound(level,player,plan.effect().key());
+            AdvancedFocusEffects.playCastSound(level,player,plan.effect().key());
+            if(plan.effect().key().equals(thaumcraft.auromancy.focus.FocusNodeRegistry.BREAK))
+                level.playSound(null,player.blockPosition().above(),SoundEvents.END_GATEWAY_SPAWN,SoundSource.PLAYERS,.1F,
+                        2F+(float)(level.random.nextGaussian()*.05000000074505806));
+        }
         Vec3 source = player.getEyePosition().add(0, -.10000000149011612, 0);
         FocusExecution.resume(player,plan,1,new EntityHitResult(player,player.position()),source,player.getLookAngle().normalize());
         player.swing(hand, true);
@@ -67,8 +73,15 @@ public final class FocusCasting {
     }
     record Touch(HitResult target, Vec3 trajectory) {}
     static Touch traceTouch(ServerPlayer player, Vec3 start,Vec3 look) {
+        return traceRay(player,start,look,player.getBlockReach());
+    }
+    /** Bolt inherits Touch's original entity-first targeting, with its own fixed sixteen-block range. */
+    static Touch traceRay(ServerPlayer player, Vec3 start, Vec3 look, double range) {
         ServerLevel level = player.serverLevel();
-        double range = player.getBlockReach();
+        if (!Double.isFinite(start.x) || !Double.isFinite(start.y) || !Double.isFinite(start.z)
+                || !Double.isFinite(look.x) || !Double.isFinite(look.y) || !Double.isFinite(look.z)
+                || look.lengthSqr()<1e-12) return new Touch(null,start);
+        look=look.normalize();
         if (!Double.isFinite(range) || range <= 0 || range > 32) return new Touch(null, start);
         Vec3 end = start.add(look.scale(range));
         if (!loadedRay(level, start, end)) return new Touch(null, start);

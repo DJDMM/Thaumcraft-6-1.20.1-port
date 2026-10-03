@@ -85,7 +85,7 @@ public final class FocusCompiler {
         for (int index = 0; index < ordered.size(); index++) {
             FocusGraph.Node node = ordered.get(index);
             if (node.children().size() != (index == ordered.size()-1 ? 0 : 1)
-                    || index > 0 && index < ordered.size()-1 && !Set.of(FocusNodeRegistry.TOUCH,FocusNodeRegistry.PROJECTILE).contains(node.key()))
+                    || index > 0 && index < ordered.size()-1 && !Set.of(FocusNodeRegistry.TOUCH,FocusNodeRegistry.PROJECTILE,FocusNodeRegistry.BOLT).contains(node.key()))
                 return Result.failure("unsupported_shape");
         }
         Map<String, Integer> occurrences = new HashMap<>(), crystals = new LinkedHashMap<>();

@@ -18,11 +18,15 @@ public final class FocusExecution {
             var node=plan.graph().nodes().get(i);
             if(node.key().equals(FocusNodeRegistry.TOUCH)){
                 var trace=FocusCasting.traceTouch(caster,source,direction);source=trace.trajectory();target=trace.target();
+            }else if(node.key().equals(FocusNodeRegistry.BOLT)){
+                var trace=FocusBoltMedium.trace(caster,plan,source,direction);source=trace.trajectory();target=trace.target();
             }else if(node.key().equals(FocusNodeRegistry.PROJECTILE)){
                 FocusProjectileEntity.spawn(caster,plan,i+1,source,direction,node.settings().get("speed"),node.settings().get("option"));
                 return;
             }else if(target!=null){
                 if(node.key().equals(FocusNodeRegistry.FIRE))FocusCasting.applyFire(caster.serverLevel(),caster,target,node.settings().get("power"),node.settings().get("duration"));
+                else if(node.key().equals(FocusNodeRegistry.FLUX)||node.key().equals(FocusNodeRegistry.HEAL))AdvancedFocusEffects.apply(caster.serverLevel(),caster,node,target,direction);
+                else if(node.key().equals(FocusNodeRegistry.BREAK))FocusBreakEffect.apply(caster.serverLevel(),caster,node,target,direction);
                 else FocusEffects.apply(caster.serverLevel(),caster,node,target,direction);
             }
         }

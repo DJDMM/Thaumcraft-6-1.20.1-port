@@ -20,7 +20,7 @@ public final class ResearchProgression {
             "UNLOCKINFUSION", "BASEINFUSION", "ESSENTIASMELTER", "WARDEDJARS", "TUBES",
             "UNLOCKAUROMANCY", "INFUSION", "INFUSIONBOOST",
             "BASEAUROMANCY", "RECHARGEPEDESTAL", "BOOTSTRAVELLER", "ELEMENTALTOOLS", "ARMORFORTRESS",
-            "FOCUSELEMENTAL", "FOCUSPROJECTILE");
+            "FOCUSELEMENTAL", "FOCUSPROJECTILE", "FOCUSBOLT", "FOCUSFLUX", "FOCUSHEAL", "FOCUSBREAK");
     private static final Set<String> REMAINING_LESSONS = Set.of("PORT_TALLOW");
     private static final Set<String> OLD_PROFILE_LESSONS = Set.of("PORT_START", "PORT_SCAN", "PORT_ALCHEMY",
             "PORT_NITOR", "PORT_ALUMENTUM", "PORT_BRASS", "PORT_THAUMIUM");
@@ -217,9 +217,33 @@ public final class ResearchProgression {
             return template;
         }
         boolean matches(ItemStack stack) {
+            // BETA26 InventoryUtils accepts and consumes any item with the requested
+            // enchantment, including a stored enchanted book. Numeric legacy IDs are
+            // translated explicitly; unrelated name, wear and extra enchantments do
+            // not restrict this placeholder predicate.
+            if (matchesEnchantedPlaceholder(stack)) return true;
             // Share the audited found-to-template relaxed comparison with theory cards.
             // In particular Aspects is one complete list, not a subset of a mixed phial.
             return thaumcraft.research.theory.TheoryCard.matchesRequirement(stack, template());
+        }
+        private boolean matchesEnchantedPlaceholder(ItemStack stack) {
+            if (stack.isEmpty() || !item.toString().equals("thaumcraft:enchanted_placeholder") || nbt == null) return false;
+            var wanted = nbt.getList("ench", net.minecraft.nbt.Tag.TAG_COMPOUND);
+            if (wanted.isEmpty()) return false;
+            var actual = net.minecraft.world.item.enchantment.EnchantmentHelper.getEnchantments(stack);
+            for (int index = 0; index < wanted.size(); index++) {
+                var requirement = wanted.getCompound(index);
+                var enchantment = switch (requirement.getShort("id")) {
+                    case 0 -> net.minecraft.world.item.enchantment.Enchantments.ALL_DAMAGE_PROTECTION;
+                    case 16 -> net.minecraft.world.item.enchantment.Enchantments.SHARPNESS;
+                    case 33 -> net.minecraft.world.item.enchantment.Enchantments.SILK_TOUCH;
+                    case 35 -> net.minecraft.world.item.enchantment.Enchantments.BLOCK_FORTUNE;
+                    default -> null;
+                };
+                if (enchantment == null || !actual.containsKey(enchantment)
+                        || actual.get(enchantment) < requirement.getShort("lvl")) return false;
+            }
+            return true;
         }
     }
 }
