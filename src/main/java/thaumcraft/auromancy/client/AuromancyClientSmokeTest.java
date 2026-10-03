@@ -48,12 +48,13 @@ import java.util.concurrent.atomic.AtomicInteger;
 @Mod.EventBusSubscriber(modid="thaumcraft",value=Dist.CLIENT)
 public final class AuromancyClientSmokeTest {
     private static final String WORLD="thaumcraft-auromancy-smoke-"+System.currentTimeMillis();
-    private static final String[] SCENES={"empty","editor","configured","crafting","ritual","complete","selection","casting"};
+    private static final String[] SCENES={"empty","editor","configured","crafting","ritual","complete","selection","casting",
+            "projectile-editor","projectile-crafting","projectile-flight","frost-hit","frost-water","air-hit","earth-break"};
     private static final BlockPos TABLE=new BlockPos(0,112,0);
     private static final AtomicInteger saved=new AtomicInteger();
     private static CompletableFuture<Void> work;
     private static TutorialSteps previousTutorial;
-    private static boolean started,setup,prepared,captureRequested,captured,stopped;
+    private static boolean started,setup,prepared,captureRequested,captured,stopped,impactReady;
     private static int scene,phase,stableTicks,cowId;
     private static long began;
     private static float craftAura,castAura;
@@ -118,12 +119,90 @@ public final class AuromancyClientSmokeTest {
                 if(phase==2){phase=3;submit(mc,()->{var p=player(mc);var cow=(Cow)p.serverLevel().getEntity(cowId);require(cow!=null && cow.getHealth()==96,"Actual spell did not hurt server cow by4");
                     require(Math.abs(castAura-AuraManager.getVis(p.serverLevel(),p.blockPosition())-.8)<.01,"Actual spell did not pay .8 aura");
                     require(p.experienceLevel==8,"Casting took XP");LogUtils.getLogger().info("THAUMCRAFT_AUROMANCY_REAL_FLOW: actual menu insert/edit/start ->2XP+2crystals+43vis -> completed focus -> physical selection packet ->.8vis+4fire damage");});return;}
+            }else if(scene==8){
+                if(!prepared){prepared=true;mc.setScreen(null);submit(mc,()->{
+                    var p=player(mc);var level=p.serverLevel();
+                    p.getInventory().setItem(9,CatalogModule.stack("focus_1"));
+                    p.getInventory().setItem(10,AspectCrystalItem.create(Aspect.MOTION,2));p.getInventory().setItem(11,AspectCrystalItem.create(Aspect.COLD,2));p.experienceLevel=10;
+                    grant(p,"FOCUSELEMENTAL");grant(p,"FOCUSPROJECTILE");p.inventoryMenu.broadcastChanges();
+                    AuraManager.drainVis(level,TABLE,Float.MAX_VALUE,false);AuraManager.addVis(level,TABLE,200);craftAura=200;
+                    var chunk=level.getChunkAt(TABLE);chunk.addAndRegisterBlockEntity(new thaumcraft.catalog.blocks.CatalogBlockEntity(TABLE,level.getBlockState(TABLE)));
+                    thaumcraft.auromancy.table.LegacyFocalMigration.load(new net.minecraftforge.event.level.ChunkEvent.Load(chunk,false));
+                });return;}
+                if(phase==0){phase=1;submit(mc,()->require(serverTable(mc).isEmpty()&&!serverTable(mc).crafting(),"Legacy catalogue table did not migrate empty"));
+                    mc.gameMode.useItemOn(mc.player,InteractionHand.MAIN_HAND,new BlockHitResult(TABLE.getCenter(),Direction.NORTH,TABLE,false));return;}
+                if(!(mc.screen instanceof FocalManipulatorScreen screen))return;
+                if(phase==1){if(!screen.getMenu().canUse())return;phase=2;mc.gameMode.handleInventoryMouseClick(screen.getMenu().containerId,1,0,ClickType.PICKUP,mc.player);mc.gameMode.handleInventoryMouseClick(screen.getMenu().containerId,0,0,ClickType.PICKUP,mc.player);return;}
+                if(phase==2){if(screen.getMenu().pending()||screen.getMenu().focus().isEmpty()||screen.getMenu().graph().nodes().isEmpty())return;
+                    phase=3;screen.selectForSmoke(1,FocusNodeRegistry.PROJECTILE);screen.selectForSmoke(2,FocusNodeRegistry.FROST);screen.setNameForSmoke("TC6 Projectile Frost");return;}
+                var compiled=FocusCompiler.compile(screen.getMenu().graph(),screen.getMenu().focus(),screen.getMenu().knowledge()::isResearchCompleteStrict);
+                if(screen.getMenu().pending()||!compiled.success()||!compiled.plan().effect().key().equals(FocusNodeRegistry.FROST))return;
+                require(compiled.plan().complexity()==8&&compiled.plan().craftVis()==83,"Wrong Projectile Frost editor cost");
+            }else if(scene==9){
+                if(!(mc.screen instanceof FocalManipulatorScreen screen))return;
+                if(!prepared){prepared=true;screen.getMenu().start();return;}
+                if(!screen.getMenu().busy()||screen.getMenu().remainingVis()>=83)return;
+            }else if(scene==10){
+                if(table.crafting()||FocusStacks.readPlan(table.getItem(0)).isEmpty()&&phase==0)return;
+                if(phase==0){if(!(mc.screen instanceof FocalManipulatorScreen screen))return;phase=1;
+                    submit(mc,()->{var p=player(mc);require(p.experienceLevel==7&&p.getInventory().getItem(10).getCount()==1&&p.getInventory().getItem(11).getCount()==1,"Projectile table materials/XP");require(Math.abs(craftAura-AuraManager.getVis(p.serverLevel(),TABLE)-83)<.01,"Projectile table aura");});
+                    mc.gameMode.handleInventoryMouseClick(screen.getMenu().containerId,0,0,ClickType.QUICK_MOVE,mc.player);return;}
+                if(phase==1){int slot=focusSlot(mc.player,FocusNodeRegistry.FROST);if(slot<0)return;phase=2;mc.setScreen(null);FocusSelectionNetwork.request(InteractionHand.MAIN_HAND,slot,mc.player.getMainHandItem(),mc.player.getInventory().getItem(slot));return;}
+                if(FocusStacks.readPlan(FocusSelection.installed(mc.player.getMainHandItem())).map(p->!p.effect().key().equals(FocusNodeRegistry.FROST)).orElse(true))return;
+                if(phase==2){phase=3;submit(mc,()->{var p=player(mc);var cow=(Cow)p.serverLevel().getEntity(cowId);cow.clearFire();cow.removeAllEffects();cow.setHealth(100);cow.setPos(.5,112,-2.5);cow.setDeltaMovement(Vec3.ZERO);
+                    for(int z=-5;z<=4;z++)p.serverLevel().setBlockAndUpdate(new BlockPos(0,111,z),Blocks.STONE.defaultBlockState());
+                    p.connection.teleport(.5,112,3.5,180,0);castAura=AuraManager.getVis(p.serverLevel(),TABLE);});return;}
+                if(phase==3){if(Math.abs(net.minecraft.util.Mth.wrapDegrees(mc.player.getYRot()-180))>1)return;phase=4;mc.gameMode.useItem(mc.player,InteractionHand.MAIN_HAND);return;}
+                var moving=java.util.stream.StreamSupport.stream(mc.level.entitiesForRendering().spliterator(),false)
+                        .filter(e->e instanceof thaumcraft.auromancy.projectile.FocusProjectileEntity)
+                        .map(e->(thaumcraft.auromancy.projectile.FocusProjectileEntity)e).findFirst();
+                if(moving.isEmpty())return;
+                var projectile=moving.get();require(projectile.effectKey().equals(FocusNodeRegistry.FROST)
+                        && projectile.color()==FocusStacks.readPlan(FocusSelection.installed(mc.player.getMainHandItem())).orElseThrow().color()
+                        && projectile.ownerEntityId()==mc.player.getId()&&projectile.special()==0,"Projectile spawn/synced appearance differs from paid plan");
+                require(mc.getEntityRenderDispatcher().getRenderer(projectile) instanceof thaumcraft.auromancy.projectile.FocusProjectileRenderer,"Wrong projectile renderer");
+                if(phase==4){phase=5;LogUtils.getLogger().info("THAUMCRAFT_AUROMANCY_PROJECTILE_RENDER_AUDIT_OK: native spawn packet, owner, option, Frost color/effect and original mote renderer");}
+            }else if(scene==11){
+                if(!impactReady){submit(mc,()->{var p=player(mc);var cow=(Cow)p.serverLevel().getEntity(cowId);impactReady=cow.hasEffect(net.minecraft.world.effect.MobEffects.MOVEMENT_SLOWDOWN);
+                    if(impactReady){require(cow.getHealth()==96&&cow.getEffect(net.minecraft.world.effect.MobEffects.MOVEMENT_SLOWDOWN).getAmplifier()==1,"Projectile Frost impact damage/slowness");require(Math.abs(castAura-AuraManager.getVis(p.serverLevel(),TABLE)-1.6)<.01,"Projectile impact paid twice");require(p.experienceLevel==7,"Projectile casting spent XP");LogUtils.getLogger().info("THAUMCRAFT_AUROMANCY_PROJECTILE_FLOW: actual table83vis/3XP/motus+gelum -> physical installation -> moving native entity ->4damage/SlownessII -> single1.6vis; legacy table repaired");}});return;}
+            }else if(scene==12){
+                if(!prepared){prepared=true;submit(mc,()->{var p=player(mc);var level=p.serverLevel();var water=new BlockPos(4,112,4);
+                    // Contained source pool and a real camera footing keep this visual fixture above the ice.
+                    for(BlockPos pos:BlockPos.betweenClosed(2,111,2,6,111,6))level.setBlockAndUpdate(pos,Blocks.STONE.defaultBlockState());
+                    for(BlockPos pos:BlockPos.betweenClosed(2,112,2,6,112,6))if(pos.getX()==2||pos.getX()==6||pos.getZ()==2||pos.getZ()==6)level.setBlockAndUpdate(pos,Blocks.STONE.defaultBlockState());
+                    for(BlockPos pos:BlockPos.betweenClosed(3,112,3,5,112,5)){level.setBlockAndUpdate(pos.below(),Blocks.STONE.defaultBlockState());level.setBlockAndUpdate(pos,Blocks.WATER.defaultBlockState());}
+                    FocusEffects.apply(level,p,new FocusGraph.Node(1,0,List.of(),0,1,FocusNodeRegistry.FROST,Map.of("power",1,"duration",2)),new BlockHitResult(water.getCenter().add(0,.5,0),Direction.UP,water,false),new Vec3(0,-1,0));
+                    require(level.getBlockState(water).is(Blocks.FROSTED_ICE),"Frost did not freeze source water");level.setBlockAndUpdate(new BlockPos(8,114,8),Blocks.STONE.defaultBlockState());p.setDeltaMovement(Vec3.ZERO);p.connection.teleport(8.5,115,8.5,135,32);});return;}
+            }else if(scene==13){
+                if(!prepared){prepared=true;submit(mc,()->prepareEffect(mc,FocusNodeRegistry.AIR,5));return;}
+                if(!installedEffect(mc,FocusNodeRegistry.AIR)){int slot=focusSlot(mc.player,FocusNodeRegistry.AIR);if(slot>=0)FocusSelectionNetwork.request(InteractionHand.MAIN_HAND,slot,mc.player.getMainHandItem(),mc.player.getInventory().getItem(slot));return;}
+                if(phase==0){if(Math.abs(net.minecraft.util.Mth.wrapDegrees(mc.player.getYRot()-180))>1)return;phase=1;mc.gameMode.useItem(mc.player,InteractionHand.MAIN_HAND);return;}
+                if(phase==1){phase=2;submit(mc,()->{var p=player(mc);var cow=(Cow)p.serverLevel().getEntity(cowId);require(cow.getHealth()==94&&cow.getDeltaMovement().horizontalDistanceSqr()>0,"Air damage/knockback");require(Math.abs(castAura-AuraManager.getVis(p.serverLevel(),TABLE)-2.4)<.01,"Air cast cost");});return;}
+            }else if(scene==14){
+                if(!prepared){prepared=true;submit(mc,()->{prepareEffect(mc,FocusNodeRegistry.EARTH,5);var p=player(mc);p.serverLevel().getEntity(cowId).setPos(20,112,20);p.serverLevel().setBlockAndUpdate(new BlockPos(0,113,0),Blocks.GLASS.defaultBlockState());});return;}
+                if(!installedEffect(mc,FocusNodeRegistry.EARTH)){int slot=focusSlot(mc.player,FocusNodeRegistry.EARTH);if(slot>=0)FocusSelectionNetwork.request(InteractionHand.MAIN_HAND,slot,mc.player.getMainHandItem(),mc.player.getInventory().getItem(slot));return;}
+                if(phase==0){if(Math.abs(net.minecraft.util.Mth.wrapDegrees(mc.player.getYRot()-180))>1)return;phase=1;mc.gameMode.useItem(mc.player,InteractionHand.MAIN_HAND);return;}
+                if(!mc.level.isEmptyBlock(new BlockPos(0,113,0)))return;
+                if(phase==1){phase=2;submit(mc,()->{var p=player(mc);require(p.serverLevel().isEmptyBlock(new BlockPos(0,113,0)),"Earth client-only break");require(Math.abs(castAura-AuraManager.getVis(p.serverLevel(),TABLE)-3.5)<.01,"Earth cast+target extra .1vis");LogUtils.getLogger().info("THAUMCRAFT_AUROMANCY_ELEMENTAL_FLOW: source water frosted/scheduled; actual Air cast6damage/knockback/2.4vis; actual Earth cast glass harvest/3.4+.1vis; Air/Earth completed focus inputs are explicit gifted QA fixtures");});return;}
             }
-            if(!captureRequested && !captured && ++stableTicks>=12)captureRequested=true;
+            if(!captureRequested && !captured && ++stableTicks>=(scene==10?1:12))captureRequested=true;
             if(captured && saved.get()>scene){scene++;phase=0;stableTicks=0;prepared=false;captured=false;captureRequested=false;}
         }catch(Throwable error){fail(mc,error);}
     }
     private static int focusSlot(net.minecraft.world.entity.player.Player player){for(int i=0;i<36;i++)if(FocusStacks.readPlan(player.getInventory().getItem(i)).isPresent())return i;return -1;}
+    private static int focusSlot(net.minecraft.world.entity.player.Player player,String effect){for(int i=0;i<36;i++)if(FocusStacks.readPlan(player.getInventory().getItem(i)).map(p->p.effect().key().equals(effect)).orElse(false))return i;return -1;}
+    private static boolean installedEffect(Minecraft mc,String key){return FocusStacks.readPlan(FocusSelection.installed(mc.player.getMainHandItem())).map(p->p.effect().key().equals(key)).orElse(false);}
+    private static void grant(ServerPlayer p,String key){try{var method=PlayerKnowledge.class.getDeclaredMethod("setResearchStage",String.class,int.class);method.setAccessible(true);method.invoke(KnowledgeStore.get(p),key,ResearchCatalog.get(key).stages().size()+1);}catch(ReflectiveOperationException e){throw new IllegalStateException(e);}}
+    private static void prepareEffect(Minecraft mc,String key,int power){
+        var p=player(mc);var level=p.serverLevel();var blank=CatalogModule.stack(key.equals(FocusNodeRegistry.EARTH)?"focus_2":"focus_1");
+        var graph=new FocusGraph(List.of(new FocusGraph.Node(0,-1,List.of(1),0,0,FocusNodeRegistry.ROOT,Map.of()),
+                new FocusGraph.Node(1,0,List.of(2),0,1,FocusNodeRegistry.TOUCH,Map.of()),
+                new FocusGraph.Node(2,1,List.of(),0,2,key,Map.of("power",power))));
+        // Gift fixtures isolate each runtime effect; paid table crafting is exercised above and by server tests.
+        p.getInventory().setItem(9,FocusStacks.apply(blank,FocusCompiler.compile(graph,blank,k->true).plan(),"TC6 "+key));p.inventoryMenu.broadcastChanges();
+        var cow=(Cow)level.getEntity(cowId);cow.clearFire();cow.removeAllEffects();cow.invulnerableTime=0;cow.setHealth(100);cow.setPos(.5,112,.5);cow.setDeltaMovement(Vec3.ZERO);
+        p.connection.teleport(.5,112,3.5,180,0);castAura=AuraManager.getVis(level,TABLE);
+    }
     @SubscribeEvent public static void rendered(TickEvent.RenderTickEvent event){
         if(event.phase!=TickEvent.Phase.END || !Boolean.getBoolean("thaumcraft.auromancySmokeTest") || stopped || !captureRequested || captured)return;
         var mc=Minecraft.getInstance();try{captured=true;captureRequested=false;String name="tc6-auromancy-"+SCENES[scene]+".png";

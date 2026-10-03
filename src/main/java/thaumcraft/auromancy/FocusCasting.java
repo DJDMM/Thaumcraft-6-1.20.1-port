@@ -22,7 +22,7 @@ import thaumcraft.world.aura.AuraManager;
 import java.util.Map;
 import java.util.WeakHashMap;
 
-/** The BETA26 ROOT -> TOUCH -> FIRE executor. Targets and payment are entirely server-owned. */
+/** Server-owned focus payment/cooldown; delivery continues separately without paying twice. */
 public final class FocusCasting {
     public enum Result { INVALID, COOLDOWN, NO_VIS, CAST }
     private static final Map<ServerPlayer, Long> COOLDOWNS = new WeakHashMap<>();
@@ -51,27 +51,23 @@ public final class FocusCasting {
         ServerLevel level = player.serverLevel();
         if (AuraManager.drainVis(level, player.blockPosition(), price, true) < price) return Result.NO_VIS;
         if (AuraManager.drainVis(level, player.blockPosition(), price, false) < price) return Result.NO_VIS;
-        level.playSound(null, player.blockPosition().above(), SoundEvents.FIRECHARGE_USE, SoundSource.PLAYERS,
-                1, 1 + (float)(level.random.nextGaussian() * .05));
-        HitResult target = new EntityHitResult(player, player.position());
+        if(plan.effect().key().equals(thaumcraft.auromancy.focus.FocusNodeRegistry.FIRE))
+            level.playSound(null, player.blockPosition().above(), SoundEvents.FIRECHARGE_USE, SoundSource.PLAYERS,
+                    1, 1 + (float)(level.random.nextGaussian() * .05));
+        else FocusEffects.playCastSound(level,player,plan.effect().key());
         Vec3 source = player.getEyePosition().add(0, -.10000000149011612, 0);
-        for (var node : plan.graph().nodes()) if (node.key().equals("thaumcraft.TOUCH")) {
-            Touch trace = traceTouch(player, source);
-            source = trace.trajectory(); target = trace.target();
-        }
-        if (target != null) applyFire(level, player, target, plan.firePower(), plan.fireDuration());
+        FocusExecution.resume(player,plan,1,new EntityHitResult(player,player.position()),source,player.getLookAngle().normalize());
         player.swing(hand, true);
         return Result.CAST;
     }
 
     /** Original entity-first ray: .25 near exclusion, .8 minimum border and a line of sight to its eye. */
     public static HitResult touchTarget(ServerPlayer player) {
-        return traceTouch(player, player.getEyePosition().add(0, -.10000000149011612, 0)).target();
+        return traceTouch(player, player.getEyePosition().add(0, -.10000000149011612, 0),player.getLookAngle().normalize()).target();
     }
-    private record Touch(HitResult target, Vec3 trajectory) {}
-    private static Touch traceTouch(ServerPlayer player, Vec3 start) {
+    record Touch(HitResult target, Vec3 trajectory) {}
+    static Touch traceTouch(ServerPlayer player, Vec3 start,Vec3 look) {
         ServerLevel level = player.serverLevel();
-        Vec3 look = player.getLookAngle().normalize();
         double range = player.getBlockReach();
         if (!Double.isFinite(range) || range <= 0 || range > 32) return new Touch(null, start);
         Vec3 end = start.add(look.scale(range));

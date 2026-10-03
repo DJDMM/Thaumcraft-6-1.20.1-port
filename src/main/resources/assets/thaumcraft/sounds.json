@@ -32,6 +32,7 @@
     ]
   },
   "wind": {
+    "category": "ambient",
     "sounds": [
       "thaumcraft:wind1",
       "thaumcraft:wind2"

@@ -27,6 +27,7 @@ import net.minecraftforge.registries.ForgeRegistries;
 import thaumcraft.api.aspects.Aspect;
 import thaumcraft.api.aspects.AspectList;
 import thaumcraft.research.KnowledgeStore;
+import thaumcraft.research.AuromancyProgressionEvents;
 
 import javax.annotation.Nullable;
 import java.nio.charset.StandardCharsets;
@@ -72,11 +73,15 @@ public final class ThaumometerItem extends Item {
         ScanTarget target = findTarget(server, hand);
         if (target == null && thaumcraft.research.celestial.CelestialScanner.scan(server)
                 != thaumcraft.research.celestial.CelestialScanner.Result.NOT_APPLICABLE) return;
-        if (target == null || target.aspects.size() == 0) {
+        Object scanned = target == null ? null : scannedObject(server, hand, target);
+        if (target == null || target.aspects.size() == 0 && AuromancyProgressionEvents.scanFact(scanned) == null) {
             player.displayClientMessage(Component.translatable("message.thaumcraft.scan.nothing"), true);
             return;
         }
-        boolean discovered = KnowledgeStore.recordScan(server, target.key, target.aspects);
+        boolean aspectDiscovered = target.aspects.size() > 0 && KnowledgeStore.recordScan(server, target.key, target.aspects);
+        // Original ScanEntity/ScanItem facts are independent of aspect discovery and have no lesson-stage gate.
+        boolean factDiscovered = AuromancyProgressionEvents.recordScannedFact(server, scanned);
+        boolean discovered = aspectDiscovered || factDiscovered;
         player.displayClientMessage(Component.translatable(discovered ? "tc.knownobject" : "tc.unknownobject")
                 .withStyle(ChatFormatting.ITALIC, discovered ? ChatFormatting.GREEN : ChatFormatting.DARK_PURPLE), true);
         // TC6 presents aspects beside the object, rather than a long action-bar list.
@@ -110,6 +115,15 @@ public final class ThaumometerItem extends Item {
         return new ScanTarget(scanKey(key, aspects), state.getBlock().getName(), aspects, location.position, location);
     }
 
+    /** Actual server object behind a reconstructed target; never supplied by a client discovery request. */
+    @Nullable static Object scannedObject(ServerPlayer player, InteractionHand hand, ScanTarget target) {
+        return switch (target.location.kind) {
+            case HELD_ITEM -> player.getItemInHand(otherHand(hand));
+            case ENTITY -> player.level().getEntity(target.location.entityId);
+            case BLOCK -> null;
+        };
+    }
+
     /** Geometry only: safe on either side, with no aspect or knowledge lookup. */
     @Nullable
     public static TargetLocation locateTarget(Player player, InteractionHand hand) {
@@ -125,7 +139,8 @@ public final class ThaumometerItem extends Item {
         Entity selected = null;
         Vec3 selectedPoint = null;
         for (Entity candidate : player.level().getEntities(player, new AABB(start, end).inflate(1.0),
-                entity -> !entity.isRemoved() && !entity.isSpectator() && (entity.isPickable() || entity instanceof ItemEntity))) {
+                entity -> !entity.isRemoved() && !entity.isSpectator() && (entity.isPickable() || entity instanceof ItemEntity
+                        || AuromancyProgressionEvents.scanFact(entity) != null))) {
             var intersection = candidate.getBoundingBox().inflate(0.1).clip(start, end);
             if (intersection.isEmpty()) continue;
             double distance = start.distanceToSqr(intersection.get());

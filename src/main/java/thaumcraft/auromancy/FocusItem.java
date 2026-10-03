@@ -21,11 +21,21 @@ public final class FocusItem extends CatalogItem {
     public static void addFocusTooltip(ItemStack stack, List<Component> tooltip) {
         FocusStacks.readPlan(stack).ifPresent(plan -> {
             tooltip.add(Component.translatable("tooltip.thaumcraft.focus.price", plan.castVis(), plan.cooldownTicks() / 20F).withStyle(ChatFormatting.AQUA));
-            tooltip.add(Component.translatable("thaumcraft.TOUCH.name").withStyle(ChatFormatting.DARK_PURPLE));
-            tooltip.add(Component.translatable("thaumcraft.FIRE.name").append(" [")
-                    .append(Component.translatable("focus.common.power")).append(" " + plan.firePower() + ", ")
-                    .append(Component.translatable("focus.fire.burn")).append(" " + plan.fireDuration() + "]")
-                    .withStyle(ChatFormatting.DARK_PURPLE));
+            for(var node:plan.graph().nodes())if(!node.key().equals(thaumcraft.auromancy.focus.FocusNodeRegistry.ROOT)){
+                var definition=thaumcraft.auromancy.focus.FocusNodeRegistry.get(node.key());
+                var line=Component.translatable(node.key()+".name");
+                if(!definition.settings().isEmpty()){
+                    line.append(" [");boolean first=true;
+                    for(var setting:definition.settings().values()){
+                        if(!first)line.append(", ");first=false;
+                        int index=setting.values().indexOf(node.settings().get(setting.key()));
+                        line.append(Component.translatable(setting.label())).append(": ")
+                                .append(Component.translatable(setting.descriptions().get(index)));
+                    }
+                    line.append("]");
+                }
+                tooltip.add(line.withStyle(ChatFormatting.DARK_PURPLE));
+            }
         });
     }
 }

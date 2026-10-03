@@ -16,6 +16,7 @@ import net.minecraftforge.network.PacketDistributor;
 import net.minecraftforge.network.simple.SimpleChannel;
 import thaumcraft.api.aspects.Aspect;
 import thaumcraft.research.KnowledgeStore;
+import thaumcraft.research.AuromancyProgressionEvents;
 import thaumcraft.scanning.client.ThaumometerClient;
 import thaumcraft.world.aura.AuraManager;
 
@@ -48,8 +49,12 @@ public final class ScanningNetwork {
         if (ThaumometerItem.auraHand(player) == null || !player.isAlive() || player.isSpectator())
             return new Snapshot(level.dimension().location(), level.getGameTime(), 0, 0, 0, null);
         var scan = hand == null ? null : ThaumometerItem.findTarget(player, hand);
-        if (scan != null && scan.aspects().size() > 0)
-            target = target(scan, KnowledgeStore.get(player).hasScanned(scan.key()));
+        if (scan != null) {
+            Object scanned = ThaumometerItem.scannedObject(player, hand, scan);
+            if (scan.aspects().size() > 0 || AuromancyProgressionEvents.scanFact(scanned) != null)
+                target = target(scan, (scan.aspects().size() == 0 || KnowledgeStore.get(player).hasScanned(scan.key()))
+                        && !AuromancyProgressionEvents.hasUnseenScanFact(player, scanned));
+        }
         return new Snapshot(level.dimension().location(), level.getGameTime(),
                 AuraManager.getAuraBase(level, player.blockPosition()), AuraManager.getVis(level, player.blockPosition()),
                 AuraManager.getFlux(level, player.blockPosition()), target);

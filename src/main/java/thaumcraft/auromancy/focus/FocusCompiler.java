@@ -78,15 +78,14 @@ public final class FocusCompiler {
                     && resolved.get(node.id()).get(setting.key()) != setting.defaultValue()
                     && !knowsStrict.test(setting.research())) return Result.failure("missing_setting_research");
         }
-        // Every legal graph using only original ROOT/TOUCH/FIRE is linear:
-        // ROOT's self target -> optional/repeated Touch -> one terminal Fire.
-        // Effects supply neither TARGET nor TRAJECTORY, so repeated Fire is invalid.
-        if (ordered.size() < 2 || !ordered.get(ordered.size()-1).key().equals(FocusNodeRegistry.FIRE))
+        // Supported media are linear; an intermediary resumes only its following nodes.
+        // A terminal effect supplies nothing, so multiple effects require future Split nodes.
+        if (ordered.size() < 2 || definitions.get(ordered.get(ordered.size()-1).id()).type()!=FocusNodeRegistry.Type.EFFECT)
             return Result.failure("unsupported_shape");
         for (int index = 0; index < ordered.size(); index++) {
             FocusGraph.Node node = ordered.get(index);
             if (node.children().size() != (index == ordered.size()-1 ? 0 : 1)
-                    || index > 0 && index < ordered.size()-1 && !node.key().equals(FocusNodeRegistry.TOUCH))
+                    || index > 0 && index < ordered.size()-1 && !Set.of(FocusNodeRegistry.TOUCH,FocusNodeRegistry.PROJECTILE).contains(node.key()))
                 return Result.failure("unsupported_shape");
         }
         Map<String, Integer> occurrences = new HashMap<>(), crystals = new LinkedHashMap<>();
@@ -98,7 +97,7 @@ public final class FocusCompiler {
             normalized.add(new FocusGraph.Node(node.id(), node.parent(), node.children(), node.x(), node.y(), node.key(), resolved.get(node.id())));
         }
         if (complexity <= 0 || complexity > capacity) return Result.failure("complexity_limit");
-        int color = 0xFF000000 | FocusNodeRegistry.get(FocusNodeRegistry.FIRE).color();
+        int color = 0xFF000000 | FocusNodeRegistry.get(ordered.get(ordered.size()-1).key()).color();
         return new Result(true, new FocusPlan(new FocusGraph(normalized), complexity, capacity, crystals, color), "");
     }
 }

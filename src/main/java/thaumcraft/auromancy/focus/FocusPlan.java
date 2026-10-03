@@ -13,10 +13,12 @@ public final class FocusPlan {
     FocusPlan(FocusGraph graph, int complexity, int maxComplexity, Map<String, Integer> crystals, int color) {
         this.graph = graph; this.complexity = complexity; this.maxComplexity = maxComplexity;
         this.crystals = Collections.unmodifiableMap(new LinkedHashMap<>(crystals)); this.color = color;
-        FocusGraph.Node fire = graph.nodes().stream().filter(node -> node.key().equals(FocusNodeRegistry.FIRE)).findFirst().orElseThrow();
-        firePower = fire.settings().get("power"); fireDuration = fire.settings().get("duration");
+        var effect=effect();
+        firePower=effect.key().equals(FocusNodeRegistry.FIRE)?effect.settings().get("power"):0;
+        fireDuration=effect.key().equals(FocusNodeRegistry.FIRE)?effect.settings().get("duration"):0;
     }
     public FocusGraph graph() { return graph; }
+    public FocusGraph.Node effect(){return graph.nodes().get(graph.nodes().size()-1);}
     public int complexity() { return complexity; }
     public int maxComplexity() { return maxComplexity; }
     public float craftVis() { return complexity * 10 + maxComplexity / 5; }

@@ -15,6 +15,7 @@ import net.minecraftforge.client.event.EntityRenderersEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import thaumcraft.catalog.entities.*;
+import thaumcraft.auromancy.projectile.FocusProjectileRenderer;
 
 @Mod.EventBusSubscriber(modid="thaumcraft",value=Dist.CLIENT,bus=Mod.EventBusSubscriber.Bus.MOD)
 public final class VisualEntityRenderers {
@@ -28,6 +29,7 @@ public final class VisualEntityRenderers {
             return new Mob(context,spec);
         }));
         VisualEntitiesModule.EFFECTS.forEach((id,type) -> event.registerEntityRenderer(type.get(),SpriteRenderer<VisualEffectEntity>::new));
+        event.registerEntityRenderer(VisualEntitiesModule.FOCUS_PROJECTILE.get(),FocusProjectileRenderer::new);
     }
     public static ResourceLocation texture(String path) {
         return path.contains(":")?ResourceLocation.parse(path):ResourceLocation.fromNamespaceAndPath("thaumcraft",path);

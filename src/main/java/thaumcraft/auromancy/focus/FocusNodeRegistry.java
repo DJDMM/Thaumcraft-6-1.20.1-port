@@ -7,6 +7,7 @@ import java.util.*;
 /** Immutable metadata for the 21 nodes registered by ConfigItems in TC6 BETA26. */
 public final class FocusNodeRegistry {
     public static final String ROOT = "ROOT", TOUCH = "thaumcraft.TOUCH", FIRE = "thaumcraft.FIRE";
+    public static final String PROJECTILE="thaumcraft.PROJECTILE", AIR="thaumcraft.AIR", FROST="thaumcraft.FROST", EARTH="thaumcraft.EARTH";
     public enum Type { MEDIUM, EFFECT, MOD }
     public enum Supply { TARGET, TRAJECTORY }
 
@@ -85,7 +86,7 @@ public final class FocusNodeRegistry {
         add(definitions, ROOT, Type.MEDIUM, "BASEAUROMANCY", null, 10066329, "root", true, Set.of(), BOTH, false);
         add(definitions, TOUCH, Type.MEDIUM, "BASEAUROMANCY", "aversio", 11371909, "touch", true, TRAJECTORY, BOTH, false);
         add(definitions, "thaumcraft.BOLT", Type.MEDIUM, "FOCUSBOLT", "potentia", 11377029, "bolt", false, TRAJECTORY, BOTH, false);
-        add(definitions, "thaumcraft.PROJECTILE", Type.MEDIUM, "FOCUSPROJECTILE@2", "motus", 11382149, "projectile", false, TRAJECTORY, BOTH, false,
+        add(definitions, PROJECTILE, Type.MEDIUM, "FOCUSPROJECTILE@2", "motus", 11382149, "projectile", true, TRAJECTORY, BOTH, false,
                 list("option", "focus.common.options", "FOCUSPROJECTILE", new int[]{0,1,2,3}, "focus.common.none", "focus.projectile.bouncy", "focus.projectile.seeking.hostile", "focus.projectile.seeking.friendly"),
                 range("speed", "focus.projectile.speed", 1, 5));
         add(definitions, "thaumcraft.CLOUD", Type.MEDIUM, "FOCUSCLOUD", "alkimia", 10071429, "cloud", false, TRAJECTORY, TARGET, false,
@@ -96,10 +97,10 @@ public final class FocusNodeRegistry {
         add(definitions, "thaumcraft.SPELLBAT", Type.MEDIUM, "FOCUSSPELLBAT", "bestia", 8760748, "spellbat", false, TRAJECTORY, TARGET, false, targetSetting());
         add(definitions, FIRE, Type.EFFECT, "BASEAUROMANCY", "ignis", 16734721, "fire", true, TARGET, Set.of(), false,
                 range("power", "focus.common.power", 1, 5), range("duration", "focus.fire.burn", 0, 5));
-        add(definitions, "thaumcraft.FROST", Type.EFFECT, "FOCUSELEMENTAL", "gelum", 14811135, "frost", false, TARGET, Set.of(), false,
+        add(definitions, FROST, Type.EFFECT, "FOCUSELEMENTAL", "gelum", 14811135, "frost", true, TARGET, Set.of(), false,
                 range("power", "focus.common.power", 1, 5), range("duration", "focus.common.duration", 2, 10));
-        add(definitions, "thaumcraft.AIR", Type.EFFECT, "FOCUSELEMENTAL", "aer", 16777086, "air", false, TARGET, Set.of(), false, range("power", "focus.common.power", 1, 5));
-        add(definitions, "thaumcraft.EARTH", Type.EFFECT, "FOCUSELEMENTAL", "terra", 5685248, "earth", false, TARGET, Set.of(), false, range("power", "focus.common.power", 1, 5));
+        add(definitions, AIR, Type.EFFECT, "FOCUSELEMENTAL", "aer", 16777086, "air", true, TARGET, Set.of(), false, range("power", "focus.common.power", 1, 5));
+        add(definitions, EARTH, Type.EFFECT, "FOCUSELEMENTAL", "terra", 5685248, "earth", true, TARGET, Set.of(), false, range("power", "focus.common.power", 1, 5));
         add(definitions, "thaumcraft.FLUX", Type.EFFECT, "FOCUSFLUX", "vitium", 8388736, "flux", false, TARGET, Set.of(), false, range("power", "focus.common.power", 1, 5));
         add(definitions, "thaumcraft.BREAK", Type.EFFECT, "FOCUSBREAK", "perditio", 9063176, "break", false, TARGET, Set.of(), false,
                 range("power", "focus.break.power", 1, 5), fortuneSetting(), silkSetting());
