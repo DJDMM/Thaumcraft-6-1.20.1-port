@@ -1,0 +1,119 @@
+{
+  "version": "0.16.0-dev",
+  "originalVersion": "Thaumcraft6.1.BETA26",
+  "originalJarSha256": "9425f8643581b27ff8845b087c8bc6fc10425a32942f1a3f0e265ce6b38f7b5f",
+  "requiredGameTests": 399,
+  "implementedCanonicalResearchEntries": 23,
+  "implementedCanonicalResearchKeys": [
+    "FIRSTSTEPS",
+    "KNOWLEDGETYPES",
+    "THEORYRESEARCH",
+    "CELESTIALSCANNING",
+    "UNLOCKALCHEMY",
+    "BASEALCHEMY",
+    "ALUMENTUM",
+    "METALLURGY",
+    "UNLOCKARTIFICE",
+    "BASEARTIFICE",
+    "UNLOCKINFUSION",
+    "BASEINFUSION",
+    "ESSENTIASMELTER",
+    "WARDEDJARS",
+    "TUBES",
+    "UNLOCKAUROMANCY",
+    "INFUSION",
+    "INFUSIONBOOST",
+    "BASEAUROMANCY",
+    "RECHARGEPEDESTAL",
+    "BOOTSTRAVELLER",
+    "ELEMENTALTOOLS",
+    "ARMORFORTRESS"
+  ],
+  "workingInfusionRecipeModes": {
+    "replace": 41,
+    "mutate": 6,
+    "enchantment": 8,
+    "runic": 1
+  },
+  "workingInfusionRecipeRegistrations": 56,
+  "ordinarySurvivalInfusionRecipePathsAvailable": 9,
+  "actualIntegratedServerScreenshots": 8,
+  "visuallyReviewedScreenshots": 8,
+  "clientDesktop": "WinSta0\\ThaumcraftQA_ff8fafbf9c9a4c03bf35afb2618399fa",
+  "clientJvmExitCode": 0,
+  "clientDesktopOwnedWindows": 16,
+  "inputDesktopBefore": "Default",
+  "inputDesktopAfter": "Default",
+  "localJsonCount": 2776,
+  "jarResourceByteParityChecks": 3529,
+  "originalPngByteParityChecks": 622,
+  "originalJpgByteParityChecks": 7,
+  "originalOggByteParityChecks": 31,
+  "derivedEffectIconPixelChecks": 2,
+  "jarSha256": "0cd756ba70da806093888a2e585445a1c37ba43c953bc68ea9f3feea475e1a38",
+  "terraBlenderSha256": "ca678c11b878ad9c7143636fbec911f29e2c1453a6cc091e16b14e6d9608fb5f",
+  "screenshots": [
+    {
+      "file": "tc6-auromancy-empty.png",
+      "sha256": "6e97180cdb54e5058c516fbe7bc627b09601c59fb88e91bab25ea81acfb523f5",
+      "result": "pass",
+      "notes": "Original metal frame/one focus slot/inventory/cost panel visible without missing textures"
+    },
+    {
+      "file": "tc6-auromancy-editor.png",
+      "sha256": "0546a398a1135a73d72a5c3c87606f28426a90656f0554a603f050a08082dbda",
+      "result": "pass",
+      "notes": "Root socket and legal Touch/Fire palette fit inside frame"
+    },
+    {
+      "file": "tc6-auromancy-configured.png",
+      "sha256": "fcedbdd033b863d77592c99e58fc86899ebf87fa87b3ea538243ec8fb4809196",
+      "result": "pass",
+      "notes": "Touch->Fire graph, name,43vis/2XP/.8cast price and crystals/settings are readable"
+    },
+    {
+      "file": "tc6-auromancy-crafting.png",
+      "sha256": "0a0ff1953849e957e6ccc246893defa89b50f0f90e4ffda3568dbced7550e885",
+      "result": "pass",
+      "notes": "23vis remaining after20 paid, real materials reduced and settings disabled"
+    },
+    {
+      "file": "tc6-auromancy-ritual.png",
+      "sha256": "9eb9694d33f18b33f06b49c185455ae75e26e5d318d137c424047d7fdf611f5a",
+      "result": "pass",
+      "notes": "Operational original table model and focus/crystal orbit render"
+    },
+    {
+      "file": "tc6-auromancy-complete.png",
+      "sha256": "746f27285707db1f8913ede7cb24eecd94c0329e766206154c527f10b10d8a99",
+      "result": "pass",
+      "notes": "Completed colored focus renders on table; ritual stopped"
+    },
+    {
+      "file": "tc6-auromancy-selection.png",
+      "sha256": "e96b7bcc7a28ca79b8156c68af1dfff4bd9fb6c5e08623d01f0ff2a7bc43287a",
+      "result": "pass",
+      "notes": "Physical completed focus is visible in cursor radial selector; no clipping"
+    },
+    {
+      "file": "tc6-auromancy-casting.png",
+      "sha256": "2997b66e6f5687056a42cde565919507aafa89d6ad49233581cb7ca0c4d061e6",
+      "result": "pass",
+      "notes": "Actual server-damaged cow is burning, caster and aura HUD render"
+    }
+  ],
+  "clientFixtureSourceSha256": "bb8252764e58de7ee95a217913d48fa37c089ea2c60b51659538182786a03652",
+  "logs": {
+    "auromancy-016-gametest3.log": "6c4f0ea09b97bf53fc3533ec62f9bb6105e8f61a1c1e3a3ec8c3a7588aa54f2f",
+    "auromancy-client-auromancy-016-client3-client.log": "72c4a830e68fe0af9d5cdffb9533f9d34d6d5c79cc3687b787d34e43ca140473",
+    "build-0.16-final.log": "6c4f0ea09b97bf53fc3533ec62f9bb6105e8f61a1c1e3a3ec8c3a7588aa54f2f",
+    "resources-0.16-final.log": "e7754af19db56a94d9fa91bdb0eb06be8144dbc8cbb9767330e6786a11f4736f",
+    "auromancy-client-auromancy-016-client3-prepare.log": "db11a714da735ab33cb9a15e56609bf74cabecd4267c2a2b9ba43809f860d2bd",
+    "auromancy-client-auromancy-016-client3-desktop.json": "2667a360e0fb52038704d42fde60a09424adc48ab11cea37fd008199c6a08d81"
+  },
+  "limitations": [
+    "Remaining late focus nodes and research paths are unsupported",
+    "No independent multiplayer client or human survival playthrough",
+    "Native particles adapt the old FX APIs; Baubles/pouch focus selection and full WarpEvents remain incomplete"
+  ]
+}

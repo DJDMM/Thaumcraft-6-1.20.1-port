@@ -39,7 +39,7 @@ public final class CatalogBlocks {
                     ? thaumcraft.essentia.transport.EssentiaTransportModule.createBlockItem(spec.id(), block.get())
                     : thaumcraft.infusion.InfusionModule.handlesBlock(spec.id())
                     ? new thaumcraft.infusion.InfusionBlockItem(block.get())
-                    : spec.id().equals("recharge_pedestal")
+                    : spec.id().equals("recharge_pedestal") || thaumcraft.auromancy.table.FocalManipulatorModule.handlesBlock(spec.id())
                     ? new BlockItem(block.get(),new Item.Properties()) : new CatalogBlockItem(block.get()));
         }
     }
@@ -53,6 +53,7 @@ public final class CatalogBlocks {
         BlockBehaviour.Properties props = BlockBehaviour.Properties.copy(Blocks.STONE).strength(2).noOcclusion();
         String id=spec.id();
         if (isEssentiaJar(id)) return new thaumcraft.essentia.EssentiaJarBlock(id.equals("jar_void"));
+        if (thaumcraft.auromancy.table.FocalManipulatorModule.handlesBlock(id)) return thaumcraft.auromancy.table.FocalManipulatorModule.createBlock(props);
         if (thaumcraft.infusion.InfusionModule.handlesBlock(id)) return thaumcraft.infusion.InfusionModule.createBlock(id, props);
         if (thaumcraft.essentia.production.EssentiaProductionModule.handlesBlock(id)) return thaumcraft.essentia.production.EssentiaProductionModule.createBlock(id, props);
         if (thaumcraft.essentia.transport.EssentiaTransportModule.handlesBlock(id)) return thaumcraft.essentia.transport.EssentiaTransportModule.createBlock(id, props);

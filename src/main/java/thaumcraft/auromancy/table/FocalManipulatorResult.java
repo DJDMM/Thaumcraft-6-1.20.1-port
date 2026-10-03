@@ -1,0 +1,5 @@
+package thaumcraft.auromancy.table;
+
+public enum FocalManipulatorResult {
+    ACCEPTED, LOCKED, STALE, BUSY, INVALID, MISSING_FOCUS, MISSING_RESEARCH, UNSUPPORTED, MISSING_CRYSTALS, MISSING_XP, OVERFLOW
+}

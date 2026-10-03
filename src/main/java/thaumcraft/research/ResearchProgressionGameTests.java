@@ -87,7 +87,7 @@ public final class ResearchProgressionGameTests {
         helper.assertTrue(state.researchStage("UNLOCKALCHEMY") == 2 && player.totalExperience == experience + 5, "Replay paid the following stage");
         result(helper, ResearchProgression.advance(player, "UNLOCKALCHEMY", -1), ResearchProgression.Result.STALE);
         result(helper, ResearchProgression.advance(player, "UNLOCKALCHEMY", 4), ResearchProgression.Result.STALE);
-        result(helper, ResearchProgression.advance(player, "BASEAUROMANCY", 0), ResearchProgression.Result.UNSUPPORTED);
+        result(helper, ResearchProgression.advance(player, "BASEAUROMANCY", 0), ResearchProgression.Result.LOCKED);
         result(helper, ResearchProgression.advance(player, "does_not_exist", 0), ResearchProgression.Result.UNSUPPORTED);
         helper.succeed();
     }

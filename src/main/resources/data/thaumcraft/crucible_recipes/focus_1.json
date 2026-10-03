@@ -1,0 +1,7 @@
+{
+  "research": "UNLOCKAUROMANCY",
+  "catalyst": { "item": "thaumcraft:crystal_essence" },
+  "catalyst_nbt": "{Aspects:[{key:'ordo',amount:1}]}",
+  "result": { "item": "thaumcraft:focus_1" },
+  "aspects": { "vitreus": 20, "praecantatio": 10, "auram": 5 }
+}

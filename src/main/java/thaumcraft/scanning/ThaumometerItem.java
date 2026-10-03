@@ -151,7 +151,8 @@ public final class ThaumometerItem extends Item {
     @Nullable public static InteractionHand auraHand(Player player) {
         var scanner = heldHand(player); if (scanner != null) return scanner;
         for (InteractionHand hand : InteractionHand.values())
-            if (ForgeRegistries.ITEMS.getKey(player.getItemInHand(hand).getItem()).equals(thaumcraft.infusion.InfusionModule.id("vis_resonator"))) return hand;
+            if (thaumcraft.auromancy.FocusSelection.isCaster(player.getItemInHand(hand))
+                    || ForgeRegistries.ITEMS.getKey(player.getItemInHand(hand).getItem()).equals(thaumcraft.infusion.InfusionModule.id("vis_resonator"))) return hand;
         return null;
     }
 

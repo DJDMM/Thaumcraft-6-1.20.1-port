@@ -57,7 +57,9 @@ public final class CatalogModule {
 
     /** Kept in one place so armor and special render adapters can be added independently. */
     private static Item createItem(Spec spec) {
-        if (spec.id().equals("vis_resonator") || spec.id().equals("caster_basic") || spec.id().equals("caster_gauntlet")) return new thaumcraft.infusion.InfusionUtilityItem(spec);
+        if (spec.id().equals("vis_resonator")) return new thaumcraft.infusion.InfusionUtilityItem(spec);
+        if (spec.id().equals("caster_basic") || spec.id().equals("caster_gauntlet")) return new thaumcraft.auromancy.CasterItem(spec);
+        if (List.of("focus_1", "focus_2", "focus_3").contains(spec.id())) return new thaumcraft.auromancy.FocusItem(spec);
         if (spec.id().equals("crystal_essence")) return new thaumcraft.alchemy.AspectCrystalItem(spec);
         if (spec.id().equals("phial_empty") || spec.id().equals("phial_filled")) return new thaumcraft.essentia.item.EssentiaPhialItem(spec);
         if (spec.id().equals("label_blank") || spec.id().equals("label_filled")) return new thaumcraft.essentia.item.EssentiaLabelItem(spec);

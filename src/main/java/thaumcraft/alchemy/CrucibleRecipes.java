@@ -2,6 +2,8 @@ package thaumcraft.alchemy;
 
 import com.google.gson.*;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.nbt.CompoundTag;
+import net.minecraft.nbt.TagParser;
 import net.minecraft.server.packs.resources.*;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.util.GsonHelper;
@@ -16,9 +18,25 @@ import java.util.*;
 /** Server-side datapack recipes; recipe discovery never grants research. */
 public final class CrucibleRecipes extends SimpleJsonResourceReloadListener {
     private static volatile List<Entry> entries = List.of();
-    public record Entry(ResourceLocation id, String research, Ingredient catalyst, ItemStack output, AspectList cost) {
+    public record Entry(ResourceLocation id, String research, Ingredient catalyst, ItemStack output, AspectList cost,
+                        CompoundTag catalystNbt) {
+        public Entry(ResourceLocation id, String research, Ingredient catalyst, ItemStack output, AspectList cost) {
+            this(id, research, catalyst, output, cost, null);
+        }
+        public Entry { catalystNbt = catalystNbt == null ? null : catalystNbt.copy(); }
+        @Override public CompoundTag catalystNbt() { return catalystNbt == null ? null : catalystNbt.copy(); }
+        /** IngredientNBTTC checks complete top-level entries; extra unrelated root tags are allowed. */
+        public boolean matchesCatalyst(ItemStack stack) {
+            if (stack == null || stack.isEmpty() || !catalyst.test(stack)) return false;
+            if (catalystNbt == null || catalystNbt.isEmpty()) return true;
+            CompoundTag actual = stack.getTag();
+            if (actual == null) return false;
+            for (String key : catalystNbt.getAllKeys())
+                if (!Objects.equals(catalystNbt.get(key), actual.get(key))) return false;
+            return true;
+        }
         public boolean matches(ItemStack stack, AspectList available, ServerPlayer player) {
-            if (!catalyst.test(stack) || player == null || !KnowledgeStore.get(player).knowsResearch(research)) return false;
+            if (!matchesCatalyst(stack) || player == null || !KnowledgeStore.get(player).knowsResearch(research)) return false;
             return hasAspects(available);
         }
         public boolean hasAspects(AspectList available) {
@@ -48,7 +66,12 @@ public final class CrucibleRecipes extends SimpleJsonResourceReloadListener {
                 ((IEssentiaContainerItem) output.getItem()).setAspects(output, new AspectList().add(aspect, 1));
             }
             if (output.isEmpty() || output.getCount() > output.getMaxStackSize()) throw new JsonParseException("Invalid result: " + entry.getKey());
-            updated.add(new Entry(entry.getKey(), GsonHelper.getAsString(data, "research"), Ingredient.fromJson(data.get("catalyst")), output, cost));
+            CompoundTag catalystNbt = null;
+            if (data.has("catalyst_nbt")) {
+                try { catalystNbt = TagParser.parseTag(GsonHelper.getAsString(data, "catalyst_nbt")); }
+                catch (Exception failure) { throw new JsonParseException("Invalid catalyst NBT: " + entry.getKey(), failure); }
+            }
+            updated.add(new Entry(entry.getKey(), GsonHelper.getAsString(data, "research"), Ingredient.fromJson(data.get("catalyst")), output, cost, catalystNbt));
         });
         entries = List.copyOf(updated);
     }

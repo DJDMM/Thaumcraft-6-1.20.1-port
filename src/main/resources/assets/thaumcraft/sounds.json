@@ -135,5 +135,14 @@
         "stream": false
       }
     ]
+  },
+  "ticks": {
+    "category": "ambient",
+    "sounds": [
+      {
+        "name": "thaumcraft:ticks",
+        "stream": false
+      }
+    ]
   }
 }
