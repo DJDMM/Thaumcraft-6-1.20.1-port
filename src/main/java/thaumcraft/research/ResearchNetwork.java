@@ -19,8 +19,10 @@ import java.util.Optional;
 import java.util.function.Supplier;
 
 public final class ResearchNetwork {
+    // 0.13 changes the synchronized ArcaneRecipe format. Reject 0.12 peers before recipe sync.
+    private static final String PROTOCOL = "3";
     private static final SimpleChannel CHANNEL = NetworkRegistry.newSimpleChannel(
-            ResourceLocation.fromNamespaceAndPath("thaumcraft", "research"), () -> "2", "2"::equals, "2"::equals);
+            ResourceLocation.fromNamespaceAndPath("thaumcraft", "research"), () -> PROTOCOL, PROTOCOL::equals, PROTOCOL::equals);
 
     public static void register() {
         CHANNEL.registerMessage(0, Snapshot.class, Snapshot::encode, Snapshot::decode,

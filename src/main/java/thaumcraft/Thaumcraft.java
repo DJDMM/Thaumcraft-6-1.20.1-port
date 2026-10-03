@@ -82,6 +82,8 @@ public final class Thaumcraft {
         thaumcraft.equipment.recharge.RechargeModule.register(bus);
         thaumcraft.equipment.cleansing.CleansingModule.register(bus);
         thaumcraft.essentia.EssentiaModule.register(bus);
+        thaumcraft.essentia.production.EssentiaProductionModule.register(bus);
+        thaumcraft.essentia.transport.EssentiaTransportModule.register(bus);
         thaumcraft.catalog.entities.VisualEntitiesModule.register(bus);
     }
 }

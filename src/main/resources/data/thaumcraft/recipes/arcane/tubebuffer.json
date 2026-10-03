@@ -1,0 +1,32 @@
+{
+  "type": "thaumcraft:arcane_shaped",
+  "category": "misc",
+  "research": "TUBES",
+  "pattern": [
+    "PVP",
+    "TWT",
+    "PRP"
+  ],
+  "key": {
+    "P": {
+      "item": "thaumcraft:phial_empty"
+    },
+    "V": {
+      "item": "thaumcraft:tube_valve"
+    },
+    "T": {
+      "item": "thaumcraft:tube"
+    },
+    "W": {
+      "tag": "forge:plates/iron"
+    },
+    "R": {
+      "item": "thaumcraft:tube_restrict"
+    }
+  },
+  "result": {
+    "item": "thaumcraft:tube_buffer"
+  },
+  "vis": 25,
+  "crystals": {}
+}

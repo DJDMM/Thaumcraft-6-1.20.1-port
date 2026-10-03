@@ -1,0 +1,17 @@
+{
+  "type": "thaumcraft:arcane_shaped",
+  "category": "misc",
+  "research": "TUBES",
+  "ingredients": [
+    {
+      "item": "thaumcraft:tube"
+    }
+  ],
+  "result": {
+    "item": "thaumcraft:tube_restrict"
+  },
+  "vis": 10,
+  "crystals": {
+    "terra": 1
+  }
+}

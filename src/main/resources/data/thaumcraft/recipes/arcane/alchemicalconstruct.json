@@ -1,0 +1,34 @@
+{
+  "type": "thaumcraft:arcane_shaped",
+  "category": "misc",
+  "research": "TUBES",
+  "pattern": [
+    "IVI",
+    "TWT",
+    "IVI"
+  ],
+  "key": {
+    "I": {
+      "tag": "forge:plates/iron"
+    },
+    "V": {
+      "item": "thaumcraft:tube_valve"
+    },
+    "T": {
+      "item": "thaumcraft:tube"
+    },
+    "W": {
+      "item": "thaumcraft:plank_greatwood"
+    }
+  },
+  "result": {
+    "item": "thaumcraft:metal_alchemical",
+    "count": 2
+  },
+  "vis": 75,
+  "crystals": {
+    "aqua": 1,
+    "ordo": 1,
+    "perditio": 1
+  }
+}

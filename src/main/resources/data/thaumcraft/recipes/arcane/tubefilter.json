@@ -1,0 +1,18 @@
+{
+  "type": "thaumcraft:arcane_shaped",
+  "category": "misc",
+  "research": "TUBES",
+  "ingredients": [
+    {
+      "item": "thaumcraft:tube"
+    },
+    {
+      "item": "thaumcraft:filter"
+    }
+  ],
+  "result": {
+    "item": "thaumcraft:tube_filter"
+  },
+  "vis": 10,
+  "crystals": {}
+}

@@ -41,7 +41,10 @@ public final class ArcaneWorkbenchBlockEntity extends BlockEntity implements Con
         if (!(level instanceof ServerLevel server)) return null;
         return server.getRecipeManager().getAllRecipesFor(ArcaneModule.RECIPE_TYPE.get()).stream()
                 .filter(recipe -> recipe.matches(this, server) && recipe.unlocked(player))
-                .sorted(java.util.Comparator.comparing(recipe -> recipe.getId().toString())).findFirst().orElse(null);
+                // Tube conversions share their mundane input and differ only in crystal cost.
+                // Prefer a payable crystal match; retain a deterministic preview when none is payable.
+                .sorted(java.util.Comparator.<ArcaneRecipe, Boolean>comparing(recipe -> !recipe.hasCrystals(this))
+                        .thenComparing(recipe -> recipe.getId().toString())).findFirst().orElse(null);
     }
     public boolean canCraft(ServerPlayer player, ArcaneRecipe recipe) {
         return level instanceof ServerLevel server && !player.isSpectator() && stillValid(player) && recipe != null

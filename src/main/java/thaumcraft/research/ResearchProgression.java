@@ -17,7 +17,7 @@ import java.util.*;
 public final class ResearchProgression {
     private static final Set<String> IMPLEMENTED = Set.of("FIRSTSTEPS", "KNOWLEDGETYPES", "THEORYRESEARCH", "CELESTIALSCANNING",
             "UNLOCKALCHEMY", "BASEALCHEMY", "ALUMENTUM", "METALLURGY", "UNLOCKARTIFICE", "BASEARTIFICE",
-            "UNLOCKINFUSION", "BASEINFUSION");
+            "UNLOCKINFUSION", "BASEINFUSION", "ESSENTIASMELTER", "WARDEDJARS", "TUBES");
     private static final Set<String> REMAINING_LESSONS = Set.of("PORT_TALLOW");
     private static final Set<String> OLD_PROFILE_LESSONS = Set.of("PORT_START", "PORT_SCAN", "PORT_ALCHEMY",
             "PORT_NITOR", "PORT_ALUMENTUM", "PORT_BRASS", "PORT_THAUMIUM");
@@ -41,11 +41,22 @@ public final class ResearchProgression {
         return entry.parents().stream().allMatch(raw -> knowledge.isResearchCompleteStrict(raw.startsWith("~") ? raw.substring(1) : raw));
     }
     public static boolean canAdvance(PlayerKnowledge knowledge, ResearchEntry entry) {
+        return canAdvance(knowledge, entry, null);
+    }
+    /** Client inventory is an optional preview only; advance always checks real server inventory. */
+    public static boolean canAdvance(PlayerKnowledge knowledge, ResearchEntry entry, net.minecraft.world.entity.player.Inventory inventory) {
         if (!isImplemented(entry.key()) || isComplete(knowledge, entry.key()) || !parentsMet(knowledge, entry)) return false;
         int current = stage(knowledge, entry.key());
         if (current == 0) return true;
         List<Requirements> list = REQUIREMENTS.get(entry.key());
-        return current <= list.size() && list.get(current - 1).obtain().isEmpty() && list.get(current - 1).met(knowledge);
+        return current <= list.size() && list.get(current - 1).met(knowledge)
+                && (inventory == null || inventoryPlan(inventory, list.get(current - 1).obtain()) != null);
+    }
+    /** Detached, canonical NBT templates for book display; never a payment instruction. */
+    public static List<ItemStack> requiredItems(String key, int stage) {
+        List<Requirements> stages = REQUIREMENTS.get(key);
+        return stages == null || stage < 1 || stage > stages.size() ? List.of()
+                : stages.get(stage - 1).obtain().stream().map(Obtain::template).toList();
     }
 
     /** Expected stage prevents duplicate, delayed or replayed requests from paying the next stage. */
@@ -69,7 +80,7 @@ public final class ResearchProgression {
         }
         Requirements requirements = stages.get(current - 1);
         if (!requirements.met(knowledge)) return Result.MISSING_REQUIREMENTS;
-        Map<Integer, Integer> plan = inventoryPlan(player, requirements.obtain());
+        Map<Integer, Integer> plan = inventoryPlan(player.getInventory(), requirements.obtain());
         if (plan == null) return Result.MISSING_REQUIREMENTS;
         // Every resource and fact has been checked. All mutations below run on the server thread.
         for (KnowledgeCost cost : requirements.knowledge()) knowledge.addKnowledge(cost.type(), cost.category(), -cost.raw());
@@ -98,12 +109,13 @@ public final class ResearchProgression {
         return experience;
     }
 
-    private static Map<Integer, Integer> inventoryPlan(ServerPlayer player, List<Obtain> obtain) {
+    private static Map<Integer, Integer> inventoryPlan(net.minecraft.world.entity.player.Inventory inventory, List<Obtain> obtain) {
         Map<Integer, Integer> result = new HashMap<>();
         for (Obtain cost : obtain) {
             int remaining = cost.count();
-            for (int slot = 0; slot < player.getInventory().getContainerSize() && remaining > 0; slot++) {
-                ItemStack stack = player.getInventory().getItem(slot);
+            // BETA26's obtain payment searches mainInventory, never worn/offhand items.
+            for (int slot = 0; slot < inventory.items.size() && remaining > 0; slot++) {
+                ItemStack stack = inventory.getItem(slot);
                 if (!cost.matches(stack)) continue;
                 int available = stack.getCount() - result.getOrDefault(slot, 0);
                 int take = Math.min(Math.max(0, available), remaining);
@@ -192,9 +204,15 @@ public final class ResearchProgression {
                 return new Obtain(id, count, parts.length > 3 ? TagParser.parseTag(parts[3]) : null);
             } catch (Exception failure) { throw new IllegalArgumentException("Invalid obtain " + raw, failure); }
         }
+        ItemStack template() {
+            ItemStack template = new ItemStack(BuiltInRegistries.ITEM.get(item), count);
+            if (nbt != null) template.setTag(nbt.copy());
+            return template;
+        }
         boolean matches(ItemStack stack) {
-            return !stack.isEmpty() && BuiltInRegistries.ITEM.getKey(stack.getItem()).equals(item)
-                    && (nbt == null || net.minecraft.nbt.NbtUtils.compareNbt(nbt, stack.getTag(), true));
+            // Share the audited found-to-template relaxed comparison with theory cards.
+            // In particular Aspects is one complete list, not a subset of a mixed phial.
+            return thaumcraft.research.theory.TheoryCard.matchesRequirement(stack, template());
         }
     }
 }

@@ -1681,5 +1681,8 @@
   "gui.thaumcraft.theory.scripting_cost": "Расход: %s чернил + %s бумаги",
   "gui.thaumcraft.theory.card_requirements_missing": "Не хватает требуемых предметов, знаний или опыта.",
   "gui.thaumcraft.theory.levels_all": "Расходует все уровни опыта: %s",
-  "gui.thaumcraft.theory.levels_upto": "Расходует до %s уровней опыта (есть %s)"
+  "gui.thaumcraft.theory.levels_upto": "Расходует до %s уровней опыта (есть %s)",
+  "tc.resonator1": "§9Содержит %1$s %2$s эссенции§0",
+  "tc.resonator2": "§5Всасывает %1$s %2$s §0 ",
+  "tc.resonator3": "Нетипизирован"
 }

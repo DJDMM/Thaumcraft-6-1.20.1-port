@@ -1,7 +1,8 @@
 # Isolated Windows client QA
 
-From the project, run `scripts/run_theory_smoke_isolated.ps1`. The wrapper prepares
-the `-PtheoryCompleteSmokeTest` JavaExec task without executing its game launch
+From the project, run `scripts/run_client_smoke_isolated.ps1 -SmokeTest EssentiaProduction`
+or `-SmokeTest TheoryComplete`. The old `run_theory_smoke_isolated.ps1` forwards
+to the TheoryComplete profile. The wrapper prepares the selected JavaExec task without executing its game launch
 action, writes a Java17 argument file, and launches the final JVM on a uniquely
 named non-input Win32 desktop. The desktop is chosen in `CreateProcessW` before
 Minecraft creates a window. The helper retains its desktop handle until that
@@ -29,7 +30,8 @@ caller's environment. The Java argument-file generator quotes every original
 argument, escapes backslashes/quotes, writes no BOM and rejects non-ASCII
 arguments pending local Java17 code-page verification.
 
-Only `run/theory-complete-smoke/options.txt` receives these fixture settings:
+Only the selected `run/theory-complete-smoke/options.txt` or
+`run/essentia-production-smoke/options.txt` receives these fixture settings:
 
 - `soundCategory_master:0.0`
 - `fullscreen:false`
@@ -43,7 +45,7 @@ read-only proof of window placement; they never activate or move a window.
 This Win32 desktop shares CPU, RAM and GPU with the user's game. It is not a
 Task View virtual desktop, a VM or a security sandbox. If GLFW/WGL initialization
 fails, inspect the log and stop; switching desktops is not a fallback. Do not
-use Computer Use inputs because they activate their target. The theory smoke
+use Computer Use inputs because they activate their target. The selected smoke
 hooks supply automated interaction and screenshot capture instead.
 
 The three helpers are intentionally separated:

@@ -1,0 +1,26 @@
+{
+  "type": "thaumcraft:arcane_shaped",
+  "category": "misc",
+  "research": "TUBES",
+  "pattern": [
+    "I I",
+    "INI",
+    " S "
+  ],
+  "key": {
+    "I": {
+      "tag": "forge:plates/iron"
+    },
+    "N": {
+      "item": "minecraft:quartz"
+    },
+    "S": {
+      "tag": "forge:rods/wooden"
+    }
+  },
+  "result": {
+    "item": "thaumcraft:resonator"
+  },
+  "vis": 50,
+  "crystals": {}
+}

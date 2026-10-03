@@ -1,0 +1,29 @@
+{
+  "type": "thaumcraft:arcane_shaped",
+  "category": "misc",
+  "research": "ESSENTIASMELTERVOID@1",
+  "pattern": [
+    " A ",
+    "VPV",
+    " A "
+  ],
+  "key": {
+    "A": {
+      "item": "thaumcraft:metal_alchemical"
+    },
+    "V": {
+      "tag": "forge:plates/void"
+    },
+    "P": {
+      "item": "thaumcraft:primordial_pearl"
+    }
+  },
+  "result": {
+    "item": "thaumcraft:metal_alchemical_advanced"
+  },
+  "vis": 200,
+  "crystals": {
+    "terra": 1,
+    "ignis": 1
+  }
+}

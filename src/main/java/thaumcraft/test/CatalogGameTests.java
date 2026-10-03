@@ -101,7 +101,9 @@ public final class CatalogGameTests {
             var context=new net.minecraft.world.item.context.BlockPlaceContext(player,net.minecraft.world.InteractionHand.MAIN_HAND,new ItemStack(banner),hit);
             var state=banner.getStateForPlacement(context);
             var valve=CatalogBlocks.block("tube_valve");var valveState=valve.getStateForPlacement(new net.minecraft.world.item.context.BlockPlaceContext(player,net.minecraft.world.InteractionHand.MAIN_HAND,new ItemStack(valve),hit));
-            helper.assertTrue(String.valueOf(valveState.getValue(valve.getStateDefinition().getProperty("facing"))).equals(face.getName()),"Valve handle ignored placement face "+face);
+            // Functional 0.13 tubes use the placer's view, replacing the visual-only clicked-face pose.
+            helper.assertTrue(valveState.getValue(thaumcraft.essentia.transport.TubeBlock.FACING)==net.minecraft.core.Direction.NORTH,
+                    "Valve handle ignored the horizontal placement view");
             if(face==net.minecraft.core.Direction.DOWN) {helper.assertTrue(state==null,"Banner may not attach to a ceiling in BETA26");continue;}
             var rotation=banner.getStateDefinition().getProperty("rotation");var wall=banner.getStateDefinition().getProperty("wall");
             String expected=switch(face) {case UP -> "9";case NORTH -> "8";case SOUTH -> "0";case WEST -> "4";case EAST -> "12";default -> throw new AssertionError();};
@@ -118,6 +120,22 @@ public final class CatalogGameTests {
                     && bounds.minZ<=target.getZ() && bounds.maxZ>=target.getZ()+1
                     && bounds.minY<=target.getY()-1 && bounds.maxY>=target.getY()+2,
                     "Banner frustum bounds clip the original pole/cloth/wall pose");
+        }
+        var valve=CatalogBlocks.block("tube_valve");
+        for(var expected:net.minecraft.core.Direction.values()) {
+            player.setYRot(switch(expected) { case SOUTH -> 180; case EAST -> 90; case WEST -> -90; default -> 0; });
+            player.setYHeadRot(player.getYRot()); // LivingEntity.getViewYRot reads head yaw, as real player packets do.
+            player.setXRot(expected==net.minecraft.core.Direction.DOWN ? -90 : expected==net.minecraft.core.Direction.UP ? 90 : 0);
+            var target=pos.above();
+            var hit=new net.minecraft.world.phys.BlockHitResult(net.minecraft.world.phys.Vec3.atCenterOf(target),net.minecraft.core.Direction.UP,target,false);
+            var context=new net.minecraft.world.item.context.BlockPlaceContext(player,net.minecraft.world.InteractionHand.MAIN_HAND,new ItemStack(valve),hit);
+            var state=valve.getStateForPlacement(context);
+            helper.assertTrue(state.getValue(thaumcraft.essentia.transport.TubeBlock.FACING)==expected,"Wrong functional valve placement direction "+expected);
+            var tag=net.minecraft.nbt.NbtUtils.writeBlockState(state);
+            var loaded=net.minecraft.nbt.NbtUtils.readBlockState(helper.getLevel().registryAccess().registryOrThrow(net.minecraft.core.registries.Registries.BLOCK).asLookup(),tag);
+            helper.assertTrue(loaded.equals(state),"Valve direction changed in saved blockstate");
+            var tile=new thaumcraft.essentia.transport.TubeBlockEntity(target,loaded);tile.load(new net.minecraft.nbt.CompoundTag());
+            helper.assertTrue(tile.facing()==expected,"Legacy visual valve upgrade lost saved orientation "+expected);
         }
         helper.succeed();
     }

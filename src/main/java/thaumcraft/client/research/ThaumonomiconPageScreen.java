@@ -118,7 +118,8 @@ public final class ThaumonomiconPageScreen extends Screen {
                 && entry.parents().stream().allMatch(knowledge::knowsResearch);
         if (!ResearchProgression.isImplemented(entry.key())) return false;
         return visibleStage == 0 ? ResearchProgression.canStart(knowledge, entry.key())
-                : ResearchProgression.canAdvance(knowledge, entry);
+                : ResearchProgression.canAdvance(knowledge, entry, minecraft == null || minecraft.player == null
+                        ? null : minecraft.player.getInventory());
     }
 
     private void requestAdvance() {
@@ -347,7 +348,7 @@ public final class ThaumonomiconPageScreen extends Screen {
             label = enchantedRequirement(fields);
         } else if (aspect.find()) {
             Aspect found = Aspect.getAspect(aspect.group(1));
-            label = tr(id.endsWith("phial") ? "aspect_phial" : "aspect_crystal", found == null ? aspect.group(1) : found.getName());
+            label = tr(id.endsWith("phial") || id.endsWith("phial_filled") ? "aspect_phial" : "aspect_crystal", found == null ? aspect.group(1) : found.getName());
         } else {
             ResourceLocation location = ResourceLocation.tryParse(id);
             label = location == null ? tr("legacy_item") : localizedItem(location);

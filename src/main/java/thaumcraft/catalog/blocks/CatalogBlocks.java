@@ -32,7 +32,12 @@ public final class CatalogBlocks {
             RegistryObject<Block> block = BLOCKS.register(spec.id(), () -> create(spec));
             ENTRIES.put(spec.id(),block);
             if (spec.item()) ITEMS.register(spec.id(), () -> isEssentiaJar(spec.id())
-                    ? new thaumcraft.essentia.EssentiaJarItem(block.get()) : spec.id().equals("recharge_pedestal")
+                    ? new thaumcraft.essentia.EssentiaJarItem(block.get())
+                    : thaumcraft.essentia.production.EssentiaProductionModule.handlesBlock(spec.id())
+                    ? thaumcraft.essentia.production.EssentiaProductionModule.createBlockItem(spec.id(), block.get())
+                    : thaumcraft.essentia.transport.EssentiaTransportModule.handlesBlock(spec.id())
+                    ? thaumcraft.essentia.transport.EssentiaTransportModule.createBlockItem(spec.id(), block.get())
+                    : spec.id().equals("recharge_pedestal")
                     ? new BlockItem(block.get(),new Item.Properties()) : new CatalogBlockItem(block.get()));
         }
     }
@@ -41,11 +46,13 @@ public final class CatalogBlocks {
                     .filter(e -> special(e.getKey())).map(e -> e.getValue().get()).toArray(Block[]::new)).build(null));
     private CatalogBlocks() {}
     private static boolean isEssentiaJar(String id) { return id.equals("jar_normal") || id.equals("jar_void"); }
-    public static boolean special(String id) { return id.startsWith("banner_") || id.startsWith("nitor_") || List.of("jar_brain","centrifuge","tube_valve","tube_oneway","pattern_crafter","infusion_matrix").contains(id); }
+    public static boolean special(String id) { return id.startsWith("banner_") || id.startsWith("nitor_") || List.of("jar_brain","centrifuge","pattern_crafter","infusion_matrix").contains(id); }
     private static Block create(Spec spec) {
         BlockBehaviour.Properties props = BlockBehaviour.Properties.copy(Blocks.STONE).strength(2).noOcclusion();
         String id=spec.id();
         if (isEssentiaJar(id)) return new thaumcraft.essentia.EssentiaJarBlock(id.equals("jar_void"));
+        if (thaumcraft.essentia.production.EssentiaProductionModule.handlesBlock(id)) return thaumcraft.essentia.production.EssentiaProductionModule.createBlock(id, props);
+        if (thaumcraft.essentia.transport.EssentiaTransportModule.handlesBlock(id)) return thaumcraft.essentia.transport.EssentiaTransportModule.createBlock(id, props);
         if (id.equals("recharge_pedestal")) return new thaumcraft.equipment.recharge.RechargePedestalBlock(props);
         if (id.equals("purifying_fluid")) return thaumcraft.equipment.cleansing.CleansingModule.createPurifyingBlock();
         if (id.startsWith("slab_") && !id.startsWith("slab_double_")) return new SlabBlock(props);

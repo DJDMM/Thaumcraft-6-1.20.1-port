@@ -1,0 +1,38 @@
+{
+  "type": "thaumcraft:arcane_shaped",
+  "category": "misc",
+  "research": "IMPROVEDSMELTING",
+  "pattern": [
+    "WTW",
+    "RGR",
+    "IBI"
+  ],
+  "key": {
+    "W": {
+      "item": "thaumcraft:plank_greatwood"
+    },
+    "T": {
+      "item": "thaumcraft:tube_filter"
+    },
+    "R": {
+      "tag": "forge:plates/brass"
+    },
+    "G": {
+      "item": "thaumcraft:metal_alchemical"
+    },
+    "I": {
+      "tag": "forge:plates/iron"
+    },
+    "B": {
+      "item": "thaumcraft:bellows"
+    }
+  },
+  "result": {
+    "item": "thaumcraft:smelter_aux"
+  },
+  "vis": 100,
+  "crystals": {
+    "aer": 1,
+    "terra": 1
+  }
+}

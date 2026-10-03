@@ -1,0 +1,152 @@
+{
+  "version": "0.13.0-dev",
+  "originalVersion": "Thaumcraft 6.1.BETA26",
+  "originalJarSha256": "9425f8643581b27ff8845b087c8bc6fc10425a32942f1a3f0e265ce6b38f7b5f",
+  "requiredGameTests": 272,
+  "previousGameTests": 225,
+  "newTestsBySuite": {
+    "production": 15,
+    "transport": 20,
+    "progression": 5,
+    "arcaneRecipes": 7
+  },
+  "implementedCanonicalResearchEntries": 15,
+  "newImplementedEntries": [
+    "ESSENTIASMELTER",
+    "WARDEDJARS",
+    "TUBES"
+  ],
+  "newArcaneRecipes": 19,
+  "smelterCapacity": 256,
+  "alembicCapacity": 128,
+  "tubeBufferCapacity": 10,
+  "smelterIntervals": [
+    15,
+    10,
+    15
+  ],
+  "alumentumIntervals": [
+    12,
+    8,
+    12
+  ],
+  "actualIntegratedServerScreenshots": 10,
+  "visuallyReviewedScreenshots": 10,
+  "clientSceneManifest": [
+    "smelter-idle",
+    "smelter-burning",
+    "production-network",
+    "machines",
+    "six-tubes",
+    "tube-controls",
+    "alembic-labels",
+    "smelter-recipe",
+    "jar-recipe",
+    "tube-recipe"
+  ],
+  "actualClientServerMenuQuickMove": true,
+  "actualFuelAndStoneConsumed": true,
+  "actualTickFlowToJar": true,
+  "clientS2CStateAndMutationChecks": true,
+  "recipeViewsLeaveAuthoritativeServerKnowledgeUnchanged": true,
+  "legacyValveAndOneWayMigration": true,
+  "legacyMigrationDeferredToServerEndTick": true,
+  "researchNetworkProtocol": 3,
+  "bakedBlockStateCount": 1069,
+  "clientDesktop": "WinSta0\\ThaumcraftQA_6938f6c13f1f415c8b6e3a50fa02d8d6",
+  "clientJvmExitCode": 0,
+  "clientDesktopOwnedWindows": 16,
+  "inputDesktopBefore": "Default",
+  "inputDesktopAfter": "Default",
+  "localJsonCount": 2702,
+  "jarResourceByteParityChecks": 3419,
+  "originalPngByteParityChecks": 595,
+  "originalOggByteParityChecks": 24,
+  "jarSha256": "4134b2c47baefac54ce548c05c07715a2436cd171d0dceda97dd2f1aa77afd12",
+  "terraBlenderSha256": "ca678c11b878ad9c7143636fbec911f29e2c1453a6cc091e16b14e6d9608fb5f",
+  "screenshots": [
+    {
+      "file": "tc6-essentia-production-alembic-labels.png",
+      "sha256": "2fd3c48cf151e83c00f696a2ce1452f5b59a0679213ddeaabc43df9192046bb8",
+      "width": 1600,
+      "height": 1000
+    },
+    {
+      "file": "tc6-essentia-production-jar-recipe.png",
+      "sha256": "e1ff7623a73b72da8c2ca522eee9d903ab6e30c246b97f1ade3d658b0f48f65d",
+      "width": 1600,
+      "height": 1000
+    },
+    {
+      "file": "tc6-essentia-production-machines.png",
+      "sha256": "3bdfaeef21ec33e85dc29a3641cf82be3a500c4f533ce11ec3b9163b406c2309",
+      "width": 1600,
+      "height": 1000
+    },
+    {
+      "file": "tc6-essentia-production-production-network.png",
+      "sha256": "89b059acb97f744f9972524cf9b2ba6ff1891f1f5a61a798e4912f3a4e292d9b",
+      "width": 1600,
+      "height": 1000
+    },
+    {
+      "file": "tc6-essentia-production-six-tubes.png",
+      "sha256": "11453a28e9c23e377ce64e37c45832e06d2ac9483e04f92944cdc360b1f6285f",
+      "width": 1600,
+      "height": 1000
+    },
+    {
+      "file": "tc6-essentia-production-smelter-burning.png",
+      "sha256": "f8b10922db117734b3c8f1563731471698d3f0b4cd6a41003cb28afc6d0afc60",
+      "width": 1600,
+      "height": 1000
+    },
+    {
+      "file": "tc6-essentia-production-smelter-idle.png",
+      "sha256": "88c6643b93c01f5f65cfa026539e3d28d975913db60cf8535dc085e35158a4e5",
+      "width": 1600,
+      "height": 1000
+    },
+    {
+      "file": "tc6-essentia-production-smelter-recipe.png",
+      "sha256": "d1518defb22a85d56b5538427a00c275a7d368baa1747245310b7f5591d8d094",
+      "width": 1600,
+      "height": 1000
+    },
+    {
+      "file": "tc6-essentia-production-tube-controls.png",
+      "sha256": "fe6ce17d0ba2e5a92ce6170d68e7f7be4de8cdc207f10e3faf851d394db30588",
+      "width": 1600,
+      "height": 1000
+    },
+    {
+      "file": "tc6-essentia-production-tube-recipe.png",
+      "sha256": "9da0ad6ed075ba8860543de36e318b12ce76fb9f63509cd38e0a3e9df2a677f5",
+      "width": 1600,
+      "height": 1000
+    }
+  ],
+  "logEncodings": {
+    "essentia-server-0.13-final3.log": "utf-8",
+    "essentia-production-client-essentia-013-client3-client.log": "windows-1251",
+    "build-0.13-final.log": "utf-8",
+    "resources-0.13-final.log": "utf-8",
+    "essentia-production-client-essentia-013-client3-prepare.log": "utf-8",
+    "essentia-production-client-essentia-013-client3-desktop.json": "utf-8",
+    "essentia-visual-review-0.13.json": "utf-8"
+  },
+  "logs": {
+    "essentia-server-0.13-final3.log": "1c9b7a52da5b05ec435264247a60d0e2249d4b7aaf4485b98995982bb05ef760",
+    "essentia-production-client-essentia-013-client3-client.log": "5ce6796758cb4c0172ce4f36f296d827d02a5ee00a63cefce04adb619fff33fc",
+    "build-0.13-final.log": "0f0939d5b4026994b443f0dfaba474e8b24657726fb3532e286356df076e5be0",
+    "resources-0.13-final.log": "73d5b73d5da784bd31fcb5d1ac3ee2ee39be4004d56e39ffe8f127f9dfd7e599",
+    "essentia-production-client-essentia-013-client3-prepare.log": "90e1271bdbe812270c2aa822cbd8ff467b81fc86591736a2363eb8c95b1a823d",
+    "essentia-production-client-essentia-013-client3-desktop.json": "75df44551ca53fc50951f24d461732a80dbc7858c24386c7b8edb3ece3cf82c6"
+  },
+  "limitations": [
+    "Advanced smelter and bellows research remain locked",
+    "Bellows animation and other furnace/crucible consumers incomplete",
+    "Airborne transport, infusion and Thaumatorium incomplete",
+    "Integrated QA uses explicit fixtures, not a full survival playthrough or two independent clients"
+  ]
+}

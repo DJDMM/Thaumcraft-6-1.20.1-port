@@ -38,7 +38,15 @@ final class BookRecipeViews {
             Map.entry("robechest", "cloth_chest"), Map.entry("robelegs", "cloth_legs"), Map.entry("robeboots", "cloth_boots"),
             Map.entry("thaumometer", "thaumometer"), Map.entry("tablewood", "table_wood"),
             Map.entry("inkwell", "scribing_tools"), Map.entry("salismundusfake", "salis_mundus"),
-            Map.entry("phial", "phial_empty"), Map.entry("brickarcane", "stone_arcane_brick"));
+            Map.entry("phial", "phial_empty"), Map.entry("brickarcane", "stone_arcane_brick"),
+            Map.entry("essentiasmelter", "smelter_basic"), Map.entry("essentiasmelterthaumium", "smelter_thaumium"),
+            Map.entry("essentiasmeltervoid", "smelter_void"), Map.entry("wardedjar", "jar_normal"),
+            Map.entry("jarvoid", "jar_void"), Map.entry("brassbrace", "jar_brace"), Map.entry("jarlabel", "label_blank"),
+            Map.entry("jarlabelessence", "label_filled"), Map.entry("tubefilter", "tube_filter"),
+            Map.entry("tuberestrict", "tube_restrict"), Map.entry("tubeoneway", "tube_oneway"),
+            Map.entry("tubevalve", "tube_valve"), Map.entry("tubebuffer", "tube_buffer"),
+            Map.entry("alchemicalconstruct", "metal_alchemical"), Map.entry("advalchemyconstruct", "metal_alchemical_advanced"),
+            Map.entry("smelteraux", "smelter_aux"), Map.entry("smeltervent", "smelter_vent"));
 
     private BookRecipeViews() {}
 
@@ -74,6 +82,16 @@ final class BookRecipeViews {
                     || path.equals("viscrystalgroup") && itemId(view.output).equals("crystal_essence")) result.put(view.id, view);
         }
         for (Recipe<?> recipe : mc.level.getRecipeManager().getRecipes()) {
+            if (path.equals("jarlabelessence") && recipe instanceof thaumcraft.essentia.EssentiaLabelRecipe) {
+                // One representative aspect for the actual NBT-aware label recipe.
+                // Its full phial remainder is supplied by the recipe, not consumed.
+                var label = thaumcraft.catalog.CatalogModule.stack("label_blank");
+                var phial = thaumcraft.catalog.CatalogModule.aspectStack("phial_filled", Aspect.FIRE, 10);
+                result.put(recipe.getId(), new View(recipe.getId(), "crafting", List.of(Ingredient.of(label), Ingredient.of(phial)),
+                        2, 1, thaumcraft.catalog.CatalogModule.aspectStack("label_filled", Aspect.FIRE, 1),
+                        "", 0, new int[6], new AspectList()));
+                continue;
+            }
             if ((path.equals("salismundusfake") || path.equals("salis_mundus")) && recipe instanceof SalisMundusRecipe) {
                 // CustomRecipe intentionally has no static result/ingredient list. This representative
                 // view exists only while the actual synchronized custom recipe is present.
@@ -95,9 +113,7 @@ final class BookRecipeViews {
             if (recipe instanceof ArcaneRecipe arcane) {
                 int[] crystals = new int[6];
                 for (int i = 0; i < 6; i++) crystals[i] = arcane.crystalCost(i);
-                int width = 1, height = 1;
-                while (width < 3 && !arcane.canCraftInDimensions(width, 3)) width++;
-                while (height < 3 && !arcane.canCraftInDimensions(3, height)) height++;
+                int width = arcane.gridWidth(), height = arcane.gridHeight();
                 result.put(recipe.getId(), new View(recipe.getId(), "arcane", List.copyOf(recipe.getIngredients()), width, height,
                         output.copy(), arcane.research(), arcane.vis(), crystals, new AspectList()));
             } else if (recipe.getType() == net.minecraft.world.item.crafting.RecipeType.CRAFTING) {

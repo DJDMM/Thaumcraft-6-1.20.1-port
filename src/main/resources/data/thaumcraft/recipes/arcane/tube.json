@@ -1,0 +1,30 @@
+{
+  "type": "thaumcraft:arcane_shaped",
+  "category": "misc",
+  "research": "TUBES",
+  "pattern": [
+    " Q ",
+    "IGI",
+    " B "
+  ],
+  "key": {
+    "I": {
+      "tag": "forge:plates/iron"
+    },
+    "G": {
+      "tag": "forge:glass"
+    },
+    "B": {
+      "tag": "forge:nuggets/brass"
+    },
+    "Q": {
+      "tag": "forge:nuggets/quicksilver"
+    }
+  },
+  "result": {
+    "item": "thaumcraft:tube",
+    "count": 8
+  },
+  "vis": 10,
+  "crystals": {}
+}

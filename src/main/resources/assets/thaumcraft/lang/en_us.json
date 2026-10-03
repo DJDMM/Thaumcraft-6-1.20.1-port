@@ -1685,5 +1685,8 @@
   "gui.thaumcraft.theory.scripting_cost": "Cost: %s ink + %s paper",
   "gui.thaumcraft.theory.card_requirements_missing": "Required items, knowledge or experience are missing.",
   "gui.thaumcraft.theory.levels_all": "Consumes all %s XP levels",
-  "gui.thaumcraft.theory.levels_upto": "Consumes up to %s XP levels (%s available)"
+  "gui.thaumcraft.theory.levels_upto": "Consumes up to %s XP levels (%s available)",
+  "tc.resonator1": "§9Contains %1$s %2$s essentia§0",
+  "tc.resonator2": "§5Suction %1$s %2$s §0 ",
+  "tc.resonator3": "Untyped"
 }

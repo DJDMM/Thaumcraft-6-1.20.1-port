@@ -9,6 +9,7 @@ public final class ResearchClient {
         Minecraft minecraft = Minecraft.getInstance();
         BookRecipeViews.receive(data);
         EarlySurvivalClientSmokeTest.snapshot(data);
+        EssentiaProductionClientSmokeTest.snapshot(data);
         PlayerKnowledge knowledge = PlayerKnowledge.load(data);
         thaumcraft.equipment.client.SanityHud.receive(knowledge);
         int scanCount = data.getInt("ScanCount");

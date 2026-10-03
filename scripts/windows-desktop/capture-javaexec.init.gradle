@@ -29,8 +29,12 @@ gradle.taskGraph.whenReady { graph ->
     if (graph.allTasks.any { it instanceof JavaExec && it != target && it.name.startsWith('run') }) {
         throw new GradleException('Do not select another game run task during isolated launch preparation.')
     }
-    if (requestedTask == 'runClient' && !target.project.hasProperty('theoryCompleteSmokeTest')) {
-        throw new GradleException('Client capture requires -PtheoryCompleteSmokeTest.')
+    Map<String, String> clientProfiles = [theoryCompleteSmokeTest: 'run/theory-complete-smoke',
+            essentiaProductionSmokeTest: 'run/essentia-production-smoke']
+    def selectedProfiles = clientProfiles.keySet().findAll { target.project.hasProperty(it) }
+    String selectedClientProperty = selectedProfiles.size() == 1 ? selectedProfiles[0] : null
+    if (requestedTask == 'runClient' && selectedClientProperty == null) {
+        throw new GradleException('Client capture requires exactly one supported isolated smoke profile.')
     }
     String outputName = gradle.startParameter.projectProperties.get('isolatedCaptureOutput')
     if (!outputName || !new File(outputName).absolute) {
@@ -112,10 +116,10 @@ gradle.taskGraph.whenReady { graph ->
         arguments.addAll(programArgs)
 
         if (requestedTask == 'runClient') {
-            File expectedWorkingDir = target.project.file('run/theory-complete-smoke').canonicalFile
+            File expectedWorkingDir = target.project.file(clientProfiles[selectedClientProperty]).canonicalFile
             if (target.getWorkingDir().canonicalFile != expectedWorkingDir ||
-                    !allJvmArgs.contains('-Dthaumcraft.theoryCompleteSmokeTest=true')) {
-                throw new GradleException('The captured client is not the isolated theory-complete smoke fixture.')
+                    !allJvmArgs.contains('-Dthaumcraft.' + selectedClientProperty + '=true')) {
+                throw new GradleException('The captured client is not the selected isolated smoke fixture.')
             }
         }
         Map<String, String> environment = new TreeMap<>(String.CASE_INSENSITIVE_ORDER)

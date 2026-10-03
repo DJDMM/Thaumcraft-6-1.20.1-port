@@ -20,6 +20,8 @@
 
 ## Карта документов
 
+- [Производство, хранение и трубы эссенции 0.13](../../ESSENTIA.md); [плавильни и перегонные кубы](ESSENTIA-PRODUCTION-BETA26-AUDIT.md), [шесть труб](ESSENTIA-TUBES-BETA26-AUDIT.md), [исследования и рецепты](ESSENTIA-PROGRESSION-BETA26-AUDIT.md).
+
 - [Полный исследовательский стол 0.12](../../THEORYCRAFTING.md); [33 карточки BETA26](THEORY-CARDS-BETA26-AUDIT.md), [14 помощников и исходный рендер](THEORY-AIDS-RENDER-BETA26-AUDIT.md), [интерфейс и анимации](THEORY-GUI-BETA26-AUDIT.md).
 
 - [Исходная металлургия, кристаллы аспектов и раннее снаряжение 0.11](../../EARLY-SURVIVAL.md); [аудит ранних рецептов и совместимости кристаллов BETA26](EARLY-ARCANE-BETA26-AUDIT.md).

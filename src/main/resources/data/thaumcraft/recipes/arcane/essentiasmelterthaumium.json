@@ -1,0 +1,31 @@
+{
+  "type": "thaumcraft:arcane_shaped",
+  "category": "misc",
+  "research": "ESSENTIASMELTERTHAUMIUM",
+  "pattern": [
+    "BFB",
+    "IGI",
+    "III"
+  ],
+  "key": {
+    "B": {
+      "tag": "forge:plates/brass"
+    },
+    "F": {
+      "item": "thaumcraft:smelter_basic"
+    },
+    "I": {
+      "tag": "forge:plates/thaumium"
+    },
+    "G": {
+      "item": "thaumcraft:metal_alchemical"
+    }
+  },
+  "result": {
+    "item": "thaumcraft:smelter_thaumium"
+  },
+  "vis": 250,
+  "crystals": {
+    "ignis": 2
+  }
+}

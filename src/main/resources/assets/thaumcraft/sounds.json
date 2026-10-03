@@ -74,5 +74,31 @@
       "thaumcraft:clack2",
       "thaumcraft:clack3"
     ]
+  },
+  "creak": {
+    "sounds": [
+      "thaumcraft:creak1",
+      "thaumcraft:creak2"
+    ]
+  },
+  "squeek": {
+    "sounds": [
+      "thaumcraft:squeek1",
+      "thaumcraft:squeek2"
+    ]
+  },
+  "tool": {
+    "sounds": [
+      "thaumcraft:tool1",
+      "thaumcraft:tool2"
+    ]
+  },
+  "key": {
+    "sounds": [
+      {
+        "name": "thaumcraft:key",
+        "stream": false
+      }
+    ]
   }
 }
