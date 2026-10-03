@@ -1,7 +1,7 @@
 # Isolated Windows client QA
 
 From the project, run `scripts/run_client_smoke_isolated.ps1 -SmokeTest EssentiaProduction`
-or `-SmokeTest TheoryComplete`. The old `run_theory_smoke_isolated.ps1` forwards
+or `-SmokeTest TheoryComplete` / `-SmokeTest ThaumonomiconComplete`. The old `run_theory_smoke_isolated.ps1` forwards
 to the TheoryComplete profile. The wrapper prepares the selected JavaExec task without executing its game launch
 action, writes a Java17 argument file, and launches the final JVM on a uniquely
 named non-input Win32 desktop. The desktop is chosen in `CreateProcessW` before
@@ -31,7 +31,7 @@ argument, escapes backslashes/quotes, writes no BOM and rejects non-ASCII
 arguments pending local Java17 code-page verification.
 
 Only the selected `run/theory-complete-smoke/options.txt` or
-`run/essentia-production-smoke/options.txt` receives these fixture settings:
+`run/essentia-production-smoke/options.txt` / `run/thaumonomicon-complete-smoke/options.txt` receives these fixture settings:
 
 - `soundCategory_master:0.0`
 - `fullscreen:false`

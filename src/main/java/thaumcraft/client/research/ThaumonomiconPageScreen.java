@@ -21,6 +21,9 @@ import thaumcraft.research.ResearchCatalog;
 import thaumcraft.research.ResearchEntry;
 import thaumcraft.research.ResearchNetwork;
 import thaumcraft.research.ResearchProgression;
+import thaumcraft.research.ResearchBookVisibility;
+import thaumcraft.research.ResearchBookRequirements;
+import thaumcraft.research.book.MultiblockCatalog;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -39,25 +42,40 @@ public final class ThaumonomiconPageScreen extends Screen {
     private static final Pattern MARKUP = Pattern.compile("(?is)<IMG>(.*?)</IMG>|<(BR|LINE|DIV|PAGE)\\s*/?>");
     private static final Pattern ASPECT = Pattern.compile("key\\s*:\\s*['\"]([^'\"]+)['\"]");
     private final ThaumonomiconScreen browser;
+    private final Screen returnScreen;
     private final ResearchEntry entry;
     private final boolean archiveMode;
+    private final String directRecipe;
     private final List<ResearchEntry.Stage> chapters = new ArrayList<>();
     private final List<List<Piece>> pages = new ArrayList<>();
     private final List<Control> controls = new ArrayList<>();
     private final List<ItemHover> itemHovers = new ArrayList<>();
+    private final java.util.Map<ResourceLocation,MultiblockBookPreview> structureViews=new java.util.HashMap<>();
+    private final List<MultiblockBookPreview> visibleStructures=new ArrayList<>();
+    private double renderMouseX,renderMouseY;
     private PlayerKnowledge knowledge;
     private int scans, chapter, spread, cursorY, visibleStage = -1;
     private float scale = 1, left, top;
     private boolean requestPending;
     private String resultMessage;
+    private int inventoryFingerprint, refreshTicks;
+    private int readRequestStage=-1,readRequestMask=-1,visitedAddenda;
+    private int bookmarkScroll;
+    private ResourceLocation drawingRecipe;
     private BiConsumer<String, Integer> smokeSender;
 
     public ThaumonomiconPageScreen(ThaumonomiconScreen browser, ResearchEntry entry,
                                   PlayerKnowledge knowledge, int scans) {
-        super(Component.translatable(entry.title()));
+        this(browser,entry,knowledge,scans,browser,null);
+    }
+    private ThaumonomiconPageScreen(ThaumonomiconScreen browser, ResearchEntry entry,
+                                   PlayerKnowledge knowledge, int scans,Screen returnScreen,String directRecipe) {
+        super(directRecipe==null?Component.translatable(entry.title()):BookRecipeViews.resolve(directRecipe).get(0).output().getHoverName());
         this.browser = browser;
+        this.returnScreen = returnScreen;
         this.entry = entry;
         this.archiveMode = browser.archiveMode();
+        this.directRecipe=directRecipe;
         this.knowledge = knowledge;
         this.scans = scans;
         rebuildChapters();
@@ -98,22 +116,13 @@ public final class ThaumonomiconPageScreen extends Screen {
         int stage = ResearchProgression.stage(knowledge, entry.key());
         if (stage != visibleStage) { chapter = 0; spread = 0; visibleStage = stage; }
         chapters.clear();
-        if (archiveMode) {
-            chapters.addAll(entry.stages());
-            chapters.addAll(entry.addenda());
-        } else if (legacyLesson()) {
-            chapters.addAll(entry.stages());
-        } else if (stage > 0 && !entry.stages().isEmpty()) {
-            chapters.add(entry.stages().get(Math.min(stage, entry.stages().size()) - 1));
-            if (complete()) entry.addenda().stream()
-                    .filter(addendum -> addendum.requiredResearch().stream().allMatch(knowledge::isResearchCompleteStrict))
-                    .forEach(chapters::add);
-        }
+        chapters.addAll(directRecipe==null?ResearchBookVisibility.readableChapters(knowledge, entry, archiveMode):
+                List.of(new ResearchEntry.Stage("",List.of(),List.of(directRecipe),List.of(),0)));
         chapter = Math.max(0, Math.min(chapter, chapters.size() - 1));
     }
 
     private boolean actionAvailable() {
-        if (archiveMode || requestPending || complete()) return false;
+        if (directRecipe!=null || archiveMode || requestPending || complete()) return false;
         if (legacyLesson()) return scans >= entry.scans() && knowledge.discoveredAspects().size() >= entry.aspects()
                 && entry.parents().stream().allMatch(knowledge::knowsResearch);
         if (!ResearchProgression.isImplemented(entry.key())) return false;
@@ -139,16 +148,26 @@ public final class ThaumonomiconPageScreen extends Screen {
 
     @Override
     protected void init() {
-        scale = Math.max(0.2f, Math.min(1.25f, Math.min((width - 16f) / BOOK_WIDTH, (height - 64f) / BOOK_HEIGHT)));
+        scale = Math.max(0.2f, Math.min(1.25f, Math.min((width - 16f) / (BOOK_WIDTH+48), (height - 64f) / BOOK_HEIGHT)));
         left = (width - BOOK_WIDTH * scale) / 2f;
         top = (height - BOOK_HEIGHT * scale) / 2f;
         buildPages();
     }
 
+    @Override public void tick() {
+        if (++refreshTicks % 5 != 0 || minecraft == null || minecraft.player == null) return;
+        int fingerprint=1;
+        for(ItemStack stack:minecraft.player.getInventory().items)
+            fingerprint=31*fingerprint+stack.save(new net.minecraft.nbt.CompoundTag()).hashCode();
+        if(fingerprint!=inventoryFingerprint) {inventoryFingerprint=fingerprint;buildPages();}
+    }
+
     private void buildPages() {
         pages.clear();
         newPage();
-        if (archiveMode) {
+        if (directRecipe!=null) {
+            // Standalone recipe links start with the actual recipe, without empty introductory pages.
+        } else if (archiveMode) {
             paragraph(tr("archive_notice"), FADED);
             divider(false);
         } else if (legacyLesson()) {
@@ -165,37 +184,46 @@ public final class ThaumonomiconPageScreen extends Screen {
             paragraph(progress("current_stage", Math.min(visibleStage, entry.stages().size()), entry.stages().size()), FADED);
             divider(false);
         }
-        if (!archiveMode && !legacyLesson()) {
+        if (directRecipe==null && !archiveMode && !legacyLesson()) {
             paragraph(knowledgeBalance(entry.category()), FADED);
             divider(false);
         }
         if (!chapters.isEmpty()) {
             ResearchEntry.Stage stage = chapters.get(chapter);
             String text = I18n.exists(stage.text()) ? Component.translatable(stage.text()).getString() : tr("text_unavailable");
-            markup(text);
+            if(directRecipe==null) markup(text);
             if ((archiveMode || legacyLesson() || !complete())
                     && (!stage.requirements().isEmpty() || !stage.requiredResearch().isEmpty() || stage.warp() > 0)) {
                 divider(true);
                 paragraph(tr(archiveMode ? "requirements_reference" : "requirements"), INK);
-                for (String requirement : stage.requirements()) paragraph(requirementText(requirement), FADED);
-                // Stage research is separate from the flattened legacy requirements, so avoid showing it twice.
-                if (stage.requirements().stream().noneMatch(value -> value.startsWith("required_research:"))) {
-                    for (String key : stage.requiredResearch()) paragraph(tr("research_requirement", researchName(key)), FADED);
-                }
+                for (ResearchBookRequirements.Row row : ResearchBookRequirements.rows(stage,knowledge,
+                        minecraft==null || minecraft.player==null?null:minecraft.player.getInventory())) requirement(row);
                 if (stage.warp() > 0) paragraph(tr("warp_reference", stage.warp()), 0x754281);
                 if (!archiveMode && !legacyLesson() && !complete()
                         && stage.requirements().stream().anyMatch(value -> value.startsWith("required_knowledge:")))
                     paragraph(progress("knowledge_spent"), FADED);
             }
             if (!stage.recipes().isEmpty()) {
-                divider(true);
-                paragraph(archiveMode ? tr("recipes_reference") : progress("recipes"), INK);
+                if(directRecipe==null) {
+                    divider(true);
+                    paragraph(archiveMode ? tr("recipes_reference") : progress("recipes"), INK);
+                }
                 java.util.Set<ResourceLocation> shown = new java.util.HashSet<>();
                 for (String recipe : stage.recipes()) {
+                    var blueprint=MultiblockCatalog.resolve(recipe);
+                    if(blueprint.isPresent()) {
+                        var structure=blueprint.get();
+                        if(shown.add(structure.id())) {
+                            fit(184);
+                            var preview=structureViews.computeIfAbsent(structure.id(),ignored->new MultiblockBookPreview(structure));
+                            pages.get(pages.size()-1).add(new StructurePiece(cursorY,preview));cursorY+=184;
+                        }
+                        continue;
+                    }
                     List<BookRecipeViews.View> views = BookRecipeViews.resolve(recipe);
                     if (views.isEmpty()) paragraph("• " + recipeName(recipe) + " — " + tr("recipe_unavailable"), FADED);
                     for (BookRecipeViews.View view : views) if (shown.add(view.id())) {
-                        int height = view.kind().equals("salis") ? 176 : 140;
+                        int height = recipeHeight(view);
                         fit(height);
                         pages.get(pages.size() - 1).add(new RecipePiece(cursorY, view));
                         cursorY += height;
@@ -316,6 +344,7 @@ public final class ThaumonomiconPageScreen extends Screen {
     }
 
     private String chapterLabel() {
+        if(directRecipe!=null)return progress("recipes");
         if (chapters.isEmpty()) return progress("not_started");
         if (archiveMode || legacyLesson()) return chapter < entry.stages().size()
                 ? tr("stage", chapter + 1, Math.max(1, entry.stages().size()))
@@ -416,6 +445,7 @@ public final class ThaumonomiconPageScreen extends Screen {
     }
 
     private String researchName(String raw) {
+        if(raw.contains("&&"))return String.join(" + ",java.util.Arrays.stream(raw.split("&&")).map(this::researchName).toList());
         String key = raw.replaceFirst("^[!~]", "");
         int stage = key.indexOf('@');
         if (stage >= 0) key = key.substring(0, stage);
@@ -438,7 +468,9 @@ public final class ThaumonomiconPageScreen extends Screen {
         renderBackground(graphics);
         controls.clear();
         itemHovers.clear();
+        visibleStructures.clear();
         double mx = (mouseX - left) / scale, my = (mouseY - top) / scale;
+        renderMouseX=mx;renderMouseY=my;
         graphics.pose().pushPose();
         graphics.pose().translate(left, top, 0);
         graphics.pose().scale(scale, scale, 1);
@@ -452,17 +484,22 @@ public final class ThaumonomiconPageScreen extends Screen {
         if (!chapters.isEmpty() && chapters.get(chapter).warp() > 0) atlas(graphics, OVERLAY, 287, 40, 12, 12, 20, 3, 16, 16);
         drawPage(graphics, spread * 2, 29);
         drawPage(graphics, spread * 2 + 1, 216);
+        drawBookmarks(graphics,mx,my);
+        if(knowledge.isResearchCompleteStrict("FIRSTSTEPS"))
+            insertTab(graphics,60,76,ThaumonomiconKnowledgeScreen.Mode.ASPECTS,"tc.aspect.name");
+        if(knowledge.isResearchCompleteStrict("KNOWLEDGETYPES"))
+            insertTab(graphics,82,44,ThaumonomiconKnowledgeScreen.Mode.KNOWLEDGE,"tc.knowledge.name");
         String status = archiveMode ? tr("archive") : complete() ? progress("complete")
                 : legacyLesson() ? tr("practice") : progress(visibleStage == 0 ? "not_started" : "in_progress");
         centered(graphics, status, BOOK_WIDTH / 2, -16, BOOK_WIDTH - 70, 0xE8D7B3);
-        if (spread > 0) arrow(graphics, 22, 262, false, mx, my, () -> spread--, tr("previous_page"));
-        if ((spread + 1) * 2 < pages.size()) arrow(graphics, 363, 262, true, mx, my, () -> spread++, tr("next_page"));
+        if (spread > 0) arrow(graphics, 22, 262, false, mx, my, () -> changeSpread(-1), tr("previous_page"));
+        if ((spread + 1) * 2 < pages.size()) arrow(graphics, 363, 262, true, mx, my, () -> changeSpread(1), tr("next_page"));
         if (chapters.size() > 1) {
             button(graphics, 224, 8, 18, 13, "‹", chapter > 0, mx, my, () -> changeChapter(-1), tr("previous_stage"));
             button(graphics, 346, 8, 18, 13, "›", chapter + 1 < chapters.size(), mx, my, () -> changeChapter(1), tr("next_stage"));
         }
         button(graphics, 8, 292, 116, 17, tr("back"), true, mx, my, this::onClose, tr("back_hint"));
-        if (!archiveMode && !complete() && (legacyLesson() || ResearchProgression.isImplemented(entry.key()))) {
+        if (directRecipe==null && !archiveMode && !complete() && (legacyLesson() || ResearchProgression.isImplemented(entry.key()))) {
             String label = requestPending ? tr("pending") : legacyLesson() ? tr("discover")
                     : progress(visibleStage == 0 ? "start" : "advance");
             String hint = resultMessage == null ? progress("server_check") : progress(resultMessage);
@@ -470,6 +507,13 @@ public final class ThaumonomiconPageScreen extends Screen {
         } else centered(graphics, tr("page_count", spread + 1, Math.max(1, (pages.size() + 1) / 2)), 285, 295, 200, 0xD5C199);
         if (resultMessage != null) centered(graphics, progress(resultMessage), BOOK_WIDTH / 2, 316, BOOK_WIDTH - 16, 0xE8BA8E);
         graphics.pose().popPose();
+        acknowledgeRenderedChapter();
+        for(var preview:visibleStructures) {
+            var material=preview.hoveredMaterial(mx,my);
+            if(material.isPresent()) {graphics.renderTooltip(font,material.get(),mouseX,mouseY);super.render(graphics,mouseX,mouseY,partialTick);return;}
+            var hint=preview.tooltip(mx,my);
+            if(hint.isPresent()) {graphics.renderTooltip(font,Component.literal(hint.get()),mouseX,mouseY);super.render(graphics,mouseX,mouseY,partialTick);return;}
+        }
         for (ItemHover hover : itemHovers) if (hover.contains(mx, my)) {
             graphics.renderTooltip(font, hover.stack(), mouseX, mouseY);
             super.render(graphics, mouseX, mouseY, partialTick);
@@ -480,6 +524,22 @@ public final class ThaumonomiconPageScreen extends Screen {
         }
         super.render(graphics, mouseX, mouseY, partialTick);
     }
+    private void openInsert(ThaumonomiconKnowledgeScreen.Mode mode) {
+        minecraft.setScreen(new ThaumonomiconKnowledgeScreen(this,knowledge,mode));
+    }
+    private void insertTab(GuiGraphics graphics,int y,int u,ThaumonomiconKnowledgeScreen.Mode mode,String title) {
+        graphics.blit(BOOK,-24,y,u,232,24,16);
+        controls.add(new Control(-24,y,24,16,()->openInsert(mode),Component.translatable(title).getString()));
+    }
+    private void acknowledgeRenderedChapter() {
+        if(directRecipe!=null || archiveMode || legacyLesson() || visibleStage<=0 || minecraft.screen!=this || minecraft.getConnection()==null || chapters.isEmpty()) return;
+        int addendum=entry.addenda().indexOf(chapters.get(chapter));
+        if(addendum>=0) visitedAddenda|=1<<addendum;
+        int mask=visitedAddenda & thaumcraft.research.ResearchBookState.availableAddendaMask(knowledge,entry);
+        if(readRequestStage==visibleStage && readRequestMask==mask) return;
+        readRequestStage=visibleStage;readRequestMask=mask;
+        ResearchNetwork.requestRead(entry.key(),visibleStage,mask);
+    }
 
     private void drawPage(GuiGraphics graphics, int index, int x) {
         if (index >= pages.size()) return;
@@ -489,15 +549,84 @@ public final class ThaumonomiconPageScreen extends Screen {
                     x + (img.leftAligned ? 0 : (PAGE_WIDTH - img.width) / 2), img.y, img.width, img.height,
                     img.u, img.v, img.sourceWidth, img.sourceHeight);
             else if (piece instanceof RecipePiece recipe) drawRecipe(graphics, x, recipe.y, recipe.view);
+            else if (piece instanceof RequirementPiece requirement) drawRequirement(graphics,x,requirement);
+            else if(piece instanceof StructurePiece structure) {
+                centered(graphics,Component.translatable(structure.preview().blueprint().title()).getString(),x+PAGE_WIDTH/2,structure.y()+1,PAGE_WIDTH,INK);
+                structure.preview().render(graphics,font,x,structure.y()+12,PAGE_WIDTH,MultiblockBookPreview.PAGE_HEIGHT,renderMouseX,renderMouseY);
+                visibleStructures.add(structure.preview());
+            }
         }
         centered(graphics, Integer.toString(index + 1), x + PAGE_WIDTH / 2, 263, PAGE_WIDTH, FADED);
     }
 
+    private String requirementLabel(ResearchBookRequirements.Row row) {
+        return switch(row.kind()) {
+            case ITEM -> tr("items_requirement",itemName(row.descriptor()));
+            case CRAFT -> tr("craft_requirement",itemName(row.descriptor()));
+            case RESEARCH -> tr("research_requirement",researchName(row.descriptor()));
+            case KNOWLEDGE -> tr("knowledge",tr(row.type()==KnowledgeType.THEORY?"theory":"observation"),
+                    Component.translatable("tc.research_category."+row.category()).getString(),row.required()/row.type().units());
+            case LEGACY -> tr("legacy_requirement");
+        };
+    }
+    private void requirement(ResearchBookRequirements.Row row) {
+        List<FormattedCharSequence> lines=font.split(Component.literal(requirementLabel(row)),PAGE_WIDTH-25);
+        int height=Math.max(20,lines.size()*(font.lineHeight+1))+13;
+        fit(height);
+        pages.get(pages.size()-1).add(new RequirementPiece(cursorY,row,List.copyOf(lines)));
+        cursorY+=height;
+    }
+    private void drawRequirement(GuiGraphics graphics,int x,RequirementPiece piece) {
+        var row=piece.row();
+        int y=piece.y(),color=archiveMode?FADED:row.met()?0x3C633D:0x8F3A35;
+        if(!row.item().isEmpty()) ingredientSlot(graphics,row.item(),x,y+1);
+        else if(row.kind()==ResearchBookRequirements.Kind.KNOWLEDGE)
+            graphics.blit(texture("research/knowledge_"+row.type().name().toLowerCase(Locale.ROOT)+".png"),x,y+1,0,0,16,16,16,16);
+        else if(row.kind()==ResearchBookRequirements.Kind.RESEARCH) {
+            ResearchEntry related=ResearchCatalog.get(ResearchCatalog.graphParentKey(row.descriptor()));
+            if(related!=null) {
+                ResearchIconRenderer.draw(graphics,related,x,y+1,1);
+                controls.add(new Control(x,y,16,18,()->navigateResearch(related),researchName(row.descriptor())));
+            } else {
+                Aspect aspect=Aspect.getAspect(row.descriptor().replaceFirst("^!",""));
+                if(aspect!=null) graphics.blit(aspect.getImage(),x,y+1,0,0,16,16,16,16);
+            }
+        }
+        int lineY=y;
+        for(var line:piece.lines()) {graphics.drawString(font,line,x+24,lineY,color,false);lineY+=font.lineHeight+1;}
+        if(!archiveMode && row.kind()!=ResearchBookRequirements.Kind.LEGACY) {
+            String state=row.kind()==ResearchBookRequirements.Kind.KNOWLEDGE
+                    ?row.available()+" / "+row.required()+" "+tr("raw_units")
+                    :row.kind()==ResearchBookRequirements.Kind.ITEM?row.available()+" / "+row.required()
+                    :tr(row.met()?"requirement_met":"requirement_missing");
+            graphics.drawString(font,state,x+24,Math.max(y+19,lineY),color,false);
+        }
+    }
+
+    private void navigateResearch(ResearchEntry related) {
+        if(!archiveMode && !ResearchBookVisibility.visible(knowledge,related,false)) return;
+        if(!archiveMode && !knowledge.isResearchKnown(related.key()) && !ResearchProgression.canStart(knowledge,related.key())) return;
+        minecraft.setScreen(new ThaumonomiconPageScreen(browser,related,knowledge,scans,this,null));
+    }
+
     private void drawRecipe(GuiGraphics graphics, int x, int y, BookRecipeViews.View view) {
+        drawingRecipe=view.id();
         centered(graphics, view.output().getHoverName().getString(), x + PAGE_WIDTH / 2, y + 2, PAGE_WIDTH, INK);
-        centered(graphics, tr("recipe_" + view.kind()), x + PAGE_WIDTH / 2, y + 14, PAGE_WIDTH, FADED);
+        String kind=view.kind().equals("crafting")?"recipe.type.workbench"+(view.shapeless()?"shapeless":""):
+                view.kind().equals("arcane")?"recipe.type.arcane"+(view.shapeless()?".shapeless":""):
+                view.infusion()?"recipe.type.infusion":"recipe.type.crucible";
+        centered(graphics, view.kind().equals("salis")?tr("recipe_salis"):Component.translatable(kind).getString(),
+                x + PAGE_WIDTH / 2, y + 14, PAGE_WIDTH, FADED);
         if (view.kind().equals("crucible")) {
             ingredientSlot(graphics, BookRecipeViews.displayIngredient(view.ingredients().get(0)), x + 27, y + 49);
+        } else if(view.infusion()) {
+            ingredientSlot(graphics,view.central(),x+54,y+63);
+            List<net.minecraft.world.item.crafting.Ingredient> components=view.components();
+            for(int i=0;i<components.size();i++) {
+                double angle=2*Math.PI*i/Math.max(1,components.size())-Math.PI/2;
+                ingredientSlot(graphics,BookRecipeViews.displayIngredient(components.get(i)),
+                        x+54+(int)Math.round(Math.cos(angle)*34),y+63+(int)Math.round(Math.sin(angle)*34));
+            }
         } else {
             for (int row = 0; row < 3; row++) for (int column = 0; column < 3; column++) {
                 int index = row * view.width() + column;
@@ -506,8 +635,8 @@ public final class ThaumonomiconPageScreen extends Screen {
                 ingredientSlot(graphics, ingredient, x + 10 + column * 20, y + 30 + row * 20);
             }
         }
-        graphics.drawString(font, "→", x + 84, y + 53, INK, false);
-        ingredientSlot(graphics, view.output(), x + 112, y + 49);
+        graphics.drawString(font, "→", x + (view.infusion()?105:84), y + (view.infusion()?69:53), INK, false);
+        ingredientSlot(graphics, view.output(), x + (view.infusion()?134:112), y + (view.infusion()?63:49));
         if (view.kind().equals("arcane")) {
             centered(graphics, tr("recipe_vis", view.vis()), x + PAGE_WIDTH / 2, y + 94, PAGE_WIDTH, 0x654575);
             int count = 0;
@@ -517,29 +646,47 @@ public final class ThaumonomiconPageScreen extends Screen {
                 ItemStack crystal = new ItemStack(WorldModule.VIS_CRYSTALS.get(ArcaneModule.PRIMALS[i]).get(), view.crystals()[i]);
                 graphics.renderItem(crystal, crystalX, y + 107);
                 graphics.renderItemDecorations(font, crystal, crystalX, y + 107);
-                itemHovers.add(new ItemHover(crystalX, y + 107, crystal));
+                itemHovers.add(new ItemHover(crystalX, y + 107, crystal,drawingRecipe));
                 crystalX += 23;
             }
             if (count == 0) centered(graphics, tr("recipe_no_crystals"), x + PAGE_WIDTH / 2, y + 109, PAGE_WIDTH, FADED);
-        } else if (view.kind().equals("crucible")) {
+        } else if (view.kind().equals("crucible") || view.infusion()) {
             Aspect[] aspects = view.aspects().getAspects();
-            int aspectX = x + (PAGE_WIDTH - aspects.length * 31) / 2;
-            for (Aspect aspect : aspects) {
-                graphics.blit(aspect.getImage(), aspectX, y + 97, 0, 0, 16, 16, 16, 16);
-                graphics.drawString(font, Integer.toString(view.aspects().getAmount(aspect)), aspectX + 17, y + 101, INK, false);
-                controls.add(new Control(aspectX, y + 97, 30, 16, () -> {}, aspect.getName()));
-                aspectX += 31;
+            // Seven-aspect crusher costs need two rows, rather than overflowing the parchment.
+            int startY=y+(view.infusion()?116:97),columns=Math.min(4,aspects.length);
+            for (int i=0;i<aspects.length;i++) {
+                Aspect aspect=aspects[i];
+                int rowSize=Math.min(4,aspects.length-i/4*4);
+                int ax=x+(PAGE_WIDTH-rowSize*36)/2+i%4*36,ay=startY+i/4*20;
+                graphics.blit(aspect.getImage(),ax,ay,0,0,16,16,16,16);
+                centered(graphics,Integer.toString(view.aspects().getAmount(aspect)),ax+26,ay+4,19,INK);
+                controls.add(new Control(ax,ay,35,16,()->{},aspect.getName()));
+            }
+            if(view.infusion()) {
+                String cost=tr("recipe_instability",view.instability());
+                if(view.xp()>0) cost+=" · "+tr("recipe_xp",view.xp());
+                centered(graphics,cost,x+PAGE_WIDTH/2,y+116+(aspects.length+3)/4*20,PAGE_WIDTH,0x654575);
             }
         } else if (view.kind().equals("salis")) {
             int noteY = recipeNote(graphics, tr("recipe_salis_distinct"), x, y + 94);
             recipeNote(graphics, tr("recipe_salis_return"), x, noteY + 4);
         }
         boolean unlocked = view.unlocked(knowledge);
-        int statusY = y + (view.kind().equals("salis") ? 161 : 127);
-        centered(graphics, tr(unlocked ? "recipe_unlocked" : "recipe_locked"),
-                x + PAGE_WIDTH / 2, statusY, PAGE_WIDTH, unlocked ? 0x3C633D : 0x8F3A35);
+        int statusY = y + recipeHeight(view)-12;
+        if(!view.note().isEmpty()&&!view.kind().equals("salis"))
+            centered(graphics,tr("recipe_note_"+view.note()),x+PAGE_WIDTH/2,statusY-12,PAGE_WIDTH,FADED);
+        centered(graphics, tr(view.reference()?"recipe_reference":unlocked ? "recipe_unlocked" : "recipe_locked"),
+                x + PAGE_WIDTH / 2, statusY, PAGE_WIDTH, view.reference()?FADED:unlocked ? 0x3C633D : 0x8F3A35);
         if (!view.research().isEmpty()) controls.add(new Control(x, statusY - 3, PAGE_WIDTH, 14, () -> {},
                 tr("research_requirement", researchName(view.research()))));
+        drawingRecipe=null;
+    }
+
+    private int recipeHeight(BookRecipeViews.View view) {
+        if(view.kind().equals("salis")) return 176;
+        if(view.infusion()) return 186;
+        if(view.kind().equals("crucible") && view.aspects().getAspects().length>4) return 164;
+        return view.note().isEmpty()?140:156;
     }
 
     private int recipeNote(GuiGraphics graphics, String text, int x, int y) {
@@ -554,9 +701,52 @@ public final class ThaumonomiconPageScreen extends Screen {
         graphics.fill(x - 1, y - 1, x + 17, y + 17, 0x704B3623);
         graphics.fill(x, y, x + 16, y + 16, 0x30FFF0BB);
         if (stack.isEmpty()) return;
-        graphics.renderItem(stack, x, y);
+        ResearchIconRenderer.drawStack(graphics, stack, x, y);
         graphics.renderItemDecorations(font, stack, x, y);
-        itemHovers.add(new ItemHover(x, y, stack));
+        itemHovers.add(new ItemHover(x, y, stack.copy(),drawingRecipe));
+    }
+
+    /** Bookmarks and ingredient links share the same gated chapters as the main reader. */
+    private void openItemRecipe(ItemStack item,ResourceLocation source) {
+        if(item.isEmpty())return;
+        for(ResearchEntry related:ResearchCatalog.entries()) {
+            if(!ResearchBookVisibility.visible(knowledge,related,archiveMode)) continue;
+            for(var stage:ResearchBookVisibility.readableChapters(knowledge,related,archiveMode))
+                for(String raw:stage.recipes()) for(var view:BookRecipeViews.resolve(raw)) {
+                    if(view.id().equals(source) || !ItemStack.isSameItemSameTags(item,view.output())
+                            || !archiveMode&&!view.unlocked(knowledge)) continue;
+                    var next=new ThaumonomiconPageScreen(browser,related,knowledge,scans,this,null);
+                    minecraft.setScreen(next);next.focusRecipe(view.id());return;
+                }
+        }
+        // Original output navigation also considers registered recipes not named by a chapter.
+        for(var definition:thaumcraft.research.BookRecipeCatalog.allDefinitions())
+            for(var view:BookRecipeViews.resolve(definition.id().toString()))
+                if(!view.id().equals(source)&&ItemStack.isSameItemSameTags(item,view.output())&&(archiveMode||view.unlocked(knowledge))) {
+                    minecraft.setScreen(new ThaumonomiconPageScreen(browser,entry,knowledge,scans,this,definition.id().toString()));return;
+                }
+    }
+    private List<Bookmark> bookmarks() {
+        List<Bookmark> result=new ArrayList<>();
+        for(int i=0;i<pages.size();i++) for(Piece piece:pages.get(i)) {
+            if(piece instanceof RecipePiece recipe) result.add(new Bookmark(i/2,recipe.view().output(),null));
+            if(piece instanceof StructurePiece structure) result.add(new Bookmark(i/2,structure.preview().blueprint().displayStack().orElse(ItemStack.EMPTY),structure.preview()));
+        }
+        return result;
+    }
+    private void drawBookmarks(GuiGraphics graphics,double mx,double my) {
+        List<Bookmark> marks=bookmarks();
+        int capacity=8;
+        bookmarkScroll=Math.max(0,Math.min(bookmarkScroll,Math.max(0,marks.size()-capacity)));
+        for(int i=0;i<capacity&&i+bookmarkScroll<marks.size();i++) {
+            Bookmark mark=marks.get(i+bookmarkScroll);int y=49+i*23;
+            graphics.fill(399,y,421,y+21,mark.spread()==spread?0xCC8C6842:0xCC483122);
+            if(mark.structure()!=null)mark.structure().renderBookmark(graphics,402,y+2,17,17);
+            else ResearchIconRenderer.drawStack(graphics,mark.item(),402,y+2);
+            String tooltip=mark.structure()==null?mark.item().getHoverName().getString():Component.translatable(mark.structure().blueprint().title()).getString();
+            controls.add(new Control(399,y,22,21,()->{spread=mark.spread();invalidateControls();},tooltip));
+        }
+        if(marks.size()>capacity) centered(graphics,"↕",410,236,22,FADED);
     }
 
     private void centered(GuiGraphics graphics, String text, int x, int y, int maxWidth, int color) {
@@ -587,12 +777,21 @@ public final class ThaumonomiconPageScreen extends Screen {
     private void changeChapter(int amount) {
         if (chapters.isEmpty()) return;
         int next = Math.max(0, Math.min(chapters.size() - 1, chapter + amount));
-        if (next != chapter) { chapter = next; spread = 0; buildPages(); }
+        if (next != chapter) { chapter = next; spread = 0; invalidateControls();buildPages(); }
     }
+    private void invalidateControls() {
+        for(var preview:visibleStructures) preview.mouseReleased(-1,-1,0);
+        controls.clear();itemHovers.clear();visibleStructures.clear();
+    }
+    private void changeSpread(int amount) {spread=Math.max(0,Math.min((pages.size()-1)/2,spread+amount));invalidateControls();}
 
     @Override
     public boolean mouseClicked(double mouseX, double mouseY, int button) {
         if (button == 1) { onClose(); return true; }
+        for(var preview:visibleStructures) if(preview.mouseClicked((mouseX-left)/scale,(mouseY-top)/scale,button)) return true;
+        if(button==0) for(ItemHover hover:itemHovers) if(hover.contains((mouseX-left)/scale,(mouseY-top)/scale)) {
+            openItemRecipe(hover.stack(),hover.source());return true;
+        }
         if (button == 0) for (Control control : controls) {
             if (control.contains((mouseX - left) / scale, (mouseY - top) / scale)) { control.action.run(); return true; }
         }
@@ -602,18 +801,35 @@ public final class ThaumonomiconPageScreen extends Screen {
     @Override
     public boolean keyPressed(int key, int scanCode, int modifiers) {
         if (key == GLFW.GLFW_KEY_ESCAPE || key == GLFW.GLFW_KEY_BACKSPACE) { onClose(); return true; }
-        if (key == GLFW.GLFW_KEY_LEFT) { spread = Math.max(0, spread - 1); return true; }
-        if (key == GLFW.GLFW_KEY_RIGHT) { spread = Math.min((pages.size() - 1) / 2, spread + 1); return true; }
+        if (key == GLFW.GLFW_KEY_LEFT) { changeSpread(-1); return true; }
+        if (key == GLFW.GLFW_KEY_RIGHT) { changeSpread(1); return true; }
         if (key == GLFW.GLFW_KEY_UP) { changeChapter(-1); return true; }
         if (key == GLFW.GLFW_KEY_DOWN) { changeChapter(1); return true; }
         return super.keyPressed(key, scanCode, modifiers);
     }
 
     @Override public boolean mouseScrolled(double mouseX, double mouseY, double amount) {
-        spread = Math.max(0, Math.min((pages.size() - 1) / 2, spread - (int)Math.signum(amount)));
+        if((mouseX-left)/scale>=399&&(mouseX-left)/scale<424) {
+            bookmarkScroll=Math.max(0,Math.min(Math.max(0,bookmarks().size()-8),bookmarkScroll-(int)Math.signum(amount)));
+            return true;
+        }
+        for(var preview:visibleStructures) if(preview.mouseScrolled((mouseX-left)/scale,(mouseY-top)/scale,amount)) return true;
+        changeSpread(-(int)Math.signum(amount));
         return true;
     }
-    @Override public void onClose() { if (minecraft != null) minecraft.setScreen(browser); }
+    @Override public boolean mouseDragged(double mx,double my,int button,double dx,double dy) {
+        for(var preview:visibleStructures) if(preview.mouseDragged((mx-left)/scale,(my-top)/scale,button,dx/scale,dy/scale)) return true;
+        return super.mouseDragged(mx,my,button,dx,dy);
+    }
+    @Override public boolean mouseReleased(double mx,double my,int button) {
+        for(var preview:visibleStructures) if(preview.mouseReleased((mx-left)/scale,(my-top)/scale,button)) return true;
+        return super.mouseReleased(mx,my,button);
+    }
+    @Override public void onClose() {
+        if (minecraft == null) return;
+        if(returnScreen instanceof ThaumonomiconPageScreen page) page.update(knowledge,scans);
+        minecraft.setScreen(returnScreen);
+    }
     @Override public boolean isPauseScreen() { return false; }
 
     void senderForSmokeTest(BiConsumer<String, Integer> sender) {
@@ -640,6 +856,63 @@ public final class ThaumonomiconPageScreen extends Screen {
             }
         throw new AssertionError("No rendered recipe for " + output + " in " + entry.key());
     }
+    boolean focusRecipe(ResourceLocation id) {
+        for(int chapterIndex=0;chapterIndex<chapters.size();chapterIndex++) {
+            if(chapters.get(chapterIndex).recipes().stream().flatMap(raw->BookRecipeViews.resolve(raw).stream()).noneMatch(view->view.id().equals(id))) continue;
+            chapter=chapterIndex;buildPages();
+            for(int pageIndex=0;pageIndex<pages.size();pageIndex++) for(Piece piece:pages.get(pageIndex))
+                if(piece instanceof RecipePiece recipe && recipe.view().id().equals(id)) {spread=pageIndex/2;return true;}
+        }
+        return false;
+    }
+    void showStructureForSmokeTest(String id) {
+        var wanted=MultiblockCatalog.resolve(id).orElseThrow().id();
+        for(int chapterIndex=0;chapterIndex<chapters.size();chapterIndex++) {
+            if(chapters.get(chapterIndex).recipes().stream().noneMatch(raw->MultiblockCatalog.resolve(raw).map(b->b.id().equals(wanted)).orElse(false))) continue;
+            chapter=chapterIndex;buildPages();
+            for(int pageIndex=0;pageIndex<pages.size();pageIndex++) for(Piece piece:pages.get(pageIndex))
+                if(piece instanceof StructurePiece structure && structure.preview().blueprint().id().equals(wanted)) {spread=pageIndex/2;invalidateControls();return;}
+        }
+        throw new AssertionError("Missing construction reference "+id);
+    }
+    MultiblockBookPreview structureForSmokeTest(String id) {return structureViews.get(MultiblockCatalog.resolve(id).orElseThrow().id());}
+    void insertForSmokeTest(ThaumonomiconKnowledgeScreen.Mode mode) {openInsert(mode);}
+    void structureInputForSmokeTest(String id) {
+        var view=structureForSmokeTest(id);
+        for(int pageIndex=spread*2;pageIndex<Math.min(pages.size(),spread*2+2);pageIndex++)for(Piece piece:pages.get(pageIndex))
+            if(piece instanceof StructurePiece structure&&structure.preview()==view) {
+                int x=pageIndex%2==0?29:216,y=structure.y()+12;
+                mouseClicked(left+(x+12)*scale,top+(y+123)*scale,0);
+                if(view.yaw()!=-90)throw new AssertionError("Rotation button not routed to visible construction");
+                mouseScrolled(left+(x+70)*scale,top+(y+45)*scale,1);
+                if(view.removedTopLayers()!=1)throw new AssertionError("Wheel did not change the visible layer");
+                mouseClicked(left+(x+70)*scale,top+(y+45)*scale,0);
+                mouseDragged(left+(x+80)*scale,top+(y+50)*scale,0,10*scale,5*scale);
+                mouseReleased(left+(x+80)*scale,top+(y+50)*scale,0);
+                if(Math.abs(view.yaw()+75)>0.01||Math.abs(view.pitch()-30)>0.01)throw new AssertionError("Scaled drag deltas incorrect");
+                mouseClicked(left+(x+PAGE_WIDTH-7)*scale,top+(y+5)*scale,0);
+                if(view.yaw()!=-45||view.pitch()!=25||view.removedTopLayers()!=0)throw new AssertionError("Reset button did not restore the original view");
+                int previous=spread;changeSpread(spread==0?1:-1);
+                float yaw=view.yaw();
+                mouseClicked(left+(x+12)*scale,top+(y+123)*scale,0);
+                if(view.yaw()!=yaw)throw new AssertionError("Hidden construction captured a stale button");
+                spread=previous;invalidateControls();return;
+            }
+        throw new AssertionError("Construction input audit requested before rendering");
+    }
+    int pageCountForSmokeTest() {return pages.size();}
+    void chapterForSmokeTest(int next) {changeChapter(next-chapter);}
+    void spreadForSmokeTest(int next) {changeSpread(next-spread);}
+    void auditLayoutForSmokeTest() {
+        for(var page:pages) for(Piece piece:page) {
+            int y=piece instanceof TextPiece text?text.y():piece instanceof ImagePiece image?image.y():
+                    piece instanceof RequirementPiece requirement?requirement.y():piece instanceof StructurePiece structure?structure.y():((RecipePiece)piece).y();
+            int height=piece instanceof TextPiece?font.lineHeight:piece instanceof ImagePiece image?image.height():
+                    piece instanceof RequirementPiece requirement?Math.max(20,requirement.lines().size()*(font.lineHeight+1))+13:
+                    piece instanceof StructurePiece?184:recipeHeight(((RecipePiece)piece).view());
+            if(y<CONTENT_TOP || y+height>CONTENT_BOTTOM) throw new AssertionError("Book content escapes page: "+entry.key()+" "+piece);
+        }
+    }
 
     private static String tr(String key, Object... args) { return Component.translatable("thaumcraft.book." + key, args).getString(); }
     private static String progress(String key, Object... args) { return Component.translatable("thaumcraft.progress." + key, args).getString(); }
@@ -655,7 +928,13 @@ public final class ThaumonomiconPageScreen extends Screen {
     private record ImagePiece(int y, ResourceLocation texture, int u, int v, int sourceWidth, int sourceHeight,
                               int width, int height, boolean leftAligned) implements Piece { }
     private record RecipePiece(int y, BookRecipeViews.View view) implements Piece { }
-    private record ItemHover(int x, int y, ItemStack stack) {
+    private record RequirementPiece(int y, ResearchBookRequirements.Row row,List<FormattedCharSequence> lines) implements Piece { }
+    private record StructurePiece(int y,MultiblockBookPreview preview) implements Piece { }
+    void itemLinkForSmokeTest(ItemStack stack,ResourceLocation source) {openItemRecipe(stack,source);}
+    void directRecipeForSmokeTest(String key) {minecraft.setScreen(new ThaumonomiconPageScreen(browser,entry,knowledge,scans,this,key));}
+    String entryForSmokeTest() {return entry.key();}
+    private record Bookmark(int spread,ItemStack item,MultiblockBookPreview structure) {}
+    private record ItemHover(int x, int y, ItemStack stack,ResourceLocation source) {
         boolean contains(double mx, double my) { return mx >= x && mx < x + 16 && my >= y && my < y + 16; }
     }
     private record Control(int x, int y, int width, int height, Runnable action, String tooltip) {

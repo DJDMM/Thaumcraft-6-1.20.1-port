@@ -23,6 +23,8 @@ public final class PlayerKnowledge {
     private final Set<String> research = new LinkedHashSet<>();
     private final Set<String> crafts = new LinkedHashSet<>();
     private final Map<String, Integer> stages = new LinkedHashMap<>();
+    private final Map<String, Integer> readStages = new LinkedHashMap<>();
+    private final Map<String, Integer> readAddenda = new LinkedHashMap<>();
     private final Map<KnowledgeType, Map<String, Integer>> knowledge = new EnumMap<>(KnowledgeType.class);
     private long celestialDay = -1;
     private int celestialMask;
@@ -73,6 +75,33 @@ public final class PlayerKnowledge {
     public boolean hasScanned(String key) { return scans.contains(key); }
     public boolean knowsAspect(Aspect aspect) { return aspect != null && aspects.contains(aspect.getTag()); }
     public int researchStage(String key) { return stages.getOrDefault(key, 0); }
+    public int readResearchStage(String key) { return readStages.getOrDefault(key, 0); }
+    public int readAddendaMask(String key) { return readAddenda.getOrDefault(key, 0); }
+
+    /** The original RESEARCH marker accompanies completion, not each ordinary intermediate stage. */
+    public boolean hasUnreadResearch(String key) {
+        ResearchEntry entry = ResearchCatalog.get(key);
+        return entry != null && !entry.supported() && isResearchCompleteStrict(key)
+                && readResearchStage(key) < researchStage(key);
+    }
+
+    public boolean hasUnreadPage(String key) {
+        ResearchEntry entry = ResearchCatalog.get(key);
+        return (ResearchBookState.availableAddendaMask(this, entry) & ~readAddendaMask(key)) != 0;
+    }
+
+    /** A stale view cannot acknowledge progress or addenda that arrived after that view was built. */
+    boolean recordBookRead(String key, int expectedStage, int addendumMask) {
+        ResearchEntry entry = ResearchCatalog.get(key);
+        if (entry == null || entry.supported() || expectedStage <= 0 || researchStage(key) != expectedStage) return false;
+        int available = ResearchBookState.availableAddendaMask(this, entry);
+        if ((addendumMask & ~available) != 0) return false;
+        int seen = readAddendaMask(key) | addendumMask;
+        if (readResearchStage(key) == expectedStage && readAddendaMask(key) == seen) return false;
+        readStages.put(key, expectedStage);
+        if (seen != 0) readAddenda.put(key, seen);
+        return true;
+    }
     public boolean hasCraft(String id) { return crafts.contains(id); }
 
     public int rawKnowledge(KnowledgeType type, String category) {
@@ -191,6 +220,15 @@ public final class PlayerKnowledge {
         CompoundTag stageData = new CompoundTag();
         stages.forEach(stageData::putInt);
         tag.put("ResearchStages", stageData);
+        CompoundTag bookRead = new CompoundTag();
+        CompoundTag seenStages = new CompoundTag();
+        readStages.forEach(seenStages::putInt);
+        CompoundTag seenAddenda = new CompoundTag();
+        readAddenda.forEach(seenAddenda::putInt);
+        bookRead.putInt("Version", 1);
+        bookRead.put("Stages", seenStages);
+        bookRead.put("Addenda", seenAddenda);
+        tag.put("BookRead", bookRead);
         CompoundTag rawData = new CompoundTag();
         knowledge.forEach((type, values) -> {
             CompoundTag categories = new CompoundTag();
@@ -247,6 +285,27 @@ public final class PlayerKnowledge {
         if (tag.contains("PermanentWarp", Tag.TAG_INT)) result.permanentWarp = Math.max(0, Math.min(500, tag.getInt("PermanentWarp")));
         int counterCap=tag.contains("NormalWarp",Tag.TAG_INT) || tag.contains("PermanentWarp",Tag.TAG_INT) ? 1500 : 500;
         if (tag.contains("WarpCounter", Tag.TAG_INT)) result.warpCounter = Math.max(0, Math.min(counterCap, tag.getInt("WarpCounter")));
+        // Old profiles had no unread-state model. Treat their existing pages as read, without unlocking anything.
+        if (!tag.contains("BookRead", Tag.TAG_COMPOUND)) {
+            for (ResearchEntry entry : ResearchCatalog.entries()) {
+                int stage = result.researchStage(entry.key());
+                if (stage > 0 && !entry.supported()) result.recordBookRead(entry.key(), stage,
+                        ResearchBookState.availableAddendaMask(result, entry));
+            }
+        } else {
+            CompoundTag book = tag.getCompound("BookRead");
+            CompoundTag seenStages = book.getCompound("Stages");
+            CompoundTag seenAddenda = book.getCompound("Addenda");
+            for (ResearchEntry entry : ResearchCatalog.entries()) {
+                int seen = seenStages.getInt(entry.key());
+                if (!entry.supported() && seenStages.contains(entry.key(), Tag.TAG_INT)
+                        && seen > 0 && seen <= result.researchStage(entry.key())) result.readStages.put(entry.key(), seen);
+                if (seenAddenda.contains(entry.key(), Tag.TAG_INT)) {
+                    int mask = seenAddenda.getInt(entry.key()) & ResearchBookState.availableAddendaMask(result, entry);
+                    if (mask != 0) result.readAddenda.put(entry.key(), mask);
+                }
+            }
+        }
         return result;
     }
 

@@ -105,7 +105,7 @@ public final class EssentiaProductionClientSmokeTest {
             } else {
                 if(snapshot==null)return;
                 if(!prepared){prepared=true;openBook(mc);return;}
-                require(bookBefore.equals(PlayerKnowledge.load(snapshot).save().toString()),"Viewing essentia recipes mutated server knowledge");
+                require(bookBefore.equals(ThaumonomiconCompleteClientSmokeTest.gameplayState(PlayerKnowledge.load(snapshot)).toString()),"Viewing essentia recipes mutated server knowledge");
             }
             if(++stableTicks>=20&&!captured)captureRequested=true;
             if(captured&&saved.get()==scene+1&&stableTicks>=30){scene++;phase=stableTicks=0;prepared=captured=captureRequested=false;}
@@ -220,7 +220,7 @@ public final class EssentiaProductionClientSmokeTest {
         LogUtils.getLogger().info("THAUMCRAFT_ESSENTIA_PRODUCTION_MODEL_STATES: {}",modelStates);
     }
     private static void openBook(Minecraft mc){
-        PlayerKnowledge knowledge=PlayerKnowledge.load(snapshot);bookBefore=knowledge.save().toString();var browser=new ThaumonomiconScreen(knowledge,knowledge.scanCount());mc.setScreen(browser);
+        PlayerKnowledge knowledge=PlayerKnowledge.load(snapshot);bookBefore=ThaumonomiconCompleteClientSmokeTest.gameplayState(knowledge).toString();var browser=new ThaumonomiconScreen(knowledge,knowledge.scanCount());mc.setScreen(browser);
         String key=scene==7?"ESSENTIASMELTER":scene==8?"WARDEDJARS":"TUBES", output=scene==7?"smelter_basic":scene==8?"jar_normal":"tube_buffer";
         browser.selectForSmokeTest(key);require(mc.screen instanceof ThaumonomiconPageScreen,"Missing canonical book page "+key);
         var page=(ThaumonomiconPageScreen)mc.screen;page.showRecipeForSmokeTest(output);
@@ -228,7 +228,7 @@ public final class EssentiaProductionClientSmokeTest {
         require(view.unlocked(knowledge)&&!view.ingredients().isEmpty()&&view.vis()>0,"Missing original costs / live recipe "+output);
     }
     private static void finish(Minecraft mc){
-        if(phase==0){phase=1;submit(mc,()->require(bookBefore.equals(KnowledgeStore.get(player(mc)).save().toString()),
+        if(phase==0){phase=1;submit(mc,()->require(bookBefore.equals(ThaumonomiconCompleteClientSmokeTest.gameplayState(KnowledgeStore.get(player(mc))).toString()),
                 "Read-only book views changed authoritative server knowledge"));return;}
         require(saved.get()==IMAGES.length,"Missing fresh scene files");stopped=true;mc.options.tutorialStep=previousTutorial;
         LogUtils.getLogger().info("THAUMCRAFT_ESSENTIA_PRODUCTION_RENDER_AUDIT_OK: {} baked states; 13 functional blocks; real BER / original item sprites / labels / valve / buffer; recipes read only",modelStates);

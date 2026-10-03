@@ -88,7 +88,7 @@ public final class EarlySurvivalClientSmokeTest {
                     || scene >= 5 && !authoritative.isResearchCompleteStrict("UNLOCKARTIFICE")) return;
             if (!opened) { openScene(mc, authoritative); opened = true; return; }
             if (++stableTicks < 30) return;
-            require(unchanged.equals(PlayerKnowledge.load(received).save().toString()), "Viewing a recipe mutated authoritative knowledge");
+            require(unchanged.equals(ThaumonomiconCompleteClientSmokeTest.gameplayState(PlayerKnowledge.load(received)).toString()), "Viewing a recipe mutated authoritative knowledge");
             if (!captured) { capture(mc); captured = true; return; }
             if (SAVED.get() != scene + 1 || stableTicks < 40) return;
             scene++; submitted = opened = captured = false; stableTicks = 0;
@@ -159,7 +159,7 @@ public final class EarlySurvivalClientSmokeTest {
     }
 
     private static void openScene(Minecraft mc, PlayerKnowledge knowledge) {
-        unchanged = knowledge.save().toString();
+        unchanged = ThaumonomiconCompleteClientSmokeTest.gameplayState(knowledge).toString();
         browser = new ThaumonomiconScreen(knowledge, knowledge.scanCount()); mc.setScreen(browser);
         if (scene == 0) {
             browser.selectCategoryForSmokeTest("ALCHEMY");

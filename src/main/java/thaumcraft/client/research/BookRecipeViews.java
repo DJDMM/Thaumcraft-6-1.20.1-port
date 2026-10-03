@@ -11,6 +11,7 @@ import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.item.crafting.Recipe;
 import net.minecraft.world.item.crafting.ShapedRecipe;
+import net.minecraft.world.item.crafting.ShapelessRecipe;
 import thaumcraft.api.aspects.AspectList;
 import thaumcraft.api.aspects.Aspect;
 import thaumcraft.alchemy.AlchemyModule;
@@ -19,6 +20,7 @@ import thaumcraft.alchemy.SalisMundusRecipe;
 import thaumcraft.arcane.ArcaneRecipe;
 import thaumcraft.research.LegacyResearchItems;
 import thaumcraft.research.PlayerKnowledge;
+import thaumcraft.research.BookRecipeCatalog;
 
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
@@ -26,11 +28,21 @@ import java.util.List;
 import java.util.Locale;
 import java.util.Map;
 
-/** Read-only views of the current server recipes, including datapack overrides. */
+/** Current synchronized recipes have priority; missing gameplay is a clearly marked pinned reference. */
 final class BookRecipeViews {
     record View(ResourceLocation id, String kind, List<Ingredient> ingredients, int width, int height,
-                ItemStack output, String research, int vis, int[] crystals, AspectList aspects) {
-        boolean unlocked(PlayerKnowledge knowledge) { return research.isEmpty() || knowledge.knowsResearch(research); }
+                ItemStack output, String research, int vis, int[] crystals, AspectList aspects,
+                boolean reference, int instability, int xp, String note, boolean shapeless) {
+        View(ResourceLocation id, String kind, List<Ingredient> ingredients, int width, int height,
+             ItemStack output, String research, int vis, int[] crystals, AspectList aspects) {
+            this(id, kind, ingredients, width, height, output, research, vis, crystals, aspects, false, 0, 0, "", false);
+        }
+        boolean unlocked(PlayerKnowledge knowledge) {
+            return research.isEmpty()||java.util.Arrays.stream(research.split("&&")).allMatch(knowledge::knowsResearch);
+        }
+        ItemStack central() { return infusion() && !ingredients.isEmpty() ? displayIngredient(ingredients.get(0)) : ItemStack.EMPTY; }
+        List<Ingredient> components() { return infusion() && !ingredients.isEmpty() ? ingredients.subList(1, ingredients.size()) : List.of(); }
+        boolean infusion() { return kind.equals("infusion") || kind.equals("infusion_enchantment") || kind.equals("runic"); }
     }
     private static List<View> crucible = List.of();
     private static final Map<String, String> OUTPUTS = Map.ofEntries(
@@ -74,12 +86,14 @@ final class BookRecipeViews {
         Minecraft mc = Minecraft.getInstance();
         if (mc.level == null) return List.of();
         String path = original.substring(original.indexOf(':') + 1).toLowerCase(Locale.ROOT);
+        List<BookRecipeCatalog.Definition> pinned = BookRecipeCatalog.definitions(original);
         Map<ResourceLocation, View> result = new LinkedHashMap<>();
         for (View view : crucible) {
             String current = view.id.getPath();
             if (current.equals(path) || path.equals("brassingot") && current.equals("brass")
                     || path.equals("thaumiumingot") && current.equals("thaumium")
-                    || path.equals("viscrystalgroup") && itemId(view.output).equals("crystal_essence")) result.put(view.id, view);
+                    || path.equals("viscrystalgroup") && itemId(view.output).equals("crystal_essence")
+                    || pinned.stream().anyMatch(definition -> definition.kind().equals("crucible") && matchesReferenceIdentity(view.id(), view.output(), definition))) result.put(view.id, view);
         }
         for (Recipe<?> recipe : mc.level.getRecipeManager().getRecipes()) {
             if (path.equals("jarlabelessence") && recipe instanceof thaumcraft.essentia.EssentiaLabelRecipe) {
@@ -89,7 +103,7 @@ final class BookRecipeViews {
                 var phial = thaumcraft.catalog.CatalogModule.aspectStack("phial_filled", Aspect.FIRE, 10);
                 result.put(recipe.getId(), new View(recipe.getId(), "crafting", List.of(Ingredient.of(label), Ingredient.of(phial)),
                         2, 1, thaumcraft.catalog.CatalogModule.aspectStack("label_filled", Aspect.FIRE, 1),
-                        "", 0, new int[6], new AspectList()));
+                        "", 0, new int[6], new AspectList(), false, 0, 0, "returns_phial", true));
                 continue;
             }
             if ((path.equals("salismundusfake") || path.equals("salis_mundus")) && recipe instanceof SalisMundusRecipe) {
@@ -100,7 +114,7 @@ final class BookRecipeViews {
                         Ingredient.of(AspectCrystalItem.create(Aspect.AIR)), Ingredient.of(AspectCrystalItem.create(Aspect.FIRE)),
                         Ingredient.of(AspectCrystalItem.create(Aspect.MAGIC)));
                 result.put(recipe.getId(), new View(recipe.getId(), "salis", inputs, 3, 2,
-                        new ItemStack(AlchemyModule.SALIS_MUNDUS.get()), "", 0, new int[6], new AspectList()));
+                        new ItemStack(AlchemyModule.SALIS_MUNDUS.get()), "", 0, new int[6], new AspectList(), false, 0, 0, "different_crystals", true));
                 continue;
             }
             ItemStack output = recipe.getResultItem(mc.level.registryAccess());
@@ -109,24 +123,46 @@ final class BookRecipeViews {
             boolean group = path.equals("thaumium_stuff") && (outputId.startsWith("thaumium_") || outputId.equals("plate_thaumium") || outputId.equals("metal_thaumium"))
                     || path.equals("brass_stuff") && (outputId.equals("plate_brass") || outputId.equals("metal_brass") || outputId.equals("nugget_brass"));
             String target = OUTPUTS.getOrDefault(path, path);
-            if (!recipe.getId().getNamespace().equals("thaumcraft") || !(recipe.getId().getPath().equals(path) || outputId.equals(target) || group)) continue;
+            String kind=recipe instanceof ArcaneRecipe?"arcane":"crafting";
+            boolean matches=pinned.isEmpty()?(recipe.getId().getPath().equals(path)||outputId.equals(target)||group):
+                    pinned.stream().anyMatch(definition -> definition.kind().equals(kind)&&matchesReferenceIdentity(recipe.getId(),output,definition));
+            if (!recipe.getId().getNamespace().equals("thaumcraft") || !matches) continue;
             if (recipe instanceof ArcaneRecipe arcane) {
                 int[] crystals = new int[6];
                 for (int i = 0; i < 6; i++) crystals[i] = arcane.crystalCost(i);
                 int width = arcane.gridWidth(), height = arcane.gridHeight();
                 result.put(recipe.getId(), new View(recipe.getId(), "arcane", List.copyOf(recipe.getIngredients()), width, height,
-                        output.copy(), arcane.research(), arcane.vis(), crystals, new AspectList()));
+                        output.copy(), arcane.research(), arcane.vis(), crystals, new AspectList(), false, 0, 0,
+                        outputId.equals("jar_void") ? "preserves_jar" : "", arcane.shapeless()));
             } else if (recipe.getType() == net.minecraft.world.item.crafting.RecipeType.CRAFTING) {
                 int width = recipe instanceof ShapedRecipe shaped ? shaped.getWidth() : Math.min(3, recipe.getIngredients().size());
                 int height = recipe instanceof ShapedRecipe shaped ? shaped.getHeight() : Math.max(1, (recipe.getIngredients().size() + 2) / 3);
                 result.put(recipe.getId(), new View(recipe.getId(), "crafting", List.copyOf(recipe.getIngredients()), width, height,
-                        output.copy(), "", 0, new int[6], new AspectList()));
+                        output.copy(), "", 0, new int[6], new AspectList(), false, 0, 0, "", recipe instanceof ShapelessRecipe));
             }
+        }
+        // The catalogue contains only displays. A matching live output (including NBT/count)
+        // suppresses its pinned version so resource packs/datapacks retain authority.
+        for (BookRecipeCatalog.Definition definition : pinned) {
+            ItemStack output = definition.output();
+            boolean live = result.values().stream().anyMatch(view -> view.kind().equals(definition.kind())&&matchesReferenceIdentity(view.id(), view.output(), definition));
+            if (!live) result.put(definition.id(), new View(definition.id(), definition.kind(), definition.ingredients(),
+                    definition.width(), definition.height(), output, definition.research(), definition.vis(),
+                    definition.crystals(), definition.aspects(), true, definition.instability(), definition.xp(), definition.note(), definition.shapeless()));
         }
         return List.copyOf(result.values());
     }
 
+    private static boolean matchesReferenceIdentity(ResourceLocation current, ItemStack output, BookRecipeCatalog.Definition pinned) {
+        if (current.equals(pinned.id()) || current.getNamespace().equals(pinned.id().getNamespace())
+                && current.getPath().replace("_", "").equals(pinned.id().getPath().replace("_", ""))) return true;
+        ItemStack reference = pinned.output();
+        return output.getCount() == reference.getCount() && ItemStack.isSameItemSameTags(output, reference);
+    }
+
     static String modernCraftId(String descriptor) {
+        ItemStack display=thaumcraft.research.ResearchBookRequirements.displayItem(descriptor);
+        if(!display.isEmpty())return BuiltInRegistries.ITEM.getKey(display.getItem()).toString();
         try { return LegacyResearchItems.resolve(descriptor).toString(); }
         catch (RuntimeException ignored) { return descriptor.split(";", 2)[0]; }
     }

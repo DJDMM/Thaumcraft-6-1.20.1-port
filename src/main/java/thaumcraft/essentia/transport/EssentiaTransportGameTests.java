@@ -380,7 +380,13 @@ public final class EssentiaTransportGameTests {
                 "Migration mutated a chunk during its Load callback or the START phase");
         // The test structure can straddle chunks; each actual loaded chunk is queued independently.
         LegacyTubeMigration.onChunkLoad(new ChunkEvent.Load(otherChunk, false));
-        LegacyTubeMigration.onLevelTick(new TickEvent.LevelTickEvent(LogicalSide.SERVER, TickEvent.Phase.END, level, () -> true));
+        // Other full-suite chunks may precede these in the shared 64-chunk queue. Exercise
+        // bounded END callbacks without ticking neighboring pipes or weakening the state checks.
+        for(int attempts=0;attempts<200&&(!(level.getBlockEntity(oldValve.getBlockPos()) instanceof TubeBlockEntity)
+                ||!(level.getBlockEntity(oldOneWay.getBlockPos()) instanceof TubeBlockEntity));attempts++)
+            LegacyTubeMigration.onLevelTick(new TickEvent.LevelTickEvent(LogicalSide.SERVER, TickEvent.Phase.END, level, () -> true));
+        helper.assertTrue(level.getBlockEntity(oldValve.getBlockPos()) instanceof TubeBlockEntity
+                &&level.getBlockEntity(oldOneWay.getBlockPos()) instanceof TubeBlockEntity,"Queued legacy chunks were not migrated within the bounded wait");
         var valve = (TubeBlockEntity) level.getBlockEntity(oldValve.getBlockPos());
         var oneWay = (TubeBlockEntity) level.getBlockEntity(oldOneWay.getBlockPos());
         helper.assertTrue(valve.getType() == EssentiaTransportModule.TUBE.get() && valve.facing() == Direction.WEST && valve.allowFlow()

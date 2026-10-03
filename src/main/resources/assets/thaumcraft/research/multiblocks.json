@@ -1,0 +1,973 @@
+{
+  "baseline": "Thaumcraft 6.1.BETA26",
+  "jar_sha256": "9425f8643581b27ff8845b087c8bc6fc10425a32942f1a3f0e265ce6b38f7b5f",
+  "class_sha256": {
+    "thaumcraft/common/config/ConfigRecipes.class": "487d32f43df9277fa845c129bc549da0126f34902a2d5089f9d97d204eb0f4e2",
+    "thaumcraft/client/gui/GuiResearchPage.class": "f3200ea09334a330960c3064ffc5f9cc62f9488b2f17f037ec5310e4bb08887e",
+    "thaumcraft/client/gui/GuiResearchPage$BlueprintBlockAccess.class": "ce41fcfb907aba211fab910a15b14c5ad0f262b3dcc26950fb723d0d5c37d0c6"
+  },
+  "layer_order": "top_to_bottom",
+  "target_horizontal_rotation": 3,
+  "blueprints": [
+    {
+      "id": "thaumcraft:infernalfurnace",
+      "research": "INFERNALFURNACE",
+      "title": "research.INFERNALFURNACE.title",
+      "layers": [
+        [
+          [
+            {
+              "source": {
+                "block": "minecraft:nether_bricks",
+                "properties": {}
+              },
+              "result": {
+                "block": "thaumcraft:placeholder_brick",
+                "properties": {}
+              }
+            },
+            {
+              "source": {
+                "block": "minecraft:obsidian",
+                "properties": {}
+              },
+              "result": {
+                "block": "thaumcraft:placeholder_obsidian",
+                "properties": {}
+              }
+            },
+            {
+              "source": {
+                "block": "minecraft:nether_bricks",
+                "properties": {}
+              },
+              "result": {
+                "block": "thaumcraft:placeholder_brick",
+                "properties": {}
+              }
+            }
+          ],
+          [
+            {
+              "source": {
+                "block": "minecraft:obsidian",
+                "properties": {}
+              },
+              "result": {
+                "block": "thaumcraft:placeholder_obsidian",
+                "properties": {}
+              }
+            },
+            null,
+            {
+              "source": {
+                "block": "minecraft:obsidian",
+                "properties": {}
+              },
+              "result": {
+                "block": "thaumcraft:placeholder_obsidian",
+                "properties": {}
+              }
+            }
+          ],
+          [
+            {
+              "source": {
+                "block": "minecraft:nether_bricks",
+                "properties": {}
+              },
+              "result": {
+                "block": "thaumcraft:placeholder_brick",
+                "properties": {}
+              }
+            },
+            {
+              "source": {
+                "block": "minecraft:obsidian",
+                "properties": {}
+              },
+              "result": {
+                "block": "thaumcraft:placeholder_obsidian",
+                "properties": {}
+              }
+            },
+            {
+              "source": {
+                "block": "minecraft:nether_bricks",
+                "properties": {}
+              },
+              "result": {
+                "block": "thaumcraft:placeholder_brick",
+                "properties": {}
+              }
+            }
+          ]
+        ],
+        [
+          [
+            {
+              "source": {
+                "block": "minecraft:nether_bricks",
+                "properties": {}
+              },
+              "result": {
+                "block": "thaumcraft:placeholder_brick",
+                "properties": {}
+              }
+            },
+            {
+              "source": {
+                "block": "minecraft:obsidian",
+                "properties": {}
+              },
+              "result": {
+                "block": "thaumcraft:placeholder_obsidian",
+                "properties": {}
+              }
+            },
+            {
+              "source": {
+                "block": "minecraft:nether_bricks",
+                "properties": {}
+              },
+              "result": {
+                "block": "thaumcraft:placeholder_brick",
+                "properties": {}
+              }
+            }
+          ],
+          [
+            {
+              "source": {
+                "block": "minecraft:obsidian",
+                "properties": {}
+              },
+              "result": {
+                "block": "thaumcraft:placeholder_obsidian",
+                "properties": {}
+              }
+            },
+            {
+              "source": {
+                "block": "minecraft:lava",
+                "properties": {}
+              },
+              "result": {
+                "block": "thaumcraft:infernal_furnace",
+                "properties": {
+                  "facing": "north"
+                }
+              }
+            },
+            {
+              "source": {
+                "block": "minecraft:obsidian",
+                "properties": {}
+              },
+              "result": {
+                "block": "thaumcraft:placeholder_obsidian",
+                "properties": {}
+              }
+            }
+          ],
+          [
+            {
+              "source": {
+                "block": "minecraft:nether_bricks",
+                "properties": {}
+              },
+              "result": {
+                "block": "thaumcraft:placeholder_brick",
+                "properties": {}
+              }
+            },
+            {
+              "source": {
+                "block": "minecraft:iron_bars",
+                "properties": {}
+              },
+              "result": {
+                "block": "minecraft:air",
+                "properties": {}
+              }
+            },
+            {
+              "source": {
+                "block": "minecraft:nether_bricks",
+                "properties": {}
+              },
+              "result": {
+                "block": "thaumcraft:placeholder_brick",
+                "properties": {}
+              }
+            }
+          ]
+        ],
+        [
+          [
+            {
+              "source": {
+                "block": "minecraft:nether_bricks",
+                "properties": {}
+              },
+              "result": {
+                "block": "thaumcraft:placeholder_brick",
+                "properties": {}
+              }
+            },
+            {
+              "source": {
+                "block": "minecraft:obsidian",
+                "properties": {}
+              },
+              "result": {
+                "block": "thaumcraft:placeholder_obsidian",
+                "properties": {}
+              }
+            },
+            {
+              "source": {
+                "block": "minecraft:nether_bricks",
+                "properties": {}
+              },
+              "result": {
+                "block": "thaumcraft:placeholder_brick",
+                "properties": {}
+              }
+            }
+          ],
+          [
+            {
+              "source": {
+                "block": "minecraft:obsidian",
+                "properties": {}
+              },
+              "result": {
+                "block": "thaumcraft:placeholder_obsidian",
+                "properties": {}
+              }
+            },
+            {
+              "source": {
+                "block": "minecraft:obsidian",
+                "properties": {}
+              },
+              "result": {
+                "block": "thaumcraft:placeholder_obsidian",
+                "properties": {}
+              }
+            },
+            {
+              "source": {
+                "block": "minecraft:obsidian",
+                "properties": {}
+              },
+              "result": {
+                "block": "thaumcraft:placeholder_obsidian",
+                "properties": {}
+              }
+            }
+          ],
+          [
+            {
+              "source": {
+                "block": "minecraft:nether_bricks",
+                "properties": {}
+              },
+              "result": {
+                "block": "thaumcraft:placeholder_brick",
+                "properties": {}
+              }
+            },
+            {
+              "source": {
+                "block": "minecraft:obsidian",
+                "properties": {}
+              },
+              "result": {
+                "block": "thaumcraft:placeholder_obsidian",
+                "properties": {}
+              }
+            },
+            {
+              "source": {
+                "block": "minecraft:nether_bricks",
+                "properties": {}
+              },
+              "result": {
+                "block": "thaumcraft:placeholder_brick",
+                "properties": {}
+              }
+            }
+          ]
+        ]
+      ],
+      "materials": [
+        {
+          "item": "minecraft:nether_bricks",
+          "count": 12
+        },
+        {
+          "item": "minecraft:obsidian",
+          "count": 12
+        },
+        {
+          "item": "minecraft:iron_bars",
+          "count": 1
+        },
+        {
+          "item": "minecraft:lava_bucket",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "id": "thaumcraft:infusionaltar",
+      "research": "INFUSION",
+      "title": "research.INFUSION.title",
+      "layers": [
+        [
+          [
+            null,
+            null,
+            null
+          ],
+          [
+            null,
+            {
+              "source": {
+                "block": "thaumcraft:infusion_matrix",
+                "properties": {}
+              }
+            },
+            null
+          ],
+          [
+            null,
+            null,
+            null
+          ]
+        ],
+        [
+          [
+            {
+              "source": {
+                "block": "thaumcraft:stone_arcane",
+                "properties": {}
+              },
+              "result": {
+                "block": "minecraft:air",
+                "properties": {}
+              }
+            },
+            null,
+            {
+              "source": {
+                "block": "thaumcraft:stone_arcane",
+                "properties": {}
+              },
+              "result": {
+                "block": "minecraft:air",
+                "properties": {}
+              }
+            }
+          ],
+          [
+            null,
+            null,
+            null
+          ],
+          [
+            {
+              "source": {
+                "block": "thaumcraft:stone_arcane",
+                "properties": {}
+              },
+              "result": {
+                "block": "minecraft:air",
+                "properties": {}
+              }
+            },
+            null,
+            {
+              "source": {
+                "block": "thaumcraft:stone_arcane",
+                "properties": {}
+              },
+              "result": {
+                "block": "minecraft:air",
+                "properties": {}
+              }
+            }
+          ]
+        ],
+        [
+          [
+            {
+              "source": {
+                "block": "thaumcraft:stone_arcane",
+                "properties": {}
+              },
+              "result": {
+                "block": "thaumcraft:pillar_arcane",
+                "properties": {
+                  "facing": "east"
+                }
+              }
+            },
+            null,
+            {
+              "source": {
+                "block": "thaumcraft:stone_arcane",
+                "properties": {}
+              },
+              "result": {
+                "block": "thaumcraft:pillar_arcane",
+                "properties": {
+                  "facing": "north"
+                }
+              }
+            }
+          ],
+          [
+            null,
+            {
+              "source": {
+                "block": "thaumcraft:pedestal_arcane",
+                "properties": {}
+              }
+            },
+            null
+          ],
+          [
+            {
+              "source": {
+                "block": "thaumcraft:stone_arcane",
+                "properties": {}
+              },
+              "result": {
+                "block": "thaumcraft:pillar_arcane",
+                "properties": {
+                  "facing": "south"
+                }
+              }
+            },
+            null,
+            {
+              "source": {
+                "block": "thaumcraft:stone_arcane",
+                "properties": {}
+              },
+              "result": {
+                "block": "thaumcraft:pillar_arcane",
+                "properties": {
+                  "facing": "west"
+                }
+              }
+            }
+          ]
+        ]
+      ],
+      "materials": [
+        {
+          "item": "thaumcraft:stone_arcane",
+          "count": 8
+        },
+        {
+          "item": "thaumcraft:pedestal_arcane",
+          "count": 1
+        },
+        {
+          "item": "thaumcraft:infusion_matrix",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "id": "thaumcraft:infusionaltarancient",
+      "research": "INFUSIONANCIENT",
+      "title": "research.INFUSIONANCIENT.title",
+      "layers": [
+        [
+          [
+            null,
+            null,
+            null
+          ],
+          [
+            null,
+            {
+              "source": {
+                "block": "thaumcraft:infusion_matrix",
+                "properties": {}
+              }
+            },
+            null
+          ],
+          [
+            null,
+            null,
+            null
+          ]
+        ],
+        [
+          [
+            {
+              "source": {
+                "block": "thaumcraft:stone_ancient",
+                "properties": {}
+              },
+              "result": {
+                "block": "minecraft:air",
+                "properties": {}
+              }
+            },
+            null,
+            {
+              "source": {
+                "block": "thaumcraft:stone_ancient",
+                "properties": {}
+              },
+              "result": {
+                "block": "minecraft:air",
+                "properties": {}
+              }
+            }
+          ],
+          [
+            null,
+            null,
+            null
+          ],
+          [
+            {
+              "source": {
+                "block": "thaumcraft:stone_ancient",
+                "properties": {}
+              },
+              "result": {
+                "block": "minecraft:air",
+                "properties": {}
+              }
+            },
+            null,
+            {
+              "source": {
+                "block": "thaumcraft:stone_ancient",
+                "properties": {}
+              },
+              "result": {
+                "block": "minecraft:air",
+                "properties": {}
+              }
+            }
+          ]
+        ],
+        [
+          [
+            {
+              "source": {
+                "block": "thaumcraft:stone_ancient",
+                "properties": {}
+              },
+              "result": {
+                "block": "thaumcraft:pillar_ancient",
+                "properties": {
+                  "facing": "east"
+                }
+              }
+            },
+            null,
+            {
+              "source": {
+                "block": "thaumcraft:stone_ancient",
+                "properties": {}
+              },
+              "result": {
+                "block": "thaumcraft:pillar_ancient",
+                "properties": {
+                  "facing": "north"
+                }
+              }
+            }
+          ],
+          [
+            null,
+            {
+              "source": {
+                "block": "thaumcraft:pedestal_ancient",
+                "properties": {
+                  "charge": "2"
+                }
+              }
+            },
+            null
+          ],
+          [
+            {
+              "source": {
+                "block": "thaumcraft:stone_ancient",
+                "properties": {}
+              },
+              "result": {
+                "block": "thaumcraft:pillar_ancient",
+                "properties": {
+                  "facing": "south"
+                }
+              }
+            },
+            null,
+            {
+              "source": {
+                "block": "thaumcraft:stone_ancient",
+                "properties": {}
+              },
+              "result": {
+                "block": "thaumcraft:pillar_ancient",
+                "properties": {
+                  "facing": "west"
+                }
+              }
+            }
+          ]
+        ]
+      ],
+      "materials": [
+        {
+          "item": "thaumcraft:stone_ancient",
+          "count": 8
+        },
+        {
+          "item": "thaumcraft:pedestal_ancient",
+          "count": 1
+        },
+        {
+          "item": "thaumcraft:infusion_matrix",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "id": "thaumcraft:infusionaltareldritch",
+      "research": "INFUSIONELDRITCH",
+      "title": "research.INFUSIONELDRITCH.title",
+      "layers": [
+        [
+          [
+            null,
+            null,
+            null
+          ],
+          [
+            null,
+            {
+              "source": {
+                "block": "thaumcraft:infusion_matrix",
+                "properties": {}
+              }
+            },
+            null
+          ],
+          [
+            null,
+            null,
+            null
+          ]
+        ],
+        [
+          [
+            {
+              "source": {
+                "block": "thaumcraft:stone_eldritch_tile",
+                "properties": {}
+              },
+              "result": {
+                "block": "minecraft:air",
+                "properties": {}
+              }
+            },
+            null,
+            {
+              "source": {
+                "block": "thaumcraft:stone_eldritch_tile",
+                "properties": {}
+              },
+              "result": {
+                "block": "minecraft:air",
+                "properties": {}
+              }
+            }
+          ],
+          [
+            null,
+            null,
+            null
+          ],
+          [
+            {
+              "source": {
+                "block": "thaumcraft:stone_eldritch_tile",
+                "properties": {}
+              },
+              "result": {
+                "block": "minecraft:air",
+                "properties": {}
+              }
+            },
+            null,
+            {
+              "source": {
+                "block": "thaumcraft:stone_eldritch_tile",
+                "properties": {}
+              },
+              "result": {
+                "block": "minecraft:air",
+                "properties": {}
+              }
+            }
+          ]
+        ],
+        [
+          [
+            {
+              "source": {
+                "block": "thaumcraft:stone_eldritch_tile",
+                "properties": {}
+              },
+              "result": {
+                "block": "thaumcraft:pillar_eldritch",
+                "properties": {
+                  "facing": "east"
+                }
+              }
+            },
+            null,
+            {
+              "source": {
+                "block": "thaumcraft:stone_eldritch_tile",
+                "properties": {}
+              },
+              "result": {
+                "block": "thaumcraft:pillar_eldritch",
+                "properties": {
+                  "facing": "north"
+                }
+              }
+            }
+          ],
+          [
+            null,
+            {
+              "source": {
+                "block": "thaumcraft:pedestal_eldritch",
+                "properties": {
+                  "charge": "1"
+                }
+              }
+            },
+            null
+          ],
+          [
+            {
+              "source": {
+                "block": "thaumcraft:stone_eldritch_tile",
+                "properties": {}
+              },
+              "result": {
+                "block": "thaumcraft:pillar_eldritch",
+                "properties": {
+                  "facing": "south"
+                }
+              }
+            },
+            null,
+            {
+              "source": {
+                "block": "thaumcraft:stone_eldritch_tile",
+                "properties": {}
+              },
+              "result": {
+                "block": "thaumcraft:pillar_eldritch",
+                "properties": {
+                  "facing": "west"
+                }
+              }
+            }
+          ]
+        ]
+      ],
+      "materials": [
+        {
+          "item": "thaumcraft:stone_eldritch_tile",
+          "count": 8
+        },
+        {
+          "item": "thaumcraft:pedestal_eldritch",
+          "count": 1
+        },
+        {
+          "item": "thaumcraft:infusion_matrix",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "id": "thaumcraft:thaumatorium",
+      "research": "THAUMATORIUM",
+      "title": "research.THAUMATORIUM.title",
+      "layers": [
+        [
+          [
+            {
+              "source": {
+                "block": "thaumcraft:metal_alchemical",
+                "properties": {}
+              },
+              "result": {
+                "block": "thaumcraft:thaumatorium_top",
+                "properties": {
+                  "facing": "north"
+                }
+              }
+            }
+          ]
+        ],
+        [
+          [
+            {
+              "source": {
+                "block": "thaumcraft:metal_alchemical",
+                "properties": {}
+              },
+              "result": {
+                "block": "thaumcraft:thaumatorium",
+                "properties": {
+                  "facing": "north"
+                }
+              }
+            }
+          ]
+        ],
+        [
+          [
+            {
+              "source": {
+                "block": "thaumcraft:crucible",
+                "properties": {}
+              }
+            }
+          ]
+        ]
+      ],
+      "materials": [
+        {
+          "item": "thaumcraft:metal_alchemical",
+          "count": 2
+        },
+        {
+          "item": "thaumcraft:crucible",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "id": "thaumcraft:golempress",
+      "research": "MINDCLOCKWORK",
+      "title": "research.MINDCLOCKWORK.title",
+      "layers": [
+        [
+          [
+            null,
+            null
+          ],
+          [
+            {
+              "source": {
+                "block": "minecraft:iron_bars",
+                "properties": {}
+              },
+              "result": {
+                "block": "thaumcraft:placeholder_bars",
+                "properties": {}
+              }
+            },
+            null
+          ]
+        ],
+        [
+          [
+            {
+              "source": {
+                "block": "minecraft:cauldron",
+                "properties": {}
+              },
+              "result": {
+                "block": "thaumcraft:placeholder_cauldron",
+                "properties": {}
+              }
+            },
+            {
+              "source": {
+                "block": "minecraft:anvil",
+                "properties": {}
+              },
+              "result": {
+                "block": "thaumcraft:placeholder_anvil",
+                "properties": {}
+              }
+            }
+          ],
+          [
+            {
+              "source": {
+                "block": "minecraft:piston",
+                "properties": {
+                  "facing": "up"
+                }
+              },
+              "result": {
+                "block": "thaumcraft:golem_builder",
+                "properties": {
+                  "facing": "north"
+                }
+              }
+            },
+            {
+              "source": {
+                "block": "thaumcraft:table_stone",
+                "properties": {}
+              },
+              "result": {
+                "block": "thaumcraft:placeholder_table",
+                "properties": {}
+              }
+            }
+          ]
+        ]
+      ],
+      "materials": [
+        {
+          "item": "minecraft:iron_bars",
+          "count": 1
+        },
+        {
+          "item": "minecraft:cauldron",
+          "count": 1
+        },
+        {
+          "item": "minecraft:piston",
+          "count": 1
+        },
+        {
+          "item": "minecraft:anvil",
+          "count": 1
+        },
+        {
+          "item": "thaumcraft:table_stone",
+          "count": 1
+        }
+      ],
+      "display": "thaumcraft:golem_builder"
+    }
+  ]
+}

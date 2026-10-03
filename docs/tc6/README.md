@@ -20,6 +20,8 @@
 
 ## Карта документов
 
+- [Полная книга 0.14](../../THAUMONOMICON.md): [375 рецептов](THAUMONOMICON-RECIPES-BETA26-AUDIT.md), [шесть конструкций](THAUMONOMICON-MULTIBLOCK-BETA26-AUDIT.md), [знания и прочтение](THAUMONOMICON-KNOWLEDGE-BETA26-AUDIT.md). Это завершение интерфейса/справки, а не всех игровых механик.
+
 - [Производство, хранение и трубы эссенции 0.13](../../ESSENTIA.md); [плавильни и перегонные кубы](ESSENTIA-PRODUCTION-BETA26-AUDIT.md), [шесть труб](ESSENTIA-TUBES-BETA26-AUDIT.md), [исследования и рецепты](ESSENTIA-PROGRESSION-BETA26-AUDIT.md).
 
 - [Полный исследовательский стол 0.12](../../THEORYCRAFTING.md); [33 карточки BETA26](THEORY-CARDS-BETA26-AUDIT.md), [14 помощников и исходный рендер](THEORY-AIDS-RENDER-BETA26-AUDIT.md), [интерфейс и анимации](THEORY-GUI-BETA26-AUDIT.md).

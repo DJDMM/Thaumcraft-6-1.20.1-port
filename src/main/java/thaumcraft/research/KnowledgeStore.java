@@ -73,6 +73,13 @@ public final class KnowledgeStore extends SavedData {
         return true;
     }
 
+    /** The only book-write operation records viewed server facts; it cannot create research or knowledge. */
+    public boolean recordBookRead(UUID player, String key, int expectedStage, int addendumMask) {
+        if (!get(player).recordBookRead(key, expectedStage, addendumMask)) return false;
+        setDirty();
+        return true;
+    }
+
     public static boolean addKnowledge(ServerPlayer player, KnowledgeType type, String category, int amount) {
         boolean changed = of(player.serverLevel()).addKnowledge(player.getUUID(), type, category, amount);
         if (changed) ResearchNetwork.sync(player);

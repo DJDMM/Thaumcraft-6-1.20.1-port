@@ -1,0 +1,598 @@
+{
+  "version": "0.14.0-dev",
+  "originalVersion": "Thaumcraft 6.1.BETA26",
+  "originalJarSha256": "9425f8643581b27ff8845b087c8bc6fc10425a32942f1a3f0e265ce6b38f7b5f",
+  "requiredGameTests": 300,
+  "previousGameTests": 272,
+  "newTestsBySuite": {
+    "bookRequirementsAndVisibility": 7,
+    "bookRecipes": 7,
+    "multiblockBlueprints": 6,
+    "bookKnowledgeAndReadState": 8
+  },
+  "implementedCanonicalResearchEntries": 15,
+  "implementedCanonicalResearchKeys": [
+    "FIRSTSTEPS",
+    "KNOWLEDGETYPES",
+    "THEORYRESEARCH",
+    "CELESTIALSCANNING",
+    "UNLOCKALCHEMY",
+    "BASEALCHEMY",
+    "ALUMENTUM",
+    "METALLURGY",
+    "UNLOCKARTIFICE",
+    "BASEARTIFICE",
+    "UNLOCKINFUSION",
+    "BASEINFUSION",
+    "ESSENTIASMELTER",
+    "WARDEDJARS",
+    "TUBES"
+  ],
+  "originalCanonicalResearchEntries": 148,
+  "originalResearchStages": 271,
+  "originalResearchAddenda": 16,
+  "archivedChaptersRendered": 287,
+  "pinnedReferenceRecipeDisplays": 375,
+  "referenceRecipeFamilies": [
+    "crafting",
+    "arcane",
+    "crucible",
+    "infusion",
+    "infusion_enchantment",
+    "runic",
+    "salis"
+  ],
+  "referenceMultiblockBlueprints": 6,
+  "referenceDataCreatesGameplayRecipes": false,
+  "actualIntegratedServerScreenshots": 36,
+  "visuallyReviewedScreenshots": 36,
+  "clientSceneManifest": [
+    "map-basics",
+    "map-auromancy",
+    "map-alchemy",
+    "map-artifice",
+    "map-infusion",
+    "map-golemancy",
+    "map-eldritch",
+    "recipe-crafting",
+    "recipe-arcane",
+    "recipe-crucible",
+    "recipe-infusion",
+    "recipe-infusion_enchantment",
+    "recipe-runic",
+    "recipe-salis",
+    "structure-infernalfurnace",
+    "structure-infusionaltar",
+    "structure-infusionaltarancient",
+    "structure-infusionaltareldritch",
+    "structure-thaumatorium",
+    "structure-golempress",
+    "structure-rotated",
+    "structure-layers",
+    "requirements-items",
+    "requirements-knowledge-craft",
+    "requirements-costs",
+    "aspects",
+    "knowledge",
+    "recipe-search",
+    "recipe-history",
+    "new-pages",
+    "read-pages",
+    "notification",
+    "gui-scale-three",
+    "ru-infusion",
+    "ru-knowledge",
+    "ru-structure"
+  ],
+  "queuedDistinctSpreadRequests": 1007,
+  "actualDistinctSpreadRequests": 1007,
+  "actualRenderVisits": 1508,
+  "allQueuedSpreadsActuallyRendered": true,
+  "actualKnownRecipeOutputSearch": true,
+  "actualRecipeHistoryReturn": true,
+  "actualInventoryRequirementsRefresh": true,
+  "actualC2SAndS2CReadAcknowledgments": true,
+  "referenceViewsLeaveAuthoritativeGameplayKnowledgeAndInventoryUnchanged": true,
+  "permittedReadMutation": "BookRead stages and visited addenda only; gameplay state/inventory unchanged",
+  "researchNetworkProtocol": 4,
+  "clientGuiScales": [
+    2,
+    3
+  ],
+  "clientLanguages": [
+    "en_us",
+    "ru_ru"
+  ],
+  "clientDesktop": "WinSta0\\ThaumcraftQA_930d166310a04c65a2827e98cefd56c0",
+  "clientJvmExitCode": 0,
+  "clientDesktopOwnedWindows": 16,
+  "inputDesktopBefore": "Default",
+  "inputDesktopAfter": "Default",
+  "localJsonCount": 2704,
+  "jarResourceByteParityChecks": 3421,
+  "originalPngByteParityChecks": 595,
+  "originalJpgByteParityChecks": 7,
+  "originalOggByteParityChecks": 24,
+  "jarSha256": "2cb832893b6cde616c714711810c06482d7947939f18d2f45b9aab5825ccb957",
+  "terraBlenderSha256": "ca678c11b878ad9c7143636fbec911f29e2c1453a6cc091e16b14e6d9608fb5f",
+  "screenshots": [
+    {
+      "file": "tc6-thaumonomicon-complete-aspects.png",
+      "sha256": "d40737ab46a8d5d1332bd47d4e41b09c78a3e9a645fdd0d2a12e8f019c2685dc",
+      "width": 1600,
+      "height": 1000,
+      "visualReviews": [
+        {
+          "review": "book-visual-knowledge-0.14.json",
+          "notes": "Fixed paper interior: five aspect rows, first-column names, component equations, title, close control, page counter and next arrow all fit. Hover tooltip for Praecantatio is readable and its normal overlay explains the obscured hovered row; underlying book does not bleed through the opaque sheet."
+        }
+      ]
+    },
+    {
+      "file": "tc6-thaumonomicon-complete-gui-scale-three.png",
+      "sha256": "a05e67dae652d888952b8a38bb553b89aa1f1d5755c9b4f86a236771408afc76",
+      "width": 1600,
+      "height": 1000,
+      "visualReviews": [
+        {
+          "review": "book-visual-root-0.14.json",
+          "notes": "Larger GUIscale3 maintains readable controls, recipe costs,3Daltar andbookmarks within screen bounds."
+        }
+      ]
+    },
+    {
+      "file": "tc6-thaumonomicon-complete-knowledge.png",
+      "sha256": "5eb579a4b0918bd26ac272dc5d728d2f8adc5d103bad23b9a40d4689a1c77843",
+      "width": 1600,
+      "height": 1000,
+      "visualReviews": [
+        {
+          "review": "book-visual-knowledge-0.14.json",
+          "notes": "Fixed paper interior: seven category rows, observation/theory icons, numeric overlays and raw-progress bars fit within left/right margins. Footer is a readable single line; title/close control stay inside the sheet."
+        }
+      ]
+    },
+    {
+      "file": "tc6-thaumonomicon-complete-map-alchemy.png",
+      "sha256": "f8a66e35f8bcb4bc900d3e9cdef2ac4e056a0e8805cfd8526bf4c32db24b315a",
+      "width": 1600,
+      "height": 1000,
+      "visualReviews": [
+        {
+          "review": "book-visual-knowledge-0.14.json",
+          "notes": "BETA26 colored star background, smelter/pipe/jar research tree and arrows render within the rune border."
+        }
+      ]
+    },
+    {
+      "file": "tc6-thaumonomicon-complete-map-artifice.png",
+      "sha256": "7e164fc3a926b8420c4f958e56c902add5da5e52049f68384077202b7d07e623",
+      "width": 1600,
+      "height": 1000,
+      "visualReviews": [
+        {
+          "review": "book-visual-knowledge-0.14.json",
+          "notes": "Blue BETA26 background, equipment/device icons and dependency links render clearly within the map."
+        }
+      ]
+    },
+    {
+      "file": "tc6-thaumonomicon-complete-map-auromancy.png",
+      "sha256": "9df3df385dbd0989728caeb969bdd7ec65c5e1dc77b62c633c6e6189a5f25fe4",
+      "width": 1600,
+      "height": 1000,
+      "visualReviews": [
+        {
+          "review": "book-visual-knowledge-0.14.json",
+          "notes": "Purple BETA26 star background, focus sprites, dependency arrows and tabs render clearly; no missing icons or cut-off nodes."
+        }
+      ]
+    },
+    {
+      "file": "tc6-thaumonomicon-complete-map-basics.png",
+      "sha256": "92fb6fd642f4e1ad7956e129322d23729225e62224dc7a9902725e67c6f90206",
+      "width": 1600,
+      "height": 1000,
+      "visualReviews": [
+        {
+          "review": "book-visual-knowledge-0.14.json",
+          "notes": "Blue BETA26 star background, connected research graph, node frames, category tabs and reference tooltip are visible and fit the rune border."
+        }
+      ]
+    },
+    {
+      "file": "tc6-thaumonomicon-complete-map-eldritch.png",
+      "sha256": "ce9db66be9ba394efc8dce707e0d44b5229c95407c78409a98257af7221b8040",
+      "width": 1600,
+      "height": 1000,
+      "visualReviews": [
+        {
+          "review": "book-visual-knowledge-0.14.json",
+          "notes": "Violet BETA26 background and four-node Eldritch graph render correctly; reference-only tooltip is readable."
+        }
+      ]
+    },
+    {
+      "file": "tc6-thaumonomicon-complete-map-golemancy.png",
+      "sha256": "019198574c0c02e21cb39e4b29b7432422c1fb3b7abb917742ce9bf814350c2a",
+      "width": 1600,
+      "height": 1000,
+      "visualReviews": [
+        {
+          "review": "book-visual-knowledge-0.14.json",
+          "notes": "Magenta BETA26 background, seals/materials/minds graph and category tabs render without missing sprite patterns."
+        }
+      ]
+    },
+    {
+      "file": "tc6-thaumonomicon-complete-map-infusion.png",
+      "sha256": "acfd664c28ba132c15ffb44502ffc53ded49c62f879f58383ae4bfb33cecee8b",
+      "width": 1600,
+      "height": 1000,
+      "visualReviews": [
+        {
+          "review": "book-visual-knowledge-0.14.json",
+          "notes": "Green BETA26 background, infusion equipment and altar research graph fit the frame with visible node sprites."
+        }
+      ]
+    },
+    {
+      "file": "tc6-thaumonomicon-complete-new-pages.png",
+      "sha256": "f922b7a33bac8b7c8a7c1f1158d54d343907eeb4a821f069e6301c6b09e1703e",
+      "width": 1600,
+      "height": 1000,
+      "visualReviews": [
+        {
+          "review": "book-visual-knowledge-0.14.json",
+          "notes": "Progression map shows original yellow research stars on completed unread entries and a green additional-page marker at the smelter; category notification markers and actual observation balance are visible."
+        }
+      ]
+    },
+    {
+      "file": "tc6-thaumonomicon-complete-notification.png",
+      "sha256": "fd91ab930d6939a4929d484540074f7da64b7a25242579ce30e426aafb65edbf",
+      "width": 1600,
+      "height": 1000,
+      "visualReviews": [
+        {
+          "review": "book-visual-root-0.14.json",
+          "notes": "Original HUD toast icon/name appear during expected slide-in animation at upper right; this capture precedes full slide-in, while completion delivery is covered by server notification tests."
+        }
+      ]
+    },
+    {
+      "file": "tc6-thaumonomicon-complete-read-pages.png",
+      "sha256": "20566f8f3d9d73eeb3e766a88e5b79fc9a6691f77b17d26cb98860c594a76276",
+      "width": 1600,
+      "height": 1000,
+      "visualReviews": [
+        {
+          "review": "book-visual-knowledge-0.14.json",
+          "notes": "Real completed Essentia Smelting addendum is selected, its original bellows paragraph is readable, chapter says Addendum1/1, no pending completion/payment control is displayed and the paper has no clipped text."
+        }
+      ]
+    },
+    {
+      "file": "tc6-thaumonomicon-complete-recipe-arcane.png",
+      "sha256": "159908bda30a821ef0f60888b1a0f68532535ce567d8b8a574b777e3014025e8",
+      "width": 1600,
+      "height": 1000,
+      "visualReviews": [
+        {
+          "review": "book-visual-recipes-0.14.json",
+          "notes": "Original Simple Arcane Mechanism grid: two brass plates, two iron plates and stick. 10 vis, Fire 1 and Water 1 are visible. Output and bookmark visible, reference status clear; no overlap."
+        }
+      ]
+    },
+    {
+      "file": "tc6-thaumonomicon-complete-recipe-crafting.png",
+      "sha256": "68e04b170e49c66fd589c8096096dd65b61735ff09cb76cff8856ad56310ebdb",
+      "width": 1600,
+      "height": 1000,
+      "visualReviews": [
+        {
+          "review": "book-visual-recipes-0.14.json",
+          "notes": "Original Arcane Ear plus lever shapeless conversion. Input, output and bookmark are visible. Localized crafting header and explicit reference status; no overlap."
+        }
+      ]
+    },
+    {
+      "file": "tc6-thaumonomicon-complete-recipe-crucible.png",
+      "sha256": "2a3d3177d69f6036eb9ddda00281ef1183d4f76873a33c92b64e0cf1e8b71236",
+      "width": 1600,
+      "height": 1000,
+      "visualReviews": [
+        {
+          "review": "book-visual-recipes-0.14.json",
+          "notes": "Nitor output sprite is now visible in both result slot and right bookmark. Glowstone catalyst and Energy 10, Fire 10, Light 10 match BETA26. Actual live recipe shows research unlocked; no overlap."
+        }
+      ]
+    },
+    {
+      "file": "tc6-thaumonomicon-complete-recipe-history.png",
+      "sha256": "d79370834e585912eeac4fca227cb9ddbd98258f1bb09de36ac4ae1679e5ebd0",
+      "width": 1600,
+      "height": 1000,
+      "visualReviews": [
+        {
+          "review": "book-visual-recipes-0.14.json",
+          "notes": "Returned Infusion stage 3 of 3, spread 5 of 5. Arcane Pedestal recipe retains six slabs plus stone, 10 vis and no crystals; reference status clear. Construction preview and materials show eight stones, pedestal and matrix; right bookmarks visible. Return spread is verified by smoke assertions."
+        }
+      ]
+    },
+    {
+      "file": "tc6-thaumonomicon-complete-recipe-infusion.png",
+      "sha256": "3448db4bca558dced20d10606de718d1ea7dc5aac0aa6318519ba99f80e0d71e",
+      "width": 1600,
+      "height": 1000,
+      "visualReviews": [
+        {
+          "review": "book-visual-recipes-0.14.json",
+          "notes": "Original Primal Crusher: pearl central input, four tools, Terra 75, Tool 75 and five aspect costs of 50; instability 6. All seven aspects fit two rows. Output and bookmark visible, reference status clear; no overlap."
+        }
+      ]
+    },
+    {
+      "file": "tc6-thaumonomicon-complete-recipe-infusion_enchantment.png",
+      "sha256": "55db85b4a41ff36d391e7201d53300cbfc620043bb9e58fc82587cda6a3a609a",
+      "width": 1600,
+      "height": 1000,
+      "visualReviews": [
+        {
+          "review": "book-visual-recipes-0.14.json",
+          "notes": "Burrowing example: wooden pickaxe central input, enchanted book and rabbit foot; Senses 80, Earth 150, instability 4. Dynamic cost and reference notices readable. Typed enchantment NBT is covered by catalog GameTests; static image cannot inspect hidden tags."
+        }
+      ]
+    },
+    {
+      "file": "tc6-thaumonomicon-complete-recipe-runic.png",
+      "sha256": "dcdda625c638e657bc85cb068ca22dd7181235aba8d634880754d47fc446941f",
+      "width": 1600,
+      "height": 1000,
+      "visualReviews": [
+        {
+          "review": "book-visual-recipes-0.14.json",
+          "notes": "Runic shield charge 0 to 1 example: mundane ring, Salis Mundus and amber; Protect 40, Crystal 20, Energy 20, instability 5. Dynamic upgrade notice and reference status readable. Typed runic NBT is covered by catalog GameTests; static image cannot inspect hidden tags."
+        }
+      ]
+    },
+    {
+      "file": "tc6-thaumonomicon-complete-recipe-salis.png",
+      "sha256": "e70d4a154f6abfb3038a807b771cbf7f6aaa69e4292da3dcefc890ec3aaa408e",
+      "width": 1600,
+      "height": 1000,
+      "visualReviews": [
+        {
+          "review": "book-visual-recipes-0.14.json",
+          "notes": "Actual live Salis Mundus recipe: flint, bowl, redstone and three distinct crystals, including Magic. Notes clearly allow compound aspects and return flint and bowl. Shapeless header, unlocked status, output and bookmark visible; no overlap."
+        }
+      ]
+    },
+    {
+      "file": "tc6-thaumonomicon-complete-recipe-search.png",
+      "sha256": "47c75f0d55c38b2453cfaa2c7f900fce9cb4c29626d11b28cedbc88864522101",
+      "width": 1600,
+      "height": 1000,
+      "visualReviews": [
+        {
+          "review": "book-visual-recipes-0.14.json",
+          "notes": "Search for Primal Crusher shows both original Eldritch research and recipe-specific result, each with visible output icon and localized name. Clear spacing; no overlap."
+        }
+      ]
+    },
+    {
+      "file": "tc6-thaumonomicon-complete-requirements-costs.png",
+      "sha256": "60a42d22f42f0446833507d663d156c21d25979c3886b7abf9fdcaefd3da4d16",
+      "width": 1600,
+      "height": 1000,
+      "visualReviews": [
+        {
+          "review": "book-visual-recipes-0.14.json",
+          "notes": "Actual Essentia Smelting stage 3 of 4 on pages 1 and 2. Observation Alchemy x1 requires 16 raw units and shows 39/16 in green; Theory Alchemy x1 requires 32 raw units and shows 71/32 in green. Observation balance 2 plus 7/16 equals 39 raw. Icons, costs and text fit; craft remains missing on next spread and completion disabled."
+        }
+      ]
+    },
+    {
+      "file": "tc6-thaumonomicon-complete-requirements-items.png",
+      "sha256": "cb4e20bd8dfe9b9cf693cae17978d703853696cb48a873fd8a43b29bf9f48bf9",
+      "width": 1600,
+      "height": 1000,
+      "visualReviews": [
+        {
+          "review": "book-visual-recipes-0.14.json",
+          "notes": "Actual Essentia Smelting stage 1 of 4: Aer 1/1 is green, five remaining primal crystals 0/1 are red. All six item icons visible across pages 3 and 4; completion remains disabled and rows do not overlap."
+        }
+      ]
+    },
+    {
+      "file": "tc6-thaumonomicon-complete-requirements-knowledge-craft.png",
+      "sha256": "8135989bafe7fdffd71775c4292c614fc2a9c2590f9d94caaa3554c8617e3fe3",
+      "width": 1600,
+      "height": 1000,
+      "visualReviews": [
+        {
+          "review": "book-visual-recipes-0.14.json",
+          "notes": "Actual Essentia Smelting stage 3 of 4 on pages 3 and 4: required recorded smeltery craft is missing and red; completion disabled. Payment explanation and live 50 vis, Fire 1 smeltery recipe readable. Knowledge costs are separately reviewed in requirements-costs."
+        }
+      ]
+    },
+    {
+      "file": "tc6-thaumonomicon-complete-ru-infusion.png",
+      "sha256": "2471b14c7db18c61a7fbdf46ec01c274d7744746636b0c6d059cbd69afbf061b",
+      "width": 1600,
+      "height": 1000,
+      "visualReviews": [
+        {
+          "review": "book-visual-recipes-0.14.json",
+          "notes": "Russian Primal Crusher page: output name, Infusion type, instability 6, reference notice and navigation are translated. Original pearl, four tools and all seven aspect costs match English frame. No clipped or overlapping text and no untranslated recipe header."
+        }
+      ]
+    },
+    {
+      "file": "tc6-thaumonomicon-complete-ru-knowledge.png",
+      "sha256": "ffae91dc16d19400b7ae69128c19c1874f31d7d076376006eb19bf843badd65b",
+      "width": 1600,
+      "height": 1000,
+      "visualReviews": [
+        {
+          "review": "book-visual-knowledge-0.14.json",
+          "notes": "Russian category names and knowledge heading fit the paper insert; long Golemancy/Eldritch labels do not overlap knowledge cells, progress bars and numbers remain visible, Russian footer fits one line."
+        }
+      ]
+    },
+    {
+      "file": "tc6-thaumonomicon-complete-ru-structure.png",
+      "sha256": "080882f197ba16aa2c55279c52b122e600dae8f7eb18651622a5ed87fe7afcb6",
+      "width": 1600,
+      "height": 1000,
+      "visualReviews": [
+        {
+          "review": "book-visual-root-0.14.json",
+          "notes": "Russian construction title, all-layers controls, reference label and return text fit; original material icons unchanged."
+        }
+      ]
+    },
+    {
+      "file": "tc6-thaumonomicon-complete-structure-golempress.png",
+      "sha256": "b47c808e89f1bb4d25ab02b7772aa39326ce338bbd77a6300ec7609fdd7586ad",
+      "width": 1600,
+      "height": 1000,
+      "visualReviews": [
+        {
+          "review": "book-visual-root-0.14.json",
+          "notes": "Original upward piston, cauldron, anvil, stone table and grate form detached construction; all5materials fit."
+        }
+      ]
+    },
+    {
+      "file": "tc6-thaumonomicon-complete-structure-infernalfurnace.png",
+      "sha256": "f6cd75dd5e385de8fa14b7c5504e6ccc2358a3d3e54ccc95a97924f03abc96e3",
+      "width": 1600,
+      "height": 1000,
+      "visualReviews": [
+        {
+          "review": "book-visual-root-0.14.json",
+          "notes": "Original3x3x3obsidian/netherbrick source, grate and four material counts visible; detached target bookmark now visible."
+        }
+      ]
+    },
+    {
+      "file": "tc6-thaumonomicon-complete-structure-infusionaltar.png",
+      "sha256": "d79370834e585912eeac4fca227cb9ddbd98258f1bb09de36ac4ae1679e5ebd0",
+      "width": 1600,
+      "height": 1000,
+      "visualReviews": [
+        {
+          "review": "book-visual-root-0.14.json",
+          "notes": "Source altar columns, neutral matrix, pedestal recipe and8stone materials fit the parchment."
+        }
+      ]
+    },
+    {
+      "file": "tc6-thaumonomicon-complete-structure-infusionaltarancient.png",
+      "sha256": "282a95e85879ae1755725ad773b165b501743fe58205b1c536d6d85feee046cf",
+      "width": 1600,
+      "height": 1000,
+      "visualReviews": [
+        {
+          "review": "book-visual-root-0.14.json",
+          "notes": "Ancient source stones/pedestal,150vis pedestal recipe and target bookmark render without overlap."
+        }
+      ]
+    },
+    {
+      "file": "tc6-thaumonomicon-complete-structure-infusionaltareldritch.png",
+      "sha256": "241697e89b50adfd2d60617241dc6689c0ada65df6a3bf31c648d6c0f2c82f3e",
+      "width": 1600,
+      "height": 1000,
+      "visualReviews": [
+        {
+          "review": "book-visual-root-0.14.json",
+          "notes": "Eldritch stone source variant, pedestal150vis reference and three materials are visible."
+        }
+      ]
+    },
+    {
+      "file": "tc6-thaumonomicon-complete-structure-layers.png",
+      "sha256": "250b1dd0150e8bf7c045f0ea2a848611e610d02e175c16c43c118dffa5f587c2",
+      "width": 1600,
+      "height": 1000,
+      "visualReviews": [
+        {
+          "review": "book-visual-root-0.14.json",
+          "notes": "Top layer removed from furnace; inner animatedlava andgrate visible, Layers2/3 label and materials correct."
+        }
+      ]
+    },
+    {
+      "file": "tc6-thaumonomicon-complete-structure-rotated.png",
+      "sha256": "c554dbd9bb18271dcf1c6435acf307f60901ac702c4e2f14727e16fbd42fd9df",
+      "width": 1600,
+      "height": 1000,
+      "visualReviews": [
+        {
+          "review": "book-visual-root-0.14.json",
+          "notes": "Rotated altar matrix face changes; geometry, controls and materials remain inside viewport."
+        }
+      ]
+    },
+    {
+      "file": "tc6-thaumonomicon-complete-structure-thaumatorium.png",
+      "sha256": "12adfed2adb37682cc3f70f3589870b98ba56a5e92ef398c4ad151e2ea1d844c",
+      "width": 1600,
+      "height": 1000,
+      "visualReviews": [
+        {
+          "review": "book-visual-root-0.14.json",
+          "notes": "Two alchemical constructs over crucible; source viewer,2construct material count and target miniature visible."
+        }
+      ]
+    }
+  ],
+  "visualReviewReports": [
+    {
+      "file": "book-visual-recipes-0.14.json",
+      "sha256": "e59ed0abf6ea360c6f48670a8b2cbf02583eb3702084b9321d3a36b0dfe3407e",
+      "reviewer": "",
+      "reviewedCount": 13
+    },
+    {
+      "file": "book-visual-knowledge-0.14.json",
+      "sha256": "865592c03192658ca19decd9e88e68022211ca71f6347d878f4598607dba70dd",
+      "reviewer": "",
+      "reviewedCount": 12
+    },
+    {
+      "file": "book-visual-root-0.14.json",
+      "sha256": "e966191407e44a075d1015606916a70d0a7847916c4339cea93869d7bee25a60",
+      "reviewer": "root",
+      "reviewedCount": 11
+    }
+  ],
+  "clientFixtureSourceSha256": "595fbbac26f207f5cfc4a2c701a1bfae923344659a6fa3345f6ce8f2c6a993fd",
+  "logEncodings": {
+    "book-0.14-gametest-retry.log": "utf-8",
+    "thaumonomicon-client-book-014-client4-client.log": "utf-8",
+    "build-0.14-final.log": "utf-8",
+    "resources-0.14-final.log": "utf-8",
+    "thaumonomicon-client-book-014-client4-prepare.log": "utf-8",
+    "thaumonomicon-client-book-014-client4-desktop.json": "utf-8",
+    "book-visual-recipes-0.14.json": "utf-8",
+    "book-visual-knowledge-0.14.json": "utf-8",
+    "book-visual-root-0.14.json": "utf-8"
+  },
+  "logs": {
+    "book-0.14-gametest-retry.log": "a95b243ae51afa83c43122331d5dbc970d2fe279a8a45f85fc612f770b92990c",
+    "thaumonomicon-client-book-014-client4-client.log": "99c82270c5d6813bd0402e97c31ba7a22dcc1d6986cff23281843fce7fcbf16c",
+    "build-0.14-final.log": "eaaf4ce8ffc12939ac5fda75ce8da1c733c0ba86397853f1fedaebcd89237b15",
+    "resources-0.14-final.log": "1da858ed9aafa8918f5c2ff2deb7c9b103f3fed2e9e5de33639c919218267f9c",
+    "thaumonomicon-client-book-014-client4-prepare.log": "939a2c9fca9bd4adc355b72a9540dbc466d5807512ee46445d7e990fa6c5dce8",
+    "thaumonomicon-client-book-014-client4-desktop.json": "7991575122e49131a3de64fe44203a49f994780b5adeaefc01bad07a72e25da7"
+  },
+  "limitations": [
+    "Only 15 canonical research entries have implemented gameplay progression; full archive is a reference",
+    "Reference recipe and construction displays do not implement late devices, dust triggers or infusion",
+    "Dynamic runic/enchantment recipes show explicitly marked representative examples",
+    "Integrated QA initializes explicit late-game book facts; it is not a complete survival run or two independent clients"
+  ]
+}

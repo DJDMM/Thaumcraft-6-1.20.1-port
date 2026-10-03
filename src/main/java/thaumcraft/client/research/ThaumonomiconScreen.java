@@ -14,6 +14,7 @@ import thaumcraft.research.ResearchCatalog;
 import thaumcraft.research.ResearchEntry;
 import thaumcraft.research.ResearchCategories;
 import thaumcraft.research.ResearchProgression;
+import thaumcraft.research.ResearchBookVisibility;
 
 import java.util.HashMap;
 import java.util.List;
@@ -39,17 +40,21 @@ public final class ThaumonomiconScreen extends Screen {
     private EditBox searchBox;
     private String query = "";
     private int searchScroll;
+    private boolean searchDirty=true;
+    private List<SearchHit> cachedSearchHits=List.of();
 
     public ThaumonomiconScreen(PlayerKnowledge knowledge, int scans) {
         super(Component.translatable("item.thaumcraft.thaumonomicon"));
         this.knowledge = knowledge;
         this.scans = scans;
+        searchDirty=true;
         resetView();
     }
 
     public void update(PlayerKnowledge knowledge, int scans) {
         this.knowledge = knowledge;
         this.scans = scans;
+        searchDirty=true;
         if (!visibleCategories().contains(category) && !(category.equals("PORT") && (archiveMode || legacyLessonsAvailable()))) changeCategory("BASICS");
     }
 
@@ -75,6 +80,7 @@ public final class ThaumonomiconScreen extends Screen {
     private void toggleArchive() {
         rememberView();
         archiveMode = !archiveMode;
+        searchDirty=true;
         category = "BASICS";
         query = "";
         searchScroll = 0;
@@ -92,7 +98,7 @@ public final class ThaumonomiconScreen extends Screen {
         searchBox.setMaxLength(80);
         searchBox.setHint(tr("search"));
         searchBox.setValue(query);
-        searchBox.setResponder(value -> { query = value; searchScroll = 0; });
+        searchBox.setResponder(value -> { query = value; searchScroll = 0; searchDirty=true; });
         searchBox.setVisible(searching);
         addRenderableWidget(searchBox);
         if (searching) setFocused(searchBox);
@@ -106,14 +112,10 @@ public final class ThaumonomiconScreen extends Screen {
                 && knowledge.discoveredAspects().size() >= e.aspects() && e.parents().stream().allMatch(knowledge::knowsResearch);
         if (archiveMode || !ResearchProgression.isImplemented(e.key()) || ResearchProgression.isComplete(knowledge, e.key())) return false;
         return ResearchProgression.stage(knowledge, e.key()) == 0 ? ResearchProgression.canStart(knowledge, e.key())
-                : ResearchProgression.canAdvance(knowledge, e);
+                : ResearchProgression.canAdvance(knowledge, e,minecraft==null || minecraft.player==null?null:minecraft.player.getInventory());
     }
     private boolean visible(ResearchEntry e) {
-        if (archiveMode) return true;
-        if (e.hasMeta("AUTOUNLOCK") || e.icons().isEmpty()) return false;
-        if (legacy(e)) return true;
-        if (!ResearchProgression.isImplemented(e.key()) || !ResearchCategories.categoryUnlocked(knowledge, e.category())) return false;
-        return !e.hasMeta("HIDDEN") || ResearchProgression.stage(knowledge, e.key()) > 0 || ResearchProgression.canStart(knowledge, e.key());
+        return ResearchBookVisibility.visible(knowledge,e,archiveMode);
     }
     private Component categoryName(String key) { return Component.translatable("tc.research_category." + key); }
     private List<ResearchEntry> entries() {
@@ -122,9 +124,27 @@ public final class ThaumonomiconScreen extends Screen {
     }
 
     private List<ResearchEntry> searchResults() {
+        return searchHits().stream().map(SearchHit::entry).filter(java.util.Objects::nonNull).distinct().toList();
+    }
+    private List<SearchHit> searchHits() {
+        if(!searchDirty) return cachedSearchHits;
         String needle = query.toLowerCase(Locale.ROOT).strip();
-        return ResearchCatalog.entries().stream().filter(this::visible)
-                .filter(e -> Component.translatable(e.title()).getString().toLowerCase(Locale.ROOT).contains(needle)).toList();
+        List<SearchHit> hits=new java.util.ArrayList<>();
+        // Empty-query ordering keeps research nodes first; real queries also find categories/results.
+        for(ResearchEntry e:ResearchCatalog.entries()) if(visible(e)
+                && Component.translatable(e.title()).getString().toLowerCase(Locale.ROOT).contains(needle))
+            hits.add(new SearchHit(e,null,null,Component.translatable(e.title()).getString(),null));
+        for(String key:visibleCategories()) if(!needle.isEmpty() && categoryName(key).getString().toLowerCase(Locale.ROOT).contains(needle))
+            hits.add(new SearchHit(null,key,null,categoryName(key).getString(),null));
+        java.util.Set<ResourceLocation> recipes=new java.util.HashSet<>();
+        for(ResearchEntry e:ResearchCatalog.entries()) if(visible(e))
+            for(var stage:ResearchBookVisibility.readableChapters(knowledge,e,archiveMode))
+                for(String raw:stage.recipes()) for(var view:BookRecipeViews.resolve(raw))
+                    if(!view.output().isEmpty() && view.output().getHoverName().getString().toLowerCase(Locale.ROOT).contains(needle)
+                            && recipes.add(view.id()))
+                        hits.add(new SearchHit(e,null,view.id(),view.output().getHoverName().getString(),view.output().copy()));
+        cachedSearchHits=List.copyOf(hits);searchDirty=false;
+        return cachedSearchHits;
     }
 
     private void rememberView() { views.put(viewKey(), new View(centerX, centerY, zoom)); }
@@ -205,6 +225,8 @@ public final class ThaumonomiconScreen extends Screen {
         List<String> categories = visibleCategories();
         for (int i = 0; i < categories.size(); i++) renderTab(g, categories.get(i), 0, tabY(i), mouseX, mouseY);
         if (archiveMode || legacyLessonsAvailable()) renderTab(g, "PORT", width - 18, height - 46, mouseX, mouseY);
+        if(knowledge.isResearchCompleteStrict("FIRSTSTEPS")) insertTab(g,35,76,"tc.aspect.name");
+        if(knowledge.isResearchCompleteStrict("KNOWLEDGETYPES")) insertTab(g,57,44,"tc.knowledge.name");
         g.blit(ATLAS, 0, height - 18, 160, 16, 16, 16);
         String label = categoryName(category).getString();
         g.fill(width / 2 - font.width(label) / 2 - 7, 2, width / 2 + font.width(label) / 2 + 7, 15, 0xBB171010);
@@ -228,7 +250,20 @@ public final class ThaumonomiconScreen extends Screen {
             Component state = archiveMode ? tr("archive_notice_short")
                     : complete(hovered) ? tr("complete")
                     : Component.translatable(canDiscover(hovered) ? "thaumcraft.progress.ready" : "thaumcraft.progress.requirements_missing");
-            g.renderComponentTooltip(font, List.of(Component.translatable(hovered.title()), state), mouseX, mouseY);
+            java.util.List<Component> tooltip=new java.util.ArrayList<>();
+            tooltip.add(Component.translatable(hovered.title()));tooltip.add(state);
+            if(!archiveMode&&knowledge.hasUnreadResearch(hovered.key())) tooltip.add(Component.translatable("tc.research.newresearch"));
+            if(!archiveMode&&knowledge.hasUnreadPage(hovered.key())) tooltip.add(Component.translatable("tc.research.newpage"));
+            if(!archiveMode) {
+                int stage=knowledge.researchStage(hovered.key());
+                if(stage>0 && !complete(hovered)) tooltip.add(Component.translatable("thaumcraft.book.stage",stage,hovered.stages().size()));
+                for(String parent: hovered.parents()) if(!knowledge.isResearchCompleteStrict(parent)) {
+                    ResearchEntry related=ResearchCatalog.get(ResearchCatalog.graphParentKey(parent));
+                    tooltip.add(Component.translatable("thaumcraft.book.research_requirement",related==null?
+                            Component.translatable("research."+parent.replaceFirst("^[!~]","")+".text").getString():Component.translatable(related.title()).getString()));
+                }
+            }
+            g.renderComponentTooltip(font, tooltip, mouseX, mouseY);
         } else if (mouseX <= 18 && mouseY >= height - 20) {
             g.renderTooltip(font, tr("search_hint"), mouseX, mouseY);
         } else if (mouseY >= height - 18 && mouseX > 24 && mouseX < width - 24) {
@@ -237,6 +272,10 @@ public final class ThaumonomiconScreen extends Screen {
             for (int i = 0; i < categories.size(); i++) if (hit(mouseX, mouseY, 0, tabY(i), 18, 18))
                 g.renderTooltip(font, categoryName(categories.get(i)), mouseX, mouseY);
             if ((archiveMode || legacyLessonsAvailable()) && hit(mouseX, mouseY, width - 18, height - 46, 18, 18)) g.renderTooltip(font, categoryName("PORT"), mouseX, mouseY);
+            if(hit(mouseX,mouseY,width-25,35,25,16)&&knowledge.isResearchCompleteStrict("FIRSTSTEPS"))
+                g.renderTooltip(font,Component.translatable("tc.aspect.name"),mouseX,mouseY);
+            if(hit(mouseX,mouseY,width-25,57,25,16)&&knowledge.isResearchCompleteStrict("KNOWLEDGETYPES"))
+                g.renderTooltip(font,Component.translatable("tc.knowledge.name"),mouseX,mouseY);
         }
     }
 
@@ -286,6 +325,8 @@ public final class ThaumonomiconScreen extends Screen {
             if (complete) { g.setColor(0.6f, 1, 0.6f, 1); g.blit(ATLAS, x + 6, y - 17, 224, 16, 16, 16); }
             else if (available) g.blit(ATLAS, x + 6, y - 17, 176, 16, 16, 16);
             g.setColor(1, 1, 1, 1);
+            if(!archiveMode&&knowledge.hasUnreadResearch(e.key())) g.blit(ATLAS,x-18,y-18,8,8,176,16,32,32,256,256);
+            if(!archiveMode&&knowledge.hasUnreadPage(e.key())) g.blit(ATLAS,x-18,y-8,8,8,208,16,32,32,256,256);
         }
         g.pose().popPose();
     }
@@ -350,20 +391,33 @@ public final class ThaumonomiconScreen extends Screen {
             default -> texture("research/cat_" + key.toLowerCase(Locale.ROOT) + ".png");
         };
         ResearchIconRenderer.drawTexture(g, icon, x + 1, y, 16);
+        if(!archiveMode) {
+            var categoryEntries=ResearchCatalog.entries().stream().filter(e->e.category().equals(key)).toList();
+            if(categoryEntries.stream().anyMatch(e->knowledge.hasUnreadResearch(e.key()))) g.blit(ATLAS,x+10,y-2,8,8,176,16,32,32,256,256);
+            if(categoryEntries.stream().anyMatch(e->knowledge.hasUnreadPage(e.key()))) g.blit(ATLAS,x+10,y+8,8,8,208,16,32,32,256,256);
+        }
+    }
+    private void insertTab(GuiGraphics g,int y,int u,String title) {
+        g.blit(texture("gui/gui_researchbook.png"),width-25,y,u,232,25,16);
     }
 
     private void renderSearch(GuiGraphics g, int mx, int my) {
         g.fill(23, 23, width - 23, height - 23, 0xE91B1720);
-        List<ResearchEntry> results = searchResults();
+        List<SearchHit> results = searchHits();
         int capacity = Math.max(1, (height - 85) / 24);
         searchScroll = Mth.clamp(searchScroll, 0, Math.max(0, results.size() - capacity));
         for (int i = 0; i < capacity && i + searchScroll < results.size(); i++) {
-            ResearchEntry e = results.get(i + searchScroll);
+            SearchHit result=results.get(i+searchScroll);
+            ResearchEntry e = result.entry();
             int y = 62 + i * 24;
             if (hit(mx, my, 29, y - 2, width - 58, 24)) { g.fill(29, y - 2, width - 29, y + 22, 0x80594666); hovered = e; }
-            ResearchIconRenderer.draw(g, e, 32, y, 1);
-            g.drawString(font, font.plainSubstrByWidth(Component.translatable(e.title()).getString(), width - 88), 56, y, 0xEFDEB8, false);
-            g.drawString(font, categoryName(e.category()), 56, y + 11, 0xA099AF, false);
+            if(result.output()!=null) ResearchIconRenderer.drawStack(g,result.output(),32,y);
+            else if(e!=null) ResearchIconRenderer.draw(g,e,32,y,1);
+            else renderTab(g,result.category(),31,y,mx,my);
+            g.drawString(font,font.plainSubstrByWidth(result.label(),width-88),56,y,0xEFDEB8,false);
+            Component detail=result.recipe()==null?categoryName(e==null?result.category():e.category())
+                    :Component.translatable("thaumcraft.book.recipe_search_owner",Component.translatable(e.title()));
+            g.drawString(font,font.plainSubstrByWidth(detail.getString(),width-88),56,y+11,0xA099AF,false);
         }
         if (results.isEmpty()) g.drawCenteredString(font, tr("no_results"), width / 2, 75, 0xC0B6C8);
     }
@@ -374,6 +428,12 @@ public final class ThaumonomiconScreen extends Screen {
     public boolean mouseClicked(double mx, double my, int button) {
         if (button == 1 && searching) { toggleSearch(); return true; }
         if (button == 0) {
+            if(hit(mx,my,width-25,35,25,16)&&knowledge.isResearchCompleteStrict("FIRSTSTEPS")) {
+                minecraft.setScreen(new ThaumonomiconKnowledgeScreen(this,knowledge,ThaumonomiconKnowledgeScreen.Mode.ASPECTS));return true;
+            }
+            if(hit(mx,my,width-25,57,25,16)&&knowledge.isResearchCompleteStrict("KNOWLEDGETYPES")) {
+                minecraft.setScreen(new ThaumonomiconKnowledgeScreen(this,knowledge,ThaumonomiconKnowledgeScreen.Mode.KNOWLEDGE));return true;
+            }
             if (my >= height - 18 && mx > 24 && mx < width - 24) { toggleArchive(); return true; }
             List<String> categories = visibleCategories();
             for (int i = 0; i < categories.size(); i++) if (hit(mx, my, 0, tabY(i), 18, 18)) { changeCategory(categories.get(i)); return true; }
@@ -384,12 +444,16 @@ public final class ThaumonomiconScreen extends Screen {
                 int row = (int) ((my - 60) / 24);
                 int index = row + searchScroll;
                 int capacity = Math.max(1, (height - 85) / 24);
-                List<ResearchEntry> results = searchResults();
+                List<SearchHit> results = searchHits();
                 if (my >= 60 && row < capacity && my < height - 23 && mx >= 29 && mx < width - 29 && index >= 0 && index < results.size()) {
-                    ResearchEntry e = results.get(index);
+                    SearchHit result=results.get(index);
+                    if(result.entry()==null) {changeCategory(result.category());return true;}
+                    ResearchEntry e = result.entry();
                     changeCategory(e.category());
                     centerX = e.column() * 24; centerY = e.row() * 24;
                     open(e);
+                    if(result.recipe()!=null && minecraft.screen instanceof ThaumonomiconPageScreen page)
+                        page.focusRecipe(result.recipe());
                     return true;
                 }
             } else if (inMap(mx, my)) {
@@ -465,7 +529,9 @@ public final class ThaumonomiconScreen extends Screen {
     }
     void searchForSmokeTest(String value) { if (!searching) toggleSearch(); searchBox.setValue(value); }
     String stateForSmokeTest() { return (archiveMode ? "archive:" : "progression:") + category + ":" + centerX + ":" + centerY + ":" + zoom; }
+    List<ResourceLocation> recipeSearchForSmokeTest() {return searchHits().stream().map(SearchHit::recipe).filter(java.util.Objects::nonNull).toList();}
     @Override public boolean isPauseScreen() { return false; }
     private record View(double x, double y, float zoom) {}
+    private record SearchHit(ResearchEntry entry,String category,ResourceLocation recipe,String label,net.minecraft.world.item.ItemStack output) {}
 }
 

@@ -100,7 +100,7 @@ public final class ResearchIconRenderer {
                 Item item = icon.item == null ? Items.AIR : BuiltInRegistries.ITEM.getOptional(icon.item).orElse(Items.AIR);
                 if (item != Items.AIR) {
                     graphics.setColor(light, light, light, 1.0f);
-                    graphics.renderItem(new ItemStack(item), x, y);
+                    drawStack(graphics, new ItemStack(item), x, y);
                     return;
                 }
                 if (available(icon.texture)) {
@@ -129,6 +129,13 @@ public final class ResearchIconRenderer {
     public static void drawTexture(GuiGraphics graphics, ResourceLocation texture, int x, int y, int size) {
         ensureLoaded();
         if (available(texture)) blit(graphics, texture, x, y, size, false);
+    }
+
+    /** The legacy working Nitor alias has no useful GUI model; retain its original book sprite. */
+    public static void drawStack(GuiGraphics graphics, ItemStack stack, int x, int y) {
+        if (BuiltInRegistries.ITEM.getKey(stack.getItem()).equals(new ResourceLocation("thaumcraft", "nitor")))
+            drawTexture(graphics, new ResourceLocation("thaumcraft", "textures/blocks/nitor.png"), x, y, 16);
+        else graphics.renderItem(stack, x, y);
     }
 
     private static boolean available(ResourceLocation texture) {

@@ -19,8 +19,8 @@ import java.util.Optional;
 import java.util.function.Supplier;
 
 public final class ResearchNetwork {
-    // 0.13 changes the synchronized ArcaneRecipe format. Reject 0.12 peers before recipe sync.
-    private static final String PROTOCOL = "3";
+    // Book read acknowledgments add a server-bound message. Peers must share the recipe and book formats.
+    private static final String PROTOCOL = "4";
     private static final SimpleChannel CHANNEL = NetworkRegistry.newSimpleChannel(
             ResourceLocation.fromNamespaceAndPath("thaumcraft", "research"), () -> PROTOCOL, PROTOCOL::equals, PROTOCOL::equals);
 
@@ -31,11 +31,21 @@ public final class ResearchNetwork {
                 Discover::handle, Optional.of(NetworkDirection.PLAY_TO_SERVER));
         CHANNEL.registerMessage(2, Advance.class, Advance::encode, Advance::decode,
                 Advance::handle, Optional.of(NetworkDirection.PLAY_TO_SERVER));
+        CHANNEL.registerMessage(3, Read.class, Read::encode, Read::decode,
+                Read::handle, Optional.of(NetworkDirection.PLAY_TO_SERVER));
     }
     public static void open(ServerPlayer player) { send(player, true, null); }
     public static void sync(ServerPlayer player) { send(player, false, null); }
     public static void requestDiscover(String key) { CHANNEL.sendToServer(new Discover(key)); }
     public static void requestAdvance(String key, int expectedStage) { CHANNEL.sendToServer(new Advance(key, expectedStage)); }
+    public static void requestRead(String key, int expectedStage, int addendumMask) {
+        CHANNEL.sendToServer(new Read(key, expectedStage, addendumMask));
+    }
+
+    public static boolean processRead(ServerPlayer player, String key, int expectedStage, int addendumMask) {
+        return player != null && holdsBook(player)
+                && KnowledgeStore.of(player.serverLevel()).recordBookRead(player.getUUID(), key, expectedStage, addendumMask);
+    }
 
     private static boolean holdsBook(ServerPlayer player) {
         return player.getItemInHand(InteractionHand.MAIN_HAND).is(ResearchModule.THAUMONOMICON.get())
@@ -104,6 +114,21 @@ public final class ResearchNetwork {
             context.get().enqueueWork(() -> {
                 if (player == null) return;
                 send(player, false, processAdvance(player, packet.key, packet.expectedStage));
+            });
+            context.get().setPacketHandled(true);
+        }
+    }
+    public record Read(String key, int expectedStage, int addendumMask) {
+        static void encode(Read packet, FriendlyByteBuf buf) {
+            buf.writeUtf(packet.key, 128); buf.writeVarInt(packet.expectedStage); buf.writeInt(packet.addendumMask);
+        }
+        static Read decode(FriendlyByteBuf buf) { return new Read(buf.readUtf(128), buf.readVarInt(), buf.readInt()); }
+        static void handle(Read packet, Supplier<NetworkEvent.Context> context) {
+            ServerPlayer player = context.get().getSender();
+            context.get().enqueueWork(() -> {
+                if (player == null) return;
+                processRead(player, packet.key, packet.expectedStage, packet.addendumMask);
+                send(player, false, null);
             });
             context.get().setPacketHandled(true);
         }
