@@ -137,6 +137,14 @@
       }
     ]
   },
+  "jacobs": {
+    "category": "ambient",
+    "sounds": [{ "name": "thaumcraft:jacobs", "stream": false }]
+  },
+  "pump": {
+    "category": "block",
+    "sounds": ["thaumcraft:pump1", "thaumcraft:pump2", "thaumcraft:pump3"]
+  },
   "ticks": {
     "category": "ambient",
     "sounds": [

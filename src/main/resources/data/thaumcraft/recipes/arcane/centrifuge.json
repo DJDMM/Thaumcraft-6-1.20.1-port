@@ -1,0 +1,15 @@
+{
+  "type": "thaumcraft:arcane_shaped",
+  "category": "misc",
+  "research": "CENTRIFUGE",
+  "vis": 100,
+  "crystals": { "ordo": 1, "perditio": 1 },
+  "pattern": [" T ", "RCP", " T "],
+  "key": {
+    "T": { "item": "thaumcraft:tube" },
+    "R": { "item": "thaumcraft:morphic_resonator" },
+    "C": { "item": "thaumcraft:metal_alchemical" },
+    "P": { "item": "thaumcraft:mechanism_simple" }
+  },
+  "result": { "item": "thaumcraft:centrifuge", "count": 1 }
+}

@@ -93,9 +93,9 @@ public final class FocusGraphGameTests {
             h.assertTrue(!result.success() && result.plan() == null && !result.error().isEmpty(), "Malformed/cyclic/extra graph compiled"); }
         h.assertTrue(before.equals(focus.save(new CompoundTag())), "Invalid graph mutated an inventory stack"); h.succeed();
     }
-    @GameTest(template="empty") public static void fullReferenceRegistryDoesNotAllowCastingUnimplementedLateNodes(GameTestHelper h) {
+    @GameTest(template="empty") public static void completeRegistryStillRejectsInvalidSupplyAndShapes(GameTestHelper h) {
         h.assertTrue(FocusNodeRegistry.all().size() == 21
-                && FocusNodeRegistry.all().stream().filter(FocusNodeRegistry.Definition::runtimeSupported).count() == 11,
+                && FocusNodeRegistry.all().stream().filter(FocusNodeRegistry.Definition::runtimeSupported).count() == 21,
                 "Original registered-node/runtime inventory changed");
         for (var definition : FocusNodeRegistry.all()) if (!definition.runtimeSupported()) {
             var graph = new FocusGraph(List.of(node(0,-1,List.of(1),"ROOT"),node(1,0,List.of(2),FocusNodeRegistry.TOUCH),

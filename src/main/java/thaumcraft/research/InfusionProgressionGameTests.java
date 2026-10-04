@@ -144,10 +144,12 @@ public final class InfusionProgressionGameTests {
         helper.assertTrue(ResearchCatalog.get("RECHARGEPEDESTAL").parents().equals(java.util.List.of("BASEAUROMANCY"))
                 && ResearchCatalog.get("BOOTSTRAVELLER").parents().contains("RECHARGEPEDESTAL"), "An unported prerequisite was deleted");
         for (String key : new String[]{"FORTRESSMASK", "INFUSIONENCHANTMENT", "RUNICSHIELDING",
-                "FOCUSADVANCED", "FOCUSGREATER", "INFUSIONSTABLE", "INFUSIONANCIENT", "INFUSIONELDRITCH"}) {
+                "INFUSIONSTABLE", "INFUSIONANCIENT", "INFUSIONELDRITCH"}) {
             result(helper, ResearchNetwork.processAdvance(player, key, 0), ResearchProgression.Result.UNSUPPORTED);
             helper.assertTrue(state.researchStage(key) == 0 && !state.isResearchCompleteStrict(key), "Unported entry was marked completed: " + key);
         }
+        for (String key : new String[]{"FOCUSADVANCED", "FOCUSGREATER"})
+            result(helper, ResearchNetwork.processAdvance(player, key, 0), ResearchProgression.Result.LOCKED);
         var bare = player(helper); complete(KnowledgeStore.get(bare), "BASEINFUSION");
         bare.setItemInHand(InteractionHand.MAIN_HAND, ItemStack.EMPTY);
         result(helper, ResearchNetwork.processAdvance(bare, "INFUSION", 0), ResearchProgression.Result.NO_BOOK);

@@ -40,7 +40,7 @@ public final class FocusCasting {
         var candidate = FocusStacks.readPlan(FocusSelection.installed(player.getItemInHand(hand)));
         if (candidate.isEmpty()) return Result.INVALID;
         if (onCooldown(player)) return Result.COOLDOWN;
-        FocusPlan plan = candidate.get();
+        FocusPlan plan = candidate.get().withExecutionId(java.util.UUID.randomUUID());
         // Release behavior: an otherwise valid attempt takes cooldown even when the local aura is insufficient.
         COOLDOWNS.put(player, now(player) + plan.cooldownTicks());
         if (player.connection != null) {
@@ -51,15 +51,15 @@ public final class FocusCasting {
         ServerLevel level = player.serverLevel();
         if (AuraManager.drainVis(level, player.blockPosition(), price, true) < price) return Result.NO_VIS;
         if (AuraManager.drainVis(level, player.blockPosition(), price, false) < price) return Result.NO_VIS;
-        if(plan.effect().key().equals(thaumcraft.auromancy.focus.FocusNodeRegistry.FIRE))
-            level.playSound(null, player.blockPosition().above(), SoundEvents.FIRECHARGE_USE, SoundSource.PLAYERS,
-                    1, 1 + (float)(level.random.nextGaussian() * .05));
-        else {
-            FocusEffects.playCastSound(level,player,plan.effect().key());
-            AdvancedFocusEffects.playCastSound(level,player,plan.effect().key());
-            if(plan.effect().key().equals(thaumcraft.auromancy.focus.FocusNodeRegistry.BREAK))
-                level.playSound(null,player.blockPosition().above(),SoundEvents.END_GATEWAY_SPAWN,SoundSource.PLAYERS,.1F,
-                        2F+(float)(level.random.nextGaussian()*.05000000074505806));
+        for(var effect:plan.effects()){
+            if(effect.key().equals(thaumcraft.auromancy.focus.FocusNodeRegistry.FIRE))
+                level.playSound(null,player.blockPosition().above(),SoundEvents.FIRECHARGE_USE,SoundSource.PLAYERS,1,1+(float)(level.random.nextGaussian()*.05));
+            else{
+                FocusEffects.playCastSound(level,player,effect.key());AdvancedFocusEffects.playCastSound(level,player,effect.key());
+                thaumcraft.auromancy.remaining.RemainingFocusEffects.playCastSound(level,player,effect.key());
+                if(effect.key().equals(thaumcraft.auromancy.focus.FocusNodeRegistry.BREAK))
+                    level.playSound(null,player.blockPosition().above(),SoundEvents.END_GATEWAY_SPAWN,SoundSource.PLAYERS,.1F,2F+(float)(level.random.nextGaussian()*.05000000074505806));
+            }
         }
         Vec3 source = player.getEyePosition().add(0, -.10000000149011612, 0);
         FocusExecution.resume(player,plan,1,new EntityHitResult(player,player.position()),source,player.getLookAngle().normalize());
@@ -109,22 +109,23 @@ public final class FocusCasting {
         for (int x=x0;x<=x1;x++) for (int z=z0;z<=z1;z++) if (level.getChunkSource().getChunkNow(x,z)==null) return false;
         return true;
     }
-    public static boolean applyFire(ServerLevel level, ServerPlayer caster, HitResult target, int power, int duration) {
-        if (!level.getServer().isSameThread() || power < 1 || power > 5 || duration < 0 || duration > 5) return false;
+    public static boolean applyFire(ServerLevel level,ServerPlayer caster,HitResult target,int power,int duration){return applyFire(level,caster,target,power,duration,1F);}
+    public static boolean applyFire(ServerLevel level, ServerPlayer caster, HitResult target, int power, int duration,float finalPower) {
+        if (!Float.isFinite(finalPower)||finalPower<=0||finalPower>16||!level.getServer().isSameThread() || power < 1 || power > 5 || duration < 0 || duration > 5) return false;
         Vec3 point = target.getLocation();
         level.sendParticles(ParticleTypes.FLAME, point.x, point.y, point.z, 12, .15, .15, .15, .04);
         if (target instanceof EntityHitResult entityHit) {
             Entity entity = entityHit.getEntity();
             if (entity.fireImmune()) return false;
             var source = new DamageSource(level.registryAccess().registryOrThrow(Registries.DAMAGE_TYPE).getHolderOrThrow(DamageTypes.FIREBALL), entity, caster);
-            entity.hurt(source, 3 + power);
-            entity.setSecondsOnFire(1 + duration * duration);
+            entity.hurt(source, (3 + power)*finalPower);
+            entity.setSecondsOnFire(Math.round((1 + duration * duration)*finalPower));
             return true;
         }
         if (target instanceof BlockHitResult block && duration > 0) {
             BlockPos pos = block.getBlockPos().relative(block.getDirection());
             if (!level.hasChunkAt(pos) || !level.isEmptyBlock(pos) || !level.mayInteract(caster, pos)) return false;
-            if(!(level.random.nextFloat()<1F))return false;
+            if(!(level.random.nextFloat()<finalPower))return false;
             level.playSound(null, pos, SoundEvents.FLINTANDSTEEL_USE, SoundSource.BLOCKS, 1, level.random.nextFloat() * .4F + .8F);
             level.setBlock(pos, Blocks.FIRE.defaultBlockState(), 11);
             return true;

@@ -23,6 +23,7 @@ public final class CasterItem extends CatalogItem {
 
     @Override public InteractionResultHolder<ItemStack> use(Level level, Player player, InteractionHand hand) {
         ItemStack held = player.getItemInHand(hand);
+        if(player.isShiftKeyDown()&&thaumcraft.auromancy.remaining.FocusBlockPicker.isPicker(held))return InteractionResultHolder.pass(held);
         if (level.isClientSide) {
             var plan = FocusStacks.readPlan(FocusSelection.installed(held));
             if (plan.isEmpty() || player.getCooldowns().isOnCooldown(this)) return InteractionResultHolder.pass(held);
@@ -35,6 +36,16 @@ public final class CasterItem extends CatalogItem {
             case NO_VIS -> InteractionResultHolder.fail(held);
             default -> InteractionResultHolder.pass(held);
         };
+    }
+
+    @Override public InteractionResult onItemUseFirst(ItemStack stack,net.minecraft.world.item.context.UseOnContext context){
+        var player=context.getPlayer();if(player==null||!player.isShiftKeyDown()||!thaumcraft.auromancy.remaining.FocusBlockPicker.isPicker(stack))return InteractionResult.PASS;
+        // Functioning device callbacks and rituals keep priority and must not become Exchange samples.
+        var block=context.getLevel().getBlockState(context.getClickedPos()).getBlock();
+        if(block instanceof thaumcraft.essentia.transport.TubeBlock||block instanceof thaumcraft.infusion.InfusionMatrixBlock
+                ||context.getLevel().getBlockEntity(context.getClickedPos())!=null)return InteractionResult.PASS;
+        if(player instanceof ServerPlayer server&&thaumcraft.auromancy.remaining.FocusBlockPicker.pick(server,context.getHand(),context.getClickedPos()))return InteractionResult.SUCCESS;
+        return InteractionResult.PASS;
     }
 
     @Override public InteractionResult interactLivingEntity(ItemStack stack, Player player, LivingEntity target, InteractionHand hand) {

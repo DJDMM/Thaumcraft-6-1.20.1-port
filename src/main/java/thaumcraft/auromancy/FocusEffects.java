@@ -34,7 +34,10 @@ public final class FocusEffects {
     private FocusEffects() {}
 
     public static boolean apply(ServerLevel level, ServerPlayer caster, FocusGraph.Node node, HitResult target, Vec3 direction) {
-        if (level == null || caster == null || node == null || target == null || !level.getServer().isSameThread()
+        return apply(level,caster,node,target,direction,1F);
+    }
+    public static boolean apply(ServerLevel level,ServerPlayer caster,FocusGraph.Node node,HitResult target,Vec3 direction,float finalPower){
+        if (!Float.isFinite(finalPower)||finalPower<=0||finalPower>16||level == null || caster == null || node == null || target == null || !level.getServer().isSameThread()
                 || caster.serverLevel() != level || !caster.isAlive() || caster.isSpectator()
                 || target.getType() == HitResult.Type.MISS || !finite(target.getLocation())
                 || (direction != null && !finite(direction))) return false;
@@ -55,6 +58,7 @@ public final class FocusEffects {
         if (target instanceof EntityHitResult hit) {
             var entity = hit.getEntity();
             float damage = key.equals(FocusNodeRegistry.AIR) ? 1 + power : key.equals(FocusNodeRegistry.FROST) ? 3 + power : 2 * power;
+            damage*=finalPower;
             // Actual BETA26 quirk: the hit entity, not a projectile, is the immediate source.
             var source = new DamageSource(level.registryAccess().registryOrThrow(Registries.DAMAGE_TYPE)
                     .getHolderOrThrow(DamageTypes.THROWN), entity, caster);
@@ -65,26 +69,26 @@ public final class FocusEffects {
                     double z = direction == null ? Mth.cos(entity.getYRot() * ((float)Math.PI / 180F)) : -direction.z;
                     living.knockback(damage * .25F, x, z);
                 } else if (key.equals(FocusNodeRegistry.FROST)) {
-                    living.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SLOWDOWN, 20 * duration, (int)(1F + power / 3F)));
+                    living.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SLOWDOWN, 20 * duration, (int)(1F + power * finalPower / 3F)));
                 }
             }
             // Frost deliberately returns false even after applying damage and Slowness.
             return !key.equals(FocusNodeRegistry.FROST);
         }
         if (target instanceof BlockHitResult hit) {
-            if (key.equals(FocusNodeRegistry.FROST)) freeze(level, caster, hit, power);
+            if (key.equals(FocusNodeRegistry.FROST)) freeze(level, caster, hit, power*finalPower);
             else if (key.equals(FocusNodeRegistry.EARTH)) {
                 BlockPos pos = hit.getBlockPos();
                 if (loaded(level, pos)) {
                     var state = level.getBlockState(pos);
-                    if (state.getDestroySpeed(level, pos) <= 2 * power / 25F) EarthBreakerQueue.enqueue(level, caster, pos, state);
+                    if (state.getDestroySpeed(level, pos) <= 2 * power * finalPower / 25F) EarthBreakerQueue.enqueue(level, caster, pos, state);
                 }
             }
         }
         return false;
     }
 
-    private static void freeze(ServerLevel level, ServerPlayer caster, BlockHitResult hit, int power) {
+    private static void freeze(ServerLevel level, ServerPlayer caster, BlockHitResult hit, float power) {
         float radius = Math.min(16F, 2 * power);
         BlockPos origin = hit.getBlockPos();
         BlockPos min = BlockPos.containing(origin.getX() - radius, origin.getY() - radius, origin.getZ() - radius);

@@ -9,6 +9,10 @@ public final class FocusNodeRegistry {
     public static final String ROOT = "ROOT", TOUCH = "thaumcraft.TOUCH", FIRE = "thaumcraft.FIRE";
     public static final String PROJECTILE="thaumcraft.PROJECTILE", AIR="thaumcraft.AIR", FROST="thaumcraft.FROST", EARTH="thaumcraft.EARTH";
     public static final String BOLT="thaumcraft.BOLT", FLUX="thaumcraft.FLUX", HEAL="thaumcraft.HEAL", BREAK="thaumcraft.BREAK";
+    public static final String CLOUD="thaumcraft.CLOUD", MINE="thaumcraft.MINE", PLAN="thaumcraft.PLAN", SPELLBAT="thaumcraft.SPELLBAT";
+    public static final String CURSE="thaumcraft.CURSE", EXCHANGE="thaumcraft.EXCHANGE", RIFT="thaumcraft.RIFT";
+    public static final String SCATTER="thaumcraft.SCATTER", SPLITTARGET="thaumcraft.SPLITTARGET", SPLITTRAJECTORY="thaumcraft.SPLITTRAJECTORY";
+    public static boolean isSplit(String key){return SPLITTARGET.equals(key)||SPLITTRAJECTORY.equals(key);}
     public enum Type { MEDIUM, EFFECT, MOD }
     public enum Supply { TARGET, TRAJECTORY }
 
@@ -90,12 +94,12 @@ public final class FocusNodeRegistry {
         add(definitions, PROJECTILE, Type.MEDIUM, "FOCUSPROJECTILE@2", "motus", 11382149, "projectile", true, TRAJECTORY, BOTH, false,
                 list("option", "focus.common.options", "FOCUSPROJECTILE", new int[]{0,1,2,3}, "focus.common.none", "focus.projectile.bouncy", "focus.projectile.seeking.hostile", "focus.projectile.seeking.friendly"),
                 range("speed", "focus.projectile.speed", 1, 5));
-        add(definitions, "thaumcraft.CLOUD", Type.MEDIUM, "FOCUSCLOUD", "alkimia", 10071429, "cloud", false, TRAJECTORY, TARGET, false,
+        add(definitions, "thaumcraft.CLOUD", Type.MEDIUM, "FOCUSCLOUD", "alkimia", 10071429, "cloud", true, TRAJECTORY, TARGET, false,
                 range("radius", "focus.common.radius", 1, 3), range("duration", "focus.common.duration", 5, 30));
-        add(definitions, "thaumcraft.MINE", Type.MEDIUM, "FOCUSMINE", "vinculum", 8760709, "mine", false, TRAJECTORY, BOTH, false, targetSetting());
-        add(definitions, "thaumcraft.PLAN", Type.MEDIUM, "FOCUSPLAN", "fabrico", 8760728, "plan", false, TRAJECTORY, TARGET, true,
+        add(definitions, "thaumcraft.MINE", Type.MEDIUM, "FOCUSMINE", "vinculum", 8760709, "mine", true, TRAJECTORY, BOTH, false, targetSetting());
+        add(definitions, "thaumcraft.PLAN", Type.MEDIUM, "FOCUSPLAN", "fabrico", 8760728, "plan", true, TRAJECTORY, TARGET, true,
                 list("method", "focus.plan.method", null, new int[]{0,1}, "focus.plan.full", "focus.plan.surface"));
-        add(definitions, "thaumcraft.SPELLBAT", Type.MEDIUM, "FOCUSSPELLBAT", "bestia", 8760748, "spellbat", false, TRAJECTORY, TARGET, false, targetSetting());
+        add(definitions, "thaumcraft.SPELLBAT", Type.MEDIUM, "FOCUSSPELLBAT", "bestia", 8760748, "spellbat", true, TRAJECTORY, TARGET, false, targetSetting());
         add(definitions, FIRE, Type.EFFECT, "BASEAUROMANCY", "ignis", 16734721, "fire", true, TARGET, Set.of(), false,
                 range("power", "focus.common.power", 1, 5), range("duration", "focus.fire.burn", 0, 5));
         add(definitions, FROST, Type.EFFECT, "FOCUSELEMENTAL", "gelum", 14811135, "frost", true, TARGET, Set.of(), false,
@@ -105,16 +109,16 @@ public final class FocusNodeRegistry {
         add(definitions, FLUX, Type.EFFECT, "FOCUSFLUX", "vitium", 8388736, "flux", true, TARGET, Set.of(), false, range("power", "focus.common.power", 1, 5));
         add(definitions, BREAK, Type.EFFECT, "FOCUSBREAK", "perditio", 9063176, "break", true, TARGET, Set.of(), false,
                 range("power", "focus.break.power", 1, 5), fortuneSetting(), silkSetting());
-        add(definitions, "thaumcraft.RIFT", Type.EFFECT, "FOCUSRIFT", "alienis", 3084645, "rift", false, TARGET, Set.of(), false,
+        add(definitions, "thaumcraft.RIFT", Type.EFFECT, "FOCUSRIFT", "alienis", 3084645, "rift", true, TARGET, Set.of(), false,
                 list("depth", "focus.rift.depth", null, new int[]{8,16,24,32}, "8", "16", "24", "32"), range("duration", "focus.common.duration", 2, 10));
-        add(definitions, "thaumcraft.EXCHANGE", Type.EFFECT, "FOCUSEXCHANGE", "permutatio", 5735255, "exchange", false, TARGET, Set.of(), false, fortuneSetting(), silkSetting());
-        add(definitions, "thaumcraft.CURSE", Type.EFFECT, "FOCUSCURSE", "mortuus", 6946821, "curse", false, TARGET, Set.of(), false,
+        add(definitions, "thaumcraft.EXCHANGE", Type.EFFECT, "FOCUSEXCHANGE", "permutatio", 5735255, "exchange", true, TARGET, Set.of(), false, fortuneSetting(), silkSetting());
+        add(definitions, "thaumcraft.CURSE", Type.EFFECT, "FOCUSCURSE", "mortuus", 6946821, "curse", true, TARGET, Set.of(), false,
                 range("power", "focus.common.power", 1, 5), range("duration", "focus.common.duration", 1, 10));
         add(definitions, HEAL, Type.EFFECT, "FOCUSHEAL", "victus", 14548997, "heal", true, TARGET, Set.of(), false, range("power", "focus.heal.power", 1, 5));
-        add(definitions, "thaumcraft.SCATTER", Type.MOD, "FOCUSSCATTER", null, 10066329, "scatter", false, TRAJECTORY, TRAJECTORY, true,
+        add(definitions, "thaumcraft.SCATTER", Type.MOD, "FOCUSSCATTER", null, 10066329, "scatter", true, TRAJECTORY, TRAJECTORY, true,
                 range("forks", "focus.scatter.forks", 2, 10), list("cone", "focus.scatter.cone", null, new int[]{10,30,60,90,180,270,360}, "10", "30", "60", "90", "180", "270", "360"));
-        add(definitions, "thaumcraft.SPLITTARGET", Type.MOD, "FOCUSSPLIT", null, 10066329, "split_target", false, TARGET, TARGET, false);
-        add(definitions, "thaumcraft.SPLITTRAJECTORY", Type.MOD, "FOCUSSPLIT", null, 10066329, "split_trajectory", false, TRAJECTORY, TRAJECTORY, false);
+        add(definitions, "thaumcraft.SPLITTARGET", Type.MOD, "FOCUSSPLIT", null, 10066329, "split_target", true, TARGET, TARGET, false);
+        add(definitions, "thaumcraft.SPLITTRAJECTORY", Type.MOD, "FOCUSSPLIT", null, 10066329, "split_trajectory", true, TRAJECTORY, TRAJECTORY, false);
         return Collections.unmodifiableMap(definitions);
     }
     private static void add(Map<String, Definition> map, String key, Type type, String research, String aspect, int color,

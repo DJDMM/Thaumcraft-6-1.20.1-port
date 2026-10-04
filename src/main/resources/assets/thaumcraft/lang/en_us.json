@@ -1845,5 +1845,11 @@
   "gui.thaumcraft.focal.result.missing_research": "Research is incomplete",
   "gui.thaumcraft.focal.result.missing_crystals": "Required crystals are missing",
   "gui.thaumcraft.focal.result.missing_xp": "Not enough levels",
-  "gui.thaumcraft.focal.result.overflow": "Table must be replaced"
+  "gui.thaumcraft.focal.result.overflow": "Table must be replaced",
+  "thaumcraft.focus.plan.area": "Area: %s × %s × %s",
+  "thaumcraft.focus.plan.controls": "G: size · Ctrl+G: %s",
+  "thaumcraft.focus.exchange.pick": "Sneak + use to pick a block",
+  "entity.thaumcraft.focus_cloud_spell": "Focus Cloud",
+  "entity.thaumcraft.focus_mine_spell": "Focus Mine",
+  "entity.thaumcraft.spell_bat_spell": "Spell Bat"
 }

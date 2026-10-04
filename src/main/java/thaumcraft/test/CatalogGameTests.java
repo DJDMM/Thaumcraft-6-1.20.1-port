@@ -43,6 +43,8 @@ public final class CatalogGameTests {
             helper.assertTrue(helper.getLevel().getBlockState(pos).is(block),"Placement failed "+entry.getKey());
             if(CatalogBlocks.special(entry.getKey())) helper.assertTrue(entry.getKey().equals("infusion_matrix")
                     ? helper.getLevel().getBlockEntity(pos) instanceof thaumcraft.infusion.InfusionMatrixBlockEntity
+                    : entry.getKey().equals("centrifuge")
+                    ? helper.getLevel().getBlockEntity(pos) instanceof thaumcraft.essentia.centrifuge.CentrifugeBlockEntity
                     : helper.getLevel().getBlockEntity(pos) instanceof CatalogBlockEntity,"Special geometry lost tile "+entry.getKey());
             helper.getLevel().removeBlock(pos,false);
             helper.assertTrue(helper.getLevel().getBlockEntity(pos)==null,"Visual tile leaked after removal");

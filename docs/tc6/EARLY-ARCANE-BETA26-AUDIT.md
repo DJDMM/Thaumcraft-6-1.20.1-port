@@ -1,14 +1,23 @@
 # Early arcane equipment, BETA26 audit
 
-Status: five datapack recipes, six equipment transaction tests and three crystal interoperability tests implemented. The integrated Forge GameTest server passed all 208 required tests, including these nine. Client recipe pages and paid research transitions are checked separately; see [VALIDATION.md](../../VALIDATION.md).
+Historical0.11 status: five datapack recipes, six equipment transaction tests and three crystal interoperability tests were implemented; its integrated Forge GameTest server passed208 required tests. Version0.19 restores the original started-research recipe predicate described below. Current integrated server/client results are recorded separately in [VALIDATION.md](../../VALIDATION.md).
 
 ## Required research keys (integration notice)
 
-- Goggles: **completed `UNLOCKARTIFICE`**, 50 vis, **no primal crystals**.
-- Enchanted Fabric: **completed `UNLOCKINFUSION`**, 5 vis, **no primal crystals**.
-- Robe chest, legs, boots: **completed `UNLOCKINFUSION`**, 100 vis each, **no primal crystals**.
+- Goggles: **known `UNLOCKARTIFICE`**, 50 vis, **no primal crystals**.
+- Enchanted Fabric: **known `UNLOCKINFUSION`**, 5 vis, **no primal crystals**.
+- Robe chest, legs, boots: **known `UNLOCKINFUSION`**, 100 vis each, **no primal crystals**.
 - `BASEARTIFICE` / `BASEINFUSION` do not gate these recipes in BETA26; the unlock entries carry them.
 - Scribing tools bottle recipe and ink refill already work in this port; no additional prerequisite is needed here.
+
+Original ContainerArcaneWorkbench calls IPlayerKnowledge.isResearchKnown
+on the recipe research. A bare canonical key is known once its entry starts;
+KEY@N requires entry into stageN. The earlier port completion-only wording
+was a stricter temporary rule, not BETA26. ArcaneRecipe.unlocked now accepts
+the original canonical predicate plus separate legacy PORT recipe aliases;
+aliases do not complete canonical research. This change applies to recipe
+access, while the focus editor retains knowsResearchStrict and completed
+bare node gates. Parent/stage knowledge payments remain unchanged.
 
 Verified both pinned source ConfigRecipes.java lines 194–198 and official JAR `javap -c -p thaumcraft.common.config.ConfigRecipes`, offsets 1310–1765. Saved bytecode under `work/early-configrecipes-javap.txt`. All five constructors pass `aconst_null` for their primal AspectList, so zero crystal cost is intentional, not a missing feature.
 
@@ -30,7 +39,7 @@ No cloth helmet exists in this slice or original BETA26 recipes. No ArcaneRecipe
 
 `thaumcraft.research.EarlyArcaneGameTests` has six required tests:
 
-1. Two real paid thaumometers (missing crystal fails without mutation) become goggles. Goggles require canonical completion, fail at 49 vis, charge 50 vis and consume both paid lenses without any primal.
+1. Two real paid thaumometers (missing crystal fails without mutation) become goggles. The historical fixture supplied completed research; the actual BETA26 gate is known UNLOCKARTIFICE. The transaction fails at49vis, charges50vis and consumes both paid lenses without any primal.
 2. All sixteen wool colors make one fabric for four string and 5 vis with empty crystal slots. Locked attempts fail.
 3. Eight fabric → chest robe, 100 vis, real result-slot pickup.
 4. Seven fabric → leggings, 100 vis, real shift-click destination.

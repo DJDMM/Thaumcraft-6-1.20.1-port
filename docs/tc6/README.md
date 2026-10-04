@@ -2,7 +2,7 @@
 
 Дата проверки: **30 сентября 2026**. Оригинал: **Thaumcraft 6.1.BETA26 для Minecraft 1.12.2**.
 Цель переноса: **Minecraft 1.20.1, Forge 47.x, Java 17**.
-Текущий реализованный срез — **0.18**; исходная дата проверки справочников
+Текущий реализованный срез — **0.19**; исходная дата проверки справочников
 сохранена отдельно от результатов очередной сборки в `VALIDATION.md`.
 
 Пользователь требует сохранить устройство и характер именно шестой версии,
@@ -22,9 +22,13 @@
 
 ## Карта документов
 
-- [Луч, Flux, Heal и Break 0.18](../../AUROMANCY.md): [луч 16 и дуга FXBolt](FOCUS-BOLT-BETA26-AUDIT.md), [Flux/Heal и реальный magic/heal API](FOCUS-FLUX-HEAL-BETA26-AUDIT.md), [постепенная добыча, loot/XP и очередь Break](FOCUS-BREAK-BETA26-AUDIT.md), [четыре исходные цепи, сканы и расход зачарованных предметов](AUROMANCY-FOUR-PROGRESSION-BETA26-AUDIT.md). Всего 29 канонических записей и 11/21 работающих типов узлов. Остальные 10 и изготовление Advanced/Greater закрыты; 9/56 путей наполнения доступны, 47 поздних gates сохранены. Текущие результаты интеграции публикуются в VALIDATION.md после прогона.
+- [Полная система узлов фокусов 0.19](../../AUROMANCY.md): [ветви, модификаторы, остальные эффекты и доставки, продвинутые фокусы](FOCUS-COMPLETE-BETA26-AUDIT.md). Все 21 исходных типа узлов работают; обе поздние формы изготавливаются по исходным стадиям и рецептам. Фокусный срез довёл число канонических ключей до 42; с подключённой центрифугой общий реестр содержит 43. Для 11/56 рецептов наполнения реализованы исследования и крафт; обычные survival-источники установлены для 9 рецептов экипировки, а Advanced/Greater ещё требуют мировых источников Firebat/Pech/Primordial Pearl. 45 поздних gates сохранены. Финальные build/resource проверки прошли; server 577/577, Auromancy 33/33 + Bolt и EssentiaProduction 12/12, все 46 снимков просмотрены. Итоги и границы: [VALIDATION.md](../../VALIDATION.md), [отчёт 0.19](../../validation/artifact-report-0.19.json).
 
-- Исторический этап [стихий и снарядов 0.17](../../AUROMANCY.md): [эффекты](FOCUS-EFFECTS-BETA26-AUDIT.md), [движущийся снаряд, отскоки и наведение](FOCUS-PROJECTILE-BETA26-AUDIT.md), [две новые цепи и настоящее сканирование](AUROMANCY-ELEMENTAL-PROGRESSION-BETA26-AUDIT.md). На этом этапе было 25 канонических записей и 7 работающих типов узлов; текущий статус 0.18 указан выше.
+- [Центрифуга: первый механизм следующего пункта](CENTRIFUGE-INTEGRATION-NOTE.md): подключены исходный sided transport/redstone/случайный непосредственный компонент, рабочие block/BE/item renderer, рецепт 100 vis + Ordo/Perditio и канонический CENTRIFUGE после TUBES за 32 raw Theory Alchemy. Bare arcane gate использует исходное isResearchKnown начатой записи; strict focus-node gates сохранены. Reload/API quirks и geometry отмечены отдельно. Текущий полный server log focus-019-gametest8 завершил 577/577 и BUILD SUCCESSFUL; скрытый EssentiaProduction прогон centrifuge-019-client2 прошёл 12/12 с exit code 0, contact sheet и полноразмерные кадры модели/рецепта просмотрены. Auromancy full-019-client8 отдельно прошёл 33/33 + Bolt, все 34 снимка просмотрены; вместе с производством — 46 кадров. Подробные ограничения Mine mesh и native FX указаны в аудите ауромантии. Thaumatorium, поздняя автоматизация и исходные Golemancy-пути resonator/simple mechanism остаются дальнейшими задачами.
+
+- Исторический этап [луча, Flux, Heal и Break 0.18](../../AUROMANCY.md): [луч 16 и дуга FXBolt](FOCUS-BOLT-BETA26-AUDIT.md), [Flux/Heal и реальный magic/heal API](FOCUS-FLUX-HEAL-BETA26-AUDIT.md), [постепенная добыча, loot/XP и очередь Break](FOCUS-BREAK-BETA26-AUDIT.md), [четыре исходные цепи, сканы и расход зачарованных предметов](AUROMANCY-FOUR-PROGRESSION-BETA26-AUDIT.md). На этом этапе было 29 записей и 11/21 типов узлов; ограничения оставшихся узлов сняты в 0.19.
+
+- Исторический этап [стихий и снарядов 0.17](../../AUROMANCY.md): [эффекты](FOCUS-EFFECTS-BETA26-AUDIT.md), [движущийся снаряд, отскоки и наведение](FOCUS-PROJECTILE-BETA26-AUDIT.md), [две новые цепи и настоящее сканирование](AUROMANCY-ELEMENTAL-PROGRESSION-BETA26-AUDIT.md). На этом этапе было 25 канонических записей и 7 работающих типов узлов; текущий статус 0.19 указан выше.
 
 - [Начальная ауромантия 0.16](../../AUROMANCY.md): [граф и package фокуса](FOCUS-GRAPH-BETA26-AUDIT.md), [стол обработки](FOCAL-MANIPULATOR-BETA26-AUDIT.md), [прогрессия и девять достижимых рецептов наполнения](AUROMANCY-PROGRESSION-BETA26-AUDIT.md). Работают начальные ROOT/TOUCH/FIRE; 23 канонические записи включают пять новых цепей. Из 56 infusion recipes 9 имеют достижимые исходные пути, 47 сохраняют поздние gates. Остальные определения узлов остаются справочными.
 

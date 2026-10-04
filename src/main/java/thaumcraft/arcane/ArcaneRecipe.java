@@ -37,7 +37,12 @@ public final class ArcaneRecipe implements Recipe<Container> {
     public int vis() { return vis; }
     public String research() { return research; }
     public int crystalCost(int primal) { return crystals[primal]; }
-    public boolean unlocked(ServerPlayer player) { return research.isEmpty() || KnowledgeStore.get(player).knowsResearch(research); }
+    public boolean unlocked(ServerPlayer player) {
+        var knowledge=KnowledgeStore.get(player);
+        // ContainerArcaneWorkbench uses isResearchKnown, unlike the focus editor's
+        // strict completion predicate. Retain legacy port recipe aliases separately.
+        return research.isEmpty()||knowledge.isResearchKnown(research)||knowledge.knowsResearch(research);
+    }
     public boolean hasCrystals(Container inventory) {
         if (inventory.getContainerSize() < 15) return false;
         for (int i = 0; i < 6; i++) {

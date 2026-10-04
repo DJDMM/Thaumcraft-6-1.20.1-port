@@ -78,16 +78,17 @@ public final class FocusCompiler {
                     && resolved.get(node.id()).get(setting.key()) != setting.defaultValue()
                     && !knowsStrict.test(setting.research())) return Result.failure("missing_setting_research");
         }
-        // Supported media are linear; an intermediary resumes only its following nodes.
-        // A terminal effect supplies nothing, so multiple effects require future Split nodes.
-        if (ordered.size() < 2 || definitions.get(ordered.get(ordered.size()-1).id()).type()!=FocusNodeRegistry.Type.EFFECT)
-            return Result.failure("unsupported_shape");
-        for (int index = 0; index < ordered.size(); index++) {
-            FocusGraph.Node node = ordered.get(index);
-            if (node.children().size() != (index == ordered.size()-1 ? 0 : 1)
-                    || index > 0 && index < ordered.size()-1 && !Set.of(FocusNodeRegistry.TOUCH,FocusNodeRegistry.PROJECTILE,FocusNodeRegistry.BOLT).contains(node.key()))
-                return Result.failure("unsupported_shape");
+        if (ordered.size()<2) return Result.failure("unsupported_shape");
+        Map<String,Integer> exclusives=new HashMap<>(); int media=0; boolean exclusiveMedium=false;
+        for(var node:ordered){
+            var definition=definitions.get(node.id());
+            int expected=definition.type()==FocusNodeRegistry.Type.EFFECT?0:FocusNodeRegistry.isSplit(node.key())?2:1;
+            if(node.children().size()!=expected)return Result.failure("unsupported_shape");
+            if(definition.exclusive()&&exclusives.merge(node.key(),1,Integer::sum)>1)return Result.failure("exclusive_node");
+            if(node.id()!=0&&definition.type()==FocusNodeRegistry.Type.MEDIUM){media++;exclusiveMedium|=definition.exclusive();}
         }
+        // Original editor: Plan excludes every other non-root medium, Scatter is unique across the focus.
+        if(exclusiveMedium&&media>1)return Result.failure("exclusive_medium");
         Map<String, Integer> occurrences = new HashMap<>(), crystals = new LinkedHashMap<>();
         List<FocusGraph.Node> normalized = new ArrayList<>(); int complexity = 0;
         for (FocusGraph.Node node : ordered) {
@@ -97,7 +98,11 @@ public final class FocusCompiler {
             normalized.add(new FocusGraph.Node(node.id(), node.parent(), node.children(), node.x(), node.y(), node.key(), resolved.get(node.id())));
         }
         if (complexity <= 0 || complexity > capacity) return Result.failure("complexity_limit");
-        int color = 0xFF000000 | FocusNodeRegistry.get(ordered.get(ordered.size()-1).key()).color();
+        int red=0,green=0,blue=0,effects=0;
+        for(var node:ordered)if(definitions.get(node.id()).type()==FocusNodeRegistry.Type.EFFECT){
+            int rgb=definitions.get(node.id()).color();red+=(rgb>>16)&255;green+=(rgb>>8)&255;blue+=rgb&255;effects++;
+        }
+        int color=0xFF000000|(red/effects)<<16|(green/effects)<<8|blue/effects;
         return new Result(true, new FocusPlan(new FocusGraph(normalized), complexity, capacity, crystals, color), "");
     }
 }

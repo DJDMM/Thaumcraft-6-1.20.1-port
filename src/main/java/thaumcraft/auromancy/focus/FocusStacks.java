@@ -27,21 +27,36 @@ public final class FocusStacks {
             return Optional.empty();
         try {
             CompoundTag tag = stack.getTag().getCompound("package");
-            if (!tag.contains("nodes", Tag.TAG_LIST) || !(tag.get("nodes") instanceof ListTag list)
-                    || list.size() < 2 || list.size() > FocusGraph.MAX_NODES || list.getElementType() != Tag.TAG_COMPOUND) return Optional.empty();
             List<FocusGraph.Node> graph = new ArrayList<>();
-            for (int index = 0; index < list.size(); index++) {
-                CompoundTag entry = list.getCompound(index);
-                if (!entry.contains("key", Tag.TAG_STRING) || !entry.contains("type", Tag.TAG_STRING)
-                        || entry.contains("packages") || entry.contains("package")) return Optional.empty();
-                String key = entry.getString("key"); var definition = FocusNodeRegistry.get(key);
-                if (definition == null || !entry.getString("type").equals(definition.type().name())) return Optional.empty();
-                graph.add(new FocusGraph.Node(index, index - 1, index == list.size()-1 ? List.of() : List.of(index + 1),
-                        0, index, key, FocusGraph.readSettings(entry)));
-            }
+            parseChain(tag,-1,0,0,graph,0);
             var result = FocusCompiler.compile(new FocusGraph(graph), stack, research -> true);
             return result.success() ? Optional.of(result.plan()) : Optional.empty();
         } catch (IllegalArgumentException | ClassCastException failure) { return Optional.empty(); }
+    }
+    private static int parseChain(CompoundTag pack,int parent,int x,int y,List<FocusGraph.Node> graph,int depth){
+        if(depth>=FocusGraph.MAX_DEPTH||!pack.contains("nodes",Tag.TAG_LIST)||!(pack.get("nodes") instanceof ListTag list)
+                ||list.isEmpty()||list.size()>FocusGraph.MAX_NODES||list.getElementType()!=Tag.TAG_COMPOUND)
+            throw new IllegalArgumentException("package bounds");
+        int first=graph.size();
+        for(int i=0;i<list.size();i++){
+            CompoundTag entry=list.getCompound(i);
+            if(graph.size()>=FocusGraph.MAX_NODES||!entry.contains("key",Tag.TAG_STRING)||!entry.contains("type",Tag.TAG_STRING)||entry.contains("package"))
+                throw new IllegalArgumentException("package node");
+            String key=entry.getString("key");var def=FocusNodeRegistry.get(key);
+            if(def==null||!entry.getString("type").equals(def.type().name()))throw new IllegalArgumentException("node type");
+            int id=graph.size();var settings=FocusGraph.readSettings(entry);graph.add(new FocusGraph.Node(id,parent,List.of(),x,y,key,settings));
+            if(parent>=0){var old=graph.get(parent);var children=new ArrayList<>(old.children());children.add(id);
+                graph.set(parent,new FocusGraph.Node(old.id(),old.parent(),children,old.x(),old.y(),old.key(),old.settings()));}
+            if(FocusNodeRegistry.isSplit(key)){
+                if(i!=list.size()-1||!entry.contains("packages",Tag.TAG_COMPOUND)
+                        ||!(entry.getCompound("packages").get("packages") instanceof ListTag branches)||branches.size()!=2||branches.getElementType()!=Tag.TAG_COMPOUND)
+                    throw new IllegalArgumentException("split branches");
+                parseChain(branches.getCompound(0),id,x-1,y+1,graph,depth+1);
+                parseChain(branches.getCompound(1),id,x+1,y+1,graph,depth+1);
+            }else if(entry.contains("packages"))throw new IllegalArgumentException("unexpected branches");
+            parent=id;y++;
+        }
+        return first;
     }
     /** Copies the focus, preserving unrelated metadata. A plan cannot be applied to a smaller tier. */
     public static ItemStack apply(ItemStack focus, FocusPlan plan, String name) {

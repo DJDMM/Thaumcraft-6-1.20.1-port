@@ -203,7 +203,7 @@ public final class FocalManipulatorGameTests {
                 &&f.player.getInventory().getItem(9).getCount()==3,"Rejected/distant request mutated table/payment");h.succeed();
     }
 
-    @GameTest(template="empty") public static void startedBasicResearchEmptySocketsAndUnsupportedNodesCannotStartPaidCraft(GameTestHelper h) {
+    @GameTest(template="empty") public static void startedBasicResearchEmptySocketsAndMissingLateResearchCannotStartPaidCraft(GameTestHelper h) {
         Fixture f=table(h);crystals(f);KnowledgeStore.get(f.player).setResearchStage("BASEAUROMANCY",1);
         result(h,f.table.edit(f.player,f.table.revision(),FocusGraph.touchFire(1,0).save(),""),FocalManipulatorResult.MISSING_RESEARCH);
         KnowledgeStore.get(f.player).setResearchStage("BASEAUROMANCY",ResearchCatalog.get("BASEAUROMANCY").stages().size()+1);
@@ -211,7 +211,7 @@ public final class FocalManipulatorGameTests {
         edit(f,socket,"");result(h,f.table.start(f.player,f.table.revision()),FocalManipulatorResult.INVALID);
         var unsupported=new FocusGraph(List.of(new FocusGraph.Node(0,-1,List.of(1),0,0,"ROOT",Map.of()),
                 new FocusGraph.Node(1,0,List.of(),0,1,"thaumcraft.CLOUD",Map.of())));
-        result(h,f.table.edit(f.player,f.table.revision(),unsupported.save(),""),FocalManipulatorResult.UNSUPPORTED);
+        result(h,f.table.edit(f.player,f.table.revision(),unsupported.save(),""),FocalManipulatorResult.MISSING_RESEARCH);
         var malformed=FocusGraph.touchFire(1,0).save();malformed.getList("nodes",Tag.TAG_COMPOUND).getCompound(2).putInt("setting.power",99);
         result(h,f.table.edit(f.player,f.table.revision(),malformed,""),FocalManipulatorResult.INVALID);
         h.assertTrue(!f.table.crafting()&&f.player.experienceLevel==5&&f.player.getInventory().getItem(9).getCount()==3

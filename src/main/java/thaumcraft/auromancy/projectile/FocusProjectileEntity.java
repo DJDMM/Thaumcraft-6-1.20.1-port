@@ -32,7 +32,8 @@ public final class FocusProjectileEntity extends Projectile {
     private static final EntityDataAccessor<Integer> COLOR = SynchedEntityData.defineId(FocusProjectileEntity.class, EntityDataSerializers.INT);
     private static final EntityDataAccessor<String> EFFECT = SynchedEntityData.defineId(FocusProjectileEntity.class, EntityDataSerializers.STRING);
     private FocusPlan plan;
-    private int nextIndex;
+    private int nextIndex,ordinal;
+    private float power=1F;
     private Entity ignoredEntity;
     private int ignoreTime;
     private LivingEntity target;
@@ -64,15 +65,18 @@ public final class FocusProjectileEntity extends Projectile {
         return super.getOwner();
     }
 
-    public static boolean spawn(ServerPlayer caster, FocusPlan plan, int nextIndex, Vec3 source, Vec3 direction, int speed, int option) {
-        if (caster == null || caster.getServer() == null || !caster.getServer().isSameThread()
+    public static boolean spawn(ServerPlayer caster,FocusPlan plan,int nextIndex,Vec3 source,Vec3 direction,int speed,int option){return spawn(caster,plan,nextIndex,source,direction,speed,option,1F,0);}
+    public static boolean spawn(ServerPlayer caster, FocusPlan plan, int nextIndex, Vec3 source, Vec3 direction, int speed, int option,float power,int ordinal) {
+        if (!Float.isFinite(power)||power<=0||power>16||ordinal<0||ordinal>4096||caster == null || caster.getServer() == null || !caster.getServer().isSameThread()
                 || !validContinuation(plan, nextIndex, speed, option) || !finite(source) || !finite(direction)
                 || !Double.isFinite(direction.lengthSqr()) || direction.lengthSqr() < 1e-12) return false;
         Vec3 unit = direction.normalize();
         Vec3 position = source.add(unit.scale(caster.getBbWidth() * 2.1));
         if (!finite(position) || !caster.serverLevel().hasChunkAt(BlockPos.containing(position))) return false;
         var entity = new FocusProjectileEntity(VisualEntitiesModule.FOCUS_PROJECTILE.get(), caster.serverLevel());
-        entity.plan = plan; entity.nextIndex = nextIndex;
+        // Each impact resumes a new one-target array; its BETA26 effect ordinal is zero,
+        // regardless of which Scatter trajectory created this intermediary.
+        entity.plan = plan; entity.nextIndex = nextIndex;entity.power=power;entity.ordinal=0;
         entity.entityData.set(SPECIAL, option); entity.entityData.set(COLOR, plan.color());
         entity.entityData.set(EFFECT, plan.effect().key()); entity.setOwner(caster); entity.ignoredEntity = caster;
         entity.setPos(position);
@@ -86,7 +90,8 @@ public final class FocusProjectileEntity extends Projectile {
     }
     private static boolean validContinuation(FocusPlan plan, int index, int speed, int option) {
         if (plan == null || index < 1 || index >= plan.graph().nodes().size() || speed < 1 || speed > 5 || option < 0 || option > 3) return false;
-        var medium = plan.graph().nodes().get(index - 1);
+        var medium = plan.node(plan.graph().nodes().get(index).parent());
+        if(medium==null)return false;
         return medium.key().equals(FocusNodeRegistry.PROJECTILE)
                 && Integer.valueOf(speed).equals(medium.settings().get("speed"))
                 && Integer.valueOf(option).equals(medium.settings().get("option"));
@@ -174,7 +179,7 @@ public final class FocusProjectileEntity extends Projectile {
             HitResult actual=hit instanceof EntityHitResult e ? new EntityHitResult(e.getEntity(),position()) : hit;
             Vec3 source=new Vec3(xo,yo,zo), direction=getDeltaMovement().normalize();
             // Discard first: callbacks and nested media cannot execute this continuation a second time.
-            discard(); FocusProjectileImpacts.enqueue((ServerLevel)level(),caster,plan,nextIndex,actual,source,direction);
+            discard(); FocusProjectileImpacts.enqueue((ServerLevel)level(),caster,plan,nextIndex,actual,source,direction,power,ordinal);
         }
     }
 
@@ -211,7 +216,7 @@ public final class FocusProjectileEntity extends Projectile {
         super.addAdditionalSaveData(tag);
         // Modern Projectile.setOwner(null) leaves its cached UUID; an explicitly cleared owner must not revive on reload.
         if(ownerCleared)tag.remove("Owner");
-        if (plan!=null) { tag.put("PaidGraph",plan.graph().save()); tag.putInt("Capacity",plan.maxComplexity()); tag.putInt("Next",nextIndex); tag.putInt("Special",special()); }
+        if (plan!=null) { tag.put("PaidGraph",plan.graph().save()); tag.putInt("Capacity",plan.maxComplexity()); tag.putInt("Next",nextIndex); tag.putInt("Special",special());tag.putFloat("Power",power);tag.putInt("Ordinal",ordinal);tag.putUUID("Execution",plan.executionId()); }
     }
     @Override protected void readAdditionalSaveData(CompoundTag tag) {
         super.readAdditionalSaveData(tag); plan=null; nextIndex=0; target=null; ignoredEntity=null; ignoreTime=0; ownerCleared=false;
@@ -222,9 +227,14 @@ public final class FocusProjectileEntity extends Projectile {
             if (tier==0) return;
             var result=FocusCompiler.compile(FocusGraph.read(tag.getCompound("PaidGraph")),CatalogModule.stack("focus_"+tier),ignored->true);
             if (!result.success()) return;
-            FocusPlan restored=result.plan(); int index=tag.getInt("Next"), option=tag.getInt("Special");
+            FocusPlan restored=result.plan();
+            if(tag.hasUUID("Execution"))restored=restored.withExecutionId(tag.getUUID("Execution"));
+            power=tag.contains("Power")?tag.getFloat("Power"):1F;int storedOrdinal=tag.getInt("Ordinal");
+            if(!Float.isFinite(power)||power<=0||power>16||storedOrdinal<0||storedOrdinal>4096)return;
+            ordinal=0; // Old paid saves may contain a fork ordinal; impact still has one target.
+            int index=tag.getInt("Next"), option=tag.getInt("Special");
             if (index<1 || index>=restored.graph().nodes().size()) return;
-            int speed=restored.graph().nodes().get(index-1).settings().getOrDefault("speed",0);
+            int speed=restored.node(restored.graph().nodes().get(index).parent()).settings().getOrDefault("speed",0);
             if (!validContinuation(restored,index,speed,option)) return;
             plan=restored; nextIndex=index; entityData.set(SPECIAL,option); entityData.set(COLOR,plan.color()); entityData.set(EFFECT,plan.effect().key());
         } catch (IllegalArgumentException ignored) { /* Invalid and old appearances remain harmless. */ }

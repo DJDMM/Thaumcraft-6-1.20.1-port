@@ -22,7 +22,7 @@ public final class FocalManipulatorScreen extends AbstractContainerScreen<FocalM
     private static final ResourceLocation MEDIUM = tex("textures/foci/_medium.png"), EFFECT = tex("textures/foci/_effect.png");
     private FocusGraph draft = new FocusGraph(List.of());
     private long seenRevision = -1;
-    private int selected = 1, partsStart, scrollY;
+    private int selected = 1, partsStart, scrollY,scrollX;
     private boolean dirty, changingName;
     private EditBox name;
     private Button confirm;
@@ -74,55 +74,58 @@ public final class FocalManipulatorScreen extends AbstractContainerScreen<FocalM
         var parent = draft.nodes().stream().filter(current -> current.id() == node.parent()).findFirst().orElse(null);
         var supplies = parent == null ? null : FocusNodeRegistry.get(parent.key());
         if (supplies == null) return List.of();
+        var existing=draft.nodes().stream().filter(n->n.id()!=node.id()).map(n->FocusNodeRegistry.get(n.key())).filter(Objects::nonNull).toList();
+        boolean exclusiveMedium=existing.stream().anyMatch(d->d.type()==FocusNodeRegistry.Type.MEDIUM&&d.exclusive());
+        boolean hasMedium=existing.stream().anyMatch(d->d.type()==FocusNodeRegistry.Type.MEDIUM&&!d.key().equals(FocusNodeRegistry.ROOT));
         return FocusNodeRegistry.all().stream().filter(part -> !part.key().equals(FocusNodeRegistry.ROOT)
                 && menu.knowledge().isResearchCompleteStrict(part.research())
-                && supplies.supplied().containsAll(part.requiredSupply())).toList();
+                && supplies.supplied().containsAll(part.requiredSupply())
+                && (!part.exclusive()||existing.stream().noneMatch(d->d.key().equals(part.key())))
+                && (part.type()!=FocusNodeRegistry.Type.MEDIUM||!exclusiveMedium&&(!part.exclusive()||!hasMedium))).toList();
     }
     private void install(FocusNodeRegistry.Definition part) {
-        if (menu.busy() || menu.pending() || !part.runtimeSupported() || !menu.knowledge().isResearchCompleteStrict(part.research())) return;
-        var node = selectedNode(); if (node == null || node.id() == 0 || !parts().contains(part)) return;
-        List<FocusGraph.Node> prefix = ancestors(node.parent());
-        if (prefix.isEmpty()) return;
-        int next = prefix.size(); boolean socket = !part.supplied().isEmpty();
-        if (next + (socket ? 2 : 1) > FocusGraph.MAX_NODES) return;
-        List<FocusGraph.Node> nodes = normalizedPrefix(prefix);
-        nodes.add(new FocusGraph.Node(next,next-1,socket ? List.of(next+1) : List.of(),0,next,part.key(),part.defaultSettings()));
-        if (socket) nodes.add(new FocusGraph.Node(next+1,next,List.of(),0,next+1,"",Map.of()));
-        draft = new FocusGraph(nodes); selected = socket ? next+1 : next;
-        scrollToSelection();
-        partsStart = 0; dirty = true; rebuildSettings();
-    }
-    private void clearSelected() {
-        if (menu.busy() || menu.pending()) return;
-        var node = selectedNode(); if (node == null || node.id() == 0) return;
-        var prefix = ancestors(node.parent()); if (prefix.isEmpty()) return;
-        var nodes = normalizedPrefix(prefix); selected = prefix.size();
-        nodes.add(new FocusGraph.Node(selected,selected-1,List.of(),0,selected,"",Map.of()));
-        draft = new FocusGraph(nodes); scrollToSelection();
-        dirty = true; rebuildSettings();
-    }
-    /** Replacement removes that node's descendants, while preserving settings on its ancestors. */
-    private List<FocusGraph.Node> ancestors(int id) {
-        Map<Integer,FocusGraph.Node> byId = new HashMap<>(); draft.nodes().forEach(node -> byId.put(node.id(),node));
-        List<FocusGraph.Node> prefix = new ArrayList<>(); Set<Integer> seen = new HashSet<>();
-        while (id >= 0) {
-            var node = byId.get(id); if (node == null || !seen.add(id)) return List.of();
-            prefix.add(node); id = node.parent();
+        if(menu.busy()||menu.pending()||!part.runtimeSupported()||!menu.knowledge().isResearchCompleteStrict(part.research()))return;
+        var node=selectedNode();if(node==null||node.id()==0||!parts().contains(part))return;
+        List<FocusGraph.Node> nodes=withoutDescendants(node);
+        int count=part.supplied().isEmpty()?0:FocusNodeRegistry.isSplit(part.key())?2:1;
+        if(nodes.size()+count>FocusGraph.MAX_NODES)return;
+        var children=new ArrayList<Integer>();var used=new HashSet<Integer>();nodes.forEach(n->used.add(n.id()));
+        for(int i=0;i<count;i++){
+            int id=0;while(used.contains(id))id++;used.add(id);children.add(id);
+            nodes.add(new FocusGraph.Node(id,node.id(),List.of(),node.x()+ (count==2?i*2-1:0),node.y()+1,"",Map.of()));
         }
-        Collections.reverse(prefix);
-        return prefix.isEmpty() || !prefix.get(0).key().equals(FocusNodeRegistry.ROOT) ? List.of() : prefix;
+        for(int i=0;i<nodes.size();i++)if(nodes.get(i).id()==node.id())nodes.set(i,new FocusGraph.Node(node.id(),node.parent(),children,node.x(),node.y(),part.key(),part.defaultSettings()));
+        draft=layout(new FocusGraph(nodes));selected=children.isEmpty()?node.id():children.get(0);
+        scrollToSelection();partsStart=0;dirty=true;rebuildSettings();
     }
-    private static List<FocusGraph.Node> normalizedPrefix(List<FocusGraph.Node> prefix) {
-        List<FocusGraph.Node> result = new ArrayList<>();
-        for (int index = 0; index < prefix.size(); index++) {
-            var node = prefix.get(index);
-            result.add(new FocusGraph.Node(index,index-1,List.of(index+1),0,index,node.key(),node.settings()));
-        }
-        return result;
+    private void clearSelected(){
+        if(menu.busy()||menu.pending())return;var node=selectedNode();if(node==null||node.id()==0)return;
+        var nodes=withoutDescendants(node);
+        for(int i=0;i<nodes.size();i++)if(nodes.get(i).id()==node.id())nodes.set(i,new FocusGraph.Node(node.id(),node.parent(),List.of(),node.x(),node.y(),"",Map.of()));
+        draft=layout(new FocusGraph(nodes));scrollToSelection();dirty=true;rebuildSettings();
+    }
+    /** Replace only the selected subtree; a completed sibling remains untouched. */
+    private List<FocusGraph.Node> withoutDescendants(FocusGraph.Node node){
+        Map<Integer,FocusGraph.Node> map=new HashMap<>();draft.nodes().forEach(n->map.put(n.id(),n));
+        var removed=new HashSet<Integer>();var queue=new ArrayDeque<Integer>(node.children());
+        while(!queue.isEmpty()){int id=queue.removeFirst();if(removed.add(id)&&map.containsKey(id))queue.addAll(map.get(id).children());}
+        return new ArrayList<>(draft.nodes().stream().filter(n->!removed.contains(n.id())).toList());
+    }
+    private static FocusGraph layout(FocusGraph graph){
+        Map<Integer,FocusGraph.Node> map=new LinkedHashMap<>();graph.nodes().forEach(n->map.put(n.id(),n));
+        Map<Integer,int[]> positions=new HashMap<>();place(map,positions,0,0,new int[]{0});
+        int rootX=positions.get(0)[0];
+        return new FocusGraph(graph.nodes().stream().map(n->{int[] xy=positions.get(n.id());return new FocusGraph.Node(n.id(),n.parent(),n.children(),xy[0]-rootX,xy[1],n.key(),n.settings());}).toList());
+    }
+    private static int place(Map<Integer,FocusGraph.Node> map,Map<Integer,int[]> positions,int id,int depth,int[] cursor){
+        var n=map.get(id);int x;
+        if(n.children().isEmpty()){x=cursor[0];cursor[0]+=2;}
+        else{int sum=0;for(int child:n.children())sum+=place(map,positions,child,depth+1,cursor);x=sum/n.children().size();}
+        positions.put(id,new int[]{x,depth});return x;
     }
     private int maxScroll() { return Math.max(0,draft.nodes().stream().mapToInt(FocusGraph.Node::y).max().orElse(0)*32-128); }
     private void scrollToSelection() {
-        var node = selectedNode(); scrollY = Math.max(0,Math.min(maxScroll(),node == null ? 0 : node.y()*32-96));
+        var node = selectedNode();if(node!=null)scrollX=node.x()*24; scrollY = Math.max(0,Math.min(maxScroll(),node == null ? 0 : node.y()*32-96));
     }
     private void rebuildSettings() {
         for (Button button : settingsButtons) removeWidget(button);
@@ -157,8 +160,14 @@ public final class FocalManipulatorScreen extends AbstractContainerScreen<FocalM
         graphics.blit(INVENTORY,leftPos-71,topPos-3,0,0,71,239,256,256);
         graphics.enableScissor(leftPos+63,topPos+31,leftPos+199,topPos+191);
         for (var node : draft.nodes()) {
-            int x = leftPos+132+node.x()*24, y = topPos+48+node.y()*32-scrollY;
-            if (node.parent() >= 0) graphics.blit(FRAME,x-6,y-22,54,232,12,12,256,256);
+            int x = leftPos+132+node.x()*24-scrollX, y = topPos+48+node.y()*32-scrollY;
+            if (node.parent() >= 0) {
+                var parent=draft.nodes().stream().filter(n->n.id()==node.parent()).findFirst().orElse(null);
+                int px=parent==null?x:leftPos+132+parent.x()*24-scrollX;
+                int mid=y-16;graphics.fill(Math.min(px,x),mid,Math.max(px,x)+1,mid+1,0xFFA49F80);
+                graphics.fill(px,mid-4,px+1,mid+1,0xFFA49F80);
+                graphics.blit(FRAME,x-6,y-22,54,232,12,12,256,256);
+            }
             var definition = FocusNodeRegistry.get(node.key());
             if (definition != null) drawPart(graphics,definition,x,y,24,false,true);
             else graphics.blit(FRAME,x-12,y-12,120,232,24,24,256,256);
@@ -262,7 +271,7 @@ public final class FocalManipulatorScreen extends AbstractContainerScreen<FocalM
     @Override public boolean mouseClicked(double x, double y, int button) {
         if (!menu.busy() && !menu.pending()) {
             for (var node : draft.nodes()) if (node.id() != 0 && hovered(x,y,leftPos+63,topPos+31,136,160)
-                    && hovered(x,y,leftPos+122+node.x()*24,topPos+38+node.y()*32-scrollY,20,20)) {
+                    && hovered(x,y,leftPos+122+node.x()*24-scrollX,topPos+38+node.y()*32-scrollY,20,20)) {
                 selected = node.id(); partsStart = 0; rebuildSettings(); if (button == 1) clearSelected(); return true;
             }
             var parts = parts();
@@ -274,6 +283,7 @@ public final class FocalManipulatorScreen extends AbstractContainerScreen<FocalM
     }
     @Override public boolean mouseScrolled(double x, double y, double delta) {
         if (hovered(x,y,leftPos+20,topPos+30,38,155)) { partsStart += delta > 0 ? -1 : 1; return true; }
+        if (hovered(x,y,leftPos+63,topPos+31,136,160)&&hasShiftDown()){scrollX+=(delta>0?-24:24);return true;}
         if (hovered(x,y,leftPos+63,topPos+31,136,160)) { scrollY = Math.max(0,Math.min(maxScroll(),scrollY+(delta > 0 ? -16 : 16))); return true; }
         return super.mouseScrolled(x,y,delta);
     }

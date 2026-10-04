@@ -20,7 +20,9 @@ public final class ResearchProgression {
             "UNLOCKINFUSION", "BASEINFUSION", "ESSENTIASMELTER", "WARDEDJARS", "TUBES",
             "UNLOCKAUROMANCY", "INFUSION", "INFUSIONBOOST",
             "BASEAUROMANCY", "RECHARGEPEDESTAL", "BOOTSTRAVELLER", "ELEMENTALTOOLS", "ARMORFORTRESS",
-            "FOCUSELEMENTAL", "FOCUSPROJECTILE", "FOCUSBOLT", "FOCUSFLUX", "FOCUSHEAL", "FOCUSBREAK");
+            "FOCUSELEMENTAL", "FOCUSPROJECTILE", "FOCUSBOLT", "FOCUSFLUX", "FOCUSHEAL", "FOCUSBREAK",
+            "FOCUSCURSE", "FOCUSEXCHANGE", "FOCUSRIFT", "FOCUSPLAN", "FOCUSMINE", "FOCUSSPELLBAT",
+            "FOCUSCLOUD", "FOCUSSCATTER", "FOCUSSPLIT", "FOCUSADVANCED", "FOCUSGREATER", "PRIMPEARL", "!Firebat", "CENTRIFUGE");
     private static final Set<String> REMAINING_LESSONS = Set.of("PORT_TALLOW");
     private static final Set<String> OLD_PROFILE_LESSONS = Set.of("PORT_START", "PORT_SCAN", "PORT_ALCHEMY",
             "PORT_NITOR", "PORT_ALUMENTUM", "PORT_BRASS", "PORT_THAUMIUM");
@@ -41,6 +43,10 @@ public final class ResearchProgression {
         return isImplemented(key) && entry != null && stage(knowledge, key) == 0 && parentsMet(knowledge, entry);
     }
     private static boolean parentsMet(PlayerKnowledge knowledge, ResearchEntry entry) {
+        // ConfigResearch's canonical hidden pearl entry is acquired by ScanItem, not
+        // by submitting an arbitrary empty-root book request. The scanner records
+        // the original discovery marker before progressing its one empty stage.
+        if (Set.of("PRIMPEARL","!Firebat").contains(entry.key()) && !knowledge.isResearchKnown(entry.key())) return false;
         return entry.parents().stream().allMatch(raw -> knowledge.isResearchCompleteStrict(raw.startsWith("~") ? raw.substring(1) : raw));
     }
     public static boolean canAdvance(PlayerKnowledge knowledge, ResearchEntry entry) {
@@ -76,6 +82,7 @@ public final class ResearchProgression {
         if (current == 0) {
             int next = stages.size() == 1 && stages.get(0).empty() ? 2 : 1;
             knowledge.setResearchStage(key, next);
+            applyStageWarp(player, stages, current, next);
             int siblingExperience = revealSiblings(knowledge, entry);
             store.setDirty();
             player.giveExperiencePoints(5 + siblingExperience);
@@ -92,10 +99,23 @@ public final class ResearchProgression {
         int next = current + 1;
         if (next == stages.size() && stages.get(next - 1).empty()) next++;
         knowledge.setResearchStage(key, next);
+        applyStageWarp(player, stages, current, next);
         int siblingExperience = revealSiblings(knowledge, entry);
         store.setDirty();
         player.giveExperiencePoints(5 + siblingExperience);
         return next > stages.size() ? Result.COMPLETE : Result.ADVANCED;
+    }
+
+    /** BETA26 ResearchManager adds the departing stage and the completed final stage.
+     * For a nonfinal transition it actually adds the departing stage twice; retain
+     * that released behavior rather than reinterpreting a displayed warp value. */
+    private static void applyStageWarp(ServerPlayer player, List<Requirements> stages, int current, int next) {
+        int departing = current > 0 ? stages.get(Math.min(current, stages.size()) - 1).warp() : 0;
+        int warp = departing + (next > stages.size() ? stages.get(stages.size() - 1).warp() : departing);
+        if (warp <= 0) return;
+        int normal = warp / 2;
+        KnowledgeStore.addPermanentWarp(player, warp - normal);
+        if (normal > 0) KnowledgeStore.addNormalWarp(player, normal);
     }
 
     private static int revealSiblings(PlayerKnowledge knowledge, ResearchEntry entry) {
@@ -131,7 +151,7 @@ public final class ResearchProgression {
 
     private static Map<String, List<Requirements>> load() {
         Map<String, List<Requirements>> result = new HashMap<>();
-        for (String filename : List.of("basics", "alchemy", "auromancy", "artifice", "infusion")) {
+        for (String filename : List.of("basics", "alchemy", "auromancy", "artifice", "infusion", "scans")) {
             String path = "/data/thaumcraft/legacy_research/" + filename + ".json";
             try (var stream = ResearchProgression.class.getResourceAsStream(path)) {
                 if (stream == null) throw new IllegalStateException("Missing original research " + path);
@@ -176,7 +196,9 @@ public final class ResearchProgression {
         for (String key : stage.keySet()) if (key.startsWith("required_") &&
                 !Set.of("required_knowledge", "required_craft", "required_item", "required_research").contains(key))
             throw new IllegalArgumentException("Unsupported requirement " + key);
-        return new Requirements(List.copyOf(knowledge), craft, strings(stage, "required_research"), List.copyOf(obtain));
+        int warp = stage.has("warp") ? stage.get("warp").getAsInt() : 0;
+        if (warp < 0) throw new IllegalArgumentException("Negative stage warp");
+        return new Requirements(List.copyOf(knowledge), craft, strings(stage, "required_research"), List.copyOf(obtain), warp);
     }
 
     private static String craftId(String raw) {
@@ -194,7 +216,7 @@ public final class ResearchProgression {
     }
 
     private record KnowledgeCost(KnowledgeType type, String category, int raw) {}
-    private record Requirements(List<KnowledgeCost> knowledge, List<String> craft, List<String> research, List<Obtain> obtain) {
+    private record Requirements(List<KnowledgeCost> knowledge, List<String> craft, List<String> research, List<Obtain> obtain, int warp) {
         boolean empty() { return knowledge.isEmpty() && craft.isEmpty() && research.isEmpty() && obtain.isEmpty(); }
         boolean met(PlayerKnowledge state) {
             return craft.stream().allMatch(state::hasCraft) && research.stream().allMatch(state::isResearchCompleteStrict)

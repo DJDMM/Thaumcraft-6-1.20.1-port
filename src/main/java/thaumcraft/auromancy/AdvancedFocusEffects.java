@@ -23,7 +23,10 @@ public final class AdvancedFocusEffects {
     private AdvancedFocusEffects() {}
 
     public static boolean apply(ServerLevel level, ServerPlayer caster, FocusGraph.Node node, HitResult target, Vec3 direction) {
-        if (level == null || caster == null || node == null || target == null || !level.getServer().isSameThread()
+        return apply(level,caster,node,target,direction,1F);
+    }
+    public static boolean apply(ServerLevel level,ServerPlayer caster,FocusGraph.Node node,HitResult target,Vec3 direction,float finalPower){
+        if (!Float.isFinite(finalPower)||finalPower<=0||finalPower>16||level == null || caster == null || node == null || target == null || !level.getServer().isSameThread()
                 || caster.serverLevel() != level || !caster.isAlive() || caster.isSpectator()
                 || target.getType() == HitResult.Type.MISS || !finite(target.getLocation())
                 || direction != null && !finite(direction)
@@ -42,13 +45,13 @@ public final class AdvancedFocusEffects {
             Entity entity = hit.getEntity();
             if (FLUX.equals(key)) {
                 // Confirmed BETA26 quirk: Flux uses the hit entity as its immediate source.
-                entity.hurt(magic(level, entity, caster), 3 + power);
+                entity.hurt(magic(level, entity, caster), (3 + power)*finalPower);
             } else if (entity instanceof LivingEntity living) {
                 if (living.isInvertedHealAndHarm()) {
                     // Heal has different attribution: the caster is BOTH immediate and true source.
-                    living.hurt(magic(level, caster, caster), power * 1.5F);
+                    living.hurt(magic(level, caster, caster), power * finalPower * 1.5F);
                 } else {
-                    living.heal(power);
+                    living.heal(power*finalPower);
                 }
             }
         }

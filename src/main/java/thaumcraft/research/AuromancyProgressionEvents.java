@@ -6,6 +6,7 @@ import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.tags.DamageTypeTags;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.item.ItemEntity;
+import net.minecraft.world.entity.ambient.Bat;
 import net.minecraft.world.entity.projectile.AbstractArrow;
 import net.minecraft.world.entity.projectile.DragonFireball;
 import net.minecraft.world.entity.projectile.Fireball;
@@ -18,6 +19,7 @@ import net.minecraftforge.event.entity.living.LivingHurtEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import javax.annotation.Nullable;
+import java.util.List;
 
 /** BETA26 EntityEvents and ConfigResearch scan facts; scan acquisition has no stage gate. */
 @Mod.EventBusSubscriber(modid = "thaumcraft")
@@ -47,22 +49,57 @@ public final class AuromancyProgressionEvents {
 
     /** Pure ConfigResearch ScanEntity/ScanItem predicate. Own TC focus projectiles and snowballs do not match. */
     @Nullable public static String scanFact(@Nullable Object scanned) {
+        List<String> facts = scanFacts(scanned);
+        return facts.isEmpty() ? null : facts.get(0);
+    }
+
+    /** ConfigResearch may register multiple proofs for one specimen (FireBat).
+     * Reading these predicates never grants discoveries or canonical stages. */
+    public static List<String> scanFacts(@Nullable Object scanned) {
         if (scanned instanceof ItemEntity item) scanned = item.getItem();
-        if (scanned instanceof ItemStack stack) return !stack.isEmpty() && stack.is(Items.ARROW) ? "f_arrow" : null;
-        return scanned instanceof Entity entity ? projectileFact(entity) : null;
+        if (scanned instanceof ItemStack stack) {
+            if (stack.isEmpty()) return List.of();
+            if (stack.is(Items.ARROW)) return List.of("f_arrow");
+            if (stack.is(Items.DRAGON_BREATH)) return List.of("!DRAGONBREATH");
+            var id = net.minecraftforge.registries.ForgeRegistries.ITEMS.getKey(stack.getItem());
+            if (id != null && id.toString().equals("thaumcraft:pech_wand")) return List.of("!Pechwand");
+            // Original ScanItem uses wildcard metadata32767: pearl/nodule/mote all qualify.
+            if (id != null && id.toString().equals("thaumcraft:primordial_pearl")) return List.of("PRIMPEARL");
+            return List.of();
+        }
+        if (scanned instanceof Bat) return List.of("f_BAT");
+        if (scanned instanceof Entity entity) {
+            var id = net.minecraftforge.registries.ForgeRegistries.ENTITY_TYPES.getKey(entity.getType());
+            if (id != null && id.toString().equals("thaumcraft:fire_bat")) return List.of("!Firebat", "f_BAT");
+            String projectile = projectileFact(entity);
+            if (projectile != null) return List.of(projectile);
+        }
+        return List.of();
     }
 
     /** Read-only HUD eligibility; never acquire facts from a hover or snapshot. */
     public static boolean hasUnseenScanFact(ServerPlayer player, @Nullable Object scanned) {
-        String fact = scanFact(scanned);
-        return validPlayer(player) && fact != null && !KnowledgeStore.get(player).knowsResearch(fact);
+        return validPlayer(player) && scanFacts(scanned).stream()
+                .anyMatch(fact -> !KnowledgeStore.get(player).isResearchCompleteStrict(fact));
     }
 
     /** Called only by the actual server-owned Thaumometer scan commit after target/range validation. */
     public static boolean recordScannedFact(ServerPlayer player, @Nullable Object scanned) {
         if (!validPlayer(player) || scanned instanceof Entity entity && (entity.isRemoved() || entity.level() != player.level())) return false;
-        String fact = scanFact(scanned);
-        return fact != null && KnowledgeStore.recordFact(player, fact);
+        boolean discovered = false;
+        for (String fact : scanFacts(scanned)) {
+            if (fact.equals("PRIMPEARL")||fact.equals("!Firebat")) {
+                var state = KnowledgeStore.get(player);
+                if (state.isResearchCompleteStrict(fact)) continue;
+                // A scan grants this original no-cost canonical entry immediately,
+                // including its ordinary five XP and persistent completion stage.
+                discovered |= KnowledgeStore.recordFact(player, fact);
+                var result = ResearchProgression.advance(player, fact, state.researchStage(fact));
+                discovered |= result == ResearchProgression.Result.COMPLETE;
+                if (result == ResearchProgression.Result.COMPLETE) ResearchNetwork.sync(player);
+            } else discovered |= KnowledgeStore.recordFact(player, fact);
+        }
+        return discovered;
     }
 
     private static boolean validPlayer(@Nullable ServerPlayer player) {

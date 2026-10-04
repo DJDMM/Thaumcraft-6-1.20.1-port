@@ -8,3 +8,6 @@ validation/*
 !validation/artifact-report-*.json
 *.log
 hs_err_pid*.log
+
+# Local bytecode/reference scratch; pinned sources live outside the distributable project.
+work/

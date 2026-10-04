@@ -1,0 +1,450 @@
+{
+  "version": "0.19.0-dev",
+  "originalVersion": "Thaumcraft6.1.BETA26",
+  "originalJarSha256": "9425f8643581b27ff8845b087c8bc6fc10425a32942f1a3f0e265ce6b38f7b5f",
+  "requiredGameTests": 577,
+  "implementedCanonicalResearchEntries": 43,
+  "implementedCanonicalResearchKeys": [
+    "FIRSTSTEPS",
+    "KNOWLEDGETYPES",
+    "THEORYRESEARCH",
+    "CELESTIALSCANNING",
+    "UNLOCKALCHEMY",
+    "BASEALCHEMY",
+    "ALUMENTUM",
+    "METALLURGY",
+    "UNLOCKARTIFICE",
+    "BASEARTIFICE",
+    "UNLOCKINFUSION",
+    "BASEINFUSION",
+    "ESSENTIASMELTER",
+    "WARDEDJARS",
+    "TUBES",
+    "UNLOCKAUROMANCY",
+    "INFUSION",
+    "INFUSIONBOOST",
+    "BASEAUROMANCY",
+    "RECHARGEPEDESTAL",
+    "BOOTSTRAVELLER",
+    "ELEMENTALTOOLS",
+    "ARMORFORTRESS",
+    "FOCUSELEMENTAL",
+    "FOCUSPROJECTILE",
+    "FOCUSBOLT",
+    "FOCUSFLUX",
+    "FOCUSHEAL",
+    "FOCUSBREAK",
+    "FOCUSCURSE",
+    "FOCUSEXCHANGE",
+    "FOCUSRIFT",
+    "FOCUSPLAN",
+    "FOCUSMINE",
+    "FOCUSSPELLBAT",
+    "FOCUSCLOUD",
+    "FOCUSSCATTER",
+    "FOCUSSPLIT",
+    "FOCUSADVANCED",
+    "FOCUSGREATER",
+    "PRIMPEARL",
+    "!Firebat",
+    "CENTRIFUGE"
+  ],
+  "workingInfusionRecipeModes": {
+    "replace": 41,
+    "mutate": 6,
+    "enchantment": 8,
+    "runic": 1
+  },
+  "workingInfusionRecipeRegistrations": 56,
+  "ordinarySurvivalInfusionRecipePathsAvailable": 9,
+  "actualIntegratedServerScreenshots": 46,
+  "visuallyReviewedScreenshots": 46,
+  "clientDesktop": "WinSta0\\ThaumcraftQA_9d79879ef1ab40d6acef3c18f095a2eb",
+  "clientJvmExitCode": 0,
+  "clientDesktopOwnedWindows": 16,
+  "inputDesktopBefore": "Default",
+  "inputDesktopAfter": "Default",
+  "localJsonCount": 2777,
+  "jarResourceByteParityChecks": 3535,
+  "originalPngByteParityChecks": 623,
+  "originalJpgByteParityChecks": 7,
+  "originalOggByteParityChecks": 35,
+  "derivedEffectIconPixelChecks": 2,
+  "jarSha256": "68b59fd79c290c00effb9e5dda2f84e46454de6a3a89df6c7b591c7266b4642f",
+  "terraBlenderSha256": "ca678c11b878ad9c7143636fbec911f29e2c1453a6cc091e16b14e6d9608fb5f",
+  "screenshots": [
+    {
+      "file": "tc6-auromancy-air-hit.png",
+      "sha256": "3f20fe408b98a884c6057e2022de3c62008bd01be7ea06ec9f00db9bb8ba9d1f",
+      "result": "pass",
+      "notes": "Native Air impact clouds and held focus render; damage and motion are separately verified server-side."
+    },
+    {
+      "file": "tc6-auromancy-bolt-beam.png",
+      "sha256": "c64c37dd3db2978b7b615ced21f00d7b199b9f079c21580519837b4b4d8674ab",
+      "result": "pass",
+      "notes": "Actual transient Healing Bolt renders with the original essentia texture; no missing texture."
+    },
+    {
+      "file": "tc6-auromancy-bolt-heal-crafting.png",
+      "sha256": "4c7ffa1aca31735d8bbabd5e8ecbc420a7b5cb8d66fe8c2f57565bcf3a3a8566",
+      "result": "pass",
+      "notes": "Paid Bolt Heal manufacturing GUI shows progress, required crystals and disabled editing."
+    },
+    {
+      "file": "tc6-auromancy-bolt-heal-editor.png",
+      "sha256": "09faf4d3b34f41cac839ede5327e5385c557ed7d4967e50cb4b32560aa08d7c7",
+      "result": "pass",
+      "notes": "Bolt Heal links, original node icons, settings, crystals and costs are readable."
+    },
+    {
+      "file": "tc6-auromancy-bolt-heal-result.png",
+      "sha256": "9f635543cdc25a47bc3686d2bd4dbe040a58e4ed160fefe745ebaa52a93c3f9b",
+      "result": "pass",
+      "notes": "Distant healing target and physical focus render; the real packet flow verifies health gain and a single payment."
+    },
+    {
+      "file": "tc6-auromancy-break-harvest.png",
+      "sha256": "fddbdfa1cf60f7dd1c992bf42598979664b678960f6777bce05a9c1443ff17ea",
+      "result": "pass",
+      "notes": "Stone target removed and Silk stone loot rendered; authoritative removal and extra vis payment verified in the real flow."
+    },
+    {
+      "file": "tc6-auromancy-break-progress.png",
+      "sha256": "6780249efc7968866819f14458036d09edad69e046ebeb7b32ab8f53fc72fe76",
+      "result": "pass",
+      "notes": "Progressive vanilla cracks render on the stone before removal."
+    },
+    {
+      "file": "tc6-auromancy-casting.png",
+      "sha256": "93d42604e9f9f33d527857355db10be64195a11852e1e866fd864fa054847556",
+      "result": "pass",
+      "notes": "Held Fire focus and native fire/impact particles render on the actual target."
+    },
+    {
+      "file": "tc6-auromancy-cloud-pulse.png",
+      "sha256": "cec21cf10461d46ca0561d21349bce532e2f442035612d73ccac42f71901b396",
+      "result": "pass",
+      "notes": "Actual synced Cloud and native purple pulse particles render; original particle-system pixel parity is outside this check."
+    },
+    {
+      "file": "tc6-auromancy-complete.png",
+      "sha256": "746f27285707db1f8913ede7cb24eecd94c0329e766206154c527f10b10d8a99",
+      "result": "pass",
+      "notes": "Finished coloured Fire focus renders above the working table after paid manufacturing."
+    },
+    {
+      "file": "tc6-auromancy-configured.png",
+      "sha256": "86692b47fc4e794147fb300bcadfe3ebc94cef9ebab16579ace5c58cc273afce",
+      "result": "pass",
+      "notes": "Touch/Fire graph, settings and calculated costs are readable without overlapping controls."
+    },
+    {
+      "file": "tc6-auromancy-crafting.png",
+      "sha256": "0e317870cb82f0b8284b4e79db1500400befb17a88c944115dd8df17b41fd5be",
+      "result": "pass",
+      "notes": "Busy manufacturing state, remaining vis and disabled editing render correctly."
+    },
+    {
+      "file": "tc6-auromancy-curse-hit.png",
+      "sha256": "6b1688483109213fd56b06575d00d76850672458f368233aeb50d10d798555d3",
+      "result": "pass",
+      "notes": "Curse impact and native buff particles render on the target; damage/poison and sap mechanics are verified server-side."
+    },
+    {
+      "file": "tc6-auromancy-earth-break.png",
+      "sha256": "977d0b24ec4a5c22d255c958f52609262d0f9675c629bc1ba35e7f69bcf9b2d3",
+      "result": "pass",
+      "notes": "Glass target removed with native green impact particles; harvest and additional vis debit verified server-side."
+    },
+    {
+      "file": "tc6-auromancy-editor.png",
+      "sha256": "28c4b8710d43ce06b978505403ad9b0d54474357ccd0fea194e13d38732957a3",
+      "result": "pass",
+      "notes": "Blank focus, ROOT/socket and legal initial palette render clearly."
+    },
+    {
+      "file": "tc6-auromancy-empty.png",
+      "sha256": "c6094972baf9d39bd515aae0b9054bf2923490fe348cdf6b9dd1106853bf1f65",
+      "result": "pass",
+      "notes": "Original table metal frame and empty focus inventory render without missing assets."
+    },
+    {
+      "file": "tc6-auromancy-exchange-pick.png",
+      "sha256": "8000310f085f6c5e71217f320903cd504634a166a9f329d465d14c70e92925a0",
+      "result": "pass",
+      "notes": "Stone selection appears in the caster HUD while the dirt target remains; server stores the actual picked BlockItem."
+    },
+    {
+      "file": "tc6-auromancy-exchange-swap.png",
+      "sha256": "21655007a4f6b544f1b619d5cd62803bbeeea10453601c424a78728be54946b7",
+      "result": "pass",
+      "notes": "Actual dirt target replaced with Stone and selected block remains in the HUD; real inventory payment verified in the flow."
+    },
+    {
+      "file": "tc6-auromancy-flux-hit.png",
+      "sha256": "73209ccd9cfea4fd0d527a7a6430a366ae23bb2c441480412cc0021dd43efa5d",
+      "result": "pass",
+      "notes": "Actual Touch Flux impact renders native purple particles; authoritative damage and one vis payment verified."
+    },
+    {
+      "file": "tc6-auromancy-frost-hit.png",
+      "sha256": "36e6fbe396417f33f24ab15bf0558d25e25b5df631470e754064d2d664905822",
+      "result": "pass",
+      "notes": "Native Frost impact and Slowness particles render on the hit target."
+    },
+    {
+      "file": "tc6-auromancy-frost-water.png",
+      "sha256": "dfca8e7335147ddfd66cf7b6ce7acb0bd8c2c71f0f0694844a69a78410c05a09",
+      "result": "pass",
+      "notes": "Contained frosted-ice pool is visible from stable camera footing; source-water conversion and scheduled melting verified server-side."
+    },
+    {
+      "file": "tc6-auromancy-mine-armed.png",
+      "sha256": "ff9a92ec93b93ab7e3cac7b0edfe8f5c2febfc071b6429d22b0a7dc081ae422e",
+      "result": "pass",
+      "notes": "Armed Mine state, renderer/resource binding and pulse are checked in the cleared ground scene; the small grey model is not an independently clear mesh close-up."
+    },
+    {
+      "file": "tc6-auromancy-plan-preview.png",
+      "sha256": "9aaf60e27a5bc73635b92933fd4352c9afed999d4cc36602d3f24f433867dd3c",
+      "result": "pass",
+      "notes": "Purple area outline and G/Ctrl+G HUD render after actual server selection and synced caster NBT."
+    },
+    {
+      "file": "tc6-auromancy-projectile-crafting.png",
+      "sha256": "0e868a66dfe02905f9c23a29a10611e43b1b30f077d504963a94ba1a8ecc3474",
+      "result": "pass",
+      "notes": "Projectile manufacturing GUI shows paid materials and active progress."
+    },
+    {
+      "file": "tc6-auromancy-projectile-editor.png",
+      "sha256": "daced3d82876359854f215ff14e162db284a8eea290dad7015d58209bdee71ef",
+      "result": "pass",
+      "notes": "Projectile chain, original icons, settings and calculated costs render clearly."
+    },
+    {
+      "file": "tc6-auromancy-projectile-flight.png",
+      "sha256": "f1f5275f27c020fe1b622ba5272cd56f12189c4d0f146154e16c44866582d889",
+      "result": "pass",
+      "notes": "Tinted Frost projectile and native trail render from the synced moving entity."
+    },
+    {
+      "file": "tc6-auromancy-rift-passage.png",
+      "sha256": "b378394bb8cd535842d83228f4b46cf86ca2181d92b40c3c5ac8f6f89b5a7c39",
+      "result": "pass",
+      "notes": "Temporary wall passage and blue portal border/native particles render; shader adapted to modern Minecraft, restoration verified server-side."
+    },
+    {
+      "file": "tc6-auromancy-ritual.png",
+      "sha256": "50eb39bbe2ff882d80d1ca770cda9eb47f77b7bba318fc0e275862d982114c76",
+      "result": "pass",
+      "notes": "Working focal manipulator, focus and orbiting crystals render without missing geometry."
+    },
+    {
+      "file": "tc6-auromancy-scatter-projectiles.png",
+      "sha256": "14bf74d08f49c2e62f2e8aa9d0d28b1b628393c03c9f5660c774d1204004c318",
+      "result": "pass",
+      "notes": "Native coloured trails render for the real Scatter cast; the authoritative entity assertion verifies four projectiles, not a pixel count."
+    },
+    {
+      "file": "tc6-auromancy-selection.png",
+      "sha256": "751a5b6d694c3f5cc9ad3d700c4dee49c2dd9019985c343928edd46184bb1d20",
+      "result": "pass",
+      "notes": "Physical Fire focus appears in the selection UI with readable controls."
+    },
+    {
+      "file": "tc6-auromancy-spellbat-flight.png",
+      "sha256": "88a0eedf12d081492684cbcaba743435cf9490988ba6b3a17c878b0eeed04faf",
+      "result": "pass",
+      "notes": "Original purple spell-bat head/wing mesh and native coloured trail are clearly visible on the paid owner-linked entity."
+    },
+    {
+      "file": "tc6-auromancy-split-complete.png",
+      "sha256": "d0c1ea4f1a726f8ea2f40fc624d3a5a2aef4a43eec91fb3c2012669968743569",
+      "result": "pass",
+      "notes": "Paid Advanced focus plan completes; GUI returns to the editable blank socket. Completion/capacity verified by actual server state."
+    },
+    {
+      "file": "tc6-auromancy-split-crafting.png",
+      "sha256": "446d09812e1b2c882d38043149b07969230ef41487fa0fc3248a77995996d905",
+      "result": "pass",
+      "notes": "Busy split manufacturing shows active progress, the two branches and the paid materials."
+    },
+    {
+      "file": "tc6-auromancy-split-editor.png",
+      "sha256": "1b9498e64c4d112109c0489fb694ba0795ad4c226ff84ce4e0137c64da723c4c",
+      "result": "pass",
+      "notes": "ROOT/Touch/Split to Fire and Flux branches are clear, with complexity11/25,3XP,115vis,2.2cast and three crystals."
+    },
+    {
+      "file": "tc6-essentia-production-alembic-labels.png",
+      "sha256": "19280e888ce3b749cc0116f47c241f3deb9c6dab66fbe27f05237d6d84179adf",
+      "result": "pass",
+      "notes": "Six synced aspect/fill states render their original alembic geometry and labels without missing textures."
+    },
+    {
+      "file": "tc6-essentia-production-centrifuge-recipe.png",
+      "sha256": "9234e814550bd64ab1662af5d906e8f90d8a8a934f3d987037c74644961cb8e8",
+      "result": "pass",
+      "notes": "Original book ingredients and output render clearly with100vis and Ordo/Perditio crystals."
+    },
+    {
+      "file": "tc6-essentia-production-centrifuge.png",
+      "sha256": "7ffa17b2aad87fbcaabe58b9ccd6c6ed2b911c378510295fb260e4eec70cacd2",
+      "result": "pass",
+      "notes": "Three actual centrifuge BEs render original six-cuboid geometry, paused MAGIC, processing MAGIC with a changed rotor angle, and finished component output."
+    },
+    {
+      "file": "tc6-essentia-production-jar-recipe.png",
+      "sha256": "44f0ec5a38b3a43dbe49d84341c14d37e858afa8db8f185b29fa714d5d282e06",
+      "result": "pass",
+      "notes": "Original Warded Jar recipe, ingredients, output and vis cost render in the book."
+    },
+    {
+      "file": "tc6-essentia-production-machines.png",
+      "sha256": "f3fa9374fdee86f7a041482835906ee1cb8dd4b35b075bdd5804e99125f8169d",
+      "result": "pass",
+      "notes": "Three smelters, alembic, aux/vent/bellows and jar render in the synced-state gallery without missing assets."
+    },
+    {
+      "file": "tc6-essentia-production-production-network.png",
+      "sha256": "9a2a8fb5ddba6e158137285455aea31c93c23fe1d19d68ff81aa00fa93a1143d",
+      "result": "pass",
+      "notes": "Actual fuel-to-smelter/alembic/tube/jar flow reaches a labelled Terra jar; gallery uses synced server states, flow totals checked separately."
+    },
+    {
+      "file": "tc6-essentia-production-six-tubes.png",
+      "sha256": "11453a28e9c23e377ce64e37c45832e06d2ac9483e04f92944cdc360b1f6285f",
+      "result": "pass",
+      "notes": "All six tube types render their original geometry and synced flow/suction state."
+    },
+    {
+      "file": "tc6-essentia-production-smelter-burning.png",
+      "sha256": "d20bdb9c4d0bc3235f52190cfbac2ecb8421f208d83268864445458099346ee3",
+      "result": "pass",
+      "notes": "Real smelter inventory, fuel icon and lit progress state render without layout overlap."
+    },
+    {
+      "file": "tc6-essentia-production-smelter-idle.png",
+      "sha256": "e032cf9ff10d0143ebf868ce6e1fab9a56b485ae17393e19b93080048898fea5",
+      "result": "pass",
+      "notes": "Real empty smelter menu renders its idle state clearly."
+    },
+    {
+      "file": "tc6-essentia-production-smelter-recipe.png",
+      "sha256": "707f355524a486fb31436dd89d061c507787970abc221bc8c05f87d0447c241d",
+      "result": "pass",
+      "notes": "Original smelter ingredients, output, crystal and50vis book recipe render clearly."
+    },
+    {
+      "file": "tc6-essentia-production-tube-controls.png",
+      "sha256": "fe6ce17d0ba2e5a92ce6170d68e7f7be4de8cdc207f10e3faf851d394db30588",
+      "result": "pass",
+      "notes": "Valve open/closed, directional tube, buffer choke states and filter render their distinct synced geometry."
+    },
+    {
+      "file": "tc6-essentia-production-tube-recipe.png",
+      "sha256": "96f1aae099776ececc38268693d3db0b49ee597e9571d477a6a349432a064913",
+      "result": "pass",
+      "notes": "Directional tube and buffer recipe spreads render ingredients, outputs and respective10/25vis costs."
+    }
+  ],
+  "clientFixtureSourceSha256": "6f75bc76dce4986cd229259984db37ba5e705535da16a154f4356b20da1a7dde",
+  "logs": {
+    "focus-019-gametest8.log": "a61d0282076d5861a240d5671763dec36ce70cdbc4b547e97c21498288a57cc6",
+    "build-0.19-final.log": "52446c715ddab185045bd5ba8563189a8cfbe3ed21442cb59880050bc44b20a4",
+    "resources-0.19-final.log": "68dcc4f14c6785d07d8d1ddeea80d5f2038d69f03ff1e018b8f76d9fb6693fb5",
+    "auromancy-client-full-019-client8-client.log": "cd89f905d2ba8130afb97586265f8e394210d25b816a67833c562815329f29fe",
+    "auromancy-client-full-019-client8-prepare.log": "9002442be1a9a3b26625b418cb7568902f1f6b57ddc53bf0fa5338fbfdaf9b2e",
+    "auromancy-client-full-019-client8-run.json": "7f5d471f96c4f41fb0b7faf6fcb7329c8cbc7c0231f8aaddccd11edd3454960e",
+    "auromancy-client-full-019-client8-desktop.json": "b78943f5d6bc269bac5cca94b5f8072ad4613058fad24268820be3d8e538db96",
+    "essentia-production-client-centrifuge-019-client2-client.log": "b9462ade96c02d89b6058386653700d20802a090a7d22d5abc99ef815b405eb3",
+    "essentia-production-client-centrifuge-019-client2-prepare.log": "b810dfd51583ab8247fc2bbea6f1a3e7b3181ad2edcb308e890c6fca684b72f2",
+    "essentia-production-client-centrifuge-019-client2-run.json": "1498e572c29d40e931ac8c4ea68b85134c45aa96951526ca72e1a287ecd446e8",
+    "essentia-production-client-centrifuge-019-client2-desktop.json": "14fc9e3ce4e7b948aa0a60b8d970038b503b44ce1a195aa6841652bd8fce38a2",
+    "visual-review-0.19.json": "61182eab0a6471b041be324e33e1f9b865cb17498627cefdf705a905b779f8ba"
+  },
+  "limitations": [
+    "All21 original focus node types execute, with branching and Advanced/Greater manufacturing; world Flux Rift and full taint/warp/world entity mechanics are separate unfinished work.",
+    "Infusion research paths available11/56;45 preserve unimplemented late research gates. Available research paths do not establish a complete manual survival campaign or every original world ingredient source.",
+    "Client research, aura, prepared late foci, specimen health and selected creative invulnerability are explicit QA fixtures. Server tests separately exercise actual scans, stages, physical payments and both focus infusion upgrades.",
+    "Cloud block cooldown uses wall-clock release timing; released living-target key mismatch and other audited BETA26 quirks are intentionally retained, with documented bounded/dimension/lifecycle hardening.",
+    "Bolt/mine/spellbat/centrifuge reuse original assets and audited geometry; native impact/area particles and modern shader/API adaptations do not establish complete original FX parity.",
+    "Centrifuge is operational with original recipe/research and transport; simple mechanism/morphic resonator Golemancy acquisition, Thaumatorium and remaining devices are not completed by this slice.",
+    "No independent-client multiplayer or full manual survival campaign is established by these checks."
+  ],
+  "workingFocusNodes": 21,
+  "originalFocusNodeDefinitions": 21,
+  "unsupportedFocusNodes": 0,
+  "clientScenes": 45,
+  "transientBoltScreenshots": 1,
+  "workingFocusNodeKeys": [
+    "ROOT",
+    "thaumcraft.TOUCH",
+    "thaumcraft.BOLT",
+    "thaumcraft.PROJECTILE",
+    "thaumcraft.CLOUD",
+    "thaumcraft.MINE",
+    "thaumcraft.PLAN",
+    "thaumcraft.SPELLBAT",
+    "thaumcraft.FIRE",
+    "thaumcraft.FROST",
+    "thaumcraft.AIR",
+    "thaumcraft.EARTH",
+    "thaumcraft.FLUX",
+    "thaumcraft.BREAK",
+    "thaumcraft.RIFT",
+    "thaumcraft.EXCHANGE",
+    "thaumcraft.CURSE",
+    "thaumcraft.HEAL",
+    "thaumcraft.SCATTER",
+    "thaumcraft.SPLITTARGET",
+    "thaumcraft.SPLITTRAJECTORY"
+  ],
+  "focusTierComplexityLimits": {
+    "focus_1": 15,
+    "focus_2": 25,
+    "focus_3": 50
+  },
+  "advancedGreaterFocusInfusionAvailable": true,
+  "infusionRecipesWithImplementedResearchPaths": 11,
+  "lateResearchGatedInfusionRecipePaths": 45,
+  "advancedGreaterOriginalWorldPrerequisitesComplete": false,
+  "auromancyClientScenes": 33,
+  "essentiaProductionClientScenes": 12,
+  "clientProfiles": {
+    "Auromancy": {
+      "runTag": "full-019-client8",
+      "scenes": 33,
+      "screenshots": 34,
+      "desktop": "WinSta0\\ThaumcraftQA_9d79879ef1ab40d6acef3c18f095a2eb",
+      "jvmExitCode": 0,
+      "maxOwnedWindowsOnTargetDesktop": 16,
+      "inputDesktopBefore": "Default",
+      "inputDesktopAfter": "Default",
+      "fixtureSource": "src/main/java/thaumcraft/auromancy/client/AuromancyClientSmokeTest.java",
+      "fixtureSourceSha256": "6f75bc76dce4986cd229259984db37ba5e705535da16a154f4356b20da1a7dde",
+      "clientLog": "auromancy-client-full-019-client8-client.log"
+    },
+    "EssentiaProduction": {
+      "runTag": "centrifuge-019-client2",
+      "scenes": 12,
+      "screenshots": 12,
+      "desktop": "WinSta0\\ThaumcraftQA_c22f0737098644299f467d24aae6eee5",
+      "jvmExitCode": 0,
+      "maxOwnedWindowsOnTargetDesktop": 16,
+      "inputDesktopBefore": "Default",
+      "inputDesktopAfter": "Default",
+      "fixtureSource": "src/main/java/thaumcraft/client/research/EssentiaProductionClientSmokeTest.java",
+      "fixtureSourceSha256": "e9e3c76fa0974e49be579b3ba2fd2243ff72676bc8c34cf75345af876866756d",
+      "clientLog": "essentia-production-client-centrifuge-019-client2-client.log"
+    }
+  },
+  "visualReviewSha256": "61182eab0a6471b041be324e33e1f9b865cb17498627cefdf705a905b779f8ba",
+  "clientFixtureSourceSha256ByProfile": {
+    "Auromancy": "6f75bc76dce4986cd229259984db37ba5e705535da16a154f4356b20da1a7dde",
+    "EssentiaProduction": "e9e3c76fa0974e49be579b3ba2fd2243ff72676bc8c34cf75345af876866756d"
+  },
+  "workingCentrifuge": true
+}

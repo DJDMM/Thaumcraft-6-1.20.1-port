@@ -84,9 +84,12 @@ public final class Thaumcraft {
         thaumcraft.essentia.EssentiaModule.register(bus);
         thaumcraft.essentia.production.EssentiaProductionModule.register(bus);
         thaumcraft.essentia.transport.EssentiaTransportModule.register(bus);
+        thaumcraft.essentia.centrifuge.CentrifugeModule.register(bus);
         thaumcraft.catalog.entities.VisualEntitiesModule.register(bus);
         thaumcraft.infusion.InfusionModule.register(bus);
         thaumcraft.auromancy.AuromancySounds.register(bus);
+        thaumcraft.auromancy.media.FocusMediaModule.register(bus);
+        thaumcraft.auromancy.remaining.RemainingEffectsModule.register(bus);
         thaumcraft.auromancy.table.FocalManipulatorModule.register(bus);
     }
 }

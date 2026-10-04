@@ -20,13 +20,14 @@ import java.util.Map;
 @Mod.EventBusSubscriber(modid="thaumcraft",bus=Mod.EventBusSubscriber.Bus.FORGE)
 public final class FocusProjectileImpacts {
     private static final int MAX_PENDING=4096, BATCH=64;
-    private record Impact(ServerPlayer caster,FocusPlan plan,int index,HitResult target,Vec3 source,Vec3 direction) {}
+    private record Impact(ServerPlayer caster,FocusPlan plan,int index,HitResult target,Vec3 source,Vec3 direction,float power,int ordinal) {}
     private static final Map<ServerLevel,ArrayDeque<Impact>> PENDING=new IdentityHashMap<>();
     private FocusProjectileImpacts() {}
-    static void enqueue(ServerLevel level,ServerPlayer caster,FocusPlan plan,int index,HitResult target,Vec3 source,Vec3 direction) {
+    static void enqueue(ServerLevel level,ServerPlayer caster,FocusPlan plan,int index,HitResult target,Vec3 source,Vec3 direction){enqueue(level,caster,plan,index,target,source,direction,1F,0);}
+    static void enqueue(ServerLevel level,ServerPlayer caster,FocusPlan plan,int index,HitResult target,Vec3 source,Vec3 direction,float power,int ordinal) {
         if (!level.getServer().isSameThread() || caster.serverLevel()!=level) return;
         var queue=PENDING.computeIfAbsent(level,ignored->new ArrayDeque<>());
-        if (queue.size()<MAX_PENDING) queue.addLast(new Impact(caster,plan,index,target,source,direction));
+        if (queue.size()<MAX_PENDING) queue.addLast(new Impact(caster,plan,index,target,source,direction,power,ordinal));
     }
     static int pending(ServerLevel level) { var queue=PENDING.get(level); return queue==null ? 0 : queue.size(); }
     @SubscribeEvent(priority=EventPriority.HIGH) public static void tick(TickEvent.LevelTickEvent event) {
@@ -41,7 +42,7 @@ public final class FocusProjectileImpacts {
                     || !loaded(level,operation.source()) || !loaded(level,hit.getLocation())) continue;
             if (hit instanceof EntityHitResult entity && (entity.getEntity().level()!=level || !entity.getEntity().isAlive()
                     || !loaded(level,entity.getEntity().position()))) continue;
-            FocusExecution.resume(caster,operation.plan(),operation.index(),hit,operation.source(),operation.direction());
+            FocusExecution.resume(caster,operation.plan(),operation.index(),hit,operation.source(),operation.direction(),operation.power(),operation.ordinal());
         }
     }
     private static boolean loaded(ServerLevel level,Vec3 point) {

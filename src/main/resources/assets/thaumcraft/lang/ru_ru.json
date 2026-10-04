@@ -1840,5 +1840,11 @@
   "gui.thaumcraft.focal.result.missing_research": "Исследование не завершено",
   "gui.thaumcraft.focal.result.missing_crystals": "Не хватает кристаллов",
   "gui.thaumcraft.focal.result.missing_xp": "Не хватает уровней опыта",
-  "gui.thaumcraft.focal.result.overflow": "Замените стол"
+  "gui.thaumcraft.focal.result.overflow": "Замените стол",
+  "thaumcraft.focus.plan.area": "Область: %s × %s × %s",
+  "thaumcraft.focus.plan.controls": "G: размер · Ctrl+G: %s",
+  "thaumcraft.focus.exchange.pick": "Присядьте и выберите блок ПКМ",
+  "entity.thaumcraft.focus_cloud_spell": "Облако фокуса",
+  "entity.thaumcraft.focus_mine_spell": "Мина фокуса",
+  "entity.thaumcraft.spell_bat_spell": "Магическая летучая мышь"
 }
