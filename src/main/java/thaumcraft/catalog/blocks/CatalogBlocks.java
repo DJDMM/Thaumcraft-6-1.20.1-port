@@ -43,7 +43,7 @@ public final class CatalogBlocks {
                     ? new thaumcraft.essentia.centrifuge.CentrifugeBlockItem(block.get())
                     : thaumcraft.essentia.thaumatorium.ThaumatoriumModule.handlesBlock(spec.id())
                     ? new BlockItem(block.get(),new Item.Properties())
-                    : spec.id().startsWith("candle_") || spec.id().equals("recharge_pedestal") || thaumcraft.auromancy.table.FocalManipulatorModule.handlesBlock(spec.id())
+                    : spec.id().startsWith("candle_") || spec.id().equals("recharge_pedestal") || thaumcraft.auromancy.table.FocalManipulatorModule.handlesBlock(spec.id()) || thaumcraft.golemancy.press.GolemPressRegistry.handlesBlock(spec.id())
                     ? new BlockItem(block.get(),new Item.Properties()) : new CatalogBlockItem(block.get()));
         }
     }
@@ -57,6 +57,7 @@ public final class CatalogBlocks {
         BlockBehaviour.Properties props = BlockBehaviour.Properties.copy(Blocks.STONE).strength(2).noOcclusion();
         String id=spec.id();
         if (id.startsWith("candle_")) return new thaumcraft.alchemy.hedge.TallowCandleBlock(id);
+        if (thaumcraft.golemancy.press.GolemPressRegistry.handlesBlock(id)) return thaumcraft.golemancy.press.GolemPressRegistry.createBlock(id);
         if(thaumcraft.auromancy.remaining.RemainingEffectsModule.handlesBlock(id))return thaumcraft.auromancy.remaining.RemainingEffectsModule.createBlock(id,props);
         if (isEssentiaJar(id)) return new thaumcraft.essentia.EssentiaJarBlock(id.equals("jar_void"));
         if (thaumcraft.auromancy.table.FocalManipulatorModule.handlesBlock(id)) return thaumcraft.auromancy.table.FocalManipulatorModule.createBlock(props);

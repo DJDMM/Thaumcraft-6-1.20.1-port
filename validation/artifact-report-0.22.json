@@ -1,0 +1,466 @@
+{
+  "version": "0.22.0-dev",
+  "originalVersion": "Thaumcraft6.1.BETA26",
+  "originalJarSha256": "9425f8643581b27ff8845b087c8bc6fc10425a32942f1a3f0e265ce6b38f7b5f",
+  "requiredGameTests": 645,
+  "implementedCanonicalResearchEntries": 51,
+  "implementedCanonicalResearchKeys": [
+    "FIRSTSTEPS",
+    "KNOWLEDGETYPES",
+    "THEORYRESEARCH",
+    "CELESTIALSCANNING",
+    "UNLOCKALCHEMY",
+    "BASEALCHEMY",
+    "ALUMENTUM",
+    "METALLURGY",
+    "UNLOCKARTIFICE",
+    "BASEARTIFICE",
+    "UNLOCKINFUSION",
+    "BASEINFUSION",
+    "ESSENTIASMELTER",
+    "WARDEDJARS",
+    "TUBES",
+    "UNLOCKAUROMANCY",
+    "INFUSION",
+    "INFUSIONBOOST",
+    "BASEAUROMANCY",
+    "RECHARGEPEDESTAL",
+    "BOOTSTRAVELLER",
+    "ELEMENTALTOOLS",
+    "ARMORFORTRESS",
+    "FOCUSELEMENTAL",
+    "FOCUSPROJECTILE",
+    "FOCUSBOLT",
+    "FOCUSFLUX",
+    "FOCUSHEAL",
+    "FOCUSBREAK",
+    "FOCUSCURSE",
+    "FOCUSEXCHANGE",
+    "FOCUSRIFT",
+    "FOCUSPLAN",
+    "FOCUSMINE",
+    "FOCUSSPELLBAT",
+    "FOCUSCLOUD",
+    "FOCUSSCATTER",
+    "FOCUSSPLIT",
+    "FOCUSADVANCED",
+    "FOCUSGREATER",
+    "PRIMPEARL",
+    "!Firebat",
+    "CENTRIFUGE",
+    "ESSENTIASMELTERTHAUMIUM",
+    "THAUMATORIUM",
+    "INFUSIONSTABLE",
+    "HEDGEALCHEMY",
+    "UNLOCKGOLEMANCY",
+    "BASEGOLEMANCY",
+    "MATSTUDWOOD",
+    "MINDCLOCKWORK"
+  ],
+  "workingInfusionRecipeModes": {
+    "replace": 41,
+    "mutate": 6,
+    "enchantment": 8,
+    "runic": 1
+  },
+  "workingInfusionRecipeRegistrations": 56,
+  "ordinarySurvivalInfusionRecipePathsAvailable": 9,
+  "actualIntegratedServerScreenshots": 31,
+  "visuallyReviewedScreenshots": 31,
+  "clientDesktop": "WinSta0\\ThaumcraftQA_83032b3f450047249e0d1892934f2b2b",
+  "clientJvmExitCode": 0,
+  "clientDesktopOwnedWindows": 16,
+  "inputDesktopBefore": "Default",
+  "inputDesktopAfter": "Default",
+  "localJsonCount": 2810,
+  "jarResourceByteParityChecks": 3602,
+  "originalPngByteParityChecks": 657,
+  "originalJpgByteParityChecks": 7,
+  "originalOggByteParityChecks": 35,
+  "derivedEffectIconPixelChecks": 2,
+  "jarSha256": "7d7be31485779bbc7a69dcb56c5d144c788590599328a9cf41aeb5b15a2aed71",
+  "terraBlenderSha256": "ca678c11b878ad9c7143636fbec911f29e2c1453a6cc091e16b14e6d9608fb5f",
+  "screenshots": [
+    {
+      "file": "tc6-golem-press-formed-press.png",
+      "profile": "GolemPress",
+      "result": "pass",
+      "notes": "Full-size original press geometry has correct UVs with no magenta faces; lava stays inside its basin.",
+      "sha256": "dcb20af9e489c43fc86ac59c2cf15c1f052974ca9cad37d5fb6981e6aa31b5ea"
+    },
+    {
+      "file": "tc6-golem-press-ready-menu.png",
+      "profile": "GolemPress",
+      "result": "pass",
+      "notes": "Full-size native 208x224 menu shows roller/light traits, original arrow sprites, components, half-unit stats and enabled craft button.",
+      "sha256": "4f93197da06df1357b3a36d6a09691a500f1db73e6402e92b72861d0133b304b"
+    },
+    {
+      "file": "tc6-golem-press-paid-progress.png",
+      "profile": "GolemPress",
+      "result": "pass",
+      "notes": "Consumed components leave the player rows empty; craft is disabled and actual pressed machine/vent smoke appear behind the menu.",
+      "sha256": "e42a0c8196b3cf7794af6834d005358b76ccc0cb3f4e88cfde94a536a0dbe4f0"
+    },
+    {
+      "file": "tc6-golem-press-completed-output.png",
+      "profile": "GolemPress",
+      "result": "pass",
+      "notes": "One wooden golem is visible in the real output slot after the paid Machina job.",
+      "sha256": "d8df9ea49f699b450f3c319bd486cfd5f83850916d722729bca3552a0aa46e5f"
+    },
+    {
+      "file": "tc6-golem-press-output-item.png",
+      "profile": "GolemPress",
+      "result": "pass",
+      "notes": "Restored idle model retains correct texture and contained lava; the extracted wooden golem item is visible below it.",
+      "sha256": "5c5f293b2fd637729f2d46510ae8f592d4094aab83104bd4caf401a023fbe34b"
+    },
+    {
+      "file": "tc6-golem-press-book-blueprint.png",
+      "profile": "GolemPress",
+      "result": "pass",
+      "notes": "Full-size standalone blueprint shows its proper Golem Press title, all source pieces and layer controls without a recipe-title crash.",
+      "sha256": "250ef9b9f4d1719ff410c0498dc66ec5ed56ac54e2aae559cf3c4c3a034cc193"
+    },
+    {
+      "file": "tc6-essentia-production-smelter-idle.png",
+      "profile": "EssentiaProduction",
+      "result": "pass",
+      "notes": "Idle smelter GUI has separate inputs/fuel slots and empty burn indicators; native frame fits inventory.",
+      "sha256": "c089c980121d793f8259bb4d03279f955352d8aded703e2e0490d008cba4bc31"
+    },
+    {
+      "file": "tc6-essentia-production-smelter-burning.png",
+      "profile": "EssentiaProduction",
+      "result": "pass",
+      "notes": "Burning GUI shows fire and orange progress beside the same physical machine.",
+      "sha256": "312c4f7f84265b9fd4ea4fe2e32ca5790cbd45ff1cdd8dd22c9bb502963f315c"
+    },
+    {
+      "file": "tc6-essentia-production-production-network.png",
+      "profile": "EssentiaProduction",
+      "result": "pass",
+      "notes": "Burning furnace, alembic, connected tube and labeled Terra jar render together; displayed transport/output counts are visible.",
+      "sha256": "4352edeca02533679cfd43294bec50655dcc7737c091e7b62aad86f89cf8102d"
+    },
+    {
+      "file": "tc6-essentia-production-machines.png",
+      "profile": "EssentiaProduction",
+      "result": "pass",
+      "notes": "All eight device panels show original geometry and item icons without missing textures.",
+      "sha256": "f3fa9374fdee86f7a041482835906ee1cb8dd4b35b075bdd5804e99125f8169d"
+    },
+    {
+      "file": "tc6-essentia-production-six-tubes.png",
+      "profile": "EssentiaProduction",
+      "result": "pass",
+      "notes": "All six pipe variants render their distinct fittings and state captions without missing faces.",
+      "sha256": "11453a28e9c23e377ce64e37c45832e06d2ac9483e04f92944cdc360b1f6285f"
+    },
+    {
+      "file": "tc6-essentia-production-tube-controls.png",
+      "profile": "EssentiaProduction",
+      "result": "pass",
+      "notes": "Open/closed valves, directional pipe, filter and both buffer choke states are visually distinct.",
+      "sha256": "fe6ce17d0ba2e5a92ce6170d68e7f7be4de8cdc207f10e3faf851d394db30588"
+    },
+    {
+      "file": "tc6-essentia-production-alembic-labels.png",
+      "profile": "EssentiaProduction",
+      "result": "pass",
+      "notes": "Aspect labels and different fill amounts are visible on all six alembic panels.",
+      "sha256": "19280e888ce3b749cc0116f47c241f3deb9c6dab66fbe27f05237d6d84179adf"
+    },
+    {
+      "file": "tc6-essentia-production-smelter-recipe.png",
+      "profile": "EssentiaProduction",
+      "result": "pass",
+      "notes": "Book recipe has a legible 3x3 layout, output, 50 vis and Ignis crystal cost.",
+      "sha256": "82f3758f84a1102e4e3aeb32398b7f12de1125ddb62809534a7111c483614634"
+    },
+    {
+      "file": "tc6-essentia-production-jar-recipe.png",
+      "profile": "EssentiaProduction",
+      "result": "pass",
+      "notes": "Jar page shows glass/slab layout, output, 5 vis and no crystal requirement.",
+      "sha256": "b3d01588ccac9971b1d8f636051016aa2a14074ad00d61fe62fbeb58659094ba"
+    },
+    {
+      "file": "tc6-essentia-production-tube-recipe.png",
+      "profile": "EssentiaProduction",
+      "result": "pass",
+      "notes": "Directional pipe and buffer recipes fit the spread; costs, crystal and outputs are visible.",
+      "sha256": "b11b900d348630842091bafc9b0bd715b04b65a4a1616563f979f4c1b487b955"
+    },
+    {
+      "file": "tc6-essentia-production-centrifuge.png",
+      "profile": "EssentiaProduction",
+      "result": "pass",
+      "notes": "Three working centrifuge states retain original rotating geometry with separate input/output captions.",
+      "sha256": "07a7b3cb7b3b01250655c357af29e3a4856205a117a157b14dda0223c1b59989"
+    },
+    {
+      "file": "tc6-essentia-production-centrifuge-recipe.png",
+      "profile": "EssentiaProduction",
+      "result": "pass",
+      "notes": "Centrifuge recipe shows mechanisms/tubes, output, 100 vis and both primal costs.",
+      "sha256": "649ee4d2e7f5848e38ce6fbfa4450f83dbfeb177acd7396d0a74828e06f357cd"
+    },
+    {
+      "file": "tc6-essentia-production-thaumatorium-formation.png",
+      "profile": "EssentiaProduction",
+      "result": "pass",
+      "notes": "Actual formed Thaumatorium and three empty physical source panels show complete model geometry.",
+      "sha256": "38eca628d4d0475d644aa4d837ad735f9c60790976818ee1035a393793ef52f0"
+    },
+    {
+      "file": "tc6-essentia-production-thaumatorium-empty.png",
+      "profile": "EssentiaProduction",
+      "result": "pass",
+      "notes": "Original empty catalyst menu is aligned above the real player inventory.",
+      "sha256": "9888a6f74cd717c0e9d92bb0dc5ef0f142940b924149e32f64cbf47e72d2d25c"
+    },
+    {
+      "file": "tc6-essentia-production-thaumatorium-selected.png",
+      "profile": "EssentiaProduction",
+      "result": "pass",
+      "notes": "Selected alumentum and required aspect icons appear in the native menu.",
+      "sha256": "930ef8ebe15e22694860d395777977da8ee54c526cee2618f164cf321d8241be"
+    },
+    {
+      "file": "tc6-essentia-production-thaumatorium-progress-paused.png",
+      "profile": "EssentiaProduction",
+      "result": "pass",
+      "notes": "Paid partial progress remains visible with catalyst count and the original horizontal indicator.",
+      "sha256": "0c04d7b071b4b6cb5b1e19dc059ee938668937c840fcad7e9eea5b79945b0b14"
+    },
+    {
+      "file": "tc6-essentia-production-thaumatorium-chest-output.png",
+      "profile": "EssentiaProduction",
+      "result": "pass",
+      "notes": "Actual alumentum output is visible in a real chest inventory.",
+      "sha256": "530b55616e6f4559dc77808b8ae8bebd9f00b6ff75430b07837e7fea259cd746"
+    },
+    {
+      "file": "tc6-essentia-production-thaumatorium-live-render.png",
+      "profile": "EssentiaProduction",
+      "result": "pass",
+      "notes": "Live machine output preview and the crafted Brain Box render alongside residual typed sources; capacity is shown as three.",
+      "sha256": "ceed104de9de0dded2cfe3dea56c21ff24bc8773346a85a733774cc65f958956"
+    },
+    {
+      "file": "tc6-essentia-production-thaumium-smelter-recipe.png",
+      "profile": "EssentiaProduction",
+      "result": "pass",
+      "notes": "Completed research page has a legible 250-vis recipe and thaumium smelter output.",
+      "sha256": "e5a7134c198b7bd7c21155b81f28d9ba58967ae973fb0ecb77d99ee4ea0464df"
+    },
+    {
+      "file": "tc6-essentia-production-thaumatorium-blueprint.png",
+      "profile": "EssentiaProduction",
+      "result": "pass",
+      "notes": "Rotating source construction, original ingredients and 50-vis Mnemonic Matrix recipe fit the spread.",
+      "sha256": "c76d8d5457da7e79842e5ed74009c9e3307f9101392627bf697cd6ad5a47388d"
+    },
+    {
+      "file": "tc6-essentia-production-stabilizer-recipe.png",
+      "profile": "EssentiaProduction",
+      "result": "pass",
+      "notes": "Stabilizer and redstone inlay are shown with their distinct layouts, outputs and costs.",
+      "sha256": "9019abd2570cb9d064f5a11ff861ebddf938ebf76c0e48a04e13531d09fe3346"
+    },
+    {
+      "file": "tc6-essentia-production-inlay-recipe.png",
+      "profile": "EssentiaProduction",
+      "result": "pass",
+      "notes": "The shared completed stabilization spread retains the inlay output count two and both recipe gates.",
+      "sha256": "d61f111cdb2b2c1b23d18303b187617363dd2bea729173b4c2a4757a86694756"
+    },
+    {
+      "file": "tc6-essentia-production-clockwork-mind-recipe.png",
+      "profile": "EssentiaProduction",
+      "result": "pass",
+      "notes": "Full-size stage-two page shows mind recipe, 25 vis, Ignis/Ordo and disabled completion for this unpaid-theory fixture.",
+      "sha256": "0902abafb75157dcb6629c749b85a5e5dc5bcb844b8a0fbbba87ecfd7990b8a1"
+    },
+    {
+      "file": "tc6-essentia-production-hedge-glowstone-recipe.png",
+      "profile": "EssentiaProduction",
+      "result": "pass",
+      "notes": "Hedge spread shows ink and glowstone conversions with aspect icons and output quantities.",
+      "sha256": "4ff950e802518d639eb749db94facd4e448c7e4d003ca9ab38b802f361486575"
+    },
+    {
+      "file": "tc6-essentia-production-hedge-lava-recipe.png",
+      "profile": "EssentiaProduction",
+      "result": "pass",
+      "notes": "Hedge spread shows cobweb and lava-bucket conversions with their catalyst/aspect costs.",
+      "sha256": "fdd84660622a05eab2cf442021ca28f23b73f28d6155ca3c0b4a6c6c1676b479"
+    }
+  ],
+  "clientFixtureSourceSha256": "5870cbda8d0a6437fb1ab599054eefcfabe432e4d6b7a064bcd9f85fb4c78f26",
+  "logs": {
+    "golem-022-gametest2.log": "fac437ba8d09ccf9c7e0b0c10f7ed762cb8a5b4297150e576e38ae11a0ecc898",
+    "build-0.22-final.log": "3ad884d2f40f87e11ea646c022900b4d8ccd325b08cbb7a2f8d94735be94aa85",
+    "resources-0.22-final.log": "5cc94e274ac1ccdeed41587b38781e8a5c44006438cdffbb769074b49748b657",
+    "golem-press-client-golem-022-client4-client.log": "2d140cb54ece3a77cfc6375a1c969c8477b039a86c72d0c172dfc315efb96b59",
+    "golem-press-client-golem-022-client4-prepare.log": "ff63fe73907e0c11ca29b87acedd7f8718b6250f5a8e7e2824750ebf9e8e4b06",
+    "golem-press-client-golem-022-client4-run.json": "30d5a41d9607908f9d307cf335f1e2e1f764db6072ab8218193f92e4ed1490f7",
+    "golem-press-client-golem-022-client4-desktop.json": "879cebcaf473cf8e754f970fda9b564808c5474d5afd4056b591475f764d6727",
+    "essentia-production-client-press-022-regression1-client.log": "bda283ebdd641b700d3de255bcfedc35beb00e098c7fb0d15eabcf1a22beb04b",
+    "essentia-production-client-press-022-regression1-prepare.log": "ed8de8d6708bcbdae1c1a61d4ce2f17b793372c993496ad00580a7f2fe667af9",
+    "essentia-production-client-press-022-regression1-run.json": "3f9e7a06af87f606695c715057099c5535c7a3886747f4e4fa23c6eda9c8f58f",
+    "essentia-production-client-press-022-regression1-desktop.json": "98496e470248c7dc1d865f131838a9adf8ce2c3dc523768e5be552682e93fef9",
+    "visual-review-0.22.json": "183bf2282419a80535337996cebee195264b47cc1c123af7eccd2f3579d7b528"
+  },
+  "limitations": [
+    "The Golem Press slice provides original five-member Salis formation, all four wooden Basic factory designs, strict completed research, physical components, fifth-tick Machina, menu/C2S and original renderer. It does not yet implement placer deployment, golem AI/task scheduling, controls/seals, bell pickup, combat, rank XP or advanced part/material research.",
+    "Current 6-scene GolemPress client prepares predecessor research, 32+32 theory, physical component inventories and 12-unit Machina source as explicit fixtures. Mind completion, Salis formation, C2S component debit, fifth-tick typed consumption, one original props output and extraction are actual operations; no output golem is supplied. Manufacture and its extracted item do not establish functioning entity placement or seal tasks.",
+    "Current 25-scene EssentiaProduction regression prepares predecessor research and MINDCLOCKWORK stage 2, typed sources/arcane ingredients/aura explicitly. Mind and Brain Box are actually crafted through C2S and the paid Brain Box is actually placed before capacity3 is checked. Its Mind stage 2 page is a fixture with unpaid requirements, not a global partial-stage cap; full original Mind progression is now implemented separately. It verifies real production, Salis/menu/catalyst/program selection, typed consumption, output/rendering and read-only book behavior.",
+    "All 21 original focus node types execute, with branching and Advanced/Greater manufacturing; world Flux Rift and full taint/warp/world entity mechanics remain separate unfinished work. Current Auromancy client evidence is historical 0.19; its server tests are included in 645.",
+    "Infusion research paths available 11/56; 45 preserve unimplemented late research gates. Available research paths do not establish a complete manual survival campaign or every original world ingredient source; Advanced/Greater Firebat/Pech/Primordial Pearl world acquisition remains incomplete.",
+    "Cloud block cooldown uses wall-clock release timing; released living-target key mismatch and other audited BETA26 quirks are retained, with documented bounded/dimension/lifecycle hardening. Original press props0 animation and blocked final-output zero-cost stall are also retained.",
+    "Models and media are audited original assets; native impact/vent particles, modern rendering APIs, bounded transaction guards and ore dictionary-to-tag matching are explicit adaptations rather than complete original FX/API parity.",
+    "Centrifuge and Thaumatorium operate with actual ingredients, research, transport, paid completion and inventory output. Clockwork mind acquisition and full MINDCLOCKWORK progression are available; remaining Golemancy materials, autonomous AI, control seals and ESSENTIATRANSPORT are separate unfinished work.",
+    "No independent-client multiplayer or full manual survival campaign is established by these checks."
+  ],
+  "workingFocusNodes": 21,
+  "originalFocusNodeDefinitions": 21,
+  "unsupportedFocusNodes": 0,
+  "clientScenes": 31,
+  "transientBoltScreenshots": 0,
+  "workingFocusNodeKeys": [
+    "ROOT",
+    "thaumcraft.TOUCH",
+    "thaumcraft.BOLT",
+    "thaumcraft.PROJECTILE",
+    "thaumcraft.CLOUD",
+    "thaumcraft.MINE",
+    "thaumcraft.PLAN",
+    "thaumcraft.SPELLBAT",
+    "thaumcraft.FIRE",
+    "thaumcraft.FROST",
+    "thaumcraft.AIR",
+    "thaumcraft.EARTH",
+    "thaumcraft.FLUX",
+    "thaumcraft.BREAK",
+    "thaumcraft.RIFT",
+    "thaumcraft.EXCHANGE",
+    "thaumcraft.CURSE",
+    "thaumcraft.HEAL",
+    "thaumcraft.SCATTER",
+    "thaumcraft.SPLITTARGET",
+    "thaumcraft.SPLITTRAJECTORY"
+  ],
+  "focusTierComplexityLimits": {
+    "focus_1": 15,
+    "focus_2": 25,
+    "focus_3": 50
+  },
+  "advancedGreaterFocusInfusionAvailable": true,
+  "infusionRecipesWithImplementedResearchPaths": 11,
+  "lateResearchGatedInfusionRecipePaths": 45,
+  "advancedGreaterOriginalWorldPrerequisitesComplete": false,
+  "auromancyClientScenes": 0,
+  "essentiaProductionClientScenes": 25,
+  "clientProfiles": {
+    "GolemPress": {
+      "runTag": "golem-022-client4",
+      "scenes": 6,
+      "screenshots": 6,
+      "desktop": "WinSta0\\ThaumcraftQA_83032b3f450047249e0d1892934f2b2b",
+      "jvmExitCode": 0,
+      "maxOwnedWindowsOnTargetDesktop": 16,
+      "inputDesktopBefore": "Default",
+      "inputDesktopAfter": "Default",
+      "fixtureSource": "src/main/java/thaumcraft/golemancy/press/client/GolemPressClientSmokeTest.java",
+      "fixtureSourceSha256": "5870cbda8d0a6437fb1ab599054eefcfabe432e4d6b7a064bcd9f85fb4c78f26",
+      "clientLog": "golem-press-client-golem-022-client4-client.log"
+    },
+    "EssentiaProduction": {
+      "runTag": "press-022-regression1",
+      "scenes": 25,
+      "screenshots": 25,
+      "desktop": "WinSta0\\ThaumcraftQA_f6ed76c782e3437c85ca118e6d4ee2e0",
+      "jvmExitCode": 0,
+      "maxOwnedWindowsOnTargetDesktop": 16,
+      "inputDesktopBefore": "Default",
+      "inputDesktopAfter": "Default",
+      "fixtureSource": "src/main/java/thaumcraft/client/research/EssentiaProductionClientSmokeTest.java",
+      "fixtureSourceSha256": "6771d484e9c291d4c366ddd5e0c52f6d0a4142816485f145a04fa7bdb40d2ebb",
+      "clientLog": "essentia-production-client-press-022-regression1-client.log"
+    }
+  },
+  "visualReviewSha256": "183bf2282419a80535337996cebee195264b47cc1c123af7eccd2f3579d7b528",
+  "clientFixtureSourceSha256ByProfile": {
+    "GolemPress": "5870cbda8d0a6437fb1ab599054eefcfabe432e4d6b7a064bcd9f85fb4c78f26",
+    "EssentiaProduction": "6771d484e9c291d4c366ddd5e0c52f6d0a4142816485f145a04fa7bdb40d2ebb"
+  },
+  "workingCentrifuge": true,
+  "workingThaumatorium": true,
+  "workingInfusionStabilizationProgression": true,
+  "workingEarlyDeviceIngredientRecipes": 3,
+  "workingNewArcaneRecipeRegistrations": 1,
+  "naturalRareEarthOreBonus": true,
+  "historicalAuromancyClientEvidence": {
+    "version": "0.19.0-dev",
+    "artifactReport": "artifact-report-0.19.json",
+    "scenes": 33,
+    "transientBoltScreenshots": 1
+  },
+  "partiallyImplementedResearchEntries": {},
+  "workingNaturalClockworkMindComponentPath": true,
+  "workingHedgeCrucibleRecipes": 10,
+  "workingOrdinaryCandleRecipes": 17,
+  "workingCandleColors": 16,
+  "workingClockworkMindArcaneRecipe": true,
+  "workingGolemPressFactory": true,
+  "workingGolemPressFormation": true,
+  "workingGolemPressMenuNetwork": true,
+  "workingGolemPressWoodenDesigns": 4,
+  "workingGolemPressWoodenDesignProps": [
+    0,
+    4294967296,
+    50331648,
+    4345298944
+  ],
+  "workingGolemPressWoodenDesignMachinaCosts": [
+    8,
+    12,
+    12,
+    16
+  ],
+  "workingGolemPressWoodenPresets": [
+    {
+      "props": 0,
+      "legs": "WALKER",
+      "addon": "NONE",
+      "machina": 8
+    },
+    {
+      "props": 4294967296,
+      "legs": "ROLLER",
+      "addon": "NONE",
+      "machina": 12
+    },
+    {
+      "props": 50331648,
+      "legs": "WALKER",
+      "addon": "HAULER",
+      "machina": 12
+    },
+    {
+      "props": 4345298944,
+      "legs": "ROLLER",
+      "addon": "HAULER",
+      "machina": 16
+    }
+  ],
+  "workingGolemPlacement": false,
+  "workingGolemAI": false,
+  "workingGolemControlSeals": false,
+  "workingGolemBell": false,
+  "fullGolemancyImplemented": false,
+  "golemPressClientScenes": 6
+}

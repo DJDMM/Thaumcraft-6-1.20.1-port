@@ -30,6 +30,7 @@ gradle.taskGraph.whenReady { graph ->
         throw new GradleException('Do not select another game run task during isolated launch preparation.')
     }
     Map<String, String> clientProfiles = [theoryCompleteSmokeTest: 'run/theory-complete-smoke',
+            golemPressSmokeTest: 'run/golem-press-smoke',
             auromancySmokeTest: 'run/auromancy-smoke',
             infusionSmokeTest: 'run/infusion-smoke',
             essentiaProductionSmokeTest: 'run/essentia-production-smoke',

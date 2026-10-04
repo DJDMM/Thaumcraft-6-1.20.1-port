@@ -30,7 +30,7 @@ import java.util.UUID;
 @PrefixGameTestTemplate(false)
 public final class RemainingFocusProgressionGameTests {
     @GameTest(template = "empty")
-    public static void everyRemainingEntryKeepsOriginalParentsAndOnly42CanonicalEntriesAreAdvertised(GameTestHelper h) {
+    public static void everyRemainingEntryKeepsOriginalParentsAndCurrentCanonicalScope(GameTestHelper h) {
         Map<String,List<String>> parents = Map.ofEntries(
                 Map.entry("FOCUSCURSE", List.of("FOCUSFLUX", "!Pechwand")),
                 Map.entry("FOCUSEXCHANGE", List.of("FOCUSFLUX")),
@@ -50,8 +50,8 @@ public final class RemainingFocusProgressionGameTests {
             result(h, ResearchNetwork.processAdvance(p, entry.getKey(), 0), ResearchProgression.Result.LOCKED);
             h.assertTrue(state.researchStage(entry.getKey()) == 0, "Missing parent opened " + entry.getKey());
         }
-        h.assertTrue(ResearchCatalog.entries().stream().filter(e -> ResearchProgression.isImplemented(e.key())).count() == 50,
-                "Canonical inventory must include the three automation/stability entries");
+        h.assertTrue(ResearchCatalog.entries().stream().filter(e -> ResearchProgression.isImplemented(e.key())).count() == 51,
+                "Canonical inventory must include completed clockwork mind progression");
         for (String key : List.of("FORTRESSMASK", "INFUSIONENCHANTMENT", "RUNICSHIELDING", "INFUSIONELDRITCH"))
             result(h, ResearchNetwork.processAdvance(p, key, 0), ResearchProgression.Result.UNSUPPORTED);
         h.succeed();

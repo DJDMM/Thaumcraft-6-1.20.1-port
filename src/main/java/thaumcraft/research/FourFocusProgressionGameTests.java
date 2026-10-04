@@ -50,8 +50,8 @@ public final class FourFocusProgressionGameTests {
         complete(state, "FOCUSFLUX");
         for (String key : new String[]{"FOCUSHEAL", "FOCUSBREAK"})
             result(helper, ResearchNetwork.processAdvance(player, key, 0), ResearchProgression.Result.STARTED);
-        helper.assertTrue(ResearchCatalog.entries().stream().filter(entry -> ResearchProgression.isImplemented(entry.key())).count() == 50,
-                "Canonical inventory must include the three automation/stability entries");
+        helper.assertTrue(ResearchCatalog.entries().stream().filter(entry -> ResearchProgression.isImplemented(entry.key())).count() == 51,
+                "Canonical inventory must include completed clockwork mind progression");
         for (String key : new String[]{"FORTRESSMASK", "INFUSIONENCHANTMENT", "RUNICSHIELDING"})
             result(helper, ResearchNetwork.processAdvance(player, key, 0), ResearchProgression.Result.UNSUPPORTED);
         player.setItemInHand(InteractionHand.MAIN_HAND, ItemStack.EMPTY);

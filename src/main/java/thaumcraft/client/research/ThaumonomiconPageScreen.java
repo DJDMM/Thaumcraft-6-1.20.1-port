@@ -70,7 +70,7 @@ public final class ThaumonomiconPageScreen extends Screen {
     }
     private ThaumonomiconPageScreen(ThaumonomiconScreen browser, ResearchEntry entry,
                                    PlayerKnowledge knowledge, int scans,Screen returnScreen,String directRecipe) {
-        super(directRecipe==null?Component.translatable(entry.title()):BookRecipeViews.resolve(directRecipe).get(0).output().getHoverName());
+        super(directRecipe==null?Component.translatable(entry.title()):directTitle(directRecipe));
         this.browser = browser;
         this.returnScreen = returnScreen;
         this.entry = entry;
@@ -79,6 +79,13 @@ public final class ThaumonomiconPageScreen extends Screen {
         this.knowledge = knowledge;
         this.scans = scans;
         rebuildChapters();
+    }
+
+    private static Component directTitle(String recipe) {
+        var structure=MultiblockCatalog.resolve(recipe);
+        if(structure.isPresent())return structure.get().displayStack().map(ItemStack::getHoverName).orElse(Component.literal(recipe));
+        var views=BookRecipeViews.resolve(recipe);
+        return views.isEmpty()?Component.literal(recipe):views.get(0).output().getHoverName();
     }
 
     public void update(PlayerKnowledge knowledge, int scans) {
@@ -932,7 +939,7 @@ public final class ThaumonomiconPageScreen extends Screen {
     private record RequirementPiece(int y, ResearchBookRequirements.Row row,List<FormattedCharSequence> lines) implements Piece { }
     private record StructurePiece(int y,MultiblockBookPreview preview) implements Piece { }
     void itemLinkForSmokeTest(ItemStack stack,ResourceLocation source) {openItemRecipe(stack,source);}
-    void directRecipeForSmokeTest(String key) {minecraft.setScreen(new ThaumonomiconPageScreen(browser,entry,knowledge,scans,this,key));}
+    public void directRecipeForSmokeTest(String key) {minecraft.setScreen(new ThaumonomiconPageScreen(browser,entry,knowledge,scans,this,key));}
     String entryForSmokeTest() {return entry.key();}
     private record Bookmark(int spread,ItemStack item,MultiblockBookPreview structure) {}
     private record ItemHover(int x, int y, ItemStack stack,ResourceLocation source) {

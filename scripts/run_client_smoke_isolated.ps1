@@ -6,7 +6,7 @@ desktop switching is performed. Keep this runner alive until the client exits.
 #>
 [CmdletBinding()]
 param(
-    [ValidateSet('TheoryComplete', 'EssentiaProduction', 'ThaumonomiconComplete', 'Infusion', 'Auromancy')]
+    [ValidateSet('TheoryComplete', 'EssentiaProduction', 'ThaumonomiconComplete', 'Infusion', 'Auromancy', 'GolemPress')]
     [string]$SmokeTest = 'TheoryComplete',
     [string]$JavaHome = 'C:\Program Files\Eclipse Adoptium\jdk-17.0.18.8-hotspot',
     [ValidatePattern('^[A-Za-z0-9_-]{1,100}$')]
@@ -15,6 +15,7 @@ param(
 )
 $ErrorActionPreference = 'Stop'
 $profiles = @{
+    GolemPress = @{ property = 'golemPressSmokeTest'; directory = 'golem-press-smoke'; prefix = 'golem-press-client'; marker = 'THAUMCRAFT_GOLEM_PRESS_CLIENT_SMOKE'; audit = 'THAUMCRAFT_GOLEM_PRESS_RENDER_AUDIT_OK' }
     Auromancy = @{ property = 'auromancySmokeTest'; directory = 'auromancy-smoke'; prefix = 'auromancy-client'; marker = 'THAUMCRAFT_AUROMANCY_CLIENT_SMOKE'; audit = 'THAUMCRAFT_AUROMANCY_RENDER_AUDIT_OK' }
     Infusion = @{ property = 'infusionSmokeTest'; directory = 'infusion-smoke'; prefix = 'infusion-client'; marker = 'THAUMCRAFT_INFUSION_CLIENT_SMOKE'; audit = 'THAUMCRAFT_INFUSION_RENDER_AUDIT_OK' }
     ThaumonomiconComplete = @{ property = 'thaumonomiconCompleteSmokeTest'; directory = 'thaumonomicon-complete-smoke'; prefix = 'thaumonomicon-client'; marker = 'THAUMCRAFT_THAUMONOMICON_COMPLETE_CLIENT_SMOKE'; audit = 'THAUMCRAFT_THAUMONOMICON_RENDER_AUDIT_OK' }

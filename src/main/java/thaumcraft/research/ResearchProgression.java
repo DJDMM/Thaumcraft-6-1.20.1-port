@@ -24,10 +24,7 @@ public final class ResearchProgression {
             "FOCUSCURSE", "FOCUSEXCHANGE", "FOCUSRIFT", "FOCUSPLAN", "FOCUSMINE", "FOCUSSPELLBAT",
             "FOCUSCLOUD", "FOCUSSCATTER", "FOCUSSPLIT", "FOCUSADVANCED", "FOCUSGREATER", "PRIMPEARL", "!Firebat", "CENTRIFUGE",
             "ESSENTIASMELTERTHAUMIUM", "THAUMATORIUM", "INFUSIONSTABLE",
-            "HEDGEALCHEMY", "UNLOCKGOLEMANCY", "BASEGOLEMANCY", "MATSTUDWOOD");
-    // The original mind recipe needs entered stage2. Its later payment unlocks
-    // an unported press/seal system, so expose the physical component path only.
-    private static final Map<String, Integer> PARTIAL_STAGE_LIMITS = Map.of("MINDCLOCKWORK", 2);
+            "HEDGEALCHEMY", "UNLOCKGOLEMANCY", "BASEGOLEMANCY", "MATSTUDWOOD", "MINDCLOCKWORK");
     private static final Set<String> OLD_PROFILE_LESSONS = Set.of("PORT_START", "PORT_SCAN", "PORT_ALCHEMY",
             "PORT_NITOR", "PORT_ALUMENTUM", "PORT_BRASS", "PORT_THAUMIUM");
     private static final Map<String, List<Requirements>> REQUIREMENTS = load();
@@ -35,8 +32,8 @@ public final class ResearchProgression {
     private ResearchProgression() {}
     public enum Result { STARTED, ADVANCED, COMPLETE, STALE, MISSING_REQUIREMENTS, LOCKED, UNSUPPORTED, NO_BOOK }
     public static boolean isImplemented(String key) { return IMPLEMENTED.contains(key); }
-    public static boolean supportsProgression(String key) { return isImplemented(key) || PARTIAL_STAGE_LIMITS.containsKey(key); }
-    public static boolean stageSupported(String key, int current) { return supportsProgression(key) && current < PARTIAL_STAGE_LIMITS.getOrDefault(key, Integer.MAX_VALUE); }
+    public static boolean supportsProgression(String key) { return isImplemented(key); }
+    public static boolean stageSupported(String key, int current) { return supportsProgression(key); }
     public static int stage(PlayerKnowledge knowledge, String key) { return knowledge.researchStage(key); }
     public static boolean isComplete(PlayerKnowledge knowledge, String key) { return knowledge.isResearchCompleteStrict(key); }
     public static boolean legacyLessonAvailable(PlayerKnowledge knowledge, String key) {
@@ -174,8 +171,7 @@ public final class ResearchProgression {
                 }
             } catch (Exception failure) { throw new IllegalStateException("Invalid TC6 stage data " + path, failure); }
         }
-        Set<String> supported = new HashSet<>(IMPLEMENTED); supported.addAll(PARTIAL_STAGE_LIMITS.keySet());
-        if (!result.keySet().equals(supported)) throw new IllegalStateException("Incomplete TC6 initial stage data");
+        if (!result.keySet().equals(IMPLEMENTED)) throw new IllegalStateException("Incomplete TC6 initial stage data");
         return Map.copyOf(result);
     }
 

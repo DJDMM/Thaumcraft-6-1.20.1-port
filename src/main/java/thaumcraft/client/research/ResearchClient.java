@@ -8,6 +8,10 @@ import thaumcraft.research.ResearchBookNotifications;
 public final class ResearchClient {
     private static Object previousConnection;
     private static PlayerKnowledge previousKnowledge;
+    public static PlayerKnowledge golemPressKnowledge() {
+        return Minecraft.getInstance().getConnection()==previousConnection&&previousKnowledge!=null
+                ?PlayerKnowledge.load(previousKnowledge.save()):new PlayerKnowledge();
+    }
 
     public static void receive(CompoundTag data, boolean open) {
         Minecraft minecraft = Minecraft.getInstance();

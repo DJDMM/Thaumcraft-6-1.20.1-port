@@ -305,7 +305,7 @@ public final class EssentiaProductionClientSmokeTest {
         bench.setItem(10,CatalogModule.aspectStack("crystal_essence",Aspect.FIRE,1));bench.setItem(13,CatalogModule.aspectStack("crystal_essence",Aspect.ORDER,1));
         AuraManager.drainVis(level,BRAIN_WORKBENCH,Float.MAX_VALUE,false);AuraManager.addVis(level,BRAIN_WORKBENCH,100);
         player.inventoryMenu.broadcastChanges();
-        LogUtils.getLogger().info("THAUMCRAFT_CLOCKWORK_CLIENT_FIXTURE: completed Hedge/Golem unlock parents; Mind entered2 only, press/seals closed; actual workbench with glass3/brass2/simple1/comparator1, Ignis1/Ordo1 and100 aura supplied explicitly; no mind/Brain output supplied");
+        LogUtils.getLogger().info("THAUMCRAFT_CLOCKWORK_CLIENT_FIXTURE: completed Hedge/Golem unlock parents; Mind entered2 only, unpaid32+32 theories; press chapter/seals closed; actual workbench with glass3/brass2/simple1/comparator1, Ignis1/Ordo1 and100 aura supplied explicitly; no mind/Brain output supplied");
     }
     private static boolean paidBrainScene(Minecraft mc) {
         if(!prepared){prepared=true;closeMenu(mc);submit(mc,()->prepareBrainCraft(mc));phase=1;return false;}
@@ -494,9 +494,9 @@ public final class EssentiaProductionClientSmokeTest {
                 require(knowledge.researchStage("MINDCLOCKWORK")==2&&!knowledge.isResearchCompleteStrict("MINDCLOCKWORK")&&!knowledge.isResearchKnown("CONTROLSEALS")
                         &&page.chaptersForSmokeTest().equals(List.of("research.MINDCLOCKWORK.stage.2"))&&!page.availableForSmokeTest()
                         &&view.research().equals("MINDCLOCKWORK@2")&&view.vis()==25&&view.crystals()[1]==1&&view.crystals()[4]==1,
-                        "Clockwork current-stage recipe bypassed original gate, cost or partial stage cap");
-                require(page.recipesForSmokeTest().stream().allMatch(recipe->recipe.output().is(registeredItem("mind_clockwork").getItem())),"Current-stage mind book exposed unimplemented press/seal recipes");
-                LogUtils.getLogger().info("THAUMCRAFT_CLOCKWORK_CLIENT_BOOK: entered stage2 only; original live25vis/Ignis1/Ordo1 recipe; no stage3/press/seals or enabled completion action; read only");
+                        "Clockwork current-stage recipe bypassed original gate, cost or unpaid theory requirement");
+                require(page.recipesForSmokeTest().stream().allMatch(recipe->recipe.output().is(registeredItem("mind_clockwork").getItem())),"Current-stage mind book exposed later press/seal recipes before theory payment");
+                LogUtils.getLogger().info("THAUMCRAFT_CLOCKWORK_CLIENT_BOOK: entered stage2 only; original live25vis/Ignis1/Ordo1 recipe; unpaid32+32 theories; no later press chapter/seals or enabled completion action; read only");
             }
         }
     }

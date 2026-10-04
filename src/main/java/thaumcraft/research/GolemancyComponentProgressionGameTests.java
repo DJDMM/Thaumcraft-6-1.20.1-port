@@ -26,9 +26,9 @@ public final class GolemancyComponentProgressionGameTests {
 
     @GameTest(template="essentia_network")
     public static void exactGolemScanFamiliesIncludeShulkerAndOwnedConstructsButNotItems(GameTestHelper h) {
-        h.assertTrue(ResearchCatalog.entries().stream().filter(e -> ResearchProgression.isImplemented(e.key())).count()==50
-                && ResearchProgression.supportsProgression("MINDCLOCKWORK") && !ResearchProgression.isImplemented("MINDCLOCKWORK"),
-                "Partial mind path was counted as a completed research implementation");
+        h.assertTrue(ResearchCatalog.entries().stream().filter(e -> ResearchProgression.isImplemented(e.key())).count()==51
+                && ResearchProgression.isImplemented("MINDCLOCKWORK") && ResearchProgression.stageSupported("MINDCLOCKWORK",2),
+                "Clockwork mind's complete original progression was omitted from the canonical inventory");
         for (var type : List.of(EntityType.IRON_GOLEM, EntityType.SNOW_GOLEM, EntityType.SHULKER)) {
             h.assertTrue(AuromancyProgressionEvents.scanFacts(type.create(h.getLevel())).equals(List.of("f_golem")),
                     "Original EntityGolem subclass omitted: "+type);
@@ -75,7 +75,7 @@ public final class GolemancyComponentProgressionGameTests {
     }
 
     @GameTest(template="essentia_network")
-    public static void mindUsesRealMindAndLifeScansAndStopsAtTheOriginalCraftableSecondStage(GameTestHelper h) {
+    public static void mindUsesRealScansAndCompletesOnlyAfterAtomicOriginalTheoryPayments(GameTestHelper h) {
         var p=player(h); var state=KnowledgeStore.get(p);
         complete(state,"UNLOCKGOLEMANCY"); complete(state,"BASEGOLEMANCY"); complete(state,"ESSENTIASMELTER"); state.setResearchStage("HEDGEALCHEMY",3);
         result(h,ResearchNetwork.processAdvance(p,"MINDCLOCKWORK",0),ResearchProgression.Result.LOCKED);
@@ -100,14 +100,38 @@ public final class GolemancyComponentProgressionGameTests {
         var entry=ResearchCatalog.get("MINDCLOCKWORK");
         h.assertTrue(ResearchBookVisibility.visible(PlayerKnowledge.load(state.save()),entry,false)
                 && ResearchBookVisibility.readableChapters(state,entry,false).equals(List.of(entry.stages().get(1))),
-                "Partial mind entry vanished from the ordinary book or exposed the later press chapter");
-        setKnowledge(p,KnowledgeType.THEORY,"ARTIFICE",40); setKnowledge(p,KnowledgeType.THEORY,"GOLEMANCY",40);
+                "Entered mind stage2 vanished from the ordinary book or exposed the later press chapter");
+        h.assertTrue(!ResearchProgression.canAdvance(state,entry),"Missing theories enabled the original second-stage payment");
+        setKnowledge(p,KnowledgeType.THEORY,"ARTIFICE",31); setKnowledge(p,KnowledgeType.THEORY,"GOLEMANCY",40);
+        missing(h,p,"MINDCLOCKWORK",2);
+        setKnowledge(p,KnowledgeType.THEORY,"ARTIFICE",40); setKnowledge(p,KnowledgeType.THEORY,"GOLEMANCY",31);
+        missing(h,p,"MINDCLOCKWORK",2);
         var saved=state.save(); xp=p.totalExperience;
-        result(h,ResearchNetwork.processAdvance(p,"MINDCLOCKWORK",2),ResearchProgression.Result.UNSUPPORTED);
         result(h,ResearchNetwork.processAdvance(p,"MINDCLOCKWORK",1),ResearchProgression.Result.STALE);
-        h.assertTrue(saved.equals(state.save()) && xp==p.totalExperience && !ResearchProgression.canAdvance(state,ResearchCatalog.get("MINDCLOCKWORK"))
-                && !state.isResearchKnown("CONTROLSEALS") && !state.isResearchKnown("SEALCOLLECT")
-                && PlayerKnowledge.load(saved).researchStage("MINDCLOCKWORK")==2,"Unsupported press payment, replay or save crossed stage2 boundary");
+        h.assertTrue(saved.equals(state.save()) && xp==p.totalExperience && PlayerKnowledge.load(saved).researchStage("MINDCLOCKWORK")==2,
+                "Stale first-stage request or reload crossed the unpaid theory boundary");
+        setKnowledge(p,KnowledgeType.THEORY,"GOLEMANCY",40);
+        h.assertTrue(ResearchProgression.canAdvance(state,entry,p.getInventory()),"Both complete theory costs did not enable advancement");
+        xp=p.totalExperience;
+        result(h,ResearchNetwork.processAdvance(p,"MINDCLOCKWORK",2),ResearchProgression.Result.COMPLETE);
+        h.assertTrue(state.researchStage("MINDCLOCKWORK")==4 && state.isResearchCompleteStrict("MINDCLOCKWORK")
+                && state.rawKnowledge(KnowledgeType.THEORY,"ARTIFICE")==8 && state.rawKnowledge(KnowledgeType.THEORY,"GOLEMANCY")==8
+                && state.rawKnowledge(KnowledgeType.OBSERVATION,"GOLEMANCY")==3 && p.totalExperience==xp+5,
+                "Final theory payment changed the two original32-unit costs, empty-stage skip, Observation remainder or XP");
+        var chapters=ResearchBookVisibility.readableChapters(state,entry,false);
+        h.assertTrue(chapters.equals(List.of(entry.stages().get(2))) && chapters.get(0).recipes().equals(List.of("thaumcraft:MindClockwork","thaumcraft:GolemPress"))
+                && BookRecipeCatalog.originalStatus("thaumcraft:GolemPress").equals("blueprint")
+                && thaumcraft.research.book.MultiblockCatalog.resolve("thaumcraft:GolemPress").orElseThrow().research().equals("MINDCLOCKWORK"),
+                "Completion did not open only the original final chapter and its registered Golem Press blueprint");
+        saved=state.save(); xp=p.totalExperience;
+        result(h,ResearchNetwork.processAdvance(p,"MINDCLOCKWORK",2),ResearchProgression.Result.STALE);
+        result(h,ResearchNetwork.processAdvance(p,"MINDCLOCKWORK",4),ResearchProgression.Result.LOCKED);
+        for(String unsupported:List.of("CONTROLSEALS","SEALCOLLECT","SEALSTORE","GOLEMDIRECT","MINDBIOTHAUMIC")) {
+            result(h,ResearchNetwork.processAdvance(p,unsupported,0),ResearchProgression.Result.UNSUPPORTED);
+            h.assertTrue(!state.isResearchKnown(unsupported),"Completed mind opened an unported sibling or descendant: "+unsupported);
+        }
+        h.assertTrue(saved.equals(state.save()) && xp==p.totalExperience && !ResearchProgression.canAdvance(state,entry)
+                && PlayerKnowledge.load(saved).isResearchCompleteStrict("MINDCLOCKWORK"),"Completion replay, unsupported sibling request or reload mutated paid state");
         h.succeed();
     }
 

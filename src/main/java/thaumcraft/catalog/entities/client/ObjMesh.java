@@ -14,19 +14,21 @@ public final class ObjMesh {
     private record Face(String group,List<Corner> corners) {}
     private final List<Face> faces=new ArrayList<>();
     private static final Map<String,ObjMesh> CACHE=new HashMap<>();
-    public static ObjMesh get(String name) { return CACHE.computeIfAbsent(name,ObjMesh::new); }
+    public static ObjMesh get(String name) { return CACHE.computeIfAbsent("obj/"+name,key->new ObjMesh(key,false)); }
+    /** Original block renderer cancels the OBJ loader's V flip with its texture matrix. */
+    public static ObjMesh getBlock(String name) { return CACHE.computeIfAbsent("block/"+name,key->new ObjMesh(key,true)); }
     public static void clear() { CACHE.clear(); }
-    private ObjMesh(String name) {
+    private ObjMesh(String name,boolean originalBlockTextureMatrix) {
         List<Vector3f> points=new ArrayList<>(),normals=new ArrayList<>();List<float[]> uvs=new ArrayList<>();String group="default";
         try (var reader=new BufferedReader(new InputStreamReader(Minecraft.getInstance().getResourceManager()
-                .open(ResourceLocation.fromNamespaceAndPath("thaumcraft","models/obj/"+name+".obj")),StandardCharsets.UTF_8))) {
+                .open(ResourceLocation.fromNamespaceAndPath("thaumcraft","models/"+name+".obj")),StandardCharsets.UTF_8))) {
             for(String line;(line=reader.readLine())!=null;) {
                 String[] parts=line.trim().split("\\s+");
                 if(parts.length<2) continue;
                 switch(parts[0]) {
                     case "v" -> points.add(new Vector3f(Float.parseFloat(parts[1]),Float.parseFloat(parts[2]),Float.parseFloat(parts[3])));
                     case "vn" -> normals.add(new Vector3f(Float.parseFloat(parts[1]),Float.parseFloat(parts[2]),Float.parseFloat(parts[3])));
-                    case "vt" -> uvs.add(new float[]{Float.parseFloat(parts[1]),1-Float.parseFloat(parts[2])});
+                    case "vt" -> uvs.add(new float[]{Float.parseFloat(parts[1]),originalBlockTextureMatrix?Float.parseFloat(parts[2]):1-Float.parseFloat(parts[2])});
                     case "g","o" -> group=parts[1];
                     case "f" -> {
                         List<Corner> corners=new ArrayList<>();
