@@ -1,4 +1,4 @@
-# Наполнение TC6 — 0.19.0-dev
+# Наполнение TC6 — срез 0.20
 
 Рабочий серверный алтарь **Thaumcraft 6.1.BETA26** для Forge 1.20.1.
 Контракт сверяется с закреплённым официальным JAR, а не с TC4/TC5:
@@ -55,11 +55,23 @@ INFUSION и INFUSIONBOOST. В 0.16 поддерживались **23**: доба
 BASEAUROMANCY, RECHARGEPEDESTAL, BOOTSTRAVELLER, ELEMENTALTOOLS и ARMORFORTRESS.
 В 0.17 поддерживались **25** с FOCUSELEMENTAL и FOCUSPROJECTILE;
 эти две записи не добавляют gates рецептов наполнения.
-Фокусный срез 0.19 довёл прогрессию до **42** канонических ключей; после
-интеграции CENTRIFUGE текущий общий реестр содержит **43**.
+Фокусный срез 0.19 довёл прогрессию до **42** канонических ключей;
+с CENTRIFUGE тот срез содержал **43**. Срез 0.20 имеет общий набор **46**:
+ESSENTIASMELTERTHAUMIUM, THAUMATORIUM и INFUSIONSTABLE добавлены отдельно.
 Исходные FOCUSADVANCED@1 и FOCUSGREATER@1 открывают два улучшения фокусов
 через настоящую матрицу. Центрифуга не добавляет рецептов наполнения;
 её отдельный контракт — [CENTRIFUGE-INTEGRATION-NOTE.md](docs/tc6/CENTRIFUGE-INTEGRATION-NOTE.md).
+INFUSIONSTABLE требует INFUSION, METALLURGY@3 и настоящий факт !INSTABILITY,
+записываемый серверным событием нестабильности алтаря. Первая стадия оплачивает
+16 raw Observation и 32 raw Theory Infusion, redstone ×1 и полный Vitium phial
+с 10 единицами. Следующая стадия показывает исходные рецепты компонентов:
+две инкрустации за 25 vis/Aqua ×1; стабилизатор за 250 vis и Terra/Aqua/Perditio
+по одной. Его complex mechanism получает исходный BASEARTIFICE-путь;
+морфический резонатор устройств относится к BASEALCHEMY, не Golemancy.
+Эти arcane recipes открывают уже реализованные charge/conduction механики,
+не добавляют рецептов наполнения и не меняют **11/56, 9, 45** ниже.
+Рецепты ингредиентов и natural rare-earth loot — в
+[аудите компонентов](docs/tc6/EARLY-DEVICE-INGREDIENTS-BETA26-AUDIT.md).
 Исходные проверки высоты/движения, обнаруженных аспектов, теорий и реальные
 факты изготовления сохраняются. Basic auromancy открывает цепочку Recharge
 Pedestal → Traveller Boots → Elemental Tools / Fortress без удаления parents.
@@ -130,10 +142,18 @@ python scripts/validate_resources.py
 Серверный профиль использует свежий `run/gametest-server/world`, клиентский —
 собственный `run/infusion-smoke`. Изолированный Windows-скрипт запускает JVM
 на отдельном неактивном рабочем столе и не переключает пользователя.
-Текущий интегрированный server run 0.19 прошёл **577/577** обязательных
+Исторический интегрированный server run 0.19 прошёл **577/577** обязательных
 GameTests; финальные build/resource проверки прошли. Клиентский срез 0.19
 проверил Auromancy **33/33** + отдельный Bolt кадр и EssentiaProduction
 **12/12**; все 46 снимков просмотрены. Поздние основы фокусов в этих fixtures
 имеют явно заданные prerequisites, что не завершает их мировые источники.
 Итоги и границы — [VALIDATION.md](VALIDATION.md),
 [отчёт 0.19](validation/artifact-report-0.19.json).
+Финальный серверный прогон 0.20 `automation-020-gametest5` прошёл **603/603**
+обязательных теста, включая новую прогрессию INFUSIONSTABLE и реальное
+событие нестабильности. Скрытый EssentiaProduction `thaumatorium-020-client5`
+прошёл **22/22** сцены; новый клиентский тест проверяет производство и
+read-only страницы компонентов, а не полное прохождение алтаря. Итоговая
+сборка и валидатор **2783 JSON / 3542 файла** прошли. Знания/ресурсы/Brain Box
+явно задаются fixtures. Результаты и границы —
+[VALIDATION.md](VALIDATION.md), [отчёт 0.20](validation/artifact-report-0.20.json).

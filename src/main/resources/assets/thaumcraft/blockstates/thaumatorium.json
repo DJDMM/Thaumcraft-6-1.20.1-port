@@ -1,13 +1,5 @@
 {
   "variants": {
-    "facing=up": {
-      "model": "thaumcraft:catalog/thaumatorium/0",
-      "x": 90
-    },
-    "facing=down": {
-      "model": "thaumcraft:catalog/thaumatorium/1",
-      "x": 90
-    },
     "facing=west": {
       "model": "thaumcraft:catalog/thaumatorium/2",
       "x": 90

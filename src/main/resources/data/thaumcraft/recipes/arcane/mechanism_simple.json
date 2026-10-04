@@ -1,0 +1,14 @@
+{
+  "type": "thaumcraft:arcane_shaped",
+  "category": "misc",
+  "research": "BASEARTIFICE",
+  "vis": 10,
+  "crystals": { "ignis": 1, "aqua": 1 },
+  "pattern": [" B ", "ISI", " B "],
+  "key": {
+    "B": { "tag": "forge:plates/brass" },
+    "I": { "tag": "forge:plates/iron" },
+    "S": { "tag": "forge:rods/wooden" }
+  },
+  "result": { "item": "thaumcraft:mechanism_simple", "count": 1 }
+}

@@ -314,9 +314,19 @@ public final class RemainingFocusEffectsGameTests {
         for(int i=0;i<22;i++)tick(h,center); h.assertTrue(level.getBlockState(center).getBlock() instanceof RiftHoleBlock,"Rift restored before tick40"); tick(h,center);
         h.assertTrue(level.getBlockState(center)==stairs && level.getBlockEntity(center)==null,"Rift failed exact timed restoration"); h.succeed();
     }
-    @GameTest(template="empty") public static void riftRealWorldTicksRestoreWholePassage(GameTestHelper h) {
-        var p=player(h); var level=h.getLevel(); var center=pos(h); plane(level,center,Direction.Axis.Z,Blocks.STONE.defaultBlockState()); plane(level,center.south(),Direction.Axis.Z,Blocks.STONE.defaultBlockState()); plane(level,center.south(2),Direction.Axis.Z,Blocks.AIR.defaultBlockState());
-        rift(h,p,center,Direction.NORTH,8,2,1); h.runAtTickTime(6,()->h.assertTrue(level.getBlockState(center.south()).getBlock() instanceof RiftHoleBlock,"Real BE world tick did not propagate Rift"));
+    @GameTest(template="essentia_network") public static void riftRealWorldTicksRestoreWholePassage(GameTestHelper h) {
+        // Keep both 3x3 walls and the terminal inside this 9x5x9 template's ticking region.
+        // The 3x3x3 empty template leaves the old z=5 terminal outside its chunk tickets.
+        var p=player(h); var level=h.getLevel(); var center=h.absolutePos(new BlockPos(4,2,3)); plane(level,center,Direction.Axis.Z,Blocks.STONE.defaultBlockState()); plane(level,center.south(),Direction.Axis.Z,Blocks.STONE.defaultBlockState()); plane(level,center.south(2),Direction.Axis.Z,Blocks.AIR.defaultBlockState());
+        h.assertTrue(rift(h,p,center,Direction.NORTH,8,2,1),"Real-world Rift refused wall");
+        h.runAtTickTime(6,()->{
+            for(int z=0;z<2;z++)for(int u=-1;u<=1;u++)for(int v=-1;v<=1;v++) {
+                var wall=memory(h,center.offset(u,v,z));
+                h.assertTrue(wall.previousState().is(Blocks.STONE) && wall.maximum()==40 && wall.countdown()>0 && wall.countdown()<=6,"Real BE world ticks did not activate the complete 40-tick wall passage");
+            }
+            var terminal=memory(h,center.south(2));
+            h.assertTrue(terminal.previousState().is(Blocks.AIR) && terminal.remainingSegments()==1 && terminal.maximum()==40 && terminal.countdown()>0 && terminal.countdown()<=6,"Real BE world ticks did not activate the original 40-tick air terminal");
+        });
         h.runAtTickTime(48,()->{for(int z=0;z<2;z++)for(int u=-1;u<=1;u++)for(int v=-1;v<=1;v++)h.assertTrue(level.getBlockState(center.offset(u,v,z)).is(Blocks.STONE),"Real passage failed to restore wall");
             h.assertTrue(level.getBlockState(center.south(2)).is(Blocks.AIR),"Original air terminal did not restore"); h.succeed();});
     }

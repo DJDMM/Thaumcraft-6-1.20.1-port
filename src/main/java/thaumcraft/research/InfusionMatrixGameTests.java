@@ -4,9 +4,15 @@ import com.mojang.authlib.GameProfile;
 import net.minecraft.core.*;
 import net.minecraft.gametest.framework.*;
 import net.minecraft.nbt.CompoundTag;
+import net.minecraft.network.Connection;
 import net.minecraft.network.FriendlyByteBuf;
+import net.minecraft.network.protocol.Packet;
+import net.minecraft.network.protocol.PacketFlow;
 import net.minecraft.server.level.ServerPlayer;
+import net.minecraft.server.network.ServerGamePacketListenerImpl;
 import net.minecraft.world.InteractionHand;
+import net.minecraft.world.entity.Entity;
+import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.item.*;
 import net.minecraft.world.item.context.UseOnContext;
 import net.minecraft.world.level.block.Blocks;
@@ -93,6 +99,40 @@ public final class InfusionMatrixGameTests {
         h.assertTrue(!f.matrix.useCaster(unknown),"Unknown research matched");jars(f,recipe(h,"crystalclusterair").aspects(),11);
         h.assertTrue(f.matrix.useCaster(f.player),"Known recipe did not start");f.central().setItem(0,new ItemStack(Items.DIRT));ticks(f,5);
         h.assertTrue(!f.matrix.crafting()&&f.central().getItem(0).is(Items.DIRT),"Invalid central manufactured result");h.succeed();
+    }
+    @GameTest(template=TEMPLATE) public static void invalidCentralCycleRevealsActualNearbyInstabilityAndUnlocksStabilityResearch(GameTestHelper h) {
+        Fixture f=crystal(h);var level=h.getLevel();var knowledge=KnowledgeStore.get(f.player);
+        knowledge.setResearchStage("INFUSION",ResearchCatalog.get("INFUSION").stages().size()+1);
+        knowledge.setResearchStage("METALLURGY",3);
+        f.player.setItemInHand(InteractionHand.OFF_HAND,new ItemStack(ResearchModule.THAUMONOMICON.get()));
+        f.player.connection=new ServerGamePacketListenerImpl(level.getServer(),new Connection(PacketFlow.SERVERBOUND),f.player) {
+            @Override public void send(Packet<?> packet) {}
+        };
+        try {
+            // The runtime discovers nearby entities through ServerLevel's entity index, not the recipe owner UUID.
+            level.addNewPlayer(f.player);
+            h.assertTrue(level.getEntitiesOfClass(ServerPlayer.class,new AABB(f.pos).inflate(10)).contains(f.player),"Witness was not tracked in the real nearby entity query");
+            h.assertTrue(!knowledge.isResearchKnown("!INSTABILITY")&&!ResearchProgression.canStart(knowledge,"INFUSIONSTABLE")
+                    &&ResearchNetwork.processAdvance(f.player,"INFUSIONSTABLE",0)==ResearchProgression.Result.LOCKED,"Parents alone invented the instability discovery");
+            jars(f,recipe(h,"crystalclusterair").aspects(),7);start(f);
+            // Stay inside the ten-block discovery box but outside every random explosion's blast radius.
+            f.player.setPos(f.pos.getX()+.5,f.pos.getY(),f.pos.getZ()+9.5);
+            ticks(f,f.matrix.cycleDelay());
+            h.assertTrue(f.matrix.crafting()&&f.matrix.stability()>=0&&!knowledge.isResearchKnown("!INSTABILITY"),"A valid stable cycle granted an instability fact");
+            f.central().setItem(0,new ItemStack(Items.DIRT));
+            h.assertTrue(!knowledge.isResearchKnown("!INSTABILITY"),"Changing the central inventory bypassed the real matrix cycle");
+            // Invalid input forces the original instability branch irrespective of its random event type.
+            ticks(f,f.matrix.cycleDelay());
+            h.assertTrue(!f.matrix.crafting()&&knowledge.isResearchKnown("!INSTABILITY")
+                    &&knowledge.researchStage("INFUSIONSTABLE")==0&&ResearchProgression.canStart(knowledge,"INFUSIONSTABLE"),"Actual failed infusion did not reveal the hidden research to its nearby tracked player");
+            h.assertTrue(ResearchNetwork.processAdvance(f.player,"INFUSIONSTABLE",0)==ResearchProgression.Result.STARTED
+                    &&knowledge.researchStage("INFUSIONSTABLE")==1&&!knowledge.isResearchCompleteStrict("INFUSIONSTABLE"),"Discovered instability could not start the book entry or skipped its physical payment");
+        } finally {
+            level.removePlayerImmediately(f.player,Entity.RemovalReason.DISCARDED);
+            level.getEntitiesOfClass(ItemEntity.class,new AABB(f.pos).inflate(8)).forEach(ItemEntity::discard);
+        }
+        h.assertTrue(!level.getEntitiesOfClass(ServerPlayer.class,new AABB(f.pos).inflate(10)).contains(f.player),"Instability witness leaked into later tests");
+        h.succeed();
     }
     @GameTest(template=TEMPLATE) public static void ordinaryUpgradeTransfersFractionalWearAndTemplateEnchantments(GameTestHelper h) {
         Fixture f=altar(h);KnowledgeStore.get(f.player).setResearchStage("ELEMENTALTOOLS",1);var r=recipe(h,"elementalaxe");ItemStack central=r.displayCentral();central.setDamageValue(central.getMaxDamage()/2);central.setHoverName(net.minecraft.network.chat.Component.literal("not copied"));f.central().setItem(0,central);

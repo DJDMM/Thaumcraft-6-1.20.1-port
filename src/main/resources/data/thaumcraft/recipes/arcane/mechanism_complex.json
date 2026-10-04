@@ -1,0 +1,14 @@
+{
+  "type": "thaumcraft:arcane_shaped",
+  "category": "misc",
+  "research": "BASEARTIFICE",
+  "vis": 50,
+  "crystals": { "ignis": 1, "aqua": 1 },
+  "pattern": [" M ", "TQT", " M "],
+  "key": {
+    "M": { "item": "thaumcraft:mechanism_simple" },
+    "T": { "tag": "forge:plates/thaumium" },
+    "Q": { "item": "minecraft:piston" }
+  },
+  "result": { "item": "thaumcraft:mechanism_complex", "count": 1 }
+}

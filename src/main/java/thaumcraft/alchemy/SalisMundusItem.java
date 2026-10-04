@@ -30,6 +30,8 @@ public final class SalisMundusItem extends Item {
         var pos = context.getClickedPos();
         if (context.getPlayer() == null || !context.getPlayer().mayBuild()) return InteractionResult.FAIL;
         if (context.getPlayer().isShiftKeyDown()) return InteractionResult.PASS;
+        InteractionResult thaumatorium = thaumcraft.essentia.thaumatorium.ThaumatoriumFormation.use(context);
+        if (thaumatorium != InteractionResult.PASS) return thaumatorium;
         InteractionResult infusion = thaumcraft.infusion.InfusionAltarFormation.use(context);
         if (infusion != InteractionResult.PASS) return infusion;
         boolean bookshelf = level.getBlockState(pos).is(Blocks.BOOKSHELF);

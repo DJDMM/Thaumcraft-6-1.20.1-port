@@ -66,7 +66,7 @@ public final class CentrifugeProgressionGameTests {
         result(helper,ResearchProgression.advance(player,"CENTRIFUGE",1),ResearchProgression.Result.STALE);
         helper.assertTrue(before.equals(knowledge.save())&&xp==player.totalExperience&&PlayerKnowledge.load(before).isResearchCompleteStrict("CENTRIFUGE"),
                 "Replay consumed resources or save lost completion");
-        result(helper,ResearchProgression.advance(player,"THAUMATORIUM",0),ResearchProgression.Result.UNSUPPORTED);
+        result(helper,ResearchProgression.advance(player,"THAUMATORIUM",0),ResearchProgression.Result.LOCKED);
         helper.succeed();
     }
 

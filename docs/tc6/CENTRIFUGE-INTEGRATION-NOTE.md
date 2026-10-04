@@ -1,4 +1,4 @@
-# Essentia centrifuge — BETA26 production integration 0.19
+# Essentia centrifuge — BETA26 production integration 0.19/0.20
 
 This is the next devices slice, separate from completion of the 21 focus definitions.
 Source baseline: `Thaumcraft-1.12.2-6.1.BETA26.jar`, SHA-256
@@ -27,7 +27,11 @@ Read alongside `TileCentrifuge`, `BlockCentrifuge`, `BlockTCTile`,
   centrifuge for legacy save recovery; the separate migration changes only
   a storage-free `CatalogBlockEntity` anchor under a working centrifuge block.
 - `CENTRIFUGE` belongs to `ResearchProgression`'s implemented canonical set,
-  bringing the current total to 43 (the complete focus slice reached 42).
+  bringing the 0.19 total to 43 (the complete focus slice reached 42).
+  The active 0.20 slice adds ESSENTIASMELTERTHAUMIUM, THAUMATORIUM and
+  INFUSIONSTABLE, making the current canonical set 46. The final 0.20 server
+  run passed 603/603 after the book requirement fix; the hidden client passed
+  22/22, and final build/resource checks passed.
   Its original alchemy JSON is loaded by the book: completed
   `TUBES` parent, stage 1 costs exactly `THEORY;ALCHEMY;1` (32 raw theory),
   stage 2 is the recipe page. Bare recipe `CENTRIFUGE` uses the original
@@ -97,9 +101,9 @@ after each `addBox`: vanilla 1.12 constructs each ModelBox using the preceding
 false value, so the working model keeps those effective unmirrored UVs rather
 than applying the late field to newly built modern boxes.
 
-## Server and client evidence
+## Historical 0.19 server and client evidence
 
-The current integrated `validation/focus-019-gametest8.log` completed all 577
+The verified 0.19 `validation/focus-019-gametest8.log` completed all 577
 required server tests with BUILD SUCCESSFUL, including the 13 centrifuge
 scenarios and the final Mine callback-removal regression.
 `CentrifugeGameTests` defines 11 scenarios: actual registered tile/render shape;
@@ -143,8 +147,31 @@ desktop switch, foreground activation or global input is required.
 
 ## Remaining device scope
 
-This implements only the centrifuge. Thaumatorium, mnemonic matrix, advanced
-transport, mirrors/transfusers, golem automation and other Artifice devices are
-still separate work. The simple mechanism/morphic resonator ingredient routes
-depend on their original Golemancy progression; opening CENTRIFUGE alone must
-not be reported as completing those survival routes or the Thaumatorium chain.
+This note covers the centrifuge. The earlier claim that its simple mechanism
+and morphic resonator required Golemancy was incorrect. In BETA26 both simple
+and complex mechanisms use BASEARTIFICE, and the resonator uses BASEALCHEMY.
+The 0.20 slice implements their paid arcane recipes and the original natural
+rare-earth harvest route. The resonator requires metadata 10 rareearth,
+not metadata 5 quicksilver; no substitute or new research key is introduced.
+See [EARLY-DEVICE-INGREDIENTS-BETA26-AUDIT.md](EARLY-DEVICE-INGREDIENTS-BETA26-AUDIT.md).
+The final 0.20 integrated server run automation-020-gametest5 passed 603/603,
+including its five new component scenarios. EssentiaProduction
+thaumatorium-020-client5 passed 22/22 with exit 0, unchanged Default input
+desktop and 16 owned windows; 1084 baked states and 17 working blocks were
+audited. Final build passed, resources validated 2783 JSON / 3542 files.
+The historical 0.19 centrifuge pass did not test these newly added paths.
+
+Thaumatorium and INFUSIONSTABLE progression are integrated in 0.20. The
+working machine has the actual Salis blueprint, shared catalyst inventory,
+server-derived recipe menu and C2S selection, two-level suction, redstone,
+paid output/container flow, persistent state and Brain Box capacity. See
+[THAUMATORIUM-BETA26-AUDIT.md](THAUMATORIUM-BETA26-AUDIT.md). Its actual
+Salis and menu C2S, dust2->1/coal2->1, typed sources50->25, buffered24->25->0
+and one Alumentum in the front chest were checked in the final 22-scene
+client. Research, source contents and the capacity3 Brain Box are explicit
+fixtures, not proof of a full survival route. Final evidence and artifacts:
+[VALIDATION.md](../../VALIDATION.md), [0.20 report](../../validation/artifact-report-0.20.json).
+Brain Box's mind_clockwork remains a real unimplemented MINDCLOCKWORK/Golemancy
+acquisition path; the main Thaumatorium does not require this optional upgrade.
+Advanced transport, mirrors/transfusers, golem automation and other Artifice
+devices remain separate work. Opening CENTRIFUGE alone never completes them.

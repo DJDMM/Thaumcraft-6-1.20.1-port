@@ -144,7 +144,7 @@ public final class InfusionProgressionGameTests {
         helper.assertTrue(ResearchCatalog.get("RECHARGEPEDESTAL").parents().equals(java.util.List.of("BASEAUROMANCY"))
                 && ResearchCatalog.get("BOOTSTRAVELLER").parents().contains("RECHARGEPEDESTAL"), "An unported prerequisite was deleted");
         for (String key : new String[]{"FORTRESSMASK", "INFUSIONENCHANTMENT", "RUNICSHIELDING",
-                "INFUSIONSTABLE", "INFUSIONANCIENT", "INFUSIONELDRITCH"}) {
+                "INFUSIONANCIENT", "INFUSIONELDRITCH"}) {
             result(helper, ResearchNetwork.processAdvance(player, key, 0), ResearchProgression.Result.UNSUPPORTED);
             helper.assertTrue(state.researchStage(key) == 0 && !state.isResearchCompleteStrict(key), "Unported entry was marked completed: " + key);
         }

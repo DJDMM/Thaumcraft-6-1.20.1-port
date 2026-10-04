@@ -41,6 +41,8 @@ public final class CatalogBlocks {
                     ? new thaumcraft.infusion.InfusionBlockItem(block.get())
                     : thaumcraft.essentia.centrifuge.CentrifugeModule.handlesBlock(spec.id())
                     ? new thaumcraft.essentia.centrifuge.CentrifugeBlockItem(block.get())
+                    : thaumcraft.essentia.thaumatorium.ThaumatoriumModule.handlesBlock(spec.id())
+                    ? new BlockItem(block.get(),new Item.Properties())
                     : spec.id().equals("recharge_pedestal") || thaumcraft.auromancy.table.FocalManipulatorModule.handlesBlock(spec.id())
                     ? new BlockItem(block.get(),new Item.Properties()) : new CatalogBlockItem(block.get()));
         }
@@ -61,6 +63,7 @@ public final class CatalogBlocks {
         if (thaumcraft.essentia.production.EssentiaProductionModule.handlesBlock(id)) return thaumcraft.essentia.production.EssentiaProductionModule.createBlock(id, props);
         if (thaumcraft.essentia.transport.EssentiaTransportModule.handlesBlock(id)) return thaumcraft.essentia.transport.EssentiaTransportModule.createBlock(id, props);
         if (thaumcraft.essentia.centrifuge.CentrifugeModule.handlesBlock(id)) return thaumcraft.essentia.centrifuge.CentrifugeModule.createBlock();
+        if (thaumcraft.essentia.thaumatorium.ThaumatoriumModule.handlesBlock(id)) return thaumcraft.essentia.thaumatorium.ThaumatoriumModule.createBlock(id);
         if (id.equals("recharge_pedestal")) return new thaumcraft.equipment.recharge.RechargePedestalBlock(props);
         if (id.equals("purifying_fluid")) return thaumcraft.equipment.cleansing.CleansingModule.createPurifyingBlock();
         if (id.startsWith("slab_") && !id.startsWith("slab_double_")) return new SlabBlock(props);

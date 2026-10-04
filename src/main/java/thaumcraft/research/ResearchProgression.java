@@ -22,7 +22,8 @@ public final class ResearchProgression {
             "BASEAUROMANCY", "RECHARGEPEDESTAL", "BOOTSTRAVELLER", "ELEMENTALTOOLS", "ARMORFORTRESS",
             "FOCUSELEMENTAL", "FOCUSPROJECTILE", "FOCUSBOLT", "FOCUSFLUX", "FOCUSHEAL", "FOCUSBREAK",
             "FOCUSCURSE", "FOCUSEXCHANGE", "FOCUSRIFT", "FOCUSPLAN", "FOCUSMINE", "FOCUSSPELLBAT",
-            "FOCUSCLOUD", "FOCUSSCATTER", "FOCUSSPLIT", "FOCUSADVANCED", "FOCUSGREATER", "PRIMPEARL", "!Firebat", "CENTRIFUGE");
+            "FOCUSCLOUD", "FOCUSSCATTER", "FOCUSSPLIT", "FOCUSADVANCED", "FOCUSGREATER", "PRIMPEARL", "!Firebat", "CENTRIFUGE",
+            "ESSENTIASMELTERTHAUMIUM", "THAUMATORIUM", "INFUSIONSTABLE");
     private static final Set<String> REMAINING_LESSONS = Set.of("PORT_TALLOW");
     private static final Set<String> OLD_PROFILE_LESSONS = Set.of("PORT_START", "PORT_SCAN", "PORT_ALCHEMY",
             "PORT_NITOR", "PORT_ALUMENTUM", "PORT_BRASS", "PORT_THAUMIUM");
@@ -186,7 +187,7 @@ public final class ResearchProgression {
             String[] parts = key.split(";");
             knowledge.add(new KnowledgeCost(KnowledgeType.valueOf(parts[0]), parts[1], raw));
         });
-        List<String> craft = strings(stage, "required_craft").stream().map(ResearchProgression::craftId).toList();
+        List<String> craft = strings(stage, "required_craft").stream().map(ResearchProgression::craftId).filter(Objects::nonNull).toList();
         List<Obtain> obtain = new ArrayList<>();
         for (String raw : strings(stage, "required_item")) {
             // BETA26 drops invalid IDs (e.g. minecraft:thaumcraft:enchanted_placeholder).
@@ -205,6 +206,10 @@ public final class ResearchProgression {
         String[] parts = raw.split(";", 4);
         if (parts.length > 3 || parts.length > 1 && Integer.parseInt(parts[1]) <= 0)
             throw new IllegalArgumentException("Unsupported craft requirement " + raw);
+        // ResearchManager.parseJsonOreList silently discards unregistered BETA26 IDs.
+        // These obsolete names exist in the shipped JSON, but neither Item registry entry
+        // exists in the pinned release. Do not turn them into invented modern craft proofs.
+        if (Set.of("thaumcraft:metal", "thaumcraft:leather").contains(parts[0])) return null;
         return LegacyResearchItems.resolve(raw).toString();
     }
 

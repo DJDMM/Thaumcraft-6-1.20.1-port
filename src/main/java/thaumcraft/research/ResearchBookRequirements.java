@@ -57,6 +57,9 @@ public final class ResearchBookRequirements {
                     }
                     result.add(new Row(Kind.ITEM,descriptor,item,null,"",required,available,available>=required));
                 } else if (kind.equals("required_craft")) {
+                    // As with obtain rows, the release drops unregistered descriptors.
+                    // E.g. its stale thaumcraft:metal entry must not appear as an unpaid craft.
+                    if (item.isEmpty()) continue;
                     String id;
                     try { id = LegacyResearchItems.resolve(descriptor).toString(); }
                     catch (IllegalArgumentException ignored) { id = descriptor.split(";",2)[0]; }

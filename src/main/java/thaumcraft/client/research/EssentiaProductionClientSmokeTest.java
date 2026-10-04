@@ -7,11 +7,13 @@ import com.mojang.math.Axis;
 import net.minecraft.client.*;
 import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.client.gui.screens.*;
+import net.minecraft.client.gui.screens.inventory.ContainerScreen;
 import net.minecraft.client.renderer.texture.*;
 import net.minecraft.client.tutorial.TutorialSteps;
 import net.minecraft.core.*;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.*;
@@ -20,6 +22,7 @@ import net.minecraft.world.item.*;
 import net.minecraft.world.level.*;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.entity.BlockEntity;
+import net.minecraft.world.level.block.entity.ChestBlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.levelgen.WorldOptions;
 import net.minecraft.world.level.levelgen.presets.WorldPresets;
@@ -29,12 +32,15 @@ import net.minecraftforge.event.TickEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import thaumcraft.api.aspects.*;
+import thaumcraft.alchemy.*;
 import thaumcraft.catalog.CatalogModule;
 import thaumcraft.catalog.blocks.CatalogBlocks;
 import thaumcraft.essentia.EssentiaJarBlockEntity;
 import thaumcraft.essentia.production.*;
 import thaumcraft.essentia.production.client.SmelterScreen;
 import thaumcraft.essentia.transport.*;
+import thaumcraft.essentia.thaumatorium.*;
+import thaumcraft.essentia.thaumatorium.client.ThaumatoriumScreen;
 import thaumcraft.research.*;
 
 import java.io.File;
@@ -48,8 +54,14 @@ import java.util.concurrent.atomic.AtomicInteger;
 public final class EssentiaProductionClientSmokeTest {
     private static final String WORLD="thaumcraft-essentia-production-smoke-"+System.currentTimeMillis();
     private static final String[] IMAGES={"smelter-idle","smelter-burning","production-network","machines",
-            "six-tubes","tube-controls","alembic-labels","smelter-recipe","jar-recipe","tube-recipe","centrifuge","centrifuge-recipe"};
+            "six-tubes","tube-controls","alembic-labels","smelter-recipe","jar-recipe","tube-recipe","centrifuge","centrifuge-recipe",
+            "thaumatorium-formation","thaumatorium-empty","thaumatorium-selected","thaumatorium-progress-paused",
+            "thaumatorium-chest-output","thaumatorium-live-render","thaumium-smelter-recipe","thaumatorium-blueprint","stabilizer-recipe","inlay-recipe"};
     private static final BlockPos SMELTER=new BlockPos(0,112,0), ALEMBIC=SMELTER.above(), JAR=new BlockPos(2,112,0);
+    private static final BlockPos THAUMATORIUM=new BlockPos(-12,113,0), THAUMATORIUM_CHEST=THAUMATORIUM.south(), THAUMATORIUM_POWER=THAUMATORIUM.above(2);
+    private static final List<BlockPos> THAUMATORIUM_SOURCES=List.of(THAUMATORIUM.west(),THAUMATORIUM.east(),THAUMATORIUM.north());
+    private static final ResourceLocation ALUMENTUM=ResourceLocation.fromNamespaceAndPath("thaumcraft","alumentum");
+    private static final Vec3 THAUMATORIUM_CAMERA=new Vec3(-11.5,111,3.5);
     private record Display(String name,String id,BlockPos pos) {}
     private static final List<List<Display>> galleries=new ArrayList<>();
     private static final AtomicInteger saved=new AtomicInteger();
@@ -60,6 +72,7 @@ public final class EssentiaProductionClientSmokeTest {
     private static long began;
     private static TutorialSteps previousTutorial;
     private static String bookBefore;
+    private static CrucibleBlockEntity thaumatoriumCrucible;
     private EssentiaProductionClientSmokeTest() {}
     static void snapshot(CompoundTag tag) { if(Boolean.getBoolean("thaumcraft.essentiaProductionSmokeTest"))snapshot=tag.copy(); }
     private static void require(boolean condition,String message) { if(!condition)throw new AssertionError(message); }
@@ -75,6 +88,8 @@ public final class EssentiaProductionClientSmokeTest {
             if(work!=null){if(!work.isDone())return;work.join();work=null;}
             if(!setup){setup=true;submit(mc,()->prepareWorld(mc));return;}
             if(scene==IMAGES.length){finish(mc);return;}
+            // A saved frame may outlive a transient processing state. Advance from that frame before rechecking it.
+            if(captured){if(saved.get()==scene+1&&++stableTicks>=30){scene++;phase=stableTicks=0;prepared=captured=captureRequested=false;}return;}
             if(scene==0){
                 if(!(mc.level.getBlockEntity(SMELTER) instanceof SmelterBlockEntity))return;
                 if(!prepared&&mc.player.position().distanceToSqr(new net.minecraft.world.phys.Vec3(.5,112,3.5))>.25)return;
@@ -118,20 +133,22 @@ public final class EssentiaProductionClientSmokeTest {
                 if(!gallerySynced(mc,5))return;
                 if(phase==0){phase=1;LogUtils.getLogger().info("THAUMCRAFT_CENTRIFUGE_CLIENT_FLOW: actual server conversion and client received working BE/input/output/redstone; original rotor animates");}
                 if(!(mc.screen instanceof Gallery gallery&&gallery.page==5)){mc.setScreen(new Gallery(5,"TC6 centrifuge: redstone pause / processing / one component"));return;}
+            } else if(scene>=12&&scene<=17){
+                if(!thaumatoriumScene(mc))return;
             } else {
                 if(snapshot==null)return;
                 if(!prepared){prepared=true;openBook(mc);return;}
                 require(bookBefore.equals(ThaumonomiconCompleteClientSmokeTest.gameplayState(PlayerKnowledge.load(snapshot)).toString()),"Viewing essentia recipes mutated server knowledge");
             }
             if(++stableTicks>=20&&!captured)captureRequested=true;
-            if(captured&&saved.get()==scene+1&&stableTicks>=30){scene++;phase=stableTicks=0;prepared=captured=captureRequested=false;}
         } catch(Throwable failure){fail(mc,failure);}
     }
     @SubscribeEvent public static void rendered(TickEvent.RenderTickEvent event){
         if(event.phase!=TickEvent.Phase.END||!Boolean.getBoolean("thaumcraft.essentiaProductionSmokeTest")||stopped||!captureRequested||captured)return;
         Minecraft mc=Minecraft.getInstance();
         try {
-            boolean expected=scene<2?mc.screen instanceof SmelterScreen:scene<7||scene==10?mc.screen instanceof Gallery:mc.screen instanceof ThaumonomiconPageScreen;
+            boolean expected=scene<2?mc.screen instanceof SmelterScreen:scene<7||scene==10||scene==12||scene==17?mc.screen instanceof Gallery
+                    :scene>=13&&scene<=15?mc.screen instanceof ThaumatoriumScreen:scene==16?mc.screen instanceof ContainerScreen:mc.screen instanceof ThaumonomiconPageScreen;
             if(!expected)return;captured=true;captureRequested=false;
             String name="tc6-essentia-production-"+IMAGES[scene]+".png";
             File file=new File(new File(mc.gameDirectory,"screenshots"),name);Files.deleteIfExists(file.toPath());
@@ -155,6 +172,130 @@ public final class EssentiaProductionClientSmokeTest {
     private static void submit(Minecraft mc,Runnable action){require(work==null,"Overlapping production server tasks");CompletableFuture<Void> result=new CompletableFuture<>();work=result;
         mc.getSingleplayerServer().execute(()->{try{action.run();result.complete(null);}catch(Throwable error){result.completeExceptionally(error);}});}
     private static BlockState state(String id){return CatalogBlocks.block(id).defaultBlockState();}
+    private static void closeMenu(Minecraft mc){mc.player.closeContainer();mc.setScreen(null);}
+    private static void useBlock(Minecraft mc,BlockPos pos){mc.gameMode.useItemOn(mc.player,InteractionHand.MAIN_HAND,new BlockHitResult(Vec3.atCenterOf(pos),Direction.SOUTH,pos,false));}
+    private static ThaumatoriumBlockEntity thaumatorium(Minecraft mc){
+        var tile=player(mc).serverLevel().getBlockEntity(THAUMATORIUM);require(tile instanceof ThaumatoriumBlockEntity,"Missing authoritative formed thaumatorium");return (ThaumatoriumBlockEntity)tile;
+    }
+    private static void tickThaumatorium(Minecraft mc,int ticks){var tile=thaumatorium(mc);for(int i=0;i<ticks;i++)ThaumatoriumBlockEntity.tick(tile.getLevel(),THAUMATORIUM,tile.getBlockState(),tile);}
+    private static int sourceAmount(Minecraft mc){return THAUMATORIUM_SOURCES.stream().mapToInt(pos->((AlembicBlockEntity)player(mc).serverLevel().getBlockEntity(pos)).amount()).sum();}
+    private static int clientSourceAmount(Minecraft mc){
+        int total=0;for(var pos:THAUMATORIUM_SOURCES){if(!(mc.level.getBlockEntity(pos) instanceof AlembicBlockEntity tile))return -1;total+=tile.amount();}return total;
+    }
+    private static void prepareThaumatorium(Minecraft mc){
+        var player=player(mc);var level=player.serverLevel();
+        // Separate footing and room keep this physical interaction fixture away from the original producer.
+        for(var pos:BlockPos.betweenClosed(-17,110,-5,-7,117,6))level.setBlockAndUpdate(pos,pos.getY()==110?Blocks.STONE.defaultBlockState():Blocks.AIR.defaultBlockState());
+        level.setBlockAndUpdate(THAUMATORIUM.below(2),AlchemyModule.NITOR.get().defaultBlockState());
+        level.setBlockAndUpdate(THAUMATORIUM.below(),AlchemyModule.CRUCIBLE.get().defaultBlockState());
+        thaumatoriumCrucible=(CrucibleBlockEntity)level.getBlockEntity(THAUMATORIUM.below());
+        level.setBlockAndUpdate(THAUMATORIUM,state("metal_alchemical"));level.setBlockAndUpdate(THAUMATORIUM.above(),state("metal_alchemical"));
+        for(var pos:THAUMATORIUM_SOURCES)level.setBlockAndUpdate(pos,state("alembic"));
+        player.getInventory().clearContent();player.getInventory().selected=0;
+        player.getInventory().setItem(0,new ItemStack(AlchemyModule.SALIS_MUNDUS.get(),2));player.getInventory().setItem(9,new ItemStack(Items.COAL,2));
+        player.inventoryMenu.broadcastChanges();player.connection.teleport(THAUMATORIUM_CAMERA.x,THAUMATORIUM_CAMERA.y,THAUMATORIUM_CAMERA.z,180,5);
+        galleries.add(List.of(new Display("Real dust formation","thaumatorium",THAUMATORIUM),new Display("Potentia source","alembic",THAUMATORIUM_SOURCES.get(0)),
+                new Display("Ignis source","alembic",THAUMATORIUM_SOURCES.get(1)),new Display("Perditio source","alembic",THAUMATORIUM_SOURCES.get(2))));
+    }
+    private static boolean thaumatoriumScene(Minecraft mc){
+        if(scene==12){
+            if(!prepared){prepared=true;closeMenu(mc);submit(mc,()->prepareThaumatorium(mc));return false;}
+            if(phase==0){
+                if(mc.player.position().distanceToSqr(THAUMATORIUM_CAMERA)>.25||!mc.player.getMainHandItem().is(AlchemyModule.SALIS_MUNDUS.get())||mc.player.getMainHandItem().getCount()!=2
+                        ||!mc.level.getBlockState(THAUMATORIUM).is(CatalogBlocks.block("metal_alchemical"))||!mc.level.getBlockState(THAUMATORIUM.above()).is(CatalogBlocks.block("metal_alchemical")))return false;
+                phase=1;useBlock(mc,THAUMATORIUM);return false;
+            }
+            if(!(mc.level.getBlockEntity(THAUMATORIUM) instanceof ThaumatoriumBlockEntity)||!(mc.level.getBlockEntity(THAUMATORIUM.above()) instanceof ThaumatoriumTopBlockEntity)
+                    ||mc.player.getMainHandItem().getCount()!=1)return false;
+            if(phase==1){phase=2;submit(mc,()->{
+                var player=player(mc);var tile=thaumatorium(mc);var level=player.serverLevel();
+                require(tile.facing()==Direction.SOUTH&&level.getBlockEntity(THAUMATORIUM.above()) instanceof ThaumatoriumTopBlockEntity top&&top.base()==tile
+                        &&level.getBlockEntity(THAUMATORIUM.below())==thaumatoriumCrucible&&player.getMainHandItem().getCount()==1
+                        &&KnowledgeStore.get(player).hasCraft("thaumcraft:thaumatorium"),"Real C2S dust formation did not retain the crucible or debit exactly one dust");
+                level.setBlockAndUpdate(THAUMATORIUM_CHEST,Blocks.CHEST.defaultBlockState());
+                require(tile.checkHeat(),"Original yellow nitor did not heat the machine");
+                LogUtils.getLogger().info("THAUMCRAFT_THAUMATORIUM_CLIENT_FORMATION: actual Salis C2S; two constructs replaced, crucible retained, one dust paid, facing SOUTH, real Nitor heat");
+            });return false;}
+            if(!gallerySynced(mc,6))return false;
+            if(!(mc.screen instanceof Gallery gallery&&gallery.page==6)){mc.setScreen(new Gallery(6,"TC6 Thaumatorium / real Salis formation and three empty transport peers"));return false;}
+            return true;
+        }
+        if(scene==13){
+            if(!prepared){prepared=true;closeMenu(mc);useBlock(mc,THAUMATORIUM);return false;}
+            if(!(mc.screen instanceof ThaumatoriumScreen)||!(mc.player.containerMenu instanceof ThaumatoriumMenu menu))return false;
+            if(menu.revision()<1)return false;
+            require(menu.position().equals(THAUMATORIUM)&&menu.slots.size()==37&&menu.getSlot(0).getItem().isEmpty()&&menu.recipes().isEmpty()
+                    &&menu.stored().visSize()==0&&menu.capacity()==1,"Empty real thaumatorium menu does not match its original one catalyst inventory");
+            return true;
+        }
+        if(scene==14){
+            require(mc.screen instanceof ThaumatoriumScreen&&mc.player.containerMenu instanceof ThaumatoriumMenu,"Lost real thaumatorium menu");
+            var menu=(ThaumatoriumMenu)mc.player.containerMenu;
+            if(!prepared){if(!mc.player.getInventory().getItem(9).is(Items.COAL)||mc.player.getInventory().getItem(9).getCount()!=2)return false;
+                prepared=true;mc.gameMode.handleInventoryMouseClick(menu.containerId,1,0,ClickType.QUICK_MOVE,mc.player);return false;}
+            if(!menu.getSlot(0).getItem().is(Items.COAL)||menu.getSlot(0).getItem().getCount()!=2)return false;
+            var selected=menu.recipes().stream().filter(view->view.id().equals(ALUMENTUM)).findFirst();if(selected.isEmpty())return false;
+            require(selected.get().cost().getAmount(Aspect.ENERGY)==10&&selected.get().cost().getAmount(Aspect.FIRE)==10&&selected.get().cost().getAmount(Aspect.ENTROPY)==5
+                    &&selected.get().output().is(AlchemyModule.ALUMENTUM.get())&&selected.get().output().getCount()==1,"Original alumentum recipe cost/output changed");
+            if(phase==0){phase=1;ThaumatoriumNetwork.select(menu,ALUMENTUM);return false;}
+            if(!selected.get().selected())return false;
+            if(phase==1){phase=2;submit(mc,()->{
+                var player=player(mc);var tile=thaumatorium(mc);
+                require(player.containerMenu instanceof ThaumatoriumMenu serverMenu&&serverMenu.position().equals(THAUMATORIUM)&&tile.selectedRecipes().equals(List.of(ALUMENTUM))
+                        &&tile.getItem(0).getCount()==2&&player.getInventory().getItem(9).isEmpty()&&tile.getAspects().visSize()==0,"Actual revision-checked selection or coal quick move failed");
+            });return false;}
+            require(menu.stored().visSize()==0,"Empty source fixture unexpectedly generated free essentia");return true;
+        }
+        if(scene==15){
+            if(!prepared){prepared=true;submit(mc,()->{
+                var level=player(mc).serverLevel();var tile=thaumatorium(mc);Aspect[] aspects={Aspect.ENERGY,Aspect.FIRE,Aspect.ENTROPY};int[] amounts={20,20,10};
+                for(int i=0;i<aspects.length;i++)require(((AlembicBlockEntity)level.getBlockEntity(THAUMATORIUM_SOURCES.get(i))).addExact(aspects[i],amounts[i]),"Explicit typed source fixture failed");
+                // Tick the real typed transport path and stop one unit before completion; no buffer setter is used.
+                for(int i=0;i<200&&tile.getAspects().visSize()<24;i++)tickThaumatorium(mc,1);
+                require(tile.getAspects().visSize()==24&&sourceAmount(mc)==26&&tile.getItem(0).getCount()==2,"Thaumatorium did not draw exactly24 typed units from real peers");
+                level.setBlockAndUpdate(THAUMATORIUM_POWER,Blocks.REDSTONE_BLOCK.defaultBlockState());
+                var before=tile.getAspects();tickThaumatorium(mc,15);
+                require(tile.gettingPower()&&before.aspects.equals(tile.getAspects().aspects)&&sourceAmount(mc)==26&&tile.getItem(0).getCount()==2,"Redstone did not preserve real processing buffer and catalyst");
+                ((ThaumatoriumMenu)player(mc).containerMenu).broadcastChanges();
+                LogUtils.getLogger().info("THAUMCRAFT_THAUMATORIUM_CLIENT_PARTIAL: real fifth-tick typed draw24/25; peers26/50; coal2; redstone freezes paid buffer for capture");
+            });return false;}
+            if(!(mc.screen instanceof ThaumatoriumScreen)||!(mc.player.containerMenu instanceof ThaumatoriumMenu menu)||menu.stored().visSize()!=24||clientSourceAmount(mc)!=26
+                    ||!(mc.level.getBlockEntity(THAUMATORIUM) instanceof ThaumatoriumBlockEntity tile)||tile.getAspects().visSize()!=24||!mc.level.getBlockState(THAUMATORIUM_POWER).is(Blocks.REDSTONE_BLOCK))return false;
+            require(menu.recipes().stream().anyMatch(view->view.id().equals(ALUMENTUM)&&view.selected())&&menu.getSlot(0).getItem().getCount()==2,"Paused progress snapshot lost selected recipe/catalyst");return true;
+        }
+        if(scene==16){
+            if(!prepared){prepared=true;closeMenu(mc);submit(mc,()->{
+                var level=player(mc).serverLevel();var tile=thaumatorium(mc);var chest=(ChestBlockEntity)level.getBlockEntity(THAUMATORIUM_CHEST);
+                level.setBlockAndUpdate(THAUMATORIUM_POWER,Blocks.AIR.defaultBlockState());
+                for(int i=0;i<30&&chest.isEmpty();i++)tickThaumatorium(mc,1);
+                level.setBlockAndUpdate(THAUMATORIUM_POWER,Blocks.REDSTONE_BLOCK.defaultBlockState());
+                require(chest.getItem(0).is(AlchemyModule.ALUMENTUM.get())&&chest.getItem(0).getCount()==1&&tile.getItem(0).is(Items.COAL)&&tile.getItem(0).getCount()==1
+                        &&tile.getAspects().visSize()==0&&sourceAmount(mc)==25&&tile.pendingOutput().isEmpty(),"Original25 essentia/one coal payment or single front-chest output failed");
+                require(level.getEntitiesOfClass(net.minecraft.world.entity.item.ItemEntity.class,new AABB(THAUMATORIUM).inflate(3),entity->entity.getItem().is(AlchemyModule.ALUMENTUM.get())).isEmpty(),"Inventory output also ejected a duplicate");
+                LogUtils.getLogger().info("THAUMCRAFT_THAUMATORIUM_CLIENT_FLOW: real C2S formation/menu/coal/selection; three typed peers50->25; buffer24->25->0; coal2->1; actual front chest receives one alumentum; redstone pause preserved");
+            });return false;}
+            if(!(mc.level.getBlockEntity(THAUMATORIUM) instanceof ThaumatoriumBlockEntity tile)||tile.getItem(0).getCount()!=1||tile.getAspects().visSize()!=0||clientSourceAmount(mc)!=25)return false;
+            if(phase==0){phase=1;useBlock(mc,THAUMATORIUM_CHEST);return false;}
+            if(!(mc.screen instanceof ContainerScreen))return false;
+            require(mc.player.containerMenu.getSlot(0).getItem().is(AlchemyModule.ALUMENTUM.get())&&mc.player.containerMenu.getSlot(0).getItem().getCount()==1,"Real chest menu did not synchronize the paid output");return true;
+        }
+        if(scene==17){
+            if(!prepared){prepared=true;closeMenu(mc);submit(mc,()->{
+                var level=player(mc).serverLevel();var brain=THAUMATORIUM.above().west();level.setBlockAndUpdate(brain,state("brain_box").setValue(BrainBoxBlock.FACING,Direction.EAST));
+                var tile=thaumatorium(mc);tile.getUpgrades();require(tile.maxRecipes()==3&&tile.selectedRecipes().equals(List.of(ALUMENTUM)),"Facing original brain fixture did not add exactly two selection slots");
+                galleries.add(List.of(new Display("Live selected output","thaumatorium",THAUMATORIUM),new Display("Facing upgrade / +2 slots","brain_box",brain),
+                        new Display("Potentia remaining","alembic",THAUMATORIUM_SOURCES.get(0)),new Display("Ignis remaining","alembic",THAUMATORIUM_SOURCES.get(1))));
+            });return false;}
+            if(!gallerySynced(mc,7)||!(mc.level.getBlockEntity(THAUMATORIUM) instanceof ThaumatoriumBlockEntity tile)||tile.maxRecipes()!=3
+                    ||!tile.cyclingOutput(mc.level.getGameTime()).is(AlchemyModule.ALUMENTUM.get())||clientSourceAmount(mc)!=25)return false;
+            if(phase==0){phase=1;var before=tile.saveWithoutMetadata();tile.setAspects(new AspectList().add(Aspect.FIRE,99));
+                require(tile.addToContainer(Aspect.FIRE,1)==1&&!tile.takeFromContainer(Aspect.FIRE,1)&&before.equals(tile.saveWithoutMetadata()),"Client mutated synced thaumatorium essentia");
+                LogUtils.getLogger().info("THAUMCRAFT_THAUMATORIUM_CLIENT_RENDER: synchronized formed BE cycles real selected alumentum; native original model/attached brain capacity3; client mutation rejected");}
+            if(!(mc.screen instanceof Gallery gallery&&gallery.page==7)){mc.setScreen(new Gallery(7,"TC6 Thaumatorium / synchronized result preview and facing brain upgrade fixture"));return false;}
+            return true;
+        }
+        throw new AssertionError("Unknown thaumatorium scene "+scene);
+    }
     private static void prepareWorld(Minecraft mc) throws RuntimeException {
         ServerPlayer player=player(mc);var level=player.serverLevel();player.setInvulnerable(true);
         for(BlockPos pos:BlockPos.betweenClosed(-4,111,-4,20,114,16))level.setBlockAndUpdate(pos,pos.getY()==111?Blocks.STONE.defaultBlockState():Blocks.AIR.defaultBlockState());
@@ -187,7 +328,7 @@ public final class EssentiaProductionClientSmokeTest {
         // Explicit late-game UI fixture; paid survival stage and recipe gates are exercised by server GameTests.
         try {
             var setStage=PlayerKnowledge.class.getDeclaredMethod("setResearchStage",String.class,int.class);setStage.setAccessible(true);
-            for(String key:List.of("FIRSTSTEPS","UNLOCKALCHEMY","BASEALCHEMY","METALLURGY","ALUMENTUM","ESSENTIASMELTER","WARDEDJARS","TUBES","CENTRIFUGE")){
+            for(String key:List.of("FIRSTSTEPS","UNLOCKALCHEMY","BASEALCHEMY","METALLURGY","ALUMENTUM","ESSENTIASMELTER","WARDEDJARS","TUBES","CENTRIFUGE","ESSENTIASMELTERTHAUMIUM","THAUMATORIUM","UNLOCKINFUSION","BASEINFUSION","INFUSION","INFUSIONSTABLE")){
                 ResearchEntry entry=ResearchCatalog.get(key);require(entry!=null,"Missing canonical entry "+key);setStage.invoke(KnowledgeStore.get(player),key,entry.stages().size()+1);KnowledgeStore.recordFact(player,key);
             }
         } catch(ReflectiveOperationException exception){throw new RuntimeException(exception);}
@@ -234,22 +375,26 @@ public final class EssentiaProductionClientSmokeTest {
         require(tube.addEssentia(Aspect.FIRE,1,Direction.WEST)==0&&tube.takeEssentia(Aspect.FIRE,1,Direction.EAST)==0&&before.equals(tube.saveWithoutMetadata()),"Client mutated actual tube");
     }
     private static void auditModels(Minecraft mc){
-        for(String id:List.of("smelter_basic","smelter_thaumium","smelter_void","alembic","smelter_aux","smelter_vent","bellows","tube","tube_filter","tube_restrict","tube_oneway","tube_valve","tube_buffer","centrifuge")){
+        for(String id:List.of("smelter_basic","smelter_thaumium","smelter_void","alembic","smelter_aux","smelter_vent","bellows","tube","tube_filter","tube_restrict","tube_oneway","tube_valve","tube_buffer","centrifuge","thaumatorium","thaumatorium_top","brain_box")){
             for(BlockState state:CatalogBlocks.block(id).getStateDefinition().getPossibleStates()){
                 var model=mc.getBlockRenderer().getBlockModel(state);require(model!=mc.getModelManager().getMissingModel(),"Missing baked state: "+state);
                 List<Direction> faces=new ArrayList<>(Arrays.asList(Direction.values()));faces.add(null);
                 for(Direction face:faces)for(var quad:model.getQuads(state,face,RandomSource.create(0)))require(!quad.getSprite().contents().name().equals(MissingTextureAtlasSprite.getLocation()),"Missing baked texture: "+state);
                 modelStates++;
             }
-            var model=mc.getItemRenderer().getModel(new ItemStack(CatalogBlocks.block(id)),mc.level,mc.player,0);require(model!=mc.getModelManager().getMissingModel(),"Missing machine item "+id);
+            if(CatalogBlocks.block(id).asItem()!=Items.AIR){var model=mc.getItemRenderer().getModel(new ItemStack(CatalogBlocks.block(id)),mc.level,mc.player,0);require(model!=mc.getModelManager().getMissingModel(),"Missing machine item "+id);}
         }
         LogUtils.getLogger().info("THAUMCRAFT_ESSENTIA_PRODUCTION_MODEL_STATES: {}",modelStates);
     }
     private static void openBook(Minecraft mc){
         PlayerKnowledge knowledge=PlayerKnowledge.load(snapshot);bookBefore=ThaumonomiconCompleteClientSmokeTest.gameplayState(knowledge).toString();var browser=new ThaumonomiconScreen(knowledge,knowledge.scanCount());mc.setScreen(browser);
-        String key=scene==7?"ESSENTIASMELTER":scene==8?"WARDEDJARS":scene==11?"CENTRIFUGE":"TUBES", output=scene==7?"smelter_basic":scene==8?"jar_normal":scene==11?"centrifuge":"tube_buffer";
+        String key=switch(scene){case 7->"ESSENTIASMELTER";case 8->"WARDEDJARS";case 11->"CENTRIFUGE";case 18->"ESSENTIASMELTERTHAUMIUM";case 19->"THAUMATORIUM";case 20,21->"INFUSIONSTABLE";default->"TUBES";};
+        String output=switch(scene){case 7->"smelter_basic";case 8->"jar_normal";case 11->"centrifuge";case 18->"smelter_thaumium";case 20->"stabilizer";case 21->"inlay";default->"tube_buffer";};
         browser.selectForSmokeTest(key);require(mc.screen instanceof ThaumonomiconPageScreen,"Missing canonical book page "+key);
-        var page=(ThaumonomiconPageScreen)mc.screen;page.showRecipeForSmokeTest(output);
+        var page=(ThaumonomiconPageScreen)mc.screen;
+        if(scene==19){page.showStructureForSmokeTest("thaumcraft:Thaumatorium");var structure=page.structureForSmokeTest("thaumcraft:Thaumatorium");
+            require(structure!=null&&!structure.detachedPreview().states().isEmpty(),"Missing detached Thaumatorium construction");return;}
+        page.showRecipeForSmokeTest(output);
         var view=page.recipesForSmokeTest().stream().filter(v->net.minecraft.core.registries.BuiltInRegistries.ITEM.getKey(v.output().getItem()).getPath().equals(output)).findFirst().orElseThrow();
         require(view.unlocked(knowledge)&&!view.ingredients().isEmpty()&&view.vis()>0,"Missing original costs / live recipe "+output);
     }
@@ -257,8 +402,8 @@ public final class EssentiaProductionClientSmokeTest {
         if(phase==0){phase=1;submit(mc,()->require(bookBefore.equals(ThaumonomiconCompleteClientSmokeTest.gameplayState(KnowledgeStore.get(player(mc))).toString()),
                 "Read-only book views changed authoritative server knowledge"));return;}
         require(saved.get()==IMAGES.length,"Missing fresh scene files");stopped=true;mc.options.tutorialStep=previousTutorial;
-        LogUtils.getLogger().info("THAUMCRAFT_ESSENTIA_PRODUCTION_RENDER_AUDIT_OK: {} baked states; 14 functional blocks; real BER / original item sprites / labels / valve / buffer / centrifuge; recipes read only",modelStates);
-        LogUtils.getLogger().info("THAUMCRAFT_ESSENTIA_PRODUCTION_CLIENT_SMOKE_OK: {} scenes; survival menu packets, consumed stone/coal, actual tick production -> jar, S2C and client mutation checks; isolated world={}",saved.get(),WORLD);mc.stop();
+        LogUtils.getLogger().info("THAUMCRAFT_ESSENTIA_PRODUCTION_RENDER_AUDIT_OK: {} baked states; 17 functional blocks; real BER / original item sprites / labels / valve / buffer / centrifuge / thaumatorium; recipes and blueprint read only",modelStates);
+        LogUtils.getLogger().info("THAUMCRAFT_ESSENTIA_PRODUCTION_CLIENT_SMOKE_OK: {} scenes; survival menu packets, consumed stone/coal/dust, actual tick production -> jar and typed peers -> thaumatorium -> chest, S2C and client mutation checks; isolated world={}",saved.get(),WORLD);mc.stop();
     }
     private static void fail(Minecraft mc,Throwable failure){if(stopped)return;stopped=true;if(previousTutorial!=null)mc.options.tutorialStep=previousTutorial;LogUtils.getLogger().error("THAUMCRAFT_ESSENTIA_PRODUCTION_CLIENT_SMOKE_FAILED",failure);mc.stop();}
     private static final class Gallery extends Screen {
@@ -280,9 +425,12 @@ public final class EssentiaProductionClientSmokeTest {
                             if(page==0)orientation+=90; // Show the live EAST pipe nozzle instead of its hidden back side.
                             else if(alembic.filter()!=null)orientation+=switch(alembic.labelFacing()){case EAST -> 90;case SOUTH -> 180;case WEST -> -90;default -> 0;};
                         }
-                        gui.pose().translate(px+cw/2,py+96,150);gui.pose().scale(105,-105,105);gui.pose().mulPose(Axis.XP.rotationDegrees(25));gui.pose().mulPose(Axis.YP.rotationDegrees(orientation));gui.pose().translate(-.5,-.4,-.5);Lighting.setupFor3DItems();
+                        boolean tall=be instanceof ThaumatoriumBlockEntity;
+                        if(be instanceof ThaumatoriumBlockEntity machine)orientation+=switch(machine.facing()){case EAST->90;case SOUTH->180;case WEST->-90;default->0;};
+                        float modelScale=tall?70:105;
+                        gui.pose().translate(px+cw/2,py+(tall?85:96),150);gui.pose().scale(modelScale,-modelScale,modelScale);gui.pose().mulPose(Axis.XP.rotationDegrees(25));gui.pose().mulPose(Axis.YP.rotationDegrees(orientation));gui.pose().translate(-.5,tall?-.95:-.4,-.5);Lighting.setupFor3DItems();
                         RenderSystem.runAsFancy(()->{mc.getBlockRenderer().renderSingleBlock(state,gui.pose(),gui.bufferSource(),15728880,OverlayTexture.NO_OVERLAY);
-                            if(be instanceof AlembicBlockEntity||be instanceof TubeBlockEntity||be instanceof EssentiaJarBlockEntity||be instanceof thaumcraft.essentia.centrifuge.CentrifugeBlockEntity)require(!mc.getBlockEntityRenderDispatcher().renderItem(be,gui.pose(),gui.bufferSource(),15728880,OverlayTexture.NO_OVERLAY),"Missing live renderer "+d.id);});
+                            if(be instanceof AlembicBlockEntity||be instanceof TubeBlockEntity||be instanceof EssentiaJarBlockEntity||be instanceof thaumcraft.essentia.centrifuge.CentrifugeBlockEntity||be instanceof ThaumatoriumBlockEntity)require(!mc.getBlockEntityRenderDispatcher().renderItem(be,gui.pose(),gui.bufferSource(),15728880,OverlayTexture.NO_OVERLAY),"Missing live renderer "+d.id);});
                     }finally{gui.flush();gui.pose().popPose();Lighting.setupFor3DItems();}
                     gui.renderItem(new ItemStack(CatalogBlocks.block(d.id)),px+8,py+8);gui.drawCenteredString(font,d.name,px+cw/2,py+172,0xffd4d9df);
                     String details=be instanceof AlembicBlockEntity a?(a.aspect()==null?"empty":a.aspect().getTag())+" "+a.amount()+"/128"
@@ -290,7 +438,8 @@ public final class EssentiaProductionClientSmokeTest {
                             :be instanceof SmelterBlockEntity s?"stored="+s.totalEssentia()+" / fuel="+s.burnTime()
                             :be instanceof TubeBufferBlockEntity b?"stored="+b.getAspects().visSize()+"/10 / choke="+b.choke(Direction.EAST)
                             :be instanceof TubeBlockEntity t?"suction="+t.getSuctionAmount(null)+" / flow="+t.allowFlow()
-                            :be instanceof thaumcraft.essentia.centrifuge.CentrifugeBlockEntity c?"in="+(c.input()==null?"empty":c.input().getTag())+" / out="+(c.output()==null?"empty":c.output().getTag()):"functional attachment";
+                            :be instanceof thaumcraft.essentia.centrifuge.CentrifugeBlockEntity c?"in="+(c.input()==null?"empty":c.input().getTag())+" / out="+(c.output()==null?"empty":c.output().getTag())
+                            :be instanceof ThaumatoriumBlockEntity t?"selected="+t.selectedRecipes().size()+" / slots="+t.maxRecipes()+" / buffered="+t.getAspects().visSize():"functional attachment";
                     gui.drawCenteredString(font,details,px+cw/2,py+187,0xffa7afb8);
                 }
             }catch(Throwable failure){fail(mc,failure);}
