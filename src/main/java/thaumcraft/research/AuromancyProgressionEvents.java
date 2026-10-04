@@ -70,6 +70,12 @@ public final class AuromancyProgressionEvents {
         if (scanned instanceof Bat) return List.of("f_BAT");
         if (scanned instanceof Entity entity) {
             var id = net.minecraftforge.registries.ForgeRegistries.ENTITY_TYPES.getKey(entity.getType());
+            // EntityGolem.class,true includes Snow/Iron Golem and Shulker in 1.12.
+            // The visual TC entity catalogue has flattened EntityOwnedConstruct's
+            // hierarchy; these are its four audited concrete registered IDs.
+            if (entity instanceof net.minecraft.world.entity.animal.AbstractGolem
+                    || id != null && java.util.Set.of("thaumcraft:golem", "thaumcraft:turret_basic", "thaumcraft:turret_advanced", "thaumcraft:arcane_bore").contains(id.toString()))
+                return List.of("f_golem");
             if (id != null && id.toString().equals("thaumcraft:fire_bat")) return List.of("!Firebat", "f_BAT");
             String projectile = projectileFact(entity);
             if (projectile != null) return List.of(projectile);

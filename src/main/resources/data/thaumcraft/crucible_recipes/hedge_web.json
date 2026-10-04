@@ -1,0 +1,19 @@
+{
+  "research": "HEDGEALCHEMY@3",
+  "catalyst": {
+    "item": "minecraft:string"
+  },
+  "result": {
+    "item": "minecraft:cobweb",
+    "count": 1
+  },
+  "aspects": {
+    "vinculum": 5
+  },
+  "aspect_cost": {
+    "item": "minecraft:cobweb",
+    "subtract": {
+      "item": "minecraft:string"
+    }
+  }
+}

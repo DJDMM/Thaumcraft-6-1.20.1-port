@@ -1064,6 +1064,7 @@
   "thaumcraft.progress.start": "Start research",
   "thaumcraft.progress.advance": "Complete current stage",
   "thaumcraft.progress.server_check": "The server checks the current stage and spends its required knowledge and items.",
+  "thaumcraft.progress.stage_unavailable": "The next stage is not available yet. Recipes already unlocked remain usable.",
   "thaumcraft.progress.knowledge_spent": "Knowledge is spent only when the server completes this stage. Recorded crafts and discoveries are kept.",
   "thaumcraft.progress.knowledge_cost": "%s · %s: cost %s (%s raw); available %s raw.",
   "thaumcraft.progress.observation_balance": "Observation · %s: %s + %s/%s (%s raw).",

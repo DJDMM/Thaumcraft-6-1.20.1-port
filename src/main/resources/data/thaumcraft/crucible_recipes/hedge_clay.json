@@ -1,0 +1,19 @@
+{
+  "research": "HEDGEALCHEMY@3",
+  "catalyst": {
+    "item": "minecraft:dirt"
+  },
+  "result": {
+    "item": "minecraft:clay_ball",
+    "count": 1
+  },
+  "aspects": {
+    "aqua": 5
+  },
+  "aspect_cost": {
+    "item": "minecraft:clay_ball",
+    "subtract": {
+      "item": "minecraft:dirt"
+    }
+  }
+}

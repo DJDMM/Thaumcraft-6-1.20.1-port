@@ -125,7 +125,7 @@ public final class ThaumonomiconPageScreen extends Screen {
         if (directRecipe!=null || archiveMode || requestPending || complete()) return false;
         if (legacyLesson()) return scans >= entry.scans() && knowledge.discoveredAspects().size() >= entry.aspects()
                 && entry.parents().stream().allMatch(knowledge::knowsResearch);
-        if (!ResearchProgression.isImplemented(entry.key())) return false;
+        if (!ResearchProgression.supportsProgression(entry.key())) return false;
         return visibleStage == 0 ? ResearchProgression.canStart(knowledge, entry.key())
                 : ResearchProgression.canAdvance(knowledge, entry, minecraft == null || minecraft.player == null
                         ? null : minecraft.player.getInventory());
@@ -499,10 +499,11 @@ public final class ThaumonomiconPageScreen extends Screen {
             button(graphics, 346, 8, 18, 13, "›", chapter + 1 < chapters.size(), mx, my, () -> changeChapter(1), tr("next_stage"));
         }
         button(graphics, 8, 292, 116, 17, tr("back"), true, mx, my, this::onClose, tr("back_hint"));
-        if (directRecipe==null && !archiveMode && !complete() && (legacyLesson() || ResearchProgression.isImplemented(entry.key()))) {
+        if (directRecipe==null && !archiveMode && !complete() && (legacyLesson() || ResearchProgression.supportsProgression(entry.key()))) {
             String label = requestPending ? tr("pending") : legacyLesson() ? tr("discover")
                     : progress(visibleStage == 0 ? "start" : "advance");
-            String hint = resultMessage == null ? progress("server_check") : progress(resultMessage);
+            String hint = resultMessage == null ? progress(legacyLesson() || ResearchProgression.stageSupported(entry.key(), visibleStage)
+                    ? "server_check" : "stage_unavailable") : progress(resultMessage);
             button(graphics, 170, 292, 220, 17, label, actionAvailable(), mx, my, this::requestAdvance, hint);
         } else centered(graphics, tr("page_count", spread + 1, Math.max(1, (pages.size() + 1) / 2)), 285, 295, 200, 0xD5C199);
         if (resultMessage != null) centered(graphics, progress(resultMessage), BOOK_WIDTH / 2, 316, BOOK_WIDTH - 16, 0xE8BA8E);

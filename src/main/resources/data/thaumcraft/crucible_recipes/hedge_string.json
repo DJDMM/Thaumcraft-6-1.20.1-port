@@ -1,0 +1,20 @@
+{
+  "research": "HEDGEALCHEMY@3",
+  "catalyst": {
+    "item": "minecraft:wheat"
+  },
+  "result": {
+    "item": "minecraft:string",
+    "count": 1
+  },
+  "aspects": {
+    "bestia": 5,
+    "fabrico": 1
+  },
+  "aspect_cost": {
+    "item": "minecraft:string",
+    "subtract": {
+      "item": "minecraft:wheat"
+    }
+  }
+}

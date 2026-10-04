@@ -128,7 +128,17 @@ public final class FocusTierInfusionGameTests {
         level.setBlockAndUpdate(pos.below(2),CatalogBlocks.block("pedestal_arcane").defaultBlockState());
         for(int x:new int[]{-1,1}) for(int z:new int[]{-1,1}) level.setBlockAndUpdate(pos.offset(x,-2,z),CatalogBlocks.block("pillar_arcane").defaultBlockState());
         String[] colors={"white","orange","magenta","lightblue","yellow","lime","pink","gray","silver","cyan","purple","blue","brown","green","red","black"};
-        for(int i=0;i<colors.length;i++) for(int sign:new int[]{-1,1}) level.setBlockAndUpdate(pos.offset(sign*(2+i%6),-2,sign*(-3-i/6)),CatalogBlocks.block("candle_"+colors[i]).defaultBlockState());
+        for(int i=0;i<colors.length;i++) for(int sign:new int[]{-1,1}) {
+            var at=pos.offset(sign*(2+i%6),-2,sign*(-3-i/6));var state=CatalogBlocks.block("candle_"+colors[i]).defaultBlockState();
+            // Working BETA26 candles cannot float in the altar's cleared air layer.
+            h.assertTrue(level.getBlockState(at.below()).isAir()&&!state.canSurvive(level,at),"Cleared tier candle fixture unexpectedly had support");
+            level.setBlockAndUpdate(at.below(),Blocks.STONE.defaultBlockState());level.setBlockAndUpdate(at,state);
+        }
+        for(int i=0;i<colors.length;i++) for(int sign:new int[]{-1,1}) {
+            var at=pos.offset(sign*(2+i%6),-2,sign*(-3-i/6));var state=level.getBlockState(at);
+            h.assertTrue(state.is(CatalogBlocks.block("candle_"+colors[i]))&&state.canSurvive(level,at),"Supported tier candle pair disappeared during fixture placement");
+        }
+        h.assertTrue(Math.abs(thaumcraft.infusion.InfusionStability.scan(level,pos).gain()-1.6F)<.00001F,"Physical tier fixture lost one of its original sixteen candle pairs");
         List<ItemStack> items=new ArrayList<>(); items.add(new ItemStack(net.minecraftforge.registries.ForgeRegistries.ITEMS.getValue(InfusionModule.id("quicksilver"))));
         if(key.equals("focus_2")) items.add(new ItemStack(Items.DIAMOND)); else { var pearl=CatalogModule.stack("primordial_pearl"); pearl.setDamageValue(pearlDamage); items.add(pearl); }
         items.add(new ItemStack(net.minecraftforge.registries.ForgeRegistries.ITEMS.getValue(InfusionModule.id("quicksilver")))); items.add(new ItemStack(key.equals("focus_2")?Items.ENDER_PEARL:Items.NETHER_STAR));

@@ -1,0 +1,17 @@
+{
+  "research": "HEDGEALCHEMY@2",
+  "catalyst": {
+    "item": "minecraft:ink_sac"
+  },
+  "result": {
+    "item": "minecraft:ink_sac",
+    "count": 2
+  },
+  "aspects": {
+    "aqua": 2,
+    "bestia": 2
+  },
+  "aspect_cost": {
+    "item": "minecraft:ink_sac"
+  }
+}

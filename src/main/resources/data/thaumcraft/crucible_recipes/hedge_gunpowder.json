@@ -1,0 +1,18 @@
+{
+  "research": "HEDGEALCHEMY@2",
+  "catalyst": {
+    "item": "minecraft:gunpowder"
+  },
+  "result": {
+    "item": "minecraft:gunpowder",
+    "count": 2
+  },
+  "aspects": {
+    "ignis": 10,
+    "perditio": 10,
+    "alkimia": 5
+  },
+  "aspect_cost": {
+    "item": "minecraft:gunpowder"
+  }
+}

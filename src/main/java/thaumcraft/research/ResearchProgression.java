@@ -23,8 +23,11 @@ public final class ResearchProgression {
             "FOCUSELEMENTAL", "FOCUSPROJECTILE", "FOCUSBOLT", "FOCUSFLUX", "FOCUSHEAL", "FOCUSBREAK",
             "FOCUSCURSE", "FOCUSEXCHANGE", "FOCUSRIFT", "FOCUSPLAN", "FOCUSMINE", "FOCUSSPELLBAT",
             "FOCUSCLOUD", "FOCUSSCATTER", "FOCUSSPLIT", "FOCUSADVANCED", "FOCUSGREATER", "PRIMPEARL", "!Firebat", "CENTRIFUGE",
-            "ESSENTIASMELTERTHAUMIUM", "THAUMATORIUM", "INFUSIONSTABLE");
-    private static final Set<String> REMAINING_LESSONS = Set.of("PORT_TALLOW");
+            "ESSENTIASMELTERTHAUMIUM", "THAUMATORIUM", "INFUSIONSTABLE",
+            "HEDGEALCHEMY", "UNLOCKGOLEMANCY", "BASEGOLEMANCY", "MATSTUDWOOD");
+    // The original mind recipe needs entered stage2. Its later payment unlocks
+    // an unported press/seal system, so expose the physical component path only.
+    private static final Map<String, Integer> PARTIAL_STAGE_LIMITS = Map.of("MINDCLOCKWORK", 2);
     private static final Set<String> OLD_PROFILE_LESSONS = Set.of("PORT_START", "PORT_SCAN", "PORT_ALCHEMY",
             "PORT_NITOR", "PORT_ALUMENTUM", "PORT_BRASS", "PORT_THAUMIUM");
     private static final Map<String, List<Requirements>> REQUIREMENTS = load();
@@ -32,16 +35,18 @@ public final class ResearchProgression {
     private ResearchProgression() {}
     public enum Result { STARTED, ADVANCED, COMPLETE, STALE, MISSING_REQUIREMENTS, LOCKED, UNSUPPORTED, NO_BOOK }
     public static boolean isImplemented(String key) { return IMPLEMENTED.contains(key); }
+    public static boolean supportsProgression(String key) { return isImplemented(key) || PARTIAL_STAGE_LIMITS.containsKey(key); }
+    public static boolean stageSupported(String key, int current) { return supportsProgression(key) && current < PARTIAL_STAGE_LIMITS.getOrDefault(key, Integer.MAX_VALUE); }
     public static int stage(PlayerKnowledge knowledge, String key) { return knowledge.researchStage(key); }
     public static boolean isComplete(PlayerKnowledge knowledge, String key) { return knowledge.isResearchCompleteStrict(key); }
     public static boolean legacyLessonAvailable(PlayerKnowledge knowledge, String key) {
         ResearchEntry entry = ResearchCatalog.get(key);
-        return entry != null && entry.supported() && (REMAINING_LESSONS.contains(key)
-                || knowledge.researchKeys().stream().anyMatch(OLD_PROFILE_LESSONS::contains));
+        return entry != null && entry.supported()
+                && knowledge.researchKeys().stream().anyMatch(OLD_PROFILE_LESSONS::contains);
     }
     public static boolean canStart(PlayerKnowledge knowledge, String key) {
         ResearchEntry entry = ResearchCatalog.get(key);
-        return isImplemented(key) && entry != null && stage(knowledge, key) == 0 && parentsMet(knowledge, entry);
+        return supportsProgression(key) && entry != null && stage(knowledge, key) == 0 && parentsMet(knowledge, entry);
     }
     private static boolean parentsMet(PlayerKnowledge knowledge, ResearchEntry entry) {
         // ConfigResearch's canonical hidden pearl entry is acquired by ScanItem, not
@@ -55,7 +60,7 @@ public final class ResearchProgression {
     }
     /** Client inventory is an optional preview only; advance always checks real server inventory. */
     public static boolean canAdvance(PlayerKnowledge knowledge, ResearchEntry entry, net.minecraft.world.entity.player.Inventory inventory) {
-        if (!isImplemented(entry.key()) || isComplete(knowledge, entry.key()) || !parentsMet(knowledge, entry)) return false;
+        if (!stageSupported(entry.key(), stage(knowledge, entry.key())) || isComplete(knowledge, entry.key()) || !parentsMet(knowledge, entry)) return false;
         int current = stage(knowledge, entry.key());
         if (current == 0) return true;
         List<Requirements> list = REQUIREMENTS.get(entry.key());
@@ -71,13 +76,14 @@ public final class ResearchProgression {
 
     /** Expected stage prevents duplicate, delayed or replayed requests from paying the next stage. */
     public static Result advance(ServerPlayer player, String key, int expectedStage) {
-        if (!isImplemented(key)) return Result.UNSUPPORTED;
+        if (!supportsProgression(key)) return Result.UNSUPPORTED;
         if (player.isSpectator() || !player.isAlive() || !player.serverLevel().getServer().isSameThread()) return Result.LOCKED;
         KnowledgeStore store = KnowledgeStore.of(player.serverLevel());
         PlayerKnowledge knowledge = store.get(player.getUUID());
         ResearchEntry entry = ResearchCatalog.get(key);
         int current = stage(knowledge, key);
         if (current != expectedStage) return Result.STALE;
+        if (!stageSupported(key, current)) return Result.UNSUPPORTED;
         if (isComplete(knowledge, key) || !parentsMet(knowledge, entry)) return Result.LOCKED;
         List<Requirements> stages = REQUIREMENTS.get(key);
         if (current == 0) {
@@ -152,7 +158,7 @@ public final class ResearchProgression {
 
     private static Map<String, List<Requirements>> load() {
         Map<String, List<Requirements>> result = new HashMap<>();
-        for (String filename : List.of("basics", "alchemy", "auromancy", "artifice", "infusion", "scans")) {
+        for (String filename : List.of("basics", "alchemy", "auromancy", "artifice", "infusion", "golemancy", "scans")) {
             String path = "/data/thaumcraft/legacy_research/" + filename + ".json";
             try (var stream = ResearchProgression.class.getResourceAsStream(path)) {
                 if (stream == null) throw new IllegalStateException("Missing original research " + path);
@@ -160,7 +166,7 @@ public final class ResearchProgression {
                 for (JsonElement element : json.getAsJsonArray("entries")) {
                     JsonObject entry = element.getAsJsonObject();
                     String key = entry.get("key").getAsString();
-                    if (!isImplemented(key)) continue;
+                    if (!supportsProgression(key)) continue;
                     List<Requirements> stages = new ArrayList<>();
                     for (JsonElement stage : entry.getAsJsonArray("stages")) stages.add(parse(stage.getAsJsonObject()));
                     if (stages.size() != ResearchCatalog.get(key).stages().size()) throw new IllegalStateException("Stage catalogue mismatch " + key);
@@ -168,7 +174,8 @@ public final class ResearchProgression {
                 }
             } catch (Exception failure) { throw new IllegalStateException("Invalid TC6 stage data " + path, failure); }
         }
-        if (!result.keySet().equals(IMPLEMENTED)) throw new IllegalStateException("Incomplete TC6 initial stage data");
+        Set<String> supported = new HashSet<>(IMPLEMENTED); supported.addAll(PARTIAL_STAGE_LIMITS.keySet());
+        if (!result.keySet().equals(supported)) throw new IllegalStateException("Incomplete TC6 initial stage data");
         return Map.copyOf(result);
     }
 

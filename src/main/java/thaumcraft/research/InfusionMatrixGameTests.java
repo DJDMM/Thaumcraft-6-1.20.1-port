@@ -69,7 +69,19 @@ public final class InfusionMatrixGameTests {
         f.helper.assertTrue(f.matrix.useCaster(f.player)&&f.matrix.crafting(),"Second click did not start"); }
     private static void stableCandles(Fixture f) {
         String[] colors={"white","orange","magenta","lightblue","yellow","lime","pink","gray","silver","cyan","purple","blue","brown","green","red","black"};
-        for(int i=0;i<colors.length;i++)for(int sign:new int[]{-1,1})f.helper.getLevel().setBlockAndUpdate(f.pos.offset(sign*(2+i%6),-2,sign*(-3-i/6)),CatalogBlocks.block("candle_"+colors[i]).defaultBlockState());
+        for(int i=0;i<colors.length;i++)for(int sign:new int[]{-1,1}) {
+            var at=f.pos.offset(sign*(2+i%6),-2,sign*(-3-i/6));var state=CatalogBlocks.block("candle_"+colors[i]).defaultBlockState();
+            // The altar clears this layer to air. Working BETA26 candles need a real
+            // upper support face; later adjacent placements otherwise drop earlier pairs.
+            f.helper.assertTrue(f.helper.getLevel().getBlockState(at.below()).isAir()&&!state.canSurvive(f.helper.getLevel(),at),"Cleared candle fixture unexpectedly had support");
+            f.helper.getLevel().setBlockAndUpdate(at.below(),Blocks.STONE.defaultBlockState());
+            f.helper.getLevel().setBlockAndUpdate(at,state);
+        }
+        for(int i=0;i<colors.length;i++)for(int sign:new int[]{-1,1}) {
+            var at=f.pos.offset(sign*(2+i%6),-2,sign*(-3-i/6));var state=f.helper.getLevel().getBlockState(at);
+            f.helper.assertTrue(state.is(CatalogBlocks.block("candle_"+colors[i]))&&state.canSurvive(f.helper.getLevel(),at),"Supported candle pair disappeared during fixture placement");
+        }
+        f.helper.assertTrue(Math.abs(InfusionStability.scan(f.helper.getLevel(),f.pos).gain()-1.6F)<.00001F,"Physical fixture lost one of its original sixteen candle pairs");
     }
 
     @GameTest(template=TEMPLATE) public static void realCrystalRecipeDebitsExactSourcesAndNeverDuplicatesFinish(GameTestHelper h) {

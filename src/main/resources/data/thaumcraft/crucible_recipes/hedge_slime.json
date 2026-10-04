@@ -1,0 +1,18 @@
+{
+  "research": "HEDGEALCHEMY@2",
+  "catalyst": {
+    "item": "minecraft:slime_ball"
+  },
+  "result": {
+    "item": "minecraft:slime_ball",
+    "count": 2
+  },
+  "aspects": {
+    "aqua": 5,
+    "victus": 5,
+    "alkimia": 1
+  },
+  "aspect_cost": {
+    "item": "minecraft:slime_ball"
+  }
+}

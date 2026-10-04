@@ -1061,6 +1061,7 @@
   "thaumcraft.progress.start": "Начать исследование",
   "thaumcraft.progress.advance": "Завершить текущую стадию",
   "thaumcraft.progress.server_check": "Сервер проверяет текущую стадию и расходует необходимые знания и предметы.",
+  "thaumcraft.progress.stage_unavailable": "Следующая стадия пока недоступна. Уже открытые рецепты можно использовать.",
   "thaumcraft.progress.knowledge_spent": "Знания расходуются только при завершении стадии сервером. Факты крафта и открытия сохраняются.",
   "thaumcraft.progress.knowledge_cost": "%s · %s: стоимость %s (%s сырых ед.); доступно %s сырых ед.",
   "thaumcraft.progress.observation_balance": "Наблюдения · %s: %s + %s/%s (%s сырых ед.).",

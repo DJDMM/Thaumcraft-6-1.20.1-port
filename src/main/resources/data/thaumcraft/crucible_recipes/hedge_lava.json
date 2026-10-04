@@ -1,0 +1,14 @@
+{
+  "research": "HEDGEALCHEMY@3",
+  "catalyst": {
+    "item": "minecraft:bucket"
+  },
+  "result": {
+    "item": "minecraft:lava_bucket",
+    "count": 1
+  },
+  "aspects": {
+    "ignis": 15,
+    "terra": 5
+  }
+}

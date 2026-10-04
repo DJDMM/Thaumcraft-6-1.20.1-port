@@ -17,6 +17,10 @@ public final class LegacyResearchItems {
     public static ResourceLocation resolve(String legacyId, int metadata) {
         ResourceLocation id = ResourceLocation.tryParse(legacyId);
         if (id == null || metadata < 0) throw new IllegalArgumentException("Invalid legacy item " + legacyId);
+        // BETA26's dye defaults to metadata0 (ink sac), and web is the old cobweb ID.
+        // Keep canonical craft proofs and book rows aligned with the physical modern output.
+        if (metadata == 0 && id.toString().equals("minecraft:dye")) return ResourceLocation.fromNamespaceAndPath("minecraft", "ink_sac");
+        if (metadata == 0 && id.toString().equals("minecraft:web")) return ResourceLocation.fromNamespaceAndPath("minecraft", "cobweb");
         // The original yellow nitor is the already playable 0.2 nitor block/item.
         if (id.toString().equals("thaumcraft:nitor")) {
             if (metadata == 4) return id;

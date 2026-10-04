@@ -13,17 +13,35 @@ import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.item.crafting.ShapedRecipe;
 import thaumcraft.api.aspects.*;
 import thaumcraft.research.KnowledgeStore;
+import thaumcraft.scanning.AspectRegistry;
 import java.util.*;
 
 /** Server-side datapack recipes; recipe discovery never grants research. */
 public final class CrucibleRecipes extends SimpleJsonResourceReloadListener {
     private static volatile List<Entry> entries = List.of();
+    /** BETA26 postAspects copies an item's aspects, then subtracts the catalyst for transformations. */
+    public record AspectCost(ItemStack source, ItemStack subtract) {
+        public AspectCost { source = source.copyWithCount(1); subtract = subtract.copyWithCount(1); }
+        @Override public ItemStack source() { return source.copy(); }
+        @Override public ItemStack subtract() { return subtract.copy(); }
+        public AspectList resolve() {
+            AspectList result = AspectRegistry.getAspects(source);
+            if (!subtract.isEmpty()) result.remove(AspectRegistry.getAspects(subtract));
+            // AspectList.remove deletes zero/negative entries; it never creates a negative payment.
+            for (Aspect aspect : result.getAspects()) if (result.getAmount(aspect) <= 0) result.remove(aspect);
+            return result;
+        }
+    }
     public record Entry(ResourceLocation id, String research, Ingredient catalyst, ItemStack output, AspectList cost,
-                        CompoundTag catalystNbt) {
+                        CompoundTag catalystNbt, AspectCost aspectCost) {
         public Entry(ResourceLocation id, String research, Ingredient catalyst, ItemStack output, AspectList cost) {
-            this(id, research, catalyst, output, cost, null);
+            this(id, research, catalyst, output, cost, null, null);
+        }
+        public Entry(ResourceLocation id, String research, Ingredient catalyst, ItemStack output, AspectList cost, CompoundTag catalystNbt) {
+            this(id, research, catalyst, output, cost, catalystNbt, null);
         }
         public Entry { catalystNbt = catalystNbt == null ? null : catalystNbt.copy(); }
+        @Override public AspectList cost() { return aspectCost == null ? cost.copy() : aspectCost.resolve(); }
         @Override public CompoundTag catalystNbt() { return catalystNbt == null ? null : catalystNbt.copy(); }
         /** IngredientNBTTC checks complete top-level entries; extra unrelated root tags are allowed. */
         public boolean matchesCatalyst(ItemStack stack) {
@@ -40,7 +58,8 @@ public final class CrucibleRecipes extends SimpleJsonResourceReloadListener {
             return hasAspects(available);
         }
         public boolean hasAspects(AspectList available) {
-            for (Aspect aspect : cost.getAspects()) if (available.getAmount(aspect) < cost.getAmount(aspect)) return false;
+            AspectList required = cost();
+            for (Aspect aspect : required.getAspects()) if (available.getAmount(aspect) < required.getAmount(aspect)) return false;
             return true;
         }
     }
@@ -71,7 +90,16 @@ public final class CrucibleRecipes extends SimpleJsonResourceReloadListener {
                 try { catalystNbt = TagParser.parseTag(GsonHelper.getAsString(data, "catalyst_nbt")); }
                 catch (Exception failure) { throw new JsonParseException("Invalid catalyst NBT: " + entry.getKey(), failure); }
             }
-            updated.add(new Entry(entry.getKey(), GsonHelper.getAsString(data, "research"), Ingredient.fromJson(data.get("catalyst")), output, cost, catalystNbt));
+            AspectCost aspectCost = null;
+            if (data.has("aspect_cost")) {
+                JsonObject formula = GsonHelper.getAsJsonObject(data, "aspect_cost");
+                ItemStack source = ShapedRecipe.itemStackFromJson(formula);
+                ItemStack subtract = formula.has("subtract") ? ShapedRecipe.itemStackFromJson(formula.getAsJsonObject("subtract")) : ItemStack.EMPTY;
+                if (source.isEmpty() || source.getCount() != 1 || (!subtract.isEmpty() && subtract.getCount() != 1))
+                    throw new JsonParseException("Invalid dynamic aspect cost: " + entry.getKey());
+                aspectCost = new AspectCost(source, subtract);
+            }
+            updated.add(new Entry(entry.getKey(), GsonHelper.getAsString(data, "research"), Ingredient.fromJson(data.get("catalyst")), output, cost, catalystNbt, aspectCost));
         });
         entries = List.copyOf(updated);
     }

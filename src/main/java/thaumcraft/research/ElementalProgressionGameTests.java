@@ -49,7 +49,7 @@ public final class ElementalProgressionGameTests {
         completeBase(state);
         for (String key : new String[]{"FOCUSELEMENTAL", "FOCUSPROJECTILE"})
             result(helper, ResearchNetwork.processAdvance(player, key, 0), ResearchProgression.Result.STARTED);
-        helper.assertTrue(ResearchCatalog.entries().stream().filter(entry -> ResearchProgression.isImplemented(entry.key())).count() == 46,
+        helper.assertTrue(ResearchCatalog.entries().stream().filter(entry -> ResearchProgression.isImplemented(entry.key())).count() == 50,
                 "Canonical inventory must include the three automation/stability entries");
         for (String key : new String[]{"FOCUSBOLT", "FOCUSFLUX", "FOCUSHEAL", "FOCUSBREAK"})
             result(helper, ResearchNetwork.processAdvance(player, key, 0), ResearchProgression.Result.LOCKED);

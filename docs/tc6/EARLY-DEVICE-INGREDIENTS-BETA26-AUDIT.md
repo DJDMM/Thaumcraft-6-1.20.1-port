@@ -1,5 +1,7 @@
 # Early device ingredients — BETA26 audit
 
+Актуализация0.21: исходные контракты ниже сохранены как история0.20. Естественный компонентный путь `MINDCLOCKWORK@2 → mind_clockwork → Brain Box` теперь доступен; полное завершение разума, пресс/ИИ/печати ещё не перенесены. Подробности: [стадии0.21](GOLEMANCY-COMPONENT-PROGRESSION-BETA26-AUDIT.md), [физический рецепт](CLOCKWORK-COMPONENTS-BETA26-AUDIT.md), [Hedge Alchemy](HEDGE-ALCHEMY-BETA26-AUDIT.md).
+
 Baseline: `Thaumcraft-1.12.2-6.1.BETA26.jar`, SHA-256
 `9425f8643581b27ff8845b087c8bc6fc10425a32942f1a3f0e265ce6b38f7b5f`;
 source mirror commit `954022bb777b7546281fb36df8522f0ba6b43f81`.

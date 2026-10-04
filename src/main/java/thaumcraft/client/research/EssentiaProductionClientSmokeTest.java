@@ -33,6 +33,8 @@ import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import thaumcraft.api.aspects.*;
 import thaumcraft.alchemy.*;
+import thaumcraft.arcane.*;
+import thaumcraft.world.aura.AuraManager;
 import thaumcraft.catalog.CatalogModule;
 import thaumcraft.catalog.blocks.CatalogBlocks;
 import thaumcraft.essentia.EssentiaJarBlockEntity;
@@ -56,11 +58,12 @@ public final class EssentiaProductionClientSmokeTest {
     private static final String[] IMAGES={"smelter-idle","smelter-burning","production-network","machines",
             "six-tubes","tube-controls","alembic-labels","smelter-recipe","jar-recipe","tube-recipe","centrifuge","centrifuge-recipe",
             "thaumatorium-formation","thaumatorium-empty","thaumatorium-selected","thaumatorium-progress-paused",
-            "thaumatorium-chest-output","thaumatorium-live-render","thaumium-smelter-recipe","thaumatorium-blueprint","stabilizer-recipe","inlay-recipe"};
+            "thaumatorium-chest-output","thaumatorium-live-render","thaumium-smelter-recipe","thaumatorium-blueprint","stabilizer-recipe","inlay-recipe","clockwork-mind-recipe","hedge-glowstone-recipe","hedge-lava-recipe"};
     private static final BlockPos SMELTER=new BlockPos(0,112,0), ALEMBIC=SMELTER.above(), JAR=new BlockPos(2,112,0);
     private static final BlockPos THAUMATORIUM=new BlockPos(-12,113,0), THAUMATORIUM_CHEST=THAUMATORIUM.south(), THAUMATORIUM_POWER=THAUMATORIUM.above(2);
     private static final List<BlockPos> THAUMATORIUM_SOURCES=List.of(THAUMATORIUM.west(),THAUMATORIUM.east(),THAUMATORIUM.north());
     private static final ResourceLocation ALUMENTUM=ResourceLocation.fromNamespaceAndPath("thaumcraft","alumentum");
+    private static final BlockPos BRAIN_WORKBENCH=new BlockPos(-10,111,3);
     private static final Vec3 THAUMATORIUM_CAMERA=new Vec3(-11.5,111,3.5);
     private record Display(String name,String id,BlockPos pos) {}
     private static final List<List<Display>> galleries=new ArrayList<>();
@@ -82,7 +85,8 @@ public final class EssentiaProductionClientSmokeTest {
         try {
             require(System.nanoTime()-began<420_000_000_000L,"Essentia production integrated audit timed out: scene="+scene+", phase="+phase);
             if(!started){startWorld(mc);return;}
-            if(mc.level==null||mc.player==null||mc.getOverlay()!=null)return;
+            if(mc.level==null||mc.player==null||mc.getOverlay()!=null
+                    ||mc.screen instanceof net.minecraft.client.gui.screens.ReceivingLevelScreen)return;
             require(mc.getSingleplayerServer()!=null&&WORLD.equals(mc.getSingleplayerServer().getWorldData().getLevelName()),"Wrong production audit world");
             mc.getToasts().clear();
             if(work!=null){if(!work.isDone())return;work.join();work=null;}
@@ -279,22 +283,104 @@ public final class EssentiaProductionClientSmokeTest {
             if(!(mc.screen instanceof ContainerScreen))return false;
             require(mc.player.containerMenu.getSlot(0).getItem().is(AlchemyModule.ALUMENTUM.get())&&mc.player.containerMenu.getSlot(0).getItem().getCount()==1,"Real chest menu did not synchronize the paid output");return true;
         }
-        if(scene==17){
-            if(!prepared){prepared=true;closeMenu(mc);submit(mc,()->{
-                var level=player(mc).serverLevel();var brain=THAUMATORIUM.above().west();level.setBlockAndUpdate(brain,state("brain_box").setValue(BrainBoxBlock.FACING,Direction.EAST));
-                var tile=thaumatorium(mc);tile.getUpgrades();require(tile.maxRecipes()==3&&tile.selectedRecipes().equals(List.of(ALUMENTUM)),"Facing original brain fixture did not add exactly two selection slots");
-                galleries.add(List.of(new Display("Live selected output","thaumatorium",THAUMATORIUM),new Display("Facing upgrade / +2 slots","brain_box",brain),
-                        new Display("Potentia remaining","alembic",THAUMATORIUM_SOURCES.get(0)),new Display("Ignis remaining","alembic",THAUMATORIUM_SOURCES.get(1))));
-            });return false;}
-            if(!gallerySynced(mc,7)||!(mc.level.getBlockEntity(THAUMATORIUM) instanceof ThaumatoriumBlockEntity tile)||tile.maxRecipes()!=3
-                    ||!tile.cyclingOutput(mc.level.getGameTime()).is(AlchemyModule.ALUMENTUM.get())||clientSourceAmount(mc)!=25)return false;
-            if(phase==0){phase=1;var before=tile.saveWithoutMetadata();tile.setAspects(new AspectList().add(Aspect.FIRE,99));
-                require(tile.addToContainer(Aspect.FIRE,1)==1&&!tile.takeFromContainer(Aspect.FIRE,1)&&before.equals(tile.saveWithoutMetadata()),"Client mutated synced thaumatorium essentia");
-                LogUtils.getLogger().info("THAUMCRAFT_THAUMATORIUM_CLIENT_RENDER: synchronized formed BE cycles real selected alumentum; native original model/attached brain capacity3; client mutation rejected");}
-            if(!(mc.screen instanceof Gallery gallery&&gallery.page==7)){mc.setScreen(new Gallery(7,"TC6 Thaumatorium / synchronized result preview and facing brain upgrade fixture"));return false;}
-            return true;
-        }
+        if(scene==17)return paidBrainScene(mc);
         throw new AssertionError("Unknown thaumatorium scene "+scene);
+    }
+    private static ItemStack registeredItem(String path) {
+        var id=ResourceLocation.fromNamespaceAndPath("thaumcraft",path);var item=net.minecraft.core.registries.BuiltInRegistries.ITEM.get(id);
+        require(item!=Items.AIR,"Missing registered original component "+id);return new ItemStack(item);
+    }
+    private static ArcaneWorkbenchBlockEntity brainWorkbench(Minecraft mc) {
+        var tile=player(mc).serverLevel().getBlockEntity(BRAIN_WORKBENCH);require(tile instanceof ArcaneWorkbenchBlockEntity,"Missing physical Brain Box crafting bench");return (ArcaneWorkbenchBlockEntity)tile;
+    }
+    private static void prepareBrainCraft(Minecraft mc) {
+        var player=player(mc);var level=player.serverLevel();var knowledge=KnowledgeStore.get(player);
+        require(knowledge.researchStage("MINDCLOCKWORK")==2&&!knowledge.isResearchCompleteStrict("MINDCLOCKWORK")
+                &&knowledge.isResearchCompleteStrict("HEDGEALCHEMY")&&!knowledge.isResearchKnown("CONTROLSEALS"),"Brain craft fixture bypassed the bounded original mind stage");
+        level.setBlockAndUpdate(BRAIN_WORKBENCH,ArcaneModule.WORKBENCH.get().defaultBlockState());
+        var bench=brainWorkbench(mc);player.getInventory().clearContent();player.getInventory().selected=0;
+        // Component/research/aura fixtures are explicit; neither intermediate nor Brain Box output is supplied.
+        bench.setItem(1,new ItemStack(Items.GLASS_PANE));bench.setItem(3,new ItemStack(Items.GLASS_PANE));bench.setItem(5,new ItemStack(Items.GLASS_PANE));
+        bench.setItem(4,registeredItem("mechanism_simple"));bench.setItem(6,registeredItem("plate_brass"));bench.setItem(8,registeredItem("plate_brass"));bench.setItem(7,new ItemStack(Items.COMPARATOR));
+        bench.setItem(10,CatalogModule.aspectStack("crystal_essence",Aspect.FIRE,1));bench.setItem(13,CatalogModule.aspectStack("crystal_essence",Aspect.ORDER,1));
+        AuraManager.drainVis(level,BRAIN_WORKBENCH,Float.MAX_VALUE,false);AuraManager.addVis(level,BRAIN_WORKBENCH,100);
+        player.inventoryMenu.broadcastChanges();
+        LogUtils.getLogger().info("THAUMCRAFT_CLOCKWORK_CLIENT_FIXTURE: completed Hedge/Golem unlock parents; Mind entered2 only, press/seals closed; actual workbench with glass3/brass2/simple1/comparator1, Ignis1/Ordo1 and100 aura supplied explicitly; no mind/Brain output supplied");
+    }
+    private static boolean paidBrainScene(Minecraft mc) {
+        if(!prepared){prepared=true;closeMenu(mc);submit(mc,()->prepareBrainCraft(mc));phase=1;return false;}
+        if(phase==1){
+            if(!mc.level.getBlockState(BRAIN_WORKBENCH).is(ArcaneModule.WORKBENCH.get())||!mc.player.getMainHandItem().isEmpty())return false;
+            phase=2;useBlock(mc,BRAIN_WORKBENCH);return false;
+        }
+        if(phase==2){
+            if(!(mc.player.containerMenu instanceof ArcaneWorkbenchMenu menu)||!menu.getSlot(0).getItem().is(registeredItem("mind_clockwork").getItem())||!menu.craftable())return false;
+            require(menu.requiredVis()==25&&menu.crystalCost(1)==1&&menu.crystalCost(4)==1,"Mind recipe changed original25vis/Ignis1/Ordo1 payment");
+            mc.gameMode.handleInventoryMouseClick(menu.containerId,0,0,ClickType.SWAP,mc.player);phase=3;return false;
+        }
+        if(phase==3){
+            if(!mc.player.getMainHandItem().is(registeredItem("mind_clockwork").getItem()))return false;
+            phase=4;submit(mc,()->{
+                var player=player(mc);var bench=brainWorkbench(mc);var knowledge=KnowledgeStore.get(player);
+                require(bench.isEmpty()&&player.getMainHandItem().is(registeredItem("mind_clockwork").getItem())&&player.getMainHandItem().getCount()==1
+                        &&knowledge.hasCraft("thaumcraft:mind_clockwork")&&AuraManager.getVis(player.serverLevel(),BRAIN_WORKBENCH)<90,"Real C2S mind result did not consume its components/crystals/vis");
+                for(int slot:new int[]{0,2,6,8})bench.setItem(slot,registeredItem("plate_iron"));
+                for(int slot:new int[]{1,3,5,7})bench.setItem(slot,registeredItem("amber"));
+                bench.setItem(12,CatalogModule.aspectStack("crystal_essence",Aspect.EARTH,1));bench.setItem(13,CatalogModule.aspectStack("crystal_essence",Aspect.ORDER,1));
+                require(bench.getItem(4).isEmpty(),"Mnemonic fixture injected a replacement mind");player.containerMenu.broadcastChanges();
+                LogUtils.getLogger().info("THAUMCRAFT_CLOCKWORK_CLIENT_MIND: real result-slot SWAP C2S created one mind at entered2, consumed entire original grid/Ignis1/Ordo1; paid recipe25vis, observed remainingAura={}",AuraManager.getVis(player.serverLevel(),BRAIN_WORKBENCH));
+            });return false;
+        }
+        if(phase==4){
+            if(!(mc.player.containerMenu instanceof ArcaneWorkbenchMenu menu)||!menu.getSlot(1).getItem().is(registeredItem("plate_iron").getItem())
+                    ||!menu.getSlot(2).getItem().is(registeredItem("amber").getItem())||!menu.getSlot(5).getItem().isEmpty())return false;
+            // Move the exact crafted stack, through ordinary menu C2S, into the matrix center.
+            mc.gameMode.handleInventoryMouseClick(menu.containerId,43,0,ClickType.PICKUP,mc.player);
+            mc.gameMode.handleInventoryMouseClick(menu.containerId,5,0,ClickType.PICKUP,mc.player);phase=5;return false;
+        }
+        if(phase==5){
+            if(!(mc.player.containerMenu instanceof ArcaneWorkbenchMenu menu)||!menu.getSlot(0).getItem().is(CatalogBlocks.block("brain_box").asItem())||!menu.craftable())return false;
+            require(menu.requiredVis()==50&&menu.crystalCost(3)==1&&menu.crystalCost(4)==1&&menu.getCarried().isEmpty()
+                    &&mc.player.getMainHandItem().isEmpty(),"Mnemonic original payment or real crafted center transfer changed");
+            mc.gameMode.handleInventoryMouseClick(menu.containerId,0,0,ClickType.SWAP,mc.player);phase=6;return false;
+        }
+        if(phase==6){
+            if(!mc.player.getMainHandItem().is(CatalogBlocks.block("brain_box").asItem()))return false;
+            phase=7;submit(mc,()->{
+                var player=player(mc);var knowledge=KnowledgeStore.get(player);
+                require(brainWorkbench(mc).isEmpty()&&player.getMainHandItem().is(CatalogBlocks.block("brain_box").asItem())&&player.getMainHandItem().getCount()==1
+                        &&knowledge.hasCraft("thaumcraft:mind_clockwork")&&knowledge.hasCraft("thaumcraft:brain_box")&&knowledge.researchStage("MINDCLOCKWORK")==2
+                        &&!knowledge.isResearchCompleteStrict("MINDCLOCKWORK")&&!knowledge.isResearchKnown("CONTROLSEALS")&&AuraManager.getVis(player.serverLevel(),BRAIN_WORKBENCH)<50,
+                        "Actual crafted mind -> Brain Box chain failed payment, provenance or bounded research");
+                LogUtils.getLogger().info("THAUMCRAFT_CLOCKWORK_CLIENT_BRAIN: real original25+50vis recipe chain via result/center C2S; actual crafted mind consumed, plates4/amber4/Terra1/Ordo1 paid; one Brain Box, bounded Mind2 and no seals; observed remainingAura={}",AuraManager.getVis(player.serverLevel(),BRAIN_WORKBENCH));
+            });closeMenu(mc);mc.options.keyShift.setDown(true);return false;
+        }
+        if(phase==7){
+            if(!mc.player.isShiftKeyDown()||mc.screen!=null)return false;
+            // Only this isolated client's internal key state is used; no native/global input.
+            BlockPos host=THAUMATORIUM.above();
+            mc.gameMode.useItemOn(mc.player,InteractionHand.MAIN_HAND,new BlockHitResult(Vec3.atCenterOf(host).add(-.5,0,0),Direction.WEST,host,false));
+            mc.options.keyShift.setDown(false);phase=8;return false;
+        }
+        if(phase==8){
+            var brain=THAUMATORIUM.above().west();
+            if(!mc.level.getBlockState(brain).is(CatalogBlocks.block("brain_box"))||!mc.player.getMainHandItem().isEmpty())return false;
+            phase=9;submit(mc,()->{
+                var player=player(mc);var level=player.serverLevel();var tile=thaumatorium(mc);
+                require(level.getBlockState(brain).getValue(BrainBoxBlock.FACING)==Direction.EAST&&player.getMainHandItem().isEmpty(),"Physical crafted Brain Box placement did not pay/follow the real clicked face");
+                tile.getUpgrades();require(tile.maxRecipes()==3&&tile.selectedRecipes().equals(List.of(ALUMENTUM)),"Actual crafted facing Brain Box did not add exactly two program slots");
+                galleries.add(List.of(new Display("Live selected output","thaumatorium",THAUMATORIUM),new Display("Paid mind -> matrix / +2 slots","brain_box",brain),
+                        new Display("Potentia remaining","alembic",THAUMATORIUM_SOURCES.get(0)),new Display("Ignis remaining","alembic",THAUMATORIUM_SOURCES.get(1))));
+                LogUtils.getLogger().info("THAUMCRAFT_CLOCKWORK_CLIENT_PLACEMENT: actual crafted Brain Box placed through owned-client C2S, one item consumed, original EAST attachment yields capacity3");
+            });return false;
+        }
+        if(!gallerySynced(mc,7)||!(mc.level.getBlockEntity(THAUMATORIUM) instanceof ThaumatoriumBlockEntity tile)||tile.maxRecipes()!=3
+                ||!tile.cyclingOutput(mc.level.getGameTime()).is(AlchemyModule.ALUMENTUM.get())||clientSourceAmount(mc)!=25)return false;
+        if(phase==9){phase=10;var before=tile.saveWithoutMetadata();tile.setAspects(new AspectList().add(Aspect.FIRE,99));
+            require(tile.addToContainer(Aspect.FIRE,1)==1&&!tile.takeFromContainer(Aspect.FIRE,1)&&before.equals(tile.saveWithoutMetadata()),"Client mutated synced thaumatorium essentia");
+            LogUtils.getLogger().info("THAUMCRAFT_THAUMATORIUM_CLIENT_RENDER: synchronized formed BE cycles real selected alumentum; native original model/actually crafted and placed Brain capacity3; client mutation rejected");}
+        if(!(mc.screen instanceof Gallery gallery&&gallery.page==7)){mc.setScreen(new Gallery(7,"TC6 Thaumatorium / paid clockwork mind -> Brain Box and synchronized result preview"));return false;}
+        return true;
     }
     private static void prepareWorld(Minecraft mc) throws RuntimeException {
         ServerPlayer player=player(mc);var level=player.serverLevel();player.setInvulnerable(true);
@@ -328,9 +414,10 @@ public final class EssentiaProductionClientSmokeTest {
         // Explicit late-game UI fixture; paid survival stage and recipe gates are exercised by server GameTests.
         try {
             var setStage=PlayerKnowledge.class.getDeclaredMethod("setResearchStage",String.class,int.class);setStage.setAccessible(true);
-            for(String key:List.of("FIRSTSTEPS","UNLOCKALCHEMY","BASEALCHEMY","METALLURGY","ALUMENTUM","ESSENTIASMELTER","WARDEDJARS","TUBES","CENTRIFUGE","ESSENTIASMELTERTHAUMIUM","THAUMATORIUM","UNLOCKINFUSION","BASEINFUSION","INFUSION","INFUSIONSTABLE")){
+            for(String key:List.of("FIRSTSTEPS","UNLOCKALCHEMY","BASEALCHEMY","METALLURGY","ALUMENTUM","ESSENTIASMELTER","WARDEDJARS","TUBES","CENTRIFUGE","ESSENTIASMELTERTHAUMIUM","THAUMATORIUM","UNLOCKINFUSION","BASEINFUSION","INFUSION","INFUSIONSTABLE","UNLOCKARTIFICE","UNLOCKAUROMANCY","HEDGEALCHEMY","UNLOCKGOLEMANCY","BASEGOLEMANCY","MATSTUDWOOD")){
                 ResearchEntry entry=ResearchCatalog.get(key);require(entry!=null,"Missing canonical entry "+key);setStage.invoke(KnowledgeStore.get(player),key,entry.stages().size()+1);KnowledgeStore.recordFact(player,key);
             }
+            require(Boolean.TRUE.equals(setStage.invoke(KnowledgeStore.get(player),"MINDCLOCKWORK",2)),"Could not fixture only entered clockwork stage2");
         } catch(ReflectiveOperationException exception){throw new RuntimeException(exception);}
         ResearchNetwork.sync(player);
     }
@@ -388,24 +475,39 @@ public final class EssentiaProductionClientSmokeTest {
     }
     private static void openBook(Minecraft mc){
         PlayerKnowledge knowledge=PlayerKnowledge.load(snapshot);bookBefore=ThaumonomiconCompleteClientSmokeTest.gameplayState(knowledge).toString();var browser=new ThaumonomiconScreen(knowledge,knowledge.scanCount());mc.setScreen(browser);
-        String key=switch(scene){case 7->"ESSENTIASMELTER";case 8->"WARDEDJARS";case 11->"CENTRIFUGE";case 18->"ESSENTIASMELTERTHAUMIUM";case 19->"THAUMATORIUM";case 20,21->"INFUSIONSTABLE";default->"TUBES";};
-        String output=switch(scene){case 7->"smelter_basic";case 8->"jar_normal";case 11->"centrifuge";case 18->"smelter_thaumium";case 20->"stabilizer";case 21->"inlay";default->"tube_buffer";};
+        String key=switch(scene){case 7->"ESSENTIASMELTER";case 8->"WARDEDJARS";case 11->"CENTRIFUGE";case 18->"ESSENTIASMELTERTHAUMIUM";case 19->"THAUMATORIUM";case 20,21->"INFUSIONSTABLE";case 22->"MINDCLOCKWORK";case 23,24->"HEDGEALCHEMY";default->"TUBES";};
+        String output=switch(scene){case 7->"smelter_basic";case 8->"jar_normal";case 11->"centrifuge";case 18->"smelter_thaumium";case 20->"stabilizer";case 21->"inlay";case 22->"mind_clockwork";case 23->"glowstone_dust";case 24->"lava_bucket";default->"tube_buffer";};
         browser.selectForSmokeTest(key);require(mc.screen instanceof ThaumonomiconPageScreen,"Missing canonical book page "+key);
         var page=(ThaumonomiconPageScreen)mc.screen;
         if(scene==19){page.showStructureForSmokeTest("thaumcraft:Thaumatorium");var structure=page.structureForSmokeTest("thaumcraft:Thaumatorium");
             require(structure!=null&&!structure.detachedPreview().states().isEmpty(),"Missing detached Thaumatorium construction");return;}
         page.showRecipeForSmokeTest(output);
         var view=page.recipesForSmokeTest().stream().filter(v->net.minecraft.core.registries.BuiltInRegistries.ITEM.getKey(v.output().getItem()).getPath().equals(output)).findFirst().orElseThrow();
-        require(view.unlocked(knowledge)&&!view.ingredients().isEmpty()&&view.vis()>0,"Missing original costs / live recipe "+output);
+        require(view.unlocked(knowledge)&&!view.reference()&&!view.ingredients().isEmpty(),"Missing unlocked live recipe "+output);
+        if(scene>=23){
+            require(knowledge.isResearchCompleteStrict("HEDGEALCHEMY")&&page.chaptersForSmokeTest().equals(List.of("research.HEDGEALCHEMY.stage.4"))
+                    &&view.kind().equals("crucible")&&view.vis()==0&&view.aspects().visSize()>0&&!page.availableForSmokeTest(),"Completed Hedge spread lost original current/final-stage or paid essentia recipe");
+            LogUtils.getLogger().info("THAUMCRAFT_HEDGE_CLIENT_BOOK: completed original final stage4; live synchronized {} catalyst/essentia/output, read only",output);
+        } else {
+            require(view.vis()>0,"Missing original arcane vis cost "+output);
+            if(scene==22){
+                require(knowledge.researchStage("MINDCLOCKWORK")==2&&!knowledge.isResearchCompleteStrict("MINDCLOCKWORK")&&!knowledge.isResearchKnown("CONTROLSEALS")
+                        &&page.chaptersForSmokeTest().equals(List.of("research.MINDCLOCKWORK.stage.2"))&&!page.availableForSmokeTest()
+                        &&view.research().equals("MINDCLOCKWORK@2")&&view.vis()==25&&view.crystals()[1]==1&&view.crystals()[4]==1,
+                        "Clockwork current-stage recipe bypassed original gate, cost or partial stage cap");
+                require(page.recipesForSmokeTest().stream().allMatch(recipe->recipe.output().is(registeredItem("mind_clockwork").getItem())),"Current-stage mind book exposed unimplemented press/seal recipes");
+                LogUtils.getLogger().info("THAUMCRAFT_CLOCKWORK_CLIENT_BOOK: entered stage2 only; original live25vis/Ignis1/Ordo1 recipe; no stage3/press/seals or enabled completion action; read only");
+            }
+        }
     }
     private static void finish(Minecraft mc){
         if(phase==0){phase=1;submit(mc,()->require(bookBefore.equals(ThaumonomiconCompleteClientSmokeTest.gameplayState(KnowledgeStore.get(player(mc))).toString()),
                 "Read-only book views changed authoritative server knowledge"));return;}
-        require(saved.get()==IMAGES.length,"Missing fresh scene files");stopped=true;mc.options.tutorialStep=previousTutorial;
+        require(saved.get()==IMAGES.length,"Missing fresh scene files");mc.options.keyShift.setDown(false);stopped=true;mc.options.tutorialStep=previousTutorial;
         LogUtils.getLogger().info("THAUMCRAFT_ESSENTIA_PRODUCTION_RENDER_AUDIT_OK: {} baked states; 17 functional blocks; real BER / original item sprites / labels / valve / buffer / centrifuge / thaumatorium; recipes and blueprint read only",modelStates);
-        LogUtils.getLogger().info("THAUMCRAFT_ESSENTIA_PRODUCTION_CLIENT_SMOKE_OK: {} scenes; survival menu packets, consumed stone/coal/dust, actual tick production -> jar and typed peers -> thaumatorium -> chest, S2C and client mutation checks; isolated world={}",saved.get(),WORLD);mc.stop();
+        LogUtils.getLogger().info("THAUMCRAFT_ESSENTIA_PRODUCTION_CLIENT_SMOKE_OK: {} scenes; survival menu packets, consumed stone/coal/dust, actual tick production -> jar and typed peers -> thaumatorium -> chest, actual paid clockwork mind -> Brain Box C2S chain, bounded Mind2/Hedge final book, S2C and client mutation checks; isolated world={}",saved.get(),WORLD);mc.stop();
     }
-    private static void fail(Minecraft mc,Throwable failure){if(stopped)return;stopped=true;if(previousTutorial!=null)mc.options.tutorialStep=previousTutorial;LogUtils.getLogger().error("THAUMCRAFT_ESSENTIA_PRODUCTION_CLIENT_SMOKE_FAILED",failure);mc.stop();}
+    private static void fail(Minecraft mc,Throwable failure){if(stopped)return;mc.options.keyShift.setDown(false);stopped=true;if(previousTutorial!=null)mc.options.tutorialStep=previousTutorial;LogUtils.getLogger().error("THAUMCRAFT_ESSENTIA_PRODUCTION_CLIENT_SMOKE_FAILED",failure);mc.stop();}
     private static final class Gallery extends Screen {
         private final int page;
         Gallery(int page,String title){super(Component.literal(title));this.page=page;}

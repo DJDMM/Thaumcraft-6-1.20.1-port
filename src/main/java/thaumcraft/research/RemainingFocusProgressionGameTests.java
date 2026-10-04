@@ -50,7 +50,7 @@ public final class RemainingFocusProgressionGameTests {
             result(h, ResearchNetwork.processAdvance(p, entry.getKey(), 0), ResearchProgression.Result.LOCKED);
             h.assertTrue(state.researchStage(entry.getKey()) == 0, "Missing parent opened " + entry.getKey());
         }
-        h.assertTrue(ResearchCatalog.entries().stream().filter(e -> ResearchProgression.isImplemented(e.key())).count() == 46,
+        h.assertTrue(ResearchCatalog.entries().stream().filter(e -> ResearchProgression.isImplemented(e.key())).count() == 50,
                 "Canonical inventory must include the three automation/stability entries");
         for (String key : List.of("FORTRESSMASK", "INFUSIONENCHANTMENT", "RUNICSHIELDING", "INFUSIONELDRITCH"))
             result(h, ResearchNetwork.processAdvance(p, key, 0), ResearchProgression.Result.UNSUPPORTED);

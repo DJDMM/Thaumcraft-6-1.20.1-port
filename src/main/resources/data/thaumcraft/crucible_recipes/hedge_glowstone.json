@@ -1,0 +1,17 @@
+{
+  "research": "HEDGEALCHEMY@2",
+  "catalyst": {
+    "tag": "forge:dusts/glowstone"
+  },
+  "result": {
+    "item": "minecraft:glowstone_dust",
+    "count": 2
+  },
+  "aspects": {
+    "sensus": 5,
+    "lux": 10
+  },
+  "aspect_cost": {
+    "item": "minecraft:glowstone_dust"
+  }
+}

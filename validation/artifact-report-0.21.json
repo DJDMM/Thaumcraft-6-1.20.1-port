@@ -1,0 +1,335 @@
+{
+  "version": "0.21.0-dev",
+  "originalVersion": "Thaumcraft6.1.BETA26",
+  "originalJarSha256": "9425f8643581b27ff8845b087c8bc6fc10425a32942f1a3f0e265ce6b38f7b5f",
+  "requiredGameTests": 620,
+  "implementedCanonicalResearchEntries": 50,
+  "implementedCanonicalResearchKeys": [
+    "FIRSTSTEPS",
+    "KNOWLEDGETYPES",
+    "THEORYRESEARCH",
+    "CELESTIALSCANNING",
+    "UNLOCKALCHEMY",
+    "BASEALCHEMY",
+    "ALUMENTUM",
+    "METALLURGY",
+    "UNLOCKARTIFICE",
+    "BASEARTIFICE",
+    "UNLOCKINFUSION",
+    "BASEINFUSION",
+    "ESSENTIASMELTER",
+    "WARDEDJARS",
+    "TUBES",
+    "UNLOCKAUROMANCY",
+    "INFUSION",
+    "INFUSIONBOOST",
+    "BASEAUROMANCY",
+    "RECHARGEPEDESTAL",
+    "BOOTSTRAVELLER",
+    "ELEMENTALTOOLS",
+    "ARMORFORTRESS",
+    "FOCUSELEMENTAL",
+    "FOCUSPROJECTILE",
+    "FOCUSBOLT",
+    "FOCUSFLUX",
+    "FOCUSHEAL",
+    "FOCUSBREAK",
+    "FOCUSCURSE",
+    "FOCUSEXCHANGE",
+    "FOCUSRIFT",
+    "FOCUSPLAN",
+    "FOCUSMINE",
+    "FOCUSSPELLBAT",
+    "FOCUSCLOUD",
+    "FOCUSSCATTER",
+    "FOCUSSPLIT",
+    "FOCUSADVANCED",
+    "FOCUSGREATER",
+    "PRIMPEARL",
+    "!Firebat",
+    "CENTRIFUGE",
+    "ESSENTIASMELTERTHAUMIUM",
+    "THAUMATORIUM",
+    "INFUSIONSTABLE",
+    "HEDGEALCHEMY",
+    "UNLOCKGOLEMANCY",
+    "BASEGOLEMANCY",
+    "MATSTUDWOOD"
+  ],
+  "workingInfusionRecipeModes": {
+    "replace": 41,
+    "mutate": 6,
+    "enchantment": 8,
+    "runic": 1
+  },
+  "workingInfusionRecipeRegistrations": 56,
+  "ordinarySurvivalInfusionRecipePathsAvailable": 9,
+  "actualIntegratedServerScreenshots": 25,
+  "visuallyReviewedScreenshots": 25,
+  "clientDesktop": "WinSta0\\ThaumcraftQA_0a89ff4afea5476691f8d742e9f8d6b2",
+  "clientJvmExitCode": 0,
+  "clientDesktopOwnedWindows": 16,
+  "inputDesktopBefore": "Default",
+  "inputDesktopAfter": "Default",
+  "localJsonCount": 2810,
+  "jarResourceByteParityChecks": 3569,
+  "originalPngByteParityChecks": 624,
+  "originalJpgByteParityChecks": 7,
+  "originalOggByteParityChecks": 35,
+  "derivedEffectIconPixelChecks": 2,
+  "jarSha256": "0f94db6fcf24f32fba24b3b318829480c9ccba2cf6abd234511f1d3ee943537d",
+  "terraBlenderSha256": "ca678c11b878ad9c7143636fbec911f29e2c1453a6cc091e16b14e6d9608fb5f",
+  "screenshots": [
+    {
+      "file": "tc6-essentia-production-smelter-idle.png",
+      "sha256": "4d85f1ed64cdf7c2add9683e0fbe023bb222f288bc540bfd1508e3289b7adf2d",
+      "result": "pass",
+      "notes": "Idle original smelter GUI shows empty machine slots and untouched physical stone/coal in player inventory."
+    },
+    {
+      "file": "tc6-essentia-production-smelter-burning.png",
+      "sha256": "547be1a2f2441d64cea5a4a5327fc03c532d34361a38d9a2b8d06ba9c6d40c95",
+      "result": "pass",
+      "notes": "Burning GUI shows stone/coal in machine, active flame and work progress; real slot packets/debit are asserted."
+    },
+    {
+      "file": "tc6-essentia-production-production-network.png",
+      "sha256": "62a2b501773a415c38f4e6732b306bf2300e8787f7f79364a732ea5ec770505c",
+      "result": "pass",
+      "notes": "Lit smelter, real alembic/connected pipes and Terra-filtered jar render with synchronized production amounts."
+    },
+    {
+      "file": "tc6-essentia-production-machines.png",
+      "sha256": "f3fa9374fdee86f7a041482835906ee1cb8dd4b35b075bdd5804e99125f8169d",
+      "result": "pass",
+      "notes": "All three smelter tier textures and alembic/auxiliary/vent/bellows/void-jar models are present without missing sprites."
+    },
+    {
+      "file": "tc6-essentia-production-six-tubes.png",
+      "sha256": "11453a28e9c23e377ce64e37c45832e06d2ac9483e04f92944cdc360b1f6285f",
+      "result": "pass",
+      "notes": "Six transport variants render their actual pipe/filter/valve/buffer geometry and corresponding item icons."
+    },
+    {
+      "file": "tc6-essentia-production-tube-controls.png",
+      "sha256": "fe6ce17d0ba2e5a92ce6170d68e7f7be4de8cdc207f10e3faf851d394db30588",
+      "result": "pass",
+      "notes": "Synchronized open/closed valves, directional one-way nozzle, distinct buffer choke fixtures and Aqua filter are visible."
+    },
+    {
+      "file": "tc6-essentia-production-alembic-labels.png",
+      "sha256": "19280e888ce3b749cc0116f47c241f3deb9c6dab66fbe27f05237d6d84179adf",
+      "result": "pass",
+      "notes": "Alembics show real aspect amounts and labels on all prepared directions, including full128-unit sample."
+    },
+    {
+      "file": "tc6-essentia-production-smelter-recipe.png",
+      "sha256": "a22788e22d25e09e9e5d7bf4215f83f244ff985dd7794f0f300941f62eaca36f",
+      "result": "pass",
+      "notes": "Original smelter grid/output,50vis and Ignis icon fit the parchment; research is unlocked in the explicit fixture."
+    },
+    {
+      "file": "tc6-essentia-production-jar-recipe.png",
+      "sha256": "d094601b782d138a1c428863ce289fd5183cb7d2afd5a15500497ec33b93e48b",
+      "result": "pass",
+      "notes": "Warded jar ingredients/output and5vis/no-crystal original recipe fit the page without clipping."
+    },
+    {
+      "file": "tc6-essentia-production-tube-recipe.png",
+      "sha256": "7167e83d4180fc8ba8b2e5ab0807a348448b5d2a586bbe1d9876a608bee03149",
+      "result": "pass",
+      "notes": "Directional tube and buffer recipe spreads show their actual items and costs; no missing page assets."
+    },
+    {
+      "file": "tc6-essentia-production-centrifuge.png",
+      "sha256": "7ffa17b2aad87fbcaabe58b9ccd6c6ed2b911c378510295fb260e4eec70cacd2",
+      "result": "pass",
+      "notes": "Three live centrifuges display redstone-paused input, processing rotor and one completed immediate component."
+    },
+    {
+      "file": "tc6-essentia-production-centrifuge-recipe.png",
+      "sha256": "cd947d332cdcfda49d692c6a62d73a02587c00b055abd78d9b0980032173e189",
+      "result": "pass",
+      "notes": "Centrifuge book shows physical resonator/mechanism grid,100vis and Ordo/Perditio crystals."
+    },
+    {
+      "file": "tc6-essentia-production-thaumatorium-formation.png",
+      "sha256": "38eca628d4d0475d644aa4d837ad735f9c60790976818ee1035a393793ef52f0",
+      "result": "pass",
+      "notes": "Actual Salis-formed two-high Thaumatorium and three empty typed source fixtures render fully within gallery panels."
+    },
+    {
+      "file": "tc6-essentia-production-thaumatorium-empty.png",
+      "sha256": "258567d6eae6b7a49c99e0b1a125be3b18f9d2ff585676f441394d07816d2b9d",
+      "result": "pass",
+      "notes": "Original175x216 Thaumatorium GUI has empty catalyst/output/aspect fields and coal2 remains in player inventory."
+    },
+    {
+      "file": "tc6-essentia-production-thaumatorium-selected.png",
+      "sha256": "143216068d0617bed3abe74a8563bb0231d4cb19889909722c4683437f820439",
+      "result": "pass",
+      "notes": "Actual selected Alumentum, coal2 catalyst and Ignis/Perditio/Potentia costs render in original six-result GUI."
+    },
+    {
+      "file": "tc6-essentia-production-thaumatorium-progress-paused.png",
+      "sha256": "f0f88faa767120ac7c5477ba180b6dfd958f0d59fb8de854306a847abcbf0aee",
+      "result": "pass",
+      "notes": "Redstone-paused24/25 mixture displays colored progress bars and original10/5/10 aspect costs; catalyst remains2."
+    },
+    {
+      "file": "tc6-essentia-production-thaumatorium-chest-output.png",
+      "sha256": "945be3bd7d14252675c4dafed76b1ac9bbfa765ca4eadec65511c0d3c59c5a78",
+      "result": "pass",
+      "notes": "Real vanilla chest GUI contains exactly one Alumentum at slot0, with no duplicate visible; payment/remaining peers asserted."
+    },
+    {
+      "file": "tc6-essentia-production-thaumatorium-live-render.png",
+      "sha256": "ceed104de9de0dded2cfe3dea56c21ff24bc8773346a85a733774cc65f958956",
+      "result": "pass",
+      "notes": "Front Alumentum preview is visible on the synchronized two-high machine; the Brain Box was actually crafted through paid Mind/Brain C2S workbench operations and placed from that result. Its facing model, remaining Potentia/Ignis columns and capacity3 label are clear."
+    },
+    {
+      "file": "tc6-essentia-production-thaumium-smelter-recipe.png",
+      "sha256": "fa19bdea4e6b0baf5a1d3b97ef70d667d14ac92ec1312d22e808d48f3cf734af",
+      "result": "pass",
+      "notes": "Thaumium smelter book page shows actual plate/construction grid,250vis and Ignis2, without obsolete craft proof."
+    },
+    {
+      "file": "tc6-essentia-production-thaumatorium-blueprint.png",
+      "sha256": "779bc12089e39cd715df6c7ec0ca12a19119c9317ecf0d668635ecaa72f75293",
+      "result": "pass",
+      "notes": "Detached Thaumatorium construction renders crucible/two constructs with layer controls and material counts; optional mnemonic recipe shown adjacent."
+    },
+    {
+      "file": "tc6-essentia-production-stabilizer-recipe.png",
+      "sha256": "634d8e5c906940547d6920a2bc0144a5f0ad3c1086a300e2012b9d3bf5895ecc",
+      "result": "pass",
+      "notes": "Stabilization spread shows2inlay for25vis/Aqua and stabilizer250vis/Aqua/Terra/Perditio with resonator/complex mechanism grid."
+    },
+    {
+      "file": "tc6-essentia-production-inlay-recipe.png",
+      "sha256": "ffa0ff5eaf143b294a0b22d7b87b77466d7418db76be65c4d0e9b376fb5099f6",
+      "result": "pass",
+      "notes": "Inlay recipe focus shares the stabilization spread; readable original two-result output and complete stabilizer recipe remain visible."
+    },
+    {
+      "file": "tc6-essentia-production-clockwork-mind-recipe.png",
+      "result": "pass",
+      "notes": "Current MINDCLOCKWORK stage2 shows its original clockwork mind grid,25vis and Ignis1/Ordo1. Research remains in progress and further advancement is disabled; recipe fits the parchment without clipping.",
+      "sha256": "7269bd903c9453085439ec68a83d3c03a9ffa17e2be75c4eb8ec25afba36c228"
+    },
+    {
+      "file": "tc6-essentia-production-hedge-glowstone-recipe.png",
+      "result": "pass",
+      "notes": "Completed Hedge Alchemy spread shows original ink sac and glowstone duplication outputs, readable aspect costs and x2 glowstone; no missing icons or clipped recipe content.",
+      "sha256": "c2b2da7cac60524e017493e84f5c7716694b81f8bd16f95d270b21ac0337aedf"
+    },
+    {
+      "file": "tc6-essentia-production-hedge-lava-recipe.png",
+      "result": "pass",
+      "notes": "Completed Hedge Alchemy spread shows string to cobweb with Vinculum5 and empty bucket to lava bucket with Ignis15/Terra5. Catalyst/output icons and aspect counts are readable without overlap.",
+      "sha256": "46bcd34868a303babda07ceb4844d0ec7d3c5a235256e84f7568215b4c87c536"
+    }
+  ],
+  "clientFixtureSourceSha256": "b139240c3033b8dd57cc94fa26b023e52814578217cd3f82a869754da549a8b8",
+  "logs": {
+    "golemancy-021-gametest2.log": "651768dabeb0787cbfdab2c972da8ecc7603e311be9643759ec85fca6cac47f3",
+    "build-0.21-final.log": "3ad884d2f40f87e11ea646c022900b4d8ccd325b08cbb7a2f8d94735be94aa85",
+    "resources-0.21-final.log": "5cc94e274ac1ccdeed41587b38781e8a5c44006438cdffbb769074b49748b657",
+    "essentia-production-client-clockwork-021-client3-client.log": "2e0f18756906d027de7bb7e59a77b93c22e2c3b9d5adc4964d16044c7402afeb",
+    "essentia-production-client-clockwork-021-client3-prepare.log": "30eb52bb22ec9e834eefc71642232c1547aac10dc93141a8f6479b3ca346ffe8",
+    "essentia-production-client-clockwork-021-client3-run.json": "1dc94746a0572889fb8ef548b1d5d470e9c7d1e82206c523f0671843e22990e4",
+    "essentia-production-client-clockwork-021-client3-desktop.json": "7b10bc62d9e532df98a2e48601d64308c03467a23af3d47bd204d6bbe780979e",
+    "visual-review-0.21.json": "b0a92ff16d56a8a89a95e26269876e4a59968312155a23aeb16fd0911d7d4e3f"
+  },
+  "limitations": [
+    "All21 original focus node types execute, with branching and Advanced/Greater manufacturing; world Flux Rift and full taint/warp/world entity mechanics are separate unfinished work.",
+    "Infusion research paths available11/56;45 preserve unimplemented late research gates. Available research paths do not establish a complete manual survival campaign or every original world ingredient source.",
+    "Current 25-scene EssentiaProduction client grants predecessor research/MINDCLOCKWORK2 and prepares typed sources/arcane ingredients/aura explicitly. Mind and Brain Box are actually crafted through C2S, and the paid Brain Box is actually placed before capacity3 is checked. It verifies real Salis use, C2S menu/catalyst/program selection, typed consumption, output and rendering. Server tests separately verify progression and physical payments. Auromancy client evidence is historical version0.19; its server tests are included in620.",
+    "Cloud block cooldown uses wall-clock release timing; released living-target key mismatch and other audited BETA26 quirks are intentionally retained, with documented bounded/dimension/lifecycle hardening.",
+    "Bolt/mine/spellbat/centrifuge reuse original assets and audited geometry; native impact/area particles and modern shader/API adaptations do not establish complete original FX parity.",
+    "Centrifuge and Thaumatorium operate with actual ingredients, research, transport, paid completion and inventory output. Natural clockwork mind component acquisition is available through completed Hedge/category and entered MINDCLOCKWORK2. Later mind completion/Golem Press/AI/control seals and ESSENTIATRANSPORT remain separate unfinished work; the partial mind path is not counted among50 full canonical keys.",
+    "No independent-client multiplayer or full manual survival campaign is established by these checks."
+  ],
+  "workingFocusNodes": 21,
+  "originalFocusNodeDefinitions": 21,
+  "unsupportedFocusNodes": 0,
+  "clientScenes": 25,
+  "transientBoltScreenshots": 0,
+  "workingFocusNodeKeys": [
+    "ROOT",
+    "thaumcraft.TOUCH",
+    "thaumcraft.BOLT",
+    "thaumcraft.PROJECTILE",
+    "thaumcraft.CLOUD",
+    "thaumcraft.MINE",
+    "thaumcraft.PLAN",
+    "thaumcraft.SPELLBAT",
+    "thaumcraft.FIRE",
+    "thaumcraft.FROST",
+    "thaumcraft.AIR",
+    "thaumcraft.EARTH",
+    "thaumcraft.FLUX",
+    "thaumcraft.BREAK",
+    "thaumcraft.RIFT",
+    "thaumcraft.EXCHANGE",
+    "thaumcraft.CURSE",
+    "thaumcraft.HEAL",
+    "thaumcraft.SCATTER",
+    "thaumcraft.SPLITTARGET",
+    "thaumcraft.SPLITTRAJECTORY"
+  ],
+  "focusTierComplexityLimits": {
+    "focus_1": 15,
+    "focus_2": 25,
+    "focus_3": 50
+  },
+  "advancedGreaterFocusInfusionAvailable": true,
+  "infusionRecipesWithImplementedResearchPaths": 11,
+  "lateResearchGatedInfusionRecipePaths": 45,
+  "advancedGreaterOriginalWorldPrerequisitesComplete": false,
+  "auromancyClientScenes": 0,
+  "essentiaProductionClientScenes": 25,
+  "clientProfiles": {
+    "EssentiaProduction": {
+      "runTag": "clockwork-021-client3",
+      "scenes": 25,
+      "screenshots": 25,
+      "desktop": "WinSta0\\ThaumcraftQA_0a89ff4afea5476691f8d742e9f8d6b2",
+      "jvmExitCode": 0,
+      "maxOwnedWindowsOnTargetDesktop": 16,
+      "inputDesktopBefore": "Default",
+      "inputDesktopAfter": "Default",
+      "fixtureSource": "src/main/java/thaumcraft/client/research/EssentiaProductionClientSmokeTest.java",
+      "fixtureSourceSha256": "b139240c3033b8dd57cc94fa26b023e52814578217cd3f82a869754da549a8b8",
+      "clientLog": "essentia-production-client-clockwork-021-client3-client.log"
+    }
+  },
+  "visualReviewSha256": "b0a92ff16d56a8a89a95e26269876e4a59968312155a23aeb16fd0911d7d4e3f",
+  "clientFixtureSourceSha256ByProfile": {
+    "EssentiaProduction": "b139240c3033b8dd57cc94fa26b023e52814578217cd3f82a869754da549a8b8"
+  },
+  "workingCentrifuge": true,
+  "workingThaumatorium": true,
+  "workingInfusionStabilizationProgression": true,
+  "workingEarlyDeviceIngredientRecipes": 3,
+  "workingNewArcaneRecipeRegistrations": 1,
+  "naturalRareEarthOreBonus": true,
+  "historicalAuromancyClientEvidence": {
+    "version": "0.19.0-dev",
+    "artifactReport": "artifact-report-0.19.json",
+    "scenes": 33,
+    "transientBoltScreenshots": 1
+  },
+  "partiallyImplementedResearchEntries": {
+    "MINDCLOCKWORK": {
+      "highestEnteredStage": 2,
+      "completionAvailable": false
+    }
+  },
+  "workingNaturalClockworkMindComponentPath": true,
+  "workingHedgeCrucibleRecipes": 10,
+  "workingOrdinaryCandleRecipes": 17,
+  "workingCandleColors": 16,
+  "workingClockworkMindArcaneRecipe": true
+}

@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "group": "thaumcraft:tallowcandles",
+  "ingredients": [
+    [
+      {
+        "tag": "forge:dyes/blue"
+      },
+      {
+        "item": "minecraft:lapis_lazuli"
+      }
+    ],
+    {
+      "tag": "thaumcraft:tallow_candles"
+    }
+  ],
+  "result": {
+    "item": "thaumcraft:candle_blue"
+  }
+}

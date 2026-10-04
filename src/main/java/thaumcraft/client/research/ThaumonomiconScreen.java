@@ -110,7 +110,7 @@ public final class ThaumonomiconScreen extends Screen {
     private boolean canDiscover(ResearchEntry e) {
         if (!archiveMode && legacy(e)) return !knowledge.knowsResearch(e.key()) && scans >= e.scans()
                 && knowledge.discoveredAspects().size() >= e.aspects() && e.parents().stream().allMatch(knowledge::knowsResearch);
-        if (archiveMode || !ResearchProgression.isImplemented(e.key()) || ResearchProgression.isComplete(knowledge, e.key())) return false;
+        if (archiveMode || !ResearchProgression.supportsProgression(e.key()) || ResearchProgression.isComplete(knowledge, e.key())) return false;
         return ResearchProgression.stage(knowledge, e.key()) == 0 ? ResearchProgression.canStart(knowledge, e.key())
                 : ResearchProgression.canAdvance(knowledge, e,minecraft==null || minecraft.player==null?null:minecraft.player.getInventory());
     }
