@@ -1,0 +1,13 @@
+{
+  "research": "SEALEMPTY",
+  "catalyst": {
+    "item": "thaumcraft:seal_blank"
+  },
+  "result": {
+    "item": "thaumcraft:seal_empty",
+    "count": 1
+  },
+  "aspects": {
+    "vacuos": 10
+  }
+}

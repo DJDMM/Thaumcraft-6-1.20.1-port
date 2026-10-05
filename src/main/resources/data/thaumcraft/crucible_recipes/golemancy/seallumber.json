@@ -1,0 +1,14 @@
+{
+  "research": "SEALLUMBER",
+  "catalyst": {
+    "item": "thaumcraft:seal_breaker"
+  },
+  "result": {
+    "item": "thaumcraft:seal_lumber",
+    "count": 1
+  },
+  "aspects": {
+    "herba": 40,
+    "sensus": 20
+  }
+}

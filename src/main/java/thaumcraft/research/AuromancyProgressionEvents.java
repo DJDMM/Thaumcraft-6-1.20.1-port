@@ -56,6 +56,12 @@ public final class AuromancyProgressionEvents {
     /** ConfigResearch may register multiple proofs for one specimen (FireBat).
      * Reading these predicates never grants discoveries or canonical stages. */
     public static List<String> scanFacts(@Nullable Object scanned) {
+        var facts = new java.util.LinkedHashSet<>(auromancyScanFacts(scanned));
+        facts.addAll(GolemancyProgressionEvents.scanFacts(scanned));
+        return List.copyOf(facts);
+    }
+
+    private static List<String> auromancyScanFacts(@Nullable Object scanned) {
         if (scanned instanceof ItemEntity item) scanned = item.getItem();
         if (scanned instanceof ItemStack stack) {
             if (stack.isEmpty()) return List.of();

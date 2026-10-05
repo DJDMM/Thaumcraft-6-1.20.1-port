@@ -74,9 +74,9 @@ public final class GolemPressClientSmokeTest {
             if(scene==0) {
                 if(phase==0) {if(ResearchClient.golemPressKnowledge().researchStage("MINDCLOCKWORK")!=2)return;phase=1;ResearchNetwork.requestAdvance("MINDCLOCKWORK",2);return;}
                 if(phase==1) {if(!ResearchClient.golemPressKnowledge().isResearchCompleteStrict("MINDCLOCKWORK"))return;phase=2;submit(mc,()->{
-                    var p=player(mc);var k=KnowledgeStore.get(p);require(k.researchStage("MINDCLOCKWORK")==4&&k.rawKnowledge(KnowledgeType.THEORY,"ARTIFICE")==0&&k.rawKnowledge(KnowledgeType.THEORY,"GOLEMANCY")==0&&!k.isResearchKnown("CONTROLSEALS"),"Actual research payment failed or opened seals");
+                    var p=player(mc);var k=KnowledgeStore.get(p);require(k.researchStage("MINDCLOCKWORK")==4&&k.rawKnowledge(KnowledgeType.THEORY,"ARTIFICE")==0&&k.rawKnowledge(KnowledgeType.THEORY,"GOLEMANCY")==0&&k.isResearchCompleteStrict("CONTROLSEALS")&&k.isResearchCompleteStrict("SEALCOLLECT")&&k.isResearchCompleteStrict("SEALSTORE"),"Actual research payment or eligible seal siblings failed");
                     p.getInventory().setItem(0,new ItemStack(AlchemyModule.SALIS_MUNDUS.get(),2));p.inventoryMenu.broadcastChanges();
-                    LogUtils.getLogger().info("THAUMCRAFT_GOLEM_PRESS_RESEARCH: actual32+32 theory C2S, completion4, seals closed");});return;}
+                    LogUtils.getLogger().info("THAUMCRAFT_GOLEM_PRESS_RESEARCH: actual32+32 theory C2S, completion4, three eligible seal siblings complete");});return;}
                 if(phase==2) {if(!mc.player.getMainHandItem().is(AlchemyModule.SALIS_MUNDUS.get()))return;phase=3;mc.gameMode.useItemOn(mc.player,InteractionHand.MAIN_HAND,new BlockHitResult(ANCHOR.getCenter(),Direction.UP,ANCHOR,false));return;}
                 if(phase==3) {if(!(mc.level.getBlockEntity(ANCHOR) instanceof GolemPressBlockEntity))return;phase=4;submit(mc,()->{
                     require(tile(mc)!=null&&tile(mc).getItem(0).isEmpty()&&player(mc).getMainHandItem().getCount()==1,"Real Salis formation did not pay once");

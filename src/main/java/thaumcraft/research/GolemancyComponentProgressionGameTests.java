@@ -26,7 +26,7 @@ public final class GolemancyComponentProgressionGameTests {
 
     @GameTest(template="essentia_network")
     public static void exactGolemScanFamiliesIncludeShulkerAndOwnedConstructsButNotItems(GameTestHelper h) {
-        h.assertTrue(ResearchCatalog.entries().stream().filter(e -> ResearchProgression.isImplemented(e.key())).count()==51
+        h.assertTrue(ResearchCatalog.entries().stream().filter(e -> ResearchProgression.isImplemented(e.key())).count()==74
                 && ResearchProgression.isImplemented("MINDCLOCKWORK") && ResearchProgression.stageSupported("MINDCLOCKWORK",2),
                 "Clockwork mind's complete original progression was omitted from the canonical inventory");
         for (var type : List.of(EntityType.IRON_GOLEM, EntityType.SNOW_GOLEM, EntityType.SHULKER)) {
@@ -40,8 +40,8 @@ public final class GolemancyComponentProgressionGameTests {
         }
         h.assertTrue(AuromancyProgressionEvents.scanFacts(EntityType.ENDERMAN.create(h.getLevel())).isEmpty()
                 && AuromancyProgressionEvents.scanFacts(new ItemStack(Items.IRON_GOLEM_SPAWN_EGG)).isEmpty()
-                && !ResearchProgression.supportsProgression("CONTROLSEALS") && !ResearchProgression.supportsProgression("SEALCOLLECT"),
-                "Unrelated entity/item or unported control seals unlocked");
+                && ResearchProgression.supportsProgression("CONTROLSEALS") && ResearchProgression.supportsProgression("SEALCOLLECT"),
+                "Unrelated entity/item granted a scan or implemented seals were omitted");
         h.succeed();
     }
 
@@ -116,7 +116,8 @@ public final class GolemancyComponentProgressionGameTests {
         result(h,ResearchNetwork.processAdvance(p,"MINDCLOCKWORK",2),ResearchProgression.Result.COMPLETE);
         h.assertTrue(state.researchStage("MINDCLOCKWORK")==4 && state.isResearchCompleteStrict("MINDCLOCKWORK")
                 && state.rawKnowledge(KnowledgeType.THEORY,"ARTIFICE")==8 && state.rawKnowledge(KnowledgeType.THEORY,"GOLEMANCY")==8
-                && state.rawKnowledge(KnowledgeType.OBSERVATION,"GOLEMANCY")==3 && p.totalExperience==xp+5,
+                && state.rawKnowledge(KnowledgeType.OBSERVATION,"GOLEMANCY")==3 && p.totalExperience==xp+20
+                && state.isResearchCompleteStrict("CONTROLSEALS") && state.isResearchCompleteStrict("SEALCOLLECT") && state.isResearchCompleteStrict("SEALSTORE"),
                 "Final theory payment changed the two original32-unit costs, empty-stage skip, Observation remainder or XP");
         var chapters=ResearchBookVisibility.readableChapters(state,entry,false);
         h.assertTrue(chapters.equals(List.of(entry.stages().get(2))) && chapters.get(0).recipes().equals(List.of("thaumcraft:MindClockwork","thaumcraft:GolemPress"))
@@ -126,7 +127,7 @@ public final class GolemancyComponentProgressionGameTests {
         saved=state.save(); xp=p.totalExperience;
         result(h,ResearchNetwork.processAdvance(p,"MINDCLOCKWORK",2),ResearchProgression.Result.STALE);
         result(h,ResearchNetwork.processAdvance(p,"MINDCLOCKWORK",4),ResearchProgression.Result.LOCKED);
-        for(String unsupported:List.of("CONTROLSEALS","SEALCOLLECT","SEALSTORE","GOLEMDIRECT","MINDBIOTHAUMIC")) {
+        for(String unsupported:List.of("MATSTUDVOID","GOLEMFLYER","LEVITATOR")) {
             result(h,ResearchNetwork.processAdvance(p,unsupported,0),ResearchProgression.Result.UNSUPPORTED);
             h.assertTrue(!state.isResearchKnown(unsupported),"Completed mind opened an unported sibling or descendant: "+unsupported);
         }

@@ -62,13 +62,13 @@ public final class CatalogGameTests {
         }
         helper.succeed();
     }
-    @GameTest(template="empty") public static void golemAndPechAppearanceDataSurvivesEntitySaveLoad(GameTestHelper helper) {
-        var type=VisualEntitiesModule.LIVING.get("golem").get();var source=type.create(helper.getLevel());
-        CompoundTag data=new CompoundTag();data.putInt("Material",5);data.putInt("GolemHead",4);data.putInt("GolemArms",4);data.putInt("GolemLegs",3);data.putInt("GolemAddon",3);data.putInt("Color",0x445566);
-        source.readAdditionalSaveData(data);CompoundTag saved=new CompoundTag();source.addAdditionalSaveData(saved);
+    @GameTest(template="empty") public static void operationalGolemAppearanceDataSurvivesEntitySaveLoad(GameTestHelper helper) {
+        var type=VisualEntitiesModule.GOLEM.get();var source=type.create(helper.getLevel());
+        long props=thaumcraft.golemancy.press.GolemDesign.create(5,4,4,3,3).orElseThrow().props();
+        source.setProps(props);source.setValidSpawn();source.setGolemColor((byte)7);CompoundTag saved=new CompoundTag();source.addAdditionalSaveData(saved);
         var loaded=type.create(helper.getLevel());loaded.readAdditionalSaveData(saved);
-        helper.assertTrue(loaded.material()==5 && loaded.headPart()==4 && loaded.armsPart()==4 && loaded.legsPart()==3 && loaded.addonPart()==3 && loaded.color()==0x445566,"Golem mesh selection changed during save/load");
-        helper.assertTrue(saved.getBoolean("VisualOnly"),"Catalogue lost its status");helper.succeed();
+        helper.assertTrue(loaded.props()==props && loaded.getGolemColor()==7 && loaded.isValidSpawn(),"Operational golem parts/color changed during save/load");
+        helper.assertTrue(!loaded.isNoAi() && loaded.isPersistenceRequired(),"Operational golem reverted to catalogue AI policy");helper.succeed();
     }
     @GameTest(template="empty") public static void armourIsWearableAndPearlVisualBandsRetainDamage(GameTestHelper helper) {
         for(var spec:CatalogModule.SPECS) if(spec.sourceClass().contains("Armor") || java.util.List.of("ItemGoggles","ItemBootsTraveller","ItemCultistBoots").contains(spec.sourceClass())) {

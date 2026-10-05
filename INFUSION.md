@@ -1,10 +1,18 @@
-# Наполнение TC6 — срез 0.20
+# Наполнение TC6 — срез 0.23
 
 Рабочий серверный алтарь **Thaumcraft 6.1.BETA26** для Forge 1.20.1.
 Контракт сверяется с закреплённым официальным JAR, а не с TC4/TC5:
 [алтарь и пьедесталы](docs/tc6/INFUSION-ALTAR-BETA26-AUDIT.md),
 [56 реальных рецептов](docs/tc6/INFUSION-RECIPES-BETA26-AUDIT.md),
 [воздушное извлечение эссенции](docs/tc6/ESSENTIA-AIRBORNE-BETA26-AUDIT.md).
+
+Текущий канонический набор исследований содержит **74** ключа. Срез 0.23
+открывает четыре уже зарегистрированных рецепта Golemancy: MindBiothaumic,
+SealHarvest, SealButcher и SealBreak. Всего **15 из 56** имеют реализованные
+исследования/крафт, **13** — установленные обычные survival-источники;
+**41 рецепт** сохраняет поздний research gate. Изготовление и применение
+големов/всех 16 печатей — в [GOLEMANCY.md](GOLEMANCY.md); фактический QA —
+в [VALIDATION.md](VALIDATION.md).
 
 ## Сборка и работа
 
@@ -56,7 +64,7 @@ BASEAUROMANCY, RECHARGEPEDESTAL, BOOTSTRAVELLER, ELEMENTALTOOLS и ARMORFORTRESS
 В 0.17 поддерживались **25** с FOCUSELEMENTAL и FOCUSPROJECTILE;
 эти две записи не добавляют gates рецептов наполнения.
 Фокусный срез 0.19 довёл прогрессию до **42** канонических ключей;
-с CENTRIFUGE тот срез содержал **43**. Срез 0.20 имеет общий набор **46**:
+с CENTRIFUGE тот срез содержал **43**. Исторический срез 0.20 имел общий набор **46**:
 ESSENTIASMELTERTHAUMIUM, THAUMATORIUM и INFUSIONSTABLE добавлены отдельно.
 Исходные FOCUSADVANCED@1 и FOCUSGREATER@1 открывают два улучшения фокусов
 через настоящую матрицу. Центрифуга не добавляет рецептов наполнения;
@@ -69,17 +77,19 @@ INFUSIONSTABLE требует INFUSION, METALLURGY@3 и настоящий фа�
 по одной. Его complex mechanism получает исходный BASEARTIFICE-путь;
 морфический резонатор устройств относится к BASEALCHEMY, не Golemancy.
 Эти arcane recipes открывают уже реализованные charge/conduction механики,
-не добавляют рецептов наполнения и не меняют **11/56, 9, 45** ниже.
+не добавляют рецептов наполнения. В срезе 0.20 сохранялись **11/56, 9, 45**;
+добавленные в 0.23 исходные Golemancy paths дают текущие **15/56, 13, 41**.
 Рецепты ингредиентов и natural rare-earth loot — в
 [аудите компонентов](docs/tc6/EARLY-DEVICE-INGREDIENTS-BETA26-AUDIT.md).
 Исходные проверки высоты/движения, обнаруженных аспектов, теорий и реальные
 факты изготовления сохраняются. Basic auromancy открывает цепочку Recharge
 Pedestal → Traveller Boots → Elemental Tools / Fortress без удаления parents.
 
-Для **11 из 56** рецептов реализованы исследования и работающий крафт:
-Traveller Boots, пять Elemental tools, три части Fortress и продвинутый/великий
-фокусы. Обычные survival-источники компонентов установлены для прежних **9**
-рецептов экипировки. Два улучшения фокусов проверены через настоящий алтарь
+Для **15 из 56** рецептов реализованы исследования и работающий крафт:
+Traveller Boots, пять Elemental tools, три части Fortress, продвинутый/великий
+фокусы и четыре рецепта големоведения. Обычные survival-источники компонентов
+установлены для прежних девяти рецептов экипировки и всех четырёх новых путей —
+всего **13**. Два улучшения фокусов проверены через настоящий алтарь
 с заданными fixture prerequisites; исходные мировые источники Firebat,
 Pech и Primordial Pearl через Flux Rift ещё нужны для полного прохождения.
 Оборудование использует исходный bare known gate соответствующей
@@ -88,16 +98,38 @@ Pech и Primordial Pearl через Flux Rift ещё нужны для полн�
 требует начала записи, `KEY@N` — входа в стадию; PORT aliases сохраняют
 только старый recipe access. Это не ослабляет `knowsResearchStrict`
 при изготовлении узлов фокуса: bare node key всё ещё требует завершения.
-Остальные **45** сохраняют поздние исследования. FORTRESSMASK,
+**41 оставшийся рецепт** сохраняет поздние исследования. FORTRESSMASK,
 INFUSIONENCHANTMENT, RUNICSHIELDING, CRYSTALFARMER и другие поздние записи
 не объявлены завершёнными. Точный список путей и платежей —
 [аудит прогрессии](docs/tc6/AUROMANCY-PROGRESSION-BETA26-AUDIT.md).
 Сценарий `Infusion` явно выдаёт своему тестовому персонажу отдельные поздние
 факты для проверки самого алтаря; он не имитирует полное survival-прохождение.
 
+Четыре исходных рецепта Golemancy сохраняют прежние определения и цены:
+
+| Рецепт / gate | Центральный предмет и компоненты | Эссенция / нестабильность |
+| --- | --- | --- |
+| MindBiothaumic / MINDBIOTHAUMIC | Clockwork mind + Zombie Brain + complex mechanism | Cognitio 50, Machina 25 / 4 |
+| SealHarvest / SEALHARVEST | Blank seal + wheat/pumpkin/melon/beetroot seeds + sugar cane + cactus | Herba/Sensus/Humanus по 10 / 0 |
+| SealButcher / SEALBUTCHER | Guard seal + leather + wool + rabbit hide + raw pork/mutton/beef | Bestia/Sensus/Humanus по 10 / 0 |
+| SealBreak / SEALBREAK | Blank seal + golden axe/pickaxe/shovel | Instrumentum/Perditio/Humanus по 10 / 1 |
+
+Clockwork mind и complex mechanism имеют рабочие исходные arcane recipes;
+blank seal из clay/tallow/red dye/Nitor даёт три штуки за 20 vis и Aer ×1.
+Guard изготавливается в тигле. Crop/meat/leather/wool/gold-компоненты доступны
+из обычных vanilla источников. Zombie Brain теперь естественно выпадает из
+подходящих недавно атакованных игроком Zombie-подклассов по исходной
+формуле `random.nextInt(10) - looting < 1`; Drowned исключён. Скан настоящего
+Brain даёт `f_BRAIN`, а MINDBIOTHAUMIC сохраняет родителей и платёж
+32 raw Theory Golemancy + 16 raw Observation Artifice. Это установленные
+источники ингредиентов, не подтверждение полного survival-прохождения.
+Исследования печатей и остальные рецепты —
+[аудит Golemancy](docs/tc6/SEAL-BEHAVIORS-BETA26-AUDIT.md).
+
 Изготовление устройства по рецепту не переносит автоматически его дальнейшую
-механику: зеркала, бур, големные печати и многие другие результаты пока остаются
-элементами каталога. Для полного прохождения далее нужны сами эти системы
+механику: зеркала, бур и многие другие результаты пока остаются
+элементами каталога. Печати и действующие големы реализованы отдельно в 0.23.
+Для полного прохождения далее нужны остальные системы
 и их исходные ветки исследований.
 
 ## Рендер, сохранения и адаптации
@@ -149,7 +181,7 @@ GameTests; финальные build/resource проверки прошли. Кл
 имеют явно заданные prerequisites, что не завершает их мировые источники.
 Итоги и границы — [VALIDATION.md](VALIDATION.md),
 [отчёт 0.19](validation/artifact-report-0.19.json).
-Финальный серверный прогон 0.20 `automation-020-gametest5` прошёл **603/603**
+Исторический финальный серверный прогон 0.20 `automation-020-gametest5` прошёл **603/603**
 обязательных теста, включая новую прогрессию INFUSIONSTABLE и реальное
 событие нестабильности. Скрытый EssentiaProduction `thaumatorium-020-client5`
 прошёл **22/22** сцены; новый клиентский тест проверяет производство и
@@ -157,3 +189,10 @@ read-only страницы компонентов, а не полное прох
 сборка и валидатор **2783 JSON / 3542 файла** прошли. Знания/ресурсы/Brain Box
 явно задаются fixtures. Результаты и границы —
 [VALIDATION.md](VALIDATION.md), [отчёт 0.20](validation/artifact-report-0.20.json).
+
+Исторический срез 0.22 завершил серверные 645/645, GolemPress 6/6 и
+EssentiaProduction 25/25; эти проверки сохраняют собственные границы fixtures.
+Финальные интегрированные проверки 0.23 прошли: **700/700** серверных
+тестов и **18/18** сцен Golemancy, exit 0, Default неизменен; сборка
+и ресурсы прошли. Клиентские сцены проверяют големов/печати, а не полное
+прохождение всех рецептов наполнения. Границы — [VALIDATION.md](VALIDATION.md).

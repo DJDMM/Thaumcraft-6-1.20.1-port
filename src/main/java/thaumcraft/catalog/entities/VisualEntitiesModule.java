@@ -13,6 +13,7 @@ import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 import thaumcraft.auromancy.projectile.FocusProjectileEntity;
+import thaumcraft.golemancy.entity.ThaumcraftGolemEntity;
 
 /** Original registrations: catalogue mobs and effects, with operational projectiles retaining their IDs. */
 public final class VisualEntitiesModule {
@@ -20,13 +21,23 @@ public final class VisualEntitiesModule {
     public static final DeferredRegister<Item> ITEMS = DeferredRegister.create(ForgeRegistries.ITEMS, "thaumcraft");
     public static final Map<String, RegistryObject<EntityType<VisualMobEntity>>> LIVING = new LinkedHashMap<>();
     public static final Map<String, RegistryObject<EntityType<VisualEffectEntity>>> EFFECTS = new LinkedHashMap<>();
+    public static final RegistryObject<EntityType<ThaumcraftGolemEntity>> GOLEM = TYPES.register("golem", () ->
+            EntityType.Builder.<ThaumcraftGolemEntity>of(ThaumcraftGolemEntity::new,MobCategory.MISC).sized(.4F,.9F)
+                    .clientTrackingRange(4).updateInterval(3).setShouldReceiveVelocityUpdates(true).build("thaumcraft:golem"));
+    public static final RegistryObject<EntityType<thaumcraft.golemancy.entity.GolemDartEntity>> GOLEM_DART=TYPES.register("golem_dart",()->
+            EntityType.Builder.<thaumcraft.golemancy.entity.GolemDartEntity>of(thaumcraft.golemancy.entity.GolemDartEntity::new,MobCategory.MISC).sized(.2F,.2F)
+                    .clientTrackingRange(4).updateInterval(20).setShouldReceiveVelocityUpdates(false).build("thaumcraft:golem_dart"));
+    public static final RegistryObject<EntityType<thaumcraft.golemancy.entity.GolemOrbEntity>> GOLEM_ORB=TYPES.register("golem_orb",()->
+            EntityType.Builder.<thaumcraft.golemancy.entity.GolemOrbEntity>of(thaumcraft.golemancy.entity.GolemOrbEntity::new,MobCategory.MISC).sized(.25F,.25F)
+                    .clientTrackingRange(4).updateInterval(3).setShouldReceiveVelocityUpdates(true).build("thaumcraft:golem_orb"));
     public static final RegistryObject<EntityType<FocusProjectileEntity>> FOCUS_PROJECTILE = TYPES.register("focus_projectile", () ->
             EntityType.Builder.<FocusProjectileEntity>of(FocusProjectileEntity::new,MobCategory.MISC).sized(.15F,.15F)
                     .clientTrackingRange(4).updateInterval(20).setShouldReceiveVelocityUpdates(true).build("thaumcraft:focus_projectile"));
 
     static {
+        ITEMS.register("golem_spawn_egg", () -> new ForgeSpawnEggItem(GOLEM,6842578,8421504,new Item.Properties()));
         for (VisualEntitySpec spec : VisualEntitySpec.ALL) {
-            if (spec.id().equals("alumentum") || spec.id().equals("focus_projectile")) continue; // Working projectiles own these registry IDs.
+            if (java.util.Set.of("alumentum","focus_projectile","golem","golem_dart","golem_orb").contains(spec.id())) continue;
             if (spec.living()) {
                 var type = TYPES.register(spec.id(), () -> EntityType.Builder.<VisualMobEntity>of(
                         VisualMobEntity::new, MobCategory.MISC).sized(spec.width(), spec.height())
@@ -59,5 +70,6 @@ public final class VisualEntitiesModule {
         var attributes = VisualMobEntity.createMobAttributes().add(Attributes.MAX_HEALTH, 20)
                 .add(Attributes.MOVEMENT_SPEED, 0).add(Attributes.FOLLOW_RANGE, 0).build();
         LIVING.values().forEach(type -> event.put(type.get(), attributes));
+        event.put(GOLEM.get(),ThaumcraftGolemEntity.attributes().build());
     }
 }

@@ -1,0 +1,14 @@
+{
+  "research": "SEALGUARD",
+  "catalyst": {
+    "item": "thaumcraft:seal_blank"
+  },
+  "result": {
+    "item": "thaumcraft:seal_guard",
+    "count": 1
+  },
+  "aspects": {
+    "aversio": 20,
+    "praemunio": 20
+  }
+}

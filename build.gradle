@@ -3,7 +3,7 @@ plugins {
     id 'idea'
     id 'net.minecraftforge.gradle' version '6.0.54'
 }
-version = '0.22.0-dev'
+version = '0.23.0-dev'
 group = 'thaumcraft.port'
 base { archivesName = 'thaumcraft-1.20.1' }
 java.toolchain.languageVersion = JavaLanguageVersion.of(17)
@@ -19,6 +19,11 @@ minecraft {
             mods { thaumcraft { source sourceSets.main } }
         }
         client {
+            if (project.hasProperty('golemancySmokeTest')) {
+                workingDirectory project.file('run/golemancy-smoke')
+                property 'thaumcraft.golemancySmokeTest', 'true'
+                args '--width', '1600', '--height', '1000'
+            }
             if (project.hasProperty('golemPressSmokeTest')) {
                 workingDirectory project.file('run/golem-press-smoke')
                 property 'thaumcraft.golemPressSmokeTest', 'true'

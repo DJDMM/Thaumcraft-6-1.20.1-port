@@ -30,6 +30,9 @@ public final class VisualEntityRenderers {
         }));
         VisualEntitiesModule.EFFECTS.forEach((id,type) -> event.registerEntityRenderer(type.get(),SpriteRenderer<VisualEffectEntity>::new));
         event.registerEntityRenderer(VisualEntitiesModule.FOCUS_PROJECTILE.get(),FocusProjectileRenderer::new);
+        event.registerEntityRenderer(VisualEntitiesModule.GOLEM.get(),thaumcraft.golemancy.client.ThaumcraftGolemRenderer::new);
+        event.registerEntityRenderer(VisualEntitiesModule.GOLEM_DART.get(),thaumcraft.golemancy.client.GolemProjectileRenderers.Dart::new);
+        event.registerEntityRenderer(VisualEntitiesModule.GOLEM_ORB.get(),thaumcraft.golemancy.client.GolemProjectileRenderers.Orb::new);
     }
     public static ResourceLocation texture(String path) {
         return path.contains(":")?ResourceLocation.parse(path):ResourceLocation.fromNamespaceAndPath("thaumcraft",path);

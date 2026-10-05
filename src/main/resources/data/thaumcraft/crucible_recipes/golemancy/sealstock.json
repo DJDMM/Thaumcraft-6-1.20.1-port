@@ -1,0 +1,14 @@
+{
+  "research": "SEALSTOCK",
+  "catalyst": {
+    "item": "thaumcraft:seal_fill"
+  },
+  "result": {
+    "item": "thaumcraft:seal_stock",
+    "count": 1
+  },
+  "aspects": {
+    "cognitio": 10,
+    "desiderium": 10
+  }
+}

@@ -132,7 +132,12 @@ public final class WorldGameTests {
         helper.assertTrue(configured.get(id("ore_quartz")).place(level, level.getChunkSource().getGenerator(), RandomSource.create(17), quartzPos), "Ore feature did not replace stone");
         helper.assertTrue(level.getBlockState(quartzPos).is(WorldModule.ORE_QUARTZ.get()), "Wrong block generated");
         var quartzDrops = Block.getDrops(level.getBlockState(quartzPos), level, quartzPos, null, null, new ItemStack(Items.IRON_PICKAXE));
-        helper.assertTrue(quartzDrops.size() == 1 && quartzDrops.get(0).is(Items.QUARTZ), "Quartz ore drops incorrect item");
+        // Since 0.20 this original ore also has its audited non-Silk 5% rare-earth bonus.
+        var rareEarth=thaumcraft.catalog.CatalogModule.stack("nugget_rareearth");
+        helper.assertTrue(quartzDrops.stream().filter(s->s.is(Items.QUARTZ)).mapToInt(ItemStack::getCount).sum()==1
+                && quartzDrops.stream().filter(s->s.is(rareEarth.getItem())).mapToInt(ItemStack::getCount).sum()<=1
+                && quartzDrops.stream().allMatch(s->s.is(Items.QUARTZ)||s.is(rareEarth.getItem())),
+                "Quartz ore lost its one primary quartz or produced an unrelated/duplicate bonus: "+quartzDrops);
         helper.succeed();
     }
 

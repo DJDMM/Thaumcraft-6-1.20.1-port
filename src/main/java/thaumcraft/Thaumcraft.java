@@ -87,6 +87,9 @@ public final class Thaumcraft {
         thaumcraft.essentia.centrifuge.CentrifugeModule.register(bus);
         thaumcraft.essentia.thaumatorium.ThaumatoriumModule.register(bus);
         thaumcraft.golemancy.press.GolemPressRegistry.register(bus);
+        thaumcraft.golemancy.entity.GolemEntitySounds.register(bus);
+        thaumcraft.golemancy.seals.behavior.SealBehaviors.register();
+        thaumcraft.golemancy.seals.core.SealRegistry.register(bus);
         thaumcraft.catalog.entities.VisualEntitiesModule.register(bus);
         thaumcraft.infusion.InfusionModule.register(bus);
         thaumcraft.auromancy.AuromancySounds.register(bus);

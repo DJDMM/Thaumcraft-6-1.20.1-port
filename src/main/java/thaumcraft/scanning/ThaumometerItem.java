@@ -120,7 +120,7 @@ public final class ThaumometerItem extends Item {
         return switch (target.location.kind) {
             case HELD_ITEM -> player.getItemInHand(otherHand(hand));
             case ENTITY -> player.level().getEntity(target.location.entityId);
-            case BLOCK -> null;
+            case BLOCK -> player.level().getBlockState(target.location.blockPos);
         };
     }
 

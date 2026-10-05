@@ -370,7 +370,7 @@ public final class CatalogClientSmokeTest {
         LogUtils.getLogger().info("THAUMCRAFT_CATALOG_SMOKE_EFFECTS: {} of {} nonliving registrations previewed",mobs.size(),VisualEntitySpec.ALL.stream().filter(spec -> !spec.living()).count());
         mobs.clear();labels.clear();
         for(int variant=0;variant<3;variant++) { var mob=VisualEntitiesModule.LIVING.get("pech").get().create(mc.level);CompoundTag tag=new CompoundTag();tag.putInt("PechType",variant);mob.readAdditionalSaveData(tag);mobs.add(mob);labels.add("pech-"+variant); }
-        for(int mat=0;mat<6;mat++) {var mob=VisualEntitiesModule.LIVING.get("golem").get().create(mc.level);CompoundTag tag=new CompoundTag();tag.putInt("Material",mat);tag.putInt("GolemHead",mat%5);tag.putInt("GolemArms",mat%5);tag.putInt("GolemLegs",mat%4);tag.putInt("GolemAddon",mat%4);mob.readAdditionalSaveData(tag);mobs.add(mob);labels.add("golem-"+mat);}
+        for(int mat=0;mat<6;mat++) {var mob=VisualEntitiesModule.GOLEM.get().create(mc.level);mob.setProps(thaumcraft.golemancy.press.GolemDesign.create(mat,mat%5,mat%5,mat%4,mat%4).orElseThrow().props());mob.setValidSpawn();mobs.add(mob);labels.add("golem-"+mat);}
         entityPages("entity-variants",mobs,labels);mobs.clear();labels.clear();
         for(String prefix:List.of("thaumium","void","cloth","fortress","void_robe","crimson_plate","crimson_robe","crimson_praetor")) {
             ArmorStand stand=armorStand(mc,prefix);

@@ -1,0 +1,14 @@
+{
+  "research": "SEALGUARD&&MINDBIOTHAUMIC",
+  "catalyst": {
+    "item": "thaumcraft:seal_guard"
+  },
+  "result": {
+    "item": "thaumcraft:seal_guard_advanced",
+    "count": 1
+  },
+  "aspects": {
+    "sensus": 20,
+    "cognitio": 20
+  }
+}

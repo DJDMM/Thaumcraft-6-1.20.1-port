@@ -203,11 +203,12 @@ public final class GolemDesignGameTests {
         forged.putInt("Version", 2);
         forged.put("ResearchStages", allStages);
         var forgedLate = PlayerKnowledge.load(forged);
-        helper.assertTrue(!GolemDesign.create(1, 0, 0, 0, 0).orElseThrow().canManufacture(forgedLate)
-                        && !GolemDesign.create(0, 1, 0, 0, 0).orElseThrow().canManufacture(forgedLate)
-                        && !GolemDesign.create(0, 0, 2, 0, 0).orElseThrow().canManufacture(forgedLate)
+        helper.assertTrue(GolemDesign.create(1, 0, 0, 0, 0).orElseThrow().canManufacture(forgedLate)
+                        && GolemDesign.create(0, 1, 0, 0, 0).orElseThrow().canManufacture(forgedLate)
+                        && GolemDesign.create(0, 0, 2, 0, 0).orElseThrow().canManufacture(forgedLate)
+                        && !GolemDesign.create(5, 0, 0, 0, 0).orElseThrow().canManufacture(forgedLate)
                         && !GolemDesign.create(0, 0, 0, 3, 0).orElseThrow().canManufacture(forgedLate),
-                "Unsupported late canonical entries became manufacture access through a forged/legacy stage payload");
+                "Completed supported parts or the separate Void/Flyer support gates changed");
         CompoundTag aliases = new CompoundTag();
         aliases.putInt("Version", 2);
         ListTag research = new ListTag();

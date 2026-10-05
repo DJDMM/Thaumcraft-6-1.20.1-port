@@ -1,0 +1,13 @@
+{
+  "research": "SEALCOLLECT",
+  "catalyst": {
+    "item": "thaumcraft:seal_blank"
+  },
+  "result": {
+    "item": "thaumcraft:seal_pickup",
+    "count": 1
+  },
+  "aspects": {
+    "desiderium": 10
+  }
+}

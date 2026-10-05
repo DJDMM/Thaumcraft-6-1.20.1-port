@@ -1,0 +1,15 @@
+{
+  "research": "SEALUSE",
+  "catalyst": {
+    "item": "thaumcraft:seal_blank"
+  },
+  "result": {
+    "item": "thaumcraft:seal_use",
+    "count": 1
+  },
+  "aspects": {
+    "fabrico": 20,
+    "sensus": 10,
+    "cognitio": 20
+  }
+}

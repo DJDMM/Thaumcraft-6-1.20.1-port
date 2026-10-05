@@ -1,0 +1,14 @@
+{
+  "research": "SEALPROVIDE",
+  "catalyst": {
+    "item": "thaumcraft:seal_empty_advanced"
+  },
+  "result": {
+    "item": "thaumcraft:seal_provider",
+    "count": 1
+  },
+  "aspects": {
+    "permutatio": 10,
+    "desiderium": 10
+  }
+}

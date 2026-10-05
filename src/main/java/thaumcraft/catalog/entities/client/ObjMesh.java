@@ -47,21 +47,28 @@ public final class ObjMesh {
     }
     private static int index(String value,int size) { int n=Integer.parseInt(value);return n<0?size+n:n-1; }
     public void render(PoseStack pose,MultiBufferSource buffers,ResourceLocation material,ResourceLocation detail,int light,String... groups) {
+        renderTinted(pose,buffers,material,detail,light,0xffffffff,groups);
+    }
+    public Set<String> groups() { Set<String> names=new LinkedHashSet<>();faces.forEach(f->names.add(f.group));return Collections.unmodifiableSet(names); }
+    public void renderTinted(PoseStack pose,MultiBufferSource buffers,ResourceLocation material,ResourceLocation detail,int light,int tint,String... groups) {
+        renderStyled(pose,buffers,material,detail,light,tint,RenderType::entityCutoutNoCull,groups);
+    }
+    public void renderStyled(PoseStack pose,MultiBufferSource buffers,ResourceLocation material,ResourceLocation detail,int light,int tint,java.util.function.Function<ResourceLocation,RenderType> layer,String... groups) {
         Set<String> included=Set.of(groups);
         for(var face:faces) {
             if(!included.isEmpty() && !included.contains(face.group)) continue;
             ResourceLocation tex=detail!=null && !face.group.startsWith("bm")?detail:material;
-            VertexConsumer vertices=buffers.getBuffer(RenderType.entityCutoutNoCull(tex));
+            VertexConsumer vertices=buffers.getBuffer(layer.apply(tex));
             var c=face.corners;
-            if(c.size()==4) for(var corner:c) vertex(vertices,pose.last(),corner,light);
+            if(c.size()==4) for(var corner:c) vertex(vertices,pose.last(),corner,light,tint);
             else for(int i=1;i<c.size()-1;i++) {
-                vertex(vertices,pose.last(),c.get(0),light);vertex(vertices,pose.last(),c.get(i),light);
-                vertex(vertices,pose.last(),c.get(i+1),light);vertex(vertices,pose.last(),c.get(i+1),light);
+                vertex(vertices,pose.last(),c.get(0),light,tint);vertex(vertices,pose.last(),c.get(i),light,tint);
+                vertex(vertices,pose.last(),c.get(i+1),light,tint);vertex(vertices,pose.last(),c.get(i+1),light,tint);
             }
         }
     }
-    private static void vertex(VertexConsumer v,PoseStack.Pose pose,Corner c,int light) {
-        v.vertex(pose.pose(),c.pos.x,c.pos.y,c.pos.z).color(255,255,255,255).uv(c.u,c.v)
+    private static void vertex(VertexConsumer v,PoseStack.Pose pose,Corner c,int light,int tint) {
+        v.vertex(pose.pose(),c.pos.x,c.pos.y,c.pos.z).color((tint>>16)&255,(tint>>8)&255,tint&255,(tint>>>24)&255).uv(c.u,c.v)
                 .overlayCoords(OverlayTexture.NO_OVERLAY).uv2(light).normal(pose.normal(),c.normal.x,c.normal.y,c.normal.z).endVertex();
     }
     public int faceCount() { return faces.size(); }

@@ -1,0 +1,14 @@
+{
+  "research": "SEALEMPTY&&MINDBIOTHAUMIC",
+  "catalyst": {
+    "item": "thaumcraft:seal_empty"
+  },
+  "result": {
+    "item": "thaumcraft:seal_empty_advanced",
+    "count": 1
+  },
+  "aspects": {
+    "sensus": 10,
+    "cognitio": 10
+  }
+}

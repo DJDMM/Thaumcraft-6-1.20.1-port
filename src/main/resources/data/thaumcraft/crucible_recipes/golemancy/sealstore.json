@@ -1,0 +1,13 @@
+{
+  "research": "SEALSTORE",
+  "catalyst": {
+    "item": "thaumcraft:seal_blank"
+  },
+  "result": {
+    "item": "thaumcraft:seal_fill",
+    "count": 1
+  },
+  "aspects": {
+    "aversio": 10
+  }
+}

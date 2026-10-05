@@ -139,11 +139,20 @@
   },
   "jacobs": {
     "category": "ambient",
-    "sounds": [{ "name": "thaumcraft:jacobs", "stream": false }]
+    "sounds": [
+      {
+        "name": "thaumcraft:jacobs",
+        "stream": false
+      }
+    ]
   },
   "pump": {
     "category": "block",
-    "sounds": ["thaumcraft:pump1", "thaumcraft:pump2", "thaumcraft:pump3"]
+    "sounds": [
+      "thaumcraft:pump1",
+      "thaumcraft:pump2",
+      "thaumcraft:pump3"
+    ]
   },
   "ticks": {
     "category": "ambient",
@@ -152,6 +161,13 @@
         "name": "thaumcraft:ticks",
         "stream": false
       }
+    ]
+  },
+  "shock": {
+    "category": "master",
+    "sounds": [
+      "thaumcraft:shock1",
+      "thaumcraft:shock2"
     ]
   }
 }

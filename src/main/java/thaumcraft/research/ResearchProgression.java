@@ -24,7 +24,11 @@ public final class ResearchProgression {
             "FOCUSCURSE", "FOCUSEXCHANGE", "FOCUSRIFT", "FOCUSPLAN", "FOCUSMINE", "FOCUSSPELLBAT",
             "FOCUSCLOUD", "FOCUSSCATTER", "FOCUSSPLIT", "FOCUSADVANCED", "FOCUSGREATER", "PRIMPEARL", "!Firebat", "CENTRIFUGE",
             "ESSENTIASMELTERTHAUMIUM", "THAUMATORIUM", "INFUSIONSTABLE",
-            "HEDGEALCHEMY", "UNLOCKGOLEMANCY", "BASEGOLEMANCY", "MATSTUDWOOD", "MINDCLOCKWORK");
+            "HEDGEALCHEMY", "UNLOCKGOLEMANCY", "BASEGOLEMANCY", "MATSTUDWOOD", "MINDCLOCKWORK",
+            "CONTROLSEALS", "SEALCOLLECT", "SEALSTORE", "SEALEMPTY", "SEALPROVIDE", "SEALSTOCK",
+            "SEALGUARD", "SEALBUTCHER", "SEALUSE", "SEALHARVEST", "SEALBREAK", "SEALLUMBER",
+            "MINDBIOTHAUMIC", "MATSTUDIRON", "MATSTUDCLAY", "MATSTUDBRASS", "MATSTUDTHAUMIUM",
+            "GOLEMBREAKER", "GOLEMCOMBATADV", "GOLEMDIRECT", "GOLEMLOGISTICS", "GOLEMCLIMBER", "GOLEMVISION");
     private static final Set<String> OLD_PROFILE_LESSONS = Set.of("PORT_START", "PORT_SCAN", "PORT_ALCHEMY",
             "PORT_NITOR", "PORT_ALUMENTUM", "PORT_BRASS", "PORT_THAUMIUM");
     private static final Map<String, List<Requirements>> REQUIREMENTS = load();
@@ -130,7 +134,11 @@ public final class ResearchProgression {
                 ResearchEntry sibling = ResearchCatalog.get(raw);
                 List<Requirements> req = REQUIREMENTS.get(raw);
                 if (parentsMet(knowledge, sibling) && req.size() == 1 && req.get(0).empty()
-                        && knowledge.setResearchStage(raw, 2)) experience += 5;
+                        && knowledge.setResearchStage(raw, 2)) {
+                    // Original completeResearch recursively completes eligible empty siblings.
+                    // Set this stage first, so even a cyclic addon sibling graph terminates.
+                    experience += 5 + revealSiblings(knowledge, sibling);
+                }
             }
         }
         return experience;
