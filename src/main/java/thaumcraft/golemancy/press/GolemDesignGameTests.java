@@ -207,8 +207,8 @@ public final class GolemDesignGameTests {
                         && GolemDesign.create(0, 1, 0, 0, 0).orElseThrow().canManufacture(forgedLate)
                         && GolemDesign.create(0, 0, 2, 0, 0).orElseThrow().canManufacture(forgedLate)
                         && !GolemDesign.create(5, 0, 0, 0, 0).orElseThrow().canManufacture(forgedLate)
-                        && !GolemDesign.create(0, 0, 0, 3, 0).orElseThrow().canManufacture(forgedLate),
-                "Completed supported parts or the separate Void/Flyer support gates changed");
+                        && GolemDesign.create(0, 0, 0, 3, 0).orElseThrow().canManufacture(forgedLate),
+                "Completed supported parts/Flyer or the separate Void support gate changed");
         CompoundTag aliases = new CompoundTag();
         aliases.putInt("Version", 2);
         ListTag research = new ListTag();

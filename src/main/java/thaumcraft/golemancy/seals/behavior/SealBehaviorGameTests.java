@@ -76,7 +76,7 @@ public final class SealBehaviorGameTests {
     public static void stockAndProviderPerformTwoPaidTasksWithNoFreeDestinationItems(GameTestHelper h) {
         var source=chest(h,new BlockPos(2,1,2));source.setItem(0,new ItemStack(Items.APPLE,9));var target=chest(h,new BlockPos(6,1,2));target.setItem(0,new ItemStack(Items.APPLE,2));
         var provider=seal(h,"provider",new BlockPos(2,1,2));var stock=seal(h,"stock",new BlockPos(6,1,2));stock.filter(0,new ItemStack(Items.APPLE));stock.filterSize(0,7);
-        var golem=golem(h,0,0,0);var service=SealService.get(h.getLevel());b("stock").tick(h.getLevel(),stock,service);h.assertTrue(service.provisions().stream().anyMatch(p->p.position().equals(stock.position().pos())&&p.stack().getCount()==5),"Stock failed to request missing5");
+        var golem=golem(h,0,0,0);var service=SealService.get(h.getLevel());b("stock").tick(h.getLevel(),stock,service);h.assertTrue(service.provisions().stream().anyMatch(p->stock.position().pos().equals(p.position())&&p.stack().getCount()==5),"Stock failed to request missing5");
         b("provider").tick(h.getLevel(),provider,service);SealTask fetch=latest(service,provider);finish(h,provider,golem,fetch);
         h.assertTrue(source.getItem(0).getCount()==4&&target.getItem(0).getCount()==2&&golem.getCarrying().get(0).getCount()==5,"Fetch did not pay source before travel");
         SealTask delivery=latest(service,provider);h.assertTrue(delivery.data()==2&&delivery.golemUUID().equals(golem.getUUID()),"Delivery was not reserved for the paid carrier");finish(h,provider,golem,delivery);

@@ -28,7 +28,8 @@ public final class ResearchProgression {
             "CONTROLSEALS", "SEALCOLLECT", "SEALSTORE", "SEALEMPTY", "SEALPROVIDE", "SEALSTOCK",
             "SEALGUARD", "SEALBUTCHER", "SEALUSE", "SEALHARVEST", "SEALBREAK", "SEALLUMBER",
             "MINDBIOTHAUMIC", "MATSTUDIRON", "MATSTUDCLAY", "MATSTUDBRASS", "MATSTUDTHAUMIUM",
-            "GOLEMBREAKER", "GOLEMCOMBATADV", "GOLEMDIRECT", "GOLEMLOGISTICS", "GOLEMCLIMBER", "GOLEMVISION");
+            "GOLEMBREAKER", "GOLEMCOMBATADV", "GOLEMDIRECT", "GOLEMLOGISTICS", "GOLEMCLIMBER", "GOLEMVISION",
+            "HUNGRYCHEST", "LEVITATOR", "JARBRAIN", "GOLEMFLYER");
     private static final Set<String> OLD_PROFILE_LESSONS = Set.of("PORT_START", "PORT_SCAN", "PORT_ALCHEMY",
             "PORT_NITOR", "PORT_ALUMENTUM", "PORT_BRASS", "PORT_THAUMIUM");
     private static final Map<String, List<Requirements>> REQUIREMENTS = load();
@@ -250,11 +251,15 @@ public final class ResearchProgression {
             } catch (Exception failure) { throw new IllegalArgumentException("Invalid obtain " + raw, failure); }
         }
         ItemStack template() {
+            if (item.getNamespace().equals("oredict"))
+                return ResearchBookRequirements.displayItem(item + ";" + count);
             ItemStack template = new ItemStack(BuiltInRegistries.ITEM.get(item), count);
             if (nbt != null) template.setTag(nbt.copy());
             return template;
         }
         boolean matches(ItemStack stack) {
+            if (item.getNamespace().equals("oredict"))
+                return ResearchBookRequirements.matchesItem(stack, item.toString(), template());
             // BETA26 InventoryUtils accepts and consumes any item with the requested
             // enchantment, including a stored enchanted book. Numeric legacy IDs are
             // translated explicitly; unrelated name, wear and extra enchantments do

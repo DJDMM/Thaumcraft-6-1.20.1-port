@@ -1999,5 +1999,6 @@
   "thaumcraft.golemancy.request": "Request delivery",
   "thaumcraft.golemancy.count": "Amount",
   "tc.logistics.request": "Request",
-  "tc.logistics.search": "Search"
+  "tc.logistics.search": "Search",
+  "tc.levitator": "Range set to %s blocks. (%s vis/minute)"
 }

@@ -25,9 +25,10 @@ public final class SealProgressionGameTests {
     private static final List<String> ADDED=List.of("CONTROLSEALS","SEALCOLLECT","SEALSTORE","SEALEMPTY","SEALPROVIDE","SEALSTOCK","SEALGUARD","SEALBUTCHER","SEALUSE","SEALHARVEST","SEALBREAK","SEALLUMBER","MINDBIOTHAUMIC","MATSTUDIRON","MATSTUDCLAY","MATSTUDBRASS","MATSTUDTHAUMIUM","GOLEMBREAKER","GOLEMCOMBATADV","GOLEMDIRECT","GOLEMLOGISTICS","GOLEMCLIMBER","GOLEMVISION");
     @GameTest(template="essentia_network")
     public static void canonicalCensusAndUnportedParentsStayClosed(GameTestHelper h) {
-        h.assertTrue(ResearchCatalog.entries().stream().filter(e->ResearchProgression.isImplemented(e.key())).count()==74,"Canonical census should contain original51 plus23 working golem paths");
+        h.assertTrue(ResearchCatalog.entries().stream().filter(e->ResearchProgression.isImplemented(e.key())).count()==78,"Canonical census should contain original74 plus four late golem/device paths");
         for(String key:ADDED)h.assertTrue(ResearchProgression.supportsProgression(key),"Working research omitted "+key);
-        for(String key:List.of("GOLEMFLYER","MATSTUDVOID","BASEELDRITCH","LEVITATOR","JARBRAIN"))h.assertTrue(!ResearchProgression.supportsProgression(key),"Unsupported late branch silently unlocked "+key);
+        for(String key:List.of("HUNGRYCHEST","GOLEMFLYER","LEVITATOR","JARBRAIN"))h.assertTrue(ResearchProgression.supportsProgression(key),"Working device branch omitted "+key);
+        for(String key:List.of("MATSTUDVOID","BASEELDRITCH"))h.assertTrue(!ResearchProgression.supportsProgression(key),"Unsupported late branch silently unlocked "+key);
         h.succeed();
     }
     @GameTest(template="essentia_network")

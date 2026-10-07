@@ -169,5 +169,23 @@
       "thaumcraft:shock1",
       "thaumcraft:shock2"
     ]
+  },
+  "brain": {
+    "category": "ambient",
+    "sounds": [
+      "thaumcraft:brain1",
+      "thaumcraft:brain2",
+      "thaumcraft:brain3",
+      "thaumcraft:brain4"
+    ]
+  },
+  "jar": {
+    "category": "block",
+    "sounds": [
+      "thaumcraft:jar1",
+      "thaumcraft:jar2",
+      "thaumcraft:jar3",
+      "thaumcraft:jar4"
+    ]
   }
 }

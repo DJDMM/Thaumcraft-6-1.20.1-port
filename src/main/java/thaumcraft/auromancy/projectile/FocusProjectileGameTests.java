@@ -38,9 +38,22 @@ public final class FocusProjectileGameTests {
         if (!result.success()) throw new AssertionError(result.error()); return result.plan();
     }
     private static FocusProjectileEntity projectile(GameTestHelper h,ServerPlayer caster,int speed,int option) {
-        Vec3 source=caster.position().add(0,4,0);
-        h.assertTrue(FocusProjectileEntity.spawn(caster,plan(speed,option),2,source,new Vec3(0,0,1),speed,option),"Spawn rejected valid paid continuation");
-        return h.getLevel().getEntitiesOfClass(FocusProjectileEntity.class,new AABB(source,source).inflate(4)).stream().max(Comparator.comparingInt(Entity::getId)).orElseThrow();
+        Vec3 source=caster.position().add(0,4,0); var paid=plan(speed,option);
+        h.assertTrue(FocusProjectileEntity.spawn(caster,paid,2,source,new Vec3(0,0,1),speed,option),"Spawn rejected valid paid continuation");
+        return ownedProjectile(h,caster,paid,2,source,4,"Initial paid spawn");
+    }
+    private static FocusProjectileEntity ownedProjectile(GameTestHelper h,ServerPlayer caster,FocusPlan paid,int next,Vec3 source,int radius,String phase) {
+        // Concurrent GameTests share a ServerLevel and inflated boxes can reach
+        // another fixture. Select this caster's exact paid execution, not merely
+        // the globally newest projectile, and give a useful phase on failure.
+        var nearby=h.getLevel().getEntitiesOfClass(FocusProjectileEntity.class,new AABB(source,source).inflate(radius));
+        var owned=nearby.stream().filter(e->!e.isRemoved() && e.getOwner()==caster && e.paidPlan()!=null
+                && e.paidPlan().executionId().equals(paid.executionId()) && e.nextIndex()==next).toList();
+        h.assertTrue(owned.size()==1,phase+" expected one owned continuation at index"+next+", found="+owned.size()
+                +", pending="+FocusProjectileImpacts.pending(h.getLevel())+", casterAlive="+caster.isAlive()+", source="+source
+                +", sourceLoaded="+(h.getLevel().getChunkSource().getChunkNow(BlockPos.containing(source).getX()>>4,BlockPos.containing(source).getZ()>>4)!=null)
+                +", nearby="+nearby.stream().map(e->e.getId()+"/owner"+e.ownerEntityId()+"/next"+e.nextIndex()+"/pos"+e.position()).toList());
+        return owned.get(0);
     }
     private static void advance(FocusProjectileEntity entity) { entity.setOldPosAndRot(); entity.tickCount++; entity.tick(); }
     private static void end(GameTestHelper h) { MinecraftForge.EVENT_BUS.post(new TickEvent.LevelTickEvent(LogicalSide.SERVER,TickEvent.Phase.END,h.getLevel(),()->true)); }
@@ -152,9 +165,9 @@ public final class FocusProjectileGameTests {
         for(int i=0;i<keys.size();i++)nodes.add(new FocusGraph.Node(i,i-1,i==keys.size()-1?List.of():List.of(i+1),0,i,keys.get(i),FocusNodeRegistry.get(keys.get(i)).defaultSettings()));
         var paid=FocusCompiler.compile(new FocusGraph(nodes),CatalogModule.stack("focus_3"),k->true).plan(); Vec3 source=caster.position().add(0,4,0);
         h.assertTrue(FocusProjectileEntity.spawn(caster,paid,2,source,new Vec3(0,0,1),1,0),"Nested initial spawn failed");
-        var first=h.getLevel().getEntitiesOfClass(FocusProjectileEntity.class,new AABB(source,source).inflate(4)).stream().max(Comparator.comparingInt(Entity::getId)).orElseThrow(); first.setOldPosAndRot();
+        var first=ownedProjectile(h,caster,paid,2,source,4,"Nested initial spawn"); first.setOldPosAndRot();
         var victim=EntityType.COW.create(h.getLevel()); victim.setNoAi(true); victim.setPos(first.position()); h.getLevel().addFreshEntity(victim); float health=victim.getHealth(); first.onHit(new EntityHitResult(victim)); end(h);
-        var second=h.getLevel().getEntitiesOfClass(FocusProjectileEntity.class,new AABB(source,source).inflate(8)).stream().filter(e->!e.isRemoved()).max(Comparator.comparingInt(Entity::getId)).orElseThrow();
+        var second=ownedProjectile(h,caster,paid,3,source,8,"Nested END continuation");
         h.assertTrue(second.nextIndex()==3 && victim.getHealth()==health,"Intermediary ran terminal effect or restarted root"); second.setOldPosAndRot(); second.onHit(new EntityHitResult(victim)); end(h);
         close(h,victim.getHealth(),health-4,"Nested suffix did not execute once"); victim.discard(); h.succeed();
     }

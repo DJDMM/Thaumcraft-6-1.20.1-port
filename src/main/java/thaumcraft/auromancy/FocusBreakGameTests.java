@@ -83,6 +83,13 @@ public final class FocusBreakGameTests {
     private static int drops(ServerLevel level, BlockPos pos, Item item) {
         return drops(level, pos).stream().filter(e -> e.getItem().is(item)).mapToInt(e -> e.getItem().getCount()).sum();
     }
+    private static int experience(ExperienceOrb orb) {
+        // Modern award(7) splits into 3 + 3 + 1 and can immediately merge the two
+        // three-point orbs. Value is the amount per pickup, while Count is the
+        // number of pickups represented by the entity, even before its first tick.
+        CompoundTag saved = new CompoundTag(); orb.addAdditionalSaveData(saved);
+        return orb.getValue() * Math.max(1, saved.getInt("Count"));
+    }
     private static void clean(ServerLevel level, BlockPos pos) {
         drops(level, pos).forEach(ItemEntity::discard);
         level.getEntitiesOfClass(ExperienceOrb.class, new AABB(pos).inflate(.6)).forEach(ExperienceOrb::discard);
@@ -198,9 +205,13 @@ public final class FocusBreakGameTests {
         };
         MinecraftForge.EVENT_BUS.addListener(EventPriority.LOWEST, xp);
         try { FocusBreakQueue.process(level); } finally { MinecraftForge.EVENT_BUS.unregister(xp); }
-        int actualXp = level.getEntitiesOfClass(ExperienceOrb.class, new AABB(pos).inflate(.6)).stream().mapToInt(ExperienceOrb::getValue).sum();
-        h.assertTrue(events.get() == 1 && actualXp == 7 && drops(level, pos, Items.STONE) == 1
-                && ItemStack.matches(completion, before), "Silk override lost event XP, completion loot, or changed actual tool"); clean(level, pos); h.succeed();
+        int actualXp = level.getEntitiesOfClass(ExperienceOrb.class, new AABB(pos).inflate(.6)).stream().mapToInt(FocusBreakGameTests::experience).sum();
+        int actualLoot = drops(level, pos, Items.STONE);
+        boolean unchangedTool = ItemStack.matches(completion, before);
+        h.assertTrue(events.get() == 1 && actualXp == 7 && actualLoot == 1 && unchangedTool,
+                "Silk override lost event XP, completion loot, or changed actual tool: events=" + events.get()
+                        + ", xp=" + actualXp + ", stone=" + actualLoot + ", unchangedTool=" + unchangedTool);
+        clean(level, pos); h.succeed();
     }
 
     @GameTest(template="empty") public static void breakPreservesActualBlockEntityNbtInLoot(GameTestHelper h) {

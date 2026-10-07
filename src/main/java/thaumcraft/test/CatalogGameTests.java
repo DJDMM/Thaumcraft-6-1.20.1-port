@@ -43,9 +43,13 @@ public final class CatalogGameTests {
             helper.assertTrue(helper.getLevel().getBlockState(pos).is(block),"Placement failed "+entry.getKey());
             if(CatalogBlocks.special(entry.getKey())) helper.assertTrue(entry.getKey().equals("infusion_matrix")
                     ? helper.getLevel().getBlockEntity(pos) instanceof thaumcraft.infusion.InfusionMatrixBlockEntity
+                    : entry.getKey().equals("jar_brain")
+                    ? helper.getLevel().getBlockEntity(pos) instanceof thaumcraft.golemancy.jar.BrainJarBlockEntity
                     : entry.getKey().equals("centrifuge")
                     ? helper.getLevel().getBlockEntity(pos) instanceof thaumcraft.essentia.centrifuge.CentrifugeBlockEntity
                     : helper.getLevel().getBlockEntity(pos) instanceof CatalogBlockEntity,"Special geometry lost tile "+entry.getKey());
+            if(entry.getKey().equals("hungry_chest")) helper.assertTrue(helper.getLevel().getBlockEntity(pos) instanceof thaumcraft.artifice.hungrychest.HungryChestBlockEntity,"Hungry Chest lost operational inventory");
+            if(entry.getKey().equals("levitator")) helper.assertTrue(helper.getLevel().getBlockEntity(pos) instanceof thaumcraft.golemancy.levitator.LevitatorBlockEntity,"Levitator lost operational aura ticker");
             helper.getLevel().removeBlock(pos,false);
             helper.assertTrue(helper.getLevel().getBlockEntity(pos)==null,"Visual tile leaked after removal");
         }

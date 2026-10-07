@@ -1993,5 +1993,6 @@
   "thaumcraft.golemancy.request": "Запросить доставку",
   "thaumcraft.golemancy.count": "Количество",
   "tc.logistics.request": "Запрос",
-  "tc.logistics.search": "Поиск"
+  "tc.logistics.search": "Поиск",
+  "tc.levitator": "Установленный радиус: %s блоков. (%s вис/минута)"
 }

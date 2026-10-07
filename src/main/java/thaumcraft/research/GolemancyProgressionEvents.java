@@ -61,6 +61,14 @@ public final class GolemancyProgressionEvents {
         } else if (scanned instanceof Entity entity) {
             if (entity instanceof Spider) facts.add("f_SPIDER");
             if (brainy(entity)) facts.add("f_BRAIN");
+            // ConfigResearch's exact released ScanEntity roster, not every modern flying mob.
+            ResourceLocation id = ForgeRegistries.ENTITY_TYPES.getKey(entity.getType());
+            if (entity instanceof net.minecraft.world.entity.ambient.Bat
+                    || entity instanceof net.minecraft.world.entity.animal.Parrot
+                    || entity instanceof net.minecraft.world.entity.monster.Ghast
+                    || entity instanceof net.minecraft.world.entity.monster.Blaze
+                    || id != null && Set.of("thaumcraft:fire_bat", "thaumcraft:taint_swarm", "thaumcraft:wisp").contains(id.toString()))
+                facts.add("f_FLY");
         }
         return List.copyOf(facts);
     }

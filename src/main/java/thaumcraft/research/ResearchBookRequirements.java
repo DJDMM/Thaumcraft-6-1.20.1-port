@@ -113,10 +113,12 @@ public final class ResearchBookRequirements {
         catch(Exception ignored) { return ItemStack.EMPTY; }
         return result;
     }
-    private static boolean matchesItem(ItemStack found,String descriptor,ItemStack template) {
+    /** Shared physical requirement predicate; the server pays the same dictionary group shown by the book. */
+    public static boolean matchesItem(ItemStack found,String descriptor,ItemStack template) {
         if(found.isEmpty()) return false;
-        if(descriptor.startsWith("oredict:chest")) return found.is(TagKey.create(net.minecraft.core.registries.Registries.ITEM,
-                ResourceLocation.fromNamespaceAndPath("forge","chests/wooden"))) || found.is(Items.CHEST) || found.is(Items.TRAPPED_CHEST);
+        // Forge 1.12's "chest" includes wooden, trapped AND Ender chests.
+        if(descriptor.split(";",2)[0].equals("oredict:chest")) return found.is(TagKey.create(net.minecraft.core.registries.Registries.ITEM,
+                ResourceLocation.fromNamespaceAndPath("forge","chests"))) || found.is(Items.CHEST) || found.is(Items.TRAPPED_CHEST) || found.is(Items.ENDER_CHEST);
         if(descriptor.startsWith("thaumcraft:enchanted_placeholder;")) {
             try {
                 String[] fields=descriptor.split(";",4);

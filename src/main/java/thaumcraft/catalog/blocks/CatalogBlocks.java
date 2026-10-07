@@ -31,7 +31,12 @@ public final class CatalogBlocks {
         for (Spec spec : SPECS) if (!existing.contains(ResourceLocation.fromNamespaceAndPath("thaumcraft",spec.id()))) {
             RegistryObject<Block> block = BLOCKS.register(spec.id(), () -> create(spec));
             ENTRIES.put(spec.id(),block);
-            if (spec.item()) ITEMS.register(spec.id(), () -> isEssentiaJar(spec.id())
+            if (spec.item()) ITEMS.register(spec.id(), () -> spec.id().equals("jar_brain")
+                    ? new thaumcraft.golemancy.jar.BrainJarBlockItem(block.get())
+                    : spec.id().equals("hungry_chest")
+                    ? thaumcraft.artifice.hungrychest.HungryChestModule.createBlockItem(block.get())
+                    : spec.id().equals("levitator") ? new BlockItem(block.get(),new Item.Properties())
+                    : isEssentiaJar(spec.id())
                     ? new thaumcraft.essentia.EssentiaJarItem(block.get())
                     : thaumcraft.essentia.production.EssentiaProductionModule.handlesBlock(spec.id())
                     ? thaumcraft.essentia.production.EssentiaProductionModule.createBlockItem(spec.id(), block.get())
@@ -56,6 +61,9 @@ public final class CatalogBlocks {
     private static Block create(Spec spec) {
         BlockBehaviour.Properties props = BlockBehaviour.Properties.copy(Blocks.STONE).strength(2).noOcclusion();
         String id=spec.id();
+        if (thaumcraft.golemancy.jar.BrainJarModule.handlesBlock(id)) return thaumcraft.golemancy.jar.BrainJarModule.createBlock();
+        if (thaumcraft.golemancy.levitator.LevitatorModule.handlesBlock(id)) return thaumcraft.golemancy.levitator.LevitatorModule.createBlock();
+        if (thaumcraft.artifice.hungrychest.HungryChestModule.handlesBlock(id)) return thaumcraft.artifice.hungrychest.HungryChestModule.createBlock();
         if (id.startsWith("candle_")) return new thaumcraft.alchemy.hedge.TallowCandleBlock(id);
         if (thaumcraft.golemancy.press.GolemPressRegistry.handlesBlock(id)) return thaumcraft.golemancy.press.GolemPressRegistry.createBlock(id);
         if(thaumcraft.auromancy.remaining.RemainingEffectsModule.handlesBlock(id))return thaumcraft.auromancy.remaining.RemainingEffectsModule.createBlock(id,props);

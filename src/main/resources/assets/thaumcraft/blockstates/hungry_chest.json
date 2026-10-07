@@ -1,11 +1,5 @@
 {
   "variants": {
-    "facing=up": {
-      "model": "thaumcraft:catalog/hungry_chest/0"
-    },
-    "facing=down": {
-      "model": "thaumcraft:catalog/hungry_chest/1"
-    },
     "facing=west": {
       "model": "thaumcraft:catalog/hungry_chest/2"
     },

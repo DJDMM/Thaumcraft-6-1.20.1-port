@@ -26,7 +26,7 @@ public final class GolemancyComponentProgressionGameTests {
 
     @GameTest(template="essentia_network")
     public static void exactGolemScanFamiliesIncludeShulkerAndOwnedConstructsButNotItems(GameTestHelper h) {
-        h.assertTrue(ResearchCatalog.entries().stream().filter(e -> ResearchProgression.isImplemented(e.key())).count()==74
+        h.assertTrue(ResearchCatalog.entries().stream().filter(e -> ResearchProgression.isImplemented(e.key())).count()==78
                 && ResearchProgression.isImplemented("MINDCLOCKWORK") && ResearchProgression.stageSupported("MINDCLOCKWORK",2),
                 "Clockwork mind's complete original progression was omitted from the canonical inventory");
         for (var type : List.of(EntityType.IRON_GOLEM, EntityType.SNOW_GOLEM, EntityType.SHULKER)) {
@@ -127,9 +127,13 @@ public final class GolemancyComponentProgressionGameTests {
         saved=state.save(); xp=p.totalExperience;
         result(h,ResearchNetwork.processAdvance(p,"MINDCLOCKWORK",2),ResearchProgression.Result.STALE);
         result(h,ResearchNetwork.processAdvance(p,"MINDCLOCKWORK",4),ResearchProgression.Result.LOCKED);
-        for(String unsupported:List.of("MATSTUDVOID","GOLEMFLYER","LEVITATOR")) {
+        for(String unsupported:List.of("MATSTUDVOID")) {
             result(h,ResearchNetwork.processAdvance(p,unsupported,0),ResearchProgression.Result.UNSUPPORTED);
             h.assertTrue(!state.isResearchKnown(unsupported),"Completed mind opened an unported sibling or descendant: "+unsupported);
+        }
+        for(String descendant:List.of("GOLEMFLYER","LEVITATOR")) {
+            result(h,ResearchNetwork.processAdvance(p,descendant,0),ResearchProgression.Result.LOCKED);
+            h.assertTrue(!state.isResearchKnown(descendant),"Completed Mind bypassed the original late parents: "+descendant);
         }
         h.assertTrue(saved.equals(state.save()) && xp==p.totalExperience && !ResearchProgression.canAdvance(state,entry)
                 && PlayerKnowledge.load(saved).isResearchCompleteStrict("MINDCLOCKWORK"),"Completion replay, unsupported sibling request or reload mutated paid state");
