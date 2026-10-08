@@ -50,6 +50,7 @@ public final class CatalogGameTests {
                     : helper.getLevel().getBlockEntity(pos) instanceof CatalogBlockEntity,"Special geometry lost tile "+entry.getKey());
             if(entry.getKey().equals("hungry_chest")) helper.assertTrue(helper.getLevel().getBlockEntity(pos) instanceof thaumcraft.artifice.hungrychest.HungryChestBlockEntity,"Hungry Chest lost operational inventory");
             if(entry.getKey().equals("levitator")) helper.assertTrue(helper.getLevel().getBlockEntity(pos) instanceof thaumcraft.golemancy.levitator.LevitatorBlockEntity,"Levitator lost operational aura ticker");
+            if(thaumcraft.essentia.transfuser.EssentiaTransfuserModule.handlesBlock(entry.getKey())) helper.assertTrue(helper.getLevel().getBlockEntity(pos) instanceof thaumcraft.essentia.transfuser.EssentiaTransfuserBlockEntity,"Airborne transfuser lost operational transport ticker");
             helper.getLevel().removeBlock(pos,false);
             helper.assertTrue(helper.getLevel().getBlockEntity(pos)==null,"Visual tile leaked after removal");
         }

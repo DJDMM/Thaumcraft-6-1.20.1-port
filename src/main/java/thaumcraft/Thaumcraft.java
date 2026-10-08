@@ -84,6 +84,7 @@ public final class Thaumcraft {
         thaumcraft.essentia.EssentiaModule.register(bus);
         thaumcraft.essentia.production.EssentiaProductionModule.register(bus);
         thaumcraft.essentia.transport.EssentiaTransportModule.register(bus);
+        thaumcraft.essentia.transfuser.EssentiaTransfuserModule.register(bus);
         thaumcraft.essentia.centrifuge.CentrifugeModule.register(bus);
         thaumcraft.essentia.thaumatorium.ThaumatoriumModule.register(bus);
         thaumcraft.golemancy.press.GolemPressRegistry.register(bus);

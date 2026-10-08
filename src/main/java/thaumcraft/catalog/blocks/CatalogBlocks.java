@@ -36,6 +36,8 @@ public final class CatalogBlocks {
                     : spec.id().equals("hungry_chest")
                     ? thaumcraft.artifice.hungrychest.HungryChestModule.createBlockItem(block.get())
                     : spec.id().equals("levitator") ? new BlockItem(block.get(),new Item.Properties())
+                    : thaumcraft.essentia.transfuser.EssentiaTransfuserModule.handlesBlock(spec.id())
+                    ? new BlockItem(block.get(),new Item.Properties())
                     : isEssentiaJar(spec.id())
                     ? new thaumcraft.essentia.EssentiaJarItem(block.get())
                     : thaumcraft.essentia.production.EssentiaProductionModule.handlesBlock(spec.id())
@@ -61,6 +63,7 @@ public final class CatalogBlocks {
     private static Block create(Spec spec) {
         BlockBehaviour.Properties props = BlockBehaviour.Properties.copy(Blocks.STONE).strength(2).noOcclusion();
         String id=spec.id();
+        if (thaumcraft.essentia.transfuser.EssentiaTransfuserModule.handlesBlock(id)) return thaumcraft.essentia.transfuser.EssentiaTransfuserModule.createBlock(id);
         if (thaumcraft.golemancy.jar.BrainJarModule.handlesBlock(id)) return thaumcraft.golemancy.jar.BrainJarModule.createBlock();
         if (thaumcraft.golemancy.levitator.LevitatorModule.handlesBlock(id)) return thaumcraft.golemancy.levitator.LevitatorModule.createBlock();
         if (thaumcraft.artifice.hungrychest.HungryChestModule.handlesBlock(id)) return thaumcraft.artifice.hungrychest.HungryChestModule.createBlock();

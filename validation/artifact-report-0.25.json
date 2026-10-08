@@ -1,0 +1,716 @@
+{
+  "version": "0.25.0-dev",
+  "originalVersion": "Thaumcraft6.1.BETA26",
+  "originalJarSha256": "9425f8643581b27ff8845b087c8bc6fc10425a32942f1a3f0e265ce6b38f7b5f",
+  "requiredGameTests": 783,
+  "implementedCanonicalResearchEntries": 79,
+  "implementedCanonicalResearchKeys": [
+    "FIRSTSTEPS",
+    "KNOWLEDGETYPES",
+    "THEORYRESEARCH",
+    "CELESTIALSCANNING",
+    "UNLOCKALCHEMY",
+    "BASEALCHEMY",
+    "ALUMENTUM",
+    "METALLURGY",
+    "UNLOCKARTIFICE",
+    "BASEARTIFICE",
+    "UNLOCKINFUSION",
+    "BASEINFUSION",
+    "ESSENTIASMELTER",
+    "WARDEDJARS",
+    "TUBES",
+    "UNLOCKAUROMANCY",
+    "INFUSION",
+    "INFUSIONBOOST",
+    "BASEAUROMANCY",
+    "RECHARGEPEDESTAL",
+    "BOOTSTRAVELLER",
+    "ELEMENTALTOOLS",
+    "ARMORFORTRESS",
+    "FOCUSELEMENTAL",
+    "FOCUSPROJECTILE",
+    "FOCUSBOLT",
+    "FOCUSFLUX",
+    "FOCUSHEAL",
+    "FOCUSBREAK",
+    "FOCUSCURSE",
+    "FOCUSEXCHANGE",
+    "FOCUSRIFT",
+    "FOCUSPLAN",
+    "FOCUSMINE",
+    "FOCUSSPELLBAT",
+    "FOCUSCLOUD",
+    "FOCUSSCATTER",
+    "FOCUSSPLIT",
+    "FOCUSADVANCED",
+    "FOCUSGREATER",
+    "PRIMPEARL",
+    "!Firebat",
+    "CENTRIFUGE",
+    "ESSENTIASMELTERTHAUMIUM",
+    "THAUMATORIUM",
+    "INFUSIONSTABLE",
+    "HEDGEALCHEMY",
+    "UNLOCKGOLEMANCY",
+    "BASEGOLEMANCY",
+    "MATSTUDWOOD",
+    "MINDCLOCKWORK",
+    "CONTROLSEALS",
+    "SEALCOLLECT",
+    "SEALSTORE",
+    "SEALEMPTY",
+    "SEALPROVIDE",
+    "SEALSTOCK",
+    "SEALGUARD",
+    "SEALBUTCHER",
+    "SEALUSE",
+    "SEALHARVEST",
+    "SEALBREAK",
+    "SEALLUMBER",
+    "MINDBIOTHAUMIC",
+    "MATSTUDIRON",
+    "MATSTUDCLAY",
+    "MATSTUDBRASS",
+    "MATSTUDTHAUMIUM",
+    "GOLEMBREAKER",
+    "GOLEMCOMBATADV",
+    "GOLEMDIRECT",
+    "GOLEMLOGISTICS",
+    "GOLEMCLIMBER",
+    "GOLEMVISION",
+    "HUNGRYCHEST",
+    "LEVITATOR",
+    "JARBRAIN",
+    "GOLEMFLYER",
+    "ESSENTIATRANSPORT"
+  ],
+  "workingInfusionRecipeModes": {
+    "replace": 41,
+    "mutate": 6,
+    "enchantment": 8,
+    "runic": 1
+  },
+  "workingInfusionRecipeRegistrations": 56,
+  "ordinarySurvivalInfusionRecipePathsAvailable": 14,
+  "actualIntegratedServerScreenshots": 25,
+  "visuallyReviewedScreenshots": 25,
+  "localJsonCount": 2832,
+  "jarResourceByteParityChecks": 3637,
+  "originalPngByteParityChecks": 660,
+  "originalJpgByteParityChecks": 7,
+  "originalOggByteParityChecks": 45,
+  "derivedEffectIconPixelChecks": 2,
+  "jarSha256": "235d3a603f99b8a976f7cdf7b4e7198a8849910a2b5a99ccbb10bb9793f7368d",
+  "terraBlenderSha256": "ca678c11b878ad9c7143636fbec911f29e2c1453a6cc091e16b14e6d9608fb5f",
+  "screenshots": [
+    {
+      "file": "tc6-essentia-transfuser-paid-research.png",
+      "profile": "EssentiaTransfuser",
+      "result": "pass",
+      "notes": "Full size: completed original transport spread, readable paper pages and two recipe icons; no overlap or missing texture.",
+      "sha256": "4add46ccb103735aae6c9a4b95796bfcd1fabf24361c91cf20dc0a1e5543d2e1"
+    },
+    {
+      "file": "tc6-essentia-transfuser-input-recipe.png",
+      "profile": "EssentiaTransfuser",
+      "result": "pass",
+      "notes": "Full size: actual bench input grid has brass/iron plates, dispenser and construct; output,100vis and Air/Water crystals are visible and aligned.",
+      "sha256": "cc018fd3a8091658cd5aa1ba266ab37c05d2c2f14b4ff8c37f62af14401305f0"
+    },
+    {
+      "file": "tc6-essentia-transfuser-input-placed.png",
+      "profile": "EssentiaTransfuser",
+      "result": "pass",
+      "notes": "Reviewed contact sheet: original filling device sits above the actual Alembic; both destinations are visibly empty.",
+      "sha256": "60fb2b67e9fd605e93495fdc9f008e66d74d0dd7b888e46c5cfb87377edde563"
+    },
+    {
+      "file": "tc6-essentia-transfuser-air-insert-active.png",
+      "profile": "EssentiaTransfuser",
+      "result": "pass",
+      "notes": "Full size: actual native world shows the filling device on Alembic, receiving jar and visible orange native particles between them; custom ribbon FX is not claimed.",
+      "sha256": "5df26bcad57b78e76b83bcd90f6447e5109e1f64ce97d70feb2d5151b243dea7"
+    },
+    {
+      "file": "tc6-essentia-transfuser-air-insert-complete.png",
+      "profile": "EssentiaTransfuser",
+      "result": "pass",
+      "notes": "Reviewed contact sheet: middle jar visibly contains Ignis; live annotation reads source0/air24/collector0.",
+      "sha256": "2517c7b4edb8b1c1ab83cc37d5f15a25b0e71585432744c50031bcea081a6f7f"
+    },
+    {
+      "file": "tc6-essentia-transfuser-output-recipe.png",
+      "profile": "EssentiaTransfuser",
+      "result": "pass",
+      "notes": "Reviewed contact sheet: actual bench grid shows hopper variant, output,100vis and correct two crystals; menu slots align.",
+      "sha256": "1ee300826a7a35a4351f55f713c6ac92ca506603103b18df521b49c4163028c4"
+    },
+    {
+      "file": "tc6-essentia-transfuser-output-placed.png",
+      "profile": "EssentiaTransfuser",
+      "result": "pass",
+      "notes": "Reviewed contact sheet: original emptying device sits above the still-empty physical collector; middle jar remains full.",
+      "sha256": "ead92ec183abb1771a6a38a1d5fcc0c27bc45a888cb1e05f1bdb7ee9290ca185"
+    },
+    {
+      "file": "tc6-essentia-transfuser-air-drain-active.png",
+      "profile": "EssentiaTransfuser",
+      "result": "pass",
+      "notes": "Full size: actual native world shows orange particle stream from middle jar to output above labelled collector, original textures and clear glass.",
+      "sha256": "6e0fdeb233205362c16d86aaaa905ef8054b1a8bd39df85f83cac3f02ae9cdd9"
+    },
+    {
+      "file": "tc6-essentia-transfuser-pipeline-complete.png",
+      "profile": "EssentiaTransfuser",
+      "result": "pass",
+      "notes": "Reviewed contact sheet: middle jar is visibly empty and labelled collector contains Ignis; live counts0/0/24 and both actual paid blocks remain.",
+      "sha256": "7c89848104707557bd5f944c7295aa89df195116d3700f90b99474c5c26ef908"
+    },
+    {
+      "file": "tc6-essentia-transfuser-original-six-facings.png",
+      "profile": "EssentiaTransfuser",
+      "result": "pass",
+      "notes": "Full size: all twelve original baked variants, in/out for each of six directions, render complete textures and geometry; these are explicitly read-only orientation previews.",
+      "sha256": "efde575998e387ab3b9c7460031e2f94344cbdfab5dc92691fbe5964852fdd83"
+    },
+    {
+      "file": "tc6-late-golem-paid-research.png",
+      "profile": "LateGolem",
+      "result": "pass",
+      "notes": "Reviewed current contact sheet: completed Flyer paper spread fits both pages and unlock text is readable.",
+      "sha256": "00398dc6dbe27b4aad4dcb617941f2ba61ec2afe7ee89e2792d8d2fe898a378f"
+    },
+    {
+      "file": "tc6-late-golem-hungry-chest-recipe.png",
+      "profile": "LateGolem",
+      "result": "pass",
+      "notes": "Reviewed current contact sheet: actual native bench grid, chest result and15vis/crystals are visible and aligned.",
+      "sha256": "7b52c35598637cd61fb12e2c4e0a14fde73207dee26c41194a83992fb5ae289d"
+    },
+    {
+      "file": "tc6-late-golem-hungry-chest-absorbed.png",
+      "profile": "LateGolem",
+      "result": "pass",
+      "notes": "Reviewed current contact sheet: real27-slot Hungry Chest menu contains three captured apples and aligned empty player slots.",
+      "sha256": "7b30166d03ab2300d2d2f6ed6ce5f27a56ef00243fc2954245f50508f4b44626"
+    },
+    {
+      "file": "tc6-late-golem-levitator-recipe.png",
+      "profile": "LateGolem",
+      "result": "pass",
+      "notes": "Reviewed current contact sheet: two crafts of ingredients and original levitator result with35vis information fit the bench.",
+      "sha256": "1178e0c08cefd76861bb9879f3d8609cf9525e86a19322a45664ad59b149ad0f"
+    },
+    {
+      "file": "tc6-late-golem-levitator-lifting.png",
+      "profile": "LateGolem",
+      "result": "pass",
+      "notes": "Reviewed current contact sheet: complete original Levitator geometry/texture and lifted physical feather are visible.",
+      "sha256": "c4705dce134431123b6c91948e1421c24fa3a49a6d8920f6d7cc9978b7e6055b"
+    },
+    {
+      "file": "tc6-late-golem-jar-infusion-active.png",
+      "profile": "LateGolem",
+      "result": "pass",
+      "notes": "Reviewed current contact sheet: physical matrix, pedestals, candles and three typed jars render with original textures; payment is established by actual server markers.",
+      "sha256": "4094764751ee4131103db95f2c958f5ebdf31a70f0a201c71bc31f676b662fe4"
+    },
+    {
+      "file": "tc6-late-golem-jar-infusion-output.png",
+      "profile": "LateGolem",
+      "result": "pass",
+      "notes": "Reviewed current contact sheet: completed physical altar and paid output are visible; real result identity is established by server markers.",
+      "sha256": "933efa217d5c4234ae5975ddf0cd1bcefb54365aa612eb32004cce2dc66c5570"
+    },
+    {
+      "file": "tc6-late-golem-jar-xp-stored.png",
+      "profile": "LateGolem",
+      "result": "pass",
+      "notes": "Full size: original glass,lid,green brine and brain are complete; live XP reads20/2000.",
+      "sha256": "05f07e0c726c5ea7a90ad6721c8ac693c4153ddc96bc9eb11c180f3ef5bba2d4"
+    },
+    {
+      "file": "tc6-late-golem-jar-xp-released.png",
+      "profile": "LateGolem",
+      "result": "pass",
+      "notes": "Reviewed current contact sheet: original jar remains intact and live XP now reads6/2000 after actual14XP release.",
+      "sha256": "04405a7c42c180871be4d9628254fd1912764cd39665f47891e30ded2054fec0"
+    },
+    {
+      "file": "tc6-late-golem-flyer-ready-menu.png",
+      "profile": "LateGolem",
+      "result": "pass",
+      "notes": "Reviewed current contact sheet: original press selectors show Flyer, all trait/component icons and physical inventory slots fit.",
+      "sha256": "9a03767c8d7b1385c15bc5561efe409a4f0136d7c761ab84010c39b7436b569a"
+    },
+    {
+      "file": "tc6-late-golem-flyer-paid-progress.png",
+      "profile": "LateGolem",
+      "result": "pass",
+      "notes": "Reviewed current contact sheet: paid empty inventory, moving original press and native smoke are visible; no missing geometry.",
+      "sha256": "0733f7b596c056c2056f6ca009079458222f277720f08d523e56d16d07742456"
+    },
+    {
+      "file": "tc6-late-golem-flyer-output.png",
+      "profile": "LateGolem",
+      "result": "pass",
+      "notes": "Reviewed current contact sheet: actual paid Flyer appears in original physical press output slot with aligned selectors.",
+      "sha256": "1d188b1da5f869462a8cc96d092f65f08a420429bef163c43855e084eac2b3ff"
+    },
+    {
+      "file": "tc6-late-golem-flyer-deployed.png",
+      "profile": "LateGolem",
+      "result": "pass",
+      "notes": "Reviewed current contact sheet: complete original wood body/head/arms and golden Flyer base are suspended with a ground shadow.",
+      "sha256": "16ab521f3837cb5b4fd109c8ff81e04b1be977a4dc3a7c4121b9b508c8859aeb"
+    },
+    {
+      "file": "tc6-late-golem-flyer-elevated-pickup.png",
+      "profile": "LateGolem",
+      "result": "pass",
+      "notes": "Full size: native diamond cargo is visible in the real Flyer hand; live annotation readsy120.87/carried3. Modern carried-item render is an explicit adaptation.",
+      "sha256": "1a6e19aca1452890547bc6de7595d14ae5cf35a62970308456d7db58bf6ba8d6"
+    },
+    {
+      "file": "tc6-late-golem-flyer-delivered.png",
+      "profile": "LateGolem",
+      "result": "pass",
+      "notes": "Full size: real Hungry Chest has three apples and three diamonds; actual Flyer is visible beside it, inventory slots align.",
+      "sha256": "c7d752ec01bd98bb903791b90d2911c561bd3857034942c70d86707a9d23257e"
+    }
+  ],
+  "logs": {
+    "air-025-gametest2.log": "6cbe940473fb8ec90a0242b34cc280b1a24bb28b3ce082d4e5160d9d3a5cba0e",
+    "build-0.25-final.log": "f4933bda46a2cb22d09e789a9aa015783a82db42f8b235e04165ac647fd51cd5",
+    "resources-0.25-final.log": "0a1cd75ae44bb7e13d86a783248a37405db597ad9c6b72c80075eb355f19431c",
+    "visual-review-0.25.json": "6363132559922a9afef38a1da961bad2151ea28ef802444d6e0634e6152b228a",
+    "essentia-transfuser-client-air-025-client3-client.log": "45d069c4fe53c904c9e1cdbb2817deb93bf321999373654065801cd2d0af3817",
+    "essentia-transfuser-client-air-025-client3-prepare.log": "9c3be113d66ae772fb117423972dfcaeed8f3cc4467e51d9f7653ec107e0b5e6",
+    "essentia-transfuser-client-air-025-client3-run.json": "f6ac046b5eb93af78f69600c3356edb8fc3b20c3d4d57eb4091aa574dfff64ee",
+    "essentia-transfuser-client-air-025-client3-desktop.json": "3ad927d63af2e67936263be9cb527bc25ec3f2ff592b50cd3f81aff153a45be6",
+    "late-golem-client-air-025-regression2-client.log": "83632107d7d2f0da74e425d6ad67575c564c53bc3024bfdfe7ba55d1641a4f7f",
+    "late-golem-client-air-025-regression2-prepare.log": "65f033b6a18fa349bca486de612de87f383942429a1b7715c22a78405a0355b2",
+    "late-golem-client-air-025-regression2-run.json": "4c1b477bc38e67e59e78f824a0d4134cabb6975276fd2b7dd74c6c69135126e2",
+    "late-golem-client-air-025-regression2-desktop.json": "b48e64a0025039c9559c8f65235f643db0611d868d6818d9e67fae01157862e2"
+  },
+  "limitations": [
+    "Current EssentiaTransfuser uses explicit predecessor THAUMATORIUM/INFUSION,16 raw Observation Alchemy and16 Artifice,original physical bench inputs/crystals,aura250,fullmoon,loaded neighbours/flux1000,arena and empty physical endpoints. Raw24Ignis in the source Alembic and the collector Ignis label are deferred until after their actually paid device placements. Actual C2S research pays16+16 Observation and awards10XP total(start5+completion5); two bench crafts pay100vis/Aer1/Aqua1 each, then ordinary fifth-tick transfers move source24->airjar24->collector24. No finished device is supplied and no direct manager transfer or device tick is invoked. Original six-facing gallery renders are read-only previews. These conditions do not establish full manual survival.",
+    "Current LateGolem uses explicit predecessor research,arena/loaded navigation region,raw knowledge,input stacks/crystals,aura and physical altar/source fixtures. Actual C2S scans and four research payments precede paid HungryChest/Levitator arcane outputs,75essentia JarBrain infusion with bucket remainder,XP capture/release,paid factory Flyer and elevated physical Collect/Store flight. Finished new outputs are not supplied. These prepared conditions do not establish a complete manual survival campaign.",
+    "79 canonical research keys are supported: preserved78 plus ESSENTIATRANSPORT. MATSTUDVOID,BASEELDRITCH and remaining late/world gates stay closed. Full Golemancy and fullTC6 are not complete.",
+    "Infusion preserves56 recipes,the same16 implemented research/craft paths,14 established ordinary-source paths and40 late research gates. No new infusion path opens in0.25. Firebat/Pech/Primordial Pearl natural world acquisition for Advanced/Greater remains unfinished.",
+    "All21 original focus nodes and prior production/Thaumatorium/Hedge/Clockwork/Infusion features are preserved in the full server suite. Separate current client evidence is only EssentiaTransfuser10 and LateGolem15;0.24 Golemancy/LateGolem,0.23 Golemancy and0.22 GolemPress/EssentiaProduction evidence remains explicitly historical.",
+    "Transfusers preserve five-tick,one-unit,rear-only ports and the original asymmetric directional range16 box,shared cache/cooldown,two-pass jar insertion,positive no-storage advisory API and absence of redstone gating. Loaded-only migration,owned one-shot confirmations,guarded native-class transfers and rollback are modern hardening. Foreign paid transport callbacks,essentia mirrors/cross-dimension routing and original custom stream ribbon FX remain unsupported; native colored server-routed trails are the documented visual adaptation.",
+    "Pinned release quirks remain,including partial levitator-buffer final lift debt,refill while powered,opaque-scan boundary inclusion,BrainJar delayed XP recapture,props0 press animation and final blocked-output zero-cost stall. Modern navigation/render buffers/native particles,loaded-only checks,NBT bounds,transaction guards and dictionary-to-tags are documented adaptations.",
+    "Natural original zombie brain drop/scan hooks are connected. Brainy catalogue entities and incomplete TC6 world ecology are not a claim of completed natural generation. All hidden-client input desktops stayed Default; no independent-client multiplayer validation is established."
+  ],
+  "workingFocusNodes": 21,
+  "originalFocusNodeDefinitions": 21,
+  "unsupportedFocusNodes": 0,
+  "clientScenes": 25,
+  "transientBoltScreenshots": 0,
+  "workingFocusNodeKeys": [
+    "ROOT",
+    "thaumcraft.TOUCH",
+    "thaumcraft.BOLT",
+    "thaumcraft.PROJECTILE",
+    "thaumcraft.CLOUD",
+    "thaumcraft.MINE",
+    "thaumcraft.PLAN",
+    "thaumcraft.SPELLBAT",
+    "thaumcraft.FIRE",
+    "thaumcraft.FROST",
+    "thaumcraft.AIR",
+    "thaumcraft.EARTH",
+    "thaumcraft.FLUX",
+    "thaumcraft.BREAK",
+    "thaumcraft.RIFT",
+    "thaumcraft.EXCHANGE",
+    "thaumcraft.CURSE",
+    "thaumcraft.HEAL",
+    "thaumcraft.SCATTER",
+    "thaumcraft.SPLITTARGET",
+    "thaumcraft.SPLITTRAJECTORY"
+  ],
+  "focusTierComplexityLimits": {
+    "focus_1": 15,
+    "focus_2": 25,
+    "focus_3": 50
+  },
+  "advancedGreaterFocusInfusionAvailable": true,
+  "infusionRecipesWithImplementedResearchPaths": 16,
+  "lateResearchGatedInfusionRecipePaths": 40,
+  "advancedGreaterOriginalWorldPrerequisitesComplete": false,
+  "auromancyClientScenes": 0,
+  "essentiaProductionClientScenes": 0,
+  "clientProfiles": {
+    "EssentiaTransfuser": {
+      "runTag": "air-025-client3",
+      "scenes": 10,
+      "screenshots": 10,
+      "desktop": "WinSta0\\ThaumcraftQA_f89e6dc45ebd4bc7a1ce32b0a4dfebc2",
+      "jvmPid": 18572,
+      "jvmExitCode": 0,
+      "maxOwnedWindowsOnTargetDesktop": 16,
+      "inputDesktopBefore": "Default",
+      "inputDesktopAfter": "Default",
+      "fixtureSource": "src/main/java/thaumcraft/essentia/transfuser/client/EssentiaTransfuserClientSmokeTest.java",
+      "fixtureSourceSha256": "81d8e06757ca75890d73a8553ba6ed4d2c37cac7728c68e355f19b7c64b2dc3d",
+      "requiredFlowMarkers": [
+        "THAUMCRAFT_ESSENTIA_TRANSFUSER_AIR_DRAIN",
+        "THAUMCRAFT_ESSENTIA_TRANSFUSER_AIR_INSERT",
+        "THAUMCRAFT_ESSENTIA_TRANSFUSER_AIR_INSERT_COMPLETE",
+        "THAUMCRAFT_ESSENTIA_TRANSFUSER_ARCANE_FIXTURE",
+        "THAUMCRAFT_ESSENTIA_TRANSFUSER_FIXTURE",
+        "THAUMCRAFT_ESSENTIA_TRANSFUSER_INPUT_PAID",
+        "THAUMCRAFT_ESSENTIA_TRANSFUSER_LABEL_FIXTURE",
+        "THAUMCRAFT_ESSENTIA_TRANSFUSER_OUTPUT_PAID",
+        "THAUMCRAFT_ESSENTIA_TRANSFUSER_PIPELINE_COMPLETE",
+        "THAUMCRAFT_ESSENTIA_TRANSFUSER_PLACEMENT",
+        "THAUMCRAFT_ESSENTIA_TRANSFUSER_PLACEMENT_READY",
+        "THAUMCRAFT_ESSENTIA_TRANSFUSER_RENDER_AUDIT_OK",
+        "THAUMCRAFT_ESSENTIA_TRANSFUSER_RESEARCH_PAID",
+        "THAUMCRAFT_ESSENTIA_TRANSFUSER_SOURCE_FIXTURE"
+      ],
+      "clientLog": "essentia-transfuser-client-air-025-client3-client.log",
+      "prepareLog": "essentia-transfuser-client-air-025-client3-prepare.log",
+      "runSummary": "essentia-transfuser-client-air-025-client3-run.json",
+      "desktopSummary": "essentia-transfuser-client-air-025-client3-desktop.json"
+    },
+    "LateGolem": {
+      "runTag": "air-025-regression2",
+      "scenes": 15,
+      "screenshots": 15,
+      "desktop": "WinSta0\\ThaumcraftQA_25426bf76c1145f0940dfa8a15120aac",
+      "jvmPid": 18316,
+      "jvmExitCode": 0,
+      "maxOwnedWindowsOnTargetDesktop": 16,
+      "inputDesktopBefore": "Default",
+      "inputDesktopAfter": "Default",
+      "fixtureSource": "src/main/java/thaumcraft/golemancy/client/LateGolemClientSmokeTest.java",
+      "fixtureSourceSha256": "855ef3a260687352c5a332a29b834ec04b0428980f3bacc4482b35dd8a8bc57c",
+      "requiredFlowMarkers": [
+        "THAUMCRAFT_LATE_GOLEM_ARCANE_FIXTURE",
+        "THAUMCRAFT_LATE_GOLEM_FACTORY_FIXTURE",
+        "THAUMCRAFT_LATE_GOLEM_FIXTURE",
+        "THAUMCRAFT_LATE_GOLEM_FLYER_COLLECT",
+        "THAUMCRAFT_LATE_GOLEM_FLYER_DELIVERY",
+        "THAUMCRAFT_LATE_GOLEM_FLYER_DEPLOYMENT",
+        "THAUMCRAFT_LATE_GOLEM_FLYER_OUTPUT",
+        "THAUMCRAFT_LATE_GOLEM_FLYER_PAID",
+        "THAUMCRAFT_LATE_GOLEM_HUNGRY",
+        "THAUMCRAFT_LATE_GOLEM_INFUSION_FIXTURE",
+        "THAUMCRAFT_LATE_GOLEM_JAR_CAPTURE",
+        "THAUMCRAFT_LATE_GOLEM_JAR_INFUSION",
+        "THAUMCRAFT_LATE_GOLEM_JAR_RELEASE",
+        "THAUMCRAFT_LATE_GOLEM_LEVITATOR",
+        "THAUMCRAFT_LATE_GOLEM_RENDER_AUDIT_OK",
+        "THAUMCRAFT_LATE_GOLEM_RESEARCH_PAID",
+        "THAUMCRAFT_LATE_GOLEM_SCANS"
+      ],
+      "clientLog": "late-golem-client-air-025-regression2-client.log",
+      "prepareLog": "late-golem-client-air-025-regression2-prepare.log",
+      "runSummary": "late-golem-client-air-025-regression2-run.json",
+      "desktopSummary": "late-golem-client-air-025-regression2-desktop.json"
+    }
+  },
+  "visualReviewSha256": "6363132559922a9afef38a1da961bad2151ea28ef802444d6e0634e6152b228a",
+  "clientFixtureSourceSha256ByProfile": {
+    "EssentiaTransfuser": "81d8e06757ca75890d73a8553ba6ed4d2c37cac7728c68e355f19b7c64b2dc3d",
+    "LateGolem": "855ef3a260687352c5a332a29b834ec04b0428980f3bacc4482b35dd8a8bc57c"
+  },
+  "workingCentrifuge": true,
+  "workingThaumatorium": true,
+  "workingInfusionStabilizationProgression": true,
+  "workingEarlyDeviceIngredientRecipes": 3,
+  "workingNewArcaneRecipeRegistrations": 2,
+  "naturalRareEarthOreBonus": true,
+  "historicalAuromancyClientEvidence": {
+    "version": "0.19.0-dev",
+    "artifactReport": "artifact-report-0.19.json",
+    "scenes": 33,
+    "transientBoltScreenshots": 1
+  },
+  "partiallyImplementedResearchEntries": {},
+  "workingNaturalClockworkMindComponentPath": true,
+  "workingHedgeCrucibleRecipes": 10,
+  "workingOrdinaryCandleRecipes": 17,
+  "workingCandleColors": 16,
+  "workingClockworkMindArcaneRecipe": true,
+  "workingGolemPressFactory": true,
+  "workingGolemPressFormation": true,
+  "workingGolemPressMenuNetwork": true,
+  "workingGolemPressWoodenDesigns": 4,
+  "workingGolemPressWoodenDesignProps": [
+    0,
+    4294967296,
+    50331648,
+    4345298944
+  ],
+  "workingGolemPressWoodenDesignMachinaCosts": [
+    8,
+    12,
+    12,
+    16
+  ],
+  "workingGolemPressWoodenPresets": [
+    {
+      "props": 0,
+      "legs": "WALKER",
+      "addon": "NONE",
+      "machina": 8
+    },
+    {
+      "props": 4294967296,
+      "legs": "ROLLER",
+      "addon": "NONE",
+      "machina": 12
+    },
+    {
+      "props": 50331648,
+      "legs": "WALKER",
+      "addon": "HAULER",
+      "machina": 12
+    },
+    {
+      "props": 4345298944,
+      "legs": "ROLLER",
+      "addon": "HAULER",
+      "machina": 16
+    }
+  ],
+  "workingGolemPlacement": true,
+  "workingGolemAI": true,
+  "workingGolemControlSeals": true,
+  "workingGolemBell": true,
+  "fullGolemancyImplemented": false,
+  "golemPressClientScenes": 0,
+  "addedCanonicalResearchKeys": [
+    "ESSENTIATRANSPORT"
+  ],
+  "workingGolemSealDefinitions": 16,
+  "workingGolemSealKeys": [
+    "thaumcraft:pickup",
+    "thaumcraft:pickup_advanced",
+    "thaumcraft:fill",
+    "thaumcraft:fill_advanced",
+    "thaumcraft:empty",
+    "thaumcraft:empty_advanced",
+    "thaumcraft:harvest",
+    "thaumcraft:butcher",
+    "thaumcraft:guard",
+    "thaumcraft:guard_advanced",
+    "thaumcraft:lumber",
+    "thaumcraft:breaker",
+    "thaumcraft:use",
+    "thaumcraft:provider",
+    "thaumcraft:stock",
+    "thaumcraft:breaker_advanced"
+  ],
+  "workingGolemLogistics": true,
+  "workingGolemCombat": true,
+  "workingGolemRankXP": true,
+  "naturalZombieBrainDrops": true,
+  "workingGolemancyScanHooks": true,
+  "naturalBrainSourceSha256": "e6df8712cbf114339bc7ca6e08174d239ecad9ded251a88b38d3c153b6714883",
+  "implementedResearchInfusionRecipeIds": [
+    "bootstraveller",
+    "elementalaxe",
+    "elementalhoe",
+    "elementalpick",
+    "elementalshovel",
+    "elementalsword",
+    "focus_2",
+    "focus_3",
+    "jarbrain",
+    "mindbiothaumic",
+    "sealbreak",
+    "sealbutcher",
+    "sealharvest",
+    "thaumiumfortresschest",
+    "thaumiumfortresshelm",
+    "thaumiumfortresslegs"
+  ],
+  "newGolemancyInfusionRecipeIds": [
+    "jarbrain"
+  ],
+  "golemancyClientScenes": 0,
+  "currentMediaInventory": {
+    ".png": 668,
+    ".jpg": 7,
+    ".ogg": 45
+  },
+  "historical022ClientEvidence": {
+    "version": "0.22.0-dev",
+    "artifactReport": "artifact-report-0.22.json",
+    "artifactReportSha256": "a2f219104b9d17fa1f88e856267e1974b43ed5beb1b173270578ff145c3dbdd8",
+    "clientProfiles": {
+      "GolemPress": {
+        "runTag": "golem-022-client4",
+        "scenes": 6,
+        "screenshots": 6,
+        "desktop": "WinSta0\\ThaumcraftQA_83032b3f450047249e0d1892934f2b2b",
+        "jvmExitCode": 0,
+        "maxOwnedWindowsOnTargetDesktop": 16,
+        "inputDesktopBefore": "Default",
+        "inputDesktopAfter": "Default",
+        "fixtureSource": "src/main/java/thaumcraft/golemancy/press/client/GolemPressClientSmokeTest.java",
+        "fixtureSourceSha256": "5870cbda8d0a6437fb1ab599054eefcfabe432e4d6b7a064bcd9f85fb4c78f26",
+        "clientLog": "golem-press-client-golem-022-client4-client.log"
+      },
+      "EssentiaProduction": {
+        "runTag": "press-022-regression1",
+        "scenes": 25,
+        "screenshots": 25,
+        "desktop": "WinSta0\\ThaumcraftQA_f6ed76c782e3437c85ca118e6d4ee2e0",
+        "jvmExitCode": 0,
+        "maxOwnedWindowsOnTargetDesktop": 16,
+        "inputDesktopBefore": "Default",
+        "inputDesktopAfter": "Default",
+        "fixtureSource": "src/main/java/thaumcraft/client/research/EssentiaProductionClientSmokeTest.java",
+        "fixtureSourceSha256": "6771d484e9c291d4c366ddd5e0c52f6d0a4142816485f145a04fa7bdb40d2ebb",
+        "clientLog": "essentia-production-client-press-022-regression1-client.log"
+      }
+    },
+    "visuallyReviewedScreenshots": 31
+  },
+  "workingArcaneLevitator": true,
+  "workingHungryChest": true,
+  "workingBrainJarXP": true,
+  "workingGolemFlyer": true,
+  "newLateGolemArcaneRecipeIds": [
+    "hungry_chest",
+    "levitator"
+  ],
+  "newLateGolemInfusionRecipeIds": [
+    "jarbrain"
+  ],
+  "lateGolemClientScenes": 15,
+  "historical023ClientEvidence": {
+    "version": "0.23.0-dev",
+    "artifactReport": "artifact-report-0.23.json",
+    "artifactReportSha256": "096f20f16f8781c65463194af399bb6da6d6a30537580faae5b2af047aae954b",
+    "clientProfiles": {
+      "Golemancy": {
+        "runTag": "golem-023-client4",
+        "scenes": 18,
+        "screenshots": 18,
+        "desktop": "WinSta0\\ThaumcraftQA_d8194b6f26a148049952d7431883cf91",
+        "jvmPid": 29716,
+        "jvmExitCode": 0,
+        "maxOwnedWindowsOnTargetDesktop": 16,
+        "inputDesktopBefore": "Default",
+        "inputDesktopAfter": "Default",
+        "fixtureSource": "src/main/java/thaumcraft/golemancy/client/GolemancyClientSmokeTest.java",
+        "fixtureSourceSha256": "e3e7a8e5494f42d91c32978efbcf2070947239b6654b2cc150ec5edb35a6be83",
+        "clientLog": "golemancy-client-golem-023-client4-client.log"
+      }
+    },
+    "visuallyReviewedScreenshots": 18,
+    "addedCanonicalResearchKeys": [
+      "CONTROLSEALS",
+      "SEALCOLLECT",
+      "SEALSTORE",
+      "SEALEMPTY",
+      "SEALPROVIDE",
+      "SEALSTOCK",
+      "SEALGUARD",
+      "SEALBUTCHER",
+      "SEALUSE",
+      "SEALHARVEST",
+      "SEALBREAK",
+      "SEALLUMBER",
+      "MINDBIOTHAUMIC",
+      "MATSTUDIRON",
+      "MATSTUDCLAY",
+      "MATSTUDBRASS",
+      "MATSTUDTHAUMIUM",
+      "GOLEMBREAKER",
+      "GOLEMCOMBATADV",
+      "GOLEMDIRECT",
+      "GOLEMLOGISTICS",
+      "GOLEMCLIMBER",
+      "GOLEMVISION"
+    ],
+    "newGolemancyInfusionRecipeIds": [
+      "mindbiothaumic",
+      "sealbreak",
+      "sealbutcher",
+      "sealharvest"
+    ]
+  },
+  "workingAirborneEssentiaInsertion": true,
+  "workingOwnedConfirmedAirborneDrain": true,
+  "workingFillingEssentiaTransfuser": true,
+  "workingEmptyingEssentiaTransfuser": true,
+  "newEssentiaTransfuserArcaneRecipeIds": [
+    "arcane/essentia_input",
+    "arcane/essentia_output"
+  ],
+  "workingNewEssentiaTransfuserArcaneRecipeRegistrations": 2,
+  "essentiaTransfuserSourceSha256": "01c94b0cc5756d366a65abd159d6e362e7c9c7877f9bae0192e889d02dbbd051",
+  "newEssentiaTransfuserInfusionRecipeIds": [],
+  "essentiaTransfuserClientScenes": 10,
+  "historical024ClientEvidence": {
+    "version": "0.24.0-dev",
+    "artifactReport": "artifact-report-0.24.json",
+    "artifactReportSha256": "5860161d15f9ac228492b060d069ea8d98292f0f7025711346e0c22aa7924fb5",
+    "clientProfiles": {
+      "Golemancy": {
+        "runTag": "golem-024-regression2",
+        "scenes": 18,
+        "screenshots": 18,
+        "desktop": "WinSta0\\ThaumcraftQA_118e3832b1aa4e33b0abac56536fbcc2",
+        "jvmPid": 20144,
+        "jvmExitCode": 0,
+        "maxOwnedWindowsOnTargetDesktop": 16,
+        "inputDesktopBefore": "Default",
+        "inputDesktopAfter": "Default",
+        "fixtureSource": "src/main/java/thaumcraft/golemancy/client/GolemancyClientSmokeTest.java",
+        "fixtureSourceSha256": "e3e7a8e5494f42d91c32978efbcf2070947239b6654b2cc150ec5edb35a6be83",
+        "clientLog": "golemancy-client-golem-024-regression2-client.log",
+        "prepareLog": "golemancy-client-golem-024-regression2-prepare.log",
+        "runSummary": "golemancy-client-golem-024-regression2-run.json",
+        "desktopSummary": "golemancy-client-golem-024-regression2-desktop.json"
+      },
+      "LateGolem": {
+        "runTag": "late-golem-024-client6",
+        "scenes": 15,
+        "screenshots": 15,
+        "desktop": "WinSta0\\ThaumcraftQA_f0a16626bdbe4e46ab3df8f16e3b86cd",
+        "jvmPid": 32956,
+        "jvmExitCode": 0,
+        "maxOwnedWindowsOnTargetDesktop": 16,
+        "inputDesktopBefore": "Default",
+        "inputDesktopAfter": "Default",
+        "fixtureSource": "src/main/java/thaumcraft/golemancy/client/LateGolemClientSmokeTest.java",
+        "fixtureSourceSha256": "d26ac73a2471ad4d8cc6963c5cdafa63c429772d20c2550156cfcc7310f31157",
+        "clientLog": "late-golem-client-late-golem-024-client6-client.log",
+        "prepareLog": "late-golem-client-late-golem-024-client6-prepare.log",
+        "runSummary": "late-golem-client-late-golem-024-client6-run.json",
+        "desktopSummary": "late-golem-client-late-golem-024-client6-desktop.json"
+      }
+    },
+    "visuallyReviewedScreenshots": 33,
+    "addedCanonicalResearchKeys": [
+      "HUNGRYCHEST",
+      "LEVITATOR",
+      "GOLEMFLYER",
+      "JARBRAIN"
+    ],
+    "newGolemancyInfusionRecipeIds": [
+      "jarbrain"
+    ],
+    "requiredGameTests": 746,
+    "implementedCanonicalResearchEntries": 78,
+    "limitations": [
+      "Current Golemancy regression uses predecessor studies,32+32 theories,input/source/seal/filter/provider contents and advanced display fixtures. It actually pays Mind/components/12Machina, deploys the paid output, configures seals, collects/stores3diamonds, delivers2apples through Provider despite competing Store, follows and picks up exact owned props. No output golem is supplied; gallery designs do not establish all natural acquisition.",
+      "Current LateGolem uses explicit predecessor research,arena/loaded navigation region,raw knowledge,input stacks/crystals,aura and physical altar/source fixtures. Actual C2S scans and four research payments precede paid HungryChest/Levitator arcane outputs,75essentia JarBrain infusion with bucket remainder,XP capture/release,paid factory Flyer and elevated physical Collect/Store flight. Finished new outputs are not supplied. These prepared conditions do not establish a complete manual survival campaign.",
+      "78 canonical research keys are supported: preserved74 plus HUNGRYCHEST,LEVITATOR,GOLEMFLYER,JARBRAIN. MATSTUDVOID,BASEELDRITCH,ESSENTIATRANSPORT and remaining late/world gates stay closed. Full Golemancy and fullTC6 are not complete.",
+      "Infusion preserves56 recipes,now16 implemented research/craft paths,14 established ordinary-source paths and40 late research gates. JarBrain is the only newly accessible path. Firebat/Pech/Primordial Pearl natural world acquisition for Advanced/Greater remains unfinished.",
+      "All21 original focus nodes and prior production/Thaumatorium/Hedge/Clockwork/Infusion features are preserved in the full server suite. Separate current client evidence is only the two profiles in clientProfiles;0.23 Golemancy and0.22 GolemPress/EssentiaProduction evidence remains explicitly historical.",
+      "Pinned release quirks remain,including partial levitator-buffer final lift debt,refill while powered,opaque-scan boundary inclusion,BrainJar delayed XP recapture,props0 press animation and final blocked-output zero-cost stall. Modern navigation/render buffers/native particles,loaded-only checks,NBT bounds,transaction guards and dictionary-to-tags are documented adaptations.",
+      "Natural original zombie brain drop/scan hooks are connected. Brainy catalogue entities and incomplete TC6 world ecology are not a claim of completed natural generation. All hidden-client input desktops stayed Default; no independent-client multiplayer validation is established."
+    ]
+  }
+}
