@@ -25,6 +25,7 @@ import net.minecraft.world.level.GameType;
 import net.minecraft.world.level.LevelSettings;
 import net.minecraft.world.level.WorldDataConfiguration;
 import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.entity.ChestBlockEntity;
 import net.minecraft.world.level.levelgen.WorldOptions;
 import net.minecraft.world.level.levelgen.presets.WorldPresets;
 import net.minecraftforge.api.distmarker.Dist;
@@ -47,7 +48,7 @@ import java.util.concurrent.atomic.AtomicInteger;
 @Mod.EventBusSubscriber(modid = "thaumcraft", value = Dist.CLIENT)
 public final class ThaumometerClientSmokeTest {
     private static final String WORLD = "thaumcraft-thaumometer-smoke-" + System.currentTimeMillis();
-    private static final String[] IMAGES = {"unknown-block", "scanned-block", "unknown-entity", "scanned-entity", "offhand-sneak", "overflow-sneak"};
+    private static final String[] IMAGES = {"unknown-block", "scanned-block", "unknown-entity", "scanned-entity", "offhand-sneak", "overflow-sneak", "unknown-container", "scanned-container", "repeated-container"};
     private static final int EXPECTED_IMAGES = IMAGES.length + 2;
     private static final AtomicInteger SAVED = new AtomicInteger();
     private static boolean started, stopped, prepared, captured, requested;
@@ -59,6 +60,8 @@ public final class ThaumometerClientSmokeTest {
     private static volatile int entityId = -1;
     private static volatile CompoundTag hoverKnowledge;
     private static volatile int completedScans;
+    private static volatile int hoverExperience;
+    private static ItemStack[] containerContents;
     private static CompletableFuture<Void> work;
 
     private ThaumometerClientSmokeTest() {}
@@ -138,13 +141,13 @@ public final class ThaumometerClientSmokeTest {
                 require(ThaumometerClient.hudRenderCountForSmokeTest() > sceneHudStart
                         && ThaumometerClient.worldRenderCountForSmokeTest() > sceneWorldStart,
                         "Standard scene did not actually render both HUD and world overlays");
-                if (stage == 1 || stage == 3) {
+                if (stage == 1 || stage == 3 || stage == 7 || stage == 8) {
                     var result = ThaumometerClient.scanResultForSmokeTest();
-                    require(result != null && result.dimension().equals(packet.dimension()) && result.discovered()
+                    require(result != null && result.dimension().equals(packet.dimension()) && result.discovered() == (stage != 8)
                             && result.target().aspects().equals(packet.target().aspects()),
                             "Scanned scene lacked its real server scan-result packet");
                     var location = result.target().location();
-                    require(stage == 1 ? location.kind() == ThaumometerItem.TargetKind.BLOCK && targetBlock.equals(location.blockPos())
+                    require(stage != 3 ? location.kind() == ThaumometerItem.TargetKind.BLOCK && targetBlock.equals(location.blockPos())
                             : location.kind() == ThaumometerItem.TargetKind.ENTITY && location.entityId() == entityId,
                             "Real scan reply described a different target");
                 }
@@ -158,7 +161,7 @@ public final class ThaumometerClientSmokeTest {
             captured = false;
             stableTicks = 0;
             sceneHudStart = sceneWorldStart = -1;
-            if (completedStage == 0 || completedStage == 2) {
+            if (completedStage == 0 || completedStage == 2 || completedStage == 6 || completedStage == 7) {
                 var hand = ThaumometerItem.heldHand(mc.player);
                 require(hand != null && mc.gameMode != null, "Cannot dispatch actual scan interaction");
                 // The air-use vanilla packet makes the server reconstruct the aimed
@@ -174,6 +177,10 @@ public final class ThaumometerClientSmokeTest {
                 mc.resizeDisplay();
             } else if (completedStage == 4) {
                 submit(mc, () -> prepareOverflow(mc));
+            } else if (completedStage == 5) {
+                submit(mc, () -> prepareContainer(mc));
+                mc.options.guiScale().set(2);
+                mc.resizeDisplay();
             }
         } catch (Exception | AssertionError failure) { fail(mc, failure); }
     }
@@ -185,14 +192,19 @@ public final class ThaumometerClientSmokeTest {
         var location = target.location();
         if (stage <= 1 && (location.kind() != ThaumometerItem.TargetKind.BLOCK || !targetBlock.equals(location.blockPos()))) return false;
         if (stage >= 2 && stage <= 3 && (location.kind() != ThaumometerItem.TargetKind.ENTITY || location.entityId() != entityId)) return false;
-        if (stage >= 4 && (location.kind() != ThaumometerItem.TargetKind.HELD_ITEM || !mc.player.isShiftKeyDown()
+        if (stage >= 4 && stage <= 5 && (location.kind() != ThaumometerItem.TargetKind.HELD_ITEM || !mc.player.isShiftKeyDown()
                 || ThaumometerItem.heldHand(mc.player) != InteractionHand.OFF_HAND)) return false;
-        if (stage >= 4 && mc.options.guiScale().get() != 3) return false;
+        if (stage >= 4 && stage <= 5 && mc.options.guiScale().get() != 3) return false;
+        if (stage >= 6 && (location.kind() != ThaumometerItem.TargetKind.BLOCK || !targetBlock.equals(location.blockPos())
+                || !mc.player.isShiftKeyDown() || ThaumometerItem.heldHand(mc.player) != InteractionHand.MAIN_HAND
+                || !mc.player.getOffhandItem().isEmpty() || mc.options.guiScale().get() != 2)) return false;
         if (stage == 5 && (packet.vis() < 425 || packet.flux() < 325 || packet.vis() + packet.flux() <= 525)) return false;
-        boolean scanned = stage == 1 || stage == 3;
-        if (stage < 4 && target.scanned() != scanned) return false;
+        boolean scanned = stage == 1 || stage == 3 || stage == 7 || stage == 8;
+        if ((stage < 4 || stage >= 6) && target.scanned() != scanned) return false;
         if (target.aspects().isEmpty()) return false; // Original entity icons are visible before scanning.
         if (scanned && !requested) return false;
+        if (stage == 8 && (ThaumometerClient.scanResultForSmokeTest() == null
+                || ThaumometerClient.scanResultForSmokeTest().discovered())) return false;
         return true;
     }
 
@@ -212,11 +224,17 @@ public final class ThaumometerClientSmokeTest {
         player.getInventory().setChanged();
         player.inventoryMenu.broadcastChanges();
         require(KnowledgeStore.get(player).scanCount() == 0, "Fresh isolated player already had scans");
+        require(KnowledgeStore.get(player).discoveredAspects().isEmpty()
+                && !KnowledgeStore.get(player).isResearchKnown("BASEALCHEMY"),
+                "Ungated first scans were accidentally given aspect or alchemy prerequisites");
         AuraManager.drainVis(level, feet, Float.MAX_VALUE, false);
         AuraManager.drainFlux(level, feet, Float.MAX_VALUE, false);
         AuraManager.addVis(level, feet, 174);
-        AuraManager.addFlux(level, feet, 82);
+        // A small positive flux value keeps the normal meter visible without
+        // triggering the separate native twenty-tick FLUX research check.
+        AuraManager.addFlux(level, feet, Math.max(1, Math.min(30, AuraManager.getAuraBase(level, feet) / 6)));
         hoverKnowledge = KnowledgeStore.get(player).save();
+        hoverExperience = player.totalExperience;
         ScanningNetwork.sendHud(player);
     }
 
@@ -237,6 +255,7 @@ public final class ThaumometerClientSmokeTest {
         entityId = cow.getId();
         player.getCooldowns().removeCooldown(ScanningModule.THAUMOMETER.get());
         hoverKnowledge = KnowledgeStore.get(player).save();
+        hoverExperience = player.totalExperience;
         requested = false;
         ScanningNetwork.sendHud(player);
     }
@@ -253,6 +272,7 @@ public final class ThaumometerClientSmokeTest {
         player.setShiftKeyDown(true);
         requested = false;
         hoverKnowledge = KnowledgeStore.get(player).save();
+        hoverExperience = player.totalExperience;
         ScanningNetwork.sendHud(player);
     }
 
@@ -267,8 +287,50 @@ public final class ThaumometerClientSmokeTest {
         var actual = ScanningNetwork.capture(player);
         require(actual.vis() == 450 && actual.flux() == 350, "Server overflow fixture failed to retain raw aura amounts");
         hoverKnowledge = KnowledgeStore.get(player).save();
+        hoverExperience = player.totalExperience;
         ScanningNetwork.sendHud(player);
         LogUtils.getLogger().info("THAUMCRAFT_THAUMOMETER_SMOKE_OVERFLOW: server vis={}, flux={}, sum={}", actual.vis(), actual.flux(), actual.vis() + actual.flux());
+    }
+
+    private static void prepareContainer(Minecraft mc) {
+        ServerPlayer player = serverPlayer(mc);
+        var level = player.serverLevel();
+        require(KnowledgeStore.get(player).scanCount() == 2, "Overflow aura discovery credited an object scan");
+        require(KnowledgeStore.get(player).researchStage("FLUX") == 1, "Native held-scanner aura check did not start FLUX");
+        require(player.totalExperience == hoverExperience + 5, "Native FLUX discovery did not award exactly five experience once");
+        var cow = level.getEntity(entityId);
+        if (cow != null) cow.discard();
+        level.setBlockAndUpdate(targetBlock, Blocks.CHEST.defaultBlockState());
+        require(level.getBlockEntity(targetBlock) instanceof ChestBlockEntity, "Native chest fixture did not create its inventory");
+        ChestBlockEntity chest = (ChestBlockEntity) level.getBlockEntity(targetBlock);
+        // The coal block is already known. Repeated diamonds must yield only
+        // one discovery, and a distant nonempty slot must still be visited.
+        chest.setItem(0, new ItemStack(Items.COAL_BLOCK, 64));
+        chest.setItem(1, new ItemStack(Items.OAK_LOG, 16));
+        chest.setItem(3, new ItemStack(Items.DIAMOND, 64));
+        chest.setItem(26, new ItemStack(Items.DIAMOND, 3));
+        chest.setChanged();
+        containerContents = new ItemStack[chest.getContainerSize()];
+        for (int i = 0; i < containerContents.length; i++) containerContents[i] = chest.getItem(i).copy();
+        player.setItemInHand(InteractionHand.MAIN_HAND, new ItemStack(ScanningModule.THAUMOMETER.get()));
+        player.setItemInHand(InteractionHand.OFF_HAND, ItemStack.EMPTY);
+        player.setShiftKeyDown(true);
+        player.getCooldowns().removeCooldown(ScanningModule.THAUMOMETER.get());
+        player.getInventory().setChanged();
+        player.inventoryMenu.broadcastChanges();
+        requested = false;
+        hoverKnowledge = KnowledgeStore.get(player).save();
+        hoverExperience = player.totalExperience;
+        ScanningNetwork.sendHud(player);
+    }
+
+    private static void verifyContainer(ServerPlayer player) {
+        require(player.serverLevel().getBlockEntity(targetBlock) instanceof ChestBlockEntity, "Scanned container vanished");
+        ChestBlockEntity chest = (ChestBlockEntity) player.serverLevel().getBlockEntity(targetBlock);
+        require(containerContents != null && chest.getContainerSize() == containerContents.length, "Container slot count changed during scans");
+        for (int i = 0; i < containerContents.length; i++)
+            require(ItemStack.matches(chest.getItem(i), containerContents[i]), "Scanning changed physical container contents in slot " + i);
+        require(player.containerMenu == player.inventoryMenu, "Scanner interaction opened the chest menu");
     }
 
     private static void verifyHover(Minecraft mc, ScanningNetwork.Snapshot displayed) {
@@ -281,10 +343,31 @@ public final class ThaumometerClientSmokeTest {
                 && displayed.target().aspects().equals(authoritative.target().aspects()), "Client displayed target composition/status from a different source");
         require(displayed.base() == authoritative.base() && Math.abs(displayed.vis() - authoritative.vis()) < 15
                 && Math.abs(displayed.flux() - authoritative.flux()) < 15, "Client gauge did not match the current server chunk");
-        if (stage == 0 || stage == 2 || stage >= 4) {
+        if (stage == 0 || stage == 2 || stage == 4 || stage == 6 || stage == 8) {
             require(hoverKnowledge.equals(KnowledgeStore.get(player).save()), "Hover credited a discovery, aspect or observation");
+            require(player.totalExperience == hoverExperience, "Hover or repeated container scan credited additional experience");
             require(!player.getCooldowns().isOnCooldown(ScanningModule.THAUMOMETER.get()), "Hover created scan cooldown");
         }
+        if (stage == 5) {
+            // High-flux holding may discover FLUX; it must not silently grant
+            // scans, aspects, observation knowledge or any other research.
+            CompoundTag expected = hoverKnowledge.copy();
+            expected.getCompound("ResearchStages").putInt("FLUX", 1);
+            require(KnowledgeStore.get(player).researchStage("FLUX") == 1
+                    && expected.equals(KnowledgeStore.get(player).save()), "Overflow hover changed more than original FLUX discovery");
+            require(player.totalExperience == hoverExperience + 5, "Original FLUX event did not award exactly five experience once");
+            require(!player.getCooldowns().isOnCooldown(ScanningModule.THAUMOMETER.get()), "Aura discovery created scan cooldown");
+            LogUtils.getLogger().info("THAUMCRAFT_THAUMOMETER_FLUX_DISCOVERY_OK: native twenty-tick held scanner update; FLUX stage1; exact five experience once; object scans, aspects and Observation unchanged");
+        }
+        if (stage >= 6) verifyContainer(player);
+        if (stage == 7) {
+            require(KnowledgeStore.get(player).scanCount() == 5, "Actual chest interaction failed to scan chest, log and one diamond composition exactly once");
+            completedScans = 5;
+            hoverKnowledge = KnowledgeStore.get(player).save();
+            hoverExperience = player.totalExperience;
+            LogUtils.getLogger().info("THAUMCRAFT_THAUMOMETER_CONTAINER_SCAN_OK: actual C2S air-use; native 27-slot capability; 4 nonempty slots, known coal block and repeated diamond counted once; exact inventory retained");
+        }
+        if (stage == 8) LogUtils.getLogger().info("THAUMCRAFT_THAUMOMETER_REPEAT_SCAN_OK: actual second C2S container interaction; no additional knowledge or observations; exact inventory retained");
         LogUtils.getLogger().info("THAUMCRAFT_THAUMOMETER_SMOKE_SYNC: scene={}, scanned={}, aspects={}, base={}, vis={}, flux={}, chunk={}",
                 IMAGES[stage], authoritative.target().scanned(), authoritative.target().aspects(), authoritative.base(), authoritative.vis(), authoritative.flux(), new ChunkPos(player.blockPosition()));
     }
@@ -315,7 +398,8 @@ public final class ThaumometerClientSmokeTest {
             mc.options.hideGui = false;
             submit(mc, () -> {
                 ServerPlayer player = serverPlayer(mc);
-                require(KnowledgeStore.get(player).scanCount() == 2 && completedScans == 2, "Hover/scan pipeline gave additional scan credits");
+                require(KnowledgeStore.get(player).scanCount() == 5 && completedScans == 5, "Hover/scan pipeline gave additional scan credits");
+                require(player.totalExperience == hoverExperience, "Repeated high-flux holding paid FLUX experience again");
                 player.setItemInHand(InteractionHand.MAIN_HAND, ItemStack.EMPTY);
                 player.setItemInHand(InteractionHand.OFF_HAND, ItemStack.EMPTY);
                 player.inventoryMenu.broadcastChanges();
@@ -347,7 +431,8 @@ public final class ThaumometerClientSmokeTest {
         require(SAVED.get() == EXPECTED_IMAGES, "Not all first-person screenshots were saved");
         stopped = true;
         mc.options.tutorialStep = previousTutorial;
-        LogUtils.getLogger().info("THAUMCRAFT_THAUMOMETER_CLIENT_SMOKE_OK: {} first-person screenshots; actual block/entity scan packets; aura/current chunk and raw overflow; hover read-only; offhand/sneak and GUI scale 3; render counters verified; hidden GUI and hand removal; isolated world={}", SAVED.get(), WORLD);
+        LogUtils.getLogger().info("THAUMCRAFT_THAUMOMETER_RENDER_AUDIT_OK: {} current first-person captures; native block/entity/container world and meter rendered through actual HUD/world counters; F1 and both-hand removal suppress both renderers", SAVED.get());
+        LogUtils.getLogger().info("THAUMCRAFT_THAUMOMETER_CLIENT_SMOKE_OK: {} scenes; actual block/entity/container scan packets and repeated container interaction; aura/current chunk, raw overflow and native FLUX discovery; hover grants no object knowledge; exact physical chest inventory retained; offhand/sneak and GUI scales 2/3; hidden GUI and hand removal; isolated world={}", SAVED.get(), WORLD);
         mc.getConnection().getConnection().disconnect(Component.literal("Thaumometer audit complete"));
         mc.clearLevel(new TitleScreen());
         mc.stop();

@@ -24,9 +24,9 @@ public final class ResearchKnowledgeGameTests {
         helper.assertTrue(!ResearchCategories.categoryUnlocked(knowledge, "ALCHEMY"), "Fresh alchemy tab is unlocked");
         helper.assertTrue(store.recordScan(player, "item:test:weighted", found), "Valid scan rejected");
         helper.assertTrue(store.isDirty(), "Successful scan was not marked for saving");
-        helper.assertTrue(knowledge.rawKnowledge(KnowledgeType.OBSERVATION, "BASICS") == 2, "Basics formula is not sqrt then ceil");
-        helper.assertTrue(knowledge.rawKnowledge(KnowledgeType.OBSERVATION, "AUROMANCY") == 4, "Auromancy category weights changed");
-        helper.assertTrue(knowledge.rawKnowledge(KnowledgeType.OBSERVATION, "ALCHEMY") == 2, "Closed alchemy tab lost its knowledge");
+        helper.assertTrue(knowledge.rawKnowledge(KnowledgeType.OBSERVATION, "BASICS") == 4, "Basics weighted formula plus two first-aspect bonuses changed");
+        helper.assertTrue(knowledge.rawKnowledge(KnowledgeType.OBSERVATION, "AUROMANCY") == 6, "Auromancy category weights or first-aspect bonuses changed");
+        helper.assertTrue(knowledge.rawKnowledge(KnowledgeType.OBSERVATION, "ALCHEMY") == 4, "Closed alchemy tab lost weighted knowledge or first-aspect bonuses");
         helper.assertTrue(knowledge.rawKnowledge(KnowledgeType.OBSERVATION, "INFUSION") == 4, "Infusion category weights changed");
         helper.assertTrue(knowledge.rawKnowledge(KnowledgeType.OBSERVATION, "ELDRITCH") == 2, "Eldritch category weights changed");
         helper.assertTrue(knowledge.rawKnowledge(KnowledgeType.OBSERVATION, "ARTIFICE") == 0
@@ -36,7 +36,7 @@ public final class ResearchKnowledgeGameTests {
         helper.assertTrue(!store.recordScan(player, "item:test:weighted", found) && !store.isDirty(), "Duplicate scan changed saved data");
         KnowledgeStore loaded = KnowledgeStore.load(store.save(new CompoundTag()));
         helper.assertTrue(!loaded.recordScan(player, "item:test:weighted", found), "Reload credited the scan twice");
-        helper.assertTrue(loaded.get(player).rawKnowledge(KnowledgeType.OBSERVATION, "AUROMANCY") == 4, "Knowledge was not persisted");
+        helper.assertTrue(loaded.get(player).rawKnowledge(KnowledgeType.OBSERVATION, "AUROMANCY") == 6, "Knowledge was not persisted");
         helper.assertTrue(loaded.get(new UUID(400L, 2L)).rawKnowledge(KnowledgeType.OBSERVATION, "AUROMANCY") == 0, "Knowledge leaked to another player");
         helper.succeed();
     }
@@ -65,7 +65,7 @@ public final class ResearchKnowledgeGameTests {
         helper.assertTrue(loaded.isDirty() && loaded.get(player).scanCount() == 1, "Legacy credit duplicated the scan or did not save");
         KnowledgeStore twice = KnowledgeStore.load(loaded.save(new CompoundTag()));
         helper.assertTrue(!twice.recordScan(player, "scan:legacy_hash_with_no_embedded_aspects", found), "Migrated scan received another credit after reload");
-        helper.assertTrue(twice.get(player).rawKnowledge(KnowledgeType.OBSERVATION, "BASICS") == 2, "Migrated knowledge changed on reload");
+        helper.assertTrue(twice.get(player).rawKnowledge(KnowledgeType.OBSERVATION, "BASICS") == 3, "Migrated knowledge changed on reload");
         helper.assertTrue(twice.get(player).knowsResearch("UNLOCKALCHEMY@3")
                 && !twice.get(player).isResearchKnown("UNLOCKALCHEMY")
                 && !twice.get(player).isResearchCompleteStrict("UNLOCKALCHEMY@3"), "Legacy recipe access fabricated a canonical stage");

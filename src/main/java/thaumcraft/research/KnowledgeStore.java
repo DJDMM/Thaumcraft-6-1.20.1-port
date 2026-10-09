@@ -157,6 +157,20 @@ public final class KnowledgeStore extends SavedData {
         return of(player.serverLevel()).discoverResearch(player.getUUID(), key);
     }
 
+    /** Original thaumometer event starts FLUX; its later rift requirement stays unpaid. */
+    public static boolean startFluxResearch(ServerPlayer player) {
+        if (!player.isAlive() || player.isSpectator() || !player.serverLevel().getServer().isSameThread()) return false;
+        var store = of(player.serverLevel());
+        var knowledge = store.get(player.getUUID());
+        if (knowledge.isResearchKnown("FLUX") || !knowledge.setResearchStage("FLUX", 1)) return false;
+        store.setDirty();
+        player.giveExperiencePoints(5);
+        ResearchNetwork.sync(player);
+        player.displayClientMessage(net.minecraft.network.chat.Component.translatable("research.FLUX.warn")
+                .withStyle(net.minecraft.ChatFormatting.DARK_PURPLE), true);
+        return true;
+    }
+
     public static boolean discoverAspect(ServerPlayer player, Aspect aspect) {
         KnowledgeStore store = of(player.serverLevel());
         if (!store.get(player.getUUID()).discoverAspect(aspect)) return false;

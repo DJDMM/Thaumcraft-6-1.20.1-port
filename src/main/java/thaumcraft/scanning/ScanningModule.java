@@ -38,7 +38,18 @@ public final class ScanningModule {
     private static void tick(TickEvent.PlayerTickEvent event) {
         if (event.phase == TickEvent.Phase.END && event.player instanceof ServerPlayer player
                 && player.tickCount % 5 == 0 && player.isAlive() && !player.isSpectator()
-                && ThaumometerItem.auraHand(player) != null) ScanningNetwork.sendHud(player);
+                && ThaumometerItem.auraHand(player) != null) {
+            // Target snapshots retain the port's five-tick cadence. Only the original
+            // held thaumometer (not a resonator/caster or a read-only capture) discovers FLUX.
+            if (player.tickCount % 20 == 0 && ThaumometerItem.heldHand(player) != null) {
+                var level = player.serverLevel();
+                var pos = player.blockPosition();
+                if (thaumcraft.world.aura.AuraManager.getFlux(level, pos) > thaumcraft.world.aura.AuraManager.getVis(level, pos)
+                        || thaumcraft.world.aura.AuraManager.getFlux(level, pos) > thaumcraft.world.aura.AuraManager.getAuraBase(level, pos) / 3)
+                    thaumcraft.research.KnowledgeStore.startFluxResearch(player);
+            }
+            ScanningNetwork.sendHud(player);
+        }
     }
 
     private static void reload(AddReloadListenerEvent event) {

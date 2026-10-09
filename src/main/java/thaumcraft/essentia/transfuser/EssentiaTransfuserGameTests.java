@@ -170,13 +170,16 @@ public final class EssentiaTransfuserGameTests {
         var tile = device(h, true, Direction.UP);
         var peer = tube(h, tile.getBlockPos().below());
         h.assertTrue(peer.addEssentia(Aspect.AIR, 1, Direction.UP) == 1, "Tube source fixture failed");
-        var storage = jar(h, tile.getBlockPos().above(2), null, 0);
+        // The original handler prefers any compatible nonempty jar over empty
+        // jars. Other GameTests are within its range; seed this nearest destination
+        // so the gate/conservation fixture does not pay another test's filled jar.
+        var storage = jar(h, tile.getBlockPos().above(2), Aspect.AIR, 1);
         peer.setSuction(Aspect.AIR, 128); tick(h, tile, 5);
         peer.setSuction(Aspect.AIR, 129); tick(h, tile, 5);
         peer.setSuction(Aspect.AIR, 127); peer.toggleSide(Direction.UP); tick(h, tile, 5);
-        h.assertTrue(peer.getEssentiaAmount(Direction.UP) == 1 && storage.amount() == 0, "High suction or closed rear tube was debited");
+        h.assertTrue(peer.getEssentiaAmount(Direction.UP) == 1 && storage.amount() == 1, "High suction or closed rear tube was debited");
         peer.toggleSide(Direction.UP); tick(h, tile, 5);
-        h.assertTrue(peer.getEssentiaAmount(Direction.UP) == 0 && storage.amount() == 1, "Valid suction127/native rear tube failed");
+        h.assertTrue(peer.getEssentiaAmount(Direction.UP) == 0 && storage.amount() == 2, "Valid suction127/native rear tube failed");
         h.succeed();
     }
 

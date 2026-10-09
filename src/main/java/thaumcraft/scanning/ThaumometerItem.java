@@ -22,6 +22,7 @@ import net.minecraft.world.level.ClipContext;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.AABB;
 import net.minecraft.world.phys.HitResult;
+import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.Vec3;
 import net.minecraftforge.registries.ForgeRegistries;
 import thaumcraft.api.aspects.Aspect;
@@ -30,10 +31,6 @@ import thaumcraft.research.KnowledgeStore;
 import thaumcraft.research.AuromancyProgressionEvents;
 
 import javax.annotation.Nullable;
-import java.nio.charset.StandardCharsets;
-import java.security.MessageDigest;
-import java.security.NoSuchAlgorithmException;
-import java.util.HexFormat;
 import java.util.List;
 
 public final class ThaumometerItem extends Item {
@@ -67,25 +64,34 @@ public final class ThaumometerItem extends Item {
     }
 
     public void scan(Player player, InteractionHand hand) {
+        if (player.level().isClientSide) {
+            net.minecraftforge.fml.DistExecutor.unsafeRunWhenOn(net.minecraftforge.api.distmarker.Dist.CLIENT,
+                    () -> () -> thaumcraft.scanning.client.ThaumometerClient.onUse(player, hand));
+            return;
+        }
         if (!(player instanceof ServerPlayer server) || player.isSpectator() || !player.isAlive()
-                || player.getItemInHand(hand).getItem() != this || player.getCooldowns().isOnCooldown(this)) return;
-        player.getCooldowns().addCooldown(this, 10);
+                || player.getItemInHand(hand).getItem() != this || !server.serverLevel().getServer().isSameThread()) return;
         ScanTarget target = findTarget(server, hand);
         if (target == null && thaumcraft.research.celestial.CelestialScanner.scan(server)
                 != thaumcraft.research.celestial.CelestialScanner.Result.NOT_APPLICABLE) return;
         Object scanned = target == null ? null : scannedObject(server, hand, target);
-        if (target == null || target.aspects.size() == 0 && AuromancyProgressionEvents.scanFact(scanned) == null) {
+        if (target == null) {
             player.displayClientMessage(Component.translatable("message.thaumcraft.scan.nothing"), true);
             return;
         }
         boolean aspectDiscovered = target.aspects.size() > 0 && KnowledgeStore.recordScan(server, target.key, target.aspects);
         // Original ScanEntity/ScanItem facts are independent of aspect discovery and have no lesson-stage gate.
         boolean factDiscovered = AuromancyProgressionEvents.recordScannedFact(server, scanned);
-        boolean discovered = aspectDiscovered || factDiscovered;
+        var contents = target.location.kind == TargetKind.BLOCK
+                ? ThaumometerScanning.scanContents(server, target.location.blockPos)
+                : ThaumometerScanning.ContentsResult.EMPTY;
+        boolean discovered = aspectDiscovered || factDiscovered || contents.changed();
         player.displayClientMessage(Component.translatable(discovered ? "tc.knownobject" : "tc.unknownobject")
                 .withStyle(ChatFormatting.ITALIC, discovered ? ChatFormatting.GREEN : ChatFormatting.DARK_PURPLE), true);
         // TC6 presents aspects beside the object, rather than a long action-bar list.
         ScanningNetwork.sendScan(server, target, discovered);
+        if (contents.capped()) player.displayClientMessage(Component.translatable("tc.invtoolarge")
+                .withStyle(ChatFormatting.ITALIC, ChatFormatting.DARK_PURPLE), true);
     }
 
     /** Reconstruct the target from server-owned inventory, position and look direction. */
@@ -109,10 +115,24 @@ public final class ThaumometerItem extends Item {
                     selected.getName(), aspects, location.position, location);
         }
         var state = player.level().getBlockState(location.blockPos);
-        AspectList aspects = AspectRegistry.getAspects(state);
-        String key = state.getBlock().asItem() != Items.AIR ? "item:" + ForgeRegistries.ITEMS.getKey(state.getBlock().asItem())
-                : "block:" + ForgeRegistries.BLOCKS.getKey(state.getBlock());
+        var stack = blockScanStack(player, location);
+        AspectList aspects = stack.isEmpty() ? AspectRegistry.getAspects(state) : AspectRegistry.getAspects(stack);
+        String key = stack.isEmpty() ? "block:" + ForgeRegistries.BLOCKS.getKey(state.getBlock())
+                : "item:" + ForgeRegistries.ITEMS.getKey(stack.getItem());
         return new ScanTarget(scanKey(key, aspects), state.getBlock().getName(), aspects, location.position, location);
+    }
+
+    /** Original getItemFromParms resolves the native pick stack, including liquid buckets. */
+    static ItemStack blockScanStack(Player player, TargetLocation location) {
+        var state = player.level().getBlockState(location.blockPos);
+        ItemStack stack = state.getBlock().getCloneItemStack(state,
+                new BlockHitResult(location.position, location.face, location.blockPos, false),
+                player.level(), location.blockPos, player);
+        if (stack.isEmpty()) {
+            if (state.is(net.minecraft.world.level.block.Blocks.WATER)) return new ItemStack(Items.WATER_BUCKET);
+            if (state.is(net.minecraft.world.level.block.Blocks.LAVA)) return new ItemStack(Items.LAVA_BUCKET);
+        }
+        return stack;
     }
 
     /** Actual server object behind a reconstructed target; never supplied by a client discovery request. */
@@ -180,20 +200,10 @@ public final class ThaumometerItem extends Item {
         return new ScanTarget(scanKey("item:" + ForgeRegistries.ITEMS.getKey(stack.getItem()), aspects), stack.getHoverName(), aspects, position);
     }
 
-    // Only the actual aspect composition differentiates variants. Renaming, damage,
-    // stack size or arbitrary extra NBT cannot be used to farm new discoveries.
+    // BETA26 ScanGeneric keys only the type (plus old non-damageable metadata,
+    // represented by separate modern IDs). Effects and enchantments have their own facts.
     static String scanKey(String identity, AspectList aspects) {
-        StringBuilder key = new StringBuilder();
-        for (Aspect aspect : aspects.getAspectsSortedByName()) key.append('|').append(aspect.getTag()).append('=').append(aspects.getAmount(aspect));
-        // Keep small legacy keys stable, and bound large enchanted-item/data-pack keys
-        // without dropping composition information or truncating different variants alike.
-        String full = identity + key;
-        if (full.length() <= 256) return full;
-        try {
-            return "scan:" + HexFormat.of().formatHex(MessageDigest.getInstance("SHA-256").digest(full.getBytes(StandardCharsets.UTF_8)));
-        } catch (NoSuchAlgorithmException impossible) {
-            throw new IllegalStateException("Java runtime lacks required SHA-256", impossible);
-        }
+        return thaumcraft.research.PlayerKnowledge.scanIdentity(identity);
     }
 
     public enum TargetKind { BLOCK, ENTITY, HELD_ITEM }

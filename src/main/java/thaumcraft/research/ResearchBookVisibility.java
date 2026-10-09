@@ -12,7 +12,8 @@ public final class ResearchBookVisibility {
         if (entry == null) return false;
         if (archive) return true;
         if (entry.supported()) return ResearchProgression.legacyLessonAvailable(knowledge, entry.key());
-        return ResearchProgression.supportsProgression(entry.key())
+        return (ResearchProgression.supportsProgression(entry.key())
+                || entry.key().equals("FLUX") && knowledge.researchStage("FLUX") > 0)
                 && ResearchCategories.categoryUnlocked(knowledge, entry.category())
                 && visibleWithinCategory(knowledge, entry, new HashSet<>());
     }

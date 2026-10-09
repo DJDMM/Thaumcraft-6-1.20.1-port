@@ -378,7 +378,7 @@ public final class CelestialGameTests {
     }
 
     @GameTest(template = "empty")
-    public static void actualThaumometerUseHonorsHandCooldownAndObjectTargetBeforeSky(GameTestHelper helper) {
+    public static void actualThaumometerUseHonorsHandDailyQuotaAndObjectTargetBeforeSky(GameTestHelper helper) {
         ServerPlayer player = player(helper);
         research(helper, player, true); supplies(player, 4);
         var thaumometer = ScanningModule.THAUMOMETER.get();
@@ -392,17 +392,17 @@ public final class CelestialGameTests {
             helper.assertTrue(noteCount(player, 0) == 1 && player.getInventory().getItem(35).getCount() == 3, "Actual thaumometer use did not create a sky note");
             clock.game((helper.getLevel().getGameTime() / 24000L + 1) * 24000L);
             thaumometer.use(helper.getLevel(), player, InteractionHand.MAIN_HAND);
-            helper.assertTrue(noteCount(player, 0) == 1 && player.getInventory().getItem(35).getCount() == 3, "Cooldown failed after quota day changed");
+            helper.assertTrue(noteCount(player, 0) == 2 && player.getInventory().getItem(35).getCount() == 2, "Extra item cooldown blocked the next day's independent sky scan");
             player.getCooldowns().removeCooldown(thaumometer);
             player.setShiftKeyDown(true);
             player.setItemInHand(InteractionHand.OFF_HAND, new ItemStack(Items.COAL));
             thaumometer.use(helper.getLevel(), player, InteractionHand.MAIN_HAND);
-            helper.assertTrue(KnowledgeStore.get(player).scanCount() == 1 && noteCount(player, 0) == 1
-                    && player.getInventory().getItem(35).getCount() == 3, "A real inventory target also invoked the sky fallback");
+            helper.assertTrue(KnowledgeStore.get(player).scanCount() == 1 && noteCount(player, 0) == 2
+                    && player.getInventory().getItem(35).getCount() == 2, "A real inventory target also invoked the sky fallback");
             player.getCooldowns().removeCooldown(thaumometer);
             player.setShiftKeyDown(false);
             thaumometer.use(helper.getLevel(), player, InteractionHand.MAIN_HAND);
-            helper.assertTrue(noteCount(player, 0) == 2 && player.getInventory().getItem(35).getCount() == 2, "Sky fallback did not resume after cooldown/object targeting");
+            helper.assertTrue(noteCount(player, 0) == 2 && player.getInventory().getItem(35).getCount() == 2, "Same-day sky repeat bypassed the original daily quota");
         }
         helper.succeed();
     }

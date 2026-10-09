@@ -53,6 +53,7 @@ public final class ScanningNetwork {
             Object scanned = ThaumometerItem.scannedObject(player, hand, scan);
             if (scan.aspects().size() > 0 || AuromancyProgressionEvents.scanFact(scanned) != null)
                 target = target(scan, (scan.aspects().size() == 0 || KnowledgeStore.get(player).hasScanned(scan.key()))
+                        && !KnowledgeStore.get(player).hasUnknownAspects(scan.aspects())
                         && !AuromancyProgressionEvents.hasUnseenScanFact(player, scanned));
         }
         return new Snapshot(level.dimension().location(), level.getGameTime(),

@@ -72,8 +72,29 @@ public final class PlayerKnowledge {
     }
 
     public int scanCount() { return scans.size(); }
-    public boolean hasScanned(String key) { return scans.contains(key); }
+    public boolean hasScanned(String key) { return scans.contains(scanIdentity(key)); }
+
+    /** Collapse the old aspect-composition suffix without changing earned balances.
+     * Separate modern item IDs retain original non-damageable metadata distinctions. */
+    public static String scanIdentity(String key) {
+        if (key == null) return null;
+        if (key.startsWith("item:") || key.startsWith("entity:") || key.startsWith("block:")) {
+            int suffix = key.indexOf('|');
+            if (suffix >= 0) key = key.substring(0, suffix);
+            if (Set.of("item:thaumcraft:vis_crystal_aer", "item:thaumcraft:vis_crystal_ignis",
+                    "item:thaumcraft:vis_crystal_aqua", "item:thaumcraft:vis_crystal_terra",
+                    "item:thaumcraft:vis_crystal_ordo", "item:thaumcraft:vis_crystal_perditio").contains(key))
+                return "item:thaumcraft:crystal_essence";
+        }
+        return key;
+    }
     public boolean knowsAspect(Aspect aspect) { return aspect != null && aspects.contains(aspect.getTag()); }
+    public boolean hasUnknownAspects(AspectList found) {
+        if (found == null) return false;
+        for (Aspect aspect : found.getAspects())
+            if (aspect != null && found.getAmount(aspect) > 0 && !knowsAspect(aspect)) return true;
+        return false;
+    }
     public int researchStage(String key) { return stages.getOrDefault(key, 0); }
     public int readResearchStage(String key) { return readStages.getOrDefault(key, 0); }
     public int readAddendaMask(String key) { return readAddenda.getOrDefault(key, 0); }
@@ -81,7 +102,8 @@ public final class PlayerKnowledge {
     /** The original RESEARCH marker accompanies completion, not each ordinary intermediate stage. */
     public boolean hasUnreadResearch(String key) {
         ResearchEntry entry = ResearchCatalog.get(key);
-        return entry != null && !entry.supported() && isResearchCompleteStrict(key)
+        return entry != null && !entry.supported()
+                && (isResearchCompleteStrict(key) || key.equals("FLUX") && researchStage(key) > 0)
                 && readResearchStage(key) < researchStage(key);
     }
 
@@ -165,20 +187,27 @@ public final class PlayerKnowledge {
 
     boolean recordScan(String key, AspectList found) {
         if (key == null || key.isBlank() || key.length() > 256 || found == null || found.size() == 0) return false;
+        key = scanIdentity(key);
         boolean valid = false;
         for (Aspect aspect : found.getAspects()) {
             if (aspect != null && found.getAmount(aspect) > 0) valid = true;
         }
         if (!valid) return false;
-        if (creditedScans.contains(key)) return false;
+        boolean generic = !creditedScans.contains(key);
+        int newlyDiscovered = 0;
+        for (Aspect aspect : found.getAspects())
+            if (aspect != null && found.getAmount(aspect) > 0 && !knowsAspect(aspect)) newlyDiscovered++;
+        if (!generic && newlyDiscovered == 0) return false;
         Map<String, Integer> rewards = new LinkedHashMap<>();
         for (String category : ResearchCategories.keys()) {
-            int amount = ResearchCategories.observationGain(category, found);
+            int amount = generic ? ResearchCategories.observationGain(category, found) : 0;
+            // Aspect's constructor registers a separate original ScanAspect handler.
+            // Every newly discovered aspect pays these three one-unit bonuses once.
+            if (Set.of("BASICS", "AUROMANCY", "ALCHEMY").contains(category)) amount += newlyDiscovered;
             if ((long) rawKnowledge(KnowledgeType.OBSERVATION, category) + amount > Integer.MAX_VALUE) return false;
             rewards.put(category, amount);
         }
-        scans.add(key);
-        creditedScans.add(key);
+        if (generic) { scans.add(key); creditedScans.add(key); }
         for (Aspect aspect : found.getAspects()) {
             if (aspect != null && found.getAmount(aspect) > 0) aspects.add(aspect.getTag());
         }
@@ -251,11 +280,13 @@ public final class PlayerKnowledge {
         PlayerKnowledge result = new PlayerKnowledge();
         if (tag == null) return result;
         readStrings(tag, "Scans", result.scans);
+        normalizeScans(result.scans);
         readStrings(tag, "Aspects", result.aspects);
         result.aspects.removeIf(aspect -> Aspect.getAspect(aspect) == null);
         readStrings(tag, "Research", result.research);
         if (tag.contains("Version", Tag.TAG_INT) && tag.getInt("Version") >= 2) {
             readStrings(tag, "CreditedScans", result.creditedScans);
+            normalizeScans(result.creditedScans);
             result.creditedScans.retainAll(result.scans);
             Set<String> crafts = new LinkedHashSet<>();
             readStrings(tag, "Crafts", crafts);
@@ -307,6 +338,13 @@ public final class PlayerKnowledge {
             }
         }
         return result;
+    }
+
+    private static void normalizeScans(Set<String> keys) {
+        Set<String> normalized = new LinkedHashSet<>();
+        keys.forEach(key -> normalized.add(scanIdentity(key)));
+        keys.clear();
+        keys.addAll(normalized);
     }
 
     private boolean hasStageRequirement(String key, int separator) {

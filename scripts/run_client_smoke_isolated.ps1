@@ -6,7 +6,7 @@ desktop switching is performed. Keep this runner alive until the client exits.
 #>
 [CmdletBinding()]
 param(
-    [ValidateSet('TheoryComplete', 'EssentiaProduction', 'ThaumonomiconComplete', 'Infusion', 'Auromancy', 'GolemPress', 'Golemancy', 'LateGolem', 'EssentiaTransfuser', 'CrystalFarming')]
+    [ValidateSet('TheoryComplete', 'EssentiaProduction', 'ThaumonomiconComplete', 'Infusion', 'Auromancy', 'GolemPress', 'Golemancy', 'LateGolem', 'EssentiaTransfuser', 'CrystalFarming', 'Thaumometer')]
     [string]$SmokeTest = 'TheoryComplete',
     [string]$JavaHome = 'C:\Program Files\Eclipse Adoptium\jdk-17.0.18.8-hotspot',
     [ValidatePattern('^[A-Za-z0-9_-]{1,100}$')]
@@ -15,6 +15,7 @@ param(
 )
 $ErrorActionPreference = 'Stop'
 $profiles = @{
+    Thaumometer = @{ property = 'thaumometerSmokeTest'; directory = 'thaumometer-smoke'; prefix = 'thaumometer-client'; marker = 'THAUMCRAFT_THAUMOMETER_CLIENT_SMOKE'; audit = 'THAUMCRAFT_THAUMOMETER_RENDER_AUDIT_OK' }
     CrystalFarming = @{ property = 'crystalFarmingSmokeTest'; directory = 'crystal-farming-smoke'; prefix = 'crystal-farming-client'; marker = 'THAUMCRAFT_CRYSTAL_FARMING_CLIENT_SMOKE'; audit = 'THAUMCRAFT_CRYSTAL_FARMING_RENDER_AUDIT_OK' }
     EssentiaTransfuser = @{ property = 'essentiaTransfuserSmokeTest'; directory = 'essentia-transfuser-smoke'; prefix = 'essentia-transfuser-client'; marker = 'THAUMCRAFT_ESSENTIA_TRANSFUSER_CLIENT_SMOKE'; audit = 'THAUMCRAFT_ESSENTIA_TRANSFUSER_RENDER_AUDIT_OK' }
     LateGolem = @{ property = 'lateGolemSmokeTest'; directory = 'late-golem-smoke'; prefix = 'late-golem-client'; marker = 'THAUMCRAFT_LATE_GOLEM_CLIENT_SMOKE'; audit = 'THAUMCRAFT_LATE_GOLEM_RENDER_AUDIT_OK' }

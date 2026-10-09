@@ -1,8 +1,10 @@
 # Isolated Windows client QA
 
 From the project, run `scripts/run_client_smoke_isolated.ps1 -SmokeTest EssentiaProduction`
-or `-SmokeTest Infusion` / `-SmokeTest TheoryComplete` / `-SmokeTest ThaumonomiconComplete`. The old `run_theory_smoke_isolated.ps1` forwards
-to the TheoryComplete profile. The wrapper prepares the selected JavaExec task without executing its game launch
+or `-SmokeTest Infusion` / `-SmokeTest TheoryComplete` / `-SmokeTest ThaumonomiconComplete`.
+The `-SmokeTest Thaumometer` profile runs native scanning/container/aura checks in `run/thaumometer-smoke` with the same hidden-desktop guarantees.
+The old `run_theory_smoke_isolated.ps1` forwards to the TheoryComplete profile.
+The wrapper prepares the selected JavaExec task without executing its game launch
 action, writes a Java17 argument file, and launches the final JVM on a uniquely
 named non-input Win32 desktop. The desktop is chosen in `CreateProcessW` before
 Minecraft creates a window. The helper retains its desktop handle until that

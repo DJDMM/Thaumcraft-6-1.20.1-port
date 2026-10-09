@@ -1,0 +1,297 @@
+{
+  "version": "0.26.1-dev",
+  "date": "2026-10-09",
+  "originalVersion": "Thaumcraft6.1.BETA26",
+  "originalJarSha256": "9425f8643581b27ff8845b087c8bc6fc10425a32942f1a3f0e265ce6b38f7b5f",
+  "implementedCanonicalResearchEntries": 82,
+  "eventOnlyFluxStage": 1,
+  "requiredGameTests": 888,
+  "addedScannerGameTests": 46,
+  "serverLog": "scanner-0261-gametest3.log",
+  "serverLogSha256": "42fc72ceecfb9477086a71e5ebd0a46df2b30e0da2ff86fb82ab2179245fd572",
+  "serverResult": "888/888; native exit0; BUILD SUCCESSFUL in 2m 41s",
+  "clientRunTag": "scanner-0261-client3",
+  "client": {
+    "runTag": "scanner-0261-client3",
+    "smokeTest": "Thaumometer",
+    "state": "exited",
+    "javaPath": "C:\\Program Files\\Eclipse Adoptium\\jdk-17.0.18.8-hotspot\\bin\\java.exe",
+    "workingDirectory": "C:\\Users\\user\\Documents\\Codex\\2026-09-29\\thaumcraft-1-12-2\\outputs\\thaumcraft-1.20.1\\run\\thaumometer-smoke",
+    "prepareLog": "C:\\Users\\user\\Documents\\Codex\\2026-09-29\\thaumcraft-1-12-2\\outputs\\thaumcraft-1.20.1\\validation\\thaumometer-client-scanner-0261-client3-prepare.log",
+    "capturePath": "C:\\Users\\user\\Documents\\Codex\\2026-09-29\\thaumcraft-1-12-2\\outputs\\thaumcraft-1.20.1\\validation\\thaumometer-client-scanner-0261-client3-capture.json",
+    "argumentFile": "C:\\Users\\user\\Documents\\Codex\\2026-09-29\\thaumcraft-1-12-2\\outputs\\thaumcraft-1.20.1\\validation\\thaumometer-client-scanner-0261-client3.args",
+    "environmentFile": "C:\\Users\\user\\Documents\\Codex\\2026-09-29\\thaumcraft-1-12-2\\outputs\\thaumcraft-1.20.1\\validation\\thaumometer-client-scanner-0261-client3-environment.json",
+    "clientLog": "C:\\Users\\user\\Documents\\Codex\\2026-09-29\\thaumcraft-1-12-2\\outputs\\thaumcraft-1.20.1\\validation\\thaumometer-client-scanner-0261-client3-client.log",
+    "desktopStatus": "C:\\Users\\user\\Documents\\Codex\\2026-09-29\\thaumcraft-1-12-2\\outputs\\thaumcraft-1.20.1\\validation\\thaumometer-client-scanner-0261-client3-desktop.json",
+    "argumentCount": 51,
+    "environmentOverrideNames": [
+      "MCP_MAPPINGS",
+      "MOD_CLASSES"
+    ],
+    "desktop": "WinSta0\\ThaumcraftQA_cc7cf5a96f4248c885ff1d6be91d70c0",
+    "jvmPid": 10752,
+    "jvmExitCode": 0,
+    "maxOwnedWindowsOnTargetDesktop": 16,
+    "inputDesktopBefore": "Default",
+    "inputDesktopAfter": "Default",
+    "smokeScenes": 11
+  },
+  "clientLogSha256": "d38190d3b17070f72a71027427e42b50ee7fc13133385e309270fe70ef88f253",
+  "clientScenes": 11,
+  "visualReview": {
+    "version": "0.26.1-dev",
+    "runTag": "scanner-0261-client3",
+    "profile": "Thaumometer",
+    "reviewStatus": "pass",
+    "sourceDriverSha256": "423bab0f5b6818053528e34c16516003625973ed88606eeb28f1b42d36f35511",
+    "clientLog": "C:\\Users\\user\\Documents\\Codex\\2026-09-29\\thaumcraft-1-12-2\\outputs\\thaumcraft-1.20.1\\validation\\thaumometer-client-scanner-0261-client3-client.log",
+    "clientLogSha256": "d38190d3b17070f72a71027427e42b50ee7fc13133385e309270fe70ef88f253",
+    "runSummary": {
+      "runTag": "scanner-0261-client3",
+      "smokeTest": "Thaumometer",
+      "state": "exited",
+      "javaPath": "C:\\Program Files\\Eclipse Adoptium\\jdk-17.0.18.8-hotspot\\bin\\java.exe",
+      "workingDirectory": "C:\\Users\\user\\Documents\\Codex\\2026-09-29\\thaumcraft-1-12-2\\outputs\\thaumcraft-1.20.1\\run\\thaumometer-smoke",
+      "prepareLog": "C:\\Users\\user\\Documents\\Codex\\2026-09-29\\thaumcraft-1-12-2\\outputs\\thaumcraft-1.20.1\\validation\\thaumometer-client-scanner-0261-client3-prepare.log",
+      "capturePath": "C:\\Users\\user\\Documents\\Codex\\2026-09-29\\thaumcraft-1-12-2\\outputs\\thaumcraft-1.20.1\\validation\\thaumometer-client-scanner-0261-client3-capture.json",
+      "argumentFile": "C:\\Users\\user\\Documents\\Codex\\2026-09-29\\thaumcraft-1-12-2\\outputs\\thaumcraft-1.20.1\\validation\\thaumometer-client-scanner-0261-client3.args",
+      "environmentFile": "C:\\Users\\user\\Documents\\Codex\\2026-09-29\\thaumcraft-1-12-2\\outputs\\thaumcraft-1.20.1\\validation\\thaumometer-client-scanner-0261-client3-environment.json",
+      "clientLog": "C:\\Users\\user\\Documents\\Codex\\2026-09-29\\thaumcraft-1-12-2\\outputs\\thaumcraft-1.20.1\\validation\\thaumometer-client-scanner-0261-client3-client.log",
+      "desktopStatus": "C:\\Users\\user\\Documents\\Codex\\2026-09-29\\thaumcraft-1-12-2\\outputs\\thaumcraft-1.20.1\\validation\\thaumometer-client-scanner-0261-client3-desktop.json",
+      "argumentCount": 51,
+      "environmentOverrideNames": [
+        "MCP_MAPPINGS",
+        "MOD_CLASSES"
+      ],
+      "desktop": "WinSta0\\ThaumcraftQA_cc7cf5a96f4248c885ff1d6be91d70c0",
+      "jvmPid": 10752,
+      "jvmExitCode": 0,
+      "maxOwnedWindowsOnTargetDesktop": 16,
+      "inputDesktopBefore": "Default",
+      "inputDesktopAfter": "Default",
+      "smokeScenes": 11
+    },
+    "screenshots": [
+      {
+        "file": "tc6-thaumometer-unknown-block.png",
+        "scene": "unknown-block",
+        "profile": "Thaumometer",
+        "source": "C:\\Users\\user\\Documents\\Codex\\2026-09-29\\thaumcraft-1-12-2\\outputs\\thaumcraft-1.20.1\\run\\thaumometer-smoke\\screenshots\\tc6-thaumometer-unknown-block.png",
+        "staged": "C:\\Users\\user\\Documents\\Codex\\2026-09-29\\thaumcraft-1-12-2\\outputs\\thaumcraft-1.20.1\\validation\\screenshots-0.26.1\\tc6-thaumometer-unknown-block.png",
+        "width": 1600,
+        "height": 1000,
+        "sha256": "3d969df8dcf8202af73aec1b46a5c199c4e1af3a7d574f4655cf51229a788486",
+        "result": "pass",
+        "notes": "Contact sheet: coal block, native handheld scanner and left aura meter have complete textures; cyan unknown-target highlights are visible."
+      },
+      {
+        "file": "tc6-thaumometer-scanned-block.png",
+        "scene": "scanned-block",
+        "profile": "Thaumometer",
+        "source": "C:\\Users\\user\\Documents\\Codex\\2026-09-29\\thaumcraft-1-12-2\\outputs\\thaumcraft-1.20.1\\run\\thaumometer-smoke\\screenshots\\tc6-thaumometer-scanned-block.png",
+        "staged": "C:\\Users\\user\\Documents\\Codex\\2026-09-29\\thaumcraft-1-12-2\\outputs\\thaumcraft-1.20.1\\validation\\screenshots-0.26.1\\tc6-thaumometer-scanned-block.png",
+        "width": 1600,
+        "height": 1000,
+        "sha256": "92836243b54c8bf6d3a4198a51814ab99963e57908d36f4d12a4c59a31a53e10",
+        "result": "pass",
+        "notes": "Contact sheet: coal block and meter remain correctly rendered after actual scan, with readable green learned-status text."
+      },
+      {
+        "file": "tc6-thaumometer-unknown-entity.png",
+        "scene": "unknown-entity",
+        "profile": "Thaumometer",
+        "source": "C:\\Users\\user\\Documents\\Codex\\2026-09-29\\thaumcraft-1-12-2\\outputs\\thaumcraft-1.20.1\\run\\thaumometer-smoke\\screenshots\\tc6-thaumometer-unknown-entity.png",
+        "staged": "C:\\Users\\user\\Documents\\Codex\\2026-09-29\\thaumcraft-1-12-2\\outputs\\thaumcraft-1.20.1\\validation\\screenshots-0.26.1\\tc6-thaumometer-unknown-entity.png",
+        "width": 1600,
+        "height": 1000,
+        "sha256": "45a25c778b2e0285527bbb4643d20bc939f0baacae8b330c3eac06539c85010b",
+        "result": "pass",
+        "notes": "Contact sheet: native cow, unscanned cyan highlights and both Terra15/Bestia15 icons are visible before any entity scan."
+      },
+      {
+        "file": "tc6-thaumometer-scanned-entity.png",
+        "scene": "scanned-entity",
+        "profile": "Thaumometer",
+        "source": "C:\\Users\\user\\Documents\\Codex\\2026-09-29\\thaumcraft-1-12-2\\outputs\\thaumcraft-1.20.1\\run\\thaumometer-smoke\\screenshots\\tc6-thaumometer-scanned-entity.png",
+        "staged": "C:\\Users\\user\\Documents\\Codex\\2026-09-29\\thaumcraft-1-12-2\\outputs\\thaumcraft-1.20.1\\validation\\screenshots-0.26.1\\tc6-thaumometer-scanned-entity.png",
+        "width": 1600,
+        "height": 1000,
+        "sha256": "827f99d00616512d8fc9883b06d9ac739b150eddba657763775774838d672d0f",
+        "result": "pass",
+        "notes": "Full size: cow, Terra15/Bestia15 icons and green learned-status text are readable; purple local scan runes are visible."
+      },
+      {
+        "file": "tc6-thaumometer-offhand-sneak.png",
+        "scene": "offhand-sneak",
+        "profile": "Thaumometer",
+        "source": "C:\\Users\\user\\Documents\\Codex\\2026-09-29\\thaumcraft-1-12-2\\outputs\\thaumcraft-1.20.1\\run\\thaumometer-smoke\\screenshots\\tc6-thaumometer-offhand-sneak.png",
+        "staged": "C:\\Users\\user\\Documents\\Codex\\2026-09-29\\thaumcraft-1-12-2\\outputs\\thaumcraft-1.20.1\\validation\\screenshots-0.26.1\\tc6-thaumometer-offhand-sneak.png",
+        "width": 1600,
+        "height": 1000,
+        "sha256": "d66493515a5422b9744a733b05a3bde07ebdd39253c90c512e73a1b8ab0094f7",
+        "result": "pass",
+        "notes": "Contact sheet: offhand scanner and main-hand redstone are correctly rendered; Potentia10 and numerical aura amounts remain legible at GUI scale3."
+      },
+      {
+        "file": "tc6-thaumometer-overflow-sneak.png",
+        "scene": "overflow-sneak",
+        "profile": "Thaumometer",
+        "source": "C:\\Users\\user\\Documents\\Codex\\2026-09-29\\thaumcraft-1-12-2\\outputs\\thaumcraft-1.20.1\\run\\thaumometer-smoke\\screenshots\\tc6-thaumometer-overflow-sneak.png",
+        "staged": "C:\\Users\\user\\Documents\\Codex\\2026-09-29\\thaumcraft-1-12-2\\outputs\\thaumcraft-1.20.1\\validation\\screenshots-0.26.1\\tc6-thaumometer-overflow-sneak.png",
+        "width": 1600,
+        "height": 1000,
+        "sha256": "a42212b8defae69c2b5ba4d75961f2e3dc9474b3d04a25ad7dc4829a6ae45aa5",
+        "result": "pass",
+        "notes": "Full size: combined aura is normalized to fit the meter and raw449vis/349flux labels are readable. The original English Flux warning is displayed fully; no literal translation key remains."
+      },
+      {
+        "file": "tc6-thaumometer-unknown-container.png",
+        "scene": "unknown-container",
+        "profile": "Thaumometer",
+        "source": "C:\\Users\\user\\Documents\\Codex\\2026-09-29\\thaumcraft-1-12-2\\outputs\\thaumcraft-1.20.1\\run\\thaumometer-smoke\\screenshots\\tc6-thaumometer-unknown-container.png",
+        "staged": "C:\\Users\\user\\Documents\\Codex\\2026-09-29\\thaumcraft-1-12-2\\outputs\\thaumcraft-1.20.1\\validation\\screenshots-0.26.1\\tc6-thaumometer-unknown-container.png",
+        "width": 1600,
+        "height": 1000,
+        "sha256": "6ce91899a2a8f97814ed7b2eff48ea09f6322e1cfc9e2e81fdbb0a40ffe0194f",
+        "result": "pass",
+        "notes": "Contact sheet: real chest and native handheld scanner render correctly. The preceding Flux warning fades as localized English prose, without a literal translation key."
+      },
+      {
+        "file": "tc6-thaumometer-scanned-container.png",
+        "scene": "scanned-container",
+        "profile": "Thaumometer",
+        "source": "C:\\Users\\user\\Documents\\Codex\\2026-09-29\\thaumcraft-1-12-2\\outputs\\thaumcraft-1.20.1\\run\\thaumometer-smoke\\screenshots\\tc6-thaumometer-scanned-container.png",
+        "staged": "C:\\Users\\user\\Documents\\Codex\\2026-09-29\\thaumcraft-1-12-2\\outputs\\thaumcraft-1.20.1\\validation\\screenshots-0.26.1\\tc6-thaumometer-scanned-container.png",
+        "width": 1600,
+        "height": 1000,
+        "sha256": "c05871097f7d54dda01184e9c35ee8375dace07d5bb51a427da5802cdf3aaa07",
+        "result": "pass",
+        "notes": "Contact sheet: chest and scanner textures are complete, with readable green learned-status text after the actual C2S container scan."
+      },
+      {
+        "file": "tc6-thaumometer-repeated-container.png",
+        "scene": "repeated-container",
+        "profile": "Thaumometer",
+        "source": "C:\\Users\\user\\Documents\\Codex\\2026-09-29\\thaumcraft-1-12-2\\outputs\\thaumcraft-1.20.1\\run\\thaumometer-smoke\\screenshots\\tc6-thaumometer-repeated-container.png",
+        "staged": "C:\\Users\\user\\Documents\\Codex\\2026-09-29\\thaumcraft-1-12-2\\outputs\\thaumcraft-1.20.1\\validation\\screenshots-0.26.1\\tc6-thaumometer-repeated-container.png",
+        "width": 1600,
+        "height": 1000,
+        "sha256": "19901816ef720d8fbdd8a4a1ea3832c351cd99f94e47be9c353cae90b257f561",
+        "result": "pass",
+        "notes": "Full size: actual repeated scan retains purple local scan runes and readable Nothing new can be learned from this feedback, with the chest and aura meter intact."
+      },
+      {
+        "file": "tc6-thaumometer-hidden-gui.png",
+        "scene": "hidden-gui",
+        "profile": "Thaumometer",
+        "source": "C:\\Users\\user\\Documents\\Codex\\2026-09-29\\thaumcraft-1-12-2\\outputs\\thaumcraft-1.20.1\\run\\thaumometer-smoke\\screenshots\\tc6-thaumometer-hidden-gui.png",
+        "staged": "C:\\Users\\user\\Documents\\Codex\\2026-09-29\\thaumcraft-1-12-2\\outputs\\thaumcraft-1.20.1\\validation\\screenshots-0.26.1\\tc6-thaumometer-hidden-gui.png",
+        "width": 1600,
+        "height": 1000,
+        "sha256": "cc2945f7bda16e47edd3bb23fd784a6d773ded1cccb07ed69e6fcca435f44d95",
+        "result": "pass",
+        "notes": "Contact sheet: physical chest and platform render; scanner, HUD, crosshair, item hand and mod overlays are hidden as intended by F1."
+      },
+      {
+        "file": "tc6-thaumometer-no-scanner.png",
+        "scene": "no-scanner",
+        "profile": "Thaumometer",
+        "source": "C:\\Users\\user\\Documents\\Codex\\2026-09-29\\thaumcraft-1-12-2\\outputs\\thaumcraft-1.20.1\\run\\thaumometer-smoke\\screenshots\\tc6-thaumometer-no-scanner.png",
+        "staged": "C:\\Users\\user\\Documents\\Codex\\2026-09-29\\thaumcraft-1-12-2\\outputs\\thaumcraft-1.20.1\\validation\\screenshots-0.26.1\\tc6-thaumometer-no-scanner.png",
+        "width": 1600,
+        "height": 1000,
+        "sha256": "4442e60c61932258bcd89fad1b7b4a862799cd61a99e9559072d7a100032893c",
+        "result": "pass",
+        "notes": "Contact sheet: physical chest/platform and ordinary empty hand render; aura meter and scanner overlays are absent after both scanner hands are cleared."
+      }
+    ],
+    "contactSheets": [
+      {
+        "file": "C:\\Users\\user\\Documents\\Codex\\2026-09-29\\thaumcraft-1-12-2\\outputs\\thaumcraft-1.20.1\\validation\\screenshots-0.26.1\\contact-0261-thaumometer-1.png",
+        "sha256": "e9c254c7d5568501549ced3cedbec98d4f14b74c39708e5d02fed0558b46b8a5"
+      },
+      {
+        "file": "C:\\Users\\user\\Documents\\Codex\\2026-09-29\\thaumcraft-1-12-2\\outputs\\thaumcraft-1.20.1\\validation\\screenshots-0.26.1\\contact-0261-thaumometer-2.png",
+        "sha256": "b7fd136437a307ed00cc8753e6be0f51aeef793212b47901d8d7b7eb3b73c419"
+      }
+    ],
+    "rootReviewed": true,
+    "limitations": [
+      "Images are genuine first-person renders of the isolated automated fixture world, not a manual survival or independent multiplayer session.",
+      "Container reward, repeated reward, hover write protection and FLUX/XP correctness are proven by logged server assertions; a still frame alone cannot establish those mechanics."
+    ],
+    "reviewMethod": "Subagent viewed all11 final captures on two contact sheets and three full-size frames. Root independently reviewed both sheets and two full-size frames; final review passes.",
+    "fullSizeInspected": [
+      "tc6-thaumometer-scanned-entity.png",
+      "tc6-thaumometer-overflow-sneak.png",
+      "tc6-thaumometer-repeated-container.png"
+    ],
+    "findings": [],
+    "resolvedHistoricalFinding": "Client2 visibly exposed research.FLUX.warn. Root imported the original warning localization and final client3 captures now show readable English prose instead.",
+    "historicalReview": "validation/visual-review-thaumometer-0.26.1-client2.json",
+    "rootReviewStatus": "pass",
+    "rootReviewMethod": "Root independently viewed all11 final client3 captures on both contact sheets and overflow-sneak/repeated-container in full size. Native textures, target feedback, localized Flux warning and F1/no-scanner suppression pass.",
+    "rootFullSizeInspected": [
+      "tc6-thaumometer-overflow-sneak.png",
+      "tc6-thaumometer-repeated-container.png"
+    ]
+  },
+  "localJsonCount": 2835,
+  "jarResourceByteParityChecks": 3642,
+  "originalMediaByteParity": {
+    ".png": 660,
+    ".jpg": 7,
+    ".ogg": 46
+  },
+  "buildLogSha256": "52446c715ddab185045bd5ba8563189a8cfbe3ed21442cb59880050bc44b20a4",
+  "resourcesLogSha256": "8f77b57857f40b433d25a50cb9b8c2c4ca6de7368fe23197ef29377866550c82",
+  "artifacts": [
+    {
+      "file": "thaumcraft-1.20.1-0.26.1-dev.jar",
+      "bytes": 10305036,
+      "sha256": "e9f0252ad03837421420f3760213b198743f2c939db65764e2fced9d00cca483"
+    },
+    {
+      "file": "thaumcraft-1.20.1-0.26.1-dev-mods.zip",
+      "bytes": 9443209,
+      "sha256": "a9519cc864e0f826c66c03ecdd2a88c433b3f3c39e031af6361b98e2f90848d5"
+    },
+    {
+      "file": "thaumcraft-1.20.1-0.26.1-dev-screenshots.zip",
+      "bytes": 2979532,
+      "sha256": "7b968acc70580bfaf7aad699cd42ad540cac3c0cf44e56483a8de802d3a8f9e8"
+    }
+  ],
+  "scannerSourceSha256": {
+    "src/main/java/thaumcraft/research/AuromancyProgressionEvents.java": "d47a8fd48c9ec457a6eaafed1033f9c742625a2e7cad4719e22a1b6c7b17c6ee",
+    "src/main/java/thaumcraft/research/KnowledgeStore.java": "90455b8e4bbb988bdf8605141a5d1beae4a0c2ac0768b1adaaaf5b2af40b32de",
+    "src/main/java/thaumcraft/research/PlayerKnowledge.java": "6ea769cf832551cfa65de57de7b131bdd4abcfc6abdfa3b577b95a0f67f008f0",
+    "src/main/java/thaumcraft/research/ResearchBookNotifications.java": "17abc744c62d8feb552d3b31b002a076ba2524a09c672183fc2920622932e962",
+    "src/main/java/thaumcraft/research/ResearchBookVisibility.java": "796e99dac226ab3e990324998dbb61227754039088b59839c1d7d26f7de5e05c",
+    "src/main/java/thaumcraft/scanning/AspectRegistry.java": "eb3b30a787ee0c1dd5fd666f612f70020289898f5a53decae2de45ea3678d58c",
+    "src/main/java/thaumcraft/scanning/client/ThaumometerClient.java": "586eff54455f2192b0647dde289b02775176496978a6a1ef9f82aa92c8e79dc2",
+    "src/main/java/thaumcraft/scanning/client/ThaumometerClientSmokeTest.java": "423bab0f5b6818053528e34c16516003625973ed88606eeb28f1b42d36f35511",
+    "src/main/java/thaumcraft/scanning/client/ThaumometerRenderTypes.java": "da1fcdff240941760ce05f7a852a9905cc978cea93a4b02d3d1998297676f611",
+    "src/main/java/thaumcraft/scanning/client/ThaumometerRune.java": "da7fd91bc85f3abe22ef560017b044914b97bff2f49cee8d4e8ed51100eac9ae",
+    "src/main/java/thaumcraft/scanning/client/ThaumometerSparkle.java": "79ccc331acbff84b209195cc031298f975de49c8606834c1bdc1a38c1bf3184e",
+    "src/main/java/thaumcraft/scanning/ItemAspectBonuses.java": "da5e17f94d64cc37bbd1d6bbb2a34989384c753b5aece6c7dc12c26409f2778e",
+    "src/main/java/thaumcraft/scanning/RecipeAspectResolver.java": "30a72f4a08dd132a4103d81e246a05d1c1c50281a97c2ae172efd368f7e050f8",
+    "src/main/java/thaumcraft/scanning/ScanAspectGameTests.java": "dd9bb5256489d686447666f107edef86c5cb8b1f6a302fef605ccc4b80bb7099",
+    "src/main/java/thaumcraft/scanning/ScanEffectFacts.java": "bf82b45b668cf10d90485d56c42d40b74060933c403879102efb1d2de2adc1f7",
+    "src/main/java/thaumcraft/scanning/ScanEffectGameTests.java": "e1010882553172ae8484f9474fc729910ee2fe308ffb853ebcc3ee10d4ab1bbb",
+    "src/main/java/thaumcraft/scanning/ScanningGameTests.java": "33eded9eabd5108e7a3e23aa4c07380f96b7ec7bc0735fe5561aa4ef3161c21b",
+    "src/main/java/thaumcraft/scanning/ScanningMechanicsGameTests.java": "7d62547f01a3616bf4ad7b4240f42e82fe8d35924a70d536d2baae7f1c33b2d4",
+    "src/main/java/thaumcraft/scanning/ScanningModule.java": "e9411b23cc486c34c8c7a5aee887c3490cc419b968b607ae7213d6519695f1dc",
+    "src/main/java/thaumcraft/scanning/ScanningNetwork.java": "a7a99137d9d2bca37d04fefa61d3666eb932953cf129d8a27aec3a66d91e5334",
+    "src/main/java/thaumcraft/scanning/ThaumometerAuraGameTests.java": "683b6a49e2bfe90db865696d47cf5648443d9a8c5d1b2a1e17243d808fc394ee",
+    "src/main/java/thaumcraft/scanning/ThaumometerHudGameTests.java": "17836e9d52bc7e61424cbd90a2a995c40e667ef2ea8592e46b46c38a922a939b",
+    "src/main/java/thaumcraft/scanning/ThaumometerItem.java": "62880855ece3496871d56350f625c5f0999220c9590dab37ec19c599fe75b42b",
+    "src/main/java/thaumcraft/scanning/ThaumometerScanning.java": "d27b49836bf23dcad08fb431b5162592814ae35c8ad7095301d6a64e75c11ad6"
+  },
+  "limitations": [
+    "Prepared native client world supplies scanner/block/cow/chest/raw aura and items. Actual C2S scanning, exact knowledge snapshots,5XP and unchanged physical contents are verified. This is not a full manual survival or independent multiplayer run.",
+    "FLUX opens stage1 with original warning,popup and unread marker; rift fact/later research and remaining plant/late creature handlers are not completed. Canonical support remains82/148.",
+    "Common9-block ray,5-tick combined snapshots,extra block/item icons and Shift opposite-hand scan remain documented modern adaptations. Opaque old hashes cannot be reversed; old earned knowledge is retained without retrospective bonuses.",
+    "First server run found cross-test jar interference. Test-only nearest destination now starts1Aer and asserts source1->0/destination1->2; production nonempty-jar priority unchanged. Client2 revealed missing warning localization; final client3/server3/build were rerun after copying the original strings."
+  ]
+}

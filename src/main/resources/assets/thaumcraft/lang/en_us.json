@@ -1588,6 +1588,8 @@
   "tooltip.thaumcraft.essentia_filter": "Filter: %s",
   "tooltip.thaumcraft.thaumometer.aura": "The left gauge shows this chunk's aura; sneak for exact values",
   "tc.knownobject": "You have learned something new.",
+  "research.FLUX.warn": "Something seems to be building up in the aura. Something bad.",
+  "tc.invtoolarge": "Inventory too large. Only scanning first 100 items.",
   "tc.unknownobject": "Nothing new can be learned from this.",
   "item.curio.text": "What knowledge does this hold?",
   "tc.lootbag": "Click to open, or keep to trade.",

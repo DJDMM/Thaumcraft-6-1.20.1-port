@@ -59,6 +59,7 @@ public final class AuromancyProgressionEvents {
         var facts = new java.util.LinkedHashSet<>(auromancyScanFacts(scanned));
         facts.addAll(GolemancyProgressionEvents.scanFacts(scanned));
         facts.addAll(OreProgressionScans.scanFacts(scanned));
+        facts.addAll(thaumcraft.scanning.ScanEffectFacts.facts(scanned));
         return List.copyOf(facts);
     }
 

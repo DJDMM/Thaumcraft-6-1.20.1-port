@@ -95,7 +95,7 @@ public final class ThaumometerClient {
         }
     }
 
-    /** The original right-click feedback uses ten purple runes and the scan sound for repeated scans too. */
+    /** Server result updates read-only diagnostics; feedback already played at the local click. */
     public static void receiveScan(ScanningNetwork.ScanResult packet) {
         Minecraft mc = Minecraft.getInstance();
         if (mc.player == null || mc.level == null || !mc.level.dimension().location().equals(packet.dimension())
@@ -104,7 +104,15 @@ public final class ThaumometerClient {
         var location = packet.target().location();
         if (!sameGeometry(location, ThaumometerItem.locateTarget(mc.player, hand))) return;
         lastScanResult = packet;
-        mc.player.playSound(ScanningModule.SCAN_SOUND.get(), .5F, 1F);
+    }
+
+    /** BETA26 plays sound immediately, even on a miss/known object, independently of rewards. */
+    public static void onUse(net.minecraft.world.entity.player.Player player, InteractionHand hand) {
+        Minecraft mc = Minecraft.getInstance();
+        if (mc.level == null || player != mc.player || ThaumometerItem.heldHand(player) == null) return;
+        player.playSound(ScanningModule.SCAN_SOUND.get(), .5F, 1F);
+        var location = ThaumometerItem.locateTarget(player, hand);
+        if (location == null) return;
         if (location.kind() == ThaumometerItem.TargetKind.HELD_ITEM) return;
         Vec3 center;
         int duration = 15;
