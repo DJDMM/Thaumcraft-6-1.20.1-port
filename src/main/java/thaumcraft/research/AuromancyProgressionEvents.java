@@ -58,6 +58,7 @@ public final class AuromancyProgressionEvents {
     public static List<String> scanFacts(@Nullable Object scanned) {
         var facts = new java.util.LinkedHashSet<>(auromancyScanFacts(scanned));
         facts.addAll(GolemancyProgressionEvents.scanFacts(scanned));
+        facts.addAll(OreProgressionScans.scanFacts(scanned));
         return List.copyOf(facts);
     }
 
@@ -100,7 +101,7 @@ public final class AuromancyProgressionEvents {
         if (!validPlayer(player) || scanned instanceof Entity entity && (entity.isRemoved() || entity.level() != player.level())) return false;
         boolean discovered = false;
         for (String fact : scanFacts(scanned)) {
-            if (fact.equals("PRIMPEARL")||fact.equals("!Firebat")) {
+            if (fact.equals("PRIMPEARL")||fact.equals("!Firebat")||fact.equals("ORE")) {
                 var state = KnowledgeStore.get(player);
                 if (state.isResearchCompleteStrict(fact)) continue;
                 // A scan grants this original no-cost canonical entry immediately,

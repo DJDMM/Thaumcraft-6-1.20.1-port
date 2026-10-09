@@ -187,5 +187,13 @@
       "thaumcraft:jar3",
       "thaumcraft:jar4"
     ]
+  },
+  "crystal": {
+    "sounds": [
+      {
+        "name": "thaumcraft:crystal",
+        "stream": false
+      }
+    ]
   }
 }

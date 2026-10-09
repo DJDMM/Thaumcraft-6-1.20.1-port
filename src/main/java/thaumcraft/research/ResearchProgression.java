@@ -29,7 +29,8 @@ public final class ResearchProgression {
             "SEALGUARD", "SEALBUTCHER", "SEALUSE", "SEALHARVEST", "SEALBREAK", "SEALLUMBER",
             "MINDBIOTHAUMIC", "MATSTUDIRON", "MATSTUDCLAY", "MATSTUDBRASS", "MATSTUDTHAUMIUM",
             "GOLEMBREAKER", "GOLEMCOMBATADV", "GOLEMDIRECT", "GOLEMLOGISTICS", "GOLEMCLIMBER", "GOLEMVISION",
-            "HUNGRYCHEST", "LEVITATOR", "JARBRAIN", "GOLEMFLYER", "ESSENTIATRANSPORT");
+            "HUNGRYCHEST", "LEVITATOR", "JARBRAIN", "GOLEMFLYER", "ESSENTIATRANSPORT",
+            "ORE", "CRYSTALFARMER", "VISBATTERY");
     private static final Set<String> OLD_PROFILE_LESSONS = Set.of("PORT_START", "PORT_SCAN", "PORT_ALCHEMY",
             "PORT_NITOR", "PORT_ALUMENTUM", "PORT_BRASS", "PORT_THAUMIUM");
     private static final Map<String, List<Requirements>> REQUIREMENTS = load();
@@ -51,10 +52,10 @@ public final class ResearchProgression {
         return supportsProgression(key) && entry != null && stage(knowledge, key) == 0 && parentsMet(knowledge, entry);
     }
     private static boolean parentsMet(PlayerKnowledge knowledge, ResearchEntry entry) {
-        // ConfigResearch's canonical hidden pearl entry is acquired by ScanItem, not
+        // ConfigResearch's canonical hidden pearl/firebat/ore entries are acquired by scans, not
         // by submitting an arbitrary empty-root book request. The scanner records
         // the original discovery marker before progressing its one empty stage.
-        if (Set.of("PRIMPEARL","!Firebat").contains(entry.key()) && !knowledge.isResearchKnown(entry.key())) return false;
+        if (Set.of("PRIMPEARL","!Firebat","ORE").contains(entry.key()) && !knowledge.isResearchKnown(entry.key())) return false;
         return entry.parents().stream().allMatch(raw -> knowledge.isResearchCompleteStrict(raw.startsWith("~") ? raw.substring(1) : raw));
     }
     public static boolean canAdvance(PlayerKnowledge knowledge, ResearchEntry entry) {

@@ -13,6 +13,8 @@ public final class WorldClientEvents {
     public static void blockColors(RegisterColorHandlersEvent.Block event) {
         WorldModule.CRYSTALS.forEach((aspect, block) -> event.register(
                 (state, level, pos, tint) -> WorldModule.CRYSTAL_COLORS.get(aspect), block.get()));
+        event.register((state, level, pos, tint) -> thaumcraft.api.aspects.Aspect.FLUX.getColor(),
+                thaumcraft.catalog.blocks.CatalogBlocks.block("crystal_vitium"));
     }
 
     @SubscribeEvent

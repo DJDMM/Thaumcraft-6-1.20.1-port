@@ -25,13 +25,31 @@ public final class FocusMediaGameTests {
     private static void end(GameTestHelper h){MinecraftForge.EVENT_BUS.post(new TickEvent.LevelTickEvent(LogicalSide.SERVER,TickEvent.Phase.END,h.getLevel(),()->true));}
     @GameTest(template="empty") public static void cloudPulsesEveryFiveTicksAtHalfPowerAndRestoresPaidOwnerIdentity(GameTestHelper h){
         var p=player(h);var plan=plan(FocusNodeRegistry.CLOUD,Map.of("radius",2,"duration",5));var c=cow(h,p.position().add(0,3,0));
-        float aura=AuraManager.getVis(h.getLevel(),p.blockPosition());FocusExecution.resume(p,plan,1,null,c.position(),new Vec3(0,0,1));
-        var cloud=h.getLevel().getEntitiesOfClass(FocusCloudEntity.class,c.getBoundingBox().inflate(2)).stream().filter(e->e.paidPlan()!=null&&e.paidPlan().executionId().equals(plan.executionId())).findFirst().orElseThrow();
-        h.assertTrue(cloud.power()==.5F,"Cloud multiplied strength twice");
-        for(int i=0;i<5;i++){cloud.tickCount++;cloud.tick();}h.assertTrue(c.getHealth()==100&&FocusMediaCallbacks.pending(h.getLevel())>0,"Cloud bypassed detached END");end(h);
-        h.assertTrue(c.getHealth()==98,"Cloud damage must2");for(int i=0;i<5;i++){cloud.tickCount++;cloud.tick();}end(h);h.assertTrue(c.getHealth()==96,"Original Integer/Long living cooldown quirk changed");
-        var save=cloud.saveWithoutId(new CompoundTag());cloud.discard();var loaded=FocusMediaModule.CLOUD.get().create(h.getLevel());loaded.load(save);h.assertTrue(loaded.bindOwner(p)&&loaded.power()==.5F&&loaded.paidPlan().executionId().equals(plan.executionId())&&loaded.radius()==2,"Cloud save changed paid continuation");loaded.discard();
-        h.assertTrue(Math.abs(aura-AuraManager.getVis(h.getLevel(),p.blockPosition()))<.001,"Cloud paid cast twice");c.discard();h.succeed();
+        float aura=AuraManager.getVis(h.getLevel(),p.blockPosition());
+        Set<Long> activeChunks;
+        try{
+            var field=thaumcraft.world.aura.AuraSavedData.class.getDeclaredField("activeChunks");field.setAccessible(true);
+            @SuppressWarnings("unchecked") var chunks=(Set<Long>)field.get(thaumcraft.world.aura.AuraSavedData.get(h.getLevel()));
+            activeChunks=chunks;
+        }catch(ReflectiveOperationException failure){throw new IllegalStateException("Cannot isolate cloud aura fixture",failure);}
+        long chunkKey=new net.minecraft.world.level.ChunkPos(p.blockPosition()).toLong();
+        // Real END delivery also invokes lunar regeneration/diffusion when gameTime % 20 == 0.
+        // Pause only this loaded fixture chunk for the synchronous no-repayment check;
+        // leave the real event, game time and cloud callbacks unchanged, then restore membership.
+        boolean wasActive=activeChunks.remove(chunkKey);
+        try{
+            FocusExecution.resume(p,plan,1,null,c.position(),new Vec3(0,0,1));
+            var cloud=h.getLevel().getEntitiesOfClass(FocusCloudEntity.class,c.getBoundingBox().inflate(2)).stream().filter(e->e.paidPlan()!=null&&e.paidPlan().executionId().equals(plan.executionId())).findFirst().orElseThrow();
+            h.assertTrue(cloud.power()==.5F,"Cloud multiplied strength twice");
+            for(int i=0;i<5;i++){cloud.tickCount++;cloud.tick();}h.assertTrue(c.getHealth()==100&&FocusMediaCallbacks.pending(h.getLevel())>0,"Cloud bypassed detached END");end(h);
+            h.assertTrue(c.getHealth()==98,"Cloud damage must2");for(int i=0;i<5;i++){cloud.tickCount++;cloud.tick();}end(h);h.assertTrue(c.getHealth()==96,"Original Integer/Long living cooldown quirk changed");
+            var save=cloud.saveWithoutId(new CompoundTag());cloud.discard();var loaded=FocusMediaModule.CLOUD.get().create(h.getLevel());loaded.load(save);h.assertTrue(loaded.bindOwner(p)&&loaded.power()==.5F&&loaded.paidPlan().executionId().equals(plan.executionId())&&loaded.radius()==2,"Cloud save changed paid continuation");loaded.discard();
+            h.assertTrue(Math.abs(aura-AuraManager.getVis(h.getLevel(),p.blockPosition()))<.001,"Cloud paid cast twice");
+        }finally{
+            if(wasActive)activeChunks.add(chunkKey);else activeChunks.remove(chunkKey);
+            c.discard();
+        }
+        h.succeed();
     }
     @GameTest(template="empty") public static void armedMineWaitsFortyTicksThenDetonatesOnceAndReloadIsImmediatelyLive(GameTestHelper h){
         var p=player(h);var plan=plan(FocusNodeRegistry.MINE,Map.of("target",0));Vec3 pos=p.position().add(0,4,0);var c=cow(h,pos);

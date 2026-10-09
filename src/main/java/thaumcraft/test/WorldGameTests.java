@@ -154,8 +154,9 @@ public final class WorldGameTests {
         for (String aspect : WorldModule.CRYSTALS.keySet()) {
             Block crystal = WorldModule.CRYSTALS.get(aspect).get();
             var drops = Block.getDrops(crystal.defaultBlockState(), level, origin, null, null, new ItemStack(Items.IRON_PICKAXE));
-            helper.assertTrue(drops.size() == 1 && drops.get(0).is(WorldModule.VIS_CRYSTALS.get(aspect).get())
-                    && drops.get(0).getCount() >= 1 && drops.get(0).getCount() <= 3, "Incorrect primal crystal drop: " + aspect);
+            helper.assertTrue(drops.size() == 1 && thaumcraft.alchemy.AspectCrystalItem.crystalAspect(drops.get(0))
+                    == thaumcraft.api.aspects.Aspect.getAspect(aspect) && drops.get(0).getCount() == 1,
+                    "Original SIZE0 must drop one contained primal crystal: " + aspect);
         }
         helper.succeed();
     }

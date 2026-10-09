@@ -5,46 +5,62 @@
       "rolls": 1,
       "entries": [
         {
-          "type": "minecraft:alternatives",
-          "children": [
+          "type": "minecraft:item",
+          "name": "thaumcraft:crystal_essence",
+          "functions": [
             {
-              "type": "minecraft:item",
-              "name": "thaumcraft:crystal_ignis",
+              "function": "minecraft:set_nbt",
+              "tag": "{Aspects:[{key:\"ignis\",amount:1}]}"
+            },
+            {
+              "function": "minecraft:set_count",
+              "count": 1,
               "conditions": [
                 {
-                  "condition": "minecraft:match_tool",
-                  "predicate": {
-                    "enchantments": [
-                      {
-                        "enchantment": "minecraft:silk_touch",
-                        "levels": {
-                          "min": 1
-                        }
-                      }
-                    ]
+                  "condition": "minecraft:block_state_property",
+                  "block": "thaumcraft:crystal_ignis",
+                  "properties": {
+                    "size": "0"
                   }
                 }
               ]
             },
             {
-              "type": "minecraft:item",
-              "name": "thaumcraft:vis_crystal_ignis",
-              "functions": [
+              "function": "minecraft:set_count",
+              "count": 2,
+              "conditions": [
                 {
-                  "function": "minecraft:set_count",
-                  "count": {
-                    "type": "minecraft:uniform",
-                    "min": 1,
-                    "max": 3
+                  "condition": "minecraft:block_state_property",
+                  "block": "thaumcraft:crystal_ignis",
+                  "properties": {
+                    "size": "1"
                   }
-                },
+                }
+              ]
+            },
+            {
+              "function": "minecraft:set_count",
+              "count": 3,
+              "conditions": [
                 {
-                  "function": "minecraft:apply_bonus",
-                  "enchantment": "minecraft:fortune",
-                  "formula": "minecraft:ore_drops"
-                },
+                  "condition": "minecraft:block_state_property",
+                  "block": "thaumcraft:crystal_ignis",
+                  "properties": {
+                    "size": "2"
+                  }
+                }
+              ]
+            },
+            {
+              "function": "minecraft:set_count",
+              "count": 4,
+              "conditions": [
                 {
-                  "function": "minecraft:explosion_decay"
+                  "condition": "minecraft:block_state_property",
+                  "block": "thaumcraft:crystal_ignis",
+                  "properties": {
+                    "size": "3"
+                  }
                 }
               ]
             }

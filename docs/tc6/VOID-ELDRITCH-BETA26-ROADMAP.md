@@ -1,8 +1,19 @@
 # Void / Eldritch: BETA26 prerequisites and remaining runtime
 
-This is a roadmap, not a claim that the following world mechanics have been ported.
-The 0.24 baseline has 78 supported canonical records. Its Void/Eldritch gates remain
-closed. The next 0.25 scope is ESSENTIATRANSPORT; it does not complete this roadmap.
+This roadmap separates completed prerequisites from remaining world mechanics.
+Current 0.26 preserves the 79 canonical records of 0.25 and adds ORE,
+CRYSTALFARMER and VISBATTERY for 82. Step 1 below is implemented: actual ore scans,
+paid cluster recipes and growth, and the local Vis Battery. Infusion now has 23/56
+implemented research/craft paths, 21 established ordinary ingredient paths and 33
+late research gates. Ordinary Nether Wart provides Vitium through the existing
+crucible path; no late rift resource is required for the Flux cluster.
+
+Practical instructions are in [CRYSTAL-FARMING.md](../../CRYSTAL-FARMING.md).
+Actual 0.26 QA evidence and fixture limits belong
+in [VALIDATION.md](../../VALIDATION.md). Flux Rift runtime/rewards, natural Crimson
+ecology and the Void/Eldritch gates remain unfinished. Historical 0.25 QA is
+783/783 server tests and 10/10+15/15 client scenes; those results do not establish
+the new 0.26 runs. Dormant Outer Lands assets do not imply a TC4 dungeon chain.
 
 The authority is the pinned `Thaumcraft-1.12.2-6.1.BETA26.jar`, SHA256
 `9425f8643581b27ff8845b087c8bc6fc10425a32942f1a3f0e265ce6b38f7b5f`.
@@ -133,9 +144,14 @@ those remaining assets or import older-version mechanics as original TC6.
 
 ## Coherent implementation order
 
-1. Add the ore scan facts/ORE, actual Crystal Farmer crafting/growth and Vis
-   Battery storage. This closes the genuine RIFTCLOSER dependency and adds useful
-   gameplay without opening unavailable Eldritch studies.
+1. **Implemented in 0.26:** ore scan facts/ORE, actual Crystal Farmer crafting/
+   growth and Vis Battery storage. Exact parents, two-category observation
+   payments, six primal study items and the 50vis/twelve-crystal battery recipe
+   remain original. All seven cluster recipes have ordinary ingredient paths,
+   including Nether Wart-derived Vitium. Contracts: [progression/recipes](CRYSTAL-FARMER-PROGRESSION-BETA26-AUDIT.md),
+   [growth](CRYSTAL-GROWTH-BETA26-AUDIT.md), [battery](VIS-BATTERY-BETA26-AUDIT.md).
+   This satisfies the VISBATTERY prerequisite for future RIFTCLOSER; it does
+   not unlock RIFTCLOSER, FLUX/FLUXRIFT or unavailable Eldritch studies.
 2. Connect actual Flux Rift generation/hazards/rewards, stabilizer treatment and
    real collapser crafting/projectile; finish FLUX/FLUXRIFT/RIFTCLOSER.
 3. Implement natural Lesser Portal/cultist ecology and Crimson Rites loot, then

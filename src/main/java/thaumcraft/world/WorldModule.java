@@ -38,9 +38,7 @@ public final class WorldModule {
     static {
         for (String aspect : new String[]{"aer", "ignis", "aqua", "terra", "ordo", "perditio"}) {
             RegistryObject<Block> crystal = BLOCKS.register("crystal_" + aspect,
-                    () -> new AmethystClusterBlock(7, 3,
-                            BlockBehaviour.Properties.copy(Blocks.AMETHYST_CLUSTER)
-                                    .strength(0.5F).sound(SoundType.AMETHYST).lightLevel(state -> 7)));
+                    () -> new thaumcraft.world.crystal.PrimalCrystalClusterBlock(thaumcraft.api.aspects.Aspect.getAspect(aspect)));
             CRYSTALS.put(aspect, crystal);
             ITEMS.register("crystal_" + aspect, () -> new BlockItem(crystal.get(), new Item.Properties()));
             VIS_CRYSTALS.put(aspect, ITEMS.register("vis_crystal_" + aspect, () -> new Item(new Item.Properties())));
@@ -65,6 +63,7 @@ public final class WorldModule {
         BLOCKS.register(bus);
         ITEMS.register(bus);
         FEATURES.register(bus);
+        thaumcraft.world.crystal.CrystalSounds.register(bus);
         MinecraftForge.EVENT_BUS.addListener(AuraManager::onChunkLoad);
         MinecraftForge.EVENT_BUS.addListener(AuraManager::onChunkUnload);
         MinecraftForge.EVENT_BUS.addListener(AuraManager::onLevelTick);
