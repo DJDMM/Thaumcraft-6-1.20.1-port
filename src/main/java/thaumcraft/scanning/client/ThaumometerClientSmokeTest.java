@@ -16,6 +16,7 @@ import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.Difficulty;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.HumanoidArm;
 import net.minecraft.world.entity.animal.Cow;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
@@ -49,13 +50,34 @@ import java.util.concurrent.atomic.AtomicInteger;
 public final class ThaumometerClientSmokeTest {
     private static final String WORLD = "thaumcraft-thaumometer-smoke-" + System.currentTimeMillis();
     private static final String[] IMAGES = {"unknown-block", "scanned-block", "unknown-entity", "scanned-entity", "offhand-sneak", "overflow-sneak", "unknown-container", "scanned-container", "repeated-container"};
-    private static final int EXPECTED_IMAGES = IMAGES.length + 2;
+    private record GripScene(String name, InteractionHand scannerHand, HumanoidArm dominantArm,
+                             boolean otherOccupied, boolean bothScanners, boolean swing) {}
+    private static final GripScene[] GRIP_SCENES = {
+            new GripScene("grip-main-empty", InteractionHand.MAIN_HAND, HumanoidArm.RIGHT, false, false, false),
+            new GripScene("grip-main-item", InteractionHand.MAIN_HAND, HumanoidArm.RIGHT, true, false, false),
+            new GripScene("grip-off-empty", InteractionHand.OFF_HAND, HumanoidArm.RIGHT, false, false, false),
+            new GripScene("grip-off-item", InteractionHand.OFF_HAND, HumanoidArm.RIGHT, true, false, false),
+            new GripScene("grip-left-main-empty", InteractionHand.MAIN_HAND, HumanoidArm.LEFT, false, false, false),
+            new GripScene("grip-left-main-item", InteractionHand.MAIN_HAND, HumanoidArm.LEFT, true, false, false),
+            new GripScene("grip-left-off-empty", InteractionHand.OFF_HAND, HumanoidArm.LEFT, false, false, false),
+            new GripScene("grip-left-off-item", InteractionHand.OFF_HAND, HumanoidArm.LEFT, true, false, false),
+            new GripScene("grip-two-scanners", InteractionHand.MAIN_HAND, HumanoidArm.RIGHT, true, true, false),
+            new GripScene("grip-swing-main", InteractionHand.MAIN_HAND, HumanoidArm.RIGHT, false, false, true),
+            new GripScene("grip-return-ordinary", null, HumanoidArm.RIGHT, true, false, false)
+    };
+    private static final int LEGACY_IMAGES = IMAGES.length + 2;
+    private static final int EXPECTED_IMAGES = LEGACY_IMAGES + GRIP_SCENES.length;
     private static final AtomicInteger SAVED = new AtomicInteger();
     private static boolean started, stopped, prepared, captured, requested;
     private static int stage, stableTicks, totalTicks, finishStep;
+    private static int gripStage, gripTicks, swingTicks;
+    private static boolean gripPrepared, gripCaptured, swingDispatched;
+    private static long gripRenderStart, gripArmStart, gripItemStart, swingRenderStart;
+    private static long hiddenHandStart;
     private static long start;
     private static long sceneHudStart = -1, sceneWorldStart = -1, hiddenHudStart, hiddenWorldStart;
     private static TutorialSteps previousTutorial;
+    private static HumanoidArm previousMainArm;
     private static BlockPos feet, targetBlock;
     private static volatile int entityId = -1;
     private static volatile CompoundTag hoverKnowledge;
@@ -83,6 +105,7 @@ public final class ThaumometerClientSmokeTest {
                 if (!(mc.screen instanceof TitleScreen) || mc.getOverlay() != null) return;
                 started = true;
                 previousTutorial = mc.options.tutorialStep;
+                previousMainArm = mc.options.mainHand().get();
                 mc.options.tutorialStep = TutorialSteps.NONE;
                 mc.getTutorial().stop();
                 mc.getToasts().clear();
@@ -372,13 +395,54 @@ public final class ThaumometerClientSmokeTest {
                 IMAGES[stage], authoritative.target().scanned(), authoritative.target().aspects(), authoritative.base(), authoritative.vis(), authoritative.flux(), new ChunkPos(player.blockPosition()));
     }
 
+    /** Physical inventory fixtures are synchronized by vanilla packets, never by renderer calls. */
+    private static void prepareGrip(Minecraft mc, GripScene scene) {
+        ServerPlayer player = serverPlayer(mc);
+        require(player.getMainArm() == scene.dominantArm(), "Native client settings did not update the server dominant arm");
+        require(KnowledgeStore.get(player).scanCount() == 5 && completedScans == 5,
+                "Hand rendering fixture unexpectedly acquired another scan");
+        player.setShiftKeyDown(false);
+        player.setItemInHand(InteractionHand.MAIN_HAND, gripStack(scene, InteractionHand.MAIN_HAND));
+        player.setItemInHand(InteractionHand.OFF_HAND, gripStack(scene, InteractionHand.OFF_HAND));
+        player.getInventory().setChanged();
+        player.inventoryMenu.broadcastChanges();
+        hoverKnowledge = KnowledgeStore.get(player).save();
+        hoverExperience = player.totalExperience;
+        ScanningNetwork.sendHud(player);
+    }
+
+    private static ItemStack gripStack(GripScene scene, InteractionHand hand) {
+        if (scene.scannerHand() == null)
+            return new ItemStack(hand == InteractionHand.MAIN_HAND ? Items.IRON_SWORD : Items.TORCH);
+        if (scene.bothScanners() || hand == scene.scannerHand())
+            return new ItemStack(ScanningModule.THAUMOMETER.get());
+        return scene.otherOccupied() ? new ItemStack(Items.IRON_SWORD) : ItemStack.EMPTY;
+    }
+
+    private static boolean gripInventoryReady(Minecraft mc, GripScene scene) {
+        if (mc.player.getMainArm() != scene.dominantArm()) return false;
+        for (InteractionHand hand : InteractionHand.values())
+            if (!ItemStack.matches(mc.player.getItemInHand(hand), gripStack(scene, hand))) return false;
+        return !mc.player.isShiftKeyDown() && !mc.options.hideGui && mc.options.guiScale().get() == 2;
+    }
+
+    private static void verifyGripKnowledge(ServerPlayer player) {
+        require(KnowledgeStore.get(player).scanCount() == 5 && completedScans == 5,
+                "First-person hand rendering gave another object scan credit");
+        require(hoverKnowledge.equals(KnowledgeStore.get(player).save()) && player.totalExperience == hoverExperience,
+                "First-person hand rendering changed knowledge, research or experience");
+        verifyContainer(player);
+    }
+
     private static void finishChecks(Minecraft mc) throws Exception {
+        if (finishStep == 3) { gripChecks(mc); return; }
         if (finishStep == 0) {
             finishStep = 1;
             mc.options.keyShift.setDown(false);
             mc.options.hideGui = true;
             hiddenHudStart = ThaumometerClient.hudRenderCountForSmokeTest();
             hiddenWorldStart = ThaumometerClient.worldRenderCountForSmokeTest();
+            hiddenHandStart = ThaumometerHandRenderer.renderCount();
             stableTicks = 0;
             captured = false;
             return;
@@ -388,6 +452,8 @@ public final class ThaumometerClientSmokeTest {
             require(ThaumometerClient.hudRenderCountForSmokeTest() == hiddenHudStart
                     && ThaumometerClient.worldRenderCountForSmokeTest() == hiddenWorldStart,
                     "HUD or world overlays continued drawing while F1 hid the GUI");
+            require(ThaumometerHandRenderer.renderCount() == hiddenHandStart,
+                    "Custom scanner hand rendering continued while F1 hid the GUI");
             if (++stableTicks < 15) return;
             if (!captured) {
                 capture(mc, "hidden-gui");
@@ -421,18 +487,150 @@ public final class ThaumometerClientSmokeTest {
         require(ThaumometerClient.hudRenderCountForSmokeTest() == hiddenHudStart
                 && ThaumometerClient.worldRenderCountForSmokeTest() == hiddenWorldStart,
                 "HUD or world overlays continued drawing without a scanner");
-        if (++stableTicks < 20) return;
+        // Vanilla finishes lowering its cached equipped item after the server's
+        // empty inventory packets arrive. Audit removal after that real animation,
+        // rather than demanding that a cached display stack vanish immediately.
+        if (++stableTicks == 20) hiddenHandStart = ThaumometerHandRenderer.renderCount();
+        if (stableTicks >= 20) require(ThaumometerHandRenderer.renderCount() == hiddenHandStart,
+                "Custom scanner hands continued rendering after the native empty-hand equip transition");
+        if (stableTicks < 35) return;
         if (!captured) {
             capture(mc, "no-scanner");
             captured = true;
             return;
         }
-        if (SAVED.get() < EXPECTED_IMAGES || stableTicks < 30) return;
+        if (SAVED.get() < LEGACY_IMAGES || stableTicks < 45) return;
+        require(SAVED.get() == LEGACY_IMAGES, "Not all original scanner regression screenshots were saved");
+        LogUtils.getLogger().info("THAUMCRAFT_THAUMOMETER_LEGACY_REGRESSION_OK: {} original scenes; actual block/entity/container scans; live HUD/world render counters; F1 and scanner removal", LEGACY_IMAGES);
+        finishStep = 3;
+        captured = false;
+        stableTicks = 0;
+    }
+
+    private static void gripChecks(Minecraft mc) throws Exception {
+        if (!finishWork()) return;
+        if (gripStage == GRIP_SCENES.length) { completeSmoke(mc); return; }
+        GripScene scene = GRIP_SCENES[gripStage];
+        if (!gripPrepared) {
+            mc.options.keyShift.setDown(false);
+            mc.options.hideGui = false;
+            if (mc.options.guiScale().get() != 2) {
+                mc.options.guiScale().set(2);
+                mc.resizeDisplay();
+            }
+            if (mc.options.mainHand().get() != scene.dominantArm()) {
+                mc.options.mainHand().set(scene.dominantArm());
+                mc.options.broadcastOptions(); // Real client-information packet.
+            }
+            if (mc.player.getMainArm() != scene.dominantArm()
+                    || serverPlayer(mc).getMainArm() != scene.dominantArm()) return;
+            submit(mc, () -> prepareGrip(mc, scene));
+            gripPrepared = true;
+            gripCaptured = false;
+            swingDispatched = false;
+            gripTicks = swingTicks = 0;
+            return;
+        }
+        if (!gripInventoryReady(mc, scene)) return;
+        // ItemInHandRenderer retains its old equipped stack during the native
+        // lowering/raising transition. Measurements begin after that settles.
+        if (++gripTicks == 20) {
+            gripRenderStart = ThaumometerHandRenderer.renderCount();
+            gripArmStart = ThaumometerHandRenderer.armRenderCount();
+            gripItemStart = ThaumometerHandRenderer.itemRenderCount();
+        }
+        if (gripTicks < 35) return;
+        if (scene.swing()) {
+            if (!swingDispatched) {
+                swingRenderStart = ThaumometerHandRenderer.renderCount();
+                mc.player.swing(scene.scannerHand()); // Local animation + native C2S swing packet.
+                swingDispatched = true;
+                return;
+            }
+            if (++swingTicks < 3) return;
+            if (!gripCaptured) require(mc.player.swinging && mc.player.swingingArm == scene.scannerHand(),
+                    "Swing screenshot did not contain the native player animation");
+            if (!gripCaptured) require(ThaumometerHandRenderer.renderCount() > swingRenderStart,
+                    "Native swing did not receive an actual first-person hand render before capture");
+        }
+        if (!gripCaptured) {
+            verifyActualGrip(mc, scene);
+            submit(mc, () -> {
+                ServerPlayer player = serverPlayer(mc);
+                verifyGripKnowledge(player);
+                require(player.getMainArm() == scene.dominantArm(), "Server changed dominant arm during hand rendering");
+                for (InteractionHand hand : InteractionHand.values())
+                    require(ItemStack.matches(player.getItemInHand(hand), gripStack(scene, hand)),
+                            "Hand rendering changed the physical item in " + hand);
+                if (scene.swing()) require(player.swinging && player.swingingArm == scene.scannerHand(),
+                        "Actual C2S swing packet did not reach the integrated server");
+            });
+            capture(mc, scene.name());
+            gripCaptured = true;
+            return;
+        }
+        if (SAVED.get() < LEGACY_IMAGES + gripStage + 1 || gripTicks < 45) return;
+        gripStage++;
+        gripPrepared = false;
+    }
+
+    private static void verifyActualGrip(Minecraft mc, GripScene scene) {
+        long rendered = ThaumometerHandRenderer.renderCount() - gripRenderStart;
+        long arms = ThaumometerHandRenderer.armRenderCount() - gripArmStart;
+        long items = ThaumometerHandRenderer.itemRenderCount() - gripItemStart;
+        if (scene.scannerHand() == null) {
+            require(rendered == 0 && arms == 0 && items == 0,
+                    "Custom scanner rendering intercepted ordinary sword/torch hands");
+            require(ThaumometerClient.currentSnapshot() == null && ThaumometerClient.currentTarget() == null
+                    && !ThaumometerClient.isVisibleForSmokeTest(), "Ordinary items retained scanner overlays");
+            LogUtils.getLogger().info("THAUMCRAFT_THAUMOMETER_GRIP_SCENE_OK: scene={}; native sword/torch; custom renders=0; scanner HUD cleared", scene.name());
+            return;
+        }
+        boolean twoHanded = !scene.otherOccupied();
+        int armsPerItem = twoHanded ? 2 : 1;
+        require(rendered > 0 && items == rendered && arms == rendered * armsPerItem,
+                "Actual hand/item render calls duplicated or omitted scanner geometry/skin arms in " + scene.name()
+                        + " (renders=" + rendered + ", arms=" + arms + ", items=" + items + ")");
+        verifyHandSample(scene, scene.scannerHand(), twoHanded, gripRenderStart);
+        if (scene.bothScanners()) {
+            verifyHandSample(scene, InteractionHand.OFF_HAND, false, gripRenderStart);
+            var main = ThaumometerHandRenderer.lastSample(InteractionHand.MAIN_HAND);
+            var off = ThaumometerHandRenderer.lastSample(InteractionHand.OFF_HAND);
+            require(main.arm() != off.arm() && (main.armMask() | off.armMask()) == 3,
+                    "Two physical scanners reused the same skin arm");
+        } else {
+            InteractionHand other = scene.scannerHand() == InteractionHand.MAIN_HAND
+                    ? InteractionHand.OFF_HAND : InteractionHand.MAIN_HAND;
+            var sample = ThaumometerHandRenderer.lastSample(other);
+            require(sample == null || sample.sequence() <= gripRenderStart,
+                    "Empty or ordinary other hand received a duplicate custom scanner render");
+        }
+        var sample = ThaumometerHandRenderer.lastSample(scene.scannerHand());
+        LogUtils.getLogger().info("THAUMCRAFT_THAUMOMETER_GRIP_SCENE_OK: scene={}; hand={}; physicalArm={}; twoHanded={}; skinArms={}; armMask={}; sequence={}; native render calls={}, arms={}, items={}; actualSkinModel={}; skin={}",
+                scene.name(), sample.hand(), sample.arm(), sample.twoHanded(), sample.skinArms(), sample.armMask(),
+                sample.sequence(), rendered, arms, items, mc.player.getModelName(), mc.player.getSkinTextureLocation());
+    }
+
+    private static void verifyHandSample(GripScene scene, InteractionHand hand, boolean twoHanded, long initialSequence) {
+        var sample = ThaumometerHandRenderer.lastSample(hand);
+        HumanoidArm arm = hand == InteractionHand.MAIN_HAND ? scene.dominantArm() : scene.dominantArm().getOpposite();
+        require(sample != null && sample.sequence() > initialSequence,
+                "Grip scene did not receive a new actual native hand render for " + hand);
+        require(sample.hand() == hand && sample.arm() == arm && sample.twoHanded() == twoHanded
+                        && sample.skinArms() == (twoHanded ? 2 : 1)
+                        && sample.armMask() == (twoHanded ? 3 : arm == HumanoidArm.LEFT ? 1 : 2),
+                "Latest native render used the wrong physical hand, grip or skin arms in " + scene.name());
+    }
+
+    private static void completeSmoke(Minecraft mc) {
         require(SAVED.get() == EXPECTED_IMAGES, "Not all first-person screenshots were saved");
         stopped = true;
         mc.options.tutorialStep = previousTutorial;
-        LogUtils.getLogger().info("THAUMCRAFT_THAUMOMETER_RENDER_AUDIT_OK: {} current first-person captures; native block/entity/container world and meter rendered through actual HUD/world counters; F1 and both-hand removal suppress both renderers", SAVED.get());
-        LogUtils.getLogger().info("THAUMCRAFT_THAUMOMETER_CLIENT_SMOKE_OK: {} scenes; actual block/entity/container scan packets and repeated container interaction; aura/current chunk, raw overflow and native FLUX discovery; hover grants no object knowledge; exact physical chest inventory retained; offhand/sneak and GUI scales 2/3; hidden GUI and hand removal; isolated world={}", SAVED.get(), WORLD);
+        mc.options.mainHand().set(previousMainArm);
+        mc.options.broadcastOptions();
+        LogUtils.getLogger().info("THAUMCRAFT_THAUMOMETER_GRIP_AUDIT_OK: {} hand scenes; actual server item swaps and client-settings packets; main/off empty and occupied with both dominant arms; two physical scanners with one distinct skin arm each; native C2S swing; ordinary sword/torch restore; actual PlayerRenderer/ItemRenderer counters", GRIP_SCENES.length);
+        LogUtils.getLogger().info("THAUMCRAFT_THAUMOMETER_RENDER_AUDIT_OK: {} current first-person captures; original eleven native scanner/HUD/world/F1/removal scenes retained; eleven physical first-person grip scenes verified through actual skin-arm/item renderer counters", SAVED.get());
+        LogUtils.getLogger().info("THAUMCRAFT_THAUMOMETER_CLIENT_SMOKE_OK: {} scenes; actual block/entity/container scan packets and repeated container interaction; aura/current chunk, raw overflow and native FLUX discovery; hover grants no object knowledge; exact physical chest inventory retained; offhand/sneak and GUI scales 2/3; hidden GUI and hand removal; native one/two-hand grips, dominant-left mirrors, two scanners, swing and ordinary item restoration; isolated world={}", SAVED.get(), WORLD);
         mc.getConnection().getConnection().disconnect(Component.literal("Thaumometer audit complete"));
         mc.clearLevel(new TitleScreen());
         mc.stop();
@@ -485,6 +683,10 @@ public final class ThaumometerClientSmokeTest {
         mc.options.keyShift.setDown(false);
         mc.options.hideGui = false;
         if (previousTutorial != null) mc.options.tutorialStep = previousTutorial;
+        if (previousMainArm != null) {
+            mc.options.mainHand().set(previousMainArm);
+            if (mc.getConnection() != null) mc.options.broadcastOptions();
+        }
         LogUtils.getLogger().error("THAUMCRAFT_THAUMOMETER_CLIENT_SMOKE_FAILED", failure);
         mc.stop();
     }

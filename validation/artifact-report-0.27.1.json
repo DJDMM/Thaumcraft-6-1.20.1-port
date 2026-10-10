@@ -1,0 +1,217 @@
+{
+  "version": "0.27.1-dev",
+  "date": "2026-10-11",
+  "originalVersion": "Thaumcraft6.1.BETA26",
+  "originalJarSha256": "9425f8643581b27ff8845b087c8bc6fc10425a32942f1a3f0e265ce6b38f7b5f",
+  "implementedCanonicalResearchEntries": 85,
+  "registeredCanonicalEntries": 148,
+  "operationalInfusionPaths": 24,
+  "registeredInfusionRecipes": 56,
+  "requiredGameTests": 952,
+  "serverResult": "952/952; native exit0; BUILD SUCCESSFUL in 2m 36s",
+  "serverLog": {
+    "file": "grip-0271-gametest1.log",
+    "bytes": 138436,
+    "sha256": "86ca5de96456e519d0e61dca8ead4c6f572215a0ee926ca3f92fcd0d6897ef1d"
+  },
+  "clientRunTag": "grip-0271-client1",
+  "client": {
+    "runTag": "grip-0271-client1",
+    "smokeTest": "Thaumometer",
+    "state": "exited",
+    "javaPath": "C:\\Program Files\\Eclipse Adoptium\\jdk-17.0.18.8-hotspot\\bin\\java.exe",
+    "workingDirectory": "C:\\Users\\user\\Documents\\Codex\\2026-09-29\\thaumcraft-1-12-2\\outputs\\thaumcraft-1.20.1\\run\\thaumometer-smoke",
+    "prepareLog": "C:\\Users\\user\\Documents\\Codex\\2026-09-29\\thaumcraft-1-12-2\\outputs\\thaumcraft-1.20.1\\validation\\thaumometer-client-grip-0271-client1-prepare.log",
+    "capturePath": "C:\\Users\\user\\Documents\\Codex\\2026-09-29\\thaumcraft-1-12-2\\outputs\\thaumcraft-1.20.1\\validation\\thaumometer-client-grip-0271-client1-capture.json",
+    "argumentFile": "C:\\Users\\user\\Documents\\Codex\\2026-09-29\\thaumcraft-1-12-2\\outputs\\thaumcraft-1.20.1\\validation\\thaumometer-client-grip-0271-client1.args",
+    "environmentFile": "C:\\Users\\user\\Documents\\Codex\\2026-09-29\\thaumcraft-1-12-2\\outputs\\thaumcraft-1.20.1\\validation\\thaumometer-client-grip-0271-client1-environment.json",
+    "clientLog": "C:\\Users\\user\\Documents\\Codex\\2026-09-29\\thaumcraft-1-12-2\\outputs\\thaumcraft-1.20.1\\validation\\thaumometer-client-grip-0271-client1-client.log",
+    "desktopStatus": "C:\\Users\\user\\Documents\\Codex\\2026-09-29\\thaumcraft-1-12-2\\outputs\\thaumcraft-1.20.1\\validation\\thaumometer-client-grip-0271-client1-desktop.json",
+    "argumentCount": 51,
+    "environmentOverrideNames": [
+      "MCP_MAPPINGS",
+      "MOD_CLASSES"
+    ],
+    "desktop": "WinSta0\\ThaumcraftQA_d1a6a62ae298430f82a98dee2fb6d3be",
+    "jvmPid": 16852,
+    "jvmExitCode": 0,
+    "maxOwnedWindowsOnTargetDesktop": 16,
+    "inputDesktopBefore": "Default",
+    "inputDesktopAfter": "Default",
+    "smokeScenes": 22
+  },
+  "clientLog": {
+    "file": "thaumometer-client-grip-0271-client1-client.log",
+    "bytes": 31475,
+    "sha256": "95d9b79765520eac1429c90cf92e3da60210ef71852a5eaafd794c303e8349e7"
+  },
+  "clientScenes": 22,
+  "legacyScannerScenes": 11,
+  "gripScenes": 11,
+  "nativeGripProof": {
+    "grip-main-empty": "hand=MAIN_HAND; physicalArm=RIGHT; twoHanded=true; skinArms=2; armMask=3; sequence=597; native render calls=22, arms=44, items=22; actualSkinModel=slim; skin=minecraft:textures/entity/player/slim/efe.png",
+    "grip-main-item": "hand=MAIN_HAND; physicalArm=RIGHT; twoHanded=false; skinArms=1; armMask=2; sequence=666; native render calls=22, arms=22, items=22; actualSkinModel=slim; skin=minecraft:textures/entity/player/slim/efe.png",
+    "grip-off-empty": "hand=OFF_HAND; physicalArm=LEFT; twoHanded=true; skinArms=2; armMask=3; sequence=735; native render calls=22, arms=44, items=22; actualSkinModel=slim; skin=minecraft:textures/entity/player/slim/efe.png",
+    "grip-off-item": "hand=OFF_HAND; physicalArm=LEFT; twoHanded=false; skinArms=1; armMask=1; sequence=804; native render calls=23, arms=23, items=23; actualSkinModel=slim; skin=minecraft:textures/entity/player/slim/efe.png",
+    "grip-left-main-empty": "hand=MAIN_HAND; physicalArm=LEFT; twoHanded=true; skinArms=2; armMask=3; sequence=874; native render calls=22, arms=44, items=22; actualSkinModel=slim; skin=minecraft:textures/entity/player/slim/efe.png",
+    "grip-left-main-item": "hand=MAIN_HAND; physicalArm=LEFT; twoHanded=false; skinArms=1; armMask=1; sequence=943; native render calls=23, arms=23, items=23; actualSkinModel=slim; skin=minecraft:textures/entity/player/slim/efe.png",
+    "grip-left-off-empty": "hand=OFF_HAND; physicalArm=RIGHT; twoHanded=true; skinArms=2; armMask=3; sequence=1012; native render calls=23, arms=46, items=23; actualSkinModel=slim; skin=minecraft:textures/entity/player/slim/efe.png",
+    "grip-left-off-item": "hand=OFF_HAND; physicalArm=RIGHT; twoHanded=false; skinArms=1; armMask=2; sequence=1080; native render calls=22, arms=22, items=22; actualSkinModel=slim; skin=minecraft:textures/entity/player/slim/efe.png",
+    "grip-two-scanners": "hand=MAIN_HAND; physicalArm=RIGHT; twoHanded=false; skinArms=1; armMask=2; sequence=1199; native render calls=44, arms=44, items=44; actualSkinModel=slim; skin=minecraft:textures/entity/player/slim/efe.png",
+    "grip-swing-main": "hand=MAIN_HAND; physicalArm=RIGHT; twoHanded=true; skinArms=2; armMask=3; sequence=1294; native render calls=27, arms=54, items=27; actualSkinModel=slim; skin=minecraft:textures/entity/player/slim/efe.png",
+    "grip-return-ordinary": "native sword/torch; custom renders=0; scanner HUD cleared"
+  },
+  "visualReview": {
+    "runTag": "grip-0271-client1",
+    "reviewStatus": "pass",
+    "rootReviewed": true,
+    "screenshots": [
+      {
+        "file": "tc6-thaumometer-unknown-block.png",
+        "sha256": "6ada3f2e2b244f644ed0e56550cc5a05e4eb4ed619d2abbb932db9cc11856f2b"
+      },
+      {
+        "file": "tc6-thaumometer-scanned-block.png",
+        "sha256": "ab90d20e58cd7e5d07e81160798ff6fcc09b523c47cb6a9e0d3ad74fbaf6f2a7"
+      },
+      {
+        "file": "tc6-thaumometer-unknown-entity.png",
+        "sha256": "873abecb049e9789e503afefb8626fe9336c3b7d3be02b26f9b5253d897e10a2"
+      },
+      {
+        "file": "tc6-thaumometer-scanned-entity.png",
+        "sha256": "02942c38c4abceb31621981e8042d8aad1f541218a184cd960ad9a5fef650d65"
+      },
+      {
+        "file": "tc6-thaumometer-offhand-sneak.png",
+        "sha256": "cd048895e2d0cc0cc6397ba027d900649e14d94b8e141439d4dc30528dcb4cb7"
+      },
+      {
+        "file": "tc6-thaumometer-overflow-sneak.png",
+        "sha256": "0b8603940127f490defc30e3d4c060014152452ae243fd6c506725ee978899e1"
+      },
+      {
+        "file": "tc6-thaumometer-unknown-container.png",
+        "sha256": "f41c47265fcf380000d5cd3b86bcc029e7fc3ec5c28790f10694a08cb8a08e21"
+      },
+      {
+        "file": "tc6-thaumometer-scanned-container.png",
+        "sha256": "f86beea4b3a171249faf3431d6a8095e953a5fd14caa21d16e02467b03cbf1c4"
+      },
+      {
+        "file": "tc6-thaumometer-repeated-container.png",
+        "sha256": "aad562d3840c979f10262d735b757e8a6875915c2a616baaef7b1982ff01fabc"
+      },
+      {
+        "file": "tc6-thaumometer-hidden-gui.png",
+        "sha256": "6cdff70e0952cc4915208e34759015a8a34e8648ca3a34f74dcc2e136b282811"
+      },
+      {
+        "file": "tc6-thaumometer-no-scanner.png",
+        "sha256": "dba89c44963d91a9af102efbb7e102b17bac2480be65f538ea89ee05f98e42a3"
+      },
+      {
+        "file": "tc6-thaumometer-grip-main-empty.png",
+        "sha256": "42e84f5fcbe900397e215888dc8b08fc7bc406d8449d0521ee6b0ebbac245c3e"
+      },
+      {
+        "file": "tc6-thaumometer-grip-main-item.png",
+        "sha256": "701a9e7bb79d1ee9123e1fa068d970e82c4df64f116d4014528f7d1eccc926e5"
+      },
+      {
+        "file": "tc6-thaumometer-grip-off-empty.png",
+        "sha256": "9235304f55f8370ae03297a82edc83e40e31133b68663ad2e86d7d6efca2b917"
+      },
+      {
+        "file": "tc6-thaumometer-grip-off-item.png",
+        "sha256": "e31a35e5e9c001e97b8b28539e999ad88692f18baafeb5333d1566a390058ef1"
+      },
+      {
+        "file": "tc6-thaumometer-grip-left-main-empty.png",
+        "sha256": "3c9bbd3f911310cf5d855f1305e5abb92b20343a7ca62ebccd7b5c691127a0e5"
+      },
+      {
+        "file": "tc6-thaumometer-grip-left-main-item.png",
+        "sha256": "322b8608ab1a63ed50d95e5afa9a27cde22e0d9508ec0dd6f328b6ece3f66acf"
+      },
+      {
+        "file": "tc6-thaumometer-grip-left-off-empty.png",
+        "sha256": "51db0238ef1754571221026bee317d0b44ad922877bbec0e4b9a3eff6a3fa731"
+      },
+      {
+        "file": "tc6-thaumometer-grip-left-off-item.png",
+        "sha256": "72260da429b5d6fab4554f92a1d8e7816e910f422741d9ef43858a25adf45606"
+      },
+      {
+        "file": "tc6-thaumometer-grip-two-scanners.png",
+        "sha256": "d4bf32c7c29616201df8ba98efdf00d1a383312ebbc7e55603526f6de5a26b67"
+      },
+      {
+        "file": "tc6-thaumometer-grip-swing-main.png",
+        "sha256": "ecac0d6180efcb978c53f87d24563bfaad7819ce4f690a33051509f3aa648870"
+      },
+      {
+        "file": "tc6-thaumometer-grip-return-ordinary.png",
+        "sha256": "5012c350cd7c6f30d5a34654471e2892ba1ad794858e3394b0b36f9494c32301"
+      }
+    ],
+    "reviewDate": "2026-10-11",
+    "rootReviewNotes": [
+      "All22 current actual PNG reviewed on four contact sheets; unknown-block, occupied-main and native swing also viewed full size.",
+      "Centered two-hand grip contacts lower ring; occupied hand uses physical side and keeps native sword visible; main/off and dominant-left mirrors show expected actual skin arms; two scanners use one arm each.",
+      "Native swing keeps both arms attached. Existing scanner icons/aura/F1/removal/container frames retained. No extra arm, missing textures or detached grip observed."
+    ],
+    "independentReview": "grip_renderer_review viewed all11 current grip PNG at full size; no concrete visual defect found.",
+    "actualClientSkin": "minecraft:textures/entity/player/slim/efe.png",
+    "defaultSkinValidation": "Native model geometry/API read-only code audit; not a separate default-skin client run.",
+    "sourceSha256": {
+      "src/main/java/thaumcraft/scanning/client/ThaumometerHandRenderer.java": "d7fbd390c6288182c61f058eadeb123a4f31dc4a04b9d0ccbd6df15c6e158e26",
+      "src/main/java/thaumcraft/scanning/client/ThaumometerClientSmokeTest.java": "09322ef4a40531902b9042b2dbcbd18a82c57da736ebfa539c8b8bf3d314b9d5"
+    }
+  },
+  "buildLog": {
+    "file": "build-0.27.1-final.log",
+    "bytes": 1212,
+    "sha256": "52446c715ddab185045bd5ba8563189a8cfbe3ed21442cb59880050bc44b20a4"
+  },
+  "resourcesLog": {
+    "file": "resources-0.27.1-final.log",
+    "bytes": 188,
+    "sha256": "3372b79f574a959e151316dee68a93236374afb03901f832f3244062a5099f1d"
+  },
+  "localJsonCount": 2839,
+  "jarResourceByteParityChecks": 3651,
+  "originalMediaByteParity": {
+    ".png": 660,
+    ".jpg": 7,
+    ".ogg": 51
+  },
+  "artifacts": [
+    {
+      "file": "thaumcraft-1.20.1-0.27.1-dev.jar",
+      "bytes": 10566590,
+      "sha256": "39a53c71e6bc28fddeb382e7462d4ad8d5b0acabbae442c2867495ad51f7b98f"
+    },
+    {
+      "file": "thaumcraft-1.20.1-0.27.1-dev-mods.zip",
+      "bytes": 9699451,
+      "sha256": "255ef6dc06cd6f5a53e16874b4b7ccba36e7042f8f258f92ceccd83ebc734d20"
+    },
+    {
+      "file": "thaumcraft-1.20.1-0.27.1-dev-screenshots.zip",
+      "bytes": 5269932,
+      "sha256": "21c32ae6d7b086b7c2d0194f46ae2526255df08a1a03eb0f19a630ce7493fdcd"
+    }
+  ],
+  "sourceSha256": {
+    "src/main/java/thaumcraft/scanning/client/ThaumometerClient.java": "586eff54455f2192b0647dde289b02775176496978a6a1ef9f82aa92c8e79dc2",
+    "src/main/java/thaumcraft/scanning/client/ThaumometerClientSmokeTest.java": "09322ef4a40531902b9042b2dbcbd18a82c57da736ebfa539c8b8bf3d314b9d5",
+    "src/main/java/thaumcraft/scanning/client/ThaumometerHandRenderer.java": "d7fbd390c6288182c61f058eadeb123a4f31dc4a04b9d0ccbd6df15c6e158e26",
+    "src/main/java/thaumcraft/scanning/ThaumometerItem.java": "62880855ece3496871d56350f625c5f0999220c9590dab37ec19c599fe75b42b"
+  },
+  "limitations": [
+    "Two-hand pose is explicitly requested adaptation from supplied screenshot; pinned BETA26 has no special two-hand callback.",
+    "Native client uses slim/Efe skin. Default skin geometry/API reviewed in code; default-skin client run was not performed. Fixtures supply arena/scanner/comparison items/targets/raw aura; not complete survival or independent multiplayer.",
+    "Prior0.27 gameplay scope and remaining taint/PrimeSeed/Crimson/Eldritch/VoidSiphon work unchanged. No new canonical research/recipe completion is claimed."
+  ]
+}
