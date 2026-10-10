@@ -43,17 +43,12 @@ public final class Thaumcraft {
                     thaumcraft.research.celestial.CelestialModule.ITEMS.getEntries().forEach(entry -> output.accept(entry.get()));
                     thaumcraft.world.trees.TreeModule.ITEMS.getEntries().forEach(entry -> output.accept(entry.get()));
                     thaumcraft.world.plants.PlantModule.ITEMS.getEntries().forEach(entry -> output.accept(entry.get()));
-                })
-                .build());
-        TABS.register("catalog", () -> CreativeModeTab.builder()
-                .title(Component.translatable("itemGroup.thaumcraft.catalog"))
-                .icon(() -> thaumcraft.catalog.CatalogModule.stack("caster_basic"))
-                .displayItems((parameters, output) -> {
                     thaumcraft.catalog.CatalogModule.acceptItems(output);
                     thaumcraft.catalog.blocks.CatalogBlocks.ITEMS.getEntries().forEach(entry -> output.accept(entry.get()));
                     thaumcraft.catalog.entities.VisualEntitiesModule.ITEMS.getEntries().forEach(entry -> output.accept(entry.get()));
                     thaumcraft.equipment.cleansing.CleansingModule.ITEMS.getEntries().forEach(entry -> output.accept(entry.get()));
-                }).build());
+                })
+                .build());
     }
 
     private static void block(String name, java.util.function.Supplier<Block> factory) {

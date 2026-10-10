@@ -28,7 +28,7 @@ import java.util.List;
 import java.util.Locale;
 import java.util.Map;
 
-/** Current synchronized recipes have priority; missing gameplay is a clearly marked pinned reference. */
+/** Synchronized crafting views; pinned definitions are retained for internal data validation. */
 final class BookRecipeViews {
     record View(ResourceLocation id, String kind, List<Ingredient> ingredients, int width, int height,
                 ItemStack output, String research, int vis, int[] crystals, AspectList aspects,
@@ -81,6 +81,10 @@ final class BookRecipeViews {
             } catch (RuntimeException ignored) { /* Invalid display data never becomes a crafting operation. */ }
         }
         crucible = List.copyOf(loaded);
+    }
+
+    static List<View> playable(String original) {
+        return resolve(original).stream().filter(view -> !view.reference()).toList();
     }
 
     static List<View> resolve(String original) {

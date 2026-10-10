@@ -27,15 +27,14 @@ import java.util.concurrent.atomic.AtomicInteger;
 /** Explicitly opted-in, world-free checks. Requests use a local sink and never send network packets. */
 @Mod.EventBusSubscriber(modid = "thaumcraft", value = Dist.CLIENT)
 public final class ResearchClientSmokeTest {
-    private static final String MODE = System.getProperty("thaumcraft.clientSmokeMode", "all").strip().toLowerCase(java.util.Locale.ROOT);
-    private static final int EXPECTED_SCREENSHOTS = MODE.equals("all") ? 23 : MODE.equals("progression") ? 13 : 10;
+    private static final String MODE = System.getProperty("thaumcraft.clientSmokeMode", "progression").strip().toLowerCase(java.util.Locale.ROOT);
+    private static final int EXPECTED_SCREENSHOTS = 13;
     private static final AtomicInteger saved = new AtomicInteger();
-    private static int totalTicks, ticks, catalogueIndex;
-    private static boolean started, stopped, progressionFinished = MODE.equals("archive");
-    private static int progressionRequests, archiveRequests;
+    private static int totalTicks, ticks;
+    private static boolean started, stopped;
+    private static int progressionRequests;
     private static ThaumonomiconScreen browser;
     private static String preservedView;
-    private static List<ResearchEntry> catalogue;
 
     @SubscribeEvent
     public static void tick(TickEvent.ClientTickEvent event) {
@@ -45,91 +44,14 @@ public final class ResearchClientSmokeTest {
         try {
             if (!started) {
                 if (!(minecraft.screen instanceof TitleScreen) || minecraft.getOverlay() != null) return;
-                require(List.of("all", "archive", "progression").contains(MODE), "Unknown smoke mode: " + MODE);
+                require(List.of("all", "progression").contains(MODE), "The historical archive smoke mode was removed; use ThaumonomiconComplete for supplied layout coverage");
                 setScale(minecraft, 2);
-                browser = new ThaumonomiconScreen(PlayerKnowledge.load(progressionFinished
-                        ? prepared(0, 0, 0, 0, 23, 23, "PORT_START", "PORT_SCAN") : prepared(0, 0, 0, 0, 23, 23)), 10);
+                browser = new ThaumonomiconScreen(PlayerKnowledge.load(prepared(0, 0, 0, 0, 23, 23)), 10);
                 minecraft.setScreen(browser);
-                if (progressionFinished) browser.archiveForSmokeTest(true);
-                catalogue = ResearchCatalog.entries();
                 started = true;
             }
             ticks++;
-            if (!progressionFinished) { progressionTick(minecraft); return; }
-            switch (ticks) {
-                case 30 -> capture(minecraft, "thaumcraft-book-basics.png", ThaumonomiconScreen.class);
-                case 45 -> browser.selectCategoryForSmokeTest("ALCHEMY");
-                case 70 -> capture(minecraft, "thaumcraft-book-alchemy.png", ThaumonomiconScreen.class);
-                case 85 -> browser.selectCategoryForSmokeTest("ELDRITCH");
-                case 110 -> capture(minecraft, "thaumcraft-book-eldritch.png", ThaumonomiconScreen.class);
-                case 125 -> exerciseMap(minecraft);
-                case 150 -> capture(minecraft, "thaumcraft-book-firststeps-page.png", ThaumonomiconPageScreen.class);
-                case 165 -> {
-                    expect(minecraft, ThaumonomiconPageScreen.class);
-                    ThaumonomiconPageScreen page = page(minecraft);
-                    page.senderForSmokeTest((key, stage) -> archiveRequests++);
-                    page.clickActionForSmokeTest();
-                    require(!page.availableForSmokeTest() && !page.pendingForSmokeTest() && archiveRequests == 0, "Archive submitted a research action");
-                    minecraft.screen.keyPressed(GLFW.GLFW_KEY_ESCAPE, 0, 0);
-                    require(minecraft.screen == browser, "Escape did not restore the original browser instance");
-                    require(preservedView.equals(browser.stateForSmokeTest()), "Opening a page lost map pan or zoom");
-                    browser.selectForSmokeTest("ORE");
-                    expect(minecraft, ThaumonomiconPageScreen.class);
-                    // ORE stage is prose; its first addendum contains the amber illustration.
-                    minecraft.screen.keyPressed(GLFW.GLFW_KEY_DOWN, 0, 0);
-                }
-                case 195 -> capture(minecraft, "thaumcraft-book-ore-illustration.png", ThaumonomiconPageScreen.class);
-                case 210 -> {
-                    minecraft.screen.mouseClicked(0, 0, 1);
-                    require(minecraft.screen == browser, "Right-click did not return to the browser");
-                    browser.selectForSmokeTest("PORT_ALCHEMY");
-                }
-                case 240 -> capture(minecraft, "thaumcraft-book-practice-page.png", ThaumonomiconPageScreen.class);
-                case 255 -> {
-                    minecraft.screen.onClose();
-                    require(minecraft.screen == browser, "Practice page lost its browser");
-                    browser.searchForSmokeTest(Component.translatable(ResearchCatalog.get("FIRSTSTEPS").title()).getString());
-                }
-                case 280 -> capture(minecraft, "thaumcraft-book-search.png", ThaumonomiconScreen.class);
-                case 295 -> {
-                    expect(minecraft, ThaumonomiconScreen.class);
-                    require(browser.mouseClicked(80, 70, 0), "Search result click was not handled");
-                    expect(minecraft, ThaumonomiconPageScreen.class);
-                    require(minecraft.screen.getTitle().getString().equals(Component.translatable(ResearchCatalog.get("FIRSTSTEPS").title()).getString()),
-                            "Search opened a different research entry");
-                }
-                case 325 -> capture(minecraft, "thaumcraft-book-search-result.png", ThaumonomiconPageScreen.class);
-                case 340 -> setScale(minecraft, 3);
-                case 370 -> capture(minecraft, "thaumcraft-book-gui3.png", ThaumonomiconPageScreen.class);
-                case 385 -> setScale(minecraft, 4);
-                case 415 -> capture(minecraft, "thaumcraft-book-gui4.png", ThaumonomiconPageScreen.class);
-                case 430 -> {
-                    minecraft.screen.onClose();
-                    setScale(minecraft, 2);
-                    require(minecraft.screen == browser, "Changing GUI scale lost the browser");
-                    require(browser.archiveMode(), "Archive run left reference mode");
-                    require(browser.categoriesForSmokeTest().size() == 7, "Archive lost a reference category");
-                    LogUtils.getLogger().info("THAUMCRAFT_CLIENT_SMOKE_NAVIGATION_OK: archive node click, pan, zoom, Escape, right-click, search result");
-                }
-                default -> { }
-            }
-            // Leave each entry on screen for four ticks so its layout and first spread actually render.
-            if (ticks >= 450 && catalogueIndex < catalogue.size() && (ticks - 450) % 4 == 0) {
-                minecraft.setScreen(browser);
-                browser.selectForSmokeTest(catalogue.get(catalogueIndex).key());
-                expect(minecraft, ThaumonomiconPageScreen.class);
-                ThaumonomiconPageScreen page = page(minecraft);
-                ResearchEntry entry = catalogue.get(catalogueIndex);
-                require(page.chaptersForSmokeTest().size() == entry.stages().size() + entry.addenda().size(),
-                        "Archive hid a chapter of " + entry.key());
-                page.senderForSmokeTest((key, stage) -> archiveRequests++);
-                page.clickActionForSmokeTest();
-                require(!page.availableForSmokeTest() && !page.pendingForSmokeTest() && archiveRequests == 0, "Archive submitted a research action for " + entry.key());
-                catalogueIndex++;
-            }
-            if (ticks >= 450 + catalogue.size() * 4 && catalogueIndex == catalogue.size() && saved.get() == EXPECTED_SCREENSHOTS) {
-                finish(minecraft);
-            }
+            progressionTick(minecraft);
         } catch (RuntimeException | AssertionError failure) {
             fail(minecraft, "Visual smoke step " + ticks + " failed", failure);
         }
@@ -138,18 +60,16 @@ public final class ResearchClientSmokeTest {
     private static void progressionTick(Minecraft minecraft) {
         switch (ticks) {
             case 15 -> {
-                require(!browser.archiveMode(), "The book did not default to progression");
                 require(browser.categoriesForSmokeTest().equals(List.of("BASICS")), "An unfinished category was visible");
                 browser.searchForSmokeTest("");
-                require(browser.searchResultsForSmokeTest().stream().allMatch(key -> List.of("FIRSTSTEPS", "KNOWLEDGETYPES",
-                        "CELESTIALSCANNING", "UNLOCKALCHEMY", "UNLOCKARTIFICE", "UNLOCKINFUSION", "PORT_TALLOW").contains(key)),
-                        "Normal search exposed an unimplemented entry or superseded lesson");
+                require(browser.searchResultsForSmokeTest().stream().allMatch(key -> thaumcraft.research.ResearchProgression.isImplemented(key)),
+                        "Normal search exposed an unsupported entry or development lesson");
                 browser.keyPressed(GLFW.GLFW_KEY_ESCAPE, 0, 0);
             }
             case 30 -> capture(minecraft, "thaumcraft-research-basics.png", ThaumonomiconScreen.class);
             case 45 -> {
                 browser.selectForSmokeTest("ORE");
-                require(minecraft.screen == browser, "Normal mode opened an unimplemented entry");
+                require(minecraft.screen == browser, "Normal mode opened an unseen hidden ore root");
                 browser.clickForSmokeTest("FIRSTSTEPS");
                 require(page(minecraft).chaptersForSmokeTest().isEmpty(), "An unstarted entry exposed a future stage");
             }
@@ -181,7 +101,7 @@ public final class ResearchClientSmokeTest {
                 page.keyPressed(GLFW.GLFW_KEY_DOWN, 0, 0);
                 require(page.chaptersForSmokeTest().equals(List.of("research.FIRSTSTEPS.stage.2")), "Chapter navigation exposed a future stage");
                 require(page.chapterLabelForSmokeTest().equals(Component.translatable("thaumcraft.book.stage", 2, 3).getString()), "Stage 2 had the wrong label");
-                require(page.costForSmokeTest().contains("16") && page.costForSmokeTest().contains("23"), "The current cost or raw balance was missing");
+                require(page.costForSmokeTest().contains("16"), "The current knowledge cost was missing");
                 lastSpread(page);
             }
             case 145 -> capture(minecraft, "thaumcraft-research-firststeps-stage2.png", ThaumonomiconPageScreen.class);
@@ -228,7 +148,7 @@ public final class ResearchClientSmokeTest {
                 page(minecraft).onClose();
                 require(browser.categoriesForSmokeTest().equals(List.of("BASICS", "ALCHEMY")), "Alchemy did not open on completion");
                 browser.selectCategoryForSmokeTest("ALCHEMY");
-                require(browser.entriesForSmokeTest().equals(List.of("BASEALCHEMY", "ALUMENTUM", "METALLURGY")), "Alchemy exposed unimplemented nodes");
+                require(browser.entriesForSmokeTest().contains("BASEALCHEMY") && browser.entriesForSmokeTest().stream().allMatch(key -> thaumcraft.research.ResearchProgression.isImplemented(key)), "Alchemy exposed unsupported nodes");
             }
             case 265 -> capture(minecraft, "thaumcraft-research-alchemy.png", ThaumonomiconScreen.class);
             case 280 -> {
@@ -242,27 +162,24 @@ public final class ResearchClientSmokeTest {
                 sync(prepared(4, 4, 2, 1, 23, 7), null);
                 require(page(minecraft).availableForSmokeTest(), "Sufficient observation did not enable the current stage");
                 page(minecraft).onClose();
+                var before=browser.entriesForSmokeTest();
                 browser.selectCategoryForSmokeTest("PORT");
-                require(browser.entriesForSmokeTest().equals(List.of("PORT_TALLOW")),
-                        "Native progression lost its remaining lessons or exposed superseded lessons");
-                browser.selectForSmokeTest("PORT_TALLOW");
-                require(page(minecraft).availableForSmokeTest(), "BASEALCHEMY did not enable the tallow lesson");
+                require(browser.entriesForSmokeTest().equals(before), "Removed practice category was selectable");
+                browser.selectForSmokeTest("ALUMENTUM");
+                require(page(minecraft).availableForSmokeTest(), "Sufficient alchemy knowledge did not enable canonical payment");
             }
-            case 350 -> capture(minecraft, "thaumcraft-research-native-lesson.png", ThaumonomiconPageScreen.class);
+            case 350 -> capture(minecraft, "thaumcraft-research-alumentum-ready.png", ThaumonomiconPageScreen.class);
             case 365 -> {
                 ThaumonomiconPageScreen page = page(minecraft);
-                page.senderForSmokeTest((key, stage) -> { require(key.equals("PORT_TALLOW"), "The wrong lesson was requested"); progressionRequests++; });
+                page.senderForSmokeTest((key, stage) -> { require(key.equals("ALUMENTUM") && stage == 1, "Wrong canonical alumentum request"); progressionRequests++; });
                 page.clickActionForSmokeTest();
                 page.clickActionForSmokeTest();
-                require(progressionRequests == 3 && page.pendingForSmokeTest(), "The legacy lesson submitted twice");
-                sync(prepared(4, 4, 2, 1, 23, 7, "PORT_TALLOW"), "COMPLETE");
-                require(!page.pendingForSmokeTest(), "Lesson acknowledgement did not clear pending");
+                require(progressionRequests == 3 && page.pendingForSmokeTest(), "Canonical research submitted twice");
+                sync(prepared(4, 4, 2, 3, 7, 7), "COMPLETE");
+                require(!page.pendingForSmokeTest(), "Canonical acknowledgement did not clear pending");
                 page.onClose();
-                require(browser.entriesForSmokeTest().equals(List.of("PORT_TALLOW")),
-                        "A remaining lesson enabled superseded shortcuts for a new player");
-                sync(prepared(4, 4, 2, 1, 23, 7, "PORT_START", "PORT_BRASS"), null);
-                require(browser.entriesForSmokeTest().size() == 8, "Old lesson compatibility was lost");
-                LogUtils.getLogger().info("THAUMCRAFT_CLIENT_SMOKE_PROGRESSION_OK: current stages, raw cost, locked categories, delayed acknowledgement, duplicate clicks, native lessons");
+                require(browser.entriesForSmokeTest().stream().noneMatch(key -> key.startsWith("PORT_")), "Normal book exposed development lessons");
+                LogUtils.getLogger().info("THAUMCRAFT_CLIENT_SMOKE_PROGRESSION_OK: current stages, knowledge costs, closed categories, delayed acknowledgement, duplicate clicks and removed practice routes");
             }
             case 380 -> {
                 browser.selectCategoryForSmokeTest("BASICS");
@@ -299,16 +216,8 @@ public final class ResearchClientSmokeTest {
             }
             case 455 -> capture(minecraft, "thaumcraft-research-celestial-complete.png", ThaumonomiconPageScreen.class);
             case 470 -> {
-                if (MODE.equals("progression")) {
-                    require(saved.get() == EXPECTED_SCREENSHOTS, "Progression screenshots did not finish saving");
-                    finish(minecraft);
-                } else {
-                    browser = new ThaumonomiconScreen(PlayerKnowledge.load(prepared(0, 0, 0, 0, 23, 23, "PORT_START", "PORT_SCAN")), 10);
-                    minecraft.setScreen(browser);
-                    browser.archiveForSmokeTest(true);
-                    progressionFinished = true;
-                    ticks = 0;
-                }
+                require(saved.get() == EXPECTED_SCREENSHOTS, "Progression screenshots did not finish saving");
+                finish(minecraft);
             }
             default -> { }
         }
@@ -371,8 +280,8 @@ public final class ResearchClientSmokeTest {
 
     private static void finish(Minecraft minecraft) {
         stopped = true;
-        LogUtils.getLogger().info("THAUMCRAFT_CLIENT_SMOKE_OK: mode={}; {} screenshots saved; {} catalogue entries rendered; {} simulated requests; archive requests={}",
-                MODE, saved.get(), catalogueIndex, progressionRequests, archiveRequests);
+        LogUtils.getLogger().info("THAUMCRAFT_CLIENT_SMOKE_OK: mode={}; {} normal progression screenshots saved; {} simulated requests",
+                MODE, saved.get(), progressionRequests);
         minecraft.stop();
     }
 

@@ -50,12 +50,7 @@ public class CatalogItem extends Item {
 
     @Override
     public void appendHoverText(ItemStack stack, @Nullable Level level, List<Component> tooltip, TooltipFlag flag) {
-        if (!spec.id().equals("jar_brace")) tooltip.add(Component.translatable("thaumcraft.catalog.visual_only").withStyle(ChatFormatting.GRAY));
         Aspect aspect = CatalogModule.containedAspect(stack);
         if (aspect != null) tooltip.add(Component.literal(aspect.getName()).withStyle(ChatFormatting.AQUA));
-        if (flag.isAdvanced()) {
-            tooltip.add(Component.translatable("thaumcraft.catalog.original_variant", spec.legacyItem(), spec.legacyMetadata())
-                    .withStyle(ChatFormatting.DARK_GRAY));
-        }
     }
 }

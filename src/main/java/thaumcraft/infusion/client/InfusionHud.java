@@ -32,7 +32,6 @@ public final class InfusionHud {
                 gui.blit(aspect.getImage(),x+column*24,y+37,0,0,16,16,16,16);gui.setColor(1,1,1,1);
                 gui.drawString(mc.font,Integer.toString(aspects.getAmount(aspect)),x+column*24,y+54,0xFFFFFF,true);column++;
             }
-        } else if(mc.level.getBlockEntity(hit.getBlockPos()) instanceof InfusionStabilizerBlockEntity stabilizer)
-            gui.drawString(mc.font,stabilizer.energy()+" / 15",x,y,0xE0C8FF,true);
+        }
     }
 }

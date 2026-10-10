@@ -2,7 +2,6 @@ package thaumcraft.alchemy;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.particles.ParticleTypes;
-import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.*;
@@ -42,9 +41,7 @@ public final class CrucibleBlock extends BaseEntityBlock {
             if (crucible.fillWater() && !player.getAbilities().instabuild) player.setItemInHand(hand, new ItemStack(Items.BUCKET));
         } else if (player.isShiftKeyDown() && held.isEmpty()) {
             crucible.empty();
-        } else if (held.isEmpty()) {
-            player.displayClientMessage(Component.translatable("message.thaumcraft.crucible", crucible.water(), crucible.heat(), crucible.aspects().visSize()), true);
-        } else if (player instanceof ServerPlayer serverPlayer) {
+        } else if (!held.isEmpty() && player instanceof ServerPlayer serverPlayer) {
             // One item per click; creative use supplies a copy without mutating the held stack.
             ItemStack offered = player.getAbilities().instabuild ? held.copyWithCount(1) : held;
             crucible.consume(offered, serverPlayer);

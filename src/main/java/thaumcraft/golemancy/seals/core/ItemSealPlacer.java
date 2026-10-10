@@ -1,6 +1,5 @@
 package thaumcraft.golemancy.seals.core;
 
-import net.minecraft.ChatFormatting;
 import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.InteractionResult;
@@ -24,6 +23,5 @@ public final class ItemSealPlacer extends CatalogItem {
     }
     @Override public boolean doesSneakBypassUse(ItemStack stack,net.minecraft.world.level.LevelReader level,net.minecraft.core.BlockPos pos,net.minecraft.world.entity.player.Player player){return true;}
     @Override public void appendHoverText(ItemStack stack,@Nullable Level level,List<Component> tooltip,TooltipFlag flag){
-        if(flag.isAdvanced())tooltip.add(Component.translatable("thaumcraft.catalog.original_variant",spec().legacyItem(),spec().legacyMetadata()).withStyle(ChatFormatting.DARK_GRAY));
     }
 }

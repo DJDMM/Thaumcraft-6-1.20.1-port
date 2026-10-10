@@ -166,11 +166,14 @@ public final class EarlySurvivalClientSmokeTest {
             require(browser.entriesForSmokeTest().contains("METALLURGY"), "Metallurgy node missing"); return;
         }
         String key = switch (scene) { case 1, 2, 3 -> "METALLURGY"; case 4 -> "UNLOCKINFUSION"; case 5 -> "UNLOCKARTIFICE"; case 6, 8 -> "FIRSTSTEPS"; default -> "BASEALCHEMY"; };
-        if (scene == 1) browser.archiveForSmokeTest(true);
         browser.selectForSmokeTest(key);
         require(mc.screen instanceof ThaumonomiconPageScreen, "Book did not open " + key);
         var page = (ThaumonomiconPageScreen)mc.screen;
-        if (scene == 1) { page.keyPressed(GLFW.GLFW_KEY_DOWN, 0, 0); page.keyPressed(GLFW.GLFW_KEY_DOWN, 0, 0); }
+        if (scene == 1) {
+            require(page.chaptersForSmokeTest().size() == 1, "Normal metallurgy exposed a future chapter");
+            require(page.recipesForSmokeTest().stream().noneMatch(v -> net.minecraft.core.registries.BuiltInRegistries.ITEM.getKey(v.output().getItem()).getPath().equals("ingot_thaumium")), "Normal metallurgy exposed future thaumium");
+            return;
+        }
         String output = switch (scene) { case 1, 3 -> "ingot_thaumium"; case 2 -> "ingot_brass"; case 4 -> "fabric"; case 5 -> "goggles"; case 6 -> "thaumometer"; case 8 -> "salis_mundus"; default -> "crystal_essence"; };
         page.showRecipeForSmokeTest(output);
         var view = page.recipesForSmokeTest().stream().filter(v -> net.minecraft.core.registries.BuiltInRegistries.ITEM.getKey(v.output().getItem()).getPath().equals(output)).findFirst().orElseThrow();

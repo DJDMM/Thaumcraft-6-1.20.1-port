@@ -9,6 +9,9 @@ import net.minecraft.client.tutorial.TutorialSteps;
 import net.minecraft.core.BlockPos;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.nbt.ListTag;
+import net.minecraft.nbt.StringTag;
+import net.minecraft.nbt.Tag;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.Difficulty;
 import net.minecraft.world.item.ItemStack;
@@ -24,6 +27,7 @@ import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.event.TickEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
+import org.lwjgl.glfw.GLFW;
 import thaumcraft.api.aspects.Aspect;
 import thaumcraft.research.*;
 import thaumcraft.research.book.MultiblockCatalog;
@@ -34,7 +38,7 @@ import java.util.*;
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.atomic.AtomicInteger;
 
-/** Explicit owned-world fixture, actual synchronized recipes/packets and every parchment spread. */
+/** Supplied internal layout inventory plus normal owned-world book scenes and actual read packets. */
 @Mod.EventBusSubscriber(modid="thaumcraft",value=Dist.CLIENT)
 public final class ThaumonomiconCompleteClientSmokeTest {
     private static final String WORLD="thaumcraft-thaumonomicon-complete-"+System.currentTimeMillis();
@@ -49,7 +53,10 @@ public final class ThaumonomiconCompleteClientSmokeTest {
     private static int auditIndex,sceneIndex,stableTicks,phase,entries,chapters,spreads,recipes;
     private static long began;
     private static CompoundTag gameBefore;
+    private static CompoundTag lateFixture;
     private static ListTag inventoryBefore;
+    private static int normalChecks, productRecipeKinds, productStructures;
+    private static String productInfusion;
     private static TutorialSteps previousTutorial;
     private static ThaumonomiconScreen browser;
     private static ThaumonomiconPageScreen linkParent;
@@ -83,6 +90,9 @@ public final class ThaumonomiconCompleteClientSmokeTest {
             if(sceneIndex==scenes.size()){finish(mc);return;}
             Scene scene=scenes.get(sceneIndex);
             if(!prepared){prepared=true;prepareScene(mc,scene);return;}
+            if(scene.kind.equals("fresh")&&phase==0) {
+                showFreshScene(mc,scene);phase=1;return;
+            }
             if(scene.kind.equals("requirements")&&phase==0) {
                 int expected=scene.name.equals("requirements-items")?1:3;
                 if(PlayerKnowledge.load(snapshot).researchStage("ESSENTIASMELTER")!=expected)return;
@@ -114,6 +124,11 @@ public final class ThaumonomiconCompleteClientSmokeTest {
                     // acknowledge completion before the subsequent unread-marker scene can inspect it.
                     mc.setScreen(browser);
                     submit(mc,()->setFixtureStage(mc,"ESSENTIASMELTER",5));
+                }
+                if(scene.kind.equals("fresh")) {
+                    mc.setScreen(browser);
+                    snapshot=null;
+                    submit(mc,()->replaceFixtureKnowledge(mc,lateFixture));
                 }
                 sceneIndex++;stableTicks=phase=0;prepared=captured=captureRequested=false;
             }
@@ -185,6 +200,7 @@ public final class ThaumonomiconCompleteClientSmokeTest {
             stage.invoke(knowledge,"BELLOWS",ResearchCatalog.get("BELLOWS").stages().size()+1);
         }catch(ReflectiveOperationException error){throw new IllegalStateException(error);}
         gameBefore=gameplayState(knowledge);inventoryBefore=player.getInventory().save(new ListTag());
+        lateFixture=knowledge.save();
         ResearchNetwork.sync(player);
     }
     private static void setFixtureStage(Minecraft mc,String key,int next) {
@@ -196,11 +212,28 @@ public final class ThaumonomiconCompleteClientSmokeTest {
     private static ThaumonomiconPageScreen newPage(Minecraft mc,ResearchEntry entry) {
         var page=new ThaumonomiconPageScreen(browser,entry,PlayerKnowledge.load(snapshot),0);mc.setScreen(page);return page;
     }
+    private static ThaumonomiconPageScreen layoutPage(Minecraft mc,ResearchEntry entry,List<ResearchEntry.Stage> fixture) {
+        var page=new ThaumonomiconPageScreen(browser,entry,PlayerKnowledge.load(snapshot),0);
+        page.layoutForSmokeTest(fixture);mc.setScreen(page);return page;
+    }
+    /** Replacement is confined to this newly created audit world and never used by production. */
+    @SuppressWarnings("unchecked")
+    private static void replaceFixtureKnowledge(Minecraft mc,CompoundTag data) {
+        try {
+            var store=KnowledgeStore.of(player(mc).serverLevel());
+            var field=KnowledgeStore.class.getDeclaredField("players");field.setAccessible(true);
+            ((Map<UUID,PlayerKnowledge>)field.get(store)).put(player(mc).getUUID(),PlayerKnowledge.load(data.copy()));
+            store.setDirty();ResearchNetwork.sync(player(mc));
+        }catch(ReflectiveOperationException error){throw new IllegalStateException(error);}
+    }
+    private static List<ResearchEntry.Stage> suppliedChapters(ResearchEntry entry) {
+        var result=new ArrayList<>(entry.stages());result.addAll(entry.addenda());return List.copyOf(result);
+    }
     private static void prepareAudit(Minecraft mc) {
-        browser=new ThaumonomiconScreen(PlayerKnowledge.load(snapshot),0);mc.setScreen(browser);browser.archiveForSmokeTest(true);
+        browser=new ThaumonomiconScreen(PlayerKnowledge.load(snapshot),0);mc.setScreen(browser);
         Set<String> keys=new HashSet<>();
         for(ResearchEntry entry:ResearchCatalog.entries())if(!entry.supported()) {
-            entries++;var page=newPage(mc,entry);
+            entries++;var page=layoutPage(mc,entry,suppliedChapters(entry));
             for(int chapter=0;chapter<page.chaptersForSmokeTest().size();chapter++) {
                 chapters++;page.chapterForSmokeTest(chapter);page.auditLayoutForSmokeTest();
                 for(var view:page.recipesForSmokeTest())keys.add(view.id().toString());
@@ -209,10 +242,10 @@ public final class ThaumonomiconCompleteClientSmokeTest {
         }
         require(entries==148&&chapters==287,"Incomplete original entries/stages/addenda: "+entries+"/"+chapters);
         // Every registered display also renders, including recipes reached only by ingredient links.
-        var anchor=newPage(mc,ResearchCatalog.get("FIRSTSTEPS"));
         for(var definition:BookRecipeCatalog.allDefinitions()) {
-            anchor.directRecipeForSmokeTest(definition.id().toString());
-            var page=(ThaumonomiconPageScreen)mc.screen;page.auditLayoutForSmokeTest();
+            var page=layoutPage(mc,ResearchCatalog.get("FIRSTSTEPS"),
+                    List.of(new ResearchEntry.Stage("",List.of(),List.of(definition.id().toString()),List.of(),0)));
+            page.auditLayoutForSmokeTest();
             require(!page.recipesForSmokeTest().isEmpty(),"Unrendered registered display "+definition.id());
             for(int spread=0;spread<page.spreadCountForSmokeTest();spread++)audit.add(new Audit(page,0,spread));
         }
@@ -221,17 +254,31 @@ public final class ThaumonomiconCompleteClientSmokeTest {
         var sealView=BookRecipeViews.resolve(seal.id().toString()).get(0);
         CompoundTag gate=snapshot.copy();var stages=gate.getCompound("ResearchStages");
         stages.putInt("SEALCOLLECT",ResearchCatalog.get("SEALCOLLECT").stages().size()+1);
+        stages.remove("MINDBIOTHAUMIC");
         require(!sealView.unlocked(PlayerKnowledge.load(gate)),"Advanced seal ignored its second research condition");
         stages.putInt("MINDBIOTHAUMIC",ResearchCatalog.get("MINDBIOTHAUMIC").stages().size()+1);
         require(sealView.unlocked(PlayerKnowledge.load(gate)),"Advanced seal compound gate not displayed as satisfied");
-        for(String category:ResearchCategories.keys())scenes.add(new Scene("map-"+category.toLowerCase(Locale.ROOT),"map",category));
+        for(String key:List.of("basics","no-archive","first-stage","second-stage","ore-hidden","addendum-locked","addendum-open"))
+            scenes.add(new Scene("normal-"+key,"fresh",key));
+        var knowledge=PlayerKnowledge.load(snapshot);
+        require(ResearchCatalog.entries().stream().filter(e->ResearchProgression.isImplemented(e.key())).count()==85,"Unexpected implemented research inventory");
+        for(String category:ResearchCategories.keys()) if(ResearchCategories.categoryUnlocked(knowledge,category))
+            scenes.add(new Scene("map-"+category.toLowerCase(Locale.ROOT),"map",category));
         for(String kind:List.of("crafting","arcane","crucible","infusion","infusion_enchantment","runic","salis")) {
-            String key=kind.equals("infusion")?"thaumcraft:primalcrusher":BookRecipeCatalog.allDefinitions().stream().filter(d->d.kind().equals(kind)).findFirst().orElseThrow().id().toString();
-            scenes.add(new Scene("recipe-"+kind,"recipe",key));
+            var selected=firstPlayable(kind,knowledge);
+            // A registered late recipe is not a normal-player recipe until its chapter and gate open.
+            if(selected.isEmpty()) continue;
+            String key=selected.orElseThrow().id().toString();
+            if(kind.equals("infusion"))productInfusion=key;
+            productRecipeKinds++;scenes.add(new Scene("recipe-"+kind,"recipe",key));
         }
-        for(var blueprint:MultiblockCatalog.all())scenes.add(new Scene("structure-"+blueprint.id().getPath(),"structure",blueprint.id().toString()));
+        require(productInfusion!=null&&productRecipeKinds>=5,"Operational early recipe families missing");
+        for(var blueprint:MultiblockCatalog.all()) if(ResearchProgression.isImplemented(blueprint.research())
+                && readableStructure(knowledge,blueprint.id())) {
+            productStructures++;scenes.add(new Scene("structure-"+blueprint.id().getPath(),"structure",blueprint.id().toString()));
+        }
         scenes.add(new Scene("structure-rotated","rotated","thaumcraft:infusionaltar"));
-        scenes.add(new Scene("structure-layers","layers","thaumcraft:infernalfurnace"));
+        scenes.add(new Scene("structure-layers","layers","thaumcraft:infusionaltar"));
         scenes.add(new Scene("requirements-items","requirements","ESSENTIASMELTER"));
         scenes.add(new Scene("requirements-knowledge-craft","requirements","ESSENTIASMELTER"));
         scenes.add(new Scene("requirements-costs","requirements","ESSENTIASMELTER"));
@@ -243,23 +290,116 @@ public final class ThaumonomiconCompleteClientSmokeTest {
         scenes.add(new Scene("read-pages","read","ESSENTIASMELTER"));
         scenes.add(new Scene("notification","toast",""));
         scenes.add(new Scene("gui-scale-three","scale","INFUSION"));
-        scenes.add(new Scene("ru-infusion","ru-recipe","thaumcraft:primalcrusher"));
+        scenes.add(new Scene("ru-infusion","ru-recipe",productInfusion));
         scenes.add(new Scene("ru-knowledge","ru-knowledge",""));
         scenes.add(new Scene("ru-structure","ru-structure","thaumcraft:infusionaltar"));
-        LogUtils.getLogger().info("THAUMCRAFT_THAUMONOMICON_AUDIT_PREPARED: {} entries, {} chapters, {} queued spreads, {} recipes",entries,chapters,audit.size(),recipes);
+        LogUtils.getLogger().info("THAUMCRAFT_THAUMONOMICON_AUDIT_PREPARED: supplied internal layout={} entries/{} chapters/{} queued spreads/{} recipes; normal product={} scenes/{} operational recipe kinds/{} accessible structures",entries,chapters,audit.size(),recipes,scenes.size(),productRecipeKinds,productStructures);
         prepared=false;
     }
     private static void showAudit(Minecraft mc,Audit item) {
         mc.setScreen(item.page);item.page.chapterForSmokeTest(item.chapter);item.page.spreadForSmokeTest(item.spread);
         item.page.auditLayoutForSmokeTest();auditRendered=false;
     }
+    private static List<BookRecipeViews.View> readableRecipes(PlayerKnowledge knowledge) {
+        var result=new ArrayList<BookRecipeViews.View>();
+        for(var entry:ResearchCatalog.entries()) if(ResearchBookVisibility.visible(knowledge,entry,false))
+            for(var chapter:ResearchBookVisibility.readableChapters(knowledge,entry,false))
+                for(String raw:chapter.recipes()) for(var view:BookRecipeViews.playable(raw))
+                    if(view.unlocked(knowledge)) result.add(view);
+        return List.copyOf(result);
+    }
+    private static Optional<BookRecipeViews.View> firstPlayable(String kind,PlayerKnowledge knowledge) {
+        return readableRecipes(knowledge).stream().filter(view->view.kind().equals(kind)).findFirst();
+    }
+    private static boolean readableStructure(PlayerKnowledge knowledge,ResourceLocation id) {
+        return ResearchCatalog.entries().stream().filter(entry->ResearchBookVisibility.visible(knowledge,entry,false))
+                .flatMap(entry->ResearchBookVisibility.readableChapters(knowledge,entry,false).stream())
+                .flatMap(chapter->chapter.recipes().stream())
+                .anyMatch(raw->MultiblockCatalog.resolve(raw).map(blueprint->blueprint.id().equals(id)).orElse(false));
+    }
+    private static ThaumonomiconPageScreen openPlayableRecipe(Minecraft mc,String recipe) {
+        var id=ResourceLocation.parse(recipe);var knowledge=PlayerKnowledge.load(snapshot);
+        for(var entry:ResearchCatalog.entries()) if(ResearchBookVisibility.visible(knowledge,entry,false))
+            for(var chapter:ResearchBookVisibility.readableChapters(knowledge,entry,false))
+                for(String raw:chapter.recipes())
+                    if(BookRecipeViews.playable(raw).stream().anyMatch(view->view.id().equals(id)&&view.unlocked(knowledge))) {
+                        browser.selectForSmokeTest(entry.key());
+                        require(mc.screen instanceof ThaumonomiconPageScreen,"Playable recipe owner did not open "+entry.key());
+                        var page=(ThaumonomiconPageScreen)mc.screen;
+                        require(page.focusRecipe(id),"Readable recipe disappeared "+id);
+                        require(page.recipesForSmokeTest().stream().noneMatch(BookRecipeViews.View::reference),"Internal pinned reference leaked into normal book");
+                        return page;
+                    }
+        throw new AssertionError("No readable normal-player owner for "+recipe);
+    }
+    private static CompoundTag freshFixture(String kind) {
+        var data=new PlayerKnowledge().save();
+        var facts=data.getList("Research",Tag.TAG_STRING);facts.add(StringTag.valueOf("!gotthaumonomicon"));data.put("Research",facts);
+        var stages=data.getCompound("ResearchStages");
+        if(kind.equals("first-stage"))stages.putInt("FIRSTSTEPS",1);
+        if(kind.equals("second-stage"))stages.putInt("FIRSTSTEPS",2);
+        if(kind.equals("ore-hidden")) {
+            stages.putInt("FIRSTSTEPS",ResearchCatalog.get("FIRSTSTEPS").stages().size()+1);
+            stages.putInt("KNOWLEDGETYPES",ResearchCatalog.get("KNOWLEDGETYPES").stages().size()+1);
+        }
+        data.put("ResearchStages",stages);
+        if(kind.startsWith("addendum-")) {
+            data=lateFixture.copy();facts=data.getList("Research",Tag.TAG_STRING);
+            var clean=new ListTag();
+            for(var fact:facts)if(!fact.getAsString().startsWith("!ORE"))clean.add(fact.copy());
+            if(kind.equals("addendum-open"))clean.add(StringTag.valueOf("!OREAMBER"));
+            data.put("Research",clean);data.remove("BookRead");
+        }
+        return data;
+    }
+    private static void showFreshScene(Minecraft mc,Scene scene) {
+        var knowledge=PlayerKnowledge.load(snapshot);
+        browser=new ThaumonomiconScreen(knowledge,0);mc.setScreen(browser);
+        if(scene.key.equals("basics")||scene.key.equals("no-archive")) {
+            require(browser.categoriesForSmokeTest().equals(List.of("BASICS")),"Fresh book exposed a future category");
+            require(browser.entriesForSmokeTest().stream().noneMatch(key->key.startsWith("PORT_")),"Fresh book exposed development lessons");
+            if(scene.key.equals("no-archive")) {
+                var categories=browser.categoriesForSmokeTest();var nodes=browser.entriesForSmokeTest();
+                browser.keyPressed(GLFW.GLFW_KEY_TAB,0,0);
+                browser.mouseClicked(mc.getWindow().getGuiScaledWidth()/2.0,mc.getWindow().getGuiScaledHeight()-7,0);
+                require(mc.screen==browser&&categories.equals(browser.categoriesForSmokeTest())&&nodes.equals(browser.entriesForSmokeTest()),"Tab/footer disclosed a reference mode");
+                browser.selectCategoryForSmokeTest("ELDRITCH");browser.selectCategoryForSmokeTest("PORT");
+                require(browser.categoriesForSmokeTest().equals(List.of("BASICS")),"Closed category selection escaped initial book");
+                browser.searchForSmokeTest("");
+                require(browser.recipeSearchForSmokeTest().isEmpty(),"Fresh search disclosed future recipe contents");
+                require(browser.searchResultsForSmokeTest().stream().allMatch(key->ResearchProgression.isImplemented(key)),"Fresh search disclosed unsupported records");
+                browser.keyPressed(GLFW.GLFW_KEY_ESCAPE,0,0);
+            }
+        } else if(scene.key.equals("ore-hidden")) {
+            require(!browser.entriesForSmokeTest().contains("ORE"),"Hidden ore root appeared before an ore fact");
+            browser.selectForSmokeTest("ORE");require(mc.screen==browser,"Unseen hidden ore opened a page");
+        } else {
+            String key=scene.key.startsWith("addendum-")?"ORE":"FIRSTSTEPS";
+            browser.selectForSmokeTest(key);require(mc.screen instanceof ThaumonomiconPageScreen,"Normal opened stage unavailable "+key);
+            var page=(ThaumonomiconPageScreen)mc.screen;
+            if(scene.key.equals("first-stage")||scene.key.equals("second-stage")) {
+                int stage=scene.key.equals("first-stage")?1:2;
+                require(page.chaptersForSmokeTest().equals(List.of(ResearchCatalog.get(key).stages().get(stage-1).text())),"Normal page exposed a future or past stage");
+            } else {
+                int expected=scene.key.equals("addendum-open")?2:1;
+                require(page.chaptersForSmokeTest().size()==expected,"Ore addendum strict fact gate changed");
+                if(expected==2)page.chapterForSmokeTest(1);
+            }
+            require(page.recipesForSmokeTest().stream().noneMatch(BookRecipeViews.View::reference),"Normal stage exposed a supplied reference recipe");
+            page.auditLayoutForSmokeTest();
+        }
+        normalChecks++;
+    }
     private static void prepareScene(Minecraft mc,Scene scene) {
         var knowledge=PlayerKnowledge.load(snapshot);
-        browser=new ThaumonomiconScreen(knowledge,0);mc.setScreen(browser);browser.archiveForSmokeTest(true);
+        browser=new ThaumonomiconScreen(knowledge,0);mc.setScreen(browser);
+        if(scene.kind.equals("fresh")) {
+            var fixture=freshFixture(scene.key);snapshot=null;
+            submit(mc,()->replaceFixtureKnowledge(mc,fixture));return;
+        }
         if(scene.kind.equals("map")){browser.selectCategoryForSmokeTest(scene.key);return;}
         if(scene.kind.equals("recipe")) {
-            var page=newPage(mc,ResearchCatalog.get("FIRSTSTEPS"));page.directRecipeForSmokeTest(scene.key);
-            page=(ThaumonomiconPageScreen)mc.screen;page.showRecipeForSmokeTest(net.minecraft.core.registries.BuiltInRegistries.ITEM.getKey(BookRecipeViews.resolve(scene.key).get(0).output().getItem()).getPath());return;
+            openPlayableRecipe(mc,scene.key).auditLayoutForSmokeTest();return;
         }
         if(Set.of("structure","rotated","layers","scale").contains(scene.kind)) {
             String id=scene.kind.equals("scale")?"thaumcraft:infusionaltar":scene.key;
@@ -288,9 +428,10 @@ public final class ThaumonomiconCompleteClientSmokeTest {
             require(((ThaumonomiconKnowledgeScreen)mc.screen).accessible(),"Known insert inaccessible");return;
         }
         if(scene.kind.equals("search")) {
-            String needle=BookRecipeCatalog.definitions("thaumcraft:PrimalCrusher").get(0).output().getHoverName().getString();
+            var id=ResourceLocation.parse(productInfusion);
+            String needle=readableRecipes(knowledge).stream().filter(view->view.id().equals(id)).findFirst().orElseThrow().output().getHoverName().getString();
             browser.searchForSmokeTest(needle);
-            require(browser.recipeSearchForSmokeTest().stream().anyMatch(id->id.getPath().equals("primalcrusher")),"Recipe result search missing");return;
+            require(browser.recipeSearchForSmokeTest().contains(id),"Operational recipe result search missing");return;
         }
         if(scene.kind.equals("history")) {
             linkParent=newPage(mc,ResearchCatalog.get("INFUSION"));linkParent.showStructureForSmokeTest("infusionaltar");
@@ -301,12 +442,10 @@ public final class ThaumonomiconCompleteClientSmokeTest {
             require(mc.screen==linkParent&&linkParent.spreadForSmokeTest()==spread,"Recipe history lost the return spread");return;
         }
         if(scene.kind.equals("toast")) {
-            browser.archiveForSmokeTest(false);
             var notices=ResearchBookNotifications.between(new PlayerKnowledge(),knowledge);
             require(!notices.isEmpty(),"Actual completed fixture produced no notification");
             mc.getToasts().clear();mc.getToasts().addToast(new ResearchBookToast(notices.get(0)));return;
         }
-        browser.archiveForSmokeTest(false);
         if(scene.kind.equals("unread")) {
             require(knowledge.hasUnreadResearch("ESSENTIASMELTER")&&knowledge.hasUnreadPage("ESSENTIASMELTER"),"New research/page markers absent");
             browser.selectCategoryForSmokeTest("ALCHEMY");return;
@@ -334,22 +473,22 @@ public final class ThaumonomiconCompleteClientSmokeTest {
         page.spreadForSmokeTest(Math.max(0,page.spreadCountForSmokeTest()-(scene.name.equals("requirements-costs")?2:1)));
     }
     private static void showRussianScene(Minecraft mc,Scene scene) {
-        browser=new ThaumonomiconScreen(PlayerKnowledge.load(snapshot),0);mc.setScreen(browser);browser.archiveForSmokeTest(true);
+        browser=new ThaumonomiconScreen(PlayerKnowledge.load(snapshot),0);mc.setScreen(browser);
         if(scene.kind.equals("ru-recipe")) {
-            var page=newPage(mc,ResearchCatalog.get("FIRSTSTEPS"));page.directRecipeForSmokeTest(scene.key);
-            ((ThaumonomiconPageScreen)mc.screen).auditLayoutForSmokeTest();
+            openPlayableRecipe(mc,scene.key).auditLayoutForSmokeTest();
         }else if(scene.kind.equals("ru-structure")) {
             var page=newPage(mc,ResearchCatalog.get("INFUSION"));page.showStructureForSmokeTest(scene.key);page.auditLayoutForSmokeTest();
         }else newPage(mc,ResearchCatalog.get("FIRSTSTEPS")).insertForSmokeTest(ThaumonomiconKnowledgeScreen.Mode.KNOWLEDGE);
     }
     private static void finish(Minecraft mc) {
         if(phase==0){phase=1;submit(mc,()->{
-            require(gameBefore.equals(gameplayState(KnowledgeStore.get(player(mc)))),"Reference UI changed authoritative gameplay");
+            require(gameBefore.equals(gameplayState(KnowledgeStore.get(player(mc)))),"Book UI changed authoritative gameplay");
             require(inventoryBefore.equals(player(mc).getInventory().save(new ListTag())),"Book changed server inventory");
         });return;}
-        require(packetChecked&&saved.get()==scenes.size(),"Incomplete packet or screenshot evidence");
+        require(packetChecked&&normalChecks==7&&saved.get()==scenes.size(),"Incomplete normal-book, packet or screenshot evidence");
         stopped=true;mc.options.tutorialStep=previousTutorial;
-        LogUtils.getLogger().info("THAUMCRAFT_THAUMONOMICON_RENDER_AUDIT_OK: {} entries; {} original chapters; {} actual render visits / {} distinct spread requests; {} recipe displays; six detached blueprints; ingredient history/search, two GUI scales and C2S/S2C read acknowledgments",entries,chapters,spreads,audit.size(),recipes);
+        LogUtils.getLogger().info("THAUMCRAFT_THAUMONOMICON_NORMAL_PRODUCT_OK: {} native supplied early-state scenes;85 supported records; no archive/PORT route, closed categories/hidden ore/stage and strict addendum gates; {} operational recipe kinds; {} accessible structures; native C2S/S2C read acknowledgments",normalChecks,productRecipeKinds,productStructures);
+        LogUtils.getLogger().info("THAUMCRAFT_THAUMONOMICON_RENDER_AUDIT_OK: INTERNAL SUPPLIED LAYOUT: {} entries; {} original chapters; {} actual render visits / {} distinct spread requests; {} recipe displays; not player progress. Normal product: ingredient history/search, two GUI scales and native read acknowledgments",entries,chapters,spreads,audit.size(),recipes);
         LogUtils.getLogger().info("THAUMCRAFT_THAUMONOMICON_COMPLETE_CLIENT_SMOKE_OK: {} scenes; isolated owned world={}",saved.get(),WORLD);mc.stop();
     }
     private static void fail(Minecraft mc,Throwable failure) {

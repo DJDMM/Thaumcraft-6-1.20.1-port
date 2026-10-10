@@ -262,8 +262,6 @@ public final class FocalManipulatorScreen extends AbstractContainerScreen<FocalM
             var definition = parts.get(partsStart+i);
             List<Component> tooltip = new ArrayList<>(); tooltip.add(Component.translatable(definition.key()+".name"));
             tooltip.add(Component.translatable(definition.key()+".text"));
-            if (!menu.knowledge().isResearchCompleteStrict(definition.research())) tooltip.add(Component.translatable("gui.thaumcraft.focal.research",definition.research()));
-            if (!definition.runtimeSupported()) tooltip.add(Component.translatable("gui.thaumcraft.focal.unsupported"));
             graphics.renderComponentTooltip(font,tooltip,mouseX,mouseY);
         }
     }

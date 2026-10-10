@@ -18,7 +18,6 @@ import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.TooltipFlag;
-import thaumcraft.research.KnowledgeType;
 import thaumcraft.research.ResearchCategories;
 import thaumcraft.research.theory.ResearchTableMenu;
 import thaumcraft.research.theory.TheoryCard;
@@ -290,14 +289,10 @@ public final class ResearchTableScreen extends AbstractContainerScreen<ResearchT
                 rank++;
             }
         }
-        graphics.fill(leftPos + 272, topPos + 202, leftPos + 370, topPos + 203, 0x665A4126);
-        text(graphics, tr("knowledge"), 272, 208, 96, 0.76F, INK, true);
-        long total = ResearchCategories.keys().stream().mapToLong(category -> menu.playerKnowledge().rawKnowledge(KnowledgeType.THEORY, category)).sum();
-        text(graphics, Component.literal(total + " / 32"), 272, 223, 96, 0.85F, INK, true);
     }
 
     private Component statusMessage() {
-        if (pending()) return tr("wait");
+        if (pending()) return null;
         if (!menu.canUse()) return tr("unavailable");
         TheorySession session = menu.session();
         if (session == null || !session.complete()) {

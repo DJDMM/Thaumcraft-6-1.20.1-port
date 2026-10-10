@@ -1,0 +1,478 @@
+{
+  "version": "0.28.0",
+  "date": "2026-10-11",
+  "originalVersion": "Thaumcraft6.1.BETA26",
+  "originalJarSha256": "9425f8643581b27ff8845b087c8bc6fc10425a32942f1a3f0e265ce6b38f7b5f",
+  "implementedCanonicalResearchEntries": 85,
+  "registeredCanonicalEntries": 148,
+  "operationalInfusionPaths": 24,
+  "registeredInfusionRecipes": 56,
+  "interfaceChanges": [
+    "No separate reference archive, PORT lessons or visual catalogue tab",
+    "Normal category, hidden-entry, current-stage and strict addendum gates retained",
+    "Player pages/search/ingredient links exclude reference-only recipes",
+    "Developer/server/metadata/visual-only notices removed; original Use NBT Data and gameplay costs retained",
+    "One ordinary creative tab without QA demonstration states; version has no dev suffix"
+  ],
+  "requiredGameTests": 952,
+  "serverResult": "952/952; native exit0; BUILD SUCCESSFUL in 3m 1s",
+  "serverLog": {
+    "file": "product-028-gametest1.log",
+    "bytes": 138873,
+    "sha256": "b3bacb001968f06f934d9572d2c038bff84e37b13084f8a8485f695c657bc842"
+  },
+  "clientRunTag": "product-028-client1",
+  "client": {
+    "runTag": "product-028-client1",
+    "smokeTest": "ThaumonomiconComplete",
+    "state": "exited",
+    "javaPath": "C:\\Program Files\\Eclipse Adoptium\\jdk-17.0.18.8-hotspot\\bin\\java.exe",
+    "workingDirectory": "C:\\Users\\user\\Documents\\Codex\\2026-09-29\\thaumcraft-1-12-2\\outputs\\thaumcraft-1.20.1\\run\\thaumonomicon-complete-smoke",
+    "prepareLog": "C:\\Users\\user\\Documents\\Codex\\2026-09-29\\thaumcraft-1-12-2\\outputs\\thaumcraft-1.20.1\\validation\\thaumonomicon-client-product-028-client1-prepare.log",
+    "capturePath": "C:\\Users\\user\\Documents\\Codex\\2026-09-29\\thaumcraft-1-12-2\\outputs\\thaumcraft-1.20.1\\validation\\thaumonomicon-client-product-028-client1-capture.json",
+    "argumentFile": "C:\\Users\\user\\Documents\\Codex\\2026-09-29\\thaumcraft-1-12-2\\outputs\\thaumcraft-1.20.1\\validation\\thaumonomicon-client-product-028-client1.args",
+    "environmentFile": "C:\\Users\\user\\Documents\\Codex\\2026-09-29\\thaumcraft-1-12-2\\outputs\\thaumcraft-1.20.1\\validation\\thaumonomicon-client-product-028-client1-environment.json",
+    "clientLog": "C:\\Users\\user\\Documents\\Codex\\2026-09-29\\thaumcraft-1-12-2\\outputs\\thaumcraft-1.20.1\\validation\\thaumonomicon-client-product-028-client1-client.log",
+    "desktopStatus": "C:\\Users\\user\\Documents\\Codex\\2026-09-29\\thaumcraft-1-12-2\\outputs\\thaumcraft-1.20.1\\validation\\thaumonomicon-client-product-028-client1-desktop.json",
+    "argumentCount": 51,
+    "environmentOverrideNames": [
+      "MCP_MAPPINGS",
+      "MOD_CLASSES"
+    ],
+    "desktop": "WinSta0\\ThaumcraftQA_480c0c6964f546a48d507104a5bc79be",
+    "jvmPid": 29748,
+    "jvmExitCode": 0,
+    "maxOwnedWindowsOnTargetDesktop": 16,
+    "inputDesktopBefore": "Default",
+    "inputDesktopAfter": "Default",
+    "smokeScenes": 37
+  },
+  "clientLog": {
+    "file": "thaumonomicon-client-product-028-client1-client.log",
+    "bytes": 40799,
+    "sha256": "75ba685f68e73cd11daca28dcd438cab6aae0ed23dd168f5bb193035b758b1b5"
+  },
+  "clientScenes": 37,
+  "normalEarlyStateScenes": 7,
+  "operationalRecipeKindsReviewed": 5,
+  "accessibleStructuresReviewed": 3,
+  "internalLayoutAudit": {
+    "entries": 148,
+    "chapters": 287,
+    "recipes": 375,
+    "spreadRequests": 930,
+    "actualRenderVisits": 1369,
+    "isPlayerProgress": false
+  },
+  "visualReview": {
+    "runTag": "product-028-client1",
+    "screenshots": [
+      {
+        "file": "tc6-thaumonomicon-complete-aspects.png",
+        "sha256": "4f91e8e7d1145239b4af34e7dd3d1e42c631d89d06aa70745c32dcda339c1303",
+        "size": [
+          1600,
+          1000
+        ]
+      },
+      {
+        "file": "tc6-thaumonomicon-complete-gui-scale-three.png",
+        "sha256": "f320991ddeca01545571d059a4f65e71b6897ece2fa18de2f12fb44e85c4e81d",
+        "size": [
+          1600,
+          1000
+        ]
+      },
+      {
+        "file": "tc6-thaumonomicon-complete-knowledge.png",
+        "sha256": "5066f14725cc23c4e47d90527230abf4df8739144e1c55d3de11b1a5ab278579",
+        "size": [
+          1600,
+          1000
+        ]
+      },
+      {
+        "file": "tc6-thaumonomicon-complete-map-alchemy.png",
+        "sha256": "dd3d030f54e9c55f464ecd848b309bdc43f6b5aeed88fd5913acf5330278e678",
+        "size": [
+          1600,
+          1000
+        ]
+      },
+      {
+        "file": "tc6-thaumonomicon-complete-map-artifice.png",
+        "sha256": "4f9b52974cc6f29cc967d64d7ff182be8f227b9c4a6f182dd8975f4a44917cef",
+        "size": [
+          1600,
+          1000
+        ]
+      },
+      {
+        "file": "tc6-thaumonomicon-complete-map-auromancy.png",
+        "sha256": "aff1af2256a0f1bcb56826cb313078066e428b12541dea12b747fccd47fa87f5",
+        "size": [
+          1600,
+          1000
+        ]
+      },
+      {
+        "file": "tc6-thaumonomicon-complete-map-basics.png",
+        "sha256": "f5ee58e4cf27d53e5b4e058952f68f02518994b961de71e3bf3b12326349ed58",
+        "size": [
+          1600,
+          1000
+        ]
+      },
+      {
+        "file": "tc6-thaumonomicon-complete-map-golemancy.png",
+        "sha256": "23421929fa271f754d50149e52d57fe970829c2cab0e87010edb8e82fc057b0d",
+        "size": [
+          1600,
+          1000
+        ]
+      },
+      {
+        "file": "tc6-thaumonomicon-complete-map-infusion.png",
+        "sha256": "33fb98e6430d2e59fe2ad58bf5c106834fcc2266250a1aedef830b57801850dc",
+        "size": [
+          1600,
+          1000
+        ]
+      },
+      {
+        "file": "tc6-thaumonomicon-complete-new-pages.png",
+        "sha256": "1a48d2e6f0fcc127e64da8b1097f05556ad30a2b33602cc842246237e9c2d07b",
+        "size": [
+          1600,
+          1000
+        ]
+      },
+      {
+        "file": "tc6-thaumonomicon-complete-normal-addendum-locked.png",
+        "sha256": "a4f9358c94acf718f40bae0a9d65bde5704c75816b096beb88ed2becff845070",
+        "size": [
+          1600,
+          1000
+        ]
+      },
+      {
+        "file": "tc6-thaumonomicon-complete-normal-addendum-open.png",
+        "sha256": "fc4f479bdd3f9debf626eb56547697765aab2880207196012e04e89cf8a6b36d",
+        "size": [
+          1600,
+          1000
+        ]
+      },
+      {
+        "file": "tc6-thaumonomicon-complete-normal-basics.png",
+        "sha256": "6b71d9046e2d281d9e37b8a808897a839e76e00406edac6b507fa3bb04079d5f",
+        "size": [
+          1600,
+          1000
+        ]
+      },
+      {
+        "file": "tc6-thaumonomicon-complete-normal-first-stage.png",
+        "sha256": "641ec856572e1b4d743148dafaeb32a5785a4c74e4e2479fe25ae08aad6179a0",
+        "size": [
+          1600,
+          1000
+        ]
+      },
+      {
+        "file": "tc6-thaumonomicon-complete-normal-no-archive.png",
+        "sha256": "6b71d9046e2d281d9e37b8a808897a839e76e00406edac6b507fa3bb04079d5f",
+        "size": [
+          1600,
+          1000
+        ]
+      },
+      {
+        "file": "tc6-thaumonomicon-complete-normal-ore-hidden.png",
+        "sha256": "5bd508970956252b2cae896e58a9a2fb0f0ad70649d3193c6d4ae0360df4a875",
+        "size": [
+          1600,
+          1000
+        ]
+      },
+      {
+        "file": "tc6-thaumonomicon-complete-normal-second-stage.png",
+        "sha256": "cab11fe14f292437f917da9c1652a5b039498ddbc4a16ff044ffd1fbdc83be6d",
+        "size": [
+          1600,
+          1000
+        ]
+      },
+      {
+        "file": "tc6-thaumonomicon-complete-notification.png",
+        "sha256": "38085120f01b831a4f2eda74b896c8328a3952d8de24b118f474ceb33420dced",
+        "size": [
+          1600,
+          1000
+        ]
+      },
+      {
+        "file": "tc6-thaumonomicon-complete-read-pages.png",
+        "sha256": "032e1d854f622f52752bf2e9ad239d625d9b84948887b5879b3c0c1262697751",
+        "size": [
+          1600,
+          1000
+        ]
+      },
+      {
+        "file": "tc6-thaumonomicon-complete-recipe-arcane.png",
+        "sha256": "f0ccd2aece9f69c0e50b65ef164c834ecd47e36c62c75de4c0e008c1aaca2b8e",
+        "size": [
+          1600,
+          1000
+        ]
+      },
+      {
+        "file": "tc6-thaumonomicon-complete-recipe-crafting.png",
+        "sha256": "ab3df89477437bae05be2e10aee89e3191bf0f008f1eb77b1d984ddcd4a23f1e",
+        "size": [
+          1600,
+          1000
+        ]
+      },
+      {
+        "file": "tc6-thaumonomicon-complete-recipe-crucible.png",
+        "sha256": "08897e8f9f37f8b43195e61a7559f837f5263a452db5cb7c55d225191f9d9028",
+        "size": [
+          1600,
+          1000
+        ]
+      },
+      {
+        "file": "tc6-thaumonomicon-complete-recipe-history.png",
+        "sha256": "c28fdea2a24acf5da63b41aea2b10253a534d5414d3f3446a99256b32b1a7807",
+        "size": [
+          1600,
+          1000
+        ]
+      },
+      {
+        "file": "tc6-thaumonomicon-complete-recipe-infusion.png",
+        "sha256": "be7b77a147c5c6fc3aad65b78351a473a303cc9e3e7ecf7efcc7580152fd37d8",
+        "size": [
+          1600,
+          1000
+        ]
+      },
+      {
+        "file": "tc6-thaumonomicon-complete-recipe-salis.png",
+        "sha256": "8cb9ee821f60d19f431736e95fa42cb1beb5468a46e87c05a19dca79824ab119",
+        "size": [
+          1600,
+          1000
+        ]
+      },
+      {
+        "file": "tc6-thaumonomicon-complete-recipe-search.png",
+        "sha256": "571f5ad18577fcf01e6c59ba70b68f5d057e273117b99fd9f7d2ec6bed1f97d7",
+        "size": [
+          1600,
+          1000
+        ]
+      },
+      {
+        "file": "tc6-thaumonomicon-complete-requirements-costs.png",
+        "sha256": "9ad88e14c42cfba898aa26d3989456f58c1c4f1d56097881f76a3190eeda1ea4",
+        "size": [
+          1600,
+          1000
+        ]
+      },
+      {
+        "file": "tc6-thaumonomicon-complete-requirements-items.png",
+        "sha256": "0adf59b5027acb600d9cccb1f557e426e489c22e84fa3aaa578e1cb63ae4c59a",
+        "size": [
+          1600,
+          1000
+        ]
+      },
+      {
+        "file": "tc6-thaumonomicon-complete-requirements-knowledge-craft.png",
+        "sha256": "79bfb05c676dffa60f840578acfeae3be078f4577baf29f163d45472352cc8b8",
+        "size": [
+          1600,
+          1000
+        ]
+      },
+      {
+        "file": "tc6-thaumonomicon-complete-ru-infusion.png",
+        "sha256": "54b19854dd3930a21ffe2dc880b2e57b57486d16925a81ac82bd4129c1fe51aa",
+        "size": [
+          1600,
+          1000
+        ]
+      },
+      {
+        "file": "tc6-thaumonomicon-complete-ru-knowledge.png",
+        "sha256": "24b3d56b709cb17967f7a9f04e76c5b683be9e89bfc1a120fe11c7093dc4c76e",
+        "size": [
+          1600,
+          1000
+        ]
+      },
+      {
+        "file": "tc6-thaumonomicon-complete-ru-structure.png",
+        "sha256": "44d637546a215c1c1883f0e1ec2a13b88c916f9ea37ca0f9654ff84db036c3cf",
+        "size": [
+          1600,
+          1000
+        ]
+      },
+      {
+        "file": "tc6-thaumonomicon-complete-structure-golempress.png",
+        "sha256": "78549949d4757094bd011c465aa595adb47d7a9be0d66826bd6135dcf343188e",
+        "size": [
+          1600,
+          1000
+        ]
+      },
+      {
+        "file": "tc6-thaumonomicon-complete-structure-infusionaltar.png",
+        "sha256": "c28fdea2a24acf5da63b41aea2b10253a534d5414d3f3446a99256b32b1a7807",
+        "size": [
+          1600,
+          1000
+        ]
+      },
+      {
+        "file": "tc6-thaumonomicon-complete-structure-layers.png",
+        "sha256": "8f8b16a89eb1402fd11f7bf516afccfa20fe96a982d32f2b10aa1ab728f4bd3d",
+        "size": [
+          1600,
+          1000
+        ]
+      },
+      {
+        "file": "tc6-thaumonomicon-complete-structure-rotated.png",
+        "sha256": "f7ecb6d1a418fdfcaf0c0dcdb8cb73ce98837858891303b652964cc49e85710a",
+        "size": [
+          1600,
+          1000
+        ]
+      },
+      {
+        "file": "tc6-thaumonomicon-complete-structure-thaumatorium.png",
+        "sha256": "1b1cbebce00ef673e568960efbebd1e18ee3591c9a13d3ed7b61bffb38f1b2e4",
+        "size": [
+          1600,
+          1000
+        ]
+      }
+    ],
+    "contactSheets": [
+      "C:\\Users\\user\\Documents\\Codex\\2026-09-29\\thaumcraft-1-12-2\\outputs\\thaumcraft-1.20.1\\validation\\product-028-contact-1.png",
+      "C:\\Users\\user\\Documents\\Codex\\2026-09-29\\thaumcraft-1-12-2\\outputs\\thaumcraft-1.20.1\\validation\\product-028-contact-2.png",
+      "C:\\Users\\user\\Documents\\Codex\\2026-09-29\\thaumcraft-1-12-2\\outputs\\thaumcraft-1.20.1\\validation\\product-028-contact-3.png",
+      "C:\\Users\\user\\Documents\\Codex\\2026-09-29\\thaumcraft-1-12-2\\outputs\\thaumcraft-1.20.1\\validation\\product-028-contact-4.png",
+      "C:\\Users\\user\\Documents\\Codex\\2026-09-29\\thaumcraft-1-12-2\\outputs\\thaumcraft-1.20.1\\validation\\product-028-contact-5.png",
+      "C:\\Users\\user\\Documents\\Codex\\2026-09-29\\thaumcraft-1-12-2\\outputs\\thaumcraft-1.20.1\\validation\\product-028-contact-6.png",
+      "C:\\Users\\user\\Documents\\Codex\\2026-09-29\\thaumcraft-1-12-2\\outputs\\thaumcraft-1.20.1\\validation\\product-028-contact-7.png"
+    ],
+    "reviewStatus": "pass",
+    "rootReviewed": true,
+    "independentReview": "pass",
+    "rootFullSizeReviewed": [
+      "normal-first-stage",
+      "requirements-costs",
+      "ru-infusion",
+      "ru-knowledge"
+    ],
+    "independentFullSizeReviewed": [
+      "normal-first-stage",
+      "normal-second-stage",
+      "normal-no-archive",
+      "requirements-costs",
+      "normal-addendum-open",
+      "ru-infusion",
+      "ru-knowledge",
+      "ru-structure"
+    ],
+    "findings": [
+      "No developer/server/reference/PORT labels in the37 captured scenes; original lore unchanged.",
+      "Early categories, hiddenORE, currentFIRSTSTEPS stage and strictAmber addendum stay gated.",
+      "Readable EN/RU pages, cost rows, original knowledge/aspect inserts and native multiblock views.",
+      "requirements-knowledge-craft is a recipe continuation; requirements-costs shows the actual knowledge/craft rows.",
+      "Review covers supplied native fixtures; no full survival or exhaustive error/hover coverage claimed."
+    ]
+  },
+  "localeAudit": {
+    "en_us": {
+      "changedKeys": 137,
+      "canonicalResearchTextsUnchanged": 453
+    },
+    "ru_ru": {
+      "changedKeys": 148,
+      "canonicalResearchTextsUnchanged": 452
+    }
+  },
+  "buildLog": {
+    "file": "build-0.28-final.log",
+    "bytes": 1212,
+    "sha256": "3ad884d2f40f87e11ea646c022900b4d8ccd325b08cbb7a2f8d94735be94aa85"
+  },
+  "resourcesLog": {
+    "file": "resources-0.28-final.log",
+    "bytes": 188,
+    "sha256": "3372b79f574a959e151316dee68a93236374afb03901f832f3244062a5099f1d"
+  },
+  "localJsonCount": 2839,
+  "jarResourceByteParityChecks": 3651,
+  "originalMediaByteParity": {
+    ".png": 660,
+    ".jpg": 7,
+    ".ogg": 51
+  },
+  "artifacts": [
+    {
+      "file": "thaumcraft-1.20.1-0.28.0.jar",
+      "bytes": 10560886,
+      "sha256": "87ad6a68b79fb9f9368961925d4b639c7dc5e86649b9ff0bbd536228a9027c92"
+    },
+    {
+      "file": "thaumcraft-1.20.1-0.28.0-mods.zip",
+      "bytes": 9693607,
+      "sha256": "c49b397c6213aae246c24f45f73a3e867826cb3f8c9c972a6966dcf95c34d8a7"
+    },
+    {
+      "file": "thaumcraft-1.20.1-0.28.0-screenshots.zip",
+      "bytes": 27874850,
+      "sha256": "8e64bc33bf759da8bbe2faf95769999ea500945d8801e5dd55021292422e0c77"
+    }
+  ],
+  "sourceSha256": {
+    "build.gradle": "dcf7b36e90f81380b6c8cb2996f72b5fc07e4c1247fc0211d157f91664188826",
+    "src/main/java/thaumcraft/Thaumcraft.java": "13dbf389adce40ee97d715d9683324885102a6304552f2ea4883c37f84943d1c",
+    "src/main/java/thaumcraft/alchemy/CrucibleBlock.java": "da135ab8064df63f0667b57c1a6db6600a8c8f4c75f74b5954167d265c178ac5",
+    "src/main/java/thaumcraft/auromancy/table/client/FocalManipulatorScreen.java": "85cc431b7b75c384f9320f456d1c92851083e5e471b201ea637764b69e7dc9a6",
+    "src/main/java/thaumcraft/catalog/CatalogItem.java": "92420f7ac0845b08a051f898d462784dd5609ff0309e8aa27866494dcc838986",
+    "src/main/java/thaumcraft/catalog/CatalogModule.java": "87d195955e4131faa27faf62ad4f9abf3c8712db2da3593db3a241d7684c67b6",
+    "src/main/java/thaumcraft/catalog/blocks/CatalogBlockItem.java": "9e90b6f140519d83b6d2ecca42f918967c264ddd3b63b8cb8b963077b9a43f24",
+    "src/main/java/thaumcraft/client/research/BookRecipeViews.java": "396473ab3580278670f0ef47651a5723923a551f3fa06c362b99b877986be566",
+    "src/main/java/thaumcraft/client/research/EarlySurvivalClientSmokeTest.java": "ced010b2ed217448695186f37c524149e38c54a92ebf9c975514902f98949a5d",
+    "src/main/java/thaumcraft/client/research/InfusionClientSmokeTest.java": "3203f0bdef1fcece703c4ab21cfe3225c303e81247de360562c189f6564dd8ef",
+    "src/main/java/thaumcraft/client/research/ResearchClientSmokeTest.java": "09da9b22c228230c965ba87bf69bff0a79b13f78464c41a2d3903079966f7bf1",
+    "src/main/java/thaumcraft/client/research/ThaumonomiconCompleteClientSmokeTest.java": "9a70d189bb5f3700532fa6bc59aa0f6f2c07a695c3bbb2854a9d5d1b95c23159",
+    "src/main/java/thaumcraft/client/research/ThaumonomiconPageScreen.java": "57ca7da6677da2c13ca193d9472d888d55cdfecf0fb0438ef934577783256edd",
+    "src/main/java/thaumcraft/client/research/ThaumonomiconScreen.java": "ffc9c0cb33786c3c734f645a4a32213ac9be739a04ba263c0bbd8565daf2b163",
+    "src/main/java/thaumcraft/client/theory/ResearchTableScreen.java": "e9f9e92d74f2e27bbb691fb1b885aab77a3807f1bdc319858d651258437e2701",
+    "src/main/java/thaumcraft/golemancy/seals/core/ItemSealPlacer.java": "8b11d4cf4c3d792e3fd6d48273482eaf48167e2171b50363614a479976a44409",
+    "src/main/java/thaumcraft/infusion/client/InfusionHud.java": "d92b6e31b125644cf5cf9f050a9adc5ae7cf30203589607d19c54f87fde2624f",
+    "src/main/resources/META-INF/mods.toml": "4b4eaa609a2a61db6bcb247eceba7732266823f171e356436dbc328546be892d",
+    "src/main/resources/assets/thaumcraft/lang/en_us.json": "1d8bc4cbf8a4893327bac3432d78d2bb423ec598af7fdf1914cca0be84323fa4",
+    "src/main/resources/assets/thaumcraft/lang/ru_ru.json": "543e338edf4acace1dcd5ae83ff2a9046c4a22a0a13bd2c53f33b52d86c0ec22"
+  },
+  "deletedSourceFiles": [
+    "src/main/java/thaumcraft/client/research/ContentPreviewScreen.java"
+  ],
+  "limitations": [
+    "This patch cleans the player interface; it does not complete the remaining research or mechanics. Canonical85/148 and infusion24/56 remain unchanged.",
+    "Native fixtures supply owned-world knowledge, inventory, stage facts and unlocks. Internal148/287/375 layout coverage is detached QA data, not an archive available to players or survival completion.",
+    "Full survival and independent-client multiplayer were not performed. Existing opt-in developer tools/docs remain outside normal player UI.",
+    "The requirements-knowledge-craft screenshot is its recipe continuation; actual knowledge/craft requirements are visible in requirements-costs."
+  ]
+}

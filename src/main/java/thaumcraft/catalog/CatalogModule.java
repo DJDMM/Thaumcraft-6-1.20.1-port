@@ -158,11 +158,43 @@ public final class CatalogModule {
         return ((long)material << 56) | ((long)head << 48) | ((long)arms << 40);
     }
 
-    /** Finite original metadata roster and representative NBT forms for visual inspection. */
+    /** Ordinary creative inventory; visual QA uses the separate sample roster below. */
     public static void acceptItems(CreativeModeTab.Output output) {
-        for (ItemStack stack : sampleStacks()) output.accept(stack);
+        for (ItemStack stack : creativeStacks()) output.accept(stack);
     }
 
+    /** Original subitem choices without the diagnostic colored, linked and fill-boundary samples. */
+    public static List<ItemStack> creativeStacks() {
+        List<ItemStack> result = new ArrayList<>();
+        for (var entry : ENTRIES.entrySet()) {
+            String id = entry.getKey();
+            // ItemLabel exposes only its blank form; filled labels are obtained by labeling jars.
+            if (id.equals("label_filled")) continue;
+            if (id.equals("crystal_essence") || id.equals("phial_filled")) {
+                int amount = id.equals("phial_filled") ? 10 : 1;
+                for (Aspect aspect : Aspect.aspects.values()) result.add(aspectStack(id, aspect, amount));
+            } else if (id.equals("verdant_charm")) {
+                result.add(new ItemStack(entry.getValue().get()));
+                for (int type = 1; type <= 2; type++) {
+                    ItemStack variant = new ItemStack(entry.getValue().get());
+                    variant.getOrCreateTag().putByte("type", (byte) type);
+                    result.add(variant);
+                }
+            } else if (id.equals("golem")) {
+                // These are the four actual BETA26 ConfigItems presets, not the QA tint roster.
+                for (long properties : new long[]{0L, golemProperties(0, 1, 1),
+                        golemProperties(1, 1, 2), golemProperties(4, 1, 3)}) {
+                    ItemStack variant = new ItemStack(entry.getValue().get());
+                    variant.getOrCreateTag().putLong("props", properties);
+                    result.add(variant);
+                }
+            } else result.add(new ItemStack(entry.getValue().get()));
+        }
+        result.forEach(thaumcraft.equipment.tools.ToolItems::initializeStack);
+        return List.copyOf(result);
+    }
+
+    /** Opt-in visual QA's expanded data roster. Never inserted into a player's creative tab. */
     public static List<ItemStack> sampleStacks() {
         List<ItemStack> result = new ArrayList<>();
         for (var entry : ENTRIES.entrySet()) {

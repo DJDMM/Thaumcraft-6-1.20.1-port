@@ -176,7 +176,7 @@ public final class InfusionClientSmokeTest {
         require(mc.level.getRecipeManager().getAllRecipesFor(InfusionModule.RECIPE_TYPE.get()).size()==56,"RecipeManager did not sync56 real recipes");
     }
     private static void openBook(Minecraft mc){
-        var knowledge=PlayerKnowledge.load(snapshot);bookBefore=ThaumonomiconCompleteClientSmokeTest.gameplayState(knowledge).toString();var browser=new ThaumonomiconScreen(knowledge,knowledge.scanCount());mc.setScreen(browser);browser.archiveForSmokeTest(true);browser.selectForSmokeTest(scene==6?"INFUSION":"ELEMENTALTOOLS");
+        var knowledge=PlayerKnowledge.load(snapshot);bookBefore=ThaumonomiconCompleteClientSmokeTest.gameplayState(knowledge).toString();var browser=new ThaumonomiconScreen(knowledge,knowledge.scanCount());mc.setScreen(browser);browser.selectForSmokeTest(scene==6?"INFUSION":"ELEMENTALTOOLS");
         require(mc.screen instanceof ThaumonomiconPageScreen,"Missing infusion book entry");var page=(ThaumonomiconPageScreen)mc.screen;String output=scene==6?"infusion_matrix":"elemental_axe";
         var selected=BookRecipeViews.resolve(scene==6?"thaumcraft:InfusionMatrix":"thaumcraft:ElementalAxe").stream().filter(v->BuiltInRegistries.ITEM.getKey(v.output().getItem()).getPath().equals(output)).findFirst().orElseThrow();
         require(page.focusRecipe(selected.id()),"Could not navigate to actual recipe chapter");page.showRecipeForSmokeTest(output);
