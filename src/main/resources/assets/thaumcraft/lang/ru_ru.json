@@ -1996,5 +1996,11 @@
   "thaumcraft.golemancy.count": "Количество",
   "tc.logistics.request": "Запрос",
   "tc.logistics.search": "Поиск",
-  "tc.levitator": "Установленный радиус: %s блоков. (%s вис/минута)"
+  "tc.levitator": "Установленный радиус: %s блоков. (%s вис/минута)",
+  "tc.fluxevent.2": "Местная аура мгновенно становится нестабильной, препятствуя Вашим магическим способностям.",
+  "tc.fluxevent.3": "Кажется, в местной ауре слишком много Выбросов!",
+  "potion.infvisexhaust": "Бактериальный вирус Выбросов",
+  "effect.thaumcraft.infectious_vis_exhaust": "Бактериальный вирус Выбросов",
+  "death.attack.taint": "%1$s был повреждён заражением",
+  "death.attack.taint.player": "%1$s был повреждён заражением во время битвы с %2$s"
 }

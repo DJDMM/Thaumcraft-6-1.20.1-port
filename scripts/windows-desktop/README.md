@@ -3,6 +3,8 @@
 From the project, run `scripts/run_client_smoke_isolated.ps1 -SmokeTest EssentiaProduction`
 or `-SmokeTest Infusion` / `-SmokeTest TheoryComplete` / `-SmokeTest ThaumonomiconComplete`.
 The `-SmokeTest Thaumometer` profile runs native scanning/container/aura checks in `run/thaumometer-smoke` with the same hidden-desktop guarantees.
+The `-SmokeTest Rift` profile runs natural rift generation, actual scans/research,
+paid infusion/throw/collapse and physical stabilizer checks in `run/rift-smoke`.
 The old `run_theory_smoke_isolated.ps1` forwards to the TheoryComplete profile.
 The wrapper prepares the selected JavaExec task without executing its game launch
 action, writes a Java17 argument file, and launches the final JVM on a uniquely

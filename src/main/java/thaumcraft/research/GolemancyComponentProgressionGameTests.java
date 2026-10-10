@@ -26,7 +26,7 @@ public final class GolemancyComponentProgressionGameTests {
 
     @GameTest(template="essentia_network")
     public static void exactGolemScanFamiliesIncludeShulkerAndOwnedConstructsButNotItems(GameTestHelper h) {
-        h.assertTrue(ResearchCatalog.entries().stream().filter(e -> ResearchProgression.isImplemented(e.key())).count()==82
+        h.assertTrue(ResearchCatalog.entries().stream().filter(e -> ResearchProgression.isImplemented(e.key())).count()==85
                 && ResearchProgression.isImplemented("MINDCLOCKWORK") && ResearchProgression.stageSupported("MINDCLOCKWORK",2),
                 "Clockwork mind's complete original progression was omitted from the canonical inventory");
         for (var type : List.of(EntityType.IRON_GOLEM, EntityType.SNOW_GOLEM, EntityType.SHULKER)) {

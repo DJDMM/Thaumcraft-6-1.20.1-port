@@ -2002,5 +2002,11 @@
   "thaumcraft.golemancy.count": "Amount",
   "tc.logistics.request": "Request",
   "tc.logistics.search": "Search",
-  "tc.levitator": "Range set to %s blocks. (%s vis/minute)"
+  "tc.levitator": "Range set to %s blocks. (%s vis/minute)",
+  "tc.fluxevent.2": "The local aura momentarily becomes unstable, hampering your magical ability.",
+  "tc.fluxevent.3": "It seems that there is too much flux in the local aura!",
+  "potion.infvisexhaust": "Flux Phage",
+  "effect.thaumcraft.infectious_vis_exhaust": "Flux Phage",
+  "death.attack.taint": "%1$s was corrupted by Taint",
+  "death.attack.taint.player": "%1$s was corrupted by Taint whilst fighting %2$s"
 }

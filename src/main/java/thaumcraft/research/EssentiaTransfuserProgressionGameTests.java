@@ -34,7 +34,7 @@ public final class EssentiaTransfuserProgressionGameTests {
     public static void transportResearchPaysBothCategoriesOnceAndPreservesLateGates(GameTestHelper h) {
         var p=player(h);var k=KnowledgeStore.get(p);var e=ResearchCatalog.get("ESSENTIATRANSPORT");
         h.assertTrue(e.parents().equals(List.of("THAUMATORIUM","INFUSION"))&&e.stages().size()==2
-                &&ResearchCatalog.entries().stream().filter(entry->ResearchProgression.isImplemented(entry.key())).count()==82,"Original parents/stages or canonical census changed");
+                &&ResearchCatalog.entries().stream().filter(entry->ResearchProgression.isImplemented(entry.key())).count()==85,"Original parents/stages or canonical census changed");
         result(h,ResearchNetwork.processAdvance(p,"ESSENTIATRANSPORT",0),ResearchProgression.Result.LOCKED);
         complete(k,"THAUMATORIUM");k.setResearchStage("INFUSION",ResearchCatalog.get("INFUSION").stages().size());
         result(h,ResearchNetwork.processAdvance(p,"ESSENTIATRANSPORT",0),ResearchProgression.Result.LOCKED);

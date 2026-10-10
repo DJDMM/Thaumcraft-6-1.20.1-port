@@ -188,10 +188,36 @@
       "thaumcraft:jar4"
     ]
   },
+  "evilportal": {
+    "category": "block",
+    "sounds": [
+      {
+        "name": "thaumcraft:evilportal",
+        "stream": false
+      }
+    ]
+  },
   "crystal": {
     "sounds": [
       {
         "name": "thaumcraft:crystal",
+        "stream": false
+      }
+    ]
+  },
+  "wisplive": {
+    "category": "hostile",
+    "sounds": [
+      "thaumcraft:wisplive1",
+      "thaumcraft:wisplive2",
+      "thaumcraft:wisplive3"
+    ]
+  },
+  "wispdead": {
+    "category": "hostile",
+    "sounds": [
+      {
+        "name": "thaumcraft:wispdead",
         "stream": false
       }
     ]

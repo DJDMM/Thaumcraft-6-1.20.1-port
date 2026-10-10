@@ -10,7 +10,7 @@ import net.minecraft.world.level.block.state.BlockState;
 import thaumcraft.world.aura.AuraManager;
 /** Release's self-charging fifteen-unit stabilizer; it is not a Forge Energy machine. */
 public final class InfusionStabilizerBlockEntity extends BlockEntity {
-    private int energy, ticks;
+    private int energy, ticks, delay;
     public InfusionStabilizerBlockEntity(BlockPos pos, BlockState state) { super(InfusionModule.STABILIZER.get(), pos, state); }
     public int energy() { return energy; }
     public static void tick(Level level, BlockPos pos, BlockState state, InfusionStabilizerBlockEntity tile) {
@@ -18,7 +18,14 @@ public final class InfusionStabilizerBlockEntity extends BlockEntity {
         if (++tile.ticks % 20 == 0 && tile.energy < 15) {
             tile.energy++; AuraManager.addFlux(server, pos, .25F); tile.changed();
         }
-        // EntityFluxRift's stability consumer remains outside the current port's entity mechanics.
+        if (tile.energy > 0 && tile.delay <= 0 && tile.ticks % 5 == 0) {
+            for (var rift : server.getEntitiesOfClass(thaumcraft.world.rift.FluxRiftEntity.class,new net.minecraft.world.phys.AABB(pos).inflate(8))) {
+                if (!rift.isAlive() || rift.getStability()==thaumcraft.world.rift.FluxRiftEntity.Stability.VERY_STABLE || !tile.mitigate(1)) continue;
+                rift.addStability(); tile.delay += 5;
+                if (tile.energy <= 0) break;
+            }
+        }
+        if (tile.delay > 0) tile.delay--;
     }
     public boolean mitigate(int amount) {
         if (!(level instanceof ServerLevel server) || !server.getServer().isSameThread() || amount <= 0 || energy < amount) return false;

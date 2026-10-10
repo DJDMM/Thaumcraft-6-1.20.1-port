@@ -69,6 +69,8 @@ public final class Thaumcraft {
         thaumcraft.research.ResearchModule.register(bus);
         thaumcraft.scanning.ScanningModule.register(bus);
         thaumcraft.world.WorldModule.register(bus);
+        thaumcraft.world.rift.RiftModule.register();
+        thaumcraft.world.rift.RiftSounds.register(bus);
         thaumcraft.alchemy.AlchemyModule.register(bus);
         thaumcraft.equipment.EquipmentModule.register(bus);
         thaumcraft.arcane.ArcaneModule.register(bus);

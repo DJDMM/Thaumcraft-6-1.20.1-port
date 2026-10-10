@@ -46,35 +46,8 @@ public final class CatalogEffectGeometry {
 
     /** Exact BETA26 calcSteps draw order, float girth subtraction, 0.2 steps and 0.1 guide endpoints. */
     public static RiftPath riftPath(int seed, int size) {
-        List<Vec3> points = new ArrayList<>();
-        List<Float> widths = new ArrayList<>();
-        if (size <= 0) return new RiftPath(points, widths);
-        Random random = new Random(seed);
-        Vec3 right = new Vec3(random.nextGaussian(), random.nextGaussian(), random.nextGaussian()).normalize();
-        Vec3 left = right.scale(-1.0);
-        Vec3 rightPosition = Vec3.ZERO;
-        Vec3 leftPosition = Vec3.ZERO;
-        int steps = Mth.ceil(size / 3.0F);
-        float girth = size / 300.0F;
-        float decrement = girth / steps;
-        for (int step = 0; step < steps; step++) {
-            girth -= decrement;
-            right = right.xRot((float) (random.nextGaussian() * .33));
-            right = right.yRot((float) (random.nextGaussian() * .33));
-            rightPosition = rightPosition.add(right.scale(.2));
-            points.add(rightPosition);
-            widths.add(girth);
-            left = left.xRot((float) (random.nextGaussian() * .33));
-            left = left.yRot((float) (random.nextGaussian() * .33));
-            leftPosition = leftPosition.add(left.scale(.2));
-            points.add(0, leftPosition);
-            widths.add(0, girth);
-        }
-        points.add(rightPosition.add(right.scale(.1)));
-        widths.add(0.0F);
-        points.add(0, leftPosition.add(left.scale(.1)));
-        widths.add(0, 0.0F);
-        return new RiftPath(points, widths);
+        var path = thaumcraft.world.rift.RiftGeometry.path(seed, size);
+        return new RiftPath(path.points(), path.widths());
     }
 
     /** Neutral stability is BETA26 stability zero, giving stab=1. Age is ticks plus partial tick. */

@@ -1,3 +1,86 @@
+# Проверка разломов0.27.0-dev
+
+Дата: **2026-10-10**. Minecraft1.20.1 / Forge47.4.10 / Java17;
+эталон — закреплённые исходники и JAR Thaumcraft **6.1.BETA26**.
+Текущий поддержанный набор **85/148**, пути наполнения **24/56**.
+Правила — [FLUX-RIFTS.md](FLUX-RIFTS.md), исходные контракты —
+[разлом](docs/tc6/FLUX-RIFT-BETA26-AUDIT.md),
+[события/висп](docs/tc6/RIFT-EVENTS-WISP-BETA26-AUDIT.md),
+[исследования/коллапсер](docs/tc6/FLUX-RIFT-PROGRESSION-COLLAPSER-BETA26-AUDIT.md).
+
+Свежий финальный сервер **rift-027-gametest4**: **952/952**, native exit0,
+BUILD SUCCESSFUL **2m58s**. К888 добавлены64 проверки:19 физического
+разлома/ауры/стабилизатора/наград,26 событий/виспа/инфекции/Flux Taint,
+19 фактов/платежей/коллапсера/настоящего наполнения. `wussMode=false`;
+предыдущие QA-миры сохранены в проверенных соседних архивах.
+Проверены fractional sqrt(Flux*3) debit, strict75%/Flux5000 probability,
+общая seeded spine/bbox,120/600 cadence, erosion без harvest loot,
+реальные OUTLINE-пересечения цветка/кристалла без collision и native ticks,
+жидкость/bedrock negatives, контактный урон/creative исключение,
+схлопывание с1auraunit/тик и отдельной жемчужиной damage4..7,
+оба Warp/эффекты/distanceSquared32 и quirks NBT/reward snapshot.
+Стабилизатор расходует1energy на.125 с исходной задержкой.
+
+Висп проверен с настоящей стеной/удалением стены/20-тиковым зарядом,
+stationary4damage, negative reload, flight/retaliation/type/crystal loot.
+Проверены веса/успех/провал без reroll, infectious3000@2 и6000 каскад,
+исходный vis penalty, free cloud и отсутствие придуманной стабилизации.
+Flux Taint проверен через native ticking/Forge damage event/registry tags:
+40>>amplifier,1damage/armor bypass/обычную Resistance, undead immunity,
+лечение восьми исходных tainted-классов, milk cure, lethal damage и saves.
+Champion13 не подменяется NBT. Проверены настоящие scan facts,
+hover/possession negatives, строгие предшественники и точные платежи;
+отдельный native infusion batch расходует TNT/8components/100essentia,
+после чего бросает изготовленный результат.
+
+Финальный скрытый клиент **rift-027-client3**, профиль Rift: **9/9**,
+JVMexit0, PID31516,16 принадлежащих JVM окон, input desktop
+**Default->Default**. Проверена цепочка естественного появления через
+обычный aura END tick: Flux5001 (с1unit diffusion) ->4878.5254,
+size122 при цене122.47449; скан C2S и FLUX/FLUXRIFT/RIFTCLOSER через
+настоящие book requests. Расход RIFTCLOSER:16Observation Auromancy,
+64Theory Alchemy/32Theory Auromancy и10XP; FLUX отдельно5XP.
+Обычные matrix cycles оплатили50Alienis+50Vitium (две банки70->20),
+израсходовали TNT+8ингредиентов и создали один коллапсер. Реальный
+стабилизатор лечил разлом за энергию; настоящий survival C2S бросок
+израсходовал изготовленный предмет, collision/explosion начал collapse,
+11семян подобраны обычными ItemEntity collisions без выдачи в инвентарь.
+Все9 текущих PNG просмотрены root на3листах; natural/infusion-output/
+closer-paid также полноразмерно. Платежи подтверждает журнал;
+частицы частично закрывают altar output, луч стабилизатора кадром не доказан.
+
+Ранние проверки сохранены: server1 **936/940**, server2 **939/940** —
+пустой registry specimen, старый23infusion census и visibility fixture виспа.
+Production matcher не ослаблен: реальные VoidSeed берутся из реестра,
+в census24 и Causality Collapser, Wisp имеет свой9x5x9 arena и wall control.
+Client1 остановлен после4сцен: тестовый nitor_yellow не входил в точный
+рецепт. Исправлен fixture на настоящий AlchemyModule.NITOR_ITEM; client2
+прошёл9/9, server3 —950/950. Независимая сверка обнаружила реальную ошибку
+COLLIDER: цветы/кристаллы сохранялись вместо разрушения по выделяемому контуру.
+OUTLINE исправляет gameplay; добавлены2 native positive/negative tests,
+после чего заново выполнены финальные server4/client3.
+
+Fixtures предоставляют загруженную bedrock arena, Flux5001,
+INFUSION+VISBATTERY, raw knowledge, сырьё/эссенцию/свечи и энергию стабилизатора.
+После настоящего появления stability100/Flux30 явно защищают длинный
+платёжный аудит от посторонних событий. Finished rift/collapser/rewards,
+crafting plan и вызовы runtime tickers не подставляются. Это не полный
+survival playthrough и не отдельная multiplayer-сессия.
+Prime Seed/полная taint ecology, Champion13, Crimson/Eldritch и Void Siphon
+остаются неподдержанными. Prime weightedslot10 — no-op без повторного
+выбора/декоративного спавна/удаления разлома/загрязнения. Семена и f_VOIDSEED
+не завершают поздние исследования. Современные адаптации явно перечислены
+в FLUX-RIFTS.md. Итоговая сборка,2839JSON,CRC/ресурсные byte checks и хеши —
+в [artifact-report-0.27.json](validation/artifact-report-0.27.json).
+Финальный build прошёл за18s. Проверены3651 ресурсных файлов JAR побайтно,
+CRC/duplicate entries, version0.27.0-dev и исходные660PNG/7JPG/51OGG.
+JAR:10,556,087байт; SHA256
+`09db4cbbde65252a60f2879ffd4acba518e2533e392aa89ecac63851fb44e986`.
+Mods ZIP содержит этот же JAR и закреплённый TerraBlender; screenshots ZIP —9кадров.
+
+
+---
+
 # Проверка исправления 0.26.1-dev
 
 Дата: **2026-10-09**. Эталон — закреплённый Thaumcraft **6.1.BETA26**,

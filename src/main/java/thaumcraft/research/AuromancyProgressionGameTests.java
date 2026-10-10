@@ -267,7 +267,7 @@ public final class AuromancyProgressionGameTests {
     }
 
     @GameTest(template = "empty")
-    public static void canonicalChainOpensExactlyTwentyThreeOfFiftySixRegisteredInfusions(GameTestHelper helper) {
+    public static void canonicalChainOpensExactlyTwentyFourOfFiftySixRegisteredInfusions(GameTestHelper helper) {
         var state = KnowledgeStore.get(player(helper));
         for (ResearchEntry entry : ResearchCatalog.entries()) if (ResearchProgression.isImplemented(entry.key())) complete(state, entry.key());
         var recipes = helper.getLevel().getRecipeManager().getAllRecipesFor(InfusionModule.RECIPE_TYPE.get());
@@ -277,7 +277,7 @@ public final class AuromancyProgressionGameTests {
                 "infusion/elementalsword", "infusion/elementalpick", "infusion/elementalshovel", "infusion/elementalhoe",
                 "infusion/focus_2", "infusion/focus_3", "infusion/mindbiothaumic", "infusion/sealharvest", "infusion/sealbutcher", "infusion/sealbreak", "infusion/jarbrain",
                 "infusion/crystalclusterair", "infusion/crystalclusterfire", "infusion/crystalclusterwater", "infusion/crystalclusterearth",
-                "infusion/crystalclusterorder", "infusion/crystalclusterentropy", "infusion/crystalclusterflux")),
+                "infusion/crystalclusterorder", "infusion/crystalclusterentropy", "infusion/crystalclusterflux", "infusion/causalitycollapser")),
                 "Unavailable mask/late research was bypassed: " + open);
         for (String key : new String[]{"FORTRESSMASK", "INFUSIONENCHANTMENT", "RUNICSHIELDING"})
             helper.assertTrue(!ResearchProgression.isImplemented(key), "Incomplete branch was silently advertised: " + key);

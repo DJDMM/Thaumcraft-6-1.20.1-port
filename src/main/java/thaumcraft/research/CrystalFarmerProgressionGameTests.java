@@ -93,7 +93,7 @@ public final class CrystalFarmerProgressionGameTests {
     public static void hiddenOreCannotBeStartedByEmptyBookRequestAndFarmingNeedsCompletedInfusion(GameTestHelper h) {
         var p=player(h);var k=KnowledgeStore.get(p);var ore=ResearchCatalog.get("ORE");
         h.assertTrue(ore.hasMeta("HIDDEN") && ore.parents().isEmpty() && ore.siblings().isEmpty() && ore.stages().size()==1
-                && ResearchCatalog.entries().stream().filter(e->ResearchProgression.isImplemented(e.key())).count()==82,"Original hidden ORE/no-sibling graph or canonical census changed");
+                && ResearchCatalog.entries().stream().filter(e->ResearchProgression.isImplemented(e.key())).count()==85,"Original hidden ORE/no-sibling graph or canonical census changed");
         result(h,ResearchNetwork.processAdvance(p,"ORE",0),ResearchProgression.Result.LOCKED);
         h.assertTrue(k.researchStage("ORE")==0 && p.totalExperience==0,"Forged root request granted canonical ore research");
         var farmer=ResearchCatalog.get("CRYSTALFARMER");h.assertTrue(farmer.parents().equals(List.of("ORE","INFUSION","!ORECRYSTAL")) && farmer.siblings().isEmpty() && farmer.stages().size()==2,"Original Farmer parents/stages changed");
@@ -273,5 +273,8 @@ public final class CrystalFarmerProgressionGameTests {
     private static void result(GameTestHelper h,ResearchProgression.Result actual,ResearchProgression.Result expected) {h.assertTrue(actual==expected,"Expected "+expected+", got "+actual);}
     private static ListTag inventory(ServerPlayer p) {var tag=new ListTag();p.getInventory().save(tag);return tag;}
     private static void unchangedRejection(GameTestHelper h,ServerPlayer p,String key) {var k=KnowledgeStore.get(p);var before=k.save();var items=inventory(p);int xp=p.totalExperience;result(h,ResearchNetwork.processAdvance(p,key,1),ResearchProgression.Result.MISSING_REQUIREMENTS);h.assertTrue(before.equals(k.save()) && items.equals(inventory(p)) && xp==p.totalExperience,"Failed obtain/knowledge request partially paid "+key);}
-    private static void noLate(GameTestHelper h,PlayerKnowledge k) {for(String key:List.of("FLUX","FLUXRIFT","RIFTCLOSER","BASEELDRITCH","MATSTUDVOID","MIRRORESSENTIA"))h.assertTrue(!ResearchProgression.supportsProgression(key) && k.researchStage(key)==0,"Farmer/battery unlocked unfinished late path "+key);}
+    private static void noLate(GameTestHelper h,PlayerKnowledge k) {
+        for(String key:List.of("FLUX","FLUXRIFT","RIFTCLOSER")) h.assertTrue(k.researchStage(key)==0,"Farmer/battery granted unrelated rift research "+key);
+        for(String key:List.of("BASEELDRITCH","MATSTUDVOID","MIRRORESSENTIA")) h.assertTrue(!ResearchProgression.supportsProgression(key) && k.researchStage(key)==0,"Farmer/battery unlocked unfinished late path "+key);
+    }
 }

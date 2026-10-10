@@ -13,7 +13,7 @@ import net.minecraft.world.level.storage.loot.BuiltInLootTables;
 import net.minecraftforge.registries.ForgeRegistries;
 
 /** Persistent visual NPC. No goals, natural spawns, loot or TC6 progression. */
-public final class VisualMobEntity extends PathfinderMob {
+public class VisualMobEntity extends PathfinderMob {
     private static final EntityDataAccessor<Integer> VARIANT = SynchedEntityData.defineId(VisualMobEntity.class, EntityDataSerializers.INT);
     private static final EntityDataAccessor<Integer> MATERIAL = SynchedEntityData.defineId(VisualMobEntity.class, EntityDataSerializers.INT);
     private static final EntityDataAccessor<Integer> HEAD = SynchedEntityData.defineId(VisualMobEntity.class, EntityDataSerializers.INT);
@@ -26,8 +26,10 @@ public final class VisualMobEntity extends PathfinderMob {
 
     public VisualMobEntity(EntityType<? extends VisualMobEntity> type, Level level) {
         super(type, level);
-        setNoAi(true);
-        setPersistenceRequired();
+        if (!spec().id().equals("wisp")) {
+            setNoAi(true);
+            setPersistenceRequired();
+        }
         setCanPickUpLoot(false);
         xpReward = 0;
         if (spec().model().equals("wisp") || spec().model().equals("swarm") || spec().model().equals("portal")) setNoGravity(true);
@@ -94,8 +96,10 @@ public final class VisualMobEntity extends PathfinderMob {
         if (tag.contains("Color")) entityData.set(COLOR, tag.getInt("Color") & 0xFFFFFF);
         if (tag.contains("Helm")) entityData.set(HELM, tag.getBoolean("Helm"));
         entityData.set(HEADLESS, tag.getBoolean("Headless"));
-        setNoAi(true);
-        setPersistenceRequired();
+        if (!spec().id().equals("wisp")) {
+            setNoAi(true);
+            setPersistenceRequired();
+        }
     }
     @Override protected ResourceLocation getDefaultLootTable() { return BuiltInLootTables.EMPTY; }
     @Override protected void dropCustomDeathLoot(DamageSource source, int looting, boolean recentlyHit) {}

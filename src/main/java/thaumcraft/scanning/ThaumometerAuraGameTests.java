@@ -37,7 +37,7 @@ public final class ThaumometerAuraGameTests {
         h.assertTrue(k.researchStage("FLUX")==1 && p.totalExperience==xp+5 && k.scanCount()==0
                 && before.getCompound("Knowledge").equals(k.save().getCompound("Knowledge")), "Native held tick did not start only FLUX/5XP");
         h.assertTrue(ResearchBookVisibility.visible(k, ResearchCatalog.get("FLUX"), false)
-                && !ResearchProgression.isImplemented("FLUX") && !ResearchProgression.isComplete(k,"FLUX"),
+                && ResearchProgression.isImplemented("FLUX") && !ResearchProgression.isComplete(k,"FLUX"),
                 "Event chapter hidden or unfinished rift research advertised as complete");
         var notices=thaumcraft.research.ResearchBookNotifications.between(thaumcraft.research.PlayerKnowledge.load(before),k);
         h.assertTrue(k.hasUnreadResearch("FLUX") && notices.size()==1 && notices.get(0).entry().key().equals("FLUX")

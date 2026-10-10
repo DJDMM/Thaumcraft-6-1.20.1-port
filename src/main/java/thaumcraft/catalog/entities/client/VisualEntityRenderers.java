@@ -134,7 +134,8 @@ public final class VisualEntityRenderers {
                 mesh.renderToBuffer(pose,buffers.getBuffer(RenderType.entityCutoutNoCull(getTextureLocation(entity))),light,OverlayTexture.NO_OVERLAY,1,1-pulse,1-pulse,1);
             } else if(model.equals("rift")) {
                 var effect=(VisualEffectEntity)entity;
-                CatalogEffectGeometry.fluxRift(pose,buffers,effect.riftSeed(),effect.riftSize(),entity.tickCount+partial);
+                float stability=entity instanceof thaumcraft.world.rift.FluxRiftEntity rift?rift.getRiftStability():0F;
+                CatalogEffectGeometry.fluxRift(pose,buffers,effect.riftSeed(),effect.riftSize(),entity.tickCount+partial,stability);
             } else if(model.equals("dart")) {
                 CatalogEffectGeometry.dart(pose,buffers,light,yaw,entity.getXRot());
             } else if(model.equals("swarm")) {

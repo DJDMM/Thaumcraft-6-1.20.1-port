@@ -62,7 +62,9 @@ public final class CatalogGameTests {
             helper.assertTrue(ForgeRegistries.ENTITY_TYPES.containsKey(id(spec.id())),"Missing original entity "+spec.id());
             Entity entity=ForgeRegistries.ENTITY_TYPES.getValue(id(spec.id())).create(helper.getLevel());
             helper.assertTrue(entity!=null,"Cannot construct entity "+spec.id());
-            if(entity instanceof VisualMobEntity mob) helper.assertTrue(mob.isNoAi() && mob.isPersistenceRequired(),"Catalogue NPC unexpectedly has AI or despawning");
+            if(entity instanceof thaumcraft.world.rift.WispEntity wisp) helper.assertTrue(!wisp.isNoAi()
+                    && wisp.getMaxHealth()==22 && !wisp.isPersistenceRequired(),"Operational Wisp lost native AI/stats/despawn policy");
+            else if(entity instanceof VisualMobEntity mob) helper.assertTrue(mob.isNoAi() && mob.isPersistenceRequired(),"Catalogue NPC unexpectedly has AI or despawning");
             helper.assertTrue(Math.abs(entity.getBbWidth()-spec.width())<.0001 && Math.abs(entity.getBbHeight()-spec.height())<.0001,"Incorrect original neutral dimensions "+spec.id());
         }
         helper.succeed();

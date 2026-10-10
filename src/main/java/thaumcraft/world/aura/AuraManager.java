@@ -18,7 +18,7 @@ import net.minecraftforge.event.level.ChunkEvent;
 /**
  * Server-thread aura API. The TC6 lunar regeneration, vis diffusion and flux diffusion
  * rules are retained. TC6's three biome coefficients are implemented; a complete
- * replacement for the old biome dictionary, rifts and taint remain unported.
+ * replacement for the old biome dictionary and taint ecology remains incomplete.
  * Queries initialize loaded chunks lazily and never force-load an unloaded chunk.
  */
 public final class AuraManager {
@@ -130,6 +130,7 @@ public final class AuraManager {
         requireServerThread(level);
         AuraSavedData data = AuraSavedData.get(level);
         int phase = level.getMoonPhase();
+        ChunkPos riftCandidate = null;
         for (long key : new ArrayList<>(data.activeChunks)) {
             ChunkPos pos = new ChunkPos(key);
             if (level.getChunkSource().getChunkNow(pos.x, pos.z) == null) {
@@ -167,7 +168,11 @@ public final class AuraManager {
             }
             if (regenerate(current, phase, level.random.nextFloat())) changed = true;
             if (changed) data.setDirty();
+            if (current.getFlux() > current.getBase() * PHASE_MAX[phase] * .75
+                    && thaumcraft.world.rift.RiftGeneration.candidate(current.getFlux(), current.getBase() * PHASE_MAX[phase], level.random.nextFloat()))
+                riftCandidate = pos;
         }
+        if (riftCandidate != null) thaumcraft.world.rift.RiftGeneration.createRift(level, riftCandidate);
     }
 
     /** One one-second TC6 lunar update, separated for deterministic validation. */

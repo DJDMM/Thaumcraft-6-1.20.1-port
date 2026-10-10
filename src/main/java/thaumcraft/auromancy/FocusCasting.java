@@ -28,8 +28,11 @@ public final class FocusCasting {
     private static final Map<ServerPlayer, Long> COOLDOWNS = new WeakHashMap<>();
     private FocusCasting() {}
     public static float consumptionModifier(ServerPlayer player) {
-        float penalty = player.hasEffect(InfusionEffects.VIS_EXHAUST.get())
-                ? (player.getEffect(InfusionEffects.VIS_EXHAUST.get()).getAmplifier() + 1) * .1F : 0;
+        int exhaust = player.hasEffect(InfusionEffects.VIS_EXHAUST.get())
+                ? player.getEffect(InfusionEffects.VIS_EXHAUST.get()).getAmplifier() : -1;
+        int infectious = player.hasEffect(InfusionEffects.INFECTIOUS_VIS_EXHAUST.get())
+                ? player.getEffect(InfusionEffects.INFECTIOUS_VIS_EXHAUST.get()).getAmplifier() : -1;
+        float penalty = Math.max(exhaust, infectious) >= 0 ? (Math.max(exhaust, infectious) + 1) * .1F : 0;
         return Math.max(.1F, 1 - GearSupport.getTotalVisDiscount(player) + penalty);
     }
     private static long now(ServerPlayer player) { return player.getServer().overworld().getGameTime(); }

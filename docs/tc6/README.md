@@ -67,6 +67,8 @@ Default неизменен. Финальная сборка и 2828 JSON / 3625 
 
 ## Карта документов
 
+- [Разломы Flux0.27](../../FLUX-RIFTS.md): [core/байткод](FLUX-RIFT-BETA26-AUDIT.md), [висп/события](RIFT-EVENTS-WISP-BETA26-AUDIT.md), [прогрессия и причинный коллапсер](FLUX-RIFT-PROGRESSION-COLLAPSER-BETA26-AUDIT.md). Естественное появление/расход ауры, опасности, рост, стабилизатор, схлопывание с наградами и настоящий оплаченный снаряд работают.85/148 и24/56; Prime Seed/полная taint ecology и Crimson/Eldritch/Siphon ещё нужны. Фактический QA фиксируется отдельно.
+
 - [Кристаллы и батарея вис 0.26](../../CRYSTAL-FARMING.md): [сканы руд, исследования и семь исходных рецептов](CRYSTAL-FARMER-PROGRESSION-BETA26-AUDIT.md), [рост и исходная модель](CRYSTAL-GROWTH-BETA26-AUDIT.md), [Vis Battery](VIS-BATTERY-BETA26-AUDIT.md). Реализован первый этап [Void/Eldritch roadmap](VOID-ELDRITCH-BETA26-ROADMAP.md); разломы, их награды, естественные Crimson sources и поздние устройства ещё нужны. Фактический QA нового среза фиксируется отдельно в [VALIDATION.md](../../VALIDATION.md).
 
 - [Воздушный транспорт 0.25](../../ESSENTIA.md): [трансфузеры](ESSENTIA-TRANSFUSERS-BETA26-AUDIT.md), [shared handler, insertion и owned confirmations](AIRBORNE-TRANSFUSER-HANDLER-BETA26-AUDIT.md). Оба ID и модели сохраняются; старые блоки получают stateless BE в загруженных чанках. Зеркала ещё не работают. Дальнейшая [цепь Void/Eldritch](VOID-ELDRITCH-BETA26-ROADMAP.md) сверена с BETA26: dormant Outer Lands не превращаются в портал/подземелье TC4.

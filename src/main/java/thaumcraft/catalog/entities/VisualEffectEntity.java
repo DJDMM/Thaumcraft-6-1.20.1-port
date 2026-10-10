@@ -15,7 +15,7 @@ import net.minecraftforge.network.NetworkHooks;
 import net.minecraftforge.registries.ForgeRegistries;
 
 /** Summonable visual effect; does not cast spells, drop items or alter terrain. */
-public final class VisualEffectEntity extends Entity {
+public class VisualEffectEntity extends Entity {
     private static final EntityDataAccessor<Integer> COLOR = SynchedEntityData.defineId(VisualEffectEntity.class, EntityDataSerializers.INT);
     private static final EntityDataAccessor<ItemStack> ITEM = SynchedEntityData.defineId(VisualEffectEntity.class, EntityDataSerializers.ITEM_STACK);
     private static final EntityDataAccessor<Integer> RIFT_SIZE = SynchedEntityData.defineId(VisualEffectEntity.class, EntityDataSerializers.INT);

@@ -1,6 +1,12 @@
 # Void / Eldritch: BETA26 prerequisites and remaining runtime
 
 This roadmap separates completed prerequisites from remaining world mechanics.
+Current0.27 adds physical natural rifts, hazards/growth/rewards, stabilizer treatment,
+paid Causality Collapser and FLUX/FLUXRIFT/RIFTCLOSER for85/148 and24/56 infusion
+paths. Wisp/infection/cloud/collapse events work; Prime Seed retains an explicitly
+unsupported weighted no-op until full taint ecology. Crimson/Eldritch/Void Siphon
+remain the next independent stages. See [FLUX-RIFTS.md](../../FLUX-RIFTS.md).
+The0.26 status and audit below are historical and remain the original roadmap.
 Current 0.26 preserves the 79 canonical records of 0.25 and adds ORE,
 CRYSTALFARMER and VISBATTERY for 82. Step 1 below is implemented: actual ore scans,
 paid cluster recipes and growth, and the local Vis Battery. Infusion now has 23/56

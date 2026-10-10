@@ -59,6 +59,10 @@ public final class AuromancyProgressionEvents {
         var facts = new java.util.LinkedHashSet<>(auromancyScanFacts(scanned));
         facts.addAll(GolemancyProgressionEvents.scanFacts(scanned));
         facts.addAll(OreProgressionScans.scanFacts(scanned));
+        // Both original ScanEntity registrations are tied to the working rift class,
+        // never to a held catalogue item or a client-supplied entity identifier.
+        if (scanned instanceof thaumcraft.world.rift.FluxRiftEntity)
+            facts.addAll(List.of("f_toomuchflux", "!FluxRift"));
         facts.addAll(thaumcraft.scanning.ScanEffectFacts.facts(scanned));
         return List.copyOf(facts);
     }
@@ -73,6 +77,7 @@ public final class AuromancyProgressionEvents {
             if (id != null && id.toString().equals("thaumcraft:pech_wand")) return List.of("!Pechwand");
             // Original ScanItem uses wildcard metadata32767: pearl/nodule/mote all qualify.
             if (id != null && id.toString().equals("thaumcraft:primordial_pearl")) return List.of("PRIMPEARL");
+            if (id != null && id.toString().equals("thaumcraft:void_seed")) return List.of("f_VOIDSEED");
             return List.of();
         }
         if (scanned instanceof Bat) return List.of("f_BAT");
